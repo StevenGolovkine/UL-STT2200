@@ -1,0 +1,4 @@
+- source: project
+  netlify:
+    - id: 0229ae69-45bb-47e0-a079-91ac80cebdce
+      url: https://stt2200.netlify.app
