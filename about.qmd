@@ -2,4 +2,4 @@
 title: "About"
 ---
 
-About this site
+This website as been created using Quarto.
