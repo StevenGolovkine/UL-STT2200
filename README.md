@@ -34,5 +34,6 @@ Now that the website is set-up, everything should work fine out of the box. If y
 
 ## 📄 License
 
+![License](https://licensebuttons.net/i/l/by-nc-sa/transparent/00/00/00/88x31.png)
 
 This website is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. A copy of the [license](https://github.com/StevenGolovkine/UL-STT2200/blob/main/LICENSE) can be found along with the code.
