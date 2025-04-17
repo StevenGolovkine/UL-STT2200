@@ -2,20 +2,45 @@ project:
   type: website
 
 website:
-  title: "STT2200"
-  navbar:
-    left:
+  title: "STT-2200: Analyse de données"
+  page-navigation: true
+  site-url: https://stt2200.netlify.app
+  repo-url: https://github.com/StevenGolovkine/UL-STT2200
+  repo-actions: [issue, source]
+  open-graph: true
+
+  page-footer: 
+    center: "This page is built with ❤️ and [Quarto](https://quarto.org/).<br/>&copy; Copyright 2025, Steven Golovkine"
+
+  sidebar: 
+    logo: "./include/logo.svg"
+    pinned: true
+    align: center
+    toc-location: right
+    search: true
+    collapse-level: 1
+    tools: 
+      - icon: github
+        href: https://github.com/StevenGolovkine/UL-STT2200
+        text: "Github organization"
+    contents:
       - href: index.qmd
         text: Home
       - about.qmd
 
+bibliography: ./include/biblio.bib
+
 format:
   html:
     theme:
-      - cosmo
-      - brand
-    css: styles.css
+      light: ./include/ulaval.scss
+      dark: ./include/ulaval-dark.scss
+    code-copy: true
+    code-overflow: wrap 
     toc: true
+    smooth-scroll: true
+    include-after-body: include/webex.js
 
 freeze: auto
+editor: visual
 
