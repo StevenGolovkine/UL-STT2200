@@ -1,7 +1,7 @@
 .remark-slide-content {
   background-color: #FAFAFA;
-  border-top: 80px solid #E30513;
-  border-bottom: 2px solid  #E30513;
+  border-top: 80px solid #005844;
+  border-bottom: 2px solid  #005844;
   font-size: 25px;
   font-weight: 300;
   line-height: 1.5;
@@ -29,7 +29,7 @@
 .container {
   height: 200px;
   position: relative;
-  border: 3px solid #51A27E;
+  border: 3px solid green;
 }
 
 .vertical-center {
@@ -48,7 +48,7 @@
     margin:0px 20px;
     display:inline-block;
     text-decoration:none;
-    color: #000000;
+    color:black;
 }
 
 
@@ -57,7 +57,7 @@
 }
 
 .inverse {
-  background-color: #E30513;
+  background-color: #005844;
   text-shadow: none;
 }
 
@@ -79,13 +79,13 @@ h1 {
   font-weight: normal;
   margin-top: -95px;
   margin-left: -00px;
-  color: #FFC103;
+  color: #FAFAFA;
 }
 
 h2, h3, h4 {
   padding-top: -15px;
   padding-bottom: 00px;
-  color: #E30513;
+  color: #1A292C;
   text-shadow: none;
   font-weight: 400;
   text-align: left;
@@ -106,7 +106,7 @@ h2, h3, h4 {
 }
 
 .left-column h2, .left-column h3, .left-column h4 {
-  color: #515151;
+  color: #777;
 }
 
 .left-column h2:last-of-type, .left-column h3:last-child {
@@ -116,15 +116,15 @@ h2, h3, h4 {
 .title-slide {
     background-color: #FAFAFA;
     border-top: 80px solid #FAFAFA;
-    /* background-image: url(../img/logo-ul.png), url(../img/irmes.png); */
+    background-image: url(../img/logo-ul.png), url(../img/irmes.png);
     background-position: 35% 95%, 70% 95%;
-  background-size: 20%, 20%;
-  border-bottom: 2px solid  #E30513;
-  box-shadow:  0 55px 0 #fff;
+	background-size: 20%, 20%;
+	border-bottom: 2px solid  #005844;
+	box-shadow:  0 55px 0 #fff;
 }
 
 .title-slide h1  {
-  color: #E3051390;
+  color: #1A292C;
   font-size: 40px;
   text-shadow: none;
   font-weight: 400;
@@ -136,7 +136,7 @@ h2, h3, h4 {
 .title-slide h2  {
   margin-top: -25px;
   padding-bottom: -20px;
-  color: #E3051380;
+  color: #1A292C;
   text-shadow: none;
   font-weight: 300;
   font-size: 35px;
@@ -145,7 +145,7 @@ h2, h3, h4 {
 }
 
 .title-slide h3  {
-  color: #E3051370;
+  color: #1A292C;
   text-shadow: none;
   font-weight: 300;
   font-size: 25px;
@@ -158,8 +158,8 @@ hr, .title-slide h2::after, .mline h1::after {
   content: '';
   display: block;
   border: none;
-  background-color: #FFC103;
-  color: #FFC103;
+  background-color: #00B140;
+  color: #00B140;
   height: 1px;
 }
 
@@ -184,7 +184,7 @@ hr, .mline h1::after {
 
 .remark-slide-number {
   font-size: 13pt;
-  color: #E3051390;
+  color: #272822;
   opacity: 1;
 }
 
