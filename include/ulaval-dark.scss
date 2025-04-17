@@ -222,11 +222,7 @@ $btn-close-color:                       $white !default;
 $pre-color:                         inherit !default;
 
 // Footer 
-.nav-footer {
-  color: $link-color;
-}
-
-a.link-footer {
+.nav-footer .nav-footer-center .link-footer {
   color: $link-color;
 }
 
