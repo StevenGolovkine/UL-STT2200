@@ -1,0 +1,22 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "À propos",
+    "section": "",
+    "text": "Ce site a été créé avec Quarto.",
+    "crumbs": [
+      "À propos"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STT2200",
+    "section": "",
+    "text": "C’est un site Quarto.\nPour plus d’information sur Quarto https://quarto.org/docs/websites.",
+    "crumbs": [
+      "Home"
+    ]
+  }
+]
