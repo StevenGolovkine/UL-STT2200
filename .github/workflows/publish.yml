@@ -25,7 +25,7 @@ jobs:
         uses: r-lib/actions/setup-r-dependencies@v2
         with: 
           packages: |
-            github::ropensci-review-tools/babelquarto@a485fea
+            github::ropensci-review-tools/babelquarto
 
       - name: Render website with babelquarto
         run: Rscript -e 'babelquarto::render_website()'
