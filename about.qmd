@@ -1,5 +1,5 @@
 ---
-title: "About"
+title: "À propos"
 ---
 
-This website as been created using Quarto.
+Ce site a été créé avec Quarto.
