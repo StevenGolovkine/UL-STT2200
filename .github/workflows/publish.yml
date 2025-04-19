@@ -36,9 +36,9 @@ jobs:
           name: website_render
           path: _site/
 
-      - name: Publish
-        uses: quarto-dev/quarto-actions/publish@v2
+      - name: Deploy to publish branch 
+        uses: peaceiris/actions-gh-pages@v3
         with: 
-          target: netlify
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          publish_branch: publish
