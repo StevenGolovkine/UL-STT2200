@@ -5,15 +5,15 @@ project:
 babelquarto:
   languagecodes:
   - name: en
-    text: "Version in en"
+    text: "English"
   - name: fr
-    text: "Version in fr"
+    text: "Français"
   mainlanguage: 'fr'
   languages: ['en']
   languagelinks: sidebar
-title-en: title in en
-description-en: description in en
-author-en: author in en
+title-en: "STT-2200: Data Analysis"
+description-en: "Website for STT-2200"
+author-en: "Steven Golovkine"
 lang: fr
 
 
@@ -25,7 +25,7 @@ website:
   repo-actions: [issue, source]
   open-graph: true
 
-  page-footer: 
+  page-footer:
     center: "2025 | <strong>Steven Golovkine</strong> | <a class='link-footer' href='https://creativecommons.org/licenses/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a>"
 
   sidebar: 
@@ -39,9 +39,6 @@ website:
       - icon: github
         href: https://github.com/StevenGolovkine/UL-STT2200
         text: "Github organization"
-      - icon: translate
-        href: ../en
-        text: English
     contents:
       - href: index.qmd
         text: Home
