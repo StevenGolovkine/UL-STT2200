@@ -1,5 +1,14 @@
 ---
 title: "À propos"
+format: 
+  html: 
+    code-fold: true
+    code-tools: true
+  pdf: default
 ---
 
 Ce site a été créé avec Quarto.
+
+## Test
+
+BLABLABLA

@@ -1,0 +1,19 @@
+---
+title: "STT-2200: Analyse de données"
+author: "Steven Golovkine"
+bibliography: include/biblio.bib 
+nocite: |
+  @*
+format: 
+  pdf: 
+    toc: true
+    toc-depth: 2 
+    number-sections: true
+    number-depth: 2
+    output-file: "STT2200"
+    output-ext: "pdf"
+--- 
+
+<!-- 
+Adapted from: https://github.com/royal-statistical-society/datavisguide/blob/main/_make_pdf.qmd
+-->
