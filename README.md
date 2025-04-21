@@ -10,9 +10,9 @@ This repository contains the website used for the module STT-2200 given at Unive
 - [ ] Website 
     * [X] Set-up 
     * [X] README
-    * [ ] Export to PDF
-    * [ ] Switch FR/ENG
-    * [ ] Colors
+    * [X] Export to PDF
+    * [X] Switch FR/ENG
+    * [X] Colors
 
 - [ ] Modules 
 
