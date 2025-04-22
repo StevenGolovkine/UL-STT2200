@@ -28,7 +28,9 @@ jobs:
             github::ropensci-review-tools/babelquarto
 
       - name: Render website with babelquarto
-        run: Rscript -e 'babelquarto::render_website()'
+        run: |
+          quarto install tinytex
+          Rscript -e 'babelquarto::render_website()'
 
       - name: Archive webiste render 
         uses: actions/upload-artifact@v4
