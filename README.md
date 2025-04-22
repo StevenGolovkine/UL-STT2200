@@ -15,6 +15,34 @@ This repository contains the website used for the module STT-2200 given at Unive
     * [X] Colors
 
 - [ ] Modules 
+  * [ ] Remainders
+    - [ ] Linear algebra
+    - [ ] Probabilities
+    - [ ] Stat 
+    - [ ] Programming
+  * [ ] Data analysis generalities
+    - [ ] Distance
+    - [ ] Space 
+    - [ ] Bias-variance tradeoff
+    - [ ] Model evaluation
+  * [ ] Dimension
+    - [ ] PCA 
+    - [ ] MCA
+    - [ ] Kernel tricks
+  * [ ] Supervised
+    - [ ] Regression
+    - [ ] Tree 
+    - [ ] Hierarchy
+  * [ ] Unsupervised
+    - [ ] k-means
+    - [ ] Hierarchical clustering
+    - [ ] Gaussian mixtures
+  * [ ] Further topics
+    - [ ] FDA
+    - [ ] Spatial data 
+    - [ ] Time series 
+    - [ ] Network
+    - [ ] Text
 
 - [ ] TP/TD 
 
