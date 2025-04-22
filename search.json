@@ -10,6 +10,16 @@
     ]
   },
   {
+    "objectID": "about.html#test",
+    "href": "about.html#test",
+    "title": "À propos",
+    "section": "Test",
+    "text": "Test\nBLABLABLA",
+    "crumbs": [
+      "À propos"
+    ]
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "STT2200",
