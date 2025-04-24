@@ -1,7 +1,12 @@
 ---
-title: "STT2200"
+title: "STT-2200: Analyse de données"
+format: html
 ---
 
-C'est un site Quarto.
+Bienvenue à tous au cours STT-2200 de l'automne 2025.
 
-Pour plus d'information sur Quarto <https://quarto.org/docs/websites>.
+Vous trouverez sur ce site toute les informations nécessaire pour les cours, les différents travaux et les exams. Les contenus seront mis à jour au cours de la session avec les corrigés de certains travaux. Je vous invite à regarder les différents modules avant les cours.
+
+
+Ce site a été créé avec [Quarto](https://quarto.org/docs/websites). 
+

@@ -1,0 +1,10 @@
+--- 
+title: "General informations"
+format: 
+  html: default
+  pdf: default
+---
+
+**Faculté des sciences et de génie**
+
+Département de mathématiques et de statistique

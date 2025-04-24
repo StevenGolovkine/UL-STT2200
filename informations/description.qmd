@@ -1,0 +1,51 @@
+--- 
+title: "Description du cours"
+format: 
+  html: default 
+  pdf: default 
+--- 
+
+## Objectifs
+
+Dans ce cours, nous visons à introduire des méthodes qui permettront aux étudiantes et étudiants d'étudier un jeu de données de “haute dimension” (“haute” dans le sens ici où l’on ne peut faire un simple graphique de l’ensemble des observations de toutes les variables) sans avoir recours à un modèle probabiliste. Les techniques qu’on y enseigne servent  à réduire la dimension des données, identifier certains liens entre les variables, visualiser les données ou à diviser le jeu de données en groupes/classes.
+
+Sans négliger la théorie, l'accent sera mis sur l'aspect pratique de l'analyse des données et l'utilisation du langage R.
+
+
+## Place du cours dans le programme
+
+Ce cours généralement suivi par des étudiants du baccalauréat en statistique lors de leur deuxième année de formation. Il est aussi un cours à option en actuariat, en mathématique ainsi que dans certains programmes de génie et d'administration.
+
+Tous les étudiants doivent s'assurer d'avoir suivi au minimum un cours d'algèbre (ex. MAT1200) et un cours de statistique de base (ex. STT1000), car la majorité des méthodes d'analyse de données s'appuient sur ces notions.
+
+Les étudiants devraient aussi avoir une certaine familiarité avec le langage R ou avec la programmation.
+
+## Objectifs spécifiques
+
+À la fin du cours, l'étudiant ou l'étudiante devra être capable :
+
+* de comprendre et décrire succinctement les fondements théoriques des méthodes d’analyse de données étudiées;
+* d’identifier correctement les situations où l’emploi de ces méthodes est indiqué ;
+* d’utiliser efficacement un logiciel tel SAS ou R pour mettre en oeuvre ces méthodes ;
+* d’analyser et d’interpréter judicieusement les résultats découlant de l’analyse ;
+* de formuler par écrit les conclusions de l’analyse, dans le respect des limites de la méthodologie.
+
+## Équipement informatique
+
+Vous pourriez avoir besoin d’un ordinateur, de haut-parleurs ou d’un casque d’écoute, d’un microphone, d’une webcam et d’une connexion Internet avec fil à large bande ou sans fil. Pour vérifier les paramètres de configuration minimaux selon le système d’exploitation, nous vous invitons à visiter cette page https://www.ulaval.ca/etudiants-actuels/equipez-vous-pour-reussir
+
+De plus, ce cours peut nécessiter des besoins logiciels particuliers qui seront alors décrits dans d’autres sections du plan de cours, le cas échéant.
+
+## Fonctionnement
+
+Les cours et examen auront lieu en présentiel les mardi et vendredi matin, mais une portion du matériel sera disponible en ligne. De façon générale, la séance du vendredi sera une séance magistrale et la séance du mardi sera dédiée à des exercices pratiques réalisés de façon autonome par les étudiants avec le soutien de l'enseignant.
+
+Le portail des cours pour les évaluations
+
+Les évaluations se feront sur le portail des cours dans la section Liste des évaluations. Les questionnaires hebdomadaires sont dans la section Questionnaires (voir l'onglet dans la section Outils à gauche). Vos travaux seront déposés dans la boîte de dépôt du portail. Vos résultats seront consignés dans la section Sommaire des résultats.
+
+
+## Approches pédagogiques
+
+L'approche pédagogique privilégiée est l'exposé interactif (vendredi) en alternance avec des périodes de laboratoires (mardi). L'approche pédagogique est très axée sur l'apprentissage actif et exige un engagement soutenu des étudiants tout au long de la session.
+

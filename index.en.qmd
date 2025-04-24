@@ -1,7 +1,10 @@
 ---
-title: "STT2200"
+title: "STT-2200: Data Analysis"
+format: html
 ---
 
-This is a Quarto website.
+Welcome everyone to the class STT-2200 in Autumn 2025.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+You will find on this website every necessary information for the modules, the practicals and the exams. The contents will be updated during the session with the answers to some work. I invite you to skim through the differents modules before classes.
+
+This is [Quarto](https://quarto.org/docs/websites).

@@ -40,9 +40,15 @@ website:
         href: https://github.com/StevenGolovkine/UL-STT2200
         text: "Github organization"
     contents:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+      - section: "Informations"
+        contents: 
+          - href: informations/general.qmd
+            text: Générales
+          - href: informations/description.qmd
+            text: Description
+          - href: informations/evaluations.qmd 
+            text: Evaluations
+      - section: "Modules"
 
 bibliography: ./include/biblio.bib
 

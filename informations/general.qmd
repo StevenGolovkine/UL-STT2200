@@ -1,0 +1,54 @@
+---
+title: "Informations générales"
+format: 
+  html: default 
+  pdf: default
+--- 
+
+**Faculté des sciences et de génie**
+
+Département de mathématiques et de statistique
+
+## STT-2200: Analyse de données
+
+Formule d'enseignement: Présentiel
+
+Temps consacré: 
+
+  - Cours: 2h
+  - Laboratoire: 1h 
+  - Travail personnel: 6h
+  - Total: 9h
+
+Crédits: 3
+
+Préalables: 
+
+  - ACT-2000 ou STT-1000 ou STT-1300 ou STT-1900
+  - MAT-1200 ou ACT-2002
+  - STT-1100 ou IFT-4902 ou ECN-2090 ou GLO-1901 ou IFT-1004
+
+
+Plage horaire: 
+
+| Type   | Jour     | Horaire | Dates |
+| ------ | -------- | ------- | ----- |
+| Labo   | Mardi    |         |       |
+| Classe | Vendredi |         |       |
+
+
+## Coordonnées et disponibilités
+
+Steven Golovkine (Enseignant)
+
+VCH-2200
+
+[steven.golovkine@mat.ulaval.ca](mailto:steven.golovkine@mat.ulaval.ca)
+
+**Disponibilités**
+
+Je suis disponible pour vous rencontrer sur rendez-vous par couriel ou sans rendez-vous du lundi au jeudi entre 8h et 10h.
+
+<p style="font-size:10px; ">L’Université reconnaît le droit à la déconnexion des professeures et professeurs, des personnes chargées de cours et des autres membres du personnel enseignant. Cela signifie que ces personnes ne sont pas tenues de consulter les messages qui leur sont envoyés (courriel, boîte vocale, message dans un forum, etc.) pendant les soirs, fins de semaine, jours fériés et vacances. La personne qui aura envoyé un message durant ces périodes devra donc s’attendre à recevoir une réponse dans un délai raisonnable, calculé à partir de la reprise des heures normales de travail.</p>
+
+
