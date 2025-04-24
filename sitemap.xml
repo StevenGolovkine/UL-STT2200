@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://stt2200.netlify.app/about.html</loc>
-    <lastmod>2025-04-22T16:52:36.206Z</lastmod>
+    <loc>https://stt2200.netlify.app/informations/general.html</loc>
+    <lastmod>2025-04-24T18:57:48.078Z</lastmod>
+  </url>
+  <url>
+    <loc>https://stt2200.netlify.app/informations/description.html</loc>
+    <lastmod>2025-04-24T18:57:48.078Z</lastmod>
   </url>
   <url>
     <loc>https://stt2200.netlify.app/index.html</loc>
-    <lastmod>2025-04-22T16:52:36.207Z</lastmod>
+    <lastmod>2025-04-24T18:57:48.078Z</lastmod>
+  </url>
+  <url>
+    <loc>https://stt2200.netlify.app/informations/evaluations.html</loc>
+    <lastmod>2025-04-24T18:57:48.078Z</lastmod>
   </url>
 </urlset>

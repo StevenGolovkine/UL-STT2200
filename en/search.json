@@ -1,32 +1,20 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "informations/general.html",
+    "href": "informations/general.html",
+    "title": "General informations",
     "section": "",
-    "text": "This website as been created using Quarto.",
+    "text": "Faculté des sciences et de génie\nDépartement de mathématiques et de statistique",
     "crumbs": [
-      "About"
-    ]
-  },
-  {
-    "objectID": "about.html#test",
-    "href": "about.html#test",
-    "title": "About",
-    "section": "Test",
-    "text": "Test\nBLABLABLA",
-    "crumbs": [
-      "About"
+      "Informations",
+      "Générales"
     ]
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "STT2200",
+    "title": "STT-2200: Data Analysis",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.",
-    "crumbs": [
-      "Home"
-    ]
+    "text": "Welcome everyone to the class STT-2200 in Autumn 2025.\nYou will find on this website every necessary information for the modules, the practicals and the exams. The contents will be updated during the session with the answers to some work. I invite you to skim through the differents modules before classes.\nThis is Quarto."
   }
 ]

@@ -1,32 +1,119 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "À propos",
+    "objectID": "informations/general.html",
+    "href": "informations/general.html",
+    "title": "Informations générales",
     "section": "",
-    "text": "Ce site a été créé avec Quarto.",
+    "text": "Faculté des sciences et de génie\nDépartement de mathématiques et de statistique",
     "crumbs": [
-      "À propos"
+      "Informations",
+      "Générales"
     ]
   },
   {
-    "objectID": "about.html#test",
-    "href": "about.html#test",
-    "title": "À propos",
-    "section": "Test",
-    "text": "Test\nBLABLABLA",
+    "objectID": "informations/general.html#stt-2200-analyse-de-données",
+    "href": "informations/general.html#stt-2200-analyse-de-données",
+    "title": "Informations générales",
+    "section": "STT-2200: Analyse de données",
+    "text": "STT-2200: Analyse de données\nFormule d’enseignement: Présentiel\nTemps consacré:\n\nCours: 2h\nLaboratoire: 1h\nTravail personnel: 6h\nTotal: 9h\n\nCrédits: 3\nPréalables:\n\nACT-2000 ou STT-1000 ou STT-1300 ou STT-1900\nMAT-1200 ou ACT-2002\nSTT-1100 ou IFT-4902 ou ECN-2090 ou GLO-1901 ou IFT-1004\n\nPlage horaire:\n\n\n\nType\nJour\nHoraire\nDates\n\n\n\n\nLabo\nMardi\n\n\n\n\nClasse\nVendredi",
     "crumbs": [
-      "À propos"
+      "Informations",
+      "Générales"
+    ]
+  },
+  {
+    "objectID": "informations/general.html#coordonnées-et-disponibilités",
+    "href": "informations/general.html#coordonnées-et-disponibilités",
+    "title": "Informations générales",
+    "section": "Coordonnées et disponibilités",
+    "text": "Coordonnées et disponibilités\nSteven Golovkine (Enseignant)\nVCH-2200\nsteven.golovkine@mat.ulaval.ca\nDisponibilités\nJe suis disponible pour vous rencontrer sur rendez-vous par couriel ou sans rendez-vous du lundi au jeudi entre 8h et 10h.\n\nL’Université reconnaît le droit à la déconnexion des professeures et professeurs, des personnes chargées de cours et des autres membres du personnel enseignant. Cela signifie que ces personnes ne sont pas tenues de consulter les messages qui leur sont envoyés (courriel, boîte vocale, message dans un forum, etc.) pendant les soirs, fins de semaine, jours fériés et vacances. La personne qui aura envoyé un message durant ces périodes devra donc s’attendre à recevoir une réponse dans un délai raisonnable, calculé à partir de la reprise des heures normales de travail.",
+    "crumbs": [
+      "Informations",
+      "Générales"
+    ]
+  },
+  {
+    "objectID": "informations/description.html",
+    "href": "informations/description.html",
+    "title": "Description du cours",
+    "section": "",
+    "text": "Dans ce cours, nous visons à introduire des méthodes qui permettront aux étudiantes et étudiants d’étudier un jeu de données de “haute dimension” (“haute” dans le sens ici où l’on ne peut faire un simple graphique de l’ensemble des observations de toutes les variables) sans avoir recours à un modèle probabiliste. Les techniques qu’on y enseigne servent à réduire la dimension des données, identifier certains liens entre les variables, visualiser les données ou à diviser le jeu de données en groupes/classes.\nSans négliger la théorie, l’accent sera mis sur l’aspect pratique de l’analyse des données et l’utilisation du langage R.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#objectifs",
+    "href": "informations/description.html#objectifs",
+    "title": "Description du cours",
+    "section": "",
+    "text": "Dans ce cours, nous visons à introduire des méthodes qui permettront aux étudiantes et étudiants d’étudier un jeu de données de “haute dimension” (“haute” dans le sens ici où l’on ne peut faire un simple graphique de l’ensemble des observations de toutes les variables) sans avoir recours à un modèle probabiliste. Les techniques qu’on y enseigne servent à réduire la dimension des données, identifier certains liens entre les variables, visualiser les données ou à diviser le jeu de données en groupes/classes.\nSans négliger la théorie, l’accent sera mis sur l’aspect pratique de l’analyse des données et l’utilisation du langage R.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#place-du-cours-dans-le-programme",
+    "href": "informations/description.html#place-du-cours-dans-le-programme",
+    "title": "Description du cours",
+    "section": "Place du cours dans le programme",
+    "text": "Place du cours dans le programme\nCe cours généralement suivi par des étudiants du baccalauréat en statistique lors de leur deuxième année de formation. Il est aussi un cours à option en actuariat, en mathématique ainsi que dans certains programmes de génie et d’administration.\nTous les étudiants doivent s’assurer d’avoir suivi au minimum un cours d’algèbre (ex. MAT1200) et un cours de statistique de base (ex. STT1000), car la majorité des méthodes d’analyse de données s’appuient sur ces notions.\nLes étudiants devraient aussi avoir une certaine familiarité avec le langage R ou avec la programmation.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#objectifs-spécifiques",
+    "href": "informations/description.html#objectifs-spécifiques",
+    "title": "Description du cours",
+    "section": "Objectifs spécifiques",
+    "text": "Objectifs spécifiques\nÀ la fin du cours, l’étudiant ou l’étudiante devra être capable :\n\nde comprendre et décrire succinctement les fondements théoriques des méthodes d’analyse de données étudiées;\nd’identifier correctement les situations où l’emploi de ces méthodes est indiqué ;\nd’utiliser efficacement un logiciel tel SAS ou R pour mettre en oeuvre ces méthodes ;\nd’analyser et d’interpréter judicieusement les résultats découlant de l’analyse ;\nde formuler par écrit les conclusions de l’analyse, dans le respect des limites de la méthodologie.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#équipement-informatique",
+    "href": "informations/description.html#équipement-informatique",
+    "title": "Description du cours",
+    "section": "Équipement informatique",
+    "text": "Équipement informatique\nVous pourriez avoir besoin d’un ordinateur, de haut-parleurs ou d’un casque d’écoute, d’un microphone, d’une webcam et d’une connexion Internet avec fil à large bande ou sans fil. Pour vérifier les paramètres de configuration minimaux selon le système d’exploitation, nous vous invitons à visiter cette page https://www.ulaval.ca/etudiants-actuels/equipez-vous-pour-reussir\nDe plus, ce cours peut nécessiter des besoins logiciels particuliers qui seront alors décrits dans d’autres sections du plan de cours, le cas échéant.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#fonctionnement",
+    "href": "informations/description.html#fonctionnement",
+    "title": "Description du cours",
+    "section": "Fonctionnement",
+    "text": "Fonctionnement\nLes cours et examen auront lieu en présentiel les mardi et vendredi matin, mais une portion du matériel sera disponible en ligne. De façon générale, la séance du vendredi sera une séance magistrale et la séance du mardi sera dédiée à des exercices pratiques réalisés de façon autonome par les étudiants avec le soutien de l’enseignant.\nLe portail des cours pour les évaluations\nLes évaluations se feront sur le portail des cours dans la section Liste des évaluations. Les questionnaires hebdomadaires sont dans la section Questionnaires (voir l’onglet dans la section Outils à gauche). Vos travaux seront déposés dans la boîte de dépôt du portail. Vos résultats seront consignés dans la section Sommaire des résultats.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#approches-pédagogiques",
+    "href": "informations/description.html#approches-pédagogiques",
+    "title": "Description du cours",
+    "section": "Approches pédagogiques",
+    "text": "Approches pédagogiques\nL’approche pédagogique privilégiée est l’exposé interactif (vendredi) en alternance avec des périodes de laboratoires (mardi). L’approche pédagogique est très axée sur l’apprentissage actif et exige un engagement soutenu des étudiants tout au long de la session.",
+    "crumbs": [
+      "Informations",
+      "Description"
     ]
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "STT2200",
+    "title": "STT-2200: Analyse de données",
     "section": "",
-    "text": "C’est un site Quarto.\nPour plus d’information sur Quarto https://quarto.org/docs/websites.",
-    "crumbs": [
-      "Home"
-    ]
+    "text": "Bienvenue à tous au cours STT-2200 de l’automne 2025.\nVous trouverez sur ce site toute les informations nécessaire pour les cours, les différents travaux et les exams. Les contenus seront mis à jour au cours de la session avec les corrigés de certains travaux. Je vous invite à regarder les différents modules avant les cours.\nCe site a été créé avec Quarto."
   }
 ]
