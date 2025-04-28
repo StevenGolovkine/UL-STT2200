@@ -70,7 +70,7 @@
     "href": "informations/description.html#objectifs-spécifiques",
     "title": "Description du cours",
     "section": "Objectifs spécifiques",
-    "text": "Objectifs spécifiques\nÀ la fin du cours, l’étudiant ou l’étudiante devra être capable :\n\nde comprendre et décrire succinctement les fondements théoriques des méthodes d’analyse de données étudiées;\nd’identifier correctement les situations où l’emploi de ces méthodes est indiqué ;\nd’utiliser efficacement un logiciel tel SAS ou R pour mettre en oeuvre ces méthodes ;\nd’analyser et d’interpréter judicieusement les résultats découlant de l’analyse ;\nde formuler par écrit les conclusions de l’analyse, dans le respect des limites de la méthodologie.",
+    "text": "Objectifs spécifiques\nÀ la fin du cours, l’étudiant ou l’étudiante devra être capable :\n\nde comprendre et décrire succinctement les fondements théoriques des méthodes d’analyse de données étudiées;\nd’identifier correctement les situations où l’emploi de ces méthodes est indiqué;\nd’utiliser efficacement un logiciel tel SAS ou R pour mettre en oeuvre ces méthodes;\nd’analyser et d’interpréter judicieusement les résultats découlant de l’analyse;\nde formuler par écrit les conclusions de l’analyse, dans le respect des limites de la méthodologie.",
     "crumbs": [
       "Informations",
       "Description"
@@ -81,7 +81,7 @@
     "href": "informations/description.html#équipement-informatique",
     "title": "Description du cours",
     "section": "Équipement informatique",
-    "text": "Équipement informatique\nVous pourriez avoir besoin d’un ordinateur, de haut-parleurs ou d’un casque d’écoute, d’un microphone, d’une webcam et d’une connexion Internet avec fil à large bande ou sans fil. Pour vérifier les paramètres de configuration minimaux selon le système d’exploitation, nous vous invitons à visiter cette page https://www.ulaval.ca/etudiants-actuels/equipez-vous-pour-reussir\nDe plus, ce cours peut nécessiter des besoins logiciels particuliers qui seront alors décrits dans d’autres sections du plan de cours, le cas échéant.",
+    "text": "Équipement informatique\nVous pourriez avoir besoin d’un ordinateur, de haut-parleurs ou d’un casque d’écoute, d’un microphone, d’une webcam et d’une connexion Internet avec fil à large bande ou sans fil. Pour vérifier les paramètres de configuration minimaux selon le système d’exploitation, nous vous invitons à visiter cette page.\nDe plus, ce cours peut nécessiter des besoins logiciels particuliers qui seront alors décrits dans d’autres sections du plan de cours, le cas échéant.",
     "crumbs": [
       "Informations",
       "Description"
@@ -92,7 +92,7 @@
     "href": "informations/description.html#fonctionnement",
     "title": "Description du cours",
     "section": "Fonctionnement",
-    "text": "Fonctionnement\nLes cours et examen auront lieu en présentiel les mardi et vendredi matin, mais une portion du matériel sera disponible en ligne. De façon générale, la séance du vendredi sera une séance magistrale et la séance du mardi sera dédiée à des exercices pratiques réalisés de façon autonome par les étudiants avec le soutien de l’enseignant.\nLe portail des cours pour les évaluations\nLes évaluations se feront sur le portail des cours dans la section Liste des évaluations. Les questionnaires hebdomadaires sont dans la section Questionnaires (voir l’onglet dans la section Outils à gauche). Vos travaux seront déposés dans la boîte de dépôt du portail. Vos résultats seront consignés dans la section Sommaire des résultats.",
+    "text": "Fonctionnement\nLes cours et examen auront lieu en présentiel les mardi et vendredi matin, mais une portion du matériel sera disponible en ligne. De façon générale, la séance du vendredi sera une séance magistrale et la séance du mardi sera dédiée à des exercices pratiques réalisés de façon autonome par les étudiants avec le soutien de l’enseignant.",
     "crumbs": [
       "Informations",
       "Description"
@@ -110,11 +110,55 @@
     ]
   },
   {
+    "objectID": "contents/01-introduction.html",
+    "href": "contents/01-introduction.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "L’analyse de données est un ensemble de méthodes permettant de retirer de l’information d’un jeu de données. On parle aussi d’apprentissage statistique (statistical learning). L’idée est d’utiliser des modèles statistiques pour comprendre comment les données sont structurées et comment elles intéragissent l’ une avec l’ autre.\n\n\n\n\n\n\nExample\n\n\n\nImaginons que vous êtes le gérant d’un magasin. Vous aimeriez savoir quand ouvrir votre magasin pour maximiser votre chiffre d’affaires. Pour cela, vous pouvez comptez le nombre de clients par heure pendant une période de temps, disons un mois, et ensuite s’interesser à comment ses données sont structurées par rapport aux horaires d’ouverture.",
+    "crumbs": [
+      "Modules",
+      "01 - Introduction"
+    ]
+  },
+  {
+    "objectID": "contents/01-introduction.html#quest-ce-que-lanalyse-de-données",
+    "href": "contents/01-introduction.html#quest-ce-que-lanalyse-de-données",
+    "title": "Introduction",
+    "section": "",
+    "text": "L’analyse de données est un ensemble de méthodes permettant de retirer de l’information d’un jeu de données. On parle aussi d’apprentissage statistique (statistical learning). L’idée est d’utiliser des modèles statistiques pour comprendre comment les données sont structurées et comment elles intéragissent l’ une avec l’ autre.\n\n\n\n\n\n\nExample\n\n\n\nImaginons que vous êtes le gérant d’un magasin. Vous aimeriez savoir quand ouvrir votre magasin pour maximiser votre chiffre d’affaires. Pour cela, vous pouvez comptez le nombre de clients par heure pendant une période de temps, disons un mois, et ensuite s’interesser à comment ses données sont structurées par rapport aux horaires d’ouverture.",
+    "crumbs": [
+      "Modules",
+      "01 - Introduction"
+    ]
+  },
+  {
+    "objectID": "contents/01-introduction.html#objectifs",
+    "href": "contents/01-introduction.html#objectifs",
+    "title": "Introduction",
+    "section": "Objectifs",
+    "text": "Objectifs\nCe cours n’a pas vocation à être exhaustif, dans le sens de présenter toutes les méthodes possibles. Ce cours n’a pas non plus vocation à être à l’état de l’art, dans le sens où on ne s’intéressera pas aux derniers développements en apprentissage machine.",
+    "crumbs": [
+      "Modules",
+      "01 - Introduction"
+    ]
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "STT-2200: Analyse de données",
     "section": "",
     "text": "Bienvenue à tous au cours STT-2200 de l’automne 2025.\nVous trouverez sur ce site toute les informations nécessaire pour les cours, les différents travaux et les exams. Les contenus seront mis à jour au cours de la session avec les corrigés de certains travaux. Je vous invite à regarder les différents modules avant les cours.\nCe site a été créé avec Quarto."
+  },
+  {
+    "objectID": "informations/schedule.html",
+    "href": "informations/schedule.html",
+    "title": "Plan",
+    "section": "",
+    "text": "Le plan est donné à titre indicatif.\n\n\n\nSemaine\nDate\nDurée\nPlan\nÉvaluations",
+    "crumbs": [
+      "Informations",
+      "Plan"
+    ]
   },
   {
     "objectID": "informations/evaluations.html",
@@ -165,7 +209,7 @@
     "href": "informations/evaluations.html#détails-sur-les-modalités-dévaluation",
     "title": "Évaluations",
     "section": "Détails sur les modalités d’évaluation",
-    "text": "Détails sur les modalités d’évaluation\nConformément à la politique du Département de mathématiques et de statistique en matière d’amélioration et de consolidation de la connaissance du français, la qualité de l’écrit sera sanctionnée dans tous les travaux et examens. Un maximum de 10% des points pourra être enlevé pour la qualité de la langue et de la rédaction.\nAucun retard n’est accepté pour la remise des travaux.\nToute reprise d’évaluation accordée par la politique de reprise d’évaluation du Département aura lieu lors des dates de reprises officielles de la faculté.",
+    "text": "Détails sur les modalités d’évaluation\nConformément à la politique du Département de mathématiques et de statistique en matière d’amélioration et de consolidation de la connaissance du français, la qualité de l’écrit sera sanctionnée dans tous les travaux et examens. Un maximum de 10% des points pourra être enlevé pour la qualité de la langue et de la rédaction.\nAucun retard n’est accepté pour la remise des travaux.\nToute reprise d’évaluation accordée par la politique de reprise d’évaluation du Département aura lieu lors des dates de reprises officielles de la faculté. Pour toute demande de révision de note, vous devez suivre la procédure du chapitre 4 du Réglement des études. Vous trouverez un formulaire à remplir à l’adresse suivante: lien.",
     "crumbs": [
       "Informations",
       "Evaluations"
@@ -197,8 +241,8 @@
     "objectID": "informations/evaluations.html#politique-sur-le-plagiat-et-la-fraude-académique",
     "href": "informations/evaluations.html#politique-sur-le-plagiat-et-la-fraude-académique",
     "title": "Évaluations",
-    "section": "POlitique sur le plagiat et la fraude académique",
-    "text": "POlitique sur le plagiat et la fraude académique",
+    "section": "Politique sur le plagiat et la fraude académique",
+    "text": "Politique sur le plagiat et la fraude académique\nRègles disciplinaires\nTout étudiant qui commet une infraction au Règlement disciplinaire à l’intention des étudiants de l’Université Laval dans le cadre du présent cours, notamment en matière de plagiat, est passible des sanctions qui sont prévues dans ce règlement. Il est très important pour tout étudiant de prendre connaissance des articles 23 à 46 du Règlement disciplinaire. Celui-ci peut être consulté à l’adresse suivante: lien.\nPlagiat\nTout étudiant est tenu de respecter les règles relatives au plagiat. Constitue notamment du plagiat le fait de:\n\ncopier textuellement un ou plusieurs passages provenant d’un ouvrage sous format papier ou électronique sans mettre ces passages entre guillemets et sans en mentionner la source;\nrésumer l’idée originale d’un auteur en l’exprimant dans ses propres mots (paraphraser) sans en mentionner la source;\ntraduire partiellement ou totalement un texte sans en mentionner la provenance;\nremettre un travail copié d’un autre étudiant (avec ou sans l’accord de cet autre étudiant);\nremettre un travail téléchargé d’un site d’achat ou d’échange de travaux scolaires.\n\nL’Université Laval étant abonnée à un service de détection de plagiat, il est possible que l’enseignant soumette vos travaux pour analyse.",
     "crumbs": [
       "Informations",
       "Evaluations"
@@ -209,7 +253,7 @@
     "href": "informations/evaluations.html#étudiants-ayant-une-situation-de-handicap-liée-à-une-limitation-fonctionnelle",
     "title": "Évaluations",
     "section": "Étudiants ayant une situation de handicap liée à une limitation fonctionnelle",
-    "text": "Étudiants ayant une situation de handicap liée à une limitation fonctionnelle",
+    "text": "Étudiants ayant une situation de handicap liée à une limitation fonctionnelle\nAfin de bénéficier de mesures d’accommodement pour les cours ou les examens, un rendez-vous avec une conseillère ou un conseiller du Centre d’aide aux étudiants travaillant en Accueil et soutien aux étudiants en situation de handicap (ACSESH) est nécessaire. Pour ce faire, les étudiants présentant une situation de handicap liée à une limitation fonctionnelle permanente doivent visiter le site “Accommodement” et prendre un rendez-vous, le plus tôt possible.\nAu cours de la semaine qui suit l’autorisation des mesures, leur activation doit être effectuée dans “Accommodement” pour assurer leur mise en place.\nLes étudiants ayant déjà obtenu des mesures d’accommodements scolaires doivent procéder à l’activation de leurs mesures pour les cours et/ou les examens dans “Accommodement” afin que celles-ci puissent être mises en place. Il est à noter que l’activation doit s’effectuer au cours de deux premières semaines de cours.\nLes étudiants concernés recevront par la suite des facultés et départements responsables de leurs cours les informations détaillées sur les modalités permettant d’appliquer les mesures d’accommodement identifiées.",
     "crumbs": [
       "Informations",
       "Evaluations"

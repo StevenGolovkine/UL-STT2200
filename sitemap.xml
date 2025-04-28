@@ -2,26 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://stt2200.netlify.app/informations/general.html</loc>
-    <lastmod>2025-04-28T16:09:34.092Z</lastmod>
+    <lastmod>2025-04-28T19:04:33.823Z</lastmod>
   </url>
   <url>
     <loc>https://stt2200.netlify.app/informations/description.html</loc>
-    <lastmod>2025-04-28T16:09:34.092Z</lastmod>
+    <lastmod>2025-04-28T19:04:33.823Z</lastmod>
+  </url>
+  <url>
+    <loc>https://stt2200.netlify.app/informations/materials.html</loc>
+    <lastmod>2025-04-28T19:04:33.823Z</lastmod>
   </url>
   <url>
     <loc>https://stt2200.netlify.app/contents/01-introduction.html</loc>
-    <lastmod>2025-04-28T16:09:34.091Z</lastmod>
+    <lastmod>2025-04-28T19:04:33.822Z</lastmod>
   </url>
   <url>
     <loc>https://stt2200.netlify.app/index.html</loc>
-    <lastmod>2025-04-28T16:09:34.092Z</lastmod>
+    <lastmod>2025-04-28T19:04:33.823Z</lastmod>
   </url>
   <url>
     <loc>https://stt2200.netlify.app/contents/02-revisions.html</loc>
-    <lastmod>2025-04-28T16:09:34.091Z</lastmod>
+    <lastmod>2025-04-28T19:04:33.822Z</lastmod>
+  </url>
+  <url>
+    <loc>https://stt2200.netlify.app/informations/schedule.html</loc>
+    <lastmod>2025-04-28T19:04:33.823Z</lastmod>
   </url>
   <url>
     <loc>https://stt2200.netlify.app/informations/evaluations.html</loc>
-    <lastmod>2025-04-28T16:09:34.092Z</lastmod>
+    <lastmod>2025-04-28T19:04:33.823Z</lastmod>
   </url>
 </urlset>
