@@ -49,6 +49,11 @@ website:
           - href: informations/evaluations.qmd 
             text: Evaluations
       - section: "Modules"
+        contents: 
+          - href: contents/01-introduction.qmd 
+            text: 01 - Introduction 
+          - href: contents/02-revisions.qmd 
+            text: 02 - Révisions 
 
 bibliography: ./include/biblio.bib
 
