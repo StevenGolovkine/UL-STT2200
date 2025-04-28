@@ -1,27 +1,30 @@
 % Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 %
 \documentclass[
+  french,
   letterpaper,
   DIV=11,
   numbers=noendperiod]{scrartcl}
-
+\usepackage{xcolor}
 \usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math}
+  \usepackage{unicode-math} % this also loads fontspec
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
 \usepackage{lmodern}
-\ifPDFTeX\else  
-    % xetex/luatex font selection
+\ifPDFTeX\else
+  % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -39,9 +42,6 @@
 }{% if KOMA class
   \KOMAoptions{parskip=half}}
 \makeatother
-\usepackage{xcolor}
-\setlength{\emergencystretch}{3em} % prevent overfull lines
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 % Make \paragraph and \subparagraph free-standing
 \makeatletter
 \ifx\paragraph\undefined\else
@@ -67,8 +67,7 @@
 \makeatother
 
 
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -93,6 +92,28 @@
 % Set default figure placement to htbp
 \def\fps@figure{htbp}
 \makeatother
+
+
+
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
 
 \KOMAoption{captions}{tableheading}
 \makeatletter
@@ -136,20 +157,9 @@
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
 \makeatother
-
-\ifLuaTeX
-\usepackage[bidi=basic]{babel}
-\else
-\usepackage[bidi=default]{babel}
-\fi
-\babelprovide[main,import]{french}
-% get rid of language-specific shorthands (see #6817):
-\let\LanguageShortHands\languageshorthands
-\def\languageshorthands#1{}
 \usepackage{bookmark}
-
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
+\urlstyle{same}
 \hypersetup{
   pdftitle={Évaluations},
   pdflang={fr},
@@ -164,12 +174,194 @@
 \title{Évaluations}
 \author{}
 \date{}
-
 \begin{document}
 \maketitle
 
 
 \subsection{Modalités d'évaluations}\label{modalituxe9s-duxe9valuations}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+Titre & Date & Mode de travail & Pondération \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Examen 1 & & Individuel & 25\% \\
+Examen 2 & & Individuel & 50\% \\
+Projet & & En équipe & 25\% \\
+\end{longtable}
+
+Identification. Lors d'un examen, une carte d'identité avec photo
+admissible doit être déposée sur le coin de votre table. Les cartes
+admissibles sont la carte de l'Université Laval en plastique, un permis
+de conduire canadien, une carte d'assurance-maladie avec photo émise par
+une province canadienne ou un passeport canadien ou étranger.
+
+\subsection{Informations détaillées sur les
+évaluations}\label{informations-duxe9tailluxe9es-sur-les-uxe9valuations}
+
+\subsubsection{Examen 1}\label{examen-1}
+
+Date et lieu:
+
+Mode de travail: Individuel
+
+Pondération: 25\%
+
+Remise de l'évaluation:
+
+Directives de l'évaluation: Tout le contenu du cours est susceptible
+d'être a l'examen.
+
+Matériel autorisé: pas de restriction.
+
+\subsubsection{Examen 2}\label{examen-2}
+
+Date et lieu:
+
+Mode de travail: Individuel
+
+Pondération: 50\%
+
+Remise de l'évaluation:
+
+Directives de l'évaluation: Tout le contenu du cours est susceptible
+d'être à l'examen.
+
+Matériel autorisé: pas de restriction.
+
+\subsubsection{Projet}\label{projet}
+
+Date et lieu:
+
+Mode de travail: En équipe
+
+Pondération: 25\%
+
+Remise de l'évaluation:
+
+Directives de l'évaluation:
+
+Matériel autorisé: pas de restriction.
+
+\subsection{Échelle des cotes}\label{uxe9chelle-des-cotes}
+
+\begin{longtable}[]{@{}crr@{}}
+\toprule\noalign{}
+Cote & \% minimum & \% maximum \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+A+ & 92 & 100 \\
+A & 88 & 91.99 \\
+A- & 84 & 87.99 \\
+B+ & 80 & 83.99 \\
+B & 75 & 79.99 \\
+B- & 70 & 74.99 \\
+C+ & 65 & 69.99 \\
+C & 60 & 64.99 \\
+C- & 55 & 59.99 \\
+D+ & 52 & 54.99 \\
+D & 50 & 51.99 \\
+E & 0 & 49.99 \\
+\end{longtable}
+
+\subsection{Détails sur les modalités
+d'évaluation}\label{duxe9tails-sur-les-modalituxe9s-duxe9valuation}
+
+Conformément à la politique du Département de mathématiques et de
+statistique en matière d'amélioration et de consolidation de la
+connaissance du français, la qualité de l'écrit sera sanctionnée dans
+tous les travaux et examens. Un maximum de 10\% des points pourra être
+enlevé pour la qualité de la langue et de la rédaction.
+
+Aucun retard n'est accepté pour la remise des travaux.
+
+Toute reprise d'évaluation accordée par la politique de reprise
+d'évaluation du Département aura lieu lors des dates de reprises
+officielles de la faculté.
+
+\subsection{Absence à une activité
+obligatoire}\label{absence-uxe0-une-activituxe9-obligatoire}
+
+Ces modalités s'appliquent en vertu des articles 4.41 et 4.42 du
+Réglement des études de l'Université Laval:
+
+\begin{itemize}
+\tightlist
+\item
+  4.41 Tout défaut de se soumettre à une activité d' évaluation entraine
+  la note zéro pour cette activité d' évaluation, à moins que l'
+  étudiante ou l' étudiant ne démontre que cette omission est
+  attribuable à des motifs sérieux.
+\item
+  4.42 La reprise d' une évaluation est possible pour des motifs
+  sérieux. Elle se fait selon les modalités prévues par l' unité
+  responsable de l' activité de formation.
+\end{itemize}
+
+La reprise d' une évaluation peut donc execptionnellement être autorisée
+pour des motifs jugés sérieux, dans la mesure où la procédure décrite
+ci-dessous est respectée.
+
+\textbf{Motifs d'absence jugés sérieux}
+
+Les motifs suivants sont jugés sérieux et donc acceptables pour demander
+une reprise d'évaluation:
+
+\begin{itemize}
+\tightlist
+\item
+  Maladie ou accident empêchant de se déplacer;
+\item
+  Hospitalisation;
+\item
+  Maladie grave ou décès d'un proche;
+\item
+  Participation à une activité sportive de haut niveau;
+\item
+  Convocation en cour de justice.
+\end{itemize}
+
+\textbf{Procédure à suivre}
+
+Dès que possible et au plus tard cinq (5) jours ouvrables après la date
+de l'évaluation (ou dans certains cas, avant la date de l'évaluation,
+dès que le motif sera connu), l'étudiante ou l'étudiant qui veut faire
+une demande de reprise d'évaluation doit remplir et soumettre le
+formulaire électronique
+``\href{https://ulavaldti.sharepoint.com/sites/FSG-reprise-dexamens-et-reconnaissance-de-cours/Lists/Demande\%20de\%20reprise\%20dexamens/NewForm.aspx?Source=https\%3A\%2F\%2Fulavaldti.sharepoint.com\%2Fsites\%2Ffsg-demande-de-reprise-examen\%2FLists\%2FDemande\%2520de\%2520reprise\%2520dexamens\%2FEtudiant.aspx\%3FCT\%3D1724436857013\%26OR\%3DOWA\%252DNT\%252DMail\%26CID\%3D42d5014c\%252D8fb5\%252D8232\%252Dbd8f\%252D69c67e3a9cdd&ContentTypeId=0x010020B04CCB63D0044D860D6BB7B9C92629007488899A2536D44DA71B9101B9C72D92&RootFolder=}{Demande
+de reprise d'une évaluation}'' en prenant soin d'y joindre les pièces
+justificatives requises.
+
+Pour avoir plus de détail sur les procédures à suivre et les motifs
+sérieux pouvant donner droit à une reprise d'évaluation, consulter le
+document
+``\href{https://www.fsg.ulaval.ca/fileadmin/site_facultaire/Espace_facultaire/Étudiants/Politiques_facultaires/Modalités_reprise_évaluation_FSG_A24.pdf}{Modalités
+et procédure de reprise d'une évaluation sommative à la Faculté des
+sciences et de génie}'' disponible sur le site web de la FSG.
+
+Dans certains cas, la ou le responsable du cours pourrait adopter une
+procédure simplifiée de gestion des demandes de reprises d'évaluation,
+tout en respectant les critères décrits dans cette politique. Dans ces
+cas, des explications particulières seront données à cet effet dans le
+plan de cours et présentées lors de la première séance.
+
+\subsection{Politique sur l'utilisation d'appareils
+électroniques}\label{politique-sur-lutilisation-dappareils-uxe9lectroniques}
+
+La politique sur l' utilisation d'appareils électroniques de la Faculté
+des Sciences et de Génie peut être consultée à l' adresse:
+\href{https://www.fsg.ulaval.ca/fileadmin/site_facultaire/Espace_facultaire/Étudiants/Politiques_facultaires/_Calculatrices-autorisées-FSG_20250221.pdf}{lien}.
+
+\subsection{POlitique sur le plagiat et la fraude
+académique}\label{politique-sur-le-plagiat-et-la-fraude-acaduxe9mique}
+
+\subsection{Étudiants ayant une situation de handicap liée à une
+limitation
+fonctionnelle}\label{uxe9tudiants-ayant-une-situation-de-handicap-liuxe9e-uxe0-une-limitation-fonctionnelle}
 
 
 
