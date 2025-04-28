@@ -1,0 +1,13 @@
+--- 
+title: "Plan"
+format: 
+  html: default
+  pdf: default
+--- 
+
+
+Le plan est donné à titre indicatif.
+
+| Semaine | Date | Durée | Plan | Évaluations |
+| ------: | ---: | ----: | :--: | ----------: |
+

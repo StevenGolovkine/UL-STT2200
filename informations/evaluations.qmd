@@ -2,7 +2,7 @@
 title: Évaluations
 format: 
   html: default
-  latex: default
+  pdf: default
 --- 
 
 ## Modalités d'évaluations
@@ -84,7 +84,7 @@ Conformément à la politique du Département de mathématiques et de statistiqu
 
 Aucun retard n'est accepté pour la remise des travaux.
 
-Toute reprise d'évaluation accordée par la politique de reprise d'évaluation du Département aura lieu lors des dates de reprises officielles de la faculté.
+Toute reprise d'évaluation accordée par la politique de reprise d'évaluation du Département aura lieu lors des dates de reprises officielles de la faculté. Pour toute demande de révision de note, vous devez suivre la procédure du chapitre 4 du Réglement des études. Vous trouverez un formulaire à remplir à l'adresse suivante: [lien](https://www.fsg.ulaval.ca/departements/departement-de-mathematiques-et-de-statistique/etudier/reglements-et-documents-officiels-en-mathematiques-et-statistique).
 
 ## Absence à une activité obligatoire
 
@@ -117,9 +117,34 @@ Dans certains cas, la ou le responsable du cours pourrait adopter une procédure
 
 La politique sur l' utilisation d'appareils électroniques de la Faculté des Sciences et de Génie peut être consultée à l' adresse: [lien](https://www.fsg.ulaval.ca/fileadmin/site_facultaire/Espace_facultaire/Étudiants/Politiques_facultaires/_Calculatrices-autorisées-FSG_20250221.pdf).
 
-## POlitique sur le plagiat et la fraude académique 
+## Politique sur le plagiat et la fraude académique 
 
+**Règles disciplinaires**
+
+Tout étudiant qui commet une infraction au Règlement disciplinaire à l'intention des étudiants de l'Université Laval dans le cadre du présent cours, notamment en matière de plagiat, est passible des sanctions qui sont prévues dans ce règlement. Il est très important pour tout étudiant de prendre connaissance des articles 23 à 46 du Règlement disciplinaire. Celui-ci peut être consulté à l'adresse suivante: [lien](https://www.ulaval.ca/sites/default/files/notre-universite/direction-gouv/Documents_officiels/Reglements/Reglement_disciplinaire_intention_etudiants.pdf).
+
+**Plagiat**
+
+Tout étudiant est tenu de respecter les règles relatives au plagiat. Constitue notamment du plagiat le fait de: 
+
+  i. copier textuellement un ou plusieurs passages provenant d'un ouvrage sous format papier ou électronique sans mettre ces passages entre guillemets et sans en mentionner la source;
+
+  ii. résumer l'idée originale d'un auteur en l'exprimant dans ses propres mots (paraphraser) sans en mentionner la source;
+
+  iii. traduire partiellement ou totalement un texte sans en mentionner la provenance;
+
+  iv. remettre un travail copié d'un autre étudiant (avec ou sans l'accord de cet autre étudiant);
+
+  v. remettre un travail téléchargé d'un site d'achat ou d'échange de travaux scolaires.
+
+L'Université Laval étant abonnée à un service de détection de plagiat, il est possible que l'enseignant soumette vos travaux pour analyse.
 
 ## Étudiants ayant une situation de handicap liée à une limitation fonctionnelle 
 
+Afin de bénéficier de mesures d'accommodement pour les cours ou les examens, un rendez-vous avec une conseillère ou un conseiller du Centre d'aide aux étudiants travaillant en Accueil et soutien aux étudiants en situation de handicap (ACSESH) est nécessaire. Pour ce faire, les étudiants présentant une situation de handicap liée à une limitation fonctionnelle permanente doivent visiter le site "[Accommodement](https://monportail.ulaval.ca/accommodement)" et prendre un rendez-vous, le plus tôt possible.
 
+Au cours de la semaine qui suit l'autorisation des mesures, leur activation doit être effectuée dans "[Accommodement](https://monportail.ulaval.ca/accommodement)" pour assurer leur mise en place.
+
+Les étudiants ayant déjà obtenu des mesures d'accommodements scolaires doivent procéder à l'activation de leurs mesures pour les cours et/ou les examens dans "[Accommodement](https://monportail.ulaval.ca/accommodement)" afin que celles-ci puissent être mises en place. Il est à noter que l'activation doit s'effectuer au cours de deux premières semaines de cours.
+
+Les étudiants concernés recevront par la suite des facultés et départements responsables de leurs cours les informations détaillées sur les modalités permettant d'appliquer les mesures d'accommodement identifiées.

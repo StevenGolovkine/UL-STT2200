@@ -46,8 +46,12 @@ website:
             text: Générales
           - href: informations/description.qmd
             text: Description
+          - href: informations/schedule.qmd
+            text: Plan
           - href: informations/evaluations.qmd 
             text: Evaluations
+          - href: informations/materials.qmd 
+            text: Matériel
       - section: "Modules"
         contents: 
           - href: contents/01-introduction.qmd 

@@ -1,5 +1,29 @@
 --- 
 title: "Introduction"
---- 
+format: 
+  html: default
+  pdf: default
+---
+
+## Qu'est-ce que l'analyse de données ?
+
+L'analyse de données est un ensemble de méthodes permettant de retirer de l'information d'un jeu de données. On parle aussi d'apprentissage statistique (*statistical learning*). 
+L'idée est d'utiliser des modèles statistiques pour comprendre comment les données sont structurées et comment elles intéragissent l' une avec l' autre. 
+
+::: {.callout-note appearance="simple"}
+
+## Example
+
+Imaginons que vous êtes le gérant d'un magasin. Vous aimeriez savoir quand ouvrir votre magasin pour maximiser votre chiffre d'affaires. Pour cela, vous pouvez comptez le nombre de clients par heure pendant une période de temps, disons un mois, et ensuite s'interesser 
+à comment ses données sont structurées par rapport aux horaires d'ouverture.
+
+::: 
+
+
+## Objectifs
+
+
+Ce cours n'a pas vocation à être exhaustif, dans le sens de présenter toutes les méthodes possibles. Ce cours n'a pas non plus vocation à être à l'état de l'art, dans le sens où on ne s'intéressera pas aux derniers développements en apprentissage machine. 
+
 
 
