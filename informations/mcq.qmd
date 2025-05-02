@@ -1,0 +1,93 @@
+---
+title: "QCM"
+format: 
+  html: default
+  pdf: 
+    include-in-header: 
+      - text: |
+          \usepackage{multirow}
+---
+
+## Information sur le premier examen 
+
+Le premier examen est un questionaire à choix multiples avec quantification de l'incertitude.  
+
+L' utilisation de degrés de certitude permet à l'étudiant d'évaluer le niveau de connaissance de la réponse donnée. La barème des notes, basé sur la théorie des décision [@leclercqTASTEApproachGeneral1993], peut sembler bizarre mais il a été fait de tel manière que: 
+
+* dire la vérité soit la stratégie qui rapporte le plus de points;
+* ceux qui s'auto-évaluent bien gagnent plus de points que si l'on appliquait un barème correctif tenant compte des probabilités d'avoir la réponse correcte aléatoirement.
+
+
+::: {.content-visible when-format="html"}
+<table style="width:100%">
+  <tr>
+    <th>Si vous condidérez que votre réponse a une probabilité d'être correcte comprise entre...</th>
+    <th>Choisissez le degré de certitude...</th>
+    <th colspan=2>Vous obtiendrez les points suivants en case de réponse...</th>
+  </tr>
+  <tr>
+    <th></th>
+    <th></th>
+    <th>correcte</th>
+    <th>incorrecte</th>
+    </tr>
+  <tr>
+    <td>0\% et 25\%</td>
+    <td>0</td>
+    <td>+13</td>
+    <td>+4</td>
+  </tr>
+  <tr>
+    <td>25\% et 50\%</td>
+    <td>1</td>
+    <td>+16</td>
+    <td>+3</td>
+  </tr>
+  <tr>
+    <td>50\% et 70\%</td>
+    <td>2</td>
+    <td>+17</td>
+    <td>+2</td>
+  </tr>
+  <tr>
+    <td>70\% et 85\%</td>
+    <td>3</td>
+    <td>+18</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>85\% et 95\%</td>
+    <td>4</td>
+    <td>+19</td>
+    <td>-6</td>
+  </tr>
+  <tr>
+    <td>95\% et 100\%</td>
+    <td>5</td>
+    <td>+20</td>
+    <td>-10</td>
+  </tr>
+</table>
+::: 
+
+
+::: {.content-visible when-format="pdf"}
+
+\begin{table}
+  \centering
+  \caption{Répartition des points}
+  \label{tab:repart_point}
+  \begin{tabular}{p{5cm}|p{5cm}|p{2.5cm}p{2.5cm}}
+    Si vous condidérez que votre réponse a une probabilité d'être correcte comprise entre... & Choisissez le degré de certitude... & \multicolumn{2}{p{5cm}}{Vous obtiendrez les points suivants en case de réponse...} \\
+     & & correcte & incorrecte \\
+    0\% et 25\% & 0 & +13 & +4 \\
+    25\% et 50\% & 1 & +16 & +3 \\
+    50\% et 70\% & 2 & +17 & +2 \\
+    70\% et 85\% & 3 & +18 & 0 \\
+    85\% et 95\% & 4 & +19 & -6 \\
+    95\% et 100\% & 5 & +20 & -10
+  \end{tabular}
+\end{table}
+::: 
+
+Généralement, les étudiants s'auto-estiment avec réalisme, et sont avantagés par les degrés de certitude. Leur score obtenu est meilleur que s'il avait été calculé uniquement sur la base du nombre de réponses justes.:when-format

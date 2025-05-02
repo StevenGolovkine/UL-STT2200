@@ -48,8 +48,10 @@ website:
             text: Description
           - href: informations/schedule.qmd
             text: Plan
-          - href: informations/evaluations.qmd 
-            text: Evaluations
+          - section: "Évaluations"
+            href: informations/evaluations.qmd 
+            contents: 
+              - informations/mcq.qmd
           - href: informations/materials.qmd 
             text: Matériel
       - section: "Modules"

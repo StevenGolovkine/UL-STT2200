@@ -31,6 +31,8 @@ Directives de l'évaluation: Tout le contenu du cours est susceptible d'être a 
 
 Matériel autorisé: pas de restriction. 
 
+Inforamation supplementaire: [lien](./mcq.qmd)
+
 
 ### Examen 2
 
