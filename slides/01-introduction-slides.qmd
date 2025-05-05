@@ -1,0 +1,20 @@
+--- 
+title: "Introduction"
+author: "Steven Golovkine"
+date: "2025"
+format:
+  revealjs:
+    theme: [default, ../include/ulaval-slide.scss]
+    width: 1280
+    height: 720
+--- 
+
+# Coucou
+
+## Test
+
+Coucou
+
+--- 
+
+$1 + 1 = 2$

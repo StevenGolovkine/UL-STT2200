@@ -90,4 +90,4 @@ L' utilisation de degrés de certitude permet à l'étudiant d'évaluer le nivea
 \end{table}
 ::: 
 
-Généralement, les étudiants s'auto-estiment avec réalisme, et sont avantagés par les degrés de certitude. Leur score obtenu est meilleur que s'il avait été calculé uniquement sur la base du nombre de réponses justes.:when-format
+Généralement, les étudiants s'auto-estiment avec réalisme, et sont avantagés par les degrés de certitude. Leur score obtenu est meilleur que s'il avait été calculé uniquement sur la base du nombre de réponses justes.
