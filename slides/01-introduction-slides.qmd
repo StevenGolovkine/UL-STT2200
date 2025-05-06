@@ -1,12 +1,19 @@
 --- 
 title: "Introduction"
+subtitle: "Data"
 author: "Steven Golovkine"
-date: "2025"
+lang: fr
+date: today
+date-format: "DD MMM YYYY"
+slide-number: c/t
+title-logo: ../include/logo-ul.png
 format:
   revealjs:
     theme: [default, ../include/ulaval-slide.scss]
     width: 1280
     height: 720
+    template-partials:
+      - title-slide.html
 --- 
 
 # Coucou
