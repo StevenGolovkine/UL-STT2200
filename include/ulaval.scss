@@ -52,6 +52,13 @@ $dark:          $gray-700 !default;
 
 $min-contrast-ratio:   2.6 !default;
 
+// Callout 
+$callout-color-note: $cyan;
+$callout-color-tip: $green;
+$callout-color-caution: $red;
+$callout-color-warning: $orange;
+$callout-color-important: $yellow;
+
 // Options
 
 $enable-rounded: false !default;
