@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STT-2200: Data Analysis",
+    "section": "",
+    "text": "Welcome everyone to the class STT-2200 in Autumn 2025.\nYou will find on this website every necessary information for the modules, the practicals and the exams. The contents will be updated during the session with the answers to some work. I invite you to skim through the differents modules before classes.\nThis is Quarto."
+  },
+  {
     "objectID": "informations/general.html",
     "href": "informations/general.html",
     "title": "General informations",
@@ -9,12 +16,5 @@
       "Informations",
       "Générales"
     ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "STT-2200: Data Analysis",
-    "section": "",
-    "text": "Welcome everyone to the class STT-2200 in Autumn 2025.\nYou will find on this website every necessary information for the modules, the practicals and the exams. The contents will be updated during the session with the answers to some work. I invite you to skim through the differents modules before classes.\nThis is Quarto."
   }
 ]

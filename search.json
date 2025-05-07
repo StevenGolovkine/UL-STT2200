@@ -1,112 +1,20 @@
 [
   {
-    "objectID": "informations/general.html",
-    "href": "informations/general.html",
-    "title": "Informations générales",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STT-2200: Analyse de données",
     "section": "",
-    "text": "Faculté des sciences et de génie\nDépartement de mathématiques et de statistique",
-    "crumbs": [
-      "Informations",
-      "Générales"
-    ]
+    "text": "Bienvenue à tous au cours STT-2200 de l’automne 2025.\nVous trouverez sur ce site toute les informations nécessaire pour les cours, les différents travaux et les exams. Les contenus seront mis à jour au cours de la session avec les corrigés de certains travaux. Je vous invite à regarder les différents modules avant les cours.\nCe site a été créé avec Quarto."
   },
   {
-    "objectID": "informations/general.html#stt-2200-analyse-de-données",
-    "href": "informations/general.html#stt-2200-analyse-de-données",
-    "title": "Informations générales",
-    "section": "STT-2200: Analyse de données",
-    "text": "STT-2200: Analyse de données\nFormule d’enseignement: Présentiel\nTemps consacré:\n\nCours: 2h\nLaboratoire: 1h\nTravail personnel: 6h\nTotal: 9h\n\nCrédits: 3\nPréalables:\n\nACT-2000 ou STT-1000 ou STT-1300 ou STT-1900\nMAT-1200 ou ACT-2002\nSTT-1100 ou IFT-4902 ou ECN-2090 ou GLO-1901 ou IFT-1004\n\nPlage horaire:\n\n\n\nType\nJour\nHoraire\nDates\n\n\n\n\nLabo\nMardi\n\n\n\n\nClasse\nVendredi",
-    "crumbs": [
-      "Informations",
-      "Générales"
-    ]
-  },
-  {
-    "objectID": "informations/general.html#coordonnées-et-disponibilités",
-    "href": "informations/general.html#coordonnées-et-disponibilités",
-    "title": "Informations générales",
-    "section": "Coordonnées et disponibilités",
-    "text": "Coordonnées et disponibilités\nSteven Golovkine (Enseignant)\nVCH-2200\nsteven.golovkine@mat.ulaval.ca\nDisponibilités\nJe suis disponible pour vous rencontrer sur rendez-vous par couriel ou sans rendez-vous du lundi au jeudi entre 8h et 10h.\n\nL’Université reconnaît le droit à la déconnexion des professeures et professeurs, des personnes chargées de cours et des autres membres du personnel enseignant. Cela signifie que ces personnes ne sont pas tenues de consulter les messages qui leur sont envoyés (courriel, boîte vocale, message dans un forum, etc.) pendant les soirs, fins de semaine, jours fériés et vacances. La personne qui aura envoyé un message durant ces périodes devra donc s’attendre à recevoir une réponse dans un délai raisonnable, calculé à partir de la reprise des heures normales de travail.",
-    "crumbs": [
-      "Informations",
-      "Générales"
-    ]
-  },
-  {
-    "objectID": "informations/description.html",
-    "href": "informations/description.html",
-    "title": "Description du cours",
+    "objectID": "informations/schedule.html",
+    "href": "informations/schedule.html",
+    "title": "Plan",
     "section": "",
-    "text": "Dans ce cours, nous visons à introduire des méthodes qui permettront aux étudiantes et étudiants d’étudier un jeu de données de “haute dimension” (“haute” dans le sens ici où l’on ne peut faire un simple graphique de l’ensemble des observations de toutes les variables) sans avoir recours à un modèle probabiliste. Les techniques qu’on y enseigne servent à réduire la dimension des données, identifier certains liens entre les variables, visualiser les données ou à diviser le jeu de données en groupes/classes.\nSans négliger la théorie, l’accent sera mis sur l’aspect pratique de l’analyse des données et l’utilisation du langage R.",
+    "text": "Le plan est donné à titre indicatif.\n\n\n\nSemaine\nDate\nDurée\nPlan\nÉvaluations",
     "crumbs": [
       "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#objectifs",
-    "href": "informations/description.html#objectifs",
-    "title": "Description du cours",
-    "section": "",
-    "text": "Dans ce cours, nous visons à introduire des méthodes qui permettront aux étudiantes et étudiants d’étudier un jeu de données de “haute dimension” (“haute” dans le sens ici où l’on ne peut faire un simple graphique de l’ensemble des observations de toutes les variables) sans avoir recours à un modèle probabiliste. Les techniques qu’on y enseigne servent à réduire la dimension des données, identifier certains liens entre les variables, visualiser les données ou à diviser le jeu de données en groupes/classes.\nSans négliger la théorie, l’accent sera mis sur l’aspect pratique de l’analyse des données et l’utilisation du langage R.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#place-du-cours-dans-le-programme",
-    "href": "informations/description.html#place-du-cours-dans-le-programme",
-    "title": "Description du cours",
-    "section": "Place du cours dans le programme",
-    "text": "Place du cours dans le programme\nCe cours généralement suivi par des étudiants du baccalauréat en statistique lors de leur deuxième année de formation. Il est aussi un cours à option en actuariat, en mathématique ainsi que dans certains programmes de génie et d’administration.\nTous les étudiants doivent s’assurer d’avoir suivi au minimum un cours d’algèbre (ex. MAT1200) et un cours de statistique de base (ex. STT1000), car la majorité des méthodes d’analyse de données s’appuient sur ces notions.\nLes étudiants devraient aussi avoir une certaine familiarité avec le langage R ou avec la programmation.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#objectifs-spécifiques",
-    "href": "informations/description.html#objectifs-spécifiques",
-    "title": "Description du cours",
-    "section": "Objectifs spécifiques",
-    "text": "Objectifs spécifiques\nÀ la fin du cours, l’étudiant ou l’étudiante devra être capable :\n\nde comprendre et décrire succinctement les fondements théoriques des méthodes d’analyse de données étudiées;\nd’identifier correctement les situations où l’emploi de ces méthodes est indiqué;\nd’utiliser efficacement un logiciel tel SAS ou R pour mettre en oeuvre ces méthodes;\nd’analyser et d’interpréter judicieusement les résultats découlant de l’analyse;\nde formuler par écrit les conclusions de l’analyse, dans le respect des limites de la méthodologie.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#équipement-informatique",
-    "href": "informations/description.html#équipement-informatique",
-    "title": "Description du cours",
-    "section": "Équipement informatique",
-    "text": "Équipement informatique\nVous pourriez avoir besoin d’un ordinateur, de haut-parleurs ou d’un casque d’écoute, d’un microphone, d’une webcam et d’une connexion Internet avec fil à large bande ou sans fil. Pour vérifier les paramètres de configuration minimaux selon le système d’exploitation, nous vous invitons à visiter cette page.\nDe plus, ce cours peut nécessiter des besoins logiciels particuliers qui seront alors décrits dans d’autres sections du plan de cours, le cas échéant.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#fonctionnement",
-    "href": "informations/description.html#fonctionnement",
-    "title": "Description du cours",
-    "section": "Fonctionnement",
-    "text": "Fonctionnement\nLes cours et examen auront lieu en présentiel les mardi et vendredi matin, mais une portion du matériel sera disponible en ligne. De façon générale, la séance du vendredi sera une séance magistrale et la séance du mardi sera dédiée à des exercices pratiques réalisés de façon autonome par les étudiants avec le soutien de l’enseignant.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#approches-pédagogiques",
-    "href": "informations/description.html#approches-pédagogiques",
-    "title": "Description du cours",
-    "section": "Approches pédagogiques",
-    "text": "Approches pédagogiques\nL’approche pédagogique privilégiée est l’exposé interactif (vendredi) en alternance avec des périodes de laboratoires (mardi). L’approche pédagogique est très axée sur l’apprentissage actif et exige un engagement soutenu des étudiants tout au long de la session.",
-    "crumbs": [
-      "Informations",
-      "Description"
+      "Plan"
     ]
   },
   {
@@ -160,35 +68,98 @@
     "href": "contents/01-introduction.html#objectifs",
     "title": "Introduction",
     "section": "Objectifs",
-    "text": "Objectifs\nCe cours n’a pas vocation à être exhaustif, dans le sens de présenter toutes les méthodes possibles. Ce cours n’a pas non plus vocation à être à l’état de l’art, dans le sens où on ne s’intéressera pas aux derniers développements en apprentissage machine.",
+    "text": "Objectifs\nCe cours n’a pas vocation à être exhaustif, dans le sens de présenter toutes les méthodes possibles. Ce cours n’a pas non plus vocation à être à l’état de l’art, dans le sens où on ne s’intéressera pas aux derniers développements en apprentissage machine. Ce cours n’est pas non plus un cours de programmation.",
     "crumbs": [
       "Modules",
       "01 - Introduction"
     ]
   },
   {
-    "objectID": "slides/01-introduction-slides.html#test",
-    "href": "slides/01-introduction-slides.html#test",
+    "objectID": "contents/01-introduction.html#pratique-de-programmation",
+    "href": "contents/01-introduction.html#pratique-de-programmation",
     "title": "Introduction",
-    "section": "Test",
-    "text": "Test\nCoucou"
+    "section": "Pratique de programmation",
+    "text": "Pratique de programmation\n\nConseils généraux\nSpécifique à R\nSpécifique à Python",
+    "crumbs": [
+      "Modules",
+      "01 - Introduction"
+    ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "STT-2200: Analyse de données",
+    "objectID": "contents/02-revisions.html",
+    "href": "contents/02-revisions.html",
+    "title": "Révisions",
     "section": "",
-    "text": "Bienvenue à tous au cours STT-2200 de l’automne 2025.\nVous trouverez sur ce site toute les informations nécessaire pour les cours, les différents travaux et les exams. Les contenus seront mis à jour au cours de la session avec les corrigés de certains travaux. Je vous invite à regarder les différents modules avant les cours.\nCe site a été créé avec Quarto."
+    "text": "Slides: link",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions"
+    ]
   },
   {
-    "objectID": "informations/schedule.html",
-    "href": "informations/schedule.html",
-    "title": "Plan",
+    "objectID": "contents/02-revisions.html#project-danalyse-données",
+    "href": "contents/02-revisions.html#project-danalyse-données",
+    "title": "Révisions",
+    "section": "Project d’analyse données",
+    "text": "Project d’analyse données\nUn projet d’analyse de données se découpe en cinq étapes:\n\nDéfinition des objectifs\nDonnées\nÉlaboration et validation des modèles\nMise en oeuvre\nSuivi de la performance et amélioration\n\n\n\n\n\n\n\nRemarque\n\n\n\nDans ce cours, on s’intéressera principalement à l’élaboration et à la validation de modèles.\n\n\nTODO: Planification d’un projet\n\nDéfinition des objectifs\nEst-ce que l’on veut: visualiser les données ? explorer et émettre des hypothèses? tester? regrouper? comprendre? prédire?\nComment fait-on en pratique ? On pose des questions ! Tout d’abord, il faut clarifier les termes. Qui va utiliser le modèle et comment ? Quelle est la population cible ?\n\n\n\n\n\n\nExamples\n\n\n\n\nLa Banque National du Canada veut lancer un nouveau produit d’épargne et souhaite mieux connaître ses clients pour prédire s’ils veulent l’acheter.\nL’équipe de hockey des Canadiens de Montréal souhaite mieux connaître ses adversaires pour développer des nouvelles tactiques de jeu.\nPharmascience souhaite savoir si son nouveau médicament est efficace.\n\n\n\n\n\nDonnées\n\nInventaire et qualité\nConstitution de la base de données\nExploration et traitement préliminaire\n\nQu’est-ce que l’on veut dire par qualité des données ?\n\nEst-ce que les données sont représentatives de la population cible ?\nEst-ce que les données permetternt de tirer des conclusions de causalité ?\nEst-ce que les données sont fiables ?\n\nSource de données:\nQuelques liens pour récupérer des données.\nNettoyage de données: cf R (importation, nettoyage, tidyverse, types de variables, retirer les doublons, uniformiser les modalités, vérifier le format des valeurs spéciales, pivot, opérateur pipe, jointure).\nExploration des données: modalités rares, modalités trop nombreuses, asymétrie, débalancement des classes, valeurs extrêmes ou aberrantes, variables fortement corrélées, valeurs manquantes.\nStatistiques descriptives",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions"
+    ]
+  },
+  {
+    "objectID": "contents/02-revisions.html#révisions-dalgèbre-linéaire",
+    "href": "contents/02-revisions.html#révisions-dalgèbre-linéaire",
+    "title": "Révisions",
+    "section": "Révisions d’algèbre linéaire",
+    "text": "Révisions d’algèbre linéaire\nCf. cours MAT-1200. Donner quelques reférences.\nNotons \\(M\\), \\(N\\) et \\(P\\) des matrices de taille \\(n \\times m\\), \\(A\\) et \\(B\\) des matrices carrées et \\(I_n\\) la matrice identités, de dimension \\(n \\times n\\), et \\(u\\) et \\(v\\) des vecteurs colonnes de taille \\(n\\).\n\n\n\n\n\n\nPropriétés de l’inverse\n\n\n\n\\[(AB)^{-1} = B^{-1} A^{-1}\\]\n\n\n\n\n\n\n\n\nPropriétés du déterminant\n\n\n\n\\[\\begin{align*}\n  \\text{det}(A^\\top) &= \\text{det}(A) \\\\\n  \\text{det}(A^{-1}) &= 1 / \\text{det}(A) \\\\\n  \\text{det}(AB) &= \\text{det}(A)\\text{det}(B)\n\\end{align*}\\]\n\n\n\n\n\n\n\n\nPropriétés de la trace\n\n\n\n\\[\\begin{align*}\n  \\text{tr}(A + B) &= \\text{tr}(A) + \\text{tr}(B) \\\\\n  \\text{tr}(MN) &= \\text{tr}(NM)\n\\end{align*}\\]\n\n\nPropriété de matrices:\n\nSoit \\(A\\) une matrice symmétrique de dimension \\(n \\times n\\). \\(A\\) est définie positive si elle est positive et inversible, c’est-à-dire si \\(u^\\top A u &gt; 0\\) pour tout \\(x \\in \\mathbb{R}^n\\) tel que \\(x \\neq 0\\).\nSoit \\(A\\) une matrice carrée à valeur dans \\(\\mathbb{R}\\). \\(A\\) est orthogonal si \\(A^\\top A = A A^\\top = I_n\\).\n\nValeurs et vecteurs propres:\n\nSoit \\(A\\) une matrice carrée de dimension \\(n \\times n\\). On dit que \\(\\lambda\\) est une valeur propre de \\(A\\) si il existe un vecteur \\(u \\neq 0 \\in \\mathbb{R}^n\\) tel que \\[Au = \\lambda u.\\] Le vecteur \\(u\\) est appelé vecteur propre correspondant à la valeur propre \\(\\lambda\\) et l’ensemble des nombres réels \\(\\lambda\\) satidfaisant l’équation est appelé spectre de la matrice \\(A\\) et noté \\(\\text{sp}(A)\\).\nSi \\(u\\) est un vecteur propre de \\(A\\) correspondant à une valeur propre \\(\\lambda\\), alors \\(cu\\), \\(c \\neq 0 \\in \\mathbb{R}\\) sera également un vecteur propre de \\(A\\) correspondant à \\(\\lambda\\).\nSi \\(A\\) est symmétrique et \\(u_{1}\\) et \\(u_{2}\\) sont des vecteurs propres correspondant à des valeurs propres différentes de \\(A\\), alors \\(u_{1}\\) et \\(u_{2}\\) sont orthogonaux, i.e. \\(u_{1}^\\top u_{2} = 0\\).\nSi \\(A\\) a comme valeurs propres (réelles, mais pas forcément distinctes) \\(\\lambda_{1}, \\dots, \\lambda_{n}\\), alors \\[\\text{A} = \\prod_{i = 1}^{n} \\lambda_i \\quad\\text{et}\\quad \\text{tr}(A) = \\sum_{i = 1}^{n} \\lambda_i.\\]\nSi \\(A\\) est symmétrique, toutes ses valeurs propres sont réelles.\nSi \\(A\\) est définie positive, alors toutes ses valeurs propres sont positives.\n\nDiagonalisation de matrices:\n\nSoit \\(A\\) une matrice carrée de dimension \\(n \\times n\\). On dit que \\(A\\) est diagonalisable s’il existe une matrice carrée \\(n \\times n\\) non-singulière \\(P\\) et une matrice \\(n \\times n\\) diagonale \\(D\\) telles que \\[P^{-1} A P = D \\leftrightarrow A = P D P^{-1}.\\]\n\nToute matrice carrée symmétrique est diagonalisable part une matrice orthogonal \\(P\\).\nThéorème de décomposition spectrale:\nSoit \\(A\\) une matrice carrée symmétrique de dimension \\(n \\times n\\) et ses \\(n\\) valeurs propres \\(\\lambda_{1}, \\dots, \\lambda_n\\). Alors il existe une matrice orthogonal \\(P\\) telle que \\[A = P \\Lambda P^\\top, \\quad\\text{où}\\quad \\Lambda = \\text{diag}(\\lambda_1, \\dots, \\lambda_n).\\]\nSi \\(A\\) admet \\(n\\) valeurs propres positives distinctes, alors on peut prendre \\(P\\) comme la matrice dont la \\(k\\)e coloone est le vacteur propre normé correspondant à la \\(k\\)e valeur propre \\(\\lambda_k\\).",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions"
+    ]
+  },
+  {
+    "objectID": "contents/02-revisions.html#révisions-de-probabilité",
+    "href": "contents/02-revisions.html#révisions-de-probabilité",
+    "title": "Révisions",
+    "section": "Révisions de probabilité",
+    "text": "Révisions de probabilité\nVecteurs aléatoires:\nSoit \\(X = (X_{1}, \\dots, X_{p})^\\top\\), un vecteur aléatoire de taille \\(p\\).\nEspérance:\nMatrice de variance/covariance:\nMatrice de corrélation:\nPropriété des moments:\nLoi normale multivariée:\nEstimation avec un échantillon:",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions"
+    ]
+  },
+  {
+    "objectID": "informations/general.html",
+    "href": "informations/general.html",
+    "title": "Informations générales",
     "section": "",
-    "text": "Le plan est donné à titre indicatif.\n\n\n\nSemaine\nDate\nDurée\nPlan\nÉvaluations",
+    "text": "Faculté des sciences et de génie\nDépartement de mathématiques et de statistique",
     "crumbs": [
       "Informations",
-      "Plan"
+      "Générales"
+    ]
+  },
+  {
+    "objectID": "informations/general.html#stt-2200-analyse-de-données",
+    "href": "informations/general.html#stt-2200-analyse-de-données",
+    "title": "Informations générales",
+    "section": "STT-2200: Analyse de données",
+    "text": "STT-2200: Analyse de données\nFormule d’enseignement: Présentiel\nTemps consacré:\n\nCours: 2h\nLaboratoire: 1h\nTravail personnel: 6h\nTotal: 9h\n\nCrédits: 3\nPréalables:\n\nACT-2000 ou STT-1000 ou STT-1300 ou STT-1900\nMAT-1200 ou ACT-2002\nSTT-1100 ou IFT-4902 ou ECN-2090 ou GLO-1901 ou IFT-1004\n\nPlage horaire:\n\n\n\nType\nJour\nHoraire\nDates\n\n\n\n\nLabo\nMardi\n\n\n\n\nClasse\nVendredi",
+    "crumbs": [
+      "Informations",
+      "Générales"
+    ]
+  },
+  {
+    "objectID": "informations/general.html#coordonnées-et-disponibilités",
+    "href": "informations/general.html#coordonnées-et-disponibilités",
+    "title": "Informations générales",
+    "section": "Coordonnées et disponibilités",
+    "text": "Coordonnées et disponibilités\nSteven Golovkine (Enseignant)\nVCH-2200\nsteven.golovkine@mat.ulaval.ca\nDisponibilités\nJe suis disponible pour vous rencontrer sur rendez-vous par couriel ou sans rendez-vous du lundi au jeudi entre 8h et 10h.\n\nL’Université reconnaît le droit à la déconnexion des professeures et professeurs, des personnes chargées de cours et des autres membres du personnel enseignant. Cela signifie que ces personnes ne sont pas tenues de consulter les messages qui leur sont envoyés (courriel, boîte vocale, message dans un forum, etc.) pendant les soirs, fins de semaine, jours fériés et vacances. La personne qui aura envoyé un message durant ces périodes devra donc s’attendre à recevoir une réponse dans un délai raisonnable, calculé à partir de la reprise des heures normales de travail.",
+    "crumbs": [
+      "Informations",
+      "Générales"
     ]
   },
   {
@@ -289,5 +260,89 @@
       "Informations",
       "Évaluations"
     ]
+  },
+  {
+    "objectID": "informations/description.html",
+    "href": "informations/description.html",
+    "title": "Description du cours",
+    "section": "",
+    "text": "Dans ce cours, nous visons à introduire des méthodes qui permettront aux étudiantes et étudiants d’étudier un jeu de données de “haute dimension” (“haute” dans le sens ici où l’on ne peut faire un simple graphique de l’ensemble des observations de toutes les variables) sans avoir recours à un modèle probabiliste. Les techniques qu’on y enseigne servent à réduire la dimension des données, identifier certains liens entre les variables, visualiser les données ou à diviser le jeu de données en groupes/classes.\nSans négliger la théorie, l’accent sera mis sur l’aspect pratique de l’analyse des données et l’utilisation du langage R.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#objectifs",
+    "href": "informations/description.html#objectifs",
+    "title": "Description du cours",
+    "section": "",
+    "text": "Dans ce cours, nous visons à introduire des méthodes qui permettront aux étudiantes et étudiants d’étudier un jeu de données de “haute dimension” (“haute” dans le sens ici où l’on ne peut faire un simple graphique de l’ensemble des observations de toutes les variables) sans avoir recours à un modèle probabiliste. Les techniques qu’on y enseigne servent à réduire la dimension des données, identifier certains liens entre les variables, visualiser les données ou à diviser le jeu de données en groupes/classes.\nSans négliger la théorie, l’accent sera mis sur l’aspect pratique de l’analyse des données et l’utilisation du langage R.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#place-du-cours-dans-le-programme",
+    "href": "informations/description.html#place-du-cours-dans-le-programme",
+    "title": "Description du cours",
+    "section": "Place du cours dans le programme",
+    "text": "Place du cours dans le programme\nCe cours généralement suivi par des étudiants du baccalauréat en statistique lors de leur deuxième année de formation. Il est aussi un cours à option en actuariat, en mathématique ainsi que dans certains programmes de génie et d’administration.\nTous les étudiants doivent s’assurer d’avoir suivi au minimum un cours d’algèbre (ex. MAT1200) et un cours de statistique de base (ex. STT1000), car la majorité des méthodes d’analyse de données s’appuient sur ces notions.\nLes étudiants devraient aussi avoir une certaine familiarité avec le langage R ou avec la programmation.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#objectifs-spécifiques",
+    "href": "informations/description.html#objectifs-spécifiques",
+    "title": "Description du cours",
+    "section": "Objectifs spécifiques",
+    "text": "Objectifs spécifiques\nÀ la fin du cours, l’étudiant ou l’étudiante devra être capable :\n\nde comprendre et décrire succinctement les fondements théoriques des méthodes d’analyse de données étudiées;\nd’identifier correctement les situations où l’emploi de ces méthodes est indiqué;\nd’utiliser efficacement un logiciel tel SAS ou R pour mettre en oeuvre ces méthodes;\nd’analyser et d’interpréter judicieusement les résultats découlant de l’analyse;\nde formuler par écrit les conclusions de l’analyse, dans le respect des limites de la méthodologie.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#équipement-informatique",
+    "href": "informations/description.html#équipement-informatique",
+    "title": "Description du cours",
+    "section": "Équipement informatique",
+    "text": "Équipement informatique\nVous pourriez avoir besoin d’un ordinateur, de haut-parleurs ou d’un casque d’écoute, d’un microphone, d’une webcam et d’une connexion Internet avec fil à large bande ou sans fil. Pour vérifier les paramètres de configuration minimaux selon le système d’exploitation, nous vous invitons à visiter cette page.\nDe plus, ce cours peut nécessiter des besoins logiciels particuliers qui seront alors décrits dans d’autres sections du plan de cours, le cas échéant.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#fonctionnement",
+    "href": "informations/description.html#fonctionnement",
+    "title": "Description du cours",
+    "section": "Fonctionnement",
+    "text": "Fonctionnement\nLes cours et examen auront lieu en présentiel les mardi et vendredi matin, mais une portion du matériel sera disponible en ligne. De façon générale, la séance du vendredi sera une séance magistrale et la séance du mardi sera dédiée à des exercices pratiques réalisés de façon autonome par les étudiants avec le soutien de l’enseignant.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#approches-pédagogiques",
+    "href": "informations/description.html#approches-pédagogiques",
+    "title": "Description du cours",
+    "section": "Approches pédagogiques",
+    "text": "Approches pédagogiques\nL’approche pédagogique privilégiée est l’exposé interactif (vendredi) en alternance avec des périodes de laboratoires (mardi). L’approche pédagogique est très axée sur l’apprentissage actif et exige un engagement soutenu des étudiants tout au long de la session.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "slides/01-introduction-slides.html#test",
+    "href": "slides/01-introduction-slides.html#test",
+    "title": "Introduction",
+    "section": "Test",
+    "text": "Test\nCoucou"
   }
 ]
