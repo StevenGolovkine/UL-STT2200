@@ -2,6 +2,26 @@
 title: "Espace"
 format: 
   html: default
-  pdf: default 
+  pdf:
+    header-includes: 
+      - \usepackage{mathtools}
 --- 
 
+* Slides : [link](../slides/03-spaces-slides.qmd)
+
+
+## Types de variables
+
+* Variable numérique: Variable dont la valeur numérique mesure quelque chose de quantifiable et dont la différence entre les valeurs reflète la différence entre les objets. Exemples: revenu en dollars, masse, âge, ...
+
+* Variable ordinale: Variable qui ne donne pas une quantification précise d'un phénomène, mais dont les modalités peuvent être naturellement ordonnées. Examples: revenu faible, moyen ou élevé, ou niveau d'accord entre "tout-à-fait en désaccord", "en désaccord", "pas d'avis", "d'accord", "tout-à-fait d'accord".
+
+* Nominales symétriques: Variable qualitative dont toutes les modalités sont aussi informatives l'une que l'autre. Examples: Sexe, sections d'un cours.
+
+* Nominales asymétriques: Variable qualitative dont les modalités ne contiennent pas toutes le même niveau d'information, habituellement lorsque l'une des modalités est très fréquente, un peu la modalité par defaut, mais que les autres ne le sont pas. Exemples: variable indiquant si un individu est daltonien ou non (deux individus daltoniens ont quelque chose en commun, mais deux individus non-daltoniens n'ont pas forcément quelque chose en commun), variable indiquant si une transaction est frauduleuse.
+
+* Il y a plein d'autre type de variables: fonctions, textes, images, graphs, ...
+
+## Espaces associés 
+
+  
