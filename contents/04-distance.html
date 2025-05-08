@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.30">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>distance – STT-2200: Analyse de données</title>
+<title>Distances – STT-2200: Analyse de données</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,7 +59,33 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Recherche"
   }
 }</script><style>html{ scroll-behavior: smooth; }</style>
-<meta property="og:title" content="STT-2200: Analyse de données">
+<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script><meta property="og:title" content="Distances – STT-2200: Analyse de données">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
 <body class="nav-sidebar floating quarto-light">
@@ -356,14 +382,112 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#notion-de-distance" id="toc-notion-de-distance" class="nav-link" data-scroll-target="#notion-de-distance">Notion de distance</a></li>
+  <li><a href="#notion-de-similarit%C3%A9" id="toc-notion-de-similarité" class="nav-link" data-scroll-target="#notion-de-similarité">Notion de similarité</a></li>
+  </ul>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/04-distance.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
+</ul></div>
+<div class="quarto-alternate-formats">
+<h2>Autres formats</h2>
+<ul><li><a href="04-distance.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
+</div></nav>
+</div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../contents/04-distance.html">04 - Distance</a></li>
-</ol></nav></header></main><!-- /main --><script>
+</ol></nav><div class="quarto-title">
+<h1 class="title">Distances</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header><ul>
+<li>Slides: <a href="../slides/04-distances-slides.qmd">link</a>
+</li>
+</ul>
+<section id="introduction" class="level2"><h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>On a besoin d’une notion de distance et de similarité. On a besoin d’une définition de ce que sont des observations similaires ou des observations différentes. On veut quantifier la similarité ou la distance entre deux observations. Le choix de la métrique est une étape essentielle dans le processus d’analyse de données.</p>
+</section><section id="notion-de-distance" class="level2"><h2 class="anchored" data-anchor-id="notion-de-distance">Notion de distance</h2>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Définition de distance
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Une mesure de distance <span class="math inline">\(d\)</span> doit satisfaire les propriétés suivantes pour tout <span class="math inline">\(x, y, z \in A\)</span>, <span class="math inline">\(A\)</span> étant un ensemble quelconque:</p>
+<ol type="1">
+<li><p><span class="math inline">\(d(x, y) \geq 0\)</span>;</p></li>
+<li><p><span class="math inline">\(d(x, x) = 0\)</span>;</p></li>
+<li><p><span class="math inline">\(d(x, y) = d(y, x)\)</span>;</p></li>
+<li><p><span class="math inline">\(d(x, y) \leq d(x, z) + d(y, z)\)</span>.</p></li>
+</ol>
+</div>
+</div>
+<p>La distance euclidienne:</p>
+<p>Si les observations sont constituées de <span class="math inline">\(p\)</span> nombres réels de même ordre de grandeur, alors la distance euclidienne entre deux éléments de <span class="math inline">\(\mathbb{R}^p\)</span> est une mesure raisonnable.</p>
+<p>Soit <span class="math inline">\(x, y \in \mathbb{R}^n\)</span>, la distance euclidienne est données par : <span class="math display">\[d(x, y) = \left\| x - y \right\|_2 = \left( \sum_{i = 1}^{n} (x_i - y_i)^2 \right)^{1/2}.\]</span></p>
+<p>Que fait-on dans d’autres cas ? Plusieurs mesures ont été développées pour leur application particulière. Voici les plus classiques.</p>
+<p>Une distance est peu plus générale que la distance euclidienne est la distance <span class="math inline">\(L_p\)</span>. Soit <span class="math inline">\(x, y \in \mathbb{R}^n\)</span>, la distance <span class="math inline">\(L_p\)</span> est donnée, pour <span class="math inline">\(p &gt; 0\)</span>, par : <span class="math display">\[d(x, y) = \left\| x - y \right\|_p = \left( \sum_{i = 1}^{n} |x_i - y_i|^p \right)^{1 /p} .\]</span></p>
+<p>La distance euclidienne correspond à la distance <span class="math inline">\(L_p\)</span> avec <span class="math inline">\(p = 2\)</span>. Cas particulier avec <span class="math inline">\(p = 1\)</span>, distance de Manhattan:</p>
+<p><span class="math display">\[d(x, y) = \left\| x - y \right\|_1 = \sum_{i = 1}^{n} | x_i - y_i |.\]</span></p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Properties
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La distance <span class="math inline">\(L_p\)</span> n’est pas invariante à un changement d’échelle, <em>i.e.</em>, <span class="math inline">\(L_p(x, y) \neq L_p(\lambda x, \lambda y)\)</span>.</p>
+</div>
+</div>
+<p>Standardisation</p>
+</section><section id="notion-de-similarité" class="level2"><h2 class="anchored" data-anchor-id="notion-de-similarité">Notion de similarité</h2>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Définition d’un indice de similarité
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un indice de similarité <span class="math inline">\(s\)</span> doit satisfaire les propriétés suivantes pour tout <span class="math inline">\(x, y \in A\)</span>, <span class="math inline">\(A\)</span> étant un ensemble quelconque:</p>
+<ol type="1">
+<li><p><span class="math inline">\(s(x, y) \geq 0\)</span>;</p></li>
+<li><p><span class="math inline">\(s(x, y) = s(y, x)\)</span>;</p></li>
+<li><p><span class="math inline">\(s(x, x) = 1 \geq s(x, y)\)</span>.</p></li>
+</ol>
+</div>
+</div>
+<p>Une distance peut se transformer en similarité en posant <span class="math inline">\(s(x, y) = \frac{1}{1 + d(x, y)}\)</span>. L’inverse n’est pas vrai, dû à l’inégalité triangulaire. On peut aussi définir la dissemblance entre deux objects: <span class="math inline">\(d^\star(x, y) = 1 - s(x, y)\)</span>.</p>
+
+
+</section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -1002,7 +1126,7 @@ window.onload = function() {
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions"><ul>
+<div class="toc-actions d-sm-block d-md-none"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/04-distance.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
 </ul></div>

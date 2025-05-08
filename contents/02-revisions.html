@@ -563,12 +563,59 @@ Propriétés de la trace
 </section><section id="révisions-de-probabilité" class="level2"><h2 class="anchored" data-anchor-id="révisions-de-probabilité">Révisions de probabilité</h2>
 <p>Vecteurs aléatoires:</p>
 <p>Soit <span class="math inline">\(X = (X_{1}, \dots, X_{p})^\top\)</span>, un vecteur aléatoire de taille <span class="math inline">\(p\)</span>.</p>
-<p>Espérance:</p>
-<p>Matrice de variance/covariance:</p>
-<p>Matrice de corrélation:</p>
+<p>Espérance: <span class="math display">\[\mathbb{E}(X) = \begin{pmatrix}
+  \mathbb{E}(X_{1}) \\
+  \vdots \\
+  \mathbb{E}(X_{p})
+\end{pmatrix} \coloneqq \begin{pmatrix}
+  \mu_{1} \\
+  \vdots \\
+  \mu_{p}
+\end{pmatrix} \coloneqq \mu.\]</span></p>
+<p>Matrice de variance/covariance: <span class="math display">\[\mathrm{Var}(X) = \begin{pmatrix}
+  \mathrm{Var}(X_{1}) &amp; \cdots &amp; \mathrm{Cov}(X_{1}, X_{p}) \\
+  \vdots &amp; \ddots &amp; \vdots \\
+  \mathrm{Cov}(X_{1}, X_{p}) &amp; \cdots &amp; \mathrm{Var}(X_p)  
+  \end{pmatrix} \coloneqq \begin{pmatrix}
+  \sigma_{1}^2 &amp; \cdots &amp; \sigma_{1, p} \\
+  \vdots &amp; \ddots &amp; \vdots \\
+  \sigma_{1, p} &amp; \cdots &amp; \sigma_p   
+\end{pmatrix} \coloneqq \Sigma.\]</span></p>
+<p>Matrice de corrélation: <span class="math display">\[\mathrm{Cor}(X) = \begin{pmatrix}
+  1 &amp; \cdots &amp; \mathrm{Corr}(X_{1}, X_{p})  \\
+  \vdots &amp; \ddots &amp; \vdots \\
+  \mathrm{Corr}(X_{1}, X_{p}) &amp; \cdots &amp; 1
+  \end{pmatrix} \coloneqq \begin{pmatrix}
+  1 &amp; \cdots &amp; \rho_{1, p} \\
+  \vdots &amp; \ddots &amp; \vdots \\
+  \rho_{1, p} &amp; \cdots &amp; 1
+\end{pmatrix} \coloneqq R.\]</span></p>
 <p>Propriété des moments:</p>
-<p>Loi normale multivariée:</p>
-<p>Estimation avec un échantillon:</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Properties
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soit <span class="math inline">\(X\)</span> un vecteur aléatoire de moyenne <span class="math inline">\(\mathbb{E}(X) = \mu\)</span> et de variance <span class="math inline">\(\mathrm{Var}(X) = \Sigma\)</span>, et soit <span class="math inline">\(M\)</span> une matrice de constantes et <span class="math inline">\(v\)</span> un vecteur de constantes.</p>
+<ol type="1">
+<li><p><span class="math inline">\(\Sigma\)</span> est définie non-négative et symétrique.</p></li>
+<li><p><span class="math inline">\(\Sigma = \mathbb{E}\left[ (X - \mu)(X - \mu)^\top \right] = \mathbb{E}(X X^\top) - \mu \mu^\top\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathbb{E}(MX + v) = \mathbb{E}(X) + v\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathrm{Var}(MX + v) = \mathrm{Var}(MX) = M \Sigma M^\top\)</span>.</p></li>
+<li><p><span class="math inline">\(\Sigma = \Delta R \Delta \iff R = \Delta^{-1} \Sigma \Delta^{-1}\)</span>.</p></li>
+</ol>
+</div>
+</div>
+<p>Loi normale multivariée: On dit qu’un vecteur aléatoire <span class="math inline">\(X\)</span> de dimension <span class="math inline">\(p\)</span> suit une loi normale multidimensionnelle de moyenne <span class="math inline">\(\mu\)</span> et de variance <span class="math inline">\(\Sigma \sim \mathcal{N}_{p}(\mu, \sigma^2)\)</span>, si sa densité est données par <span class="math display">\[f_X(x) = \frac{1}{(2 \pi)^{p /2}} \cdot \frac{1}{(\text{det} \Sigma)^{1/2}} \cdot \exp\left\{ -\frac{1}{2}\left( x - \mu \right)^\top \Sigma^{-1} \left( x - \mu \right) \right\}, \quad x \in \mathbb{R}^p.\]</span></p>
+<p>Estimation avec un échantillon: En practique, nous ne connaissons pas les valeurs de <span class="math inline">\(\mu\)</span> et de <span class="math inline">\(\Sigma\)</span> et nous voulons les estimer à partir d’un échantillon. Soit <span class="math inline">\(X_{1}, \dots, X_{n}\)</span>, <span class="math inline">\(n\)</span> réalisations indépendantes d’un vecteur aléatoire <span class="math inline">\(X\)</span> de moyenne <span class="math inline">\(\mu\)</span> et de variance <span class="math inline">\(\Sigma\)</span>. On estime <span class="math inline">\(\mu\)</span> et <span class="math inline">\(\Sigma\)</span> par :</p>
+<p><span class="math display">\[\widehat{\mu} = \overline{X} \coloneqq \frac{1}{n} \sum_{i = 1}^{n} X_i\]</span></p>
+<p><span class="math display">\[\widehat{\Sigma} = S^2 \coloneqq \frac{1}{n - 1}\sum_{i = 1}^{n} (X_i - \overline{X})(X_i - \overline{X})^\top.\]</span></p>
+<p>Notons <span class="math inline">\(D = \{\text{diag}(S^2)\}^{1/2}\)</span>, la matrice des écarts-types calculés sur l’échantillon. On peut calculer la matrice des corrélations sur l’échantillon par : <span class="math display">\[\widehat{R} = D^{-1} S^2 D^{-1} \iff S^2 = D \widehat{R} D.\]</span></p>
 
 
 </section></main><!-- /main --><script>
