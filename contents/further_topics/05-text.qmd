@@ -1,0 +1,8 @@
+--- 
+title: "Texte"
+format: 
+  html: default
+  pdf:
+    header-includes:
+      - \usepackage{mathtools} 
+--- 

@@ -59,19 +59,49 @@ website:
           - href: contents/01-introduction.qmd 
             text: 01 - Introduction 
           - href: contents/02-revisions.qmd 
-            text: 02 - Révisions 
-          - href: contents/03-spaces.qmd
-            text: 03 - Espace 
-          - href: contents/04-distance.qmd 
-            text: 04 - Distance 
-          - href: contents/05-bias-variance.qmd 
-            text: 05 - Biais/Variance
-          - href: contents/06-dimension.qmd 
-            text: 06 - Réduction de dimension
-          - href: contents/07-supervisee.qmd
-            text: 07 - Supervisée
-          - href: contents/08-nonsupervisee.qmd
-            text: 08 - Non-supervisée 
+            text: 02 - Révisions
+            contents:
+              - contents/remainders/01-linear-algebra.qmd
+              - contents/remainders/02-probabilities.qmd 
+              - contents/remainders/03-stat.qmd 
+              - contents/remainders/04-programming.qmd
+          - href: contents/03-generalities.qmd 
+            text: 03 - Généralités
+            contents:
+              - contents/generalities/01-space.qmd
+              - contents/generalities/02-distance.qmd 
+              - contents/generalities/03-bias-variance.qmd 
+              - contents/generalities/04-model-evaluation.qmd
+          - href: contents/04-dimension.qmd
+            text: 04 - Dimension
+            contents:
+              - contents/dimension/01-pca.qmd 
+              - contents/dimension/02-mca.qmd 
+              - contents/dimension/03-kernel.qmd 
+              - contents/dimension/04-others.qmd
+          - href: contents/05-supervisee.qmd 
+            text: 05 - Supervisée
+            contents: 
+              - contents/supervised/01-regression.qmd 
+              - contents/supervised/02-tree.qmd
+              - contents/supervised/03-hierarchy.qmd 
+              - contents/supervised/04-others.qmd 
+          - href: contents/06-nonsupervisee.qmd 
+            text: 06 - Non-supervisée
+            contents:
+              - contents/unsupervised/01-kmeans.qmd 
+              - contents/unsupervised/02-hierarchy.qmd
+              - contents/unsupervised/03-gaussian-mixtures.qmd
+              - contents/unsupervised/04-others.qmd
+          - href: contents/07-further.qmd 
+            text: 07 - Autres
+            contents:
+              - contents/further_topics/01-fda.qmd 
+              - contents/further_topics/02-spatial.qmd
+              - contents/further_topics/03-timeseries.qmd 
+              - contents/further_topics/04-network.qmd 
+              - contents/further_topics/05-text.qmd
+
 
 bibliography: ./include/biblio.bib
 

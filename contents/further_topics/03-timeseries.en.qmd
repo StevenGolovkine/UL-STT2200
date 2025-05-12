@@ -1,0 +1,8 @@
+--- 
+title: "Time series"
+format: 
+  html: default
+  pdf:
+    header-includes:
+      - \usepackage{mathtools} 
+--- 

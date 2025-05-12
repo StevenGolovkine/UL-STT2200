@@ -1,0 +1,8 @@
+--- 
+title: "Noyau"
+format: 
+  html: default
+  pdf:
+    header-includes:
+      - \usepackage{mathtools} 
+--- 

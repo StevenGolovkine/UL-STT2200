@@ -1,0 +1,8 @@
+--- 
+title: "Evaluation de modeles"
+format: 
+  html: default
+  pdf:
+    header-includes: 
+      - \usepackage{mathtools}
+--- 
