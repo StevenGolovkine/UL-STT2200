@@ -1,36 +1,10 @@
 [
   {
-    "objectID": "informations/general.html",
-    "href": "informations/general.html",
-    "title": "Informations générales",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STT-2200: Analyse de données",
     "section": "",
-    "text": "Faculté des sciences et de génie\nDépartement de mathématiques et de statistique",
-    "crumbs": [
-      "Informations",
-      "Générales"
-    ]
-  },
-  {
-    "objectID": "informations/general.html#stt-2200-analyse-de-données",
-    "href": "informations/general.html#stt-2200-analyse-de-données",
-    "title": "Informations générales",
-    "section": "STT-2200: Analyse de données",
-    "text": "STT-2200: Analyse de données\nFormule d’enseignement: Présentiel\nTemps consacré:\n\nCours: 2h\nLaboratoire: 1h\nTravail personnel: 6h\nTotal: 9h\n\nCrédits: 3\nPréalables:\n\nACT-2000 ou STT-1000 ou STT-1300 ou STT-1900\nMAT-1200 ou ACT-2002\nSTT-1100 ou IFT-4902 ou ECN-2090 ou GLO-1901 ou IFT-1004\n\nPlage horaire:\n\n\n\nType\nJour\nHoraire\nDates\n\n\n\n\nLabo\nMardi\n\n\n\n\nClasse\nVendredi",
-    "crumbs": [
-      "Informations",
-      "Générales"
-    ]
-  },
-  {
-    "objectID": "informations/general.html#coordonnées-et-disponibilités",
-    "href": "informations/general.html#coordonnées-et-disponibilités",
-    "title": "Informations générales",
-    "section": "Coordonnées et disponibilités",
-    "text": "Coordonnées et disponibilités\nSteven Golovkine (Enseignant)\nVCH-2200\nsteven.golovkine@mat.ulaval.ca\nDisponibilités\nJe suis disponible pour vous rencontrer sur rendez-vous par couriel ou sans rendez-vous du lundi au jeudi entre 8h et 10h.\n\nL’Université reconnaît le droit à la déconnexion des professeures et professeurs, des personnes chargées de cours et des autres membres du personnel enseignant. Cela signifie que ces personnes ne sont pas tenues de consulter les messages qui leur sont envoyés (courriel, boîte vocale, message dans un forum, etc.) pendant les soirs, fins de semaine, jours fériés et vacances. La personne qui aura envoyé un message durant ces périodes devra donc s’attendre à recevoir une réponse dans un délai raisonnable, calculé à partir de la reprise des heures normales de travail.",
-    "crumbs": [
-      "Informations",
-      "Générales"
-    ]
+    "text": "Bienvenue à tous au cours STT-2200 de l’automne 2025.\nVous trouverez sur ce site toute les informations nécessaire pour les cours, les différents travaux et les exams. Les contenus seront mis à jour au cours de la session avec les corrigés de certains travaux. Je vous invite à regarder les différents modules avant les cours.\nCe site a été créé avec Quarto."
   },
   {
     "objectID": "informations/schedule.html",
@@ -44,54 +18,75 @@
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "STT-2200: Analyse de données",
+    "objectID": "informations/mcq.html",
+    "href": "informations/mcq.html",
+    "title": "QCM",
     "section": "",
-    "text": "Bienvenue à tous au cours STT-2200 de l’automne 2025.\nVous trouverez sur ce site toute les informations nécessaire pour les cours, les différents travaux et les exams. Les contenus seront mis à jour au cours de la session avec les corrigés de certains travaux. Je vous invite à regarder les différents modules avant les cours.\nCe site a été créé avec Quarto."
+    "text": "Le premier examen est un questionaire à choix multiples avec quantification de l’incertitude.\nL’ utilisation de degrés de certitude permet à l’étudiant d’évaluer le niveau de connaissance de la réponse donnée. La barème des notes, basé sur la théorie des décision (Leclercq et al. 1993), peut sembler bizarre mais il a été fait de tel manière que:\n\ndire la vérité soit la stratégie qui rapporte le plus de points;\nceux qui s’auto-évaluent bien gagnent plus de points que si l’on appliquait un barème correctif tenant compte des probabilités d’avoir la réponse correcte aléatoirement.\n\n\n\n\nSi vous condidérez que votre réponse a une probabilité d’être correcte comprise entre…\n\n\nChoisissez le degré de certitude…\n\n\nVous obtiendrez les points suivants en case de réponse…\n\n\n\n\n\n\n\n\ncorrecte\n\n\nincorrecte\n\n\n\n\n0% et 25%\n\n\n0\n\n\n+13\n\n\n+4\n\n\n\n\n25% et 50%\n\n\n1\n\n\n+16\n\n\n+3\n\n\n\n\n50% et 70%\n\n\n2\n\n\n+17\n\n\n+2\n\n\n\n\n70% et 85%\n\n\n3\n\n\n+18\n\n\n0\n\n\n\n\n85% et 95%\n\n\n4\n\n\n+19\n\n\n-6\n\n\n\n\n95% et 100%\n\n\n5\n\n\n+20\n\n\n-10\n\n\n\nGénéralement, les étudiants s’auto-estiment avec réalisme, et sont avantagés par les degrés de certitude. Leur score obtenu est meilleur que s’il avait été calculé uniquement sur la base du nombre de réponses justes.",
+    "crumbs": [
+      "Informations",
+      "Évaluations",
+      "QCM"
+    ]
   },
   {
-    "objectID": "contents/01-introduction.html",
-    "href": "contents/01-introduction.html",
-    "title": "Introduction",
+    "objectID": "informations/mcq.html#information-sur-le-premier-examen",
+    "href": "informations/mcq.html#information-sur-le-premier-examen",
+    "title": "QCM",
+    "section": "",
+    "text": "Le premier examen est un questionaire à choix multiples avec quantification de l’incertitude.\nL’ utilisation de degrés de certitude permet à l’étudiant d’évaluer le niveau de connaissance de la réponse donnée. La barème des notes, basé sur la théorie des décision (Leclercq et al. 1993), peut sembler bizarre mais il a été fait de tel manière que:\n\ndire la vérité soit la stratégie qui rapporte le plus de points;\nceux qui s’auto-évaluent bien gagnent plus de points que si l’on appliquait un barème correctif tenant compte des probabilités d’avoir la réponse correcte aléatoirement.\n\n\n\n\nSi vous condidérez que votre réponse a une probabilité d’être correcte comprise entre…\n\n\nChoisissez le degré de certitude…\n\n\nVous obtiendrez les points suivants en case de réponse…\n\n\n\n\n\n\n\n\ncorrecte\n\n\nincorrecte\n\n\n\n\n0% et 25%\n\n\n0\n\n\n+13\n\n\n+4\n\n\n\n\n25% et 50%\n\n\n1\n\n\n+16\n\n\n+3\n\n\n\n\n50% et 70%\n\n\n2\n\n\n+17\n\n\n+2\n\n\n\n\n70% et 85%\n\n\n3\n\n\n+18\n\n\n0\n\n\n\n\n85% et 95%\n\n\n4\n\n\n+19\n\n\n-6\n\n\n\n\n95% et 100%\n\n\n5\n\n\n+20\n\n\n-10\n\n\n\nGénéralement, les étudiants s’auto-estiment avec réalisme, et sont avantagés par les degrés de certitude. Leur score obtenu est meilleur que s’il avait été calculé uniquement sur la base du nombre de réponses justes.",
+    "crumbs": [
+      "Informations",
+      "Évaluations",
+      "QCM"
+    ]
+  },
+  {
+    "objectID": "contents/generalities/02-distance.html",
+    "href": "contents/generalities/02-distance.html",
+    "title": "Distances",
     "section": "",
     "text": "Slides: link",
     "crumbs": [
       "Modules",
-      "01 - Introduction"
+      "03 - Généralités",
+      "Distances"
     ]
   },
   {
-    "objectID": "contents/01-introduction.html#quest-ce-que-lanalyse-de-données",
-    "href": "contents/01-introduction.html#quest-ce-que-lanalyse-de-données",
-    "title": "Introduction",
-    "section": "Qu’est-ce que l’analyse de données ?",
-    "text": "Qu’est-ce que l’analyse de données ?\nL’analyse de données est un ensemble de méthodes permettant de retirer de l’information d’un jeu de données. On parle aussi d’apprentissage statistique (statistical learning). L’idée est d’utiliser des modèles statistiques pour comprendre comment les données sont structurées et comment elles intéragissent l’une avec l’autre.\n\n\n\n\n\n\nExample\n\n\n\nImaginons que vous êtes le gérant d’un magasin. Vous aimeriez savoir quand ouvrir votre magasin pour maximiser votre chiffre d’affaires. Pour cela, vous pouvez comptez le nombre de clients par heure pendant une période de temps, disons un mois, et ensuite s’interesser à comment ses données sont structurées par rapport aux horaires d’ouverture.",
+    "objectID": "contents/generalities/02-distance.html#introduction",
+    "href": "contents/generalities/02-distance.html#introduction",
+    "title": "Distances",
+    "section": "Introduction",
+    "text": "Introduction\nOn a besoin d’une notion de distance et de similarité. On a besoin d’une définition de ce que sont des observations similaires ou des observations différentes. On veut quantifier la similarité ou la distance entre deux observations. Le choix de la métrique est une étape essentielle dans le processus d’analyse de données.",
     "crumbs": [
       "Modules",
-      "01 - Introduction"
+      "03 - Généralités",
+      "Distances"
     ]
   },
   {
-    "objectID": "contents/01-introduction.html#objectifs",
-    "href": "contents/01-introduction.html#objectifs",
-    "title": "Introduction",
-    "section": "Objectifs",
-    "text": "Objectifs\nCe cours n’a pas vocation à être exhaustif, dans le sens de présenter toutes les méthodes possibles. Ce cours n’a pas non plus vocation à être à l’état de l’art, dans le sens où on ne s’intéressera pas aux derniers développements en apprentissage machine. Ce cours n’est pas non plus un cours de programmation.",
+    "objectID": "contents/generalities/02-distance.html#notion-de-distance",
+    "href": "contents/generalities/02-distance.html#notion-de-distance",
+    "title": "Distances",
+    "section": "Notion de distance",
+    "text": "Notion de distance\n\n\n\n\n\n\nDéfinition de distance\n\n\n\nUne mesure de distance \\(d\\) doit satisfaire les propriétés suivantes pour tout \\(x, y, z \\in A\\), \\(A\\) étant un ensemble quelconque:\n\n\\(d(x, y) \\geq 0\\);\n\\(d(x, x) = 0\\);\n\\(d(x, y) = d(y, x)\\);\n\\(d(x, y) \\leq d(x, z) + d(y, z)\\).\n\n\n\nLa distance euclidienne:\nSi les observations sont constituées de \\(p\\) nombres réels de même ordre de grandeur, alors la distance euclidienne entre deux éléments de \\(\\mathbb{R}^p\\) est une mesure raisonnable.\nSoit \\(x, y \\in \\mathbb{R}^n\\), la distance euclidienne est données par : \\[d(x, y) = \\left\\| x - y \\right\\|_2 = \\left( \\sum_{i = 1}^{n} (x_i - y_i)^2 \\right)^{1/2}.\\]\nQue fait-on dans d’autres cas ? Plusieurs mesures ont été développées pour leur application particulière. Voici les plus classiques.\nUne distance est peu plus générale que la distance euclidienne est la distance \\(L_p\\). Soit \\(x, y \\in \\mathbb{R}^n\\), la distance \\(L_p\\) est donnée, pour \\(p &gt; 0\\), par : \\[d(x, y) = \\left\\| x - y \\right\\|_p = \\left( \\sum_{i = 1}^{n} |x_i - y_i|^p \\right)^{1 /p} .\\]\nLa distance euclidienne correspond à la distance \\(L_p\\) avec \\(p = 2\\). Cas particulier avec \\(p = 1\\), distance de Manhattan:\n\\[d(x, y) = \\left\\| x - y \\right\\|_1 = \\sum_{i = 1}^{n} | x_i - y_i |.\\]\n\n\n\n\n\n\nProperties\n\n\n\nLa distance \\(L_p\\) n’est pas invariante à un changement d’échelle, i.e., \\(L_p(x, y) \\neq L_p(\\lambda x, \\lambda y)\\).\n\n\nStandardisation",
     "crumbs": [
       "Modules",
-      "01 - Introduction"
+      "03 - Généralités",
+      "Distances"
     ]
   },
   {
-    "objectID": "contents/01-introduction.html#pratique-de-programmation",
-    "href": "contents/01-introduction.html#pratique-de-programmation",
-    "title": "Introduction",
-    "section": "Pratique de programmation",
-    "text": "Pratique de programmation\n\nConseils généraux\nSpécifique à R\nSpécifique à Python",
+    "objectID": "contents/generalities/02-distance.html#notion-de-similarité",
+    "href": "contents/generalities/02-distance.html#notion-de-similarité",
+    "title": "Distances",
+    "section": "Notion de similarité",
+    "text": "Notion de similarité\n\n\n\n\n\n\nDéfinition d’un indice de similarité\n\n\n\nUn indice de similarité \\(s\\) doit satisfaire les propriétés suivantes pour tout \\(x, y \\in A\\), \\(A\\) étant un ensemble quelconque:\n\n\\(s(x, y) \\geq 0\\);\n\\(s(x, y) = s(y, x)\\);\n\\(s(x, x) = 1 \\geq s(x, y)\\).\n\n\n\nUne distance peut se transformer en similarité en posant \\(s(x, y) = \\frac{1}{1 + d(x, y)}\\). L’inverse n’est pas vrai, dû à l’inégalité triangulaire. On peut aussi définir la dissemblance entre deux objects: \\(d^\\star(x, y) = 1 - s(x, y)\\).",
     "crumbs": [
       "Modules",
-      "01 - Introduction"
+      "03 - Généralités",
+      "Distances"
     ]
   },
   {
@@ -99,21 +94,36 @@
     "href": "contents/generalities/01-spaces.html",
     "title": "Espace",
     "section": "",
-    "text": "Slides : link"
+    "text": "Slides : link",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités",
+      "Espace"
+    ]
   },
   {
     "objectID": "contents/generalities/01-spaces.html#types-de-variables",
     "href": "contents/generalities/01-spaces.html#types-de-variables",
     "title": "Espace",
     "section": "Types de variables",
-    "text": "Types de variables\n\nVariable numérique: Variable dont la valeur numérique mesure quelque chose de quantifiable et dont la différence entre les valeurs reflète la différence entre les objets. Exemples: revenu en dollars, masse, âge, …\nVariable ordinale: Variable qui ne donne pas une quantification précise d’un phénomène, mais dont les modalités peuvent être naturellement ordonnées. Examples: revenu faible, moyen ou élevé, ou niveau d’accord entre “tout-à-fait en désaccord”, “en désaccord”, “pas d’avis”, “d’accord”, “tout-à-fait d’accord”.\nNominales symétriques: Variable qualitative dont toutes les modalités sont aussi informatives l’une que l’autre. Examples: Sexe, sections d’un cours.\nNominales asymétriques: Variable qualitative dont les modalités ne contiennent pas toutes le même niveau d’information, habituellement lorsque l’une des modalités est très fréquente, un peu la modalité par defaut, mais que les autres ne le sont pas. Exemples: variable indiquant si un individu est daltonien ou non (deux individus daltoniens ont quelque chose en commun, mais deux individus non-daltoniens n’ont pas forcément quelque chose en commun), variable indiquant si une transaction est frauduleuse.\nIl y a plein d’autre type de variables: fonctions, textes, images, graphs, …"
+    "text": "Types de variables\n\nVariable numérique: Variable dont la valeur numérique mesure quelque chose de quantifiable et dont la différence entre les valeurs reflète la différence entre les objets. Exemples: revenu en dollars, masse, âge, …\nVariable ordinale: Variable qui ne donne pas une quantification précise d’un phénomène, mais dont les modalités peuvent être naturellement ordonnées. Examples: revenu faible, moyen ou élevé, ou niveau d’accord entre “tout-à-fait en désaccord”, “en désaccord”, “pas d’avis”, “d’accord”, “tout-à-fait d’accord”.\nNominales symétriques: Variable qualitative dont toutes les modalités sont aussi informatives l’une que l’autre. Examples: Sexe, sections d’un cours.\nNominales asymétriques: Variable qualitative dont les modalités ne contiennent pas toutes le même niveau d’information, habituellement lorsque l’une des modalités est très fréquente, un peu la modalité par defaut, mais que les autres ne le sont pas. Exemples: variable indiquant si un individu est daltonien ou non (deux individus daltoniens ont quelque chose en commun, mais deux individus non-daltoniens n’ont pas forcément quelque chose en commun), variable indiquant si une transaction est frauduleuse.\nIl y a plein d’autre type de variables: fonctions, textes, images, graphs, …",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités",
+      "Espace"
+    ]
   },
   {
     "objectID": "contents/generalities/01-spaces.html#espaces-associés",
     "href": "contents/generalities/01-spaces.html#espaces-associés",
     "title": "Espace",
     "section": "Espaces associés",
-    "text": "Espaces associés"
+    "text": "Espaces associés",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités",
+      "Espace"
+    ]
   },
   {
     "objectID": "contents/04-dimension.html",
@@ -171,61 +181,6 @@
     ]
   },
   {
-    "objectID": "slides/01-introduction-slides.html#test",
-    "href": "slides/01-introduction-slides.html#test",
-    "title": "Introduction",
-    "section": "Test",
-    "text": "Test\nCoucou"
-  },
-  {
-    "objectID": "contents/generalities/02-distance.html",
-    "href": "contents/generalities/02-distance.html",
-    "title": "Distances",
-    "section": "",
-    "text": "Slides: link",
-    "crumbs": [
-      "Modules",
-      "03 - Généralités",
-      "Distances"
-    ]
-  },
-  {
-    "objectID": "contents/generalities/02-distance.html#introduction",
-    "href": "contents/generalities/02-distance.html#introduction",
-    "title": "Distances",
-    "section": "Introduction",
-    "text": "Introduction\nOn a besoin d’une notion de distance et de similarité. On a besoin d’une définition de ce que sont des observations similaires ou des observations différentes. On veut quantifier la similarité ou la distance entre deux observations. Le choix de la métrique est une étape essentielle dans le processus d’analyse de données.",
-    "crumbs": [
-      "Modules",
-      "03 - Généralités",
-      "Distances"
-    ]
-  },
-  {
-    "objectID": "contents/generalities/02-distance.html#notion-de-distance",
-    "href": "contents/generalities/02-distance.html#notion-de-distance",
-    "title": "Distances",
-    "section": "Notion de distance",
-    "text": "Notion de distance\n\n\n\n\n\n\nDéfinition de distance\n\n\n\nUne mesure de distance \\(d\\) doit satisfaire les propriétés suivantes pour tout \\(x, y, z \\in A\\), \\(A\\) étant un ensemble quelconque:\n\n\\(d(x, y) \\geq 0\\);\n\\(d(x, x) = 0\\);\n\\(d(x, y) = d(y, x)\\);\n\\(d(x, y) \\leq d(x, z) + d(y, z)\\).\n\n\n\nLa distance euclidienne:\nSi les observations sont constituées de \\(p\\) nombres réels de même ordre de grandeur, alors la distance euclidienne entre deux éléments de \\(\\mathbb{R}^p\\) est une mesure raisonnable.\nSoit \\(x, y \\in \\mathbb{R}^n\\), la distance euclidienne est données par : \\[d(x, y) = \\left\\| x - y \\right\\|_2 = \\left( \\sum_{i = 1}^{n} (x_i - y_i)^2 \\right)^{1/2}.\\]\nQue fait-on dans d’autres cas ? Plusieurs mesures ont été développées pour leur application particulière. Voici les plus classiques.\nUne distance est peu plus générale que la distance euclidienne est la distance \\(L_p\\). Soit \\(x, y \\in \\mathbb{R}^n\\), la distance \\(L_p\\) est donnée, pour \\(p &gt; 0\\), par : \\[d(x, y) = \\left\\| x - y \\right\\|_p = \\left( \\sum_{i = 1}^{n} |x_i - y_i|^p \\right)^{1 /p} .\\]\nLa distance euclidienne correspond à la distance \\(L_p\\) avec \\(p = 2\\). Cas particulier avec \\(p = 1\\), distance de Manhattan:\n\\[d(x, y) = \\left\\| x - y \\right\\|_1 = \\sum_{i = 1}^{n} | x_i - y_i |.\\]\n\n\n\n\n\n\nProperties\n\n\n\nLa distance \\(L_p\\) n’est pas invariante à un changement d’échelle, i.e., \\(L_p(x, y) \\neq L_p(\\lambda x, \\lambda y)\\).\n\n\nStandardisation",
-    "crumbs": [
-      "Modules",
-      "03 - Généralités",
-      "Distances"
-    ]
-  },
-  {
-    "objectID": "contents/generalities/02-distance.html#notion-de-similarité",
-    "href": "contents/generalities/02-distance.html#notion-de-similarité",
-    "title": "Distances",
-    "section": "Notion de similarité",
-    "text": "Notion de similarité\n\n\n\n\n\n\nDéfinition d’un indice de similarité\n\n\n\nUn indice de similarité \\(s\\) doit satisfaire les propriétés suivantes pour tout \\(x, y \\in A\\), \\(A\\) étant un ensemble quelconque:\n\n\\(s(x, y) \\geq 0\\);\n\\(s(x, y) = s(y, x)\\);\n\\(s(x, x) = 1 \\geq s(x, y)\\).\n\n\n\nUne distance peut se transformer en similarité en posant \\(s(x, y) = \\frac{1}{1 + d(x, y)}\\). L’inverse n’est pas vrai, dû à l’inégalité triangulaire. On peut aussi définir la dissemblance entre deux objects: \\(d^\\star(x, y) = 1 - s(x, y)\\).",
-    "crumbs": [
-      "Modules",
-      "03 - Généralités",
-      "Distances"
-    ]
-  },
-  {
     "objectID": "contents/02-revisions.html",
     "href": "contents/02-revisions.html",
     "title": "Révisions",
@@ -270,80 +225,80 @@
     ]
   },
   {
-    "objectID": "informations/description.html",
-    "href": "informations/description.html",
-    "title": "Description du cours",
+    "objectID": "contents/01-introduction.html",
+    "href": "contents/01-introduction.html",
+    "title": "Introduction",
     "section": "",
-    "text": "Dans ce cours, nous visons à introduire des méthodes qui permettront aux étudiantes et étudiants d’étudier un jeu de données de “haute dimension” (“haute” dans le sens ici où l’on ne peut faire un simple graphique de l’ensemble des observations de toutes les variables) sans avoir recours à un modèle probabiliste. Les techniques qu’on y enseigne servent à réduire la dimension des données, identifier certains liens entre les variables, visualiser les données ou à diviser le jeu de données en groupes/classes.\nSans négliger la théorie, l’accent sera mis sur l’aspect pratique de l’analyse des données et l’utilisation du langage R.",
+    "text": "Slides: link",
     "crumbs": [
-      "Informations",
-      "Description"
+      "Modules",
+      "01 - Introduction"
     ]
   },
   {
-    "objectID": "informations/description.html#objectifs",
-    "href": "informations/description.html#objectifs",
-    "title": "Description du cours",
+    "objectID": "contents/01-introduction.html#quest-ce-que-lanalyse-de-données",
+    "href": "contents/01-introduction.html#quest-ce-que-lanalyse-de-données",
+    "title": "Introduction",
+    "section": "Qu’est-ce que l’analyse de données ?",
+    "text": "Qu’est-ce que l’analyse de données ?\nL’analyse de données est un ensemble de méthodes permettant de retirer de l’information d’un jeu de données. On parle aussi d’apprentissage statistique (statistical learning). L’idée est d’utiliser des modèles statistiques pour comprendre comment les données sont structurées et comment elles intéragissent l’une avec l’autre.\n\n\n\n\n\n\nExample\n\n\n\nImaginons que vous êtes le gérant d’un magasin. Vous aimeriez savoir quand ouvrir votre magasin pour maximiser votre chiffre d’affaires. Pour cela, vous pouvez comptez le nombre de clients par heure pendant une période de temps, disons un mois, et ensuite s’interesser à comment ses données sont structurées par rapport aux horaires d’ouverture.",
+    "crumbs": [
+      "Modules",
+      "01 - Introduction"
+    ]
+  },
+  {
+    "objectID": "contents/01-introduction.html#objectifs",
+    "href": "contents/01-introduction.html#objectifs",
+    "title": "Introduction",
+    "section": "Objectifs",
+    "text": "Objectifs\nCe cours n’a pas vocation à être exhaustif, dans le sens de présenter toutes les méthodes possibles. Ce cours n’a pas non plus vocation à être à l’état de l’art, dans le sens où on ne s’intéressera pas aux derniers développements en apprentissage machine. Ce cours n’est pas non plus un cours de programmation.",
+    "crumbs": [
+      "Modules",
+      "01 - Introduction"
+    ]
+  },
+  {
+    "objectID": "contents/01-introduction.html#pratique-de-programmation",
+    "href": "contents/01-introduction.html#pratique-de-programmation",
+    "title": "Introduction",
+    "section": "Pratique de programmation",
+    "text": "Pratique de programmation\n\nConseils généraux\nSpécifique à R\nSpécifique à Python",
+    "crumbs": [
+      "Modules",
+      "01 - Introduction"
+    ]
+  },
+  {
+    "objectID": "informations/general.html",
+    "href": "informations/general.html",
+    "title": "Informations générales",
     "section": "",
-    "text": "Dans ce cours, nous visons à introduire des méthodes qui permettront aux étudiantes et étudiants d’étudier un jeu de données de “haute dimension” (“haute” dans le sens ici où l’on ne peut faire un simple graphique de l’ensemble des observations de toutes les variables) sans avoir recours à un modèle probabiliste. Les techniques qu’on y enseigne servent à réduire la dimension des données, identifier certains liens entre les variables, visualiser les données ou à diviser le jeu de données en groupes/classes.\nSans négliger la théorie, l’accent sera mis sur l’aspect pratique de l’analyse des données et l’utilisation du langage R.",
+    "text": "Faculté des sciences et de génie\nDépartement de mathématiques et de statistique",
     "crumbs": [
       "Informations",
-      "Description"
+      "Générales"
     ]
   },
   {
-    "objectID": "informations/description.html#place-du-cours-dans-le-programme",
-    "href": "informations/description.html#place-du-cours-dans-le-programme",
-    "title": "Description du cours",
-    "section": "Place du cours dans le programme",
-    "text": "Place du cours dans le programme\nCe cours généralement suivi par des étudiants du baccalauréat en statistique lors de leur deuxième année de formation. Il est aussi un cours à option en actuariat, en mathématique ainsi que dans certains programmes de génie et d’administration.\nTous les étudiants doivent s’assurer d’avoir suivi au minimum un cours d’algèbre (ex. MAT1200) et un cours de statistique de base (ex. STT1000), car la majorité des méthodes d’analyse de données s’appuient sur ces notions.\nLes étudiants devraient aussi avoir une certaine familiarité avec le langage R ou avec la programmation.",
+    "objectID": "informations/general.html#stt-2200-analyse-de-données",
+    "href": "informations/general.html#stt-2200-analyse-de-données",
+    "title": "Informations générales",
+    "section": "STT-2200: Analyse de données",
+    "text": "STT-2200: Analyse de données\nFormule d’enseignement: Présentiel\nTemps consacré:\n\nCours: 2h\nLaboratoire: 1h\nTravail personnel: 6h\nTotal: 9h\n\nCrédits: 3\nPréalables:\n\nACT-2000 ou STT-1000 ou STT-1300 ou STT-1900\nMAT-1200 ou ACT-2002\nSTT-1100 ou IFT-4902 ou ECN-2090 ou GLO-1901 ou IFT-1004\n\nPlage horaire:\n\n\n\nType\nJour\nHoraire\nDates\n\n\n\n\nLabo\nMardi\n\n\n\n\nClasse\nVendredi",
     "crumbs": [
       "Informations",
-      "Description"
+      "Générales"
     ]
   },
   {
-    "objectID": "informations/description.html#objectifs-spécifiques",
-    "href": "informations/description.html#objectifs-spécifiques",
-    "title": "Description du cours",
-    "section": "Objectifs spécifiques",
-    "text": "Objectifs spécifiques\nÀ la fin du cours, l’étudiant ou l’étudiante devra être capable :\n\nde comprendre et décrire succinctement les fondements théoriques des méthodes d’analyse de données étudiées;\nd’identifier correctement les situations où l’emploi de ces méthodes est indiqué;\nd’utiliser efficacement un logiciel tel SAS ou R pour mettre en oeuvre ces méthodes;\nd’analyser et d’interpréter judicieusement les résultats découlant de l’analyse;\nde formuler par écrit les conclusions de l’analyse, dans le respect des limites de la méthodologie.",
+    "objectID": "informations/general.html#coordonnées-et-disponibilités",
+    "href": "informations/general.html#coordonnées-et-disponibilités",
+    "title": "Informations générales",
+    "section": "Coordonnées et disponibilités",
+    "text": "Coordonnées et disponibilités\nSteven Golovkine (Enseignant)\nVCH-2200\nsteven.golovkine@mat.ulaval.ca\nDisponibilités\nJe suis disponible pour vous rencontrer sur rendez-vous par couriel ou sans rendez-vous du lundi au jeudi entre 8h et 10h.\n\nL’Université reconnaît le droit à la déconnexion des professeures et professeurs, des personnes chargées de cours et des autres membres du personnel enseignant. Cela signifie que ces personnes ne sont pas tenues de consulter les messages qui leur sont envoyés (courriel, boîte vocale, message dans un forum, etc.) pendant les soirs, fins de semaine, jours fériés et vacances. La personne qui aura envoyé un message durant ces périodes devra donc s’attendre à recevoir une réponse dans un délai raisonnable, calculé à partir de la reprise des heures normales de travail.",
     "crumbs": [
       "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#équipement-informatique",
-    "href": "informations/description.html#équipement-informatique",
-    "title": "Description du cours",
-    "section": "Équipement informatique",
-    "text": "Équipement informatique\nVous pourriez avoir besoin d’un ordinateur, de haut-parleurs ou d’un casque d’écoute, d’un microphone, d’une webcam et d’une connexion Internet avec fil à large bande ou sans fil. Pour vérifier les paramètres de configuration minimaux selon le système d’exploitation, nous vous invitons à visiter cette page.\nDe plus, ce cours peut nécessiter des besoins logiciels particuliers qui seront alors décrits dans d’autres sections du plan de cours, le cas échéant.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#fonctionnement",
-    "href": "informations/description.html#fonctionnement",
-    "title": "Description du cours",
-    "section": "Fonctionnement",
-    "text": "Fonctionnement\nLes cours et examen auront lieu en présentiel les mardi et vendredi matin, mais une portion du matériel sera disponible en ligne. De façon générale, la séance du vendredi sera une séance magistrale et la séance du mardi sera dédiée à des exercices pratiques réalisés de façon autonome par les étudiants avec le soutien de l’enseignant.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#approches-pédagogiques",
-    "href": "informations/description.html#approches-pédagogiques",
-    "title": "Description du cours",
-    "section": "Approches pédagogiques",
-    "text": "Approches pédagogiques\nL’approche pédagogique privilégiée est l’exposé interactif (vendredi) en alternance avec des périodes de laboratoires (mardi). L’approche pédagogique est très axée sur l’apprentissage actif et exige un engagement soutenu des étudiants tout au long de la session.",
-    "crumbs": [
-      "Informations",
-      "Description"
+      "Générales"
     ]
   },
   {
@@ -446,27 +401,87 @@
     ]
   },
   {
-    "objectID": "informations/mcq.html",
-    "href": "informations/mcq.html",
-    "title": "QCM",
+    "objectID": "informations/description.html",
+    "href": "informations/description.html",
+    "title": "Description du cours",
     "section": "",
-    "text": "Le premier examen est un questionaire à choix multiples avec quantification de l’incertitude.\nL’ utilisation de degrés de certitude permet à l’étudiant d’évaluer le niveau de connaissance de la réponse donnée. La barème des notes, basé sur la théorie des décision (Leclercq et al. 1993), peut sembler bizarre mais il a été fait de tel manière que:\n\ndire la vérité soit la stratégie qui rapporte le plus de points;\nceux qui s’auto-évaluent bien gagnent plus de points que si l’on appliquait un barème correctif tenant compte des probabilités d’avoir la réponse correcte aléatoirement.\n\n\n\n\nSi vous condidérez que votre réponse a une probabilité d’être correcte comprise entre…\n\n\nChoisissez le degré de certitude…\n\n\nVous obtiendrez les points suivants en case de réponse…\n\n\n\n\n\n\n\n\ncorrecte\n\n\nincorrecte\n\n\n\n\n0% et 25%\n\n\n0\n\n\n+13\n\n\n+4\n\n\n\n\n25% et 50%\n\n\n1\n\n\n+16\n\n\n+3\n\n\n\n\n50% et 70%\n\n\n2\n\n\n+17\n\n\n+2\n\n\n\n\n70% et 85%\n\n\n3\n\n\n+18\n\n\n0\n\n\n\n\n85% et 95%\n\n\n4\n\n\n+19\n\n\n-6\n\n\n\n\n95% et 100%\n\n\n5\n\n\n+20\n\n\n-10\n\n\n\nGénéralement, les étudiants s’auto-estiment avec réalisme, et sont avantagés par les degrés de certitude. Leur score obtenu est meilleur que s’il avait été calculé uniquement sur la base du nombre de réponses justes.",
+    "text": "Dans ce cours, nous visons à introduire des méthodes qui permettront aux étudiantes et étudiants d’étudier un jeu de données de “haute dimension” (“haute” dans le sens ici où l’on ne peut faire un simple graphique de l’ensemble des observations de toutes les variables) sans avoir recours à un modèle probabiliste. Les techniques qu’on y enseigne servent à réduire la dimension des données, identifier certains liens entre les variables, visualiser les données ou à diviser le jeu de données en groupes/classes.\nSans négliger la théorie, l’accent sera mis sur l’aspect pratique de l’analyse des données et l’utilisation du langage R.",
     "crumbs": [
       "Informations",
-      "Évaluations",
-      "QCM"
+      "Description"
     ]
   },
   {
-    "objectID": "informations/mcq.html#information-sur-le-premier-examen",
-    "href": "informations/mcq.html#information-sur-le-premier-examen",
-    "title": "QCM",
+    "objectID": "informations/description.html#objectifs",
+    "href": "informations/description.html#objectifs",
+    "title": "Description du cours",
     "section": "",
-    "text": "Le premier examen est un questionaire à choix multiples avec quantification de l’incertitude.\nL’ utilisation de degrés de certitude permet à l’étudiant d’évaluer le niveau de connaissance de la réponse donnée. La barème des notes, basé sur la théorie des décision (Leclercq et al. 1993), peut sembler bizarre mais il a été fait de tel manière que:\n\ndire la vérité soit la stratégie qui rapporte le plus de points;\nceux qui s’auto-évaluent bien gagnent plus de points que si l’on appliquait un barème correctif tenant compte des probabilités d’avoir la réponse correcte aléatoirement.\n\n\n\n\nSi vous condidérez que votre réponse a une probabilité d’être correcte comprise entre…\n\n\nChoisissez le degré de certitude…\n\n\nVous obtiendrez les points suivants en case de réponse…\n\n\n\n\n\n\n\n\ncorrecte\n\n\nincorrecte\n\n\n\n\n0% et 25%\n\n\n0\n\n\n+13\n\n\n+4\n\n\n\n\n25% et 50%\n\n\n1\n\n\n+16\n\n\n+3\n\n\n\n\n50% et 70%\n\n\n2\n\n\n+17\n\n\n+2\n\n\n\n\n70% et 85%\n\n\n3\n\n\n+18\n\n\n0\n\n\n\n\n85% et 95%\n\n\n4\n\n\n+19\n\n\n-6\n\n\n\n\n95% et 100%\n\n\n5\n\n\n+20\n\n\n-10\n\n\n\nGénéralement, les étudiants s’auto-estiment avec réalisme, et sont avantagés par les degrés de certitude. Leur score obtenu est meilleur que s’il avait été calculé uniquement sur la base du nombre de réponses justes.",
+    "text": "Dans ce cours, nous visons à introduire des méthodes qui permettront aux étudiantes et étudiants d’étudier un jeu de données de “haute dimension” (“haute” dans le sens ici où l’on ne peut faire un simple graphique de l’ensemble des observations de toutes les variables) sans avoir recours à un modèle probabiliste. Les techniques qu’on y enseigne servent à réduire la dimension des données, identifier certains liens entre les variables, visualiser les données ou à diviser le jeu de données en groupes/classes.\nSans négliger la théorie, l’accent sera mis sur l’aspect pratique de l’analyse des données et l’utilisation du langage R.",
     "crumbs": [
       "Informations",
-      "Évaluations",
-      "QCM"
+      "Description"
     ]
+  },
+  {
+    "objectID": "informations/description.html#place-du-cours-dans-le-programme",
+    "href": "informations/description.html#place-du-cours-dans-le-programme",
+    "title": "Description du cours",
+    "section": "Place du cours dans le programme",
+    "text": "Place du cours dans le programme\nCe cours généralement suivi par des étudiants du baccalauréat en statistique lors de leur deuxième année de formation. Il est aussi un cours à option en actuariat, en mathématique ainsi que dans certains programmes de génie et d’administration.\nTous les étudiants doivent s’assurer d’avoir suivi au minimum un cours d’algèbre (ex. MAT1200) et un cours de statistique de base (ex. STT1000), car la majorité des méthodes d’analyse de données s’appuient sur ces notions.\nLes étudiants devraient aussi avoir une certaine familiarité avec le langage R ou avec la programmation.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#objectifs-spécifiques",
+    "href": "informations/description.html#objectifs-spécifiques",
+    "title": "Description du cours",
+    "section": "Objectifs spécifiques",
+    "text": "Objectifs spécifiques\nÀ la fin du cours, l’étudiant ou l’étudiante devra être capable :\n\nde comprendre et décrire succinctement les fondements théoriques des méthodes d’analyse de données étudiées;\nd’identifier correctement les situations où l’emploi de ces méthodes est indiqué;\nd’utiliser efficacement un logiciel tel SAS ou R pour mettre en oeuvre ces méthodes;\nd’analyser et d’interpréter judicieusement les résultats découlant de l’analyse;\nde formuler par écrit les conclusions de l’analyse, dans le respect des limites de la méthodologie.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#équipement-informatique",
+    "href": "informations/description.html#équipement-informatique",
+    "title": "Description du cours",
+    "section": "Équipement informatique",
+    "text": "Équipement informatique\nVous pourriez avoir besoin d’un ordinateur, de haut-parleurs ou d’un casque d’écoute, d’un microphone, d’une webcam et d’une connexion Internet avec fil à large bande ou sans fil. Pour vérifier les paramètres de configuration minimaux selon le système d’exploitation, nous vous invitons à visiter cette page.\nDe plus, ce cours peut nécessiter des besoins logiciels particuliers qui seront alors décrits dans d’autres sections du plan de cours, le cas échéant.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#fonctionnement",
+    "href": "informations/description.html#fonctionnement",
+    "title": "Description du cours",
+    "section": "Fonctionnement",
+    "text": "Fonctionnement\nLes cours et examen auront lieu en présentiel les mardi et vendredi matin, mais une portion du matériel sera disponible en ligne. De façon générale, la séance du vendredi sera une séance magistrale et la séance du mardi sera dédiée à des exercices pratiques réalisés de façon autonome par les étudiants avec le soutien de l’enseignant.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#approches-pédagogiques",
+    "href": "informations/description.html#approches-pédagogiques",
+    "title": "Description du cours",
+    "section": "Approches pédagogiques",
+    "text": "Approches pédagogiques\nL’approche pédagogique privilégiée est l’exposé interactif (vendredi) en alternance avec des périodes de laboratoires (mardi). L’approche pédagogique est très axée sur l’apprentissage actif et exige un engagement soutenu des étudiants tout au long de la session.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "slides/01-introduction-slides.html#test",
+    "href": "slides/01-introduction-slides.html#test",
+    "title": "Introduction",
+    "section": "Test",
+    "text": "Test\nCoucou"
   }
 ]
