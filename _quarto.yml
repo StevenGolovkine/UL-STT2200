@@ -68,7 +68,7 @@ website:
           - href: contents/03-generalities.qmd 
             text: 03 - Généralités
             contents:
-              - contents/generalities/01-space.qmd
+              - contents/generalities/01-spaces.qmd
               - contents/generalities/02-distance.qmd 
               - contents/generalities/03-bias-variance.qmd 
               - contents/generalities/04-model-evaluation.qmd
