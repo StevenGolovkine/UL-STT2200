@@ -1,8 +1,9 @@
---- 
-title: "Biais/Variance"
-format: 
+---
+title: "Dimension"
+format:
   html: default
-  pdf:
+  pdf: 
     header-includes: 
       - \usepackage{mathtools}
 --- 
+

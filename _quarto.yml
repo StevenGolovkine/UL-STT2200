@@ -66,6 +66,12 @@ website:
             text: 04 - Distance 
           - href: contents/05-bias-variance.qmd 
             text: 05 - Biais/Variance
+          - href: contents/06-dimension.qmd 
+            text: 06 - Réduction de dimension
+          - href: contents/07-supervisee.qmd
+            text: 07 - Supervisée
+          - href: contents/08-nonsupervisee.qmd
+            text: 08 - Non-supervisée 
 
 bibliography: ./include/biblio.bib
 

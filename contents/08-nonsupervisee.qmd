@@ -1,8 +1,9 @@
 --- 
-title: "Biais/Variance"
+title: "Non-supervisée"
 format: 
   html: default
   pdf:
     header-includes: 
       - \usepackage{mathtools}
 --- 
+

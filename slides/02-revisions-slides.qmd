@@ -10,6 +10,7 @@ title-logo: ../include/logo-ul.png
 format:
   revealjs:
     theme: [default, ../include/ulaval-slide.scss]
+    chalkboard: true
     width: 1280
     height: 720
     template-partials:
