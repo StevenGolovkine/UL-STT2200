@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.30">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>bias-variance – STT-2200: Analyse de données</title>
+<title>Biais/Variance – STT-2200: Analyse de données</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script><script src="../site_libs/clipboard/clipboard.min.js"></script><script src="../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../site_libs/quarto-search/fuse.min.js"></script><script src="../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../">
+<link href="../contents/06-dimension.html" rel="next">
 <link href="../contents/04-distance.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script><script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../site_libs/quarto-html/popper.min.js"></script><script src="../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../site_libs/quarto-html/anchor.min.js"></script><link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
@@ -58,7 +59,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Recherche"
   }
 }</script><style>html{ scroll-behavior: smooth; }</style>
-<meta property="og:title" content="STT-2200: Analyse de données">
+<meta property="og:title" content="Biais/Variance – STT-2200: Analyse de données">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
 <body class="nav-sidebar floating quarto-light">
@@ -349,20 +350,57 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">05 - Biais/Variance</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/06-dimension.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">06 - Réduction de dimension</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/07-supervisee.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">07 - Supervisée</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/08-nonsupervisee.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">08 - Non-supervisée</span></a>
+  </div>
+</li>
       </ul>
 </li>
     </ul>
 </div>
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    </div>
+    <div class="quarto-alternate-formats">
+<h2>Autres formats</h2>
+<ul><li><a href="05-bias-variance.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
+</div>
+</div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../contents/05-bias-variance.html">05 - Biais/Variance</a></li>
-</ol></nav></header></main><!-- /main --><script>
+</ol></nav><div class="quarto-title">
+<h1 class="title">Biais/Variance</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -989,6 +1027,9 @@ window.onload = function() {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../contents/06-dimension.html" class="pagination-link" aria-label="06 - Réduction de dimension">
+        <span class="nav-page-text">06 - Réduction de dimension</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
