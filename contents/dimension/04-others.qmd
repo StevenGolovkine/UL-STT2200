@@ -1,8 +1,13 @@
 --- 
-title: "Others"
+title: "Divers"
 format: 
   html: default
   pdf:
     header-includes:
       - \usepackage{mathtools} 
---- 
+---
+
+## $t$-SNE 
+
+
+## UMAP

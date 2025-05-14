@@ -7,8 +7,6 @@ format:
       - \usepackage{mathtools}
 --- 
 
-* Slides: [link](../slides/04-distances-slides.qmd)
-
 ## Introduction
 
 On a besoin d'une notion de distance et de similarité.

@@ -1,8 +1,86 @@
 --- 
-title: "Probabilities"
+title: "Probabilités et Statistiques"
 format: 
   html: default
   pdf:
     header-includes:
       - \usepackage{mathtools} 
---- 
+---
+
+
+## Révisions de probabilité
+
+
+Vecteurs aléatoires: 
+
+Soit $X = (X_{1}, \dots, X_{p})^\top$, un vecteur aléatoire de taille $p$. 
+
+Espérance: 
+$$\mathbb{E}(X) = \begin{pmatrix}
+  \mathbb{E}(X_{1}) \\
+  \vdots \\
+  \mathbb{E}(X_{p})
+\end{pmatrix} \coloneqq \begin{pmatrix}
+  \mu_{1} \\
+  \vdots \\
+  \mu_{p}
+\end{pmatrix} \coloneqq \mu.$$
+
+Matrice de variance/covariance: 
+$$\mathrm{Var}(X) = \begin{pmatrix}
+  \mathrm{Var}(X_{1}) & \cdots & \mathrm{Cov}(X_{1}, X_{p}) \\
+  \vdots & \ddots & \vdots \\
+  \mathrm{Cov}(X_{1}, X_{p}) & \cdots & \mathrm{Var}(X_p)  
+  \end{pmatrix} \coloneqq \begin{pmatrix}
+  \sigma_{1}^2 & \cdots & \sigma_{1, p} \\
+  \vdots & \ddots & \vdots \\
+  \sigma_{1, p} & \cdots & \sigma_p   
+\end{pmatrix} \coloneqq \Sigma.$$
+
+Matrice de corrélation: 
+$$\mathrm{Cor}(X) = \begin{pmatrix}
+  1 & \cdots & \mathrm{Corr}(X_{1}, X_{p})  \\
+  \vdots & \ddots & \vdots \\
+  \mathrm{Corr}(X_{1}, X_{p}) & \cdots & 1
+  \end{pmatrix} \coloneqq \begin{pmatrix}
+  1 & \cdots & \rho_{1, p} \\
+  \vdots & \ddots & \vdots \\
+  \rho_{1, p} & \cdots & 1
+\end{pmatrix} \coloneqq R.$$
+
+Propriété des moments:
+
+::: {.callout-important icon=false}
+## Properties
+
+Soit $X$ un vecteur aléatoire de moyenne $\mathbb{E}(X) = \mu$ et de variance $\mathrm{Var}(X) = \Sigma$, et soit $M$ une matrice de constantes et $v$ un vecteur de constantes.
+
+1. $\Sigma$ est définie non-négative et symétrique.
+
+2. $\Sigma = \mathbb{E}\left[ (X - \mu)(X - \mu)^\top \right] = \mathbb{E}(X X^\top) - \mu \mu^\top$.
+
+3. $\mathbb{E}(MX + v) = \mathbb{E}(X) + v$.
+
+4. $\mathrm{Var}(MX + v) = \mathrm{Var}(MX) = M \Sigma M^\top$.
+
+5. $\Sigma = \Delta R \Delta \iff R = \Delta^{-1} \Sigma \Delta^{-1}$.
+
+:::
+
+Ajouter qqc sur l'indépendance de variables aléatoires!
+
+
+Loi normale multivariée: 
+On dit qu'un vecteur aléatoire $X$ de dimension $p$ suit une loi normale multidimensionnelle de moyenne $\mu$ et de variance $\Sigma \sim \mathcal{N}_{p}(\mu, \sigma^2)$, si sa densité est données par 
+$$f_X(x) = \frac{1}{(2 \pi)^{p /2}} \cdot \frac{1}{(\text{det} \Sigma)^{1/2}} \cdot \exp\left\{ -\frac{1}{2}\left( x - \mu \right)^\top \Sigma^{-1} \left( x - \mu \right) \right\}, \quad x \in \mathbb{R}^p.$$
+
+Estimation avec un échantillon: 
+En practique, nous ne connaissons pas les valeurs de $\mu$ et de $\Sigma$ et nous voulons les estimer à partir d'un échantillon. Soit $X_{1}, \dots, X_{n}$, $n$ réalisations indépendantes d'un vecteur aléatoire $X$ de moyenne $\mu$ et de variance $\Sigma$. On estime $\mu$ et $\Sigma$ par : 
+
+
+$$\widehat{\mu} = \overline{X} \coloneqq \frac{1}{n} \sum_{i = 1}^{n} X_i$$
+
+$$\widehat{\Sigma} = S^2 \coloneqq \frac{1}{n - 1}\sum_{i = 1}^{n} (X_i - \overline{X})(X_i - \overline{X})^\top.$$
+
+Notons $D = \{\text{diag}(S^2)\}^{1/2}$, la matrice des écarts-types calculés sur l'échantillon. On peut calculer la matrice des corrélations sur l'échantillon par : 
+$$\widehat{R} = D^{-1} S^2 D^{-1} \iff S^2 = D \widehat{R} D.$$

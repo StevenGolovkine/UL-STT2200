@@ -7,8 +7,6 @@ format:
       - \usepackage{mathtools}
 --- 
 
-* Slides : [link](../slides/03-spaces-slides.qmd)
-
 
 ## Types de variables
 

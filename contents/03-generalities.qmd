@@ -5,4 +5,8 @@ format:
   pdf:
     header-includes:
       - \usepackage{mathtools} 
---- 
+---
+
+* Slides: [link](../slides/03-generalites-slides.qmd)
+
+
