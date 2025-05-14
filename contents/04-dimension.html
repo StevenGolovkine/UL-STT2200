@@ -5,7 +5,7 @@
 <link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/contents/04-dimension.en.html" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.7.31">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Dimension – STT-2200: Analyse de données</title>
 <style>
@@ -20,38 +20,18 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script><script src="../site_libs/clipboard/clipboard.min.js"></script><script src="../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../site_libs/quarto-search/fuse.min.js"></script><script src="../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../">
 <link href="../contents/dimension/01-pca.html" rel="next">
 <link href="../contents/generalities/04-model-evaluation.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script><script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../site_libs/quarto-html/popper.min.js"></script><script src="../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../site_libs/quarto-html/anchor.min.js"></script><link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-2b3e328b71be8d25427581baeb23079b.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script><link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-a11d19bf1cd20b501c5043ffd6747f64.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-a8b0076ecf0f06a2a97345ccab5199fa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-a11d19bf1cd20b501c5043ffd6747f64.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-8e6c22c7739c08f934f3ec200d7360b1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-fcf47b2b8fc72e317a2d1f29573bce58.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-8e6c22c7739c08f934f3ec200d7360b1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -105,7 +85,6 @@ window.Quarto = {
   typesetMath
 };
 </script><meta property="og:title" content="Dimension – STT-2200: Analyse de données">
-<meta property="og:description" content="">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
 <body class="nav-sidebar floating quarto-light">
@@ -384,19 +363,19 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/remainders/01-linear-algebra.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Algebre</span></a>
+ <span class="menu-text">Algèbre</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/remainders/02-probabilities.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Probabilities</span></a>
+ <span class="menu-text">Probabilités et Statistiques</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/remainders/03-stat.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Statistique</span></a>
+ <span class="menu-text">Analyse de données</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -472,7 +451,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/dimension/04-others.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Others</span></a>
+ <span class="menu-text">Divers</span></a>
   </div>
 </li>
       </ul>
@@ -595,35 +574,11 @@ window.Quarto = {
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
-   
-  <ul>
-<li><a href="#changer-de-dimension---pourquoi-faire" id="toc-changer-de-dimension---pourquoi-faire" class="nav-link active" data-scroll-target="#changer-de-dimension---pourquoi-faire">Changer de dimension - pourquoi faire ?</a></li>
-  <li>
-<a href="#analyse-en-composantes-principales" id="toc-analyse-en-composantes-principales" class="nav-link" data-scroll-target="#analyse-en-composantes-principales">Analyse en composantes principales</a>
-  <ul class="collapse">
-<li><a href="#les-maths" id="toc-les-maths" class="nav-link" data-scroll-target="#les-maths">Les maths</a></li>
-  <li><a href="#pratique-de-lacp" id="toc-pratique-de-lacp" class="nav-link" data-scroll-target="#pratique-de-lacp">Pratique de l’ACP</a></li>
-  </ul>
-</li>
-  <li><a href="#la-m%C3%A9thode-du-noyau" id="toc-la-méthode-du-noyau" class="nav-link" data-scroll-target="#la-méthode-du-noyau">La méthode du noyau</a></li>
-  <li>
-<a href="#autres-m%C3%A9thodes" id="toc-autres-méthodes" class="nav-link" data-scroll-target="#autres-méthodes">Autres méthodes</a>
-  <ul class="collapse">
-<li><a href="#analyse-des-correspondance" id="toc-analyse-des-correspondance" class="nav-link" data-scroll-target="#analyse-des-correspondance">Analyse des correspondance</a></li>
-  <li><a href="#t-sne" id="toc-t-sne" class="nav-link" data-scroll-target="#t-sne"><span class="math inline">\(t\)</span>-SNE</a></li>
-  <li><a href="#umap" id="toc-umap" class="nav-link" data-scroll-target="#umap">UMAP</a></li>
-  </ul>
-</li>
-  </ul>
-<div class="toc-actions"><ul>
-<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
-<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/04-dimension.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
-</ul></div>
-<div class="quarto-alternate-formats">
+        
+    <div class="quarto-alternate-formats">
 <h2>Autres formats</h2>
 <ul><li><a href="04-dimension.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
-</div></nav>
+</div>
 </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
@@ -647,149 +602,7 @@ window.Quarto = {
 </header><ul>
 <li>Slides: <a href="../slides/06-dimension-slides.qmd">link</a>
 </li>
-</ul>
-<section id="changer-de-dimension---pourquoi-faire" class="level2"><h2 class="anchored" data-anchor-id="changer-de-dimension---pourquoi-faire">Changer de dimension - pourquoi faire ?</h2>
-<p>Il y a plusieurs raisons de vouloir changer le dimension des données. Il est possible que la dimension des données soit trop importante pour avoir une visualisation intéressante, que la dimension actuelle ne permette pas une bonne séparation des classes dans les données, etc.</p>
-</section><section id="analyse-en-composantes-principales" class="level2"><h2 class="anchored" data-anchor-id="analyse-en-composantes-principales">Analyse en composantes principales</h2>
-<p>L’analyse en composantes principales (ACP) est une méthode permettant de réduire la dimension d’un jeu de données tout en conservant le plus d’information possible. Cette méthode est utilisée lorsque l’on a <span class="math inline">\(n\)</span> observations de <span class="math inline">\(p\)</span> variables continues avec <span class="math inline">\(p\)</span> trop “grand” pour nos besoins.</p>
-<p>Pourquoi l’ACP est-elle utilisée ?</p>
-<ul>
-<li><p>Visualisation d’un jeu de données;</p></li>
-<li><p>Réduction du nombre de variables de <span class="math inline">\(p\)</span> à <span class="math inline">\(p^{\prime} \ll p\)</span> pour faciliter la construction de modèle. Exemples: analyse de texte, analyse de données génétique;</p></li>
-<li><p>Effectuer une rotation d’axes pour simplifier la structure de corrélation;</p></li>
-<li><p>Compression de données.</p></li>
-</ul>
-<p>La méthode a été introduite par H. Hotelling dans <span class="citation" data-cites="hotellingAnalysisComplexStatistical1933">(<a href="#ref-hotellingAnalysisComplexStatistical1933" role="doc-biblioref">Hotelling 1933</a>)</span>.</p>
-<p>Visualiser, comprendre, modéliser, classifier des données sont toutes des tâches beacoup simples à accomplir si le nomnre de variables dans un jeu de données est faible. Si un jeu de données comprend un grand nombre de variables, une première question que l’on peut se poser est: “Est-il possible de réduire la dimension du problème sans trop perdre d’information ?”. En omettant tout simplement des variables, on risque de perdre beaucoup d’information utile. Une meilleure solution consiste à trouver des combinaisons linéaires des variables en vue de conserver le maximum d’information sur le jeu de données.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Example
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li><p>Comparer des équipes de hockey sur la base de six statistiques de fin de saison.</p></li>
-<li><p>Comparer la criminalité entre états sur la base des taux de sept types de crimes différents.</p></li>
-<li><p>Compresser des images formées de <span class="math inline">\(1084 \times 1084\)</span> pixels.</p></li>
-<li><p>Identifier le nombre de variantes d’un type de tumeur à partir du degré d’expression de millions de gènes.</p></li>
-</ol>
-</div>
-</div>
-<section id="les-maths" class="level3"><h3 class="anchored" data-anchor-id="les-maths">Les maths</h3>
-<p>Soit un vecteur aléatoire composé de <span class="math inline">\(p\)</span> variables <span class="math inline">\(X = \left( X_{1}, \dots, X_p \right)\)</span> ayant comme matrice de variance <span class="math inline">\(\Sigma\)</span>. On aimerait définir une première composante principale, <span class="math display">\[Y_{1} = \alpha_{1}^{\top} X = \sum_{i = 1}^{p} \alpha_{1i}X_i,\]</span> de sorte que la variance de <span class="math inline">\(Y_{1}\)</span> soit maximale. L’idée est simple: on désire combiner <span class="math inline">\(p\)</span> variables en une seule, mais en “capturant” la plus grande partie possible de la variabilité.</p>
-<p>Il faut d’abord ajouter une contrainte sur <span class="math inline">\(\alpha_{1}\)</span>, puisque sinon on n’aurait qu’à prendre <span class="math inline">\(\alpha_{1i} = \pm \infty\)</span> et on aurait <span class="math inline">\(\mathrm{Var}(Y_{1}) = +\infty\)</span> ce qui est définitivement maximal ! On verra qu’il est pratique de contraindre <span class="math inline">\(\alpha_{1}\)</span> de sorte qu’il ait une norme égale à <span class="math inline">\(1\)</span>.</p>
-<ul>
-<li>Calcul de la première composante:</li>
-</ul>
-<p><span class="math display">\[\mathrm{Var}(Y_1) = \alpha_1^\top \Sigma \alpha_{1} \]</span></p>
-<p>Le problème est donc de maximiser <span class="math display">\[F(\alpha_{1} = \alpha_{1}^\top \Sigma \alpha_1, \quad\text{s.c.}\quad \alpha_1^\top \alpha_1 = 1.\]</span></p>
-<p>On peut récrire ce problème à l’aide des multiplicateurs de Lagrange, soit maximiser <span class="math display">\[F(\alpha_1, \lambda) = \alpha_1^\top \Sigma \alpha_1 - \lambda (\alpha_1^\top \alpha_1 -1 ),\]</span> où <span class="math inline">\(\lambda\)</span> est un multiplicateur de Lagrange.</p>
-<p>Pour solutionner ce problème, on dérive <span class="math inline">\(F\)</span> par rapport à <span class="math inline">\(\alpha_{1}\)</span> et à <span class="math inline">\(\lambda\)</span>.</p>
-<p><span class="math display">\[\begin{cases}
-\frac{\partial F(\alpha_{1}, \lambda)}{\partial \alpha_{1}} = 2 \Sigma \alpha_{1} - 2 \lambda \alpha_{1} \\
-\frac{\partial F(\alpha_{1}, \lambda)}{\partial \lambda} = 1 - \alpha_{1}^\top \alpha_{1}
-\end{cases}
-.\]</span></p>
-<p>Ensuite, on égalise à <span class="math inline">\(0\)</span>, ce qui donne: <span class="math display">\[\begin{cases}
-\Sigma \alpha_{1} = \lambda \alpha_{1} \\
-\alpha_{1}^\top \alpha_{1} = 1
-\end{cases}
-.\]</span> La seconde équation est bien entendue notre contrainte. La première équation est celle qui nous intéresse. En utilisant cette équation et la définition des éléments propres, on déduit que</p>
-<ol type="1">
-<li><p><span class="math inline">\(\alpha_{1}\)</span> est un vecteur propre (normé) de <span class="math inline">\(\Sigma\)</span>;</p></li>
-<li><p><span class="math inline">\(\lambda\)</span> est la valeur propre correspondante.</p></li>
-</ol>
-<p>On a donc que <span class="math display">\[\mathrm{Var}(Y_{1}) = \alpha_{1}^\top \Sigma \alpha_{1} = \lambda \alpha_{1}^\top \alpha_1 = \lambda.\]</span> Puisque l’on veut maximiser cette quantité, on conclut que:</p>
-<ol type="1">
-<li><p><span class="math inline">\(\lambda = \lambda_{1}\)</span>, la plus grande valeur propre de <span class="math inline">\(\Sigma\)</span>;</p></li>
-<li><p><span class="math inline">\(\alpha_{1}\)</span>, le vecteur propre normé correspondant.</p></li>
-</ol>
-<ul>
-<li>Calcul de la deuxième composante:</li>
-</ul>
-<p>On poursuit simultanément deux objectifs:</p>
-<ol type="1">
-<li><p>Conserver le maximum de variation présente dans <span class="math inline">\(X\)</span>;</p></li>
-<li><p>Simplifier la structure de dépendancce pour faciliter l’interprétation et assurer la stabilité numérique d’éventuelles méthodes qui utiliseront les composantes principales obtenues.</p></li>
-</ol>
-<p>Étant donné <span class="math inline">\(Y_{1}\)</span>, la deuxième composante principale <span class="math inline">\(Y_{2} = \alpha_{2}^\top X\)</span> est définie telle que</p>
-<ol type="1">
-<li><p><span class="math inline">\(\mathrm{Var}(Y_{2}) = \alpha_{2}^\top \Sigma \alpha_{2}\)</span> est maximale;</p></li>
-<li><p><span class="math inline">\(\alpha_{2}^\top \alpha_{2} = 1\)</span>;</p></li>
-<li><p><span class="math inline">\(\mathrm{Cov}(Y_{1}, Y_{2}) = 0\)</span>.</p></li>
-</ol>
-<p>On a que <span class="math display">\[\mathrm{Cov}(Y_{1}, Y_{2}) = \mathrm{Cov}(\alpha_{1}^\top X, \alpha_{2}^\top X) = \alpha_{1}^\top \Sigma \alpha_{2} = \alpha_{2}^\top \Sigma \alpha_{1} = \lambda_{1} \alpha_{2}^\top \alpha_{1}.\]</span></p>
-<p>On cherche donc le vecteur <span class="math inline">\(\alpha_{2}\)</span> qui maximise: <span class="math display">\[F(\alpha_{2}, \lambda, \kappa) = \alpha_{2}^\top \Sigma \alpha_{2} - \lambda (\alpha_{2}^\top \alpha_{2} - 1) - \kappa (\alpha_{2}^\top \alpha_{1} - 0).\]</span></p>
-<p>De même que pour la première composante, on dérive <span class="math inline">\(F\)</span> par rapport à <span class="math inline">\(\alpha_{2}\)</span>, <span class="math inline">\(\lambda\)</span> et <span class="math inline">\(\kappa\)</span>.</p>
-<p><span class="math display">\[\begin{cases}
-\frac{\partial F(\alpha_{2}, \lambda, \kappa)}{\partial \alpha_{2}} = 2 \Sigma \alpha_{2} - 2 \lambda \alpha_{2} - \kappa \alpha_1 \\
-\frac{\partial F(\alpha_{2}, \lambda, \kappa)}{\partial \lambda} = 1 - \alpha_{2}^\top \alpha_{2} \\
-\frac{\partial F(\alpha_{2}, \lambda, \kappa)}{\partial \kappa} = - \alpha_2^\top \alpha_1
-\end{cases}
-\]</span></p>
-<p>En égalisant les équations à <span class="math inline">\(0\)</span>, on retrouve les deux équations des contraintes, ainsi que</p>
-<p><span class="math display">\[2 \Sigma \alpha_{2} - 2 \lambda \alpha_{2} - \kappa \alpha_{1} = 0.\]</span></p>
-<p>En multipliant cette équation à gauche et à droite par <span class="math inline">\(\alpha_{1}^\top\)</span>, on trouve</p>
-<p><span class="math display">\[2 \alpha_{1}^\top \Sigma \alpha_{2} - 2 \alpha_{1}^\top \lambda \alpha_{2} - \kappa \alpha_{1}^\top \alpha_{1} = 0.\]</span></p>
-<p>Or <span class="math inline">\(\alpha_{1}^\top \Sigma = \lambda_{1} \alpha_{1}^\top\)</span>, et <span class="math inline">\(\lambda_{1}^\top \alpha_{1} = 1\)</span>, donc <span class="math display">\[2 \alpha_{1}^\top \lambda \alpha_{2} - 2 \alpha_{1}^\top \lambda \alpha_{2} - \kappa \alpha_{1}^\top \alpha_{1} = 0 \implies - \kappa = 0.\]</span></p>
-<p>En substituant ce résulat, on obtient <span class="math display">\[\Sigma \alpha_{2} = \lambda \alpha_{2}.\]</span></p>
-<p>et donc <span class="math inline">\(\lambda\)</span> est une autre valeur propre de <span class="math inline">\(\Sigma\)</span>. Puisque <span class="math display">\[\mathrm{Var}(Y_{2} = \alpha_{2}^\top \Sigma \alpha_{2} = \alpha_{2}^\top \lambda \alpha_{2} = \lambda,\]</span> on a que cette variance est maximale si <span class="math inline">\(\lambda = \lambda_{2}\)</span>, la deuxième plus grande valeur propre de <span class="math inline">\(\Sigma\)</span>, et conséquemment <span class="math inline">\(\alpha_{2}\)</span> est le vecteur propre normé correspondant.</p>
-<p>On peut généraliser ce résultat en utilisant des maximisations successives. On en conclut que <span class="math display">\[Y_k = \alpha_k^\top X,\]</span> où <span class="math inline">\(\alpha_k\)</span> est le vecteur propre normé associé à <span class="math inline">\(\lambda_k\)</span>, la <span class="math inline">\(k\)</span>e plus grande valeur propre de <span class="math inline">\(\Sigma\)</span>.</p>
-<ul>
-<li>Notation matricielle:</li>
-</ul>
-<p>Pour définir simultanément et de facon plus compacte les composantes principales, on pose <span class="math display">\[Y = AX,\]</span> où <span class="math display">\[A = \left( \alpha_{1}, \dots, \alpha_{p} \right) = \begin{pmatrix}
-  \alpha_{1, 1} &amp; \alpha_{2, 1} &amp; \cdots &amp; \alpha_{p, 1} \\
-  \alpha_{1, 1} &amp; \alpha_{2, 2} &amp; \cdots &amp; \alpha_{p, 1} \\
-  \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-  \alpha_{1, p} &amp; \alpha_{2, p} &amp; \cdots &amp; \alpha_{p, p}
-\end{pmatrix}.\]</span></p>
-<div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Propriétés de <span class="math inline">\(A\)</span>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li><p>Les colonnes de la matrice <span class="math inline">\(A\)</span> sont les vecteurs propres de <span class="math inline">\(\Sigma\)</span>;</p></li>
-<li><p><span class="math inline">\(A^{\top} A = A A^{\top} = I_p\)</span>;</p></li>
-<li><p><span class="math inline">\(A^{\top} = A^{-1}\)</span>;</p></li>
-<li><p><span class="math inline">\(\Sigma A = A \Lambda\)</span>, où <span class="math inline">\(\Lambda = \text{diag}(\lambda_{1}, \dots, \lambda_p)\)</span>;</p></li>
-<li><p><span class="math inline">\(\mathrm{Var}(Y) = A^{\top} \Sigma A = \Lambda \implies \mathrm{Cov}(Y_i, Y_j) = 0\)</span> si <span class="math inline">\(i \neq j\)</span> et <span class="math inline">\(\mathrm{Var}(Y_i) = \lambda_i \geq \mathrm{Var}(Y_j) = \lambda_j\)</span> si et seulement si <span class="math inline">\(i \leq j\)</span>.</p></li>
-</ol>
-</div>
-</div>
-<p>Une mesure globale de la variation presente dans les données est donnée par la trace de la matrice <span class="math inline">\(\Sigma\)</span>: <span class="math display">\[\text{tr}(\Sigma) = \text{tr}(\Lambda) = \sum_{i = 1}^{p} \lambda_i.\]</span></p>
-<p>La proportion de variation expliquée par la composante principale <span class="math inline">\(Y_i\)</span> est <span class="math display">\[\frac{\lambda_i}{\lambda_{1} + \cdots + \lambda_p}.\]</span></p>
-<p>Similairement, les <span class="math inline">\(m\)</span> première composantes expliquent <span class="math display">\[\frac{\sum_{i = 1}^{m} \lambda_i}{\sum_{i = 1}^{p} \lambda_i} \times 100\%.\]</span> de la variabilité dans les variables.</p>
-</section><section id="pratique-de-lacp" class="level3"><h3 class="anchored" data-anchor-id="pratique-de-lacp">Pratique de l’ACP</h3>
-</section></section><section id="la-méthode-du-noyau" class="level2"><h2 class="anchored" data-anchor-id="la-méthode-du-noyau">La méthode du noyau</h2>
-<p>Dans certains cas, réduire la dimension des données n’est pas la chose à faire. Dans certains cas, il est même préférable d’augmenter la dimension des données ! Pourquoi ?</p>
-<p>Regardons l’exemple suivant: ajouter exemple en 2d, type cercle.</p>
-<p>Dans ce cas, on s’intéresse à la méthode des noyaux (<em>kernel trick</em>).</p>
-</section><section id="autres-méthodes" class="level2"><h2 class="anchored" data-anchor-id="autres-méthodes">Autres méthodes</h2>
-<section id="analyse-des-correspondance" class="level3"><h3 class="anchored" data-anchor-id="analyse-des-correspondance">Analyse des correspondance</h3>
-</section><section id="t-sne" class="level3"><h3 class="anchored" data-anchor-id="t-sne">
-<span class="math inline">\(t\)</span>-SNE</h3>
-</section><section id="umap" class="level3"><h3 class="anchored" data-anchor-id="umap">UMAP</h3>
-<p>UMAP</p>
-
-
-
-</section></section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Les références</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-hotellingAnalysisComplexStatistical1933" class="csl-entry" role="listitem">
-Hotelling, H. 1933. <span>« Analysis of a complex of statistical variables into principal components »</span>. <a href="https://doi.org/10.1037/h0071325">https://doi.org/10.1037/h0071325</a>.
-</div>
-</div></section></div></main><!-- /main --><script>
+</ul></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -1428,7 +1241,7 @@ window.onload = function() {
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions d-sm-block d-md-none"><ul>
+<div class="toc-actions"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/04-dimension.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
 </ul></div>

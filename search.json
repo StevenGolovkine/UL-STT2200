@@ -1,20 +1,112 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "STT-2200: Analyse de données",
+    "objectID": "informations/general.html",
+    "href": "informations/general.html",
+    "title": "Informations générales",
     "section": "",
-    "text": "Bienvenue à tous au cours STT-2200 de l’automne 2025.\nVous trouverez sur ce site toute les informations nécessaire pour les cours, les différents travaux et les exams. Les contenus seront mis à jour au cours de la session avec les corrigés de certains travaux. Je vous invite à regarder les différents modules avant les cours.\nCe site a été créé avec Quarto."
-  },
-  {
-    "objectID": "informations/schedule.html",
-    "href": "informations/schedule.html",
-    "title": "Plan",
-    "section": "",
-    "text": "Le plan est donné à titre indicatif.\n\n\n\nSemaine\nDate\nDurée\nPlan\nÉvaluations",
+    "text": "Faculté des sciences et de génie\nDépartement de mathématiques et de statistique",
     "crumbs": [
       "Informations",
-      "Plan"
+      "Générales"
+    ]
+  },
+  {
+    "objectID": "informations/general.html#stt-2200-analyse-de-données",
+    "href": "informations/general.html#stt-2200-analyse-de-données",
+    "title": "Informations générales",
+    "section": "STT-2200: Analyse de données",
+    "text": "STT-2200: Analyse de données\nFormule d’enseignement: Présentiel\nTemps consacré:\n\nCours: 2h\nLaboratoire: 1h\nTravail personnel: 6h\nTotal: 9h\n\nCrédits: 3\nPréalables:\n\nACT-2000 ou STT-1000 ou STT-1300 ou STT-1900\nMAT-1200 ou ACT-2002\nSTT-1100 ou IFT-4902 ou ECN-2090 ou GLO-1901 ou IFT-1004\n\nPlage horaire:\n\n\n\nType\nJour\nHoraire\nDates\n\n\n\n\nLabo\nMardi\n\n\n\n\nClasse\nVendredi",
+    "crumbs": [
+      "Informations",
+      "Générales"
+    ]
+  },
+  {
+    "objectID": "informations/general.html#coordonnées-et-disponibilités",
+    "href": "informations/general.html#coordonnées-et-disponibilités",
+    "title": "Informations générales",
+    "section": "Coordonnées et disponibilités",
+    "text": "Coordonnées et disponibilités\nSteven Golovkine (Enseignant)\nVCH-2200\nsteven.golovkine@mat.ulaval.ca\nDisponibilités\nJe suis disponible pour vous rencontrer sur rendez-vous par couriel ou sans rendez-vous du lundi au jeudi entre 8h et 10h.\n\nL’Université reconnaît le droit à la déconnexion des professeures et professeurs, des personnes chargées de cours et des autres membres du personnel enseignant. Cela signifie que ces personnes ne sont pas tenues de consulter les messages qui leur sont envoyés (courriel, boîte vocale, message dans un forum, etc.) pendant les soirs, fins de semaine, jours fériés et vacances. La personne qui aura envoyé un message durant ces périodes devra donc s’attendre à recevoir une réponse dans un délai raisonnable, calculé à partir de la reprise des heures normales de travail.",
+    "crumbs": [
+      "Informations",
+      "Générales"
+    ]
+  },
+  {
+    "objectID": "informations/description.html",
+    "href": "informations/description.html",
+    "title": "Description du cours",
+    "section": "",
+    "text": "Dans ce cours, nous visons à introduire des méthodes qui permettront aux étudiantes et étudiants d’étudier un jeu de données de “haute dimension” (“haute” dans le sens ici où l’on ne peut faire un simple graphique de l’ensemble des observations de toutes les variables) sans avoir recours à un modèle probabiliste. Les techniques qu’on y enseigne servent à réduire la dimension des données, identifier certains liens entre les variables, visualiser les données ou à diviser le jeu de données en groupes/classes.\nSans négliger la théorie, l’accent sera mis sur l’aspect pratique de l’analyse des données et l’utilisation du langage R.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#objectifs",
+    "href": "informations/description.html#objectifs",
+    "title": "Description du cours",
+    "section": "",
+    "text": "Dans ce cours, nous visons à introduire des méthodes qui permettront aux étudiantes et étudiants d’étudier un jeu de données de “haute dimension” (“haute” dans le sens ici où l’on ne peut faire un simple graphique de l’ensemble des observations de toutes les variables) sans avoir recours à un modèle probabiliste. Les techniques qu’on y enseigne servent à réduire la dimension des données, identifier certains liens entre les variables, visualiser les données ou à diviser le jeu de données en groupes/classes.\nSans négliger la théorie, l’accent sera mis sur l’aspect pratique de l’analyse des données et l’utilisation du langage R.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#place-du-cours-dans-le-programme",
+    "href": "informations/description.html#place-du-cours-dans-le-programme",
+    "title": "Description du cours",
+    "section": "Place du cours dans le programme",
+    "text": "Place du cours dans le programme\nCe cours généralement suivi par des étudiants du baccalauréat en statistique lors de leur deuxième année de formation. Il est aussi un cours à option en actuariat, en mathématique ainsi que dans certains programmes de génie et d’administration.\nTous les étudiants doivent s’assurer d’avoir suivi au minimum un cours d’algèbre (ex. MAT1200) et un cours de statistique de base (ex. STT1000), car la majorité des méthodes d’analyse de données s’appuient sur ces notions.\nLes étudiants devraient aussi avoir une certaine familiarité avec le langage R ou avec la programmation.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#objectifs-spécifiques",
+    "href": "informations/description.html#objectifs-spécifiques",
+    "title": "Description du cours",
+    "section": "Objectifs spécifiques",
+    "text": "Objectifs spécifiques\nÀ la fin du cours, l’étudiant ou l’étudiante devra être capable :\n\nde comprendre et décrire succinctement les fondements théoriques des méthodes d’analyse de données étudiées;\nd’identifier correctement les situations où l’emploi de ces méthodes est indiqué;\nd’utiliser efficacement un logiciel tel SAS ou R pour mettre en oeuvre ces méthodes;\nd’analyser et d’interpréter judicieusement les résultats découlant de l’analyse;\nde formuler par écrit les conclusions de l’analyse, dans le respect des limites de la méthodologie.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#équipement-informatique",
+    "href": "informations/description.html#équipement-informatique",
+    "title": "Description du cours",
+    "section": "Équipement informatique",
+    "text": "Équipement informatique\nVous pourriez avoir besoin d’un ordinateur, de haut-parleurs ou d’un casque d’écoute, d’un microphone, d’une webcam et d’une connexion Internet avec fil à large bande ou sans fil. Pour vérifier les paramètres de configuration minimaux selon le système d’exploitation, nous vous invitons à visiter cette page.\nDe plus, ce cours peut nécessiter des besoins logiciels particuliers qui seront alors décrits dans d’autres sections du plan de cours, le cas échéant.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#fonctionnement",
+    "href": "informations/description.html#fonctionnement",
+    "title": "Description du cours",
+    "section": "Fonctionnement",
+    "text": "Fonctionnement\nLes cours et examen auront lieu en présentiel les mardi et vendredi matin, mais une portion du matériel sera disponible en ligne. De façon générale, la séance du vendredi sera une séance magistrale et la séance du mardi sera dédiée à des exercices pratiques réalisés de façon autonome par les étudiants avec le soutien de l’enseignant.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#approches-pédagogiques",
+    "href": "informations/description.html#approches-pédagogiques",
+    "title": "Description du cours",
+    "section": "Approches pédagogiques",
+    "text": "Approches pédagogiques\nL’approche pédagogique privilégiée est l’exposé interactif (vendredi) en alternance avec des périodes de laboratoires (mardi). L’approche pédagogique est très axée sur l’apprentissage actif et exige un engagement soutenu des étudiants tout au long de la session.",
+    "crumbs": [
+      "Informations",
+      "Description"
     ]
   },
   {
@@ -42,142 +134,27 @@
     ]
   },
   {
-    "objectID": "contents/generalities/02-distance.html",
-    "href": "contents/generalities/02-distance.html",
-    "title": "Distances",
+    "objectID": "contents/remainders/03-stat.html",
+    "href": "contents/remainders/03-stat.html",
+    "title": "Analyse de données",
     "section": "",
-    "text": "Slides: link",
+    "text": "Un projet d’analyse de données se découpe en cinq étapes:\n\nDéfinition des objectifs\nDonnées\nÉlaboration et validation des modèles\nMise en oeuvre\nSuivi de la performance et amélioration\n\n\n\n\n\n\n\nRemarque\n\n\n\nDans ce cours, on s’intéressera principalement à l’élaboration et à la validation de modèles.\n\n\nTODO: Planification d’un projet\n\n\nEst-ce que l’on veut: visualiser les données ? explorer et émettre des hypothèses? tester? regrouper? comprendre? prédire?\nComment fait-on en pratique ? On pose des questions ! Tout d’abord, il faut clarifier les termes. Qui va utiliser le modèle et comment ? Quelle est la population cible ?\n\n\n\n\n\n\nExamples\n\n\n\n\nLa Banque National du Canada veut lancer un nouveau produit d’épargne et souhaite mieux connaître ses clients pour prédire s’ils veulent l’acheter.\nL’équipe de hockey des Canadiens de Montréal souhaite mieux connaître ses adversaires pour développer des nouvelles tactiques de jeu.\nPharmascience souhaite savoir si son nouveau médicament est efficace.\n\n\n\n\n\n\n\nInventaire et qualité\nConstitution de la base de données\nExploration et traitement préliminaire\n\nQu’est-ce que l’on veut dire par qualité des données ?\n\nEst-ce que les données sont représentatives de la population cible ?\nEst-ce que les données permetternt de tirer des conclusions de causalité ?\nEst-ce que les données sont fiables ?\n\nSource de données:\nQuelques liens pour récupérer des données.\nNettoyage de données: cf R (importation, nettoyage, tidyverse, types de variables, retirer les doublons, uniformiser les modalités, vérifier le format des valeurs spéciales, pivot, opérateur pipe, jointure).\nExploration des données: modalités rares, modalités trop nombreuses, asymétrie, débalancement des classes, valeurs extrêmes ou aberrantes, variables fortement corrélées, valeurs manquantes.\nStatistiques descriptives",
     "crumbs": [
       "Modules",
-      "03 - Généralités",
-      "Distances"
+      "02 - Révisions",
+      "Analyse de données"
     ]
   },
   {
-    "objectID": "contents/generalities/02-distance.html#introduction",
-    "href": "contents/generalities/02-distance.html#introduction",
-    "title": "Distances",
-    "section": "Introduction",
-    "text": "Introduction\nOn a besoin d’une notion de distance et de similarité. On a besoin d’une définition de ce que sont des observations similaires ou des observations différentes. On veut quantifier la similarité ou la distance entre deux observations. Le choix de la métrique est une étape essentielle dans le processus d’analyse de données.",
-    "crumbs": [
-      "Modules",
-      "03 - Généralités",
-      "Distances"
-    ]
-  },
-  {
-    "objectID": "contents/generalities/02-distance.html#notion-de-distance",
-    "href": "contents/generalities/02-distance.html#notion-de-distance",
-    "title": "Distances",
-    "section": "Notion de distance",
-    "text": "Notion de distance\n\n\n\n\n\n\nDéfinition de distance\n\n\n\nUne mesure de distance \\(d\\) doit satisfaire les propriétés suivantes pour tout \\(x, y, z \\in A\\), \\(A\\) étant un ensemble quelconque:\n\n\\(d(x, y) \\geq 0\\);\n\\(d(x, x) = 0\\);\n\\(d(x, y) = d(y, x)\\);\n\\(d(x, y) \\leq d(x, z) + d(y, z)\\).\n\n\n\nLa distance euclidienne:\nSi les observations sont constituées de \\(p\\) nombres réels de même ordre de grandeur, alors la distance euclidienne entre deux éléments de \\(\\mathbb{R}^p\\) est une mesure raisonnable.\nSoit \\(x, y \\in \\mathbb{R}^n\\), la distance euclidienne est données par : \\[d(x, y) = \\left\\| x - y \\right\\|_2 = \\left( \\sum_{i = 1}^{n} (x_i - y_i)^2 \\right)^{1/2}.\\]\nQue fait-on dans d’autres cas ? Plusieurs mesures ont été développées pour leur application particulière. Voici les plus classiques.\nUne distance est peu plus générale que la distance euclidienne est la distance \\(L_p\\). Soit \\(x, y \\in \\mathbb{R}^n\\), la distance \\(L_p\\) est donnée, pour \\(p &gt; 0\\), par : \\[d(x, y) = \\left\\| x - y \\right\\|_p = \\left( \\sum_{i = 1}^{n} |x_i - y_i|^p \\right)^{1 /p} .\\]\nLa distance euclidienne correspond à la distance \\(L_p\\) avec \\(p = 2\\). Cas particulier avec \\(p = 1\\), distance de Manhattan:\n\\[d(x, y) = \\left\\| x - y \\right\\|_1 = \\sum_{i = 1}^{n} | x_i - y_i |.\\]\n\n\n\n\n\n\nProperties\n\n\n\nLa distance \\(L_p\\) n’est pas invariante à un changement d’échelle, i.e., \\(L_p(x, y) \\neq L_p(\\lambda x, \\lambda y)\\).\n\n\nStandardisation",
-    "crumbs": [
-      "Modules",
-      "03 - Généralités",
-      "Distances"
-    ]
-  },
-  {
-    "objectID": "contents/generalities/02-distance.html#notion-de-similarité",
-    "href": "contents/generalities/02-distance.html#notion-de-similarité",
-    "title": "Distances",
-    "section": "Notion de similarité",
-    "text": "Notion de similarité\n\n\n\n\n\n\nDéfinition d’un indice de similarité\n\n\n\nUn indice de similarité \\(s\\) doit satisfaire les propriétés suivantes pour tout \\(x, y \\in A\\), \\(A\\) étant un ensemble quelconque:\n\n\\(s(x, y) \\geq 0\\);\n\\(s(x, y) = s(y, x)\\);\n\\(s(x, x) = 1 \\geq s(x, y)\\).\n\n\n\nUne distance peut se transformer en similarité en posant \\(s(x, y) = \\frac{1}{1 + d(x, y)}\\). L’inverse n’est pas vrai, dû à l’inégalité triangulaire. On peut aussi définir la dissemblance entre deux objects: \\(d^\\star(x, y) = 1 - s(x, y)\\).",
-    "crumbs": [
-      "Modules",
-      "03 - Généralités",
-      "Distances"
-    ]
-  },
-  {
-    "objectID": "contents/generalities/01-spaces.html",
-    "href": "contents/generalities/01-spaces.html",
-    "title": "Espace",
+    "objectID": "contents/remainders/03-stat.html#project-danalyse-données",
+    "href": "contents/remainders/03-stat.html#project-danalyse-données",
+    "title": "Analyse de données",
     "section": "",
-    "text": "Slides : link",
+    "text": "Un projet d’analyse de données se découpe en cinq étapes:\n\nDéfinition des objectifs\nDonnées\nÉlaboration et validation des modèles\nMise en oeuvre\nSuivi de la performance et amélioration\n\n\n\n\n\n\n\nRemarque\n\n\n\nDans ce cours, on s’intéressera principalement à l’élaboration et à la validation de modèles.\n\n\nTODO: Planification d’un projet\n\n\nEst-ce que l’on veut: visualiser les données ? explorer et émettre des hypothèses? tester? regrouper? comprendre? prédire?\nComment fait-on en pratique ? On pose des questions ! Tout d’abord, il faut clarifier les termes. Qui va utiliser le modèle et comment ? Quelle est la population cible ?\n\n\n\n\n\n\nExamples\n\n\n\n\nLa Banque National du Canada veut lancer un nouveau produit d’épargne et souhaite mieux connaître ses clients pour prédire s’ils veulent l’acheter.\nL’équipe de hockey des Canadiens de Montréal souhaite mieux connaître ses adversaires pour développer des nouvelles tactiques de jeu.\nPharmascience souhaite savoir si son nouveau médicament est efficace.\n\n\n\n\n\n\n\nInventaire et qualité\nConstitution de la base de données\nExploration et traitement préliminaire\n\nQu’est-ce que l’on veut dire par qualité des données ?\n\nEst-ce que les données sont représentatives de la population cible ?\nEst-ce que les données permetternt de tirer des conclusions de causalité ?\nEst-ce que les données sont fiables ?\n\nSource de données:\nQuelques liens pour récupérer des données.\nNettoyage de données: cf R (importation, nettoyage, tidyverse, types de variables, retirer les doublons, uniformiser les modalités, vérifier le format des valeurs spéciales, pivot, opérateur pipe, jointure).\nExploration des données: modalités rares, modalités trop nombreuses, asymétrie, débalancement des classes, valeurs extrêmes ou aberrantes, variables fortement corrélées, valeurs manquantes.\nStatistiques descriptives",
     "crumbs": [
       "Modules",
-      "03 - Généralités",
-      "Espace"
-    ]
-  },
-  {
-    "objectID": "contents/generalities/01-spaces.html#types-de-variables",
-    "href": "contents/generalities/01-spaces.html#types-de-variables",
-    "title": "Espace",
-    "section": "Types de variables",
-    "text": "Types de variables\n\nVariable numérique: Variable dont la valeur numérique mesure quelque chose de quantifiable et dont la différence entre les valeurs reflète la différence entre les objets. Exemples: revenu en dollars, masse, âge, …\nVariable ordinale: Variable qui ne donne pas une quantification précise d’un phénomène, mais dont les modalités peuvent être naturellement ordonnées. Examples: revenu faible, moyen ou élevé, ou niveau d’accord entre “tout-à-fait en désaccord”, “en désaccord”, “pas d’avis”, “d’accord”, “tout-à-fait d’accord”.\nNominales symétriques: Variable qualitative dont toutes les modalités sont aussi informatives l’une que l’autre. Examples: Sexe, sections d’un cours.\nNominales asymétriques: Variable qualitative dont les modalités ne contiennent pas toutes le même niveau d’information, habituellement lorsque l’une des modalités est très fréquente, un peu la modalité par defaut, mais que les autres ne le sont pas. Exemples: variable indiquant si un individu est daltonien ou non (deux individus daltoniens ont quelque chose en commun, mais deux individus non-daltoniens n’ont pas forcément quelque chose en commun), variable indiquant si une transaction est frauduleuse.\nIl y a plein d’autre type de variables: fonctions, textes, images, graphs, …",
-    "crumbs": [
-      "Modules",
-      "03 - Généralités",
-      "Espace"
-    ]
-  },
-  {
-    "objectID": "contents/generalities/01-spaces.html#espaces-associés",
-    "href": "contents/generalities/01-spaces.html#espaces-associés",
-    "title": "Espace",
-    "section": "Espaces associés",
-    "text": "Espaces associés",
-    "crumbs": [
-      "Modules",
-      "03 - Généralités",
-      "Espace"
-    ]
-  },
-  {
-    "objectID": "contents/04-dimension.html",
-    "href": "contents/04-dimension.html",
-    "title": "Dimension",
-    "section": "",
-    "text": "Slides: link",
-    "crumbs": [
-      "Modules",
-      "04 - Dimension"
-    ]
-  },
-  {
-    "objectID": "contents/04-dimension.html#changer-de-dimension---pourquoi-faire",
-    "href": "contents/04-dimension.html#changer-de-dimension---pourquoi-faire",
-    "title": "Dimension",
-    "section": "Changer de dimension - pourquoi faire ?",
-    "text": "Changer de dimension - pourquoi faire ?\nIl y a plusieurs raisons de vouloir changer le dimension des données. Il est possible que la dimension des données soit trop importante pour avoir une visualisation intéressante, que la dimension actuelle ne permette pas une bonne séparation des classes dans les données, etc.",
-    "crumbs": [
-      "Modules",
-      "04 - Dimension"
-    ]
-  },
-  {
-    "objectID": "contents/04-dimension.html#analyse-en-composantes-principales",
-    "href": "contents/04-dimension.html#analyse-en-composantes-principales",
-    "title": "Dimension",
-    "section": "Analyse en composantes principales",
-    "text": "Analyse en composantes principales\nL’analyse en composantes principales (ACP) est une méthode permettant de réduire la dimension d’un jeu de données tout en conservant le plus d’information possible. Cette méthode est utilisée lorsque l’on a \\(n\\) observations de \\(p\\) variables continues avec \\(p\\) trop “grand” pour nos besoins.\nPourquoi l’ACP est-elle utilisée ?\n\nVisualisation d’un jeu de données;\nRéduction du nombre de variables de \\(p\\) à \\(p^{\\prime} \\ll p\\) pour faciliter la construction de modèle. Exemples: analyse de texte, analyse de données génétique;\nEffectuer une rotation d’axes pour simplifier la structure de corrélation;\nCompression de données.\n\nLa méthode a été introduite par H. Hotelling dans (Hotelling 1933).\nVisualiser, comprendre, modéliser, classifier des données sont toutes des tâches beacoup simples à accomplir si le nomnre de variables dans un jeu de données est faible. Si un jeu de données comprend un grand nombre de variables, une première question que l’on peut se poser est: “Est-il possible de réduire la dimension du problème sans trop perdre d’information ?”. En omettant tout simplement des variables, on risque de perdre beaucoup d’information utile. Une meilleure solution consiste à trouver des combinaisons linéaires des variables en vue de conserver le maximum d’information sur le jeu de données.\n\n\n\n\n\n\nExample\n\n\n\n\nComparer des équipes de hockey sur la base de six statistiques de fin de saison.\nComparer la criminalité entre états sur la base des taux de sept types de crimes différents.\nCompresser des images formées de \\(1084 \\times 1084\\) pixels.\nIdentifier le nombre de variantes d’un type de tumeur à partir du degré d’expression de millions de gènes.\n\n\n\n\nLes maths\nSoit un vecteur aléatoire composé de \\(p\\) variables \\(X = \\left( X_{1}, \\dots, X_p \\right)\\) ayant comme matrice de variance \\(\\Sigma\\). On aimerait définir une première composante principale, \\[Y_{1} = \\alpha_{1}^{\\top} X = \\sum_{i = 1}^{p} \\alpha_{1i}X_i,\\] de sorte que la variance de \\(Y_{1}\\) soit maximale. L’idée est simple: on désire combiner \\(p\\) variables en une seule, mais en “capturant” la plus grande partie possible de la variabilité.\nIl faut d’abord ajouter une contrainte sur \\(\\alpha_{1}\\), puisque sinon on n’aurait qu’à prendre \\(\\alpha_{1i} = \\pm \\infty\\) et on aurait \\(\\mathrm{Var}(Y_{1}) = +\\infty\\) ce qui est définitivement maximal ! On verra qu’il est pratique de contraindre \\(\\alpha_{1}\\) de sorte qu’il ait une norme égale à \\(1\\).\n\nCalcul de la première composante:\n\n\\[\\mathrm{Var}(Y_1) = \\alpha_1^\\top \\Sigma \\alpha_{1} \\]\nLe problème est donc de maximiser \\[F(\\alpha_{1} = \\alpha_{1}^\\top \\Sigma \\alpha_1, \\quad\\text{s.c.}\\quad \\alpha_1^\\top \\alpha_1 = 1.\\]\nOn peut récrire ce problème à l’aide des multiplicateurs de Lagrange, soit maximiser \\[F(\\alpha_1, \\lambda) = \\alpha_1^\\top \\Sigma \\alpha_1 - \\lambda (\\alpha_1^\\top \\alpha_1 -1 ),\\] où \\(\\lambda\\) est un multiplicateur de Lagrange.\nPour solutionner ce problème, on dérive \\(F\\) par rapport à \\(\\alpha_{1}\\) et à \\(\\lambda\\).\n\\[\\begin{cases}\n\\frac{\\partial F(\\alpha_{1}, \\lambda)}{\\partial \\alpha_{1}} = 2 \\Sigma \\alpha_{1} - 2 \\lambda \\alpha_{1} \\\\\n\\frac{\\partial F(\\alpha_{1}, \\lambda)}{\\partial \\lambda} = 1 - \\alpha_{1}^\\top \\alpha_{1}\n\\end{cases}\n.\\]\nEnsuite, on égalise à \\(0\\), ce qui donne: \\[\\begin{cases}\n\\Sigma \\alpha_{1} = \\lambda \\alpha_{1} \\\\\n\\alpha_{1}^\\top \\alpha_{1} = 1\n\\end{cases}\n.\\] La seconde équation est bien entendue notre contrainte. La première équation est celle qui nous intéresse. En utilisant cette équation et la définition des éléments propres, on déduit que\n\n\\(\\alpha_{1}\\) est un vecteur propre (normé) de \\(\\Sigma\\);\n\\(\\lambda\\) est la valeur propre correspondante.\n\nOn a donc que \\[\\mathrm{Var}(Y_{1}) = \\alpha_{1}^\\top \\Sigma \\alpha_{1} = \\lambda \\alpha_{1}^\\top \\alpha_1 = \\lambda.\\] Puisque l’on veut maximiser cette quantité, on conclut que:\n\n\\(\\lambda = \\lambda_{1}\\), la plus grande valeur propre de \\(\\Sigma\\);\n\\(\\alpha_{1}\\), le vecteur propre normé correspondant.\n\n\nCalcul de la deuxième composante:\n\nOn poursuit simultanément deux objectifs:\n\nConserver le maximum de variation présente dans \\(X\\);\nSimplifier la structure de dépendancce pour faciliter l’interprétation et assurer la stabilité numérique d’éventuelles méthodes qui utiliseront les composantes principales obtenues.\n\nÉtant donné \\(Y_{1}\\), la deuxième composante principale \\(Y_{2} = \\alpha_{2}^\\top X\\) est définie telle que\n\n\\(\\mathrm{Var}(Y_{2}) = \\alpha_{2}^\\top \\Sigma \\alpha_{2}\\) est maximale;\n\\(\\alpha_{2}^\\top \\alpha_{2} = 1\\);\n\\(\\mathrm{Cov}(Y_{1}, Y_{2}) = 0\\).\n\nOn a que \\[\\mathrm{Cov}(Y_{1}, Y_{2}) = \\mathrm{Cov}(\\alpha_{1}^\\top X, \\alpha_{2}^\\top X) = \\alpha_{1}^\\top \\Sigma \\alpha_{2} = \\alpha_{2}^\\top \\Sigma \\alpha_{1} = \\lambda_{1} \\alpha_{2}^\\top \\alpha_{1}.\\]\nOn cherche donc le vecteur \\(\\alpha_{2}\\) qui maximise: \\[F(\\alpha_{2}, \\lambda, \\kappa) = \\alpha_{2}^\\top \\Sigma \\alpha_{2} - \\lambda (\\alpha_{2}^\\top \\alpha_{2} - 1) - \\kappa (\\alpha_{2}^\\top \\alpha_{1} - 0).\\]\nDe même que pour la première composante, on dérive \\(F\\) par rapport à \\(\\alpha_{2}\\), \\(\\lambda\\) et \\(\\kappa\\).\n\\[\\begin{cases}\n\\frac{\\partial F(\\alpha_{2}, \\lambda, \\kappa)}{\\partial \\alpha_{2}} = 2 \\Sigma \\alpha_{2} - 2 \\lambda \\alpha_{2} - \\kappa \\alpha_1 \\\\\n\\frac{\\partial F(\\alpha_{2}, \\lambda, \\kappa)}{\\partial \\lambda} = 1 - \\alpha_{2}^\\top \\alpha_{2} \\\\\n\\frac{\\partial F(\\alpha_{2}, \\lambda, \\kappa)}{\\partial \\kappa} = - \\alpha_2^\\top \\alpha_1\n\\end{cases}\n\\]\nEn égalisant les équations à \\(0\\), on retrouve les deux équations des contraintes, ainsi que\n\\[2 \\Sigma \\alpha_{2} - 2 \\lambda \\alpha_{2} - \\kappa \\alpha_{1} = 0.\\]\nEn multipliant cette équation à gauche et à droite par \\(\\alpha_{1}^\\top\\), on trouve\n\\[2 \\alpha_{1}^\\top \\Sigma \\alpha_{2} - 2 \\alpha_{1}^\\top \\lambda \\alpha_{2} - \\kappa \\alpha_{1}^\\top \\alpha_{1} = 0.\\]\nOr \\(\\alpha_{1}^\\top \\Sigma = \\lambda_{1} \\alpha_{1}^\\top\\), et \\(\\lambda_{1}^\\top \\alpha_{1} = 1\\), donc \\[2 \\alpha_{1}^\\top \\lambda \\alpha_{2} - 2 \\alpha_{1}^\\top \\lambda \\alpha_{2} - \\kappa \\alpha_{1}^\\top \\alpha_{1} = 0 \\implies - \\kappa = 0.\\]\nEn substituant ce résulat, on obtient \\[\\Sigma \\alpha_{2} = \\lambda \\alpha_{2}.\\]\net donc \\(\\lambda\\) est une autre valeur propre de \\(\\Sigma\\). Puisque \\[\\mathrm{Var}(Y_{2} = \\alpha_{2}^\\top \\Sigma \\alpha_{2} = \\alpha_{2}^\\top \\lambda \\alpha_{2} = \\lambda,\\] on a que cette variance est maximale si \\(\\lambda = \\lambda_{2}\\), la deuxième plus grande valeur propre de \\(\\Sigma\\), et conséquemment \\(\\alpha_{2}\\) est le vecteur propre normé correspondant.\nOn peut généraliser ce résultat en utilisant des maximisations successives. On en conclut que \\[Y_k = \\alpha_k^\\top X,\\] où \\(\\alpha_k\\) est le vecteur propre normé associé à \\(\\lambda_k\\), la \\(k\\)e plus grande valeur propre de \\(\\Sigma\\).\n\nNotation matricielle:\n\nPour définir simultanément et de facon plus compacte les composantes principales, on pose \\[Y = AX,\\] où \\[A = \\left( \\alpha_{1}, \\dots, \\alpha_{p} \\right) = \\begin{pmatrix}\n  \\alpha_{1, 1} & \\alpha_{2, 1} & \\cdots & \\alpha_{p, 1} \\\\\n  \\alpha_{1, 1} & \\alpha_{2, 2} & \\cdots & \\alpha_{p, 1} \\\\\n  \\vdots & \\vdots & \\ddots & \\vdots \\\\\n  \\alpha_{1, p} & \\alpha_{2, p} & \\cdots & \\alpha_{p, p}\n\\end{pmatrix}.\\]\n\n\n\n\n\n\nPropriétés de \\(A\\)\n\n\n\n\nLes colonnes de la matrice \\(A\\) sont les vecteurs propres de \\(\\Sigma\\);\n\\(A^{\\top} A = A A^{\\top} = I_p\\);\n\\(A^{\\top} = A^{-1}\\);\n\\(\\Sigma A = A \\Lambda\\), où \\(\\Lambda = \\text{diag}(\\lambda_{1}, \\dots, \\lambda_p)\\);\n\\(\\mathrm{Var}(Y) = A^{\\top} \\Sigma A = \\Lambda \\implies \\mathrm{Cov}(Y_i, Y_j) = 0\\) si \\(i \\neq j\\) et \\(\\mathrm{Var}(Y_i) = \\lambda_i \\geq \\mathrm{Var}(Y_j) = \\lambda_j\\) si et seulement si \\(i \\leq j\\).\n\n\n\nUne mesure globale de la variation presente dans les données est donnée par la trace de la matrice \\(\\Sigma\\): \\[\\text{tr}(\\Sigma) = \\text{tr}(\\Lambda) = \\sum_{i = 1}^{p} \\lambda_i.\\]\nLa proportion de variation expliquée par la composante principale \\(Y_i\\) est \\[\\frac{\\lambda_i}{\\lambda_{1} + \\cdots + \\lambda_p}.\\]\nSimilairement, les \\(m\\) première composantes expliquent \\[\\frac{\\sum_{i = 1}^{m} \\lambda_i}{\\sum_{i = 1}^{p} \\lambda_i} \\times 100\\%.\\] de la variabilité dans les variables.\n\n\nPratique de l’ACP",
-    "crumbs": [
-      "Modules",
-      "04 - Dimension"
-    ]
-  },
-  {
-    "objectID": "contents/04-dimension.html#la-méthode-du-noyau",
-    "href": "contents/04-dimension.html#la-méthode-du-noyau",
-    "title": "Dimension",
-    "section": "La méthode du noyau",
-    "text": "La méthode du noyau\nDans certains cas, réduire la dimension des données n’est pas la chose à faire. Dans certains cas, il est même préférable d’augmenter la dimension des données ! Pourquoi ?\nRegardons l’exemple suivant: ajouter exemple en 2d, type cercle.\nDans ce cas, on s’intéresse à la méthode des noyaux (kernel trick).",
-    "crumbs": [
-      "Modules",
-      "04 - Dimension"
-    ]
-  },
-  {
-    "objectID": "contents/04-dimension.html#autres-méthodes",
-    "href": "contents/04-dimension.html#autres-méthodes",
-    "title": "Dimension",
-    "section": "Autres méthodes",
-    "text": "Autres méthodes\n\nAnalyse des correspondance\n\n\n\\(t\\)-SNE\n\n\nUMAP\nUMAP",
-    "crumbs": [
-      "Modules",
-      "04 - Dimension"
+      "02 - Révisions",
+      "Analyse de données"
     ]
   },
   {
@@ -192,36 +169,99 @@
     ]
   },
   {
-    "objectID": "contents/02-revisions.html#project-danalyse-données",
-    "href": "contents/02-revisions.html#project-danalyse-données",
-    "title": "Révisions",
-    "section": "Project d’analyse données",
-    "text": "Project d’analyse données\nUn projet d’analyse de données se découpe en cinq étapes:\n\nDéfinition des objectifs\nDonnées\nÉlaboration et validation des modèles\nMise en oeuvre\nSuivi de la performance et amélioration\n\n\n\n\n\n\n\nRemarque\n\n\n\nDans ce cours, on s’intéressera principalement à l’élaboration et à la validation de modèles.\n\n\nTODO: Planification d’un projet\n\nDéfinition des objectifs\nEst-ce que l’on veut: visualiser les données ? explorer et émettre des hypothèses? tester? regrouper? comprendre? prédire?\nComment fait-on en pratique ? On pose des questions ! Tout d’abord, il faut clarifier les termes. Qui va utiliser le modèle et comment ? Quelle est la population cible ?\n\n\n\n\n\n\nExamples\n\n\n\n\nLa Banque National du Canada veut lancer un nouveau produit d’épargne et souhaite mieux connaître ses clients pour prédire s’ils veulent l’acheter.\nL’équipe de hockey des Canadiens de Montréal souhaite mieux connaître ses adversaires pour développer des nouvelles tactiques de jeu.\nPharmascience souhaite savoir si son nouveau médicament est efficace.\n\n\n\n\n\nDonnées\n\nInventaire et qualité\nConstitution de la base de données\nExploration et traitement préliminaire\n\nQu’est-ce que l’on veut dire par qualité des données ?\n\nEst-ce que les données sont représentatives de la population cible ?\nEst-ce que les données permetternt de tirer des conclusions de causalité ?\nEst-ce que les données sont fiables ?\n\nSource de données:\nQuelques liens pour récupérer des données.\nNettoyage de données: cf R (importation, nettoyage, tidyverse, types de variables, retirer les doublons, uniformiser les modalités, vérifier le format des valeurs spéciales, pivot, opérateur pipe, jointure).\nExploration des données: modalités rares, modalités trop nombreuses, asymétrie, débalancement des classes, valeurs extrêmes ou aberrantes, variables fortement corrélées, valeurs manquantes.\nStatistiques descriptives",
+    "objectID": "contents/dimension/02-mca.html",
+    "href": "contents/dimension/02-mca.html",
+    "title": "ACM",
+    "section": "",
+    "text": "L’analyse en composantes principales concerne des données continues. Que faire lorsque les variables sont rapportées dans des tableaux de contingences où alors comme réponses à des questionnaires à choix multiples ? Que faire lorsque les variables sont catégorielles ? Il est possible de faire la même chose que pour l’ACP pour des variables catégorielles, cette méthode s’appelle l’analyse des correspondances (AC). Cette méthode permet de représenter graphiquement des tableaux de fréquence. Pour des tableaux de fréquences croisant deux variables, on parlera d’analyse des correspondances bianires (ACB) ou alors d’analyse factorielle des correspondances (AFC). Pour des tableaux de fréquences croisant troix variables ou plus, on parlera d’analyse des correspondances multiples (ACM).\n\n\n\n\n\n\nExamples\n\n\n\nLa boussole électorale de Radio-Canada. Étude sur les clients d’une compagnie de télécom. Relation entre la couleur des yeux et des cheveux.",
     "crumbs": [
       "Modules",
-      "02 - Révisions"
+      "04 - Dimension",
+      "ACM"
     ]
   },
   {
-    "objectID": "contents/02-revisions.html#révisions-dalgèbre-linéaire",
-    "href": "contents/02-revisions.html#révisions-dalgèbre-linéaire",
-    "title": "Révisions",
-    "section": "Révisions d’algèbre linéaire",
-    "text": "Révisions d’algèbre linéaire\nCf. cours MAT-1200. Donner quelques reférences.\nNotons \\(M\\), \\(N\\) et \\(P\\) des matrices de taille \\(n \\times m\\), \\(A\\) et \\(B\\) des matrices carrées et \\(I_n\\) la matrice identités, de dimension \\(n \\times n\\), et \\(u\\) et \\(v\\) des vecteurs colonnes de taille \\(n\\).\n\n\n\n\n\n\nPropriétés de l’inverse\n\n\n\n\\[(AB)^{-1} = B^{-1} A^{-1}\\]\n\n\n\n\n\n\n\n\nPropriétés du déterminant\n\n\n\n\\[\\begin{align*}\n  \\text{det}(A^\\top) &= \\text{det}(A) \\\\\n  \\text{det}(A^{-1}) &= 1 / \\text{det}(A) \\\\\n  \\text{det}(AB) &= \\text{det}(A)\\text{det}(B)\n\\end{align*}\\]\n\n\n\n\n\n\n\n\nPropriétés de la trace\n\n\n\n\\[\\begin{align*}\n  \\text{tr}(A + B) &= \\text{tr}(A) + \\text{tr}(B) \\\\\n  \\text{tr}(MN) &= \\text{tr}(NM)\n\\end{align*}\\]\n\n\nPropriété de matrices:\n\nSoit \\(A\\) une matrice symmétrique de dimension \\(n \\times n\\). \\(A\\) est définie positive si elle est positive et inversible, c’est-à-dire si \\(u^\\top A u &gt; 0\\) pour tout \\(x \\in \\mathbb{R}^n\\) tel que \\(x \\neq 0\\).\nSoit \\(A\\) une matrice carrée à valeur dans \\(\\mathbb{R}\\). \\(A\\) est orthogonal si \\(A^\\top A = A A^\\top = I_n\\).\n\nValeurs et vecteurs propres:\n\nSoit \\(A\\) une matrice carrée de dimension \\(n \\times n\\). On dit que \\(\\lambda\\) est une valeur propre de \\(A\\) si il existe un vecteur \\(u \\neq 0 \\in \\mathbb{R}^n\\) tel que \\[Au = \\lambda u.\\] Le vecteur \\(u\\) est appelé vecteur propre correspondant à la valeur propre \\(\\lambda\\) et l’ensemble des nombres réels \\(\\lambda\\) satidfaisant l’équation est appelé spectre de la matrice \\(A\\) et noté \\(\\text{sp}(A)\\).\nSi \\(u\\) est un vecteur propre de \\(A\\) correspondant à une valeur propre \\(\\lambda\\), alors \\(cu\\), \\(c \\neq 0 \\in \\mathbb{R}\\) sera également un vecteur propre de \\(A\\) correspondant à \\(\\lambda\\).\nSi \\(A\\) est symmétrique et \\(u_{1}\\) et \\(u_{2}\\) sont des vecteurs propres correspondant à des valeurs propres différentes de \\(A\\), alors \\(u_{1}\\) et \\(u_{2}\\) sont orthogonaux, i.e. \\(u_{1}^\\top u_{2} = 0\\).\nSi \\(A\\) a comme valeurs propres (réelles, mais pas forcément distinctes) \\(\\lambda_{1}, \\dots, \\lambda_{n}\\), alors \\[\\text{A} = \\prod_{i = 1}^{n} \\lambda_i \\quad\\text{et}\\quad \\text{tr}(A) = \\sum_{i = 1}^{n} \\lambda_i.\\]\nSi \\(A\\) est symmétrique, toutes ses valeurs propres sont réelles.\nSi \\(A\\) est définie positive, alors toutes ses valeurs propres sont positives.\n\nDiagonalisation de matrices:\n\nSoit \\(A\\) une matrice carrée de dimension \\(n \\times n\\). On dit que \\(A\\) est diagonalisable s’il existe une matrice carrée \\(n \\times n\\) non-singulière \\(P\\) et une matrice \\(n \\times n\\) diagonale \\(D\\) telles que \\[P^{-1} A P = D \\leftrightarrow A = P D P^{-1}.\\]\n\nToute matrice carrée symmétrique est diagonalisable part une matrice orthogonal \\(P\\).\nThéorème de décomposition spectrale:\nSoit \\(A\\) une matrice carrée symmétrique de dimension \\(n \\times n\\) et ses \\(n\\) valeurs propres \\(\\lambda_{1}, \\dots, \\lambda_n\\). Alors il existe une matrice orthogonal \\(P\\) telle que \\[A = P \\Lambda P^\\top, \\quad\\text{où}\\quad \\Lambda = \\text{diag}(\\lambda_1, \\dots, \\lambda_n).\\]\nSi \\(A\\) admet \\(n\\) valeurs propres positives distinctes, alors on peut prendre \\(P\\) comme la matrice dont la \\(k\\)e coloone est le vacteur propre normé correspondant à la \\(k\\)e valeur propre \\(\\lambda_k\\).",
+    "objectID": "contents/dimension/02-mca.html#introduction",
+    "href": "contents/dimension/02-mca.html#introduction",
+    "title": "ACM",
+    "section": "",
+    "text": "L’analyse en composantes principales concerne des données continues. Que faire lorsque les variables sont rapportées dans des tableaux de contingences où alors comme réponses à des questionnaires à choix multiples ? Que faire lorsque les variables sont catégorielles ? Il est possible de faire la même chose que pour l’ACP pour des variables catégorielles, cette méthode s’appelle l’analyse des correspondances (AC). Cette méthode permet de représenter graphiquement des tableaux de fréquence. Pour des tableaux de fréquences croisant deux variables, on parlera d’analyse des correspondances bianires (ACB) ou alors d’analyse factorielle des correspondances (AFC). Pour des tableaux de fréquences croisant troix variables ou plus, on parlera d’analyse des correspondances multiples (ACM).\n\n\n\n\n\n\nExamples\n\n\n\nLa boussole électorale de Radio-Canada. Étude sur les clients d’une compagnie de télécom. Relation entre la couleur des yeux et des cheveux.",
     "crumbs": [
       "Modules",
-      "02 - Révisions"
+      "04 - Dimension",
+      "ACM"
     ]
   },
   {
-    "objectID": "contents/02-revisions.html#révisions-de-probabilité",
-    "href": "contents/02-revisions.html#révisions-de-probabilité",
-    "title": "Révisions",
-    "section": "Révisions de probabilité",
-    "text": "Révisions de probabilité\nVecteurs aléatoires:\nSoit \\(X = (X_{1}, \\dots, X_{p})^\\top\\), un vecteur aléatoire de taille \\(p\\).\nEspérance: \\[\\mathbb{E}(X) = \\begin{pmatrix}\n  \\mathbb{E}(X_{1}) \\\\\n  \\vdots \\\\\n  \\mathbb{E}(X_{p})\n\\end{pmatrix} \\coloneqq \\begin{pmatrix}\n  \\mu_{1} \\\\\n  \\vdots \\\\\n  \\mu_{p}\n\\end{pmatrix} \\coloneqq \\mu.\\]\nMatrice de variance/covariance: \\[\\mathrm{Var}(X) = \\begin{pmatrix}\n  \\mathrm{Var}(X_{1}) & \\cdots & \\mathrm{Cov}(X_{1}, X_{p}) \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\mathrm{Cov}(X_{1}, X_{p}) & \\cdots & \\mathrm{Var}(X_p)  \n  \\end{pmatrix} \\coloneqq \\begin{pmatrix}\n  \\sigma_{1}^2 & \\cdots & \\sigma_{1, p} \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\sigma_{1, p} & \\cdots & \\sigma_p   \n\\end{pmatrix} \\coloneqq \\Sigma.\\]\nMatrice de corrélation: \\[\\mathrm{Cor}(X) = \\begin{pmatrix}\n  1 & \\cdots & \\mathrm{Corr}(X_{1}, X_{p})  \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\mathrm{Corr}(X_{1}, X_{p}) & \\cdots & 1\n  \\end{pmatrix} \\coloneqq \\begin{pmatrix}\n  1 & \\cdots & \\rho_{1, p} \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\rho_{1, p} & \\cdots & 1\n\\end{pmatrix} \\coloneqq R.\\]\nPropriété des moments:\n\n\n\n\n\n\nProperties\n\n\n\nSoit \\(X\\) un vecteur aléatoire de moyenne \\(\\mathbb{E}(X) = \\mu\\) et de variance \\(\\mathrm{Var}(X) = \\Sigma\\), et soit \\(M\\) une matrice de constantes et \\(v\\) un vecteur de constantes.\n\n\\(\\Sigma\\) est définie non-négative et symétrique.\n\\(\\Sigma = \\mathbb{E}\\left[ (X - \\mu)(X - \\mu)^\\top \\right] = \\mathbb{E}(X X^\\top) - \\mu \\mu^\\top\\).\n\\(\\mathbb{E}(MX + v) = \\mathbb{E}(X) + v\\).\n\\(\\mathrm{Var}(MX + v) = \\mathrm{Var}(MX) = M \\Sigma M^\\top\\).\n\\(\\Sigma = \\Delta R \\Delta \\iff R = \\Delta^{-1} \\Sigma \\Delta^{-1}\\).\n\n\n\nLoi normale multivariée: On dit qu’un vecteur aléatoire \\(X\\) de dimension \\(p\\) suit une loi normale multidimensionnelle de moyenne \\(\\mu\\) et de variance \\(\\Sigma \\sim \\mathcal{N}_{p}(\\mu, \\sigma^2)\\), si sa densité est données par \\[f_X(x) = \\frac{1}{(2 \\pi)^{p /2}} \\cdot \\frac{1}{(\\text{det} \\Sigma)^{1/2}} \\cdot \\exp\\left\\{ -\\frac{1}{2}\\left( x - \\mu \\right)^\\top \\Sigma^{-1} \\left( x - \\mu \\right) \\right\\}, \\quad x \\in \\mathbb{R}^p.\\]\nEstimation avec un échantillon: En practique, nous ne connaissons pas les valeurs de \\(\\mu\\) et de \\(\\Sigma\\) et nous voulons les estimer à partir d’un échantillon. Soit \\(X_{1}, \\dots, X_{n}\\), \\(n\\) réalisations indépendantes d’un vecteur aléatoire \\(X\\) de moyenne \\(\\mu\\) et de variance \\(\\Sigma\\). On estime \\(\\mu\\) et \\(\\Sigma\\) par :\n\\[\\widehat{\\mu} = \\overline{X} \\coloneqq \\frac{1}{n} \\sum_{i = 1}^{n} X_i\\]\n\\[\\widehat{\\Sigma} = S^2 \\coloneqq \\frac{1}{n - 1}\\sum_{i = 1}^{n} (X_i - \\overline{X})(X_i - \\overline{X})^\\top.\\]\nNotons \\(D = \\{\\text{diag}(S^2)\\}^{1/2}\\), la matrice des écarts-types calculés sur l’échantillon. On peut calculer la matrice des corrélations sur l’échantillon par : \\[\\widehat{R} = D^{-1} S^2 D^{-1} \\iff S^2 = D \\widehat{R} D.\\]",
+    "objectID": "contents/dimension/02-mca.html#notation",
+    "href": "contents/dimension/02-mca.html#notation",
+    "title": "ACM",
+    "section": "Notation",
+    "text": "Notation\nNotation: Soit \\(K = (k_{ij})\\), où \\(k_{ij}\\) est le nombre d’individus appartenant à la classe \\(i \\in \\{ 1, \\dots, n \\}\\) et à la catégorie \\(j \\in \\{ 1, \\dots, p \\}\\).\nTableau des fréquences relatives: Comme les fréquences sont proportionnelles à la taille d’échantillon \\(n\\), le tableau des fréquences relatives contient plus d’information : \\(F = (f_{ij})\\), dans lequel \\[f_{ij} = \\frac{k_{ij}}{k_{\\bullet\\bullet}} = \\frac{k_{ij}}{\\sum_{l = 1}^{n} \\sum_{m = 1}^{p} k_{lm}}.\\]\nLes marges du tableau correspondent à la somme des colonnes pour chaque ligne et de la somme des lignes pour chaque colonne: \\[\\begin{align}\nf_{i \\bullet} &= \\sum_{j = 1}^{p} f_{ij} = \\frac{k_{i \\bullet}}{k_{\\bullet\\bullet}}, \\quad 1 \\leq i \\leq n; \\\\\nf_{\\bullet j} &= \\sum_{i = 1}^{n} f_{ij} = \\frac{k_{\\bullet j}}{k_{\\bullet\\bullet}}, \\quad 1 \\leq j \\leq p.\n\\end{align}\\]\nLes fréquences relatives estiment des probabilités. Dans le cas d’un tableau de fréquences croisant deux variables, sous l’hypothèse d’indépendance, les fréquences relatives devraient être telles qu’on ne s’éloigne pas trop de la relation \\[f_{ij} = f_{i \\bullet} f_{\\bullet j}, \\quad i \\in \\{ 1, \\dots, n \\}, j \\in \\{ 1, \\dots, p \\}.\\]\nStatistique du \\(\\chi^{2}\\): on peut tester si les différences entre \\(f_{ij}\\) et \\(f_{i \\bullet} f_{\\bullet j}\\) sont significatives à l’aide du test du \\(\\chi^2\\): \\[T = \\sum_{i = 1}^{n} \\sum_{j = 1}^{p} \\frac{\\left( k_{ij} - \\mathbb{E}(k_{ij}) \\right)^2}{\\mathbb{E}(k_{ij})} = \\sum_{i = 1}^{n} \\sum_{j = 1}^{p} \\frac{\\left( k_{ij} - \\frac{k_{i \\bullet}k_{\\bullet j}}{k_{\\bullet\\bullet}} \\right)^2}{\\left( \\frac{k_{i \\bullet} k_{\\bullet j}}{k_{\\bullet\\bullet}} \\right)}.\\]\nSi les variables sont indépendantes, la statistique \\(T\\) dit être proche de \\(0\\).\nOn peut aussi s’intéresser à la contribution de chaque cellule à la valeur globale de la statistique \\(T\\). Cela permet d’obtenir le profil de chaque ligne \\(i\\) et de chaque colonne \\(j\\). \\[\\begin{align}\nL_i &= \\left( \\frac{k_{i 1}}{k_{i \\bullet}}, \\dots, \\frac{k_{i p}}{k_{i \\bullet}} \\right) &= \\left( \\frac{f_{i 1}}{f_{i \\bullet}}, \\dots, \\frac{f_{i p}}{f_{i \\bullet}} \\right) \\\\\nC_j &= \\left( \\frac{k_{1 j}}{k_{\\bullet j}}, \\dots, \\frac{k_{n j}}{k_{\\bullet j}} \\right) &= \\left( \\frac{f_{1 j}}{f_{\\bullet j}}, \\dots, \\frac{f_{n j}}{f_{\\bullet j}} \\right)\n.\n\\end{align}\\]\nLe profil-ligne moyen est donné par \\[\\left( \\sum_{i = 1}^{n} f_{i \\bullet} \\frac{f_{i 1}}{f_{i \\bullet}}, \\dots, \\sum_{i = 1}^{n} f_{i \\bullet} \\frac{f_{i p}}{f_{i \\bullet}} \\right) = \\left( f_{\\bullet 1}, \\dots, f_{\\bullet p} \\right).\\] Le profil-colonne moyen est donné par \\[\\left( \\sum_{j = 1}^{p} f_{{\\bullet j}} \\frac{f_{1 j}}{f_{\\bullet j}}, \\dots, \\sum_{j = 1}^{p} f_{\\bullet j} \\frac{f_{n j}}{f_{\\bullet j}} \\right) = \\left( f_{{1 \\bullet}}, \\dots, f_{n \\bullet} \\right).\\]\nEn cas d’indépendance, on a, pour tout \\(i \\in \\{ 1, \\dots, n \\}\\) et \\(j \\in \\{ 1, \\dots, p \\}\\), \\[\\left( \\frac{f_{i 1}}{f_{i \\bullet}}, \\dots, \\frac{f_{i p}}{f_{i \\bullet}} \\right) = \\left( f_{\\bullet 1}, \\dots, f_{\\bullet p} \\right) \\quad\\text{et}\\quad\n\\left( \\frac{f_{1 j}}{f_{\\bullet j}}, \\dots, \\frac{f_{n j}}{f_{\\bullet j}} \\right) = \\left( f_{{1 \\bullet}}, \\dots, f_{n \\bullet} \\right).\\]\nLa dépendance entre les variables est fonction de la ressemblance entre les profils des lignes et les profils des colonnes. On peut mesurer et visualiser cette de diverses manières.\nOn peut mesurer la distance entre deux profils-lignes avec la distance du \\(\\chi^2\\), qui tient compte de l’importance de chaque colonne: \\[d^2(i, i^\\prime) = \\sum_{j = 1}^{p} \\frac{1}{f_{\\bullet j}} \\left( \\frac{f_{ij}}{f_{i \\bullet}} - \\frac{f_{i^\\prime j}}{f_{i^\\prime j}} \\right)^2.\\]\nOn peut écrire cela sous forme matricielle. Notons \\(D_n = \\text{diag}(f_{i \\bullet}\\) et \\(D_p = \\text{diag}(f_{\\bullet j}\\). On a que la matrice \\(D_n^{-1}F\\) a pour lignes les profils-lignes et la matrice \\(D_p^{-1}F^{\\top}\\) a pour lignes les profils-colonnes.\nEn utilisant ces matrices, la distance du \\(\\chi^2\\) au carré est de la forme \\(x^{\\top}D_p^{-1}x\\) pour un point-ligne \\(x \\in \\mathbb{R}^p\\) et de la forme \\(x^{\\top}D_n^{-1}x\\) pour un point-colonne \\(x \\in \\mathbb{R}^n\\).",
     "crumbs": [
       "Modules",
-      "02 - Révisions"
+      "04 - Dimension",
+      "ACM"
+    ]
+  },
+  {
+    "objectID": "contents/dimension/02-mca.html#analyse-factorielle-des-correspondances",
+    "href": "contents/dimension/02-mca.html#analyse-factorielle-des-correspondances",
+    "title": "ACM",
+    "section": "Analyse factorielle des correspondances",
+    "text": "Analyse factorielle des correspondances\nL’analyse factorielle des correspondances est une approche graphique permettant de représenter simultanément les profils-lignes appartenant à \\(\\mathbb{R}^p\\) et les profils-colonnes appartenant à \\(\\mathbb{R}^n\\) d’un tableau de fréquences. On cherche donc un espace en deux dimensions où projeter les profils lignes et colonnes de sorte que les points dans cet espace soient le plus près possible des points originaux au sens de la distance du \\(\\chi^2\\). L’analyse des correspondances est très similaire à une double ACP.\nAnalyse directe (sur les lignes): les lignes de la matrice \\(D_n^{-1}F \\in \\mathbb{R}^p\\). On cherche à les représenter dans cet espace muni de la distance \\(x^{\\top} D_p^{-1} x\\).\nAnalyse duale (sur les colonnes): les colonnes de la matrice \\(D_p^{-1}F^{\\top} \\in R^n\\). On cherche à les représenter dans cet espace muni de la distance \\(x^{\\top} D_n^{-1} x\\).\nPremier axe factoriel de l’analyse directe: on cherche le vecteur \\(u \\in \\mathbb{R}^p\\) tel que \\[\\left( u^{\\top} D_p^{-1} F^{\\top} D_n^{-1} \\right) D_n \\left( D_n^{-1} F D_p^{-1} u \\right).\\] soit maximal, sachant que \\(u^{\\top} D_p^{-1} u = 1\\). La solution est donnée par le vecteur propre principal de \\[D_p \\left( D_p^{-1} F^{\\top} D_n^{-1} F D_p^{-1} \\right) = F^{\\top} D_n^{-1} F D_p^{-1} \\equiv S.\\]\nLes formules des coordonnées dans le système d’axes sont plutôt complexes et pas très parlantes… mais à remarquer:\n\n\\(S\\) et \\(T\\) ont les mêmes \\(p\\) premières valeurs propres.\nEn centrant les profils lignes et colonnes, on peut illustrer le résultat des deux graphiques sur les mêmes axes.",
+    "crumbs": [
+      "Modules",
+      "04 - Dimension",
+      "ACM"
+    ]
+  },
+  {
+    "objectID": "contents/dimension/02-mca.html#centre-de-gravité-et-inertie",
+    "href": "contents/dimension/02-mca.html#centre-de-gravité-et-inertie",
+    "title": "ACM",
+    "section": "Centre de gravité et inertie",
+    "text": "Centre de gravité et inertie\nLes logiciels produisent généralement un graphique centré en \\((0, 0)\\). Il s’agit d’une analyse relative aux centres de gravité des lignes et des colonnes. Cette pratique est à la fois commune et commode. En fait, la masse de la \\(i\\)e ligne est \\(f_{i \\bullet}\\), soit la proportion des observations qui tombent sur cette ligne. De faon similaire, la masse de la \\(j\\)e colonne est \\(f_{\\bullet j}\\). Le centre de gravité des lignes est la moyenne des profils-lignes, mais pondérée par la masse de chaque ligne, et similairement pour les profils-colonnes.\nLe centre de gravité des lignes est défini par \\(G_L = \\left( g_{1}, \\dots, g_{p} \\right)^top\\), où \\[g_j = \\sum_{i = 1}^{n} f_{i \\bullet} \\frac{f_{i j}}{f_{i \\bullet}} = \\sum_{i = 1}^{n} f_{i j} = f_{\\bullet j}, \\quad 1 \\leq j \\leq p.\\]\nDe même, le centre de gravité des colonnes est défini par \\[G_C = \\left( f_{1 \\bullet}, \\dots, f_{n \\bullet} \\right)^top.\\]\nCentrage des lignes: \\[\\frac{f_{i j}}{f_{i \\bullet}} - g_{j} = \\frac{f_{i j}}{f_{i \\bullet}} - f_{\\bullet j} = \\frac{f_{i j} - f_{i \\bullet} f_{\\bullet j}}{f_{i \\bullet}}.\\] de sorte que, pour tout \\(i \\in \\{ 1, \\dots, n \\}\\), \\[\\sum_{j = 1}^{p} \\frac{f_{i j} - f_{i \\bullet}f_{\\bullet j}}{f_{i \\bullet}} = 0.\\]\nL’analyse ne se fait plus sur \\[S = F^{\\top} D_n^{-1} F D_p^{-1},\\] mais plutôt sur \\(S^\\star = (s_{j j^\\prime}^\\star),\\) où \\[s_{j j^\\prime}^\\star = \\sum_{i = 1}^{n} \\frac{\\left( f_{i j} - f_{i \\bullet} f_{\\bullet j} \\right) \\left( f_{i j^\\prime} - f_{i \\bullet} f_{\\bullet j^\\prime} \\right)}{f_{i \\bullet} f_{\\bullet j^\\prime}}.\\]\nPar définition, \\[\\text{tr}(S^\\star) = \\sum_{j = 1}^{p} \\sum_{i = 1}^{n} \\frac{\\left( f_{i j} - f_{i \\bullet}f_{\\bullet j} \\right)^2}{f_{i \\bullet} f_{\\bullet j}}.\\]\nOn retrouve l’expression de la statistique du \\(\\chi^2\\) servant à tester l’indépendance entre deux variables.\nOn peut prouver que \\(s_{j j^\\prime}^\\star = s_{j j^\\prime} - f_{\\bullet j},\\) où \\[s_{j j^\\prime} = \\sum_{i = 1}^{n} \\frac{f_{i j}f_{i j^\\prime}}{f_{i \\bullet} f_{\\bullet j^\\prime}}.\\] Ceci entraîne que ces deux matrices ont les mêmes \\(p\\) premiers vecteurs propres normalisés.\nCoordonnées des points-lignes. La projection du \\(i\\)e point-ligne sur l’axe \\(j\\) est donnée par \\[\\left( D_n^{-1} F \\phi_j \\right)_i = \\frac{1}{f_{i \\bullet}} \\sum_{j^\\prime = 1}^{p} f_{i j^\\prime} \\phi_{j j^\\prime} = \\sqrt{\\lambda_j} \\Psi_{j i} \\equiv \\widehat{\\Psi}_{j i}.\\] De plus, \\[\\sum_{i = 1}^{n} f_{i \\bullet} \\widehat{\\Psi}^2_{j i} = \\sum_{i = 1}^{n} f_{i \\bullet} \\left( \\sqrt{\\lambda_j} \\Psi_{j i} \\right)^2 = \\lambda_j.\\]\nCoordonnées des point-colonne. La projection du \\(k\\)e point-ligne sur l’axe \\(j\\) est donnée par \\[\\left( D_p^{-1} F^{\\top} \\psi_j \\right)_k = \\frac{1}{f_{\\bullet k}} \\sum_{i = 1}^{n} f_{i k} \\psi_{j i} = \\sqrt{\\lambda_j} \\Phi_{j k} \\equiv \\widehat{\\Phi}_{j k}.\\] De plus, \\[\\sum_{k = 1}^{p} f_{\\bullet k} \\widehat{\\Phi}^2_{j k} = \\sum_{k = 1}^{p} f_{\\bullet k} \\left( \\sqrt{\\lambda_j} \\Phi_{j k} \\right)^2 = \\lambda_j.\\]\nL’inertie absolue du \\(i\\)e point-ligne sur l’axe \\(j\\) est \\(f_{i \\bullet}\\widehat{\\Psi}_{j i}^2\\). L’inertie relative du \\(i\\)e point-ligne sur l’axe \\(j\\) est \\[\\frac{f_{i \\bullet} \\widehat{\\Psi}_{j i}^2}{\\lambda_j}.\\]\nL’inertie absolue du \\(k\\)e point-colonne sur l’axe \\(j\\) est \\(f_{\\bullet k}\\widehat{\\Phi}_{j k}^2\\). L’inertie relative du \\(k\\)e point-colonne sur l’axe \\(j\\) est \\[\\frac{f_{\\bullet k} \\widehat{\\Phi}_{j k}^2}{\\lambda_j}.\\]\nL’inertie totale est \\(I = T / k_{\\bullet\\bullet}\\).\nla qualité de la représentation du \\(k\\)e point-colonne dans l’axe \\(j\\) est donnée par \\[\\frac{d_j^2(k, G_C)}{d^2(k, G_c)} = \\cos^2(\\theta_{k j}),\\] où \\(\\theta_{k j}\\) est l’angle entre le point \\(k\\) et sa projection sur l’axe \\(j\\).\nInterprétation:\n\nPlus les \\(\\cos^2(\\theta_{k j})\\) sont élevés, mieux les points sont représentés sur l’axe \\(j\\).\nCeci ne signifie pas pour autant que les points sont près du centre du graphique.\nLes points éloignés du centre de gravité se distinguent du centre de gravité.\nUne interprétation semblable existe pour les points-lignes.",
+    "crumbs": [
+      "Modules",
+      "04 - Dimension",
+      "ACM"
+    ]
+  },
+  {
+    "objectID": "contents/dimension/01-pca.html",
+    "href": "contents/dimension/01-pca.html",
+    "title": "ACP",
+    "section": "",
+    "text": "Il y a plusieurs raisons de vouloir changer le dimension des données. Il est possible que la dimension des données soit trop importante pour avoir une visualisation intéressante, que la dimension actuelle ne permette pas une bonne séparation des classes dans les données, etc.",
+    "crumbs": [
+      "Modules",
+      "04 - Dimension",
+      "ACP"
+    ]
+  },
+  {
+    "objectID": "contents/dimension/01-pca.html#changer-de-dimension---pourquoi-faire",
+    "href": "contents/dimension/01-pca.html#changer-de-dimension---pourquoi-faire",
+    "title": "ACP",
+    "section": "",
+    "text": "Il y a plusieurs raisons de vouloir changer le dimension des données. Il est possible que la dimension des données soit trop importante pour avoir une visualisation intéressante, que la dimension actuelle ne permette pas une bonne séparation des classes dans les données, etc.",
+    "crumbs": [
+      "Modules",
+      "04 - Dimension",
+      "ACP"
+    ]
+  },
+  {
+    "objectID": "contents/dimension/01-pca.html#analyse-en-composantes-principales",
+    "href": "contents/dimension/01-pca.html#analyse-en-composantes-principales",
+    "title": "ACP",
+    "section": "Analyse en composantes principales",
+    "text": "Analyse en composantes principales\nL’analyse en composantes principales (ACP) est une méthode permettant de réduire la dimension d’un jeu de données tout en conservant le plus d’information possible. Cette méthode est utilisée lorsque l’on a \\(n\\) observations de \\(p\\) variables continues avec \\(p\\) trop “grand” pour nos besoins.\nPourquoi l’ACP est-elle utilisée ?\n\nVisualisation d’un jeu de données;\nRéduction du nombre de variables de \\(p\\) à \\(p^{\\prime} \\ll p\\) pour faciliter la construction de modèle. Exemples: analyse de texte, analyse de données génétique;\nEffectuer une rotation d’axes pour simplifier la structure de corrélation;\nCompression de données.\n\nLa méthode a été introduite par H. Hotelling dans (Hotelling 1933).\nVisualiser, comprendre, modéliser, classifier des données sont toutes des tâches beacoup simples à accomplir si le nomnre de variables dans un jeu de données est faible. Si un jeu de données comprend un grand nombre de variables, une première question que l’on peut se poser est: “Est-il possible de réduire la dimension du problème sans trop perdre d’information ?”. En omettant tout simplement des variables, on risque de perdre beaucoup d’information utile. Une meilleure solution consiste à trouver des combinaisons linéaires des variables en vue de conserver le maximum d’information sur le jeu de données.\n\n\n\n\n\n\nExample\n\n\n\n\nComparer des équipes de hockey sur la base de six statistiques de fin de saison.\nComparer la criminalité entre états sur la base des taux de sept types de crimes différents.\nCompresser des images formées de \\(1084 \\times 1084\\) pixels.\nIdentifier le nombre de variantes d’un type de tumeur à partir du degré d’expression de millions de gènes.\n\n\n\n\nLes maths\nSoit un vecteur aléatoire composé de \\(p\\) variables \\(X = \\left( X_{1}, \\dots, X_p \\right)\\) ayant comme matrice de variance \\(\\Sigma\\). On aimerait définir une première composante principale, \\[Y_{1} = \\alpha_{1}^{\\top} X = \\sum_{i = 1}^{p} \\alpha_{1i}X_i,\\] de sorte que la variance de \\(Y_{1}\\) soit maximale. L’idée est simple: on désire combiner \\(p\\) variables en une seule, mais en “capturant” la plus grande partie possible de la variabilité.\nIl faut d’abord ajouter une contrainte sur \\(\\alpha_{1}\\), puisque sinon on n’aurait qu’à prendre \\(\\alpha_{1i} = \\pm \\infty\\) et on aurait \\(\\mathrm{Var}(Y_{1}) = +\\infty\\) ce qui est définitivement maximal ! On verra qu’il est pratique de contraindre \\(\\alpha_{1}\\) de sorte qu’il ait une norme égale à \\(1\\).\n\nCalcul de la première composante:\n\n\\[\\mathrm{Var}(Y_1) = \\alpha_1^\\top \\Sigma \\alpha_{1} \\]\nLe problème est donc de maximiser \\[F(\\alpha_{1} = \\alpha_{1}^\\top \\Sigma \\alpha_1, \\quad\\text{s.c.}\\quad \\alpha_1^\\top \\alpha_1 = 1.\\]\nOn peut récrire ce problème à l’aide des multiplicateurs de Lagrange, soit maximiser \\[F(\\alpha_1, \\lambda) = \\alpha_1^\\top \\Sigma \\alpha_1 - \\lambda (\\alpha_1^\\top \\alpha_1 -1 ),\\] où \\(\\lambda\\) est un multiplicateur de Lagrange.\nPour solutionner ce problème, on dérive \\(F\\) par rapport à \\(\\alpha_{1}\\) et à \\(\\lambda\\).\n\\[\\begin{cases}\n\\frac{\\partial F(\\alpha_{1}, \\lambda)}{\\partial \\alpha_{1}} = 2 \\Sigma \\alpha_{1} - 2 \\lambda \\alpha_{1} \\\\\n\\frac{\\partial F(\\alpha_{1}, \\lambda)}{\\partial \\lambda} = 1 - \\alpha_{1}^\\top \\alpha_{1}\n\\end{cases}\n.\\]\nEnsuite, on égalise à \\(0\\), ce qui donne: \\[\\begin{cases}\n\\Sigma \\alpha_{1} = \\lambda \\alpha_{1} \\\\\n\\alpha_{1}^\\top \\alpha_{1} = 1\n\\end{cases}\n.\\] La seconde équation est bien entendue notre contrainte. La première équation est celle qui nous intéresse. En utilisant cette équation et la définition des éléments propres, on déduit que\n\n\\(\\alpha_{1}\\) est un vecteur propre (normé) de \\(\\Sigma\\);\n\\(\\lambda\\) est la valeur propre correspondante.\n\nOn a donc que \\[\\mathrm{Var}(Y_{1}) = \\alpha_{1}^\\top \\Sigma \\alpha_{1} = \\lambda \\alpha_{1}^\\top \\alpha_1 = \\lambda.\\] Puisque l’on veut maximiser cette quantité, on conclut que:\n\n\\(\\lambda = \\lambda_{1}\\), la plus grande valeur propre de \\(\\Sigma\\);\n\\(\\alpha_{1}\\), le vecteur propre normé correspondant.\n\n\nCalcul de la deuxième composante:\n\nOn poursuit simultanément deux objectifs:\n\nConserver le maximum de variation présente dans \\(X\\);\nSimplifier la structure de dépendancce pour faciliter l’interprétation et assurer la stabilité numérique d’éventuelles méthodes qui utiliseront les composantes principales obtenues.\n\nÉtant donné \\(Y_{1}\\), la deuxième composante principale \\(Y_{2} = \\alpha_{2}^\\top X\\) est définie telle que\n\n\\(\\mathrm{Var}(Y_{2}) = \\alpha_{2}^\\top \\Sigma \\alpha_{2}\\) est maximale;\n\\(\\alpha_{2}^\\top \\alpha_{2} = 1\\);\n\\(\\mathrm{Cov}(Y_{1}, Y_{2}) = 0\\).\n\nOn a que \\[\\mathrm{Cov}(Y_{1}, Y_{2}) = \\mathrm{Cov}(\\alpha_{1}^\\top X, \\alpha_{2}^\\top X) = \\alpha_{1}^\\top \\Sigma \\alpha_{2} = \\alpha_{2}^\\top \\Sigma \\alpha_{1} = \\lambda_{1} \\alpha_{2}^\\top \\alpha_{1}.\\]\nOn cherche donc le vecteur \\(\\alpha_{2}\\) qui maximise: \\[F(\\alpha_{2}, \\lambda, \\kappa) = \\alpha_{2}^\\top \\Sigma \\alpha_{2} - \\lambda (\\alpha_{2}^\\top \\alpha_{2} - 1) - \\kappa (\\alpha_{2}^\\top \\alpha_{1} - 0).\\]\nDe même que pour la première composante, on dérive \\(F\\) par rapport à \\(\\alpha_{2}\\), \\(\\lambda\\) et \\(\\kappa\\).\n\\[\\begin{cases}\n\\frac{\\partial F(\\alpha_{2}, \\lambda, \\kappa)}{\\partial \\alpha_{2}} = 2 \\Sigma \\alpha_{2} - 2 \\lambda \\alpha_{2} - \\kappa \\alpha_1 \\\\\n\\frac{\\partial F(\\alpha_{2}, \\lambda, \\kappa)}{\\partial \\lambda} = 1 - \\alpha_{2}^\\top \\alpha_{2} \\\\\n\\frac{\\partial F(\\alpha_{2}, \\lambda, \\kappa)}{\\partial \\kappa} = - \\alpha_2^\\top \\alpha_1\n\\end{cases}\n\\]\nEn égalisant les équations à \\(0\\), on retrouve les deux équations des contraintes, ainsi que\n\\[2 \\Sigma \\alpha_{2} - 2 \\lambda \\alpha_{2} - \\kappa \\alpha_{1} = 0.\\]\nEn multipliant cette équation à gauche et à droite par \\(\\alpha_{1}^\\top\\), on trouve\n\\[2 \\alpha_{1}^\\top \\Sigma \\alpha_{2} - 2 \\alpha_{1}^\\top \\lambda \\alpha_{2} - \\kappa \\alpha_{1}^\\top \\alpha_{1} = 0.\\]\nOr \\(\\alpha_{1}^\\top \\Sigma = \\lambda_{1} \\alpha_{1}^\\top\\), et \\(\\lambda_{1}^\\top \\alpha_{1} = 1\\), donc \\[2 \\alpha_{1}^\\top \\lambda \\alpha_{2} - 2 \\alpha_{1}^\\top \\lambda \\alpha_{2} - \\kappa \\alpha_{1}^\\top \\alpha_{1} = 0 \\implies - \\kappa = 0.\\]\nEn substituant ce résulat, on obtient \\[\\Sigma \\alpha_{2} = \\lambda \\alpha_{2}.\\]\net donc \\(\\lambda\\) est une autre valeur propre de \\(\\Sigma\\). Puisque \\[\\mathrm{Var}(Y_{2} = \\alpha_{2}^\\top \\Sigma \\alpha_{2} = \\alpha_{2}^\\top \\lambda \\alpha_{2} = \\lambda,\\] on a que cette variance est maximale si \\(\\lambda = \\lambda_{2}\\), la deuxième plus grande valeur propre de \\(\\Sigma\\), et conséquemment \\(\\alpha_{2}\\) est le vecteur propre normé correspondant.\nOn peut généraliser ce résultat en utilisant des maximisations successives. On en conclut que \\[Y_k = \\alpha_k^\\top X,\\] où \\(\\alpha_k\\) est le vecteur propre normé associé à \\(\\lambda_k\\), la \\(k\\)e plus grande valeur propre de \\(\\Sigma\\).\n\nNotation matricielle:\n\nPour définir simultanément et de facon plus compacte les composantes principales, on pose \\[Y = AX,\\] où \\[A = \\left( \\alpha_{1}, \\dots, \\alpha_{p} \\right) = \\begin{pmatrix}\n  \\alpha_{1, 1} & \\alpha_{2, 1} & \\cdots & \\alpha_{p, 1} \\\\\n  \\alpha_{1, 1} & \\alpha_{2, 2} & \\cdots & \\alpha_{p, 1} \\\\\n  \\vdots & \\vdots & \\ddots & \\vdots \\\\\n  \\alpha_{1, p} & \\alpha_{2, p} & \\cdots & \\alpha_{p, p}\n\\end{pmatrix}.\\]\n\n\n\n\n\n\nPropriétés de \\(A\\)\n\n\n\n\nLes colonnes de la matrice \\(A\\) sont les vecteurs propres de \\(\\Sigma\\);\n\\(A^{\\top} A = A A^{\\top} = I_p\\);\n\\(A^{\\top} = A^{-1}\\);\n\\(\\Sigma A = A \\Lambda\\), où \\(\\Lambda = \\text{diag}(\\lambda_{1}, \\dots, \\lambda_p)\\);\n\\(\\mathrm{Var}(Y) = A^{\\top} \\Sigma A = \\Lambda \\implies \\mathrm{Cov}(Y_i, Y_j) = 0\\) si \\(i \\neq j\\) et \\(\\mathrm{Var}(Y_i) = \\lambda_i \\geq \\mathrm{Var}(Y_j) = \\lambda_j\\) si et seulement si \\(i \\leq j\\).\n\n\n\nUne mesure globale de la variation presente dans les données est donnée par la trace de la matrice \\(\\Sigma\\): \\[\\text{tr}(\\Sigma) = \\text{tr}(\\Lambda) = \\sum_{i = 1}^{p} \\lambda_i.\\]\nLa proportion de variation expliquée par la composante principale \\(Y_i\\) est \\[\\frac{\\lambda_i}{\\lambda_{1} + \\cdots + \\lambda_p}.\\]\nSimilairement, les \\(m\\) première composantes expliquent \\[\\frac{\\sum_{i = 1}^{m} \\lambda_i}{\\sum_{i = 1}^{p} \\lambda_i} \\times 100\\%.\\] de la variabilité dans les variables.",
+    "crumbs": [
+      "Modules",
+      "04 - Dimension",
+      "ACP"
     ]
   },
   {
@@ -269,36 +309,218 @@
     ]
   },
   {
-    "objectID": "informations/general.html",
-    "href": "informations/general.html",
-    "title": "Informations générales",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STT-2200: Analyse de données",
     "section": "",
-    "text": "Faculté des sciences et de génie\nDépartement de mathématiques et de statistique",
+    "text": "Bienvenue à tous au cours STT-2200 de l’automne 2025.\nVous trouverez sur ce site toute les informations nécessaire pour les cours, les différents travaux et les exams. Les contenus seront mis à jour au cours de la session avec les corrigés de certains travaux. Je vous invite à regarder les différents modules avant les cours.\nCe site a été créé avec Quarto."
+  },
+  {
+    "objectID": "slides/01-introduction-slides.html#test",
+    "href": "slides/01-introduction-slides.html#test",
+    "title": "Introduction",
+    "section": "Test",
+    "text": "Test\nCoucou"
+  },
+  {
+    "objectID": "contents/generalities/01-spaces.html",
+    "href": "contents/generalities/01-spaces.html",
+    "title": "Espace",
+    "section": "",
+    "text": "Variable numérique: Variable dont la valeur numérique mesure quelque chose de quantifiable et dont la différence entre les valeurs reflète la différence entre les objets. Exemples: revenu en dollars, masse, âge, …\nVariable ordinale: Variable qui ne donne pas une quantification précise d’un phénomène, mais dont les modalités peuvent être naturellement ordonnées. Examples: revenu faible, moyen ou élevé, ou niveau d’accord entre “tout-à-fait en désaccord”, “en désaccord”, “pas d’avis”, “d’accord”, “tout-à-fait d’accord”.\nNominales symétriques: Variable qualitative dont toutes les modalités sont aussi informatives l’une que l’autre. Examples: Sexe, sections d’un cours.\nNominales asymétriques: Variable qualitative dont les modalités ne contiennent pas toutes le même niveau d’information, habituellement lorsque l’une des modalités est très fréquente, un peu la modalité par defaut, mais que les autres ne le sont pas. Exemples: variable indiquant si un individu est daltonien ou non (deux individus daltoniens ont quelque chose en commun, mais deux individus non-daltoniens n’ont pas forcément quelque chose en commun), variable indiquant si une transaction est frauduleuse.\nIl y a plein d’autre type de variables: fonctions, textes, images, graphs, …",
     "crumbs": [
-      "Informations",
-      "Générales"
+      "Modules",
+      "03 - Généralités",
+      "Espace"
     ]
   },
   {
-    "objectID": "informations/general.html#stt-2200-analyse-de-données",
-    "href": "informations/general.html#stt-2200-analyse-de-données",
-    "title": "Informations générales",
-    "section": "STT-2200: Analyse de données",
-    "text": "STT-2200: Analyse de données\nFormule d’enseignement: Présentiel\nTemps consacré:\n\nCours: 2h\nLaboratoire: 1h\nTravail personnel: 6h\nTotal: 9h\n\nCrédits: 3\nPréalables:\n\nACT-2000 ou STT-1000 ou STT-1300 ou STT-1900\nMAT-1200 ou ACT-2002\nSTT-1100 ou IFT-4902 ou ECN-2090 ou GLO-1901 ou IFT-1004\n\nPlage horaire:\n\n\n\nType\nJour\nHoraire\nDates\n\n\n\n\nLabo\nMardi\n\n\n\n\nClasse\nVendredi",
+    "objectID": "contents/generalities/01-spaces.html#types-de-variables",
+    "href": "contents/generalities/01-spaces.html#types-de-variables",
+    "title": "Espace",
+    "section": "",
+    "text": "Variable numérique: Variable dont la valeur numérique mesure quelque chose de quantifiable et dont la différence entre les valeurs reflète la différence entre les objets. Exemples: revenu en dollars, masse, âge, …\nVariable ordinale: Variable qui ne donne pas une quantification précise d’un phénomène, mais dont les modalités peuvent être naturellement ordonnées. Examples: revenu faible, moyen ou élevé, ou niveau d’accord entre “tout-à-fait en désaccord”, “en désaccord”, “pas d’avis”, “d’accord”, “tout-à-fait d’accord”.\nNominales symétriques: Variable qualitative dont toutes les modalités sont aussi informatives l’une que l’autre. Examples: Sexe, sections d’un cours.\nNominales asymétriques: Variable qualitative dont les modalités ne contiennent pas toutes le même niveau d’information, habituellement lorsque l’une des modalités est très fréquente, un peu la modalité par defaut, mais que les autres ne le sont pas. Exemples: variable indiquant si un individu est daltonien ou non (deux individus daltoniens ont quelque chose en commun, mais deux individus non-daltoniens n’ont pas forcément quelque chose en commun), variable indiquant si une transaction est frauduleuse.\nIl y a plein d’autre type de variables: fonctions, textes, images, graphs, …",
     "crumbs": [
-      "Informations",
-      "Générales"
+      "Modules",
+      "03 - Généralités",
+      "Espace"
     ]
   },
   {
-    "objectID": "informations/general.html#coordonnées-et-disponibilités",
-    "href": "informations/general.html#coordonnées-et-disponibilités",
-    "title": "Informations générales",
-    "section": "Coordonnées et disponibilités",
-    "text": "Coordonnées et disponibilités\nSteven Golovkine (Enseignant)\nVCH-2200\nsteven.golovkine@mat.ulaval.ca\nDisponibilités\nJe suis disponible pour vous rencontrer sur rendez-vous par couriel ou sans rendez-vous du lundi au jeudi entre 8h et 10h.\n\nL’Université reconnaît le droit à la déconnexion des professeures et professeurs, des personnes chargées de cours et des autres membres du personnel enseignant. Cela signifie que ces personnes ne sont pas tenues de consulter les messages qui leur sont envoyés (courriel, boîte vocale, message dans un forum, etc.) pendant les soirs, fins de semaine, jours fériés et vacances. La personne qui aura envoyé un message durant ces périodes devra donc s’attendre à recevoir une réponse dans un délai raisonnable, calculé à partir de la reprise des heures normales de travail.",
+    "objectID": "contents/generalities/01-spaces.html#espaces-associés",
+    "href": "contents/generalities/01-spaces.html#espaces-associés",
+    "title": "Espace",
+    "section": "Espaces associés",
+    "text": "Espaces associés",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités",
+      "Espace"
+    ]
+  },
+  {
+    "objectID": "contents/generalities/02-distance.html",
+    "href": "contents/generalities/02-distance.html",
+    "title": "Distances",
+    "section": "",
+    "text": "On a besoin d’une notion de distance et de similarité. On a besoin d’une définition de ce que sont des observations similaires ou des observations différentes. On veut quantifier la similarité ou la distance entre deux observations. Le choix de la métrique est une étape essentielle dans le processus d’analyse de données.",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités",
+      "Distances"
+    ]
+  },
+  {
+    "objectID": "contents/generalities/02-distance.html#introduction",
+    "href": "contents/generalities/02-distance.html#introduction",
+    "title": "Distances",
+    "section": "",
+    "text": "On a besoin d’une notion de distance et de similarité. On a besoin d’une définition de ce que sont des observations similaires ou des observations différentes. On veut quantifier la similarité ou la distance entre deux observations. Le choix de la métrique est une étape essentielle dans le processus d’analyse de données.",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités",
+      "Distances"
+    ]
+  },
+  {
+    "objectID": "contents/generalities/02-distance.html#notion-de-distance",
+    "href": "contents/generalities/02-distance.html#notion-de-distance",
+    "title": "Distances",
+    "section": "Notion de distance",
+    "text": "Notion de distance\n\n\n\n\n\n\nDéfinition de distance\n\n\n\nUne mesure de distance \\(d\\) doit satisfaire les propriétés suivantes pour tout \\(x, y, z \\in A\\), \\(A\\) étant un ensemble quelconque:\n\n\\(d(x, y) \\geq 0\\);\n\\(d(x, x) = 0\\);\n\\(d(x, y) = d(y, x)\\);\n\\(d(x, y) \\leq d(x, z) + d(y, z)\\).\n\n\n\nLa distance euclidienne:\nSi les observations sont constituées de \\(p\\) nombres réels de même ordre de grandeur, alors la distance euclidienne entre deux éléments de \\(\\mathbb{R}^p\\) est une mesure raisonnable.\nSoit \\(x, y \\in \\mathbb{R}^n\\), la distance euclidienne est données par : \\[d(x, y) = \\left\\| x - y \\right\\|_2 = \\left( \\sum_{i = 1}^{n} (x_i - y_i)^2 \\right)^{1/2}.\\]\nQue fait-on dans d’autres cas ? Plusieurs mesures ont été développées pour leur application particulière. Voici les plus classiques.\nUne distance est peu plus générale que la distance euclidienne est la distance \\(L_p\\). Soit \\(x, y \\in \\mathbb{R}^n\\), la distance \\(L_p\\) est donnée, pour \\(p &gt; 0\\), par : \\[d(x, y) = \\left\\| x - y \\right\\|_p = \\left( \\sum_{i = 1}^{n} |x_i - y_i|^p \\right)^{1 /p} .\\]\nLa distance euclidienne correspond à la distance \\(L_p\\) avec \\(p = 2\\). Cas particulier avec \\(p = 1\\), distance de Manhattan:\n\\[d(x, y) = \\left\\| x - y \\right\\|_1 = \\sum_{i = 1}^{n} | x_i - y_i |.\\]\n\n\n\n\n\n\nProperties\n\n\n\nLa distance \\(L_p\\) n’est pas invariante à un changement d’échelle, i.e., \\(L_p(x, y) \\neq L_p(\\lambda x, \\lambda y)\\).\n\n\nStandardisation",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités",
+      "Distances"
+    ]
+  },
+  {
+    "objectID": "contents/generalities/02-distance.html#notion-de-similarité",
+    "href": "contents/generalities/02-distance.html#notion-de-similarité",
+    "title": "Distances",
+    "section": "Notion de similarité",
+    "text": "Notion de similarité\n\n\n\n\n\n\nDéfinition d’un indice de similarité\n\n\n\nUn indice de similarité \\(s\\) doit satisfaire les propriétés suivantes pour tout \\(x, y \\in A\\), \\(A\\) étant un ensemble quelconque:\n\n\\(s(x, y) \\geq 0\\);\n\\(s(x, y) = s(y, x)\\);\n\\(s(x, x) = 1 \\geq s(x, y)\\).\n\n\n\nUne distance peut se transformer en similarité en posant \\(s(x, y) = \\frac{1}{1 + d(x, y)}\\). L’inverse n’est pas vrai, dû à l’inégalité triangulaire. On peut aussi définir la dissemblance entre deux objects: \\(d^\\star(x, y) = 1 - s(x, y)\\).",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités",
+      "Distances"
+    ]
+  },
+  {
+    "objectID": "contents/04-dimension.html",
+    "href": "contents/04-dimension.html",
+    "title": "Dimension",
+    "section": "",
+    "text": "Slides: link",
+    "crumbs": [
+      "Modules",
+      "04 - Dimension"
+    ]
+  },
+  {
+    "objectID": "contents/03-generalities.html",
+    "href": "contents/03-generalities.html",
+    "title": "Généralités",
+    "section": "",
+    "text": "Slides: link",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités"
+    ]
+  },
+  {
+    "objectID": "contents/dimension/04-others.html#umap",
+    "href": "contents/dimension/04-others.html#umap",
+    "title": "Divers",
+    "section": "UMAP",
+    "text": "UMAP",
+    "crumbs": [
+      "Modules",
+      "04 - Dimension",
+      "Divers"
+    ]
+  },
+  {
+    "objectID": "contents/dimension/03-kernel.html",
+    "href": "contents/dimension/03-kernel.html",
+    "title": "Noyau",
+    "section": "",
+    "text": "Dans certains cas, réduire la dimension des données n’est pas la chose à faire. Dans certains cas, il est même préférable d’augmenter la dimension des données ! Pourquoi ?\nRegardons l’exemple suivant: ajouter exemple en 2d, type cercle.\nDans ce cas, on s’intéresse à la méthode des noyaux (kernel trick).",
+    "crumbs": [
+      "Modules",
+      "04 - Dimension",
+      "Noyau"
+    ]
+  },
+  {
+    "objectID": "contents/dimension/03-kernel.html#la-méthode-du-noyau",
+    "href": "contents/dimension/03-kernel.html#la-méthode-du-noyau",
+    "title": "Noyau",
+    "section": "",
+    "text": "Dans certains cas, réduire la dimension des données n’est pas la chose à faire. Dans certains cas, il est même préférable d’augmenter la dimension des données ! Pourquoi ?\nRegardons l’exemple suivant: ajouter exemple en 2d, type cercle.\nDans ce cas, on s’intéresse à la méthode des noyaux (kernel trick).",
+    "crumbs": [
+      "Modules",
+      "04 - Dimension",
+      "Noyau"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/01-linear-algebra.html",
+    "href": "contents/remainders/01-linear-algebra.html",
+    "title": "Algèbre",
+    "section": "",
+    "text": "Cf. cours MAT-1200. Donner quelques reférences.\nNotons \\(M\\), \\(N\\) et \\(P\\) des matrices de taille \\(n \\times m\\), \\(A\\) et \\(B\\) des matrices carrées et \\(I_n\\) la matrice identités, de dimension \\(n \\times n\\), et \\(u\\) et \\(v\\) des vecteurs colonnes de taille \\(n\\).\n\n\n\n\n\n\nPropriétés de l’inverse\n\n\n\n\\[(AB)^{-1} = B^{-1} A^{-1}\\]\n\n\n\n\n\n\n\n\nPropriétés du déterminant\n\n\n\n\\[\\begin{align*}\n  \\text{det}(A^\\top) &= \\text{det}(A) \\\\\n  \\text{det}(A^{-1}) &= 1 / \\text{det}(A) \\\\\n  \\text{det}(AB) &= \\text{det}(A)\\text{det}(B)\n\\end{align*}\\]\n\n\n\n\n\n\n\n\nPropriétés de la trace\n\n\n\n\\[\\begin{align*}\n  \\text{tr}(A + B) &= \\text{tr}(A) + \\text{tr}(B) \\\\\n  \\text{tr}(MN) &= \\text{tr}(NM)\n\\end{align*}\\]\n\n\nPropriété de matrices:\n\nSoit \\(A\\) une matrice symmétrique de dimension \\(n \\times n\\). \\(A\\) est définie positive si elle est positive et inversible, c’est-à-dire si \\(u^\\top A u &gt; 0\\) pour tout \\(x \\in \\mathbb{R}^n\\) tel que \\(x \\neq 0\\).\nSoit \\(A\\) une matrice carrée à valeur dans \\(\\mathbb{R}\\). \\(A\\) est orthogonal si \\(A^\\top A = A A^\\top = I_n\\).\n\nValeurs et vecteurs propres:\n\nSoit \\(A\\) une matrice carrée de dimension \\(n \\times n\\). On dit que \\(\\lambda\\) est une valeur propre de \\(A\\) si il existe un vecteur \\(u \\neq 0 \\in \\mathbb{R}^n\\) tel que \\[Au = \\lambda u.\\] Le vecteur \\(u\\) est appelé vecteur propre correspondant à la valeur propre \\(\\lambda\\) et l’ensemble des nombres réels \\(\\lambda\\) satidfaisant l’équation est appelé spectre de la matrice \\(A\\) et noté \\(\\text{sp}(A)\\).\nSi \\(u\\) est un vecteur propre de \\(A\\) correspondant à une valeur propre \\(\\lambda\\), alors \\(cu\\), \\(c \\neq 0 \\in \\mathbb{R}\\) sera également un vecteur propre de \\(A\\) correspondant à \\(\\lambda\\).\nSi \\(A\\) est symmétrique et \\(u_{1}\\) et \\(u_{2}\\) sont des vecteurs propres correspondant à des valeurs propres différentes de \\(A\\), alors \\(u_{1}\\) et \\(u_{2}\\) sont orthogonaux, i.e. \\(u_{1}^\\top u_{2} = 0\\).\nSi \\(A\\) a comme valeurs propres (réelles, mais pas forcément distinctes) \\(\\lambda_{1}, \\dots, \\lambda_{n}\\), alors \\[\\text{A} = \\prod_{i = 1}^{n} \\lambda_i \\quad\\text{et}\\quad \\text{tr}(A) = \\sum_{i = 1}^{n} \\lambda_i.\\]\nSi \\(A\\) est symmétrique, toutes ses valeurs propres sont réelles.\nSi \\(A\\) est définie positive, alors toutes ses valeurs propres sont positives.\n\nDiagonalisation de matrices:\n\nSoit \\(A\\) une matrice carrée de dimension \\(n \\times n\\). On dit que \\(A\\) est diagonalisable s’il existe une matrice carrée \\(n \\times n\\) non-singulière \\(P\\) et une matrice \\(n \\times n\\) diagonale \\(D\\) telles que \\[P^{-1} A P = D \\leftrightarrow A = P D P^{-1}.\\]\n\nToute matrice carrée symmétrique est diagonalisable part une matrice orthogonal \\(P\\).\nThéorème de décomposition spectrale:\nSoit \\(A\\) une matrice carrée symmétrique de dimension \\(n \\times n\\) et ses \\(n\\) valeurs propres \\(\\lambda_{1}, \\dots, \\lambda_n\\). Alors il existe une matrice orthogonal \\(P\\) telle que \\[A = P \\Lambda P^\\top, \\quad\\text{où}\\quad \\Lambda = \\text{diag}(\\lambda_1, \\dots, \\lambda_n).\\]\nSi \\(A\\) admet \\(n\\) valeurs propres positives distinctes, alors on peut prendre \\(P\\) comme la matrice dont la \\(k\\)e coloone est le vacteur propre normé correspondant à la \\(k\\)e valeur propre \\(\\lambda_k\\).\nSoit deux matrices symétriques, \\(A\\) et \\(M\\), comment déterminer le vecteur \\(u\\) tel que \\(u^{\\top}Au\\) soit maximal, sachant que \\(u^{\\top}Mu = 1\\) ? Il faut prendre \\(u\\) comment le vecteur propre de \\(M^{-1}A\\) associé à \\(\\lambda\\) la valeur propre maximale de \\(M^{-1}A\\). On obtient ainsi \\[u^{\\top} A u = u^{\\top}\\lambda M u = \\lambda U^{\\top} M u = \\lambda.\\]",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Algèbre"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/01-linear-algebra.html#révisions-dalgèbre-linéaire",
+    "href": "contents/remainders/01-linear-algebra.html#révisions-dalgèbre-linéaire",
+    "title": "Algèbre",
+    "section": "",
+    "text": "Cf. cours MAT-1200. Donner quelques reférences.\nNotons \\(M\\), \\(N\\) et \\(P\\) des matrices de taille \\(n \\times m\\), \\(A\\) et \\(B\\) des matrices carrées et \\(I_n\\) la matrice identités, de dimension \\(n \\times n\\), et \\(u\\) et \\(v\\) des vecteurs colonnes de taille \\(n\\).\n\n\n\n\n\n\nPropriétés de l’inverse\n\n\n\n\\[(AB)^{-1} = B^{-1} A^{-1}\\]\n\n\n\n\n\n\n\n\nPropriétés du déterminant\n\n\n\n\\[\\begin{align*}\n  \\text{det}(A^\\top) &= \\text{det}(A) \\\\\n  \\text{det}(A^{-1}) &= 1 / \\text{det}(A) \\\\\n  \\text{det}(AB) &= \\text{det}(A)\\text{det}(B)\n\\end{align*}\\]\n\n\n\n\n\n\n\n\nPropriétés de la trace\n\n\n\n\\[\\begin{align*}\n  \\text{tr}(A + B) &= \\text{tr}(A) + \\text{tr}(B) \\\\\n  \\text{tr}(MN) &= \\text{tr}(NM)\n\\end{align*}\\]\n\n\nPropriété de matrices:\n\nSoit \\(A\\) une matrice symmétrique de dimension \\(n \\times n\\). \\(A\\) est définie positive si elle est positive et inversible, c’est-à-dire si \\(u^\\top A u &gt; 0\\) pour tout \\(x \\in \\mathbb{R}^n\\) tel que \\(x \\neq 0\\).\nSoit \\(A\\) une matrice carrée à valeur dans \\(\\mathbb{R}\\). \\(A\\) est orthogonal si \\(A^\\top A = A A^\\top = I_n\\).\n\nValeurs et vecteurs propres:\n\nSoit \\(A\\) une matrice carrée de dimension \\(n \\times n\\). On dit que \\(\\lambda\\) est une valeur propre de \\(A\\) si il existe un vecteur \\(u \\neq 0 \\in \\mathbb{R}^n\\) tel que \\[Au = \\lambda u.\\] Le vecteur \\(u\\) est appelé vecteur propre correspondant à la valeur propre \\(\\lambda\\) et l’ensemble des nombres réels \\(\\lambda\\) satidfaisant l’équation est appelé spectre de la matrice \\(A\\) et noté \\(\\text{sp}(A)\\).\nSi \\(u\\) est un vecteur propre de \\(A\\) correspondant à une valeur propre \\(\\lambda\\), alors \\(cu\\), \\(c \\neq 0 \\in \\mathbb{R}\\) sera également un vecteur propre de \\(A\\) correspondant à \\(\\lambda\\).\nSi \\(A\\) est symmétrique et \\(u_{1}\\) et \\(u_{2}\\) sont des vecteurs propres correspondant à des valeurs propres différentes de \\(A\\), alors \\(u_{1}\\) et \\(u_{2}\\) sont orthogonaux, i.e. \\(u_{1}^\\top u_{2} = 0\\).\nSi \\(A\\) a comme valeurs propres (réelles, mais pas forcément distinctes) \\(\\lambda_{1}, \\dots, \\lambda_{n}\\), alors \\[\\text{A} = \\prod_{i = 1}^{n} \\lambda_i \\quad\\text{et}\\quad \\text{tr}(A) = \\sum_{i = 1}^{n} \\lambda_i.\\]\nSi \\(A\\) est symmétrique, toutes ses valeurs propres sont réelles.\nSi \\(A\\) est définie positive, alors toutes ses valeurs propres sont positives.\n\nDiagonalisation de matrices:\n\nSoit \\(A\\) une matrice carrée de dimension \\(n \\times n\\). On dit que \\(A\\) est diagonalisable s’il existe une matrice carrée \\(n \\times n\\) non-singulière \\(P\\) et une matrice \\(n \\times n\\) diagonale \\(D\\) telles que \\[P^{-1} A P = D \\leftrightarrow A = P D P^{-1}.\\]\n\nToute matrice carrée symmétrique est diagonalisable part une matrice orthogonal \\(P\\).\nThéorème de décomposition spectrale:\nSoit \\(A\\) une matrice carrée symmétrique de dimension \\(n \\times n\\) et ses \\(n\\) valeurs propres \\(\\lambda_{1}, \\dots, \\lambda_n\\). Alors il existe une matrice orthogonal \\(P\\) telle que \\[A = P \\Lambda P^\\top, \\quad\\text{où}\\quad \\Lambda = \\text{diag}(\\lambda_1, \\dots, \\lambda_n).\\]\nSi \\(A\\) admet \\(n\\) valeurs propres positives distinctes, alors on peut prendre \\(P\\) comme la matrice dont la \\(k\\)e coloone est le vacteur propre normé correspondant à la \\(k\\)e valeur propre \\(\\lambda_k\\).\nSoit deux matrices symétriques, \\(A\\) et \\(M\\), comment déterminer le vecteur \\(u\\) tel que \\(u^{\\top}Au\\) soit maximal, sachant que \\(u^{\\top}Mu = 1\\) ? Il faut prendre \\(u\\) comment le vecteur propre de \\(M^{-1}A\\) associé à \\(\\lambda\\) la valeur propre maximale de \\(M^{-1}A\\). On obtient ainsi \\[u^{\\top} A u = u^{\\top}\\lambda M u = \\lambda U^{\\top} M u = \\lambda.\\]",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Algèbre"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/02-probabilities.html",
+    "href": "contents/remainders/02-probabilities.html",
+    "title": "Probabilités et Statistiques",
+    "section": "",
+    "text": "Vecteurs aléatoires:\nSoit \\(X = (X_{1}, \\dots, X_{p})^\\top\\), un vecteur aléatoire de taille \\(p\\).\nEspérance: \\[\\mathbb{E}(X) = \\begin{pmatrix}\n  \\mathbb{E}(X_{1}) \\\\\n  \\vdots \\\\\n  \\mathbb{E}(X_{p})\n\\end{pmatrix} \\coloneqq \\begin{pmatrix}\n  \\mu_{1} \\\\\n  \\vdots \\\\\n  \\mu_{p}\n\\end{pmatrix} \\coloneqq \\mu.\\]\nMatrice de variance/covariance: \\[\\mathrm{Var}(X) = \\begin{pmatrix}\n  \\mathrm{Var}(X_{1}) & \\cdots & \\mathrm{Cov}(X_{1}, X_{p}) \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\mathrm{Cov}(X_{1}, X_{p}) & \\cdots & \\mathrm{Var}(X_p)  \n  \\end{pmatrix} \\coloneqq \\begin{pmatrix}\n  \\sigma_{1}^2 & \\cdots & \\sigma_{1, p} \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\sigma_{1, p} & \\cdots & \\sigma_p   \n\\end{pmatrix} \\coloneqq \\Sigma.\\]\nMatrice de corrélation: \\[\\mathrm{Cor}(X) = \\begin{pmatrix}\n  1 & \\cdots & \\mathrm{Corr}(X_{1}, X_{p})  \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\mathrm{Corr}(X_{1}, X_{p}) & \\cdots & 1\n  \\end{pmatrix} \\coloneqq \\begin{pmatrix}\n  1 & \\cdots & \\rho_{1, p} \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\rho_{1, p} & \\cdots & 1\n\\end{pmatrix} \\coloneqq R.\\]\nPropriété des moments:\n\n\n\n\n\n\nProperties\n\n\n\nSoit \\(X\\) un vecteur aléatoire de moyenne \\(\\mathbb{E}(X) = \\mu\\) et de variance \\(\\mathrm{Var}(X) = \\Sigma\\), et soit \\(M\\) une matrice de constantes et \\(v\\) un vecteur de constantes.\n\n\\(\\Sigma\\) est définie non-négative et symétrique.\n\\(\\Sigma = \\mathbb{E}\\left[ (X - \\mu)(X - \\mu)^\\top \\right] = \\mathbb{E}(X X^\\top) - \\mu \\mu^\\top\\).\n\\(\\mathbb{E}(MX + v) = \\mathbb{E}(X) + v\\).\n\\(\\mathrm{Var}(MX + v) = \\mathrm{Var}(MX) = M \\Sigma M^\\top\\).\n\\(\\Sigma = \\Delta R \\Delta \\iff R = \\Delta^{-1} \\Sigma \\Delta^{-1}\\).\n\n\n\nAjouter qqc sur l’indépendance de variables aléatoires!\nLoi normale multivariée: On dit qu’un vecteur aléatoire \\(X\\) de dimension \\(p\\) suit une loi normale multidimensionnelle de moyenne \\(\\mu\\) et de variance \\(\\Sigma \\sim \\mathcal{N}_{p}(\\mu, \\sigma^2)\\), si sa densité est données par \\[f_X(x) = \\frac{1}{(2 \\pi)^{p /2}} \\cdot \\frac{1}{(\\text{det} \\Sigma)^{1/2}} \\cdot \\exp\\left\\{ -\\frac{1}{2}\\left( x - \\mu \\right)^\\top \\Sigma^{-1} \\left( x - \\mu \\right) \\right\\}, \\quad x \\in \\mathbb{R}^p.\\]\nEstimation avec un échantillon: En practique, nous ne connaissons pas les valeurs de \\(\\mu\\) et de \\(\\Sigma\\) et nous voulons les estimer à partir d’un échantillon. Soit \\(X_{1}, \\dots, X_{n}\\), \\(n\\) réalisations indépendantes d’un vecteur aléatoire \\(X\\) de moyenne \\(\\mu\\) et de variance \\(\\Sigma\\). On estime \\(\\mu\\) et \\(\\Sigma\\) par :\n\\[\\widehat{\\mu} = \\overline{X} \\coloneqq \\frac{1}{n} \\sum_{i = 1}^{n} X_i\\]\n\\[\\widehat{\\Sigma} = S^2 \\coloneqq \\frac{1}{n - 1}\\sum_{i = 1}^{n} (X_i - \\overline{X})(X_i - \\overline{X})^\\top.\\]\nNotons \\(D = \\{\\text{diag}(S^2)\\}^{1/2}\\), la matrice des écarts-types calculés sur l’échantillon. On peut calculer la matrice des corrélations sur l’échantillon par : \\[\\widehat{R} = D^{-1} S^2 D^{-1} \\iff S^2 = D \\widehat{R} D.\\]",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Probabilités et Statistiques"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/02-probabilities.html#révisions-de-probabilité",
+    "href": "contents/remainders/02-probabilities.html#révisions-de-probabilité",
+    "title": "Probabilités et Statistiques",
+    "section": "",
+    "text": "Vecteurs aléatoires:\nSoit \\(X = (X_{1}, \\dots, X_{p})^\\top\\), un vecteur aléatoire de taille \\(p\\).\nEspérance: \\[\\mathbb{E}(X) = \\begin{pmatrix}\n  \\mathbb{E}(X_{1}) \\\\\n  \\vdots \\\\\n  \\mathbb{E}(X_{p})\n\\end{pmatrix} \\coloneqq \\begin{pmatrix}\n  \\mu_{1} \\\\\n  \\vdots \\\\\n  \\mu_{p}\n\\end{pmatrix} \\coloneqq \\mu.\\]\nMatrice de variance/covariance: \\[\\mathrm{Var}(X) = \\begin{pmatrix}\n  \\mathrm{Var}(X_{1}) & \\cdots & \\mathrm{Cov}(X_{1}, X_{p}) \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\mathrm{Cov}(X_{1}, X_{p}) & \\cdots & \\mathrm{Var}(X_p)  \n  \\end{pmatrix} \\coloneqq \\begin{pmatrix}\n  \\sigma_{1}^2 & \\cdots & \\sigma_{1, p} \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\sigma_{1, p} & \\cdots & \\sigma_p   \n\\end{pmatrix} \\coloneqq \\Sigma.\\]\nMatrice de corrélation: \\[\\mathrm{Cor}(X) = \\begin{pmatrix}\n  1 & \\cdots & \\mathrm{Corr}(X_{1}, X_{p})  \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\mathrm{Corr}(X_{1}, X_{p}) & \\cdots & 1\n  \\end{pmatrix} \\coloneqq \\begin{pmatrix}\n  1 & \\cdots & \\rho_{1, p} \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\rho_{1, p} & \\cdots & 1\n\\end{pmatrix} \\coloneqq R.\\]\nPropriété des moments:\n\n\n\n\n\n\nProperties\n\n\n\nSoit \\(X\\) un vecteur aléatoire de moyenne \\(\\mathbb{E}(X) = \\mu\\) et de variance \\(\\mathrm{Var}(X) = \\Sigma\\), et soit \\(M\\) une matrice de constantes et \\(v\\) un vecteur de constantes.\n\n\\(\\Sigma\\) est définie non-négative et symétrique.\n\\(\\Sigma = \\mathbb{E}\\left[ (X - \\mu)(X - \\mu)^\\top \\right] = \\mathbb{E}(X X^\\top) - \\mu \\mu^\\top\\).\n\\(\\mathbb{E}(MX + v) = \\mathbb{E}(X) + v\\).\n\\(\\mathrm{Var}(MX + v) = \\mathrm{Var}(MX) = M \\Sigma M^\\top\\).\n\\(\\Sigma = \\Delta R \\Delta \\iff R = \\Delta^{-1} \\Sigma \\Delta^{-1}\\).\n\n\n\nAjouter qqc sur l’indépendance de variables aléatoires!\nLoi normale multivariée: On dit qu’un vecteur aléatoire \\(X\\) de dimension \\(p\\) suit une loi normale multidimensionnelle de moyenne \\(\\mu\\) et de variance \\(\\Sigma \\sim \\mathcal{N}_{p}(\\mu, \\sigma^2)\\), si sa densité est données par \\[f_X(x) = \\frac{1}{(2 \\pi)^{p /2}} \\cdot \\frac{1}{(\\text{det} \\Sigma)^{1/2}} \\cdot \\exp\\left\\{ -\\frac{1}{2}\\left( x - \\mu \\right)^\\top \\Sigma^{-1} \\left( x - \\mu \\right) \\right\\}, \\quad x \\in \\mathbb{R}^p.\\]\nEstimation avec un échantillon: En practique, nous ne connaissons pas les valeurs de \\(\\mu\\) et de \\(\\Sigma\\) et nous voulons les estimer à partir d’un échantillon. Soit \\(X_{1}, \\dots, X_{n}\\), \\(n\\) réalisations indépendantes d’un vecteur aléatoire \\(X\\) de moyenne \\(\\mu\\) et de variance \\(\\Sigma\\). On estime \\(\\mu\\) et \\(\\Sigma\\) par :\n\\[\\widehat{\\mu} = \\overline{X} \\coloneqq \\frac{1}{n} \\sum_{i = 1}^{n} X_i\\]\n\\[\\widehat{\\Sigma} = S^2 \\coloneqq \\frac{1}{n - 1}\\sum_{i = 1}^{n} (X_i - \\overline{X})(X_i - \\overline{X})^\\top.\\]\nNotons \\(D = \\{\\text{diag}(S^2)\\}^{1/2}\\), la matrice des écarts-types calculés sur l’échantillon. On peut calculer la matrice des corrélations sur l’échantillon par : \\[\\widehat{R} = D^{-1} S^2 D^{-1} \\iff S^2 = D \\widehat{R} D.\\]",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Probabilités et Statistiques"
+    ]
+  },
+  {
+    "objectID": "informations/schedule.html",
+    "href": "informations/schedule.html",
+    "title": "Plan",
+    "section": "",
+    "text": "Le plan est donné à titre indicatif.\n\n\n\nSemaine\nDate\nDurée\nPlan\nÉvaluations",
     "crumbs": [
       "Informations",
-      "Générales"
+      "Plan"
     ]
   },
   {
@@ -399,89 +621,5 @@
       "Informations",
       "Évaluations"
     ]
-  },
-  {
-    "objectID": "informations/description.html",
-    "href": "informations/description.html",
-    "title": "Description du cours",
-    "section": "",
-    "text": "Dans ce cours, nous visons à introduire des méthodes qui permettront aux étudiantes et étudiants d’étudier un jeu de données de “haute dimension” (“haute” dans le sens ici où l’on ne peut faire un simple graphique de l’ensemble des observations de toutes les variables) sans avoir recours à un modèle probabiliste. Les techniques qu’on y enseigne servent à réduire la dimension des données, identifier certains liens entre les variables, visualiser les données ou à diviser le jeu de données en groupes/classes.\nSans négliger la théorie, l’accent sera mis sur l’aspect pratique de l’analyse des données et l’utilisation du langage R.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#objectifs",
-    "href": "informations/description.html#objectifs",
-    "title": "Description du cours",
-    "section": "",
-    "text": "Dans ce cours, nous visons à introduire des méthodes qui permettront aux étudiantes et étudiants d’étudier un jeu de données de “haute dimension” (“haute” dans le sens ici où l’on ne peut faire un simple graphique de l’ensemble des observations de toutes les variables) sans avoir recours à un modèle probabiliste. Les techniques qu’on y enseigne servent à réduire la dimension des données, identifier certains liens entre les variables, visualiser les données ou à diviser le jeu de données en groupes/classes.\nSans négliger la théorie, l’accent sera mis sur l’aspect pratique de l’analyse des données et l’utilisation du langage R.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#place-du-cours-dans-le-programme",
-    "href": "informations/description.html#place-du-cours-dans-le-programme",
-    "title": "Description du cours",
-    "section": "Place du cours dans le programme",
-    "text": "Place du cours dans le programme\nCe cours généralement suivi par des étudiants du baccalauréat en statistique lors de leur deuxième année de formation. Il est aussi un cours à option en actuariat, en mathématique ainsi que dans certains programmes de génie et d’administration.\nTous les étudiants doivent s’assurer d’avoir suivi au minimum un cours d’algèbre (ex. MAT1200) et un cours de statistique de base (ex. STT1000), car la majorité des méthodes d’analyse de données s’appuient sur ces notions.\nLes étudiants devraient aussi avoir une certaine familiarité avec le langage R ou avec la programmation.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#objectifs-spécifiques",
-    "href": "informations/description.html#objectifs-spécifiques",
-    "title": "Description du cours",
-    "section": "Objectifs spécifiques",
-    "text": "Objectifs spécifiques\nÀ la fin du cours, l’étudiant ou l’étudiante devra être capable :\n\nde comprendre et décrire succinctement les fondements théoriques des méthodes d’analyse de données étudiées;\nd’identifier correctement les situations où l’emploi de ces méthodes est indiqué;\nd’utiliser efficacement un logiciel tel SAS ou R pour mettre en oeuvre ces méthodes;\nd’analyser et d’interpréter judicieusement les résultats découlant de l’analyse;\nde formuler par écrit les conclusions de l’analyse, dans le respect des limites de la méthodologie.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#équipement-informatique",
-    "href": "informations/description.html#équipement-informatique",
-    "title": "Description du cours",
-    "section": "Équipement informatique",
-    "text": "Équipement informatique\nVous pourriez avoir besoin d’un ordinateur, de haut-parleurs ou d’un casque d’écoute, d’un microphone, d’une webcam et d’une connexion Internet avec fil à large bande ou sans fil. Pour vérifier les paramètres de configuration minimaux selon le système d’exploitation, nous vous invitons à visiter cette page.\nDe plus, ce cours peut nécessiter des besoins logiciels particuliers qui seront alors décrits dans d’autres sections du plan de cours, le cas échéant.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#fonctionnement",
-    "href": "informations/description.html#fonctionnement",
-    "title": "Description du cours",
-    "section": "Fonctionnement",
-    "text": "Fonctionnement\nLes cours et examen auront lieu en présentiel les mardi et vendredi matin, mais une portion du matériel sera disponible en ligne. De façon générale, la séance du vendredi sera une séance magistrale et la séance du mardi sera dédiée à des exercices pratiques réalisés de façon autonome par les étudiants avec le soutien de l’enseignant.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#approches-pédagogiques",
-    "href": "informations/description.html#approches-pédagogiques",
-    "title": "Description du cours",
-    "section": "Approches pédagogiques",
-    "text": "Approches pédagogiques\nL’approche pédagogique privilégiée est l’exposé interactif (vendredi) en alternance avec des périodes de laboratoires (mardi). L’approche pédagogique est très axée sur l’apprentissage actif et exige un engagement soutenu des étudiants tout au long de la session.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "slides/01-introduction-slides.html#test",
-    "href": "slides/01-introduction-slides.html#test",
-    "title": "Introduction",
-    "section": "Test",
-    "text": "Test\nCoucou"
   }
 ]

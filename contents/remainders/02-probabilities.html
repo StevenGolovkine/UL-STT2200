@@ -5,9 +5,9 @@
 <link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/contents/remainders/02-probabilities.en.html" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.7.31">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Probabilities – STT-2200: Analyse de données</title>
+<title>Probabilités et Statistiques – STT-2200: Analyse de données</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,13 +25,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../contents/remainders/03-stat.html" rel="next">
 <link href="../../contents/remainders/01-linear-algebra.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script><script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../../site_libs/quarto-html/popper.min.js"></script><script src="../../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../../site_libs/quarto-html/anchor.min.js"></script><link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2b3e328b71be8d25427581baeb23079b.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script><link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-a11d19bf1cd20b501c5043ffd6747f64.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-a8b0076ecf0f06a2a97345ccab5199fa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-a11d19bf1cd20b501c5043ffd6747f64.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-8e6c22c7739c08f934f3ec200d7360b1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-fcf47b2b8fc72e317a2d1f29573bce58.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-8e6c22c7739c08f934f3ec200d7360b1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -84,7 +84,8 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script><meta property="og:title" content="Probabilities – STT-2200: Analyse de données">
+</script><meta property="og:title" content="Probabilités et Statistiques – STT-2200: Analyse de données">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
 <body class="nav-sidebar floating quarto-light">
@@ -258,7 +259,7 @@ window.Quarto = {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/02-revisions.html">02 - Révisions</a></li>
-<li class="breadcrumb-item"><a href="../../contents/remainders/02-probabilities.html">Probabilities</a></li>
+<li class="breadcrumb-item"><a href="../../contents/remainders/02-probabilities.html">Probabilités et Statistiques</a></li>
 </ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
@@ -364,19 +365,19 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/remainders/01-linear-algebra.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Algebre</span></a>
+ <span class="menu-text">Algèbre</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/remainders/02-probabilities.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Probabilities</span></a>
+ <span class="menu-text">Probabilités et Statistiques</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/remainders/03-stat.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Statistique</span></a>
+ <span class="menu-text">Analyse de données</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -452,7 +453,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/dimension/04-others.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Others</span></a>
+ <span class="menu-text">Divers</span></a>
   </div>
 </li>
       </ul>
@@ -575,19 +576,27 @@ window.Quarto = {
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+<li><a href="#r%C3%A9visions-de-probabilit%C3%A9" id="toc-révisions-de-probabilité" class="nav-link active" data-scroll-target="#révisions-de-probabilité">Révisions de probabilité</a></li>
+  </ul>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/remainders/02-probabilities.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
+</ul></div>
+<div class="quarto-alternate-formats">
 <h2>Autres formats</h2>
 <ul><li><a href="02-probabilities.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
-</div>
+</div></nav>
 </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/02-revisions.html">02 - Révisions</a></li>
-<li class="breadcrumb-item"><a href="../../contents/remainders/02-probabilities.html">Probabilities</a></li>
+<li class="breadcrumb-item"><a href="../../contents/remainders/02-probabilities.html">Probabilités et Statistiques</a></li>
 </ol></nav><div class="quarto-title">
-<h1 class="title">Probabilities</h1>
+<h1 class="title">Probabilités et Statistiques</h1>
 </div>
 
 
@@ -601,7 +610,66 @@ window.Quarto = {
   
 
 
-</header></main><!-- /main --><script>
+</header><section id="révisions-de-probabilité" class="level2"><h2 class="anchored" data-anchor-id="révisions-de-probabilité">Révisions de probabilité</h2>
+<p>Vecteurs aléatoires:</p>
+<p>Soit <span class="math inline">\(X = (X_{1}, \dots, X_{p})^\top\)</span>, un vecteur aléatoire de taille <span class="math inline">\(p\)</span>.</p>
+<p>Espérance: <span class="math display">\[\mathbb{E}(X) = \begin{pmatrix}
+  \mathbb{E}(X_{1}) \\
+  \vdots \\
+  \mathbb{E}(X_{p})
+\end{pmatrix} \coloneqq \begin{pmatrix}
+  \mu_{1} \\
+  \vdots \\
+  \mu_{p}
+\end{pmatrix} \coloneqq \mu.\]</span></p>
+<p>Matrice de variance/covariance: <span class="math display">\[\mathrm{Var}(X) = \begin{pmatrix}
+  \mathrm{Var}(X_{1}) &amp; \cdots &amp; \mathrm{Cov}(X_{1}, X_{p}) \\
+  \vdots &amp; \ddots &amp; \vdots \\
+  \mathrm{Cov}(X_{1}, X_{p}) &amp; \cdots &amp; \mathrm{Var}(X_p)  
+  \end{pmatrix} \coloneqq \begin{pmatrix}
+  \sigma_{1}^2 &amp; \cdots &amp; \sigma_{1, p} \\
+  \vdots &amp; \ddots &amp; \vdots \\
+  \sigma_{1, p} &amp; \cdots &amp; \sigma_p   
+\end{pmatrix} \coloneqq \Sigma.\]</span></p>
+<p>Matrice de corrélation: <span class="math display">\[\mathrm{Cor}(X) = \begin{pmatrix}
+  1 &amp; \cdots &amp; \mathrm{Corr}(X_{1}, X_{p})  \\
+  \vdots &amp; \ddots &amp; \vdots \\
+  \mathrm{Corr}(X_{1}, X_{p}) &amp; \cdots &amp; 1
+  \end{pmatrix} \coloneqq \begin{pmatrix}
+  1 &amp; \cdots &amp; \rho_{1, p} \\
+  \vdots &amp; \ddots &amp; \vdots \\
+  \rho_{1, p} &amp; \cdots &amp; 1
+\end{pmatrix} \coloneqq R.\]</span></p>
+<p>Propriété des moments:</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Properties
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soit <span class="math inline">\(X\)</span> un vecteur aléatoire de moyenne <span class="math inline">\(\mathbb{E}(X) = \mu\)</span> et de variance <span class="math inline">\(\mathrm{Var}(X) = \Sigma\)</span>, et soit <span class="math inline">\(M\)</span> une matrice de constantes et <span class="math inline">\(v\)</span> un vecteur de constantes.</p>
+<ol type="1">
+<li><p><span class="math inline">\(\Sigma\)</span> est définie non-négative et symétrique.</p></li>
+<li><p><span class="math inline">\(\Sigma = \mathbb{E}\left[ (X - \mu)(X - \mu)^\top \right] = \mathbb{E}(X X^\top) - \mu \mu^\top\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathbb{E}(MX + v) = \mathbb{E}(X) + v\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathrm{Var}(MX + v) = \mathrm{Var}(MX) = M \Sigma M^\top\)</span>.</p></li>
+<li><p><span class="math inline">\(\Sigma = \Delta R \Delta \iff R = \Delta^{-1} \Sigma \Delta^{-1}\)</span>.</p></li>
+</ol>
+</div>
+</div>
+<p>Ajouter qqc sur l’indépendance de variables aléatoires!</p>
+<p>Loi normale multivariée: On dit qu’un vecteur aléatoire <span class="math inline">\(X\)</span> de dimension <span class="math inline">\(p\)</span> suit une loi normale multidimensionnelle de moyenne <span class="math inline">\(\mu\)</span> et de variance <span class="math inline">\(\Sigma \sim \mathcal{N}_{p}(\mu, \sigma^2)\)</span>, si sa densité est données par <span class="math display">\[f_X(x) = \frac{1}{(2 \pi)^{p /2}} \cdot \frac{1}{(\text{det} \Sigma)^{1/2}} \cdot \exp\left\{ -\frac{1}{2}\left( x - \mu \right)^\top \Sigma^{-1} \left( x - \mu \right) \right\}, \quad x \in \mathbb{R}^p.\]</span></p>
+<p>Estimation avec un échantillon: En practique, nous ne connaissons pas les valeurs de <span class="math inline">\(\mu\)</span> et de <span class="math inline">\(\Sigma\)</span> et nous voulons les estimer à partir d’un échantillon. Soit <span class="math inline">\(X_{1}, \dots, X_{n}\)</span>, <span class="math inline">\(n\)</span> réalisations indépendantes d’un vecteur aléatoire <span class="math inline">\(X\)</span> de moyenne <span class="math inline">\(\mu\)</span> et de variance <span class="math inline">\(\Sigma\)</span>. On estime <span class="math inline">\(\mu\)</span> et <span class="math inline">\(\Sigma\)</span> par :</p>
+<p><span class="math display">\[\widehat{\mu} = \overline{X} \coloneqq \frac{1}{n} \sum_{i = 1}^{n} X_i\]</span></p>
+<p><span class="math display">\[\widehat{\Sigma} = S^2 \coloneqq \frac{1}{n - 1}\sum_{i = 1}^{n} (X_i - \overline{X})(X_i - \overline{X})^\top.\]</span></p>
+<p>Notons <span class="math inline">\(D = \{\text{diag}(S^2)\}^{1/2}\)</span>, la matrice des écarts-types calculés sur l’échantillon. On peut calculer la matrice des corrélations sur l’échantillon par : <span class="math display">\[\widehat{R} = D^{-1} S^2 D^{-1} \iff S^2 = D \widehat{R} D.\]</span></p>
+
+
+</section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -1223,13 +1291,13 @@ window.onload = function() {
     }
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../../contents/remainders/01-linear-algebra.html" class="pagination-link" aria-label="Algebre">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Algebre</span>
+      <a href="../../contents/remainders/01-linear-algebra.html" class="pagination-link" aria-label="Algèbre">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Algèbre</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../contents/remainders/03-stat.html" class="pagination-link" aria-label="Statistique">
-        <span class="nav-page-text">Statistique</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../contents/remainders/03-stat.html" class="pagination-link" aria-label="Analyse de données">
+        <span class="nav-page-text">Analyse de données</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1240,7 +1308,7 @@ window.onload = function() {
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions"><ul>
+<div class="toc-actions d-sm-block d-md-none"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/remainders/02-probabilities.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
 </ul></div>

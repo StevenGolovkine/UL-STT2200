@@ -5,7 +5,7 @@
 <link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/contents/dimension/03-kernel.en.html" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.7.31">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Noyau – STT-2200: Analyse de données</title>
 <style>
@@ -25,13 +25,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../contents/dimension/04-others.html" rel="next">
 <link href="../../contents/dimension/02-mca.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script><script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../../site_libs/quarto-html/popper.min.js"></script><script src="../../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../../site_libs/quarto-html/anchor.min.js"></script><link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2b3e328b71be8d25427581baeb23079b.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script><link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-a11d19bf1cd20b501c5043ffd6747f64.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-a8b0076ecf0f06a2a97345ccab5199fa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-a11d19bf1cd20b501c5043ffd6747f64.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-8e6c22c7739c08f934f3ec200d7360b1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-fcf47b2b8fc72e317a2d1f29573bce58.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-8e6c22c7739c08f934f3ec200d7360b1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -85,6 +85,7 @@ window.Quarto = {
   typesetMath
 };
 </script><meta property="og:title" content="Noyau – STT-2200: Analyse de données">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
 <body class="nav-sidebar floating quarto-light">
@@ -364,19 +365,19 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/remainders/01-linear-algebra.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Algebre</span></a>
+ <span class="menu-text">Algèbre</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/remainders/02-probabilities.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Probabilities</span></a>
+ <span class="menu-text">Probabilités et Statistiques</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/remainders/03-stat.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Statistique</span></a>
+ <span class="menu-text">Analyse de données</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -452,7 +453,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/dimension/04-others.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Others</span></a>
+ <span class="menu-text">Divers</span></a>
   </div>
 </li>
       </ul>
@@ -575,11 +576,19 @@ window.Quarto = {
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+<li><a href="#la-m%C3%A9thode-du-noyau" id="toc-la-méthode-du-noyau" class="nav-link active" data-scroll-target="#la-méthode-du-noyau">La méthode du noyau</a></li>
+  </ul>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/dimension/03-kernel.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
+</ul></div>
+<div class="quarto-alternate-formats">
 <h2>Autres formats</h2>
 <ul><li><a href="03-kernel.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
-</div>
+</div></nav>
 </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
@@ -601,7 +610,13 @@ window.Quarto = {
   
 
 
-</header></main><!-- /main --><script>
+</header><section id="la-méthode-du-noyau" class="level2"><h2 class="anchored" data-anchor-id="la-méthode-du-noyau">La méthode du noyau</h2>
+<p>Dans certains cas, réduire la dimension des données n’est pas la chose à faire. Dans certains cas, il est même préférable d’augmenter la dimension des données ! Pourquoi ?</p>
+<p>Regardons l’exemple suivant: ajouter exemple en 2d, type cercle.</p>
+<p>Dans ce cas, on s’intéresse à la méthode des noyaux (<em>kernel trick</em>).</p>
+
+
+</section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -1228,8 +1243,8 @@ window.onload = function() {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../contents/dimension/04-others.html" class="pagination-link" aria-label="Others">
-        <span class="nav-page-text">Others</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../contents/dimension/04-others.html" class="pagination-link" aria-label="Divers">
+        <span class="nav-page-text">Divers</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1240,7 +1255,7 @@ window.onload = function() {
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions"><ul>
+<div class="toc-actions d-sm-block d-md-none"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/dimension/03-kernel.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
 </ul></div>
