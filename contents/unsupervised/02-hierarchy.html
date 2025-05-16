@@ -29,9 +29,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script><link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-8e6c22c7739c08f934f3ec200d7360b1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-fcf47b2b8fc72e317a2d1f29573bce58.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-8e6c22c7739c08f934f3ec200d7360b1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-9db8ff7d6d1fd2410fae1d2039720068.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-86f9e1b20d7c1f75f29fb6b795d4720b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-9db8ff7d6d1fd2410fae1d2039720068.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -85,6 +85,7 @@ window.Quarto = {
   typesetMath
 };
 </script><meta property="og:title" content="Hierarchique – STT-2200: Analyse de données">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
 <body class="nav-sidebar floating quarto-light">
@@ -575,11 +576,21 @@ window.Quarto = {
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+<li><a href="#algorithme-descendant" id="toc-algorithme-descendant" class="nav-link active" data-scroll-target="#algorithme-descendant">Algorithme descendant</a></li>
+  <li><a href="#algorithme-ascendant" id="toc-algorithme-ascendant" class="nav-link" data-scroll-target="#algorithme-ascendant">Algorithme ascendant</a></li>
+  <li><a href="#distance-entre-groupes" id="toc-distance-entre-groupes" class="nav-link" data-scroll-target="#distance-entre-groupes">Distance entre groupes</a></li>
+  </ul>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/unsupervised/02-hierarchy.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
+</ul></div>
+<div class="quarto-alternate-formats">
 <h2>Autres formats</h2>
 <ul><li><a href="02-hierarchy.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
-</div>
+</div></nav>
 </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
@@ -601,7 +612,152 @@ window.Quarto = {
   
 
 
-</header></main><!-- /main --><script>
+</header><p>Certains problèmes de l’algorithme <span class="math inline">\(k\)</span>-means peuvent être résolu avec des algorithmes de classification hiérarchique. Par exemple, lorque l’on a à dispostion qu’une matrice de similiarité/distance entre les observations.</p>
+<p>La classification hiérarchique permet d’obtenir des partitions toutes imbriquées les unes dans les autres. Il existe deux types d’algortihmes pour effectuer de la classification hiérarchique:</p>
+<ol type="1">
+<li><p>les algorithmes ascendants;</p></li>
+<li><p>les algortihmes descendants.</p></li>
+</ol>
+<p>Dans les deux cas, on obtient <span class="math inline">\(n\)</span> partitions hiérarchiques constituées de <span class="math inline">\(1\)</span> à <span class="math inline">\(n\)</span> groupes.</p>
+<section id="algorithme-descendant" class="level2"><h2 class="anchored" data-anchor-id="algorithme-descendant">Algorithme descendant</h2>
+<p>Un algorithme descendant fonctionne ainsi:</p>
+<ul>
+<li><p>Au départ, toutes les observations sont dans un seul et même groupe de <span class="math inline">\(n\)</span> observations;</p></li>
+<li><p>À chaque étape, on divise le groupe le moins homogéne en deux groupes.</p></li>
+<li><p>À la fin, après <span class="math inline">\(n\)</span> étapes, chaque observation à son propre groupe, c’est-à-dire qu’on obtient <span class="math inline">\(n\)</span> groupes contenant une seule observation.</p></li>
+</ul>
+<p>L’exécution de cet algorithme ne donne pas une seule parition, mais <span class="math inline">\(n\)</span> partitions, que l’on peut résumer à l’aide d’un graphique en forme d’arbre appelé dendogramme. Certains critères peuvent aider à choisir l’une parmi les <span class="math inline">\(n\)</span> partitions proposées par l’algorithme. Ils demandent beaucoup de temps de calcul.</p>
+</section><section id="algorithme-ascendant" class="level2"><h2 class="anchored" data-anchor-id="algorithme-ascendant">Algorithme ascendant</h2>
+<p>Un algorithme ascendant fonctionne ainsi:</p>
+<ul>
+<li><p>Au départ, chaque observation est son propre groupe, c’est-à-dire uq’on démarre avec <span class="math inline">\(n\)</span> groupes content chacun une seule observation.</p></li>
+<li><p>À chaque étape, on fusionne les deux groupes les plus similaires.</p></li>
+<li><p>À la fin, après <span class="math inline">\(n\)</span> étapes, on obtient un seul groupe contenant toutes les <span class="math inline">\(n\)</span> observations.</p></li>
+</ul>
+<p>Différences entre les algorithmes:</p>
+<ul>
+<li><p>caractère ascendant ou descendant;</p></li>
+<li><p>leur faon de mesurer les distances / similiarité entre deux observations;</p></li>
+<li><p>leur faon de mesurer les distances / similiarité entre deux groupes.</p></li>
+</ul></section><section id="distance-entre-groupes" class="level2"><h2 class="anchored" data-anchor-id="distance-entre-groupes">Distance entre groupes</h2>
+<p>Pour mettre en oeuvre les algorithmes précédent, on doit définir la distance entre deux groupes d’observations <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span>, <span class="math inline">\(d(A, B)\)</span>.</p>
+<p>Example: On sait comment mesurer la distance entre les trois paires possibles de <span class="math inline">\(\{ 1 \}\)</span>, <span class="math inline">\(\{  2 \}\)</span> et <span class="math inline">\(\{ 3 \}\)</span>, mais comment mesurer la distance entre <span class="math inline">\(\{ 1, 2 \}\)</span> et <span class="math inline">\(\{ 3 \}\)</span> ?</p>
+<p>Il existe plusieurs faons de calculer une telle distance entre deux groupes.</p>
+<ul>
+<li>Méthode du plus proche voisin (single linkage)</li>
+</ul>
+<p><span class="math display">\[d(A, B) = \min \{ d_{i j}: i \in A, j \in B \}.\]</span></p>
+<p><span class="math display">\[s(A, B) = \max \{ s_{i j}: i \in A, j \in B \}.\]</span></p>
+<p>La distance/similiarité entre deux groupes d’observations est tout simplement la distance/similiarité entre les points de chaque groupe qui sont les plus rapprochés/similaires</p>
+<p>Avantages: * Donne de bons résultats lorsque les variables sont de types différents * Possède d’excellentes propriétés théoriques * Permet de créer des groupes dont la forme est très irrégulière * Est robuste aux données aberrantes</p>
+<p>Désavantages: * Tend à former un grand groupe avec plusieurs petits groupes satellites * Perd de l’efficacité si les vrais groupes sont de forme réegulière * Possède des propriétés théoriques ne semblant pas se réaliser en pratique dans certaines études</p>
+<ul>
+<li>Méthode du voisin le plus distant (complete linkage)</li>
+</ul>
+<p><span class="math display">\[d(A, B) = \max \{ d_{i j}: i \in A, j \in B \}.\]</span></p>
+<p><span class="math display">\[s(A, B) = \min \{ s_{i j}: i \in A, j \in B \}.\]</span></p>
+<p>La distance/similiarité entre deux groupes d’observations est tout simplement la distance/similiarité entre les points de chaque groupe qui sont les plus éloignés/dissimilaires.</p>
+<p>Avantages: * Donne de bons résultats lorsque les variables sont de types différents * Tend à former des groupes de taille égale</p>
+<p>Désavantages: * Est extrêmement sensible aux données aberrantes * Tend à former des groupes de taille égale * Est très peu utilisée en pratique</p>
+<ul>
+<li>Méthode de la moyenne (average linkage)</li>
+</ul>
+<p><span class="math display">\[d(A, B) = \frac{1}{n_{A}n_{B}} \sum_{i \in A} \sum_{j \in B} d(x_{i}, x_{j}).\]</span> où <span class="math inline">\(n_{A}\)</span> est le nombre d’observations dans le groupe <span class="math inline">\(A\)</span> et <span class="math inline">\(n_{B}\)</span> est le nonmbre d’observations dans le group <span class="math inline">\(B\)</span>.</p>
+<p>On doit calculer les <span class="math inline">\(n_{A} \times n_{B}\)</span> distances/similiarités possibles entre les points des deux groupes, ensuite on prend la moyenne de ces distances/similiarités comme étant celle qui sépare les groupes.</p>
+<p>Avantages: * Tend à former des groupes de faible variance</p>
+<p>Désavantages: * Tend à former des groupes de même variance</p>
+<ul>
+<li>Méthode du centroïde (centroid method)</li>
+</ul>
+<p><span class="math display">\[d(A, B) = d(\overline{x}_{A}, \overline{x}_{B}).\]</span> où <span class="math display">\[\overline{x}_{A} = \frac{1}{n_{A}} \sum_{i \in A} x_i, \quad\text{et}\quad \overline{x}_B = \frac{1}{n_{B}} \sum_{j \in B} x_j\]</span></p>
+<p>La moyenne <span class="math inline">\(\overline{x}_{AB}\)</span> du nouveau groupe résultant de la fusion des groupes <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> se calcule comme suit: <span class="math display">\[\overline{x}_{AB} = \frac{n_{A} \overline{x}_{A} + n_{B} \overline{x}_{B}}{n_{A} + n_{B}}.\]</span></p>
+<p>Avantages: * Est très robuste aux données aberrantes</p>
+<p>Désavantages: * Est peu efficace en l’absence de données aberrantes</p>
+<ul>
+<li>Méthode de la médiane (median method)</li>
+</ul>
+<p>À une étape donnée, nous avons toujours à notre disposition la distance entre les groupes déjà formés. On fusionne les deux groupes les moins distants/les plus similaires, disons <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> pour obtenir un groupe <span class="math inline">\(AB\)</span>. On met à jour la matrice des distances: la distance entre le nouveau groupe <span class="math inline">\(AB\)</span> et tout autre groupe <span class="math inline">\(C\)</span> est donnée par <span class="math display">\[d(AB, C) = \frac{d(A, C) + d(B, C)}{2} - \frac{d(A, B)}{4}.\]</span></p>
+<p>Avantages: * Est encore plus robuste en présence de données aberrantes</p>
+<p>Désavantages: * Est très peu efficace en l’absence de données aberrante</p>
+<ul>
+<li>Méthode de Ward (Ward’s method)</li>
+</ul>
+<p>Variante de la méthode du centroïde pour tenir compte de la taille des groupes. Elle a été conue pour être optimale si les <span class="math inline">\(n\)</span> vecteurs <span class="math inline">\(x_{1}, \dots, x_{n}\)</span> suivent des lois normales multivariées de <span class="math inline">\(K\)</span> moyennes différentes mais toutes de même matrice de variance-covariance.</p>
+<p>Basée sur les sommes des carrées <span class="math display">\[SC_A = \sum_{i \in A} (x_i - \overline{x}_A)^\top (x_i - \overline{x}_A).\]</span></p>
+<p><span class="math display">\[SC_B = \sum_{j \in B} (x_j - \overline{x}_B)^\top (x_j - \overline{x}_B).\]</span></p>
+<p><span class="math display">\[SC_AB = \sum_{k \in A \cup B} (x_k - \overline{x}_{AB})^\top (x_k - \overline{x}_{AB}).\]</span></p>
+<p>où <span class="math inline">\(\overline{x}_A\)</span>, <span class="math inline">\(\overline{x}_B\)</span> et <span class="math inline">\(\overline{x}_{AB}\)</span> sont calculées comme dans la méthode du centroïde. On regroupe les classes <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> pour lesquelles <span class="math display">\[I_{AB} = SC_{AB} - SC_A - SC_B = \frac{d^2(\overline{x}_A, \overline{x}_B)}{\frac{1}{n_{A} + \frac{1}{n_{B}}}}\]</span> est minimale.</p>
+<p>Avantages: * Est optimale si les observations sont approximativement distribuées selon une loi normale multidimensionnelle de même matrice de variances-covariances</p>
+<p>Désavantages: * Est sensible aux données aberrantes * Tend à former des groupes de petite taille * Tend à former des groupes de même taille</p>
+<ul>
+<li>Méthode flexible</li>
+</ul>
+<p>Les auteurs de cette méthode ont remarqué que pour plusieurs méthodes connues, on a les relations suivantes: <span class="math display">\[d(C, AB) = \alpha_A d(C, A) + \beta d(C, B) + \beta d(A, B) + \gamma \left| d(C, A) - d(C, B) \right|.\]</span></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 16%">
+<col style="width: 19%">
+</colgroup>
+<thead><tr class="header">
+<th>Méthode</th>
+<th><span class="math inline">\(\alpha_A\)</span></th>
+<th><span class="math inline">\(\alpha_B\)</span></th>
+<th><span class="math inline">\(\beta\)</span></th>
+<th><span class="math inline">\(\gamma\)</span></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Plus proche</td>
+<td><span class="math inline">\(1/2\)</span></td>
+<td><span class="math inline">\(1/2\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(-1/2\)</span></td>
+</tr>
+<tr class="even">
+<td>Plus distant</td>
+<td><span class="math inline">\(1/2\)</span></td>
+<td><span class="math inline">\(1/2\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(1/2\)</span></td>
+</tr>
+<tr class="odd">
+<td>Médiane</td>
+<td><span class="math inline">\(1/2\)</span></td>
+<td><span class="math inline">\(1/2\)</span></td>
+<td><span class="math inline">\(-1/4\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td>Moyenne</td>
+<td><span class="math inline">\(\frac{n_A}{n_A+n_B}\)</span></td>
+<td><span class="math inline">\(\frac{n_B}{n_A+n_B}\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="odd">
+<td>Centroïde</td>
+<td><span class="math inline">\(\frac{n_A}{n_A+n_B}\)</span></td>
+<td><span class="math inline">\(\frac{n_B}{n_A+n_B}\)</span></td>
+<td><span class="math inline">\(-\frac{n_An_B}{n_A + n_B}\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td>Ward</td>
+<td><span class="math inline">\(\frac{n_A+n_C}{n_A+n_B+n_C}\)</span></td>
+<td><span class="math inline">\(\frac{n_B+n_C}{n_A+n_B+n_C}\)</span></td>
+<td><span class="math inline">\(-\frac{n_C}{n_A+n_B+n_C}\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Avec la méthode flexible, on impose arbitrairement les contraintes suivantes: <span class="math display">\[\alpha_A + \alpha_B + \beta = 1, \quad \alpha_A = \alpha_B, \quad \gamma = 0.\]</span></p>
+<p>Ainsi, <span class="math display">\[\alpha_A = \alpha_B = \frac{1 - \beta}{2}.\]</span> Et il ne reste qu’à choisir <span class="math inline">\(\beta\)</span>. Les autheurs suggèrent de poser <span class="math inline">\(\beta = -0.25\)</span> sauf quand on souponne la présence de données aberrantes où l’on suggère <span class="math inline">\(\beta = -0.5\)</span>.</p>
+
+
+</section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -1240,7 +1396,7 @@ window.onload = function() {
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions"><ul>
+<div class="toc-actions d-sm-block d-md-none"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/unsupervised/02-hierarchy.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
 </ul></div>

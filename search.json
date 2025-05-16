@@ -33,104 +33,45 @@
     ]
   },
   {
-    "objectID": "informations/description.html",
-    "href": "informations/description.html",
-    "title": "Description du cours",
+    "objectID": "informations/schedule.html",
+    "href": "informations/schedule.html",
+    "title": "Plan",
     "section": "",
-    "text": "Dans ce cours, nous visons à introduire des méthodes qui permettront aux étudiantes et étudiants d’étudier un jeu de données de “haute dimension” (“haute” dans le sens ici où l’on ne peut faire un simple graphique de l’ensemble des observations de toutes les variables) sans avoir recours à un modèle probabiliste. Les techniques qu’on y enseigne servent à réduire la dimension des données, identifier certains liens entre les variables, visualiser les données ou à diviser le jeu de données en groupes/classes.\nSans négliger la théorie, l’accent sera mis sur l’aspect pratique de l’analyse des données et l’utilisation du langage R.",
+    "text": "Le plan est donné à titre indicatif.\n\n\n\nSemaine\nDate\nDurée\nPlan\nÉvaluations",
     "crumbs": [
       "Informations",
-      "Description"
+      "Plan"
     ]
   },
   {
-    "objectID": "informations/description.html#objectifs",
-    "href": "informations/description.html#objectifs",
-    "title": "Description du cours",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STT-2200: Analyse de données",
     "section": "",
-    "text": "Dans ce cours, nous visons à introduire des méthodes qui permettront aux étudiantes et étudiants d’étudier un jeu de données de “haute dimension” (“haute” dans le sens ici où l’on ne peut faire un simple graphique de l’ensemble des observations de toutes les variables) sans avoir recours à un modèle probabiliste. Les techniques qu’on y enseigne servent à réduire la dimension des données, identifier certains liens entre les variables, visualiser les données ou à diviser le jeu de données en groupes/classes.\nSans négliger la théorie, l’accent sera mis sur l’aspect pratique de l’analyse des données et l’utilisation du langage R.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
+    "text": "Bienvenue à tous au cours STT-2200 de l’automne 2025.\nVous trouverez sur ce site toute les informations nécessaire pour les cours, les différents travaux et les exams. Les contenus seront mis à jour au cours de la session avec les corrigés de certains travaux. Je vous invite à regarder les différents modules avant les cours.\nCe site a été créé avec Quarto."
   },
   {
-    "objectID": "informations/description.html#place-du-cours-dans-le-programme",
-    "href": "informations/description.html#place-du-cours-dans-le-programme",
-    "title": "Description du cours",
-    "section": "Place du cours dans le programme",
-    "text": "Place du cours dans le programme\nCe cours généralement suivi par des étudiants du baccalauréat en statistique lors de leur deuxième année de formation. Il est aussi un cours à option en actuariat, en mathématique ainsi que dans certains programmes de génie et d’administration.\nTous les étudiants doivent s’assurer d’avoir suivi au minimum un cours d’algèbre (ex. MAT1200) et un cours de statistique de base (ex. STT1000), car la majorité des méthodes d’analyse de données s’appuient sur ces notions.\nLes étudiants devraient aussi avoir une certaine familiarité avec le langage R ou avec la programmation.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#objectifs-spécifiques",
-    "href": "informations/description.html#objectifs-spécifiques",
-    "title": "Description du cours",
-    "section": "Objectifs spécifiques",
-    "text": "Objectifs spécifiques\nÀ la fin du cours, l’étudiant ou l’étudiante devra être capable :\n\nde comprendre et décrire succinctement les fondements théoriques des méthodes d’analyse de données étudiées;\nd’identifier correctement les situations où l’emploi de ces méthodes est indiqué;\nd’utiliser efficacement un logiciel tel SAS ou R pour mettre en oeuvre ces méthodes;\nd’analyser et d’interpréter judicieusement les résultats découlant de l’analyse;\nde formuler par écrit les conclusions de l’analyse, dans le respect des limites de la méthodologie.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#équipement-informatique",
-    "href": "informations/description.html#équipement-informatique",
-    "title": "Description du cours",
-    "section": "Équipement informatique",
-    "text": "Équipement informatique\nVous pourriez avoir besoin d’un ordinateur, de haut-parleurs ou d’un casque d’écoute, d’un microphone, d’une webcam et d’une connexion Internet avec fil à large bande ou sans fil. Pour vérifier les paramètres de configuration minimaux selon le système d’exploitation, nous vous invitons à visiter cette page.\nDe plus, ce cours peut nécessiter des besoins logiciels particuliers qui seront alors décrits dans d’autres sections du plan de cours, le cas échéant.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#fonctionnement",
-    "href": "informations/description.html#fonctionnement",
-    "title": "Description du cours",
-    "section": "Fonctionnement",
-    "text": "Fonctionnement\nLes cours et examen auront lieu en présentiel les mardi et vendredi matin, mais une portion du matériel sera disponible en ligne. De façon générale, la séance du vendredi sera une séance magistrale et la séance du mardi sera dédiée à des exercices pratiques réalisés de façon autonome par les étudiants avec le soutien de l’enseignant.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#approches-pédagogiques",
-    "href": "informations/description.html#approches-pédagogiques",
-    "title": "Description du cours",
-    "section": "Approches pédagogiques",
-    "text": "Approches pédagogiques\nL’approche pédagogique privilégiée est l’exposé interactif (vendredi) en alternance avec des périodes de laboratoires (mardi). L’approche pédagogique est très axée sur l’apprentissage actif et exige un engagement soutenu des étudiants tout au long de la session.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/mcq.html",
-    "href": "informations/mcq.html",
-    "title": "QCM",
+    "objectID": "contents/remainders/02-probabilities.html",
+    "href": "contents/remainders/02-probabilities.html",
+    "title": "Probabilités et Statistiques",
     "section": "",
-    "text": "Le premier examen est un questionaire à choix multiples avec quantification de l’incertitude.\nL’ utilisation de degrés de certitude permet à l’étudiant d’évaluer le niveau de connaissance de la réponse donnée. La barème des notes, basé sur la théorie des décision (Leclercq et al. 1993), peut sembler bizarre mais il a été fait de tel manière que:\n\ndire la vérité soit la stratégie qui rapporte le plus de points;\nceux qui s’auto-évaluent bien gagnent plus de points que si l’on appliquait un barème correctif tenant compte des probabilités d’avoir la réponse correcte aléatoirement.\n\n\n\n\nSi vous condidérez que votre réponse a une probabilité d’être correcte comprise entre…\n\n\nChoisissez le degré de certitude…\n\n\nVous obtiendrez les points suivants en case de réponse…\n\n\n\n\n\n\n\n\ncorrecte\n\n\nincorrecte\n\n\n\n\n0% et 25%\n\n\n0\n\n\n+13\n\n\n+4\n\n\n\n\n25% et 50%\n\n\n1\n\n\n+16\n\n\n+3\n\n\n\n\n50% et 70%\n\n\n2\n\n\n+17\n\n\n+2\n\n\n\n\n70% et 85%\n\n\n3\n\n\n+18\n\n\n0\n\n\n\n\n85% et 95%\n\n\n4\n\n\n+19\n\n\n-6\n\n\n\n\n95% et 100%\n\n\n5\n\n\n+20\n\n\n-10\n\n\n\nGénéralement, les étudiants s’auto-estiment avec réalisme, et sont avantagés par les degrés de certitude. Leur score obtenu est meilleur que s’il avait été calculé uniquement sur la base du nombre de réponses justes.",
+    "text": "Vecteurs aléatoires:\nSoit \\(X = (X_{1}, \\dots, X_{p})^\\top\\), un vecteur aléatoire de taille \\(p\\).\nEspérance: \\[\\mathbb{E}(X) = \\begin{pmatrix}\n  \\mathbb{E}(X_{1}) \\\\\n  \\vdots \\\\\n  \\mathbb{E}(X_{p})\n\\end{pmatrix} \\coloneqq \\begin{pmatrix}\n  \\mu_{1} \\\\\n  \\vdots \\\\\n  \\mu_{p}\n\\end{pmatrix} \\coloneqq \\mu.\\]\nMatrice de variance/covariance: \\[\\mathrm{Var}(X) = \\begin{pmatrix}\n  \\mathrm{Var}(X_{1}) & \\cdots & \\mathrm{Cov}(X_{1}, X_{p}) \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\mathrm{Cov}(X_{1}, X_{p}) & \\cdots & \\mathrm{Var}(X_p)  \n  \\end{pmatrix} \\coloneqq \\begin{pmatrix}\n  \\sigma_{1}^2 & \\cdots & \\sigma_{1, p} \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\sigma_{1, p} & \\cdots & \\sigma_p   \n\\end{pmatrix} \\coloneqq \\Sigma.\\]\nMatrice de corrélation: \\[\\mathrm{Cor}(X) = \\begin{pmatrix}\n  1 & \\cdots & \\mathrm{Corr}(X_{1}, X_{p})  \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\mathrm{Corr}(X_{1}, X_{p}) & \\cdots & 1\n  \\end{pmatrix} \\coloneqq \\begin{pmatrix}\n  1 & \\cdots & \\rho_{1, p} \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\rho_{1, p} & \\cdots & 1\n\\end{pmatrix} \\coloneqq R.\\]\nPropriété des moments:\n\n\n\n\n\n\nProperties\n\n\n\nSoit \\(X\\) un vecteur aléatoire de moyenne \\(\\mathbb{E}(X) = \\mu\\) et de variance \\(\\mathrm{Var}(X) = \\Sigma\\), et soit \\(M\\) une matrice de constantes et \\(v\\) un vecteur de constantes.\n\n\\(\\Sigma\\) est définie non-négative et symétrique.\n\\(\\Sigma = \\mathbb{E}\\left[ (X - \\mu)(X - \\mu)^\\top \\right] = \\mathbb{E}(X X^\\top) - \\mu \\mu^\\top\\).\n\\(\\mathbb{E}(MX + v) = \\mathbb{E}(X) + v\\).\n\\(\\mathrm{Var}(MX + v) = \\mathrm{Var}(MX) = M \\Sigma M^\\top\\).\n\\(\\Sigma = \\Delta R \\Delta \\iff R = \\Delta^{-1} \\Sigma \\Delta^{-1}\\).\n\n\n\nAjouter qqc sur l’indépendance de variables aléatoires!\nLoi normale multivariée: On dit qu’un vecteur aléatoire \\(X\\) de dimension \\(p\\) suit une loi normale multidimensionnelle de moyenne \\(\\mu\\) et de variance \\(\\Sigma \\sim \\mathcal{N}_{p}(\\mu, \\sigma^2)\\), si sa densité est données par \\[f_X(x) = \\frac{1}{(2 \\pi)^{p /2}} \\cdot \\frac{1}{(\\text{det} \\Sigma)^{1/2}} \\cdot \\exp\\left\\{ -\\frac{1}{2}\\left( x - \\mu \\right)^\\top \\Sigma^{-1} \\left( x - \\mu \\right) \\right\\}, \\quad x \\in \\mathbb{R}^p.\\]\nEstimation avec un échantillon: En practique, nous ne connaissons pas les valeurs de \\(\\mu\\) et de \\(\\Sigma\\) et nous voulons les estimer à partir d’un échantillon. Soit \\(X_{1}, \\dots, X_{n}\\), \\(n\\) réalisations indépendantes d’un vecteur aléatoire \\(X\\) de moyenne \\(\\mu\\) et de variance \\(\\Sigma\\). On estime \\(\\mu\\) et \\(\\Sigma\\) par :\n\\[\\widehat{\\mu} = \\overline{X} \\coloneqq \\frac{1}{n} \\sum_{i = 1}^{n} X_i\\]\n\\[\\widehat{\\Sigma} = S^2 \\coloneqq \\frac{1}{n - 1}\\sum_{i = 1}^{n} (X_i - \\overline{X})(X_i - \\overline{X})^\\top.\\]\nNotons \\(D = \\{\\text{diag}(S^2)\\}^{1/2}\\), la matrice des écarts-types calculés sur l’échantillon. On peut calculer la matrice des corrélations sur l’échantillon par : \\[\\widehat{R} = D^{-1} S^2 D^{-1} \\iff S^2 = D \\widehat{R} D.\\]",
     "crumbs": [
-      "Informations",
-      "Évaluations",
-      "QCM"
+      "Modules",
+      "02 - Révisions",
+      "Probabilités et Statistiques"
     ]
   },
   {
-    "objectID": "informations/mcq.html#information-sur-le-premier-examen",
-    "href": "informations/mcq.html#information-sur-le-premier-examen",
-    "title": "QCM",
+    "objectID": "contents/remainders/02-probabilities.html#révisions-de-probabilité",
+    "href": "contents/remainders/02-probabilities.html#révisions-de-probabilité",
+    "title": "Probabilités et Statistiques",
     "section": "",
-    "text": "Le premier examen est un questionaire à choix multiples avec quantification de l’incertitude.\nL’ utilisation de degrés de certitude permet à l’étudiant d’évaluer le niveau de connaissance de la réponse donnée. La barème des notes, basé sur la théorie des décision (Leclercq et al. 1993), peut sembler bizarre mais il a été fait de tel manière que:\n\ndire la vérité soit la stratégie qui rapporte le plus de points;\nceux qui s’auto-évaluent bien gagnent plus de points que si l’on appliquait un barème correctif tenant compte des probabilités d’avoir la réponse correcte aléatoirement.\n\n\n\n\nSi vous condidérez que votre réponse a une probabilité d’être correcte comprise entre…\n\n\nChoisissez le degré de certitude…\n\n\nVous obtiendrez les points suivants en case de réponse…\n\n\n\n\n\n\n\n\ncorrecte\n\n\nincorrecte\n\n\n\n\n0% et 25%\n\n\n0\n\n\n+13\n\n\n+4\n\n\n\n\n25% et 50%\n\n\n1\n\n\n+16\n\n\n+3\n\n\n\n\n50% et 70%\n\n\n2\n\n\n+17\n\n\n+2\n\n\n\n\n70% et 85%\n\n\n3\n\n\n+18\n\n\n0\n\n\n\n\n85% et 95%\n\n\n4\n\n\n+19\n\n\n-6\n\n\n\n\n95% et 100%\n\n\n5\n\n\n+20\n\n\n-10\n\n\n\nGénéralement, les étudiants s’auto-estiment avec réalisme, et sont avantagés par les degrés de certitude. Leur score obtenu est meilleur que s’il avait été calculé uniquement sur la base du nombre de réponses justes.",
+    "text": "Vecteurs aléatoires:\nSoit \\(X = (X_{1}, \\dots, X_{p})^\\top\\), un vecteur aléatoire de taille \\(p\\).\nEspérance: \\[\\mathbb{E}(X) = \\begin{pmatrix}\n  \\mathbb{E}(X_{1}) \\\\\n  \\vdots \\\\\n  \\mathbb{E}(X_{p})\n\\end{pmatrix} \\coloneqq \\begin{pmatrix}\n  \\mu_{1} \\\\\n  \\vdots \\\\\n  \\mu_{p}\n\\end{pmatrix} \\coloneqq \\mu.\\]\nMatrice de variance/covariance: \\[\\mathrm{Var}(X) = \\begin{pmatrix}\n  \\mathrm{Var}(X_{1}) & \\cdots & \\mathrm{Cov}(X_{1}, X_{p}) \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\mathrm{Cov}(X_{1}, X_{p}) & \\cdots & \\mathrm{Var}(X_p)  \n  \\end{pmatrix} \\coloneqq \\begin{pmatrix}\n  \\sigma_{1}^2 & \\cdots & \\sigma_{1, p} \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\sigma_{1, p} & \\cdots & \\sigma_p   \n\\end{pmatrix} \\coloneqq \\Sigma.\\]\nMatrice de corrélation: \\[\\mathrm{Cor}(X) = \\begin{pmatrix}\n  1 & \\cdots & \\mathrm{Corr}(X_{1}, X_{p})  \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\mathrm{Corr}(X_{1}, X_{p}) & \\cdots & 1\n  \\end{pmatrix} \\coloneqq \\begin{pmatrix}\n  1 & \\cdots & \\rho_{1, p} \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\rho_{1, p} & \\cdots & 1\n\\end{pmatrix} \\coloneqq R.\\]\nPropriété des moments:\n\n\n\n\n\n\nProperties\n\n\n\nSoit \\(X\\) un vecteur aléatoire de moyenne \\(\\mathbb{E}(X) = \\mu\\) et de variance \\(\\mathrm{Var}(X) = \\Sigma\\), et soit \\(M\\) une matrice de constantes et \\(v\\) un vecteur de constantes.\n\n\\(\\Sigma\\) est définie non-négative et symétrique.\n\\(\\Sigma = \\mathbb{E}\\left[ (X - \\mu)(X - \\mu)^\\top \\right] = \\mathbb{E}(X X^\\top) - \\mu \\mu^\\top\\).\n\\(\\mathbb{E}(MX + v) = \\mathbb{E}(X) + v\\).\n\\(\\mathrm{Var}(MX + v) = \\mathrm{Var}(MX) = M \\Sigma M^\\top\\).\n\\(\\Sigma = \\Delta R \\Delta \\iff R = \\Delta^{-1} \\Sigma \\Delta^{-1}\\).\n\n\n\nAjouter qqc sur l’indépendance de variables aléatoires!\nLoi normale multivariée: On dit qu’un vecteur aléatoire \\(X\\) de dimension \\(p\\) suit une loi normale multidimensionnelle de moyenne \\(\\mu\\) et de variance \\(\\Sigma \\sim \\mathcal{N}_{p}(\\mu, \\sigma^2)\\), si sa densité est données par \\[f_X(x) = \\frac{1}{(2 \\pi)^{p /2}} \\cdot \\frac{1}{(\\text{det} \\Sigma)^{1/2}} \\cdot \\exp\\left\\{ -\\frac{1}{2}\\left( x - \\mu \\right)^\\top \\Sigma^{-1} \\left( x - \\mu \\right) \\right\\}, \\quad x \\in \\mathbb{R}^p.\\]\nEstimation avec un échantillon: En practique, nous ne connaissons pas les valeurs de \\(\\mu\\) et de \\(\\Sigma\\) et nous voulons les estimer à partir d’un échantillon. Soit \\(X_{1}, \\dots, X_{n}\\), \\(n\\) réalisations indépendantes d’un vecteur aléatoire \\(X\\) de moyenne \\(\\mu\\) et de variance \\(\\Sigma\\). On estime \\(\\mu\\) et \\(\\Sigma\\) par :\n\\[\\widehat{\\mu} = \\overline{X} \\coloneqq \\frac{1}{n} \\sum_{i = 1}^{n} X_i\\]\n\\[\\widehat{\\Sigma} = S^2 \\coloneqq \\frac{1}{n - 1}\\sum_{i = 1}^{n} (X_i - \\overline{X})(X_i - \\overline{X})^\\top.\\]\nNotons \\(D = \\{\\text{diag}(S^2)\\}^{1/2}\\), la matrice des écarts-types calculés sur l’échantillon. On peut calculer la matrice des corrélations sur l’échantillon par : \\[\\widehat{R} = D^{-1} S^2 D^{-1} \\iff S^2 = D \\widehat{R} D.\\]",
     "crumbs": [
-      "Informations",
-      "Évaluations",
-      "QCM"
+      "Modules",
+      "02 - Révisions",
+      "Probabilités et Statistiques"
     ]
   },
   {
@@ -158,14 +99,178 @@
     ]
   },
   {
-    "objectID": "contents/02-revisions.html",
-    "href": "contents/02-revisions.html",
-    "title": "Révisions",
+    "objectID": "contents/unsupervised/02-hierarchy.html",
+    "href": "contents/unsupervised/02-hierarchy.html",
+    "title": "Hierarchique",
+    "section": "",
+    "text": "Certains problèmes de l’algorithme \\(k\\)-means peuvent être résolu avec des algorithmes de classification hiérarchique. Par exemple, lorque l’on a à dispostion qu’une matrice de similiarité/distance entre les observations.\nLa classification hiérarchique permet d’obtenir des partitions toutes imbriquées les unes dans les autres. Il existe deux types d’algortihmes pour effectuer de la classification hiérarchique:\nDans les deux cas, on obtient \\(n\\) partitions hiérarchiques constituées de \\(1\\) à \\(n\\) groupes.",
+    "crumbs": [
+      "Modules",
+      "06 - Non-supervisée",
+      "Hierarchique"
+    ]
+  },
+  {
+    "objectID": "contents/unsupervised/02-hierarchy.html#algorithme-descendant",
+    "href": "contents/unsupervised/02-hierarchy.html#algorithme-descendant",
+    "title": "Hierarchique",
+    "section": "Algorithme descendant",
+    "text": "Algorithme descendant\nUn algorithme descendant fonctionne ainsi:\n\nAu départ, toutes les observations sont dans un seul et même groupe de \\(n\\) observations;\nÀ chaque étape, on divise le groupe le moins homogéne en deux groupes.\nÀ la fin, après \\(n\\) étapes, chaque observation à son propre groupe, c’est-à-dire qu’on obtient \\(n\\) groupes contenant une seule observation.\n\nL’exécution de cet algorithme ne donne pas une seule parition, mais \\(n\\) partitions, que l’on peut résumer à l’aide d’un graphique en forme d’arbre appelé dendogramme. Certains critères peuvent aider à choisir l’une parmi les \\(n\\) partitions proposées par l’algorithme. Ils demandent beaucoup de temps de calcul.",
+    "crumbs": [
+      "Modules",
+      "06 - Non-supervisée",
+      "Hierarchique"
+    ]
+  },
+  {
+    "objectID": "contents/unsupervised/02-hierarchy.html#algorithme-ascendant",
+    "href": "contents/unsupervised/02-hierarchy.html#algorithme-ascendant",
+    "title": "Hierarchique",
+    "section": "Algorithme ascendant",
+    "text": "Algorithme ascendant\nUn algorithme ascendant fonctionne ainsi:\n\nAu départ, chaque observation est son propre groupe, c’est-à-dire uq’on démarre avec \\(n\\) groupes content chacun une seule observation.\nÀ chaque étape, on fusionne les deux groupes les plus similaires.\nÀ la fin, après \\(n\\) étapes, on obtient un seul groupe contenant toutes les \\(n\\) observations.\n\nDifférences entre les algorithmes:\n\ncaractère ascendant ou descendant;\nleur faon de mesurer les distances / similiarité entre deux observations;\nleur faon de mesurer les distances / similiarité entre deux groupes.",
+    "crumbs": [
+      "Modules",
+      "06 - Non-supervisée",
+      "Hierarchique"
+    ]
+  },
+  {
+    "objectID": "contents/unsupervised/02-hierarchy.html#distance-entre-groupes",
+    "href": "contents/unsupervised/02-hierarchy.html#distance-entre-groupes",
+    "title": "Hierarchique",
+    "section": "Distance entre groupes",
+    "text": "Distance entre groupes\nPour mettre en oeuvre les algorithmes précédent, on doit définir la distance entre deux groupes d’observations \\(A\\) et \\(B\\), \\(d(A, B)\\).\nExample: On sait comment mesurer la distance entre les trois paires possibles de \\(\\{ 1 \\}\\), \\(\\{  2 \\}\\) et \\(\\{ 3 \\}\\), mais comment mesurer la distance entre \\(\\{ 1, 2 \\}\\) et \\(\\{ 3 \\}\\) ?\nIl existe plusieurs faons de calculer une telle distance entre deux groupes.\n\nMéthode du plus proche voisin (single linkage)\n\n\\[d(A, B) = \\min \\{ d_{i j}: i \\in A, j \\in B \\}.\\]\n\\[s(A, B) = \\max \\{ s_{i j}: i \\in A, j \\in B \\}.\\]\nLa distance/similiarité entre deux groupes d’observations est tout simplement la distance/similiarité entre les points de chaque groupe qui sont les plus rapprochés/similaires\nAvantages: * Donne de bons résultats lorsque les variables sont de types différents * Possède d’excellentes propriétés théoriques * Permet de créer des groupes dont la forme est très irrégulière * Est robuste aux données aberrantes\nDésavantages: * Tend à former un grand groupe avec plusieurs petits groupes satellites * Perd de l’efficacité si les vrais groupes sont de forme réegulière * Possède des propriétés théoriques ne semblant pas se réaliser en pratique dans certaines études\n\nMéthode du voisin le plus distant (complete linkage)\n\n\\[d(A, B) = \\max \\{ d_{i j}: i \\in A, j \\in B \\}.\\]\n\\[s(A, B) = \\min \\{ s_{i j}: i \\in A, j \\in B \\}.\\]\nLa distance/similiarité entre deux groupes d’observations est tout simplement la distance/similiarité entre les points de chaque groupe qui sont les plus éloignés/dissimilaires.\nAvantages: * Donne de bons résultats lorsque les variables sont de types différents * Tend à former des groupes de taille égale\nDésavantages: * Est extrêmement sensible aux données aberrantes * Tend à former des groupes de taille égale * Est très peu utilisée en pratique\n\nMéthode de la moyenne (average linkage)\n\n\\[d(A, B) = \\frac{1}{n_{A}n_{B}} \\sum_{i \\in A} \\sum_{j \\in B} d(x_{i}, x_{j}).\\] où \\(n_{A}\\) est le nombre d’observations dans le groupe \\(A\\) et \\(n_{B}\\) est le nonmbre d’observations dans le group \\(B\\).\nOn doit calculer les \\(n_{A} \\times n_{B}\\) distances/similiarités possibles entre les points des deux groupes, ensuite on prend la moyenne de ces distances/similiarités comme étant celle qui sépare les groupes.\nAvantages: * Tend à former des groupes de faible variance\nDésavantages: * Tend à former des groupes de même variance\n\nMéthode du centroïde (centroid method)\n\n\\[d(A, B) = d(\\overline{x}_{A}, \\overline{x}_{B}).\\] où \\[\\overline{x}_{A} = \\frac{1}{n_{A}} \\sum_{i \\in A} x_i, \\quad\\text{et}\\quad \\overline{x}_B = \\frac{1}{n_{B}} \\sum_{j \\in B} x_j\\]\nLa moyenne \\(\\overline{x}_{AB}\\) du nouveau groupe résultant de la fusion des groupes \\(A\\) et \\(B\\) se calcule comme suit: \\[\\overline{x}_{AB} = \\frac{n_{A} \\overline{x}_{A} + n_{B} \\overline{x}_{B}}{n_{A} + n_{B}}.\\]\nAvantages: * Est très robuste aux données aberrantes\nDésavantages: * Est peu efficace en l’absence de données aberrantes\n\nMéthode de la médiane (median method)\n\nÀ une étape donnée, nous avons toujours à notre disposition la distance entre les groupes déjà formés. On fusionne les deux groupes les moins distants/les plus similaires, disons \\(A\\) et \\(B\\) pour obtenir un groupe \\(AB\\). On met à jour la matrice des distances: la distance entre le nouveau groupe \\(AB\\) et tout autre groupe \\(C\\) est donnée par \\[d(AB, C) = \\frac{d(A, C) + d(B, C)}{2} - \\frac{d(A, B)}{4}.\\]\nAvantages: * Est encore plus robuste en présence de données aberrantes\nDésavantages: * Est très peu efficace en l’absence de données aberrante\n\nMéthode de Ward (Ward’s method)\n\nVariante de la méthode du centroïde pour tenir compte de la taille des groupes. Elle a été conue pour être optimale si les \\(n\\) vecteurs \\(x_{1}, \\dots, x_{n}\\) suivent des lois normales multivariées de \\(K\\) moyennes différentes mais toutes de même matrice de variance-covariance.\nBasée sur les sommes des carrées \\[SC_A = \\sum_{i \\in A} (x_i - \\overline{x}_A)^\\top (x_i - \\overline{x}_A).\\]\n\\[SC_B = \\sum_{j \\in B} (x_j - \\overline{x}_B)^\\top (x_j - \\overline{x}_B).\\]\n\\[SC_AB = \\sum_{k \\in A \\cup B} (x_k - \\overline{x}_{AB})^\\top (x_k - \\overline{x}_{AB}).\\]\noù \\(\\overline{x}_A\\), \\(\\overline{x}_B\\) et \\(\\overline{x}_{AB}\\) sont calculées comme dans la méthode du centroïde. On regroupe les classes \\(A\\) et \\(B\\) pour lesquelles \\[I_{AB} = SC_{AB} - SC_A - SC_B = \\frac{d^2(\\overline{x}_A, \\overline{x}_B)}{\\frac{1}{n_{A} + \\frac{1}{n_{B}}}}\\] est minimale.\nAvantages: * Est optimale si les observations sont approximativement distribuées selon une loi normale multidimensionnelle de même matrice de variances-covariances\nDésavantages: * Est sensible aux données aberrantes * Tend à former des groupes de petite taille * Tend à former des groupes de même taille\n\nMéthode flexible\n\nLes auteurs de cette méthode ont remarqué que pour plusieurs méthodes connues, on a les relations suivantes: \\[d(C, AB) = \\alpha_A d(C, A) + \\beta d(C, B) + \\beta d(A, B) + \\gamma \\left| d(C, A) - d(C, B) \\right|.\\]\n\n\n\n\n\n\n\n\n\n\nMéthode\n\\(\\alpha_A\\)\n\\(\\alpha_B\\)\n\\(\\beta\\)\n\\(\\gamma\\)\n\n\n\n\nPlus proche\n\\(1/2\\)\n\\(1/2\\)\n\\(0\\)\n\\(-1/2\\)\n\n\nPlus distant\n\\(1/2\\)\n\\(1/2\\)\n\\(0\\)\n\\(1/2\\)\n\n\nMédiane\n\\(1/2\\)\n\\(1/2\\)\n\\(-1/4\\)\n\\(0\\)\n\n\nMoyenne\n\\(\\frac{n_A}{n_A+n_B}\\)\n\\(\\frac{n_B}{n_A+n_B}\\)\n\\(0\\)\n\\(0\\)\n\n\nCentroïde\n\\(\\frac{n_A}{n_A+n_B}\\)\n\\(\\frac{n_B}{n_A+n_B}\\)\n\\(-\\frac{n_An_B}{n_A + n_B}\\)\n\\(0\\)\n\n\nWard\n\\(\\frac{n_A+n_C}{n_A+n_B+n_C}\\)\n\\(\\frac{n_B+n_C}{n_A+n_B+n_C}\\)\n\\(-\\frac{n_C}{n_A+n_B+n_C}\\)\n\\(0\\)\n\n\n\nAvec la méthode flexible, on impose arbitrairement les contraintes suivantes: \\[\\alpha_A + \\alpha_B + \\beta = 1, \\quad \\alpha_A = \\alpha_B, \\quad \\gamma = 0.\\]\nAinsi, \\[\\alpha_A = \\alpha_B = \\frac{1 - \\beta}{2}.\\] Et il ne reste qu’à choisir \\(\\beta\\). Les autheurs suggèrent de poser \\(\\beta = -0.25\\) sauf quand on souponne la présence de données aberrantes où l’on suggère \\(\\beta = -0.5\\).",
+    "crumbs": [
+      "Modules",
+      "06 - Non-supervisée",
+      "Hierarchique"
+    ]
+  },
+  {
+    "objectID": "contents/01-introduction.html",
+    "href": "contents/01-introduction.html",
+    "title": "Introduction",
     "section": "",
     "text": "Slides: link",
     "crumbs": [
       "Modules",
-      "02 - Révisions"
+      "01 - Introduction"
+    ]
+  },
+  {
+    "objectID": "contents/01-introduction.html#quest-ce-que-lanalyse-de-données",
+    "href": "contents/01-introduction.html#quest-ce-que-lanalyse-de-données",
+    "title": "Introduction",
+    "section": "Qu’est-ce que l’analyse de données ?",
+    "text": "Qu’est-ce que l’analyse de données ?\nL’analyse de données est un ensemble de méthodes permettant de retirer de l’information d’un jeu de données. On parle aussi d’apprentissage statistique (statistical learning). L’idée est d’utiliser des modèles statistiques pour comprendre comment les données sont structurées et comment elles intéragissent l’une avec l’autre.\n\n\n\n\n\n\nExample\n\n\n\nImaginons que vous êtes le gérant d’un magasin. Vous aimeriez savoir quand ouvrir votre magasin pour maximiser votre chiffre d’affaires. Pour cela, vous pouvez comptez le nombre de clients par heure pendant une période de temps, disons un mois, et ensuite s’interesser à comment ses données sont structurées par rapport aux horaires d’ouverture.",
+    "crumbs": [
+      "Modules",
+      "01 - Introduction"
+    ]
+  },
+  {
+    "objectID": "contents/01-introduction.html#objectifs",
+    "href": "contents/01-introduction.html#objectifs",
+    "title": "Introduction",
+    "section": "Objectifs",
+    "text": "Objectifs\nCe cours n’a pas vocation à être exhaustif, dans le sens de présenter toutes les méthodes possibles. Ce cours n’a pas non plus vocation à être à l’état de l’art, dans le sens où on ne s’intéressera pas aux derniers développements en apprentissage machine. Ce cours n’est pas non plus un cours de programmation.",
+    "crumbs": [
+      "Modules",
+      "01 - Introduction"
+    ]
+  },
+  {
+    "objectID": "contents/01-introduction.html#pratique-de-programmation",
+    "href": "contents/01-introduction.html#pratique-de-programmation",
+    "title": "Introduction",
+    "section": "Pratique de programmation",
+    "text": "Pratique de programmation\n\nConseils généraux\nSpécifique à R\nSpécifique à Python",
+    "crumbs": [
+      "Modules",
+      "01 - Introduction"
+    ]
+  },
+  {
+    "objectID": "contents/06-nonsupervisee.html",
+    "href": "contents/06-nonsupervisee.html",
+    "title": "Non-supervisée",
+    "section": "",
+    "text": "On veut partitionner \\(n\\) observations en \\(K\\) groupes avec comme objectifs:\n\nque les observations dans une même classe soient le plus similaire possible;\nque les observations dans des classes différentes soient les moins similaires possibles.\n\nOn veut donc définir une fonction, que l’on appelle classifieur, qui prend un numéro d’observation \\(i\\) en entrée et qui donne son numéro de groupe en sortie qui va remplir ces deux objectifs.\n\\[\\begin{align}\nC: \\{ 1, \\dots, n \\} &\\rightarrow \\{ 1, \\dots, K\\} \\\\\ni &\\mapsto C(i)\n\\end{align}\\]\nLa fonction objectif est \\[W(C) = \\sum_{k = 1}^{K} \\sum_{i: C(i) = k} \\sum_{j: C(j) = k} d(x_i, x_j),\\]\nou \\(d(x_i, x_j)\\)\nProblème de grande taille!\nComme on ne peut pas explorer l’espace de toutes les possibilités, nous utiliserons des algorithmes gloutons (greedy algorithm), c’est-à-dire qu’ils vont nous donner une règle \\(C\\) qui minimise \\(W(C)\\) sur un espace restreint et qui ne garantissent pas nous ayons trouvé un minimum global.\nDans notre contexte:\n\n\\(p\\) variables sont numériques/ordinales (et habituellement standardisées).\nLa valeur de \\(K\\) est fixé.",
+    "crumbs": [
+      "Modules",
+      "06 - Non-supervisée"
+    ]
+  },
+  {
+    "objectID": "contents/generalities/01-spaces.html",
+    "href": "contents/generalities/01-spaces.html",
+    "title": "Espace",
+    "section": "",
+    "text": "Variable numérique: Variable dont la valeur numérique mesure quelque chose de quantifiable et dont la différence entre les valeurs reflète la différence entre les objets. Exemples: revenu en dollars, masse, âge, …\nVariable ordinale: Variable qui ne donne pas une quantification précise d’un phénomène, mais dont les modalités peuvent être naturellement ordonnées. Examples: revenu faible, moyen ou élevé, ou niveau d’accord entre “tout-à-fait en désaccord”, “en désaccord”, “pas d’avis”, “d’accord”, “tout-à-fait d’accord”.\nNominales symétriques: Variable qualitative dont toutes les modalités sont aussi informatives l’une que l’autre. Examples: Sexe, sections d’un cours.\nNominales asymétriques: Variable qualitative dont les modalités ne contiennent pas toutes le même niveau d’information, habituellement lorsque l’une des modalités est très fréquente, un peu la modalité par defaut, mais que les autres ne le sont pas. Exemples: variable indiquant si un individu est daltonien ou non (deux individus daltoniens ont quelque chose en commun, mais deux individus non-daltoniens n’ont pas forcément quelque chose en commun), variable indiquant si une transaction est frauduleuse.\nIl y a plein d’autre type de variables: fonctions, textes, images, graphs, …",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités",
+      "Espace"
+    ]
+  },
+  {
+    "objectID": "contents/generalities/01-spaces.html#types-de-variables",
+    "href": "contents/generalities/01-spaces.html#types-de-variables",
+    "title": "Espace",
+    "section": "",
+    "text": "Variable numérique: Variable dont la valeur numérique mesure quelque chose de quantifiable et dont la différence entre les valeurs reflète la différence entre les objets. Exemples: revenu en dollars, masse, âge, …\nVariable ordinale: Variable qui ne donne pas une quantification précise d’un phénomène, mais dont les modalités peuvent être naturellement ordonnées. Examples: revenu faible, moyen ou élevé, ou niveau d’accord entre “tout-à-fait en désaccord”, “en désaccord”, “pas d’avis”, “d’accord”, “tout-à-fait d’accord”.\nNominales symétriques: Variable qualitative dont toutes les modalités sont aussi informatives l’une que l’autre. Examples: Sexe, sections d’un cours.\nNominales asymétriques: Variable qualitative dont les modalités ne contiennent pas toutes le même niveau d’information, habituellement lorsque l’une des modalités est très fréquente, un peu la modalité par defaut, mais que les autres ne le sont pas. Exemples: variable indiquant si un individu est daltonien ou non (deux individus daltoniens ont quelque chose en commun, mais deux individus non-daltoniens n’ont pas forcément quelque chose en commun), variable indiquant si une transaction est frauduleuse.\nIl y a plein d’autre type de variables: fonctions, textes, images, graphs, …",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités",
+      "Espace"
+    ]
+  },
+  {
+    "objectID": "contents/generalities/01-spaces.html#espaces-associés",
+    "href": "contents/generalities/01-spaces.html#espaces-associés",
+    "title": "Espace",
+    "section": "Espaces associés",
+    "text": "Espaces associés",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités",
+      "Espace"
+    ]
+  },
+  {
+    "objectID": "contents/dimension/04-others.html",
+    "href": "contents/dimension/04-others.html",
+    "title": "Divers",
+    "section": "",
+    "text": "L’idée est de présenter rapidement d’autres méthodes de changement de dimension.",
+    "crumbs": [
+      "Modules",
+      "04 - Dimension",
+      "Divers"
+    ]
+  },
+  {
+    "objectID": "contents/dimension/04-others.html#t-sne",
+    "href": "contents/dimension/04-others.html#t-sne",
+    "title": "Divers",
+    "section": "\\(t\\)-SNE",
+    "text": "\\(t\\)-SNE",
+    "crumbs": [
+      "Modules",
+      "04 - Dimension",
+      "Divers"
+    ]
+  },
+  {
+    "objectID": "contents/dimension/04-others.html#umap",
+    "href": "contents/dimension/04-others.html#umap",
+    "title": "Divers",
+    "section": "UMAP",
+    "text": "UMAP",
+    "crumbs": [
+      "Modules",
+      "04 - Dimension",
+      "Divers"
     ]
   },
   {
@@ -265,6 +370,48 @@
     ]
   },
   {
+    "objectID": "contents/04-dimension.html",
+    "href": "contents/04-dimension.html",
+    "title": "Dimension",
+    "section": "",
+    "text": "Slides: link",
+    "crumbs": [
+      "Modules",
+      "04 - Dimension"
+    ]
+  },
+  {
+    "objectID": "slides/01-introduction-slides.html#test",
+    "href": "slides/01-introduction-slides.html#test",
+    "title": "Introduction",
+    "section": "Test",
+    "text": "Test\nCoucou"
+  },
+  {
+    "objectID": "contents/dimension/03-kernel.html",
+    "href": "contents/dimension/03-kernel.html",
+    "title": "Noyau",
+    "section": "",
+    "text": "Dans certains cas, réduire la dimension des données n’est pas la chose à faire. Dans certains cas, il est même préférable d’augmenter la dimension des données ! Pourquoi ?\nRegardons l’exemple suivant: ajouter exemple en 2d, type cercle.\nDans ce cas, on s’intéresse à la méthode des noyaux (kernel trick).",
+    "crumbs": [
+      "Modules",
+      "04 - Dimension",
+      "Noyau"
+    ]
+  },
+  {
+    "objectID": "contents/dimension/03-kernel.html#la-méthode-du-noyau",
+    "href": "contents/dimension/03-kernel.html#la-méthode-du-noyau",
+    "title": "Noyau",
+    "section": "",
+    "text": "Dans certains cas, réduire la dimension des données n’est pas la chose à faire. Dans certains cas, il est même préférable d’augmenter la dimension des données ! Pourquoi ?\nRegardons l’exemple suivant: ajouter exemple en 2d, type cercle.\nDans ce cas, on s’intéresse à la méthode des noyaux (kernel trick).",
+    "crumbs": [
+      "Modules",
+      "04 - Dimension",
+      "Noyau"
+    ]
+  },
+  {
     "objectID": "contents/dimension/01-pca.html",
     "href": "contents/dimension/01-pca.html",
     "title": "ACP",
@@ -298,123 +445,6 @@
       "Modules",
       "04 - Dimension",
       "ACP"
-    ]
-  },
-  {
-    "objectID": "contents/01-introduction.html",
-    "href": "contents/01-introduction.html",
-    "title": "Introduction",
-    "section": "",
-    "text": "Slides: link",
-    "crumbs": [
-      "Modules",
-      "01 - Introduction"
-    ]
-  },
-  {
-    "objectID": "contents/01-introduction.html#quest-ce-que-lanalyse-de-données",
-    "href": "contents/01-introduction.html#quest-ce-que-lanalyse-de-données",
-    "title": "Introduction",
-    "section": "Qu’est-ce que l’analyse de données ?",
-    "text": "Qu’est-ce que l’analyse de données ?\nL’analyse de données est un ensemble de méthodes permettant de retirer de l’information d’un jeu de données. On parle aussi d’apprentissage statistique (statistical learning). L’idée est d’utiliser des modèles statistiques pour comprendre comment les données sont structurées et comment elles intéragissent l’une avec l’autre.\n\n\n\n\n\n\nExample\n\n\n\nImaginons que vous êtes le gérant d’un magasin. Vous aimeriez savoir quand ouvrir votre magasin pour maximiser votre chiffre d’affaires. Pour cela, vous pouvez comptez le nombre de clients par heure pendant une période de temps, disons un mois, et ensuite s’interesser à comment ses données sont structurées par rapport aux horaires d’ouverture.",
-    "crumbs": [
-      "Modules",
-      "01 - Introduction"
-    ]
-  },
-  {
-    "objectID": "contents/01-introduction.html#objectifs",
-    "href": "contents/01-introduction.html#objectifs",
-    "title": "Introduction",
-    "section": "Objectifs",
-    "text": "Objectifs\nCe cours n’a pas vocation à être exhaustif, dans le sens de présenter toutes les méthodes possibles. Ce cours n’a pas non plus vocation à être à l’état de l’art, dans le sens où on ne s’intéressera pas aux derniers développements en apprentissage machine. Ce cours n’est pas non plus un cours de programmation.",
-    "crumbs": [
-      "Modules",
-      "01 - Introduction"
-    ]
-  },
-  {
-    "objectID": "contents/01-introduction.html#pratique-de-programmation",
-    "href": "contents/01-introduction.html#pratique-de-programmation",
-    "title": "Introduction",
-    "section": "Pratique de programmation",
-    "text": "Pratique de programmation\n\nConseils généraux\nSpécifique à R\nSpécifique à Python",
-    "crumbs": [
-      "Modules",
-      "01 - Introduction"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "STT-2200: Analyse de données",
-    "section": "",
-    "text": "Bienvenue à tous au cours STT-2200 de l’automne 2025.\nVous trouverez sur ce site toute les informations nécessaire pour les cours, les différents travaux et les exams. Les contenus seront mis à jour au cours de la session avec les corrigés de certains travaux. Je vous invite à regarder les différents modules avant les cours.\nCe site a été créé avec Quarto."
-  },
-  {
-    "objectID": "slides/01-introduction-slides.html#test",
-    "href": "slides/01-introduction-slides.html#test",
-    "title": "Introduction",
-    "section": "Test",
-    "text": "Test\nCoucou"
-  },
-  {
-    "objectID": "contents/06-nonsupervisee.html",
-    "href": "contents/06-nonsupervisee.html",
-    "title": "Non-supervisée",
-    "section": "",
-    "text": "On veut partitionner \\(n\\) observations en \\(K\\) groupes avec comme objectifs:\n\nque les observations dans une même classe soient le plus similaire possible;\nque les observations dans des classes différentes soient les moins similaires possibles.\n\nOn veut donc définir une fonction, que l’on appelle classifieur, qui prend un numéro d’observation \\(i\\) en entrée et qui donne son numéro de groupe en sortie qui va remplir ces deux objectifs.\n\\[\\begin{align}\nC: \\{ 1, \\dots, n \\} &\\rightarrow \\{ 1, \\dots, K\\} \\\\\ni &\\mapsto C(i)\n\\end{align}\\]\nLa fonction objectif est \\[W(C) = \\sum_{k = 1}^{K} \\sum_{i: C(i) = k} \\sum_{j: C(j) = k} d(x_i, x_j),\\]\nou \\(d(x_i, x_j)\\)\nProblème de grande taille!\nComme on ne peut pas explorer l’espace de toutes les possibilités, nous utiliserons des algorithmes gloutons (greedy algorithm), c’est-à-dire qu’ils vont nous donner une règle \\(C\\) qui minimise \\(W(C)\\) sur un espace restreint et qui ne garantissent pas nous ayons trouvé un minimum global.\nDans notre contexte:\n\n\\(p\\) variables sont numériques/ordinales (et habituellement standardisées).\nLa valeur de \\(K\\) est fixé.",
-    "crumbs": [
-      "Modules",
-      "06 - Non-supervisée"
-    ]
-  },
-  {
-    "objectID": "contents/unsupervised/01-kmeans.html",
-    "href": "contents/unsupervised/01-kmeans.html",
-    "title": "\\(k\\)-means",
-    "section": "",
-    "text": "On veut partitionner \\(n\\) observations en \\(K\\) groupes avec comme objectifs:\n\nque les observations dans une même classe soient le plus similaire possible;\nque les observations dans des classes différentes soient les moins similaires possibles.\n\nOn veut donc définir une fonction, que l’on appelle classifieur, qui prend un numéro d’observation \\(i\\) en entrée et qui donne son numéro de groupe en sortie qui va remplir ces deux objectifs.\n\\[\\begin{align}\nC: \\{ 1, \\dots, n \\} &\\rightarrow \\{ 1, \\dots, K\\} \\\\\ni &\\mapsto C(i)\n\\end{align}\\]\nLa fonction objectif est \\[W(C) = \\sum_{k = 1}^{K} \\sum_{i: C(i) = k} \\sum_{j: C(j) = k} d(x_i, x_j),\\]\nou \\(d(x_i, x_j)\\)\nProblème de grande taille!\nComme on ne peut pas explorer l’espace de toutes les possibilités, nous utiliserons des algorithmes gloutons (greedy algorithm), c’est-à-dire qu’ils vont nous donner une règle \\(C\\) qui minimise \\(W(C)\\) sur un espace restreint et qui ne garantissent pas nous ayons trouvé un minimum global.",
-    "crumbs": [
-      "Modules",
-      "06 - Non-supervisée",
-      "$k$-means"
-    ]
-  },
-  {
-    "objectID": "contents/generalities/01-spaces.html",
-    "href": "contents/generalities/01-spaces.html",
-    "title": "Espace",
-    "section": "",
-    "text": "Variable numérique: Variable dont la valeur numérique mesure quelque chose de quantifiable et dont la différence entre les valeurs reflète la différence entre les objets. Exemples: revenu en dollars, masse, âge, …\nVariable ordinale: Variable qui ne donne pas une quantification précise d’un phénomène, mais dont les modalités peuvent être naturellement ordonnées. Examples: revenu faible, moyen ou élevé, ou niveau d’accord entre “tout-à-fait en désaccord”, “en désaccord”, “pas d’avis”, “d’accord”, “tout-à-fait d’accord”.\nNominales symétriques: Variable qualitative dont toutes les modalités sont aussi informatives l’une que l’autre. Examples: Sexe, sections d’un cours.\nNominales asymétriques: Variable qualitative dont les modalités ne contiennent pas toutes le même niveau d’information, habituellement lorsque l’une des modalités est très fréquente, un peu la modalité par defaut, mais que les autres ne le sont pas. Exemples: variable indiquant si un individu est daltonien ou non (deux individus daltoniens ont quelque chose en commun, mais deux individus non-daltoniens n’ont pas forcément quelque chose en commun), variable indiquant si une transaction est frauduleuse.\nIl y a plein d’autre type de variables: fonctions, textes, images, graphs, …",
-    "crumbs": [
-      "Modules",
-      "03 - Généralités",
-      "Espace"
-    ]
-  },
-  {
-    "objectID": "contents/generalities/01-spaces.html#types-de-variables",
-    "href": "contents/generalities/01-spaces.html#types-de-variables",
-    "title": "Espace",
-    "section": "",
-    "text": "Variable numérique: Variable dont la valeur numérique mesure quelque chose de quantifiable et dont la différence entre les valeurs reflète la différence entre les objets. Exemples: revenu en dollars, masse, âge, …\nVariable ordinale: Variable qui ne donne pas une quantification précise d’un phénomène, mais dont les modalités peuvent être naturellement ordonnées. Examples: revenu faible, moyen ou élevé, ou niveau d’accord entre “tout-à-fait en désaccord”, “en désaccord”, “pas d’avis”, “d’accord”, “tout-à-fait d’accord”.\nNominales symétriques: Variable qualitative dont toutes les modalités sont aussi informatives l’une que l’autre. Examples: Sexe, sections d’un cours.\nNominales asymétriques: Variable qualitative dont les modalités ne contiennent pas toutes le même niveau d’information, habituellement lorsque l’une des modalités est très fréquente, un peu la modalité par defaut, mais que les autres ne le sont pas. Exemples: variable indiquant si un individu est daltonien ou non (deux individus daltoniens ont quelque chose en commun, mais deux individus non-daltoniens n’ont pas forcément quelque chose en commun), variable indiquant si une transaction est frauduleuse.\nIl y a plein d’autre type de variables: fonctions, textes, images, graphs, …",
-    "crumbs": [
-      "Modules",
-      "03 - Généralités",
-      "Espace"
-    ]
-  },
-  {
-    "objectID": "contents/generalities/01-spaces.html#espaces-associés",
-    "href": "contents/generalities/01-spaces.html#espaces-associés",
-    "title": "Espace",
-    "section": "Espaces associés",
-    "text": "Espaces associés",
-    "crumbs": [
-      "Modules",
-      "03 - Généralités",
-      "Espace"
     ]
   },
   {
@@ -466,85 +496,38 @@
     ]
   },
   {
-    "objectID": "contents/04-dimension.html",
-    "href": "contents/04-dimension.html",
-    "title": "Dimension",
+    "objectID": "contents/02-revisions.html",
+    "href": "contents/02-revisions.html",
+    "title": "Révisions",
     "section": "",
     "text": "Slides: link",
     "crumbs": [
       "Modules",
-      "04 - Dimension"
+      "02 - Révisions"
     ]
   },
   {
-    "objectID": "contents/03-generalities.html",
-    "href": "contents/03-generalities.html",
-    "title": "Généralités",
+    "objectID": "contents/unsupervised/01-kmeans.html",
+    "href": "contents/unsupervised/01-kmeans.html",
+    "title": "\\(k\\)-means",
     "section": "",
-    "text": "Slides: link",
+    "text": "Algorithme des \\(k\\)-moyennes:\n\\[\\mu_{k} = \\frac{1}{N_k} \\sum_{i: C(i) = k} x_i, \\quad k = 1, \\dots, K,\\]\noù \\(N_{k}\\) est le nombre d’observations dans le group \\(k\\).\nExample\nInconvénients des \\(k\\)-means:\nExpliciter chaque nconvénients et de potentielles solutions.",
     "crumbs": [
       "Modules",
-      "03 - Généralités"
+      "06 - Non-supervisée",
+      "$k$-means"
     ]
   },
   {
-    "objectID": "contents/dimension/04-others.html",
-    "href": "contents/dimension/04-others.html",
-    "title": "Divers",
-    "section": "",
-    "text": "L’idée est de présenter rapidement d’autres méthodes de changement de dimension.",
+    "objectID": "contents/unsupervised/01-kmeans.html#k-médoides",
+    "href": "contents/unsupervised/01-kmeans.html#k-médoides",
+    "title": "\\(k\\)-means",
+    "section": "\\(k\\)-médoides",
+    "text": "\\(k\\)-médoides\nOn n’utilise plus le centre, mais l’observation qui minimise les distances dans chaque groupe. La médiane plutôt que la moyenne.\nAvantages:\n\nPermet d’intégrer des variables ordinales\nRobuste\nPermet de bien spécifier la matrix de distance\n\nInconvénients:\n\nIl faut connaître le nombre de groupes.",
     "crumbs": [
       "Modules",
-      "04 - Dimension",
-      "Divers"
-    ]
-  },
-  {
-    "objectID": "contents/dimension/04-others.html#t-sne",
-    "href": "contents/dimension/04-others.html#t-sne",
-    "title": "Divers",
-    "section": "\\(t\\)-SNE",
-    "text": "\\(t\\)-SNE",
-    "crumbs": [
-      "Modules",
-      "04 - Dimension",
-      "Divers"
-    ]
-  },
-  {
-    "objectID": "contents/dimension/04-others.html#umap",
-    "href": "contents/dimension/04-others.html#umap",
-    "title": "Divers",
-    "section": "UMAP",
-    "text": "UMAP",
-    "crumbs": [
-      "Modules",
-      "04 - Dimension",
-      "Divers"
-    ]
-  },
-  {
-    "objectID": "contents/dimension/03-kernel.html",
-    "href": "contents/dimension/03-kernel.html",
-    "title": "Noyau",
-    "section": "",
-    "text": "Dans certains cas, réduire la dimension des données n’est pas la chose à faire. Dans certains cas, il est même préférable d’augmenter la dimension des données ! Pourquoi ?\nRegardons l’exemple suivant: ajouter exemple en 2d, type cercle.\nDans ce cas, on s’intéresse à la méthode des noyaux (kernel trick).",
-    "crumbs": [
-      "Modules",
-      "04 - Dimension",
-      "Noyau"
-    ]
-  },
-  {
-    "objectID": "contents/dimension/03-kernel.html#la-méthode-du-noyau",
-    "href": "contents/dimension/03-kernel.html#la-méthode-du-noyau",
-    "title": "Noyau",
-    "section": "",
-    "text": "Dans certains cas, réduire la dimension des données n’est pas la chose à faire. Dans certains cas, il est même préférable d’augmenter la dimension des données ! Pourquoi ?\nRegardons l’exemple suivant: ajouter exemple en 2d, type cercle.\nDans ce cas, on s’intéresse à la méthode des noyaux (kernel trick).",
-    "crumbs": [
-      "Modules",
-      "04 - Dimension",
-      "Noyau"
+      "06 - Non-supervisée",
+      "$k$-means"
     ]
   },
   {
@@ -572,38 +555,91 @@
     ]
   },
   {
-    "objectID": "contents/remainders/02-probabilities.html",
-    "href": "contents/remainders/02-probabilities.html",
-    "title": "Probabilités et Statistiques",
+    "objectID": "contents/03-generalities.html",
+    "href": "contents/03-generalities.html",
+    "title": "Généralités",
     "section": "",
-    "text": "Vecteurs aléatoires:\nSoit \\(X = (X_{1}, \\dots, X_{p})^\\top\\), un vecteur aléatoire de taille \\(p\\).\nEspérance: \\[\\mathbb{E}(X) = \\begin{pmatrix}\n  \\mathbb{E}(X_{1}) \\\\\n  \\vdots \\\\\n  \\mathbb{E}(X_{p})\n\\end{pmatrix} \\coloneqq \\begin{pmatrix}\n  \\mu_{1} \\\\\n  \\vdots \\\\\n  \\mu_{p}\n\\end{pmatrix} \\coloneqq \\mu.\\]\nMatrice de variance/covariance: \\[\\mathrm{Var}(X) = \\begin{pmatrix}\n  \\mathrm{Var}(X_{1}) & \\cdots & \\mathrm{Cov}(X_{1}, X_{p}) \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\mathrm{Cov}(X_{1}, X_{p}) & \\cdots & \\mathrm{Var}(X_p)  \n  \\end{pmatrix} \\coloneqq \\begin{pmatrix}\n  \\sigma_{1}^2 & \\cdots & \\sigma_{1, p} \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\sigma_{1, p} & \\cdots & \\sigma_p   \n\\end{pmatrix} \\coloneqq \\Sigma.\\]\nMatrice de corrélation: \\[\\mathrm{Cor}(X) = \\begin{pmatrix}\n  1 & \\cdots & \\mathrm{Corr}(X_{1}, X_{p})  \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\mathrm{Corr}(X_{1}, X_{p}) & \\cdots & 1\n  \\end{pmatrix} \\coloneqq \\begin{pmatrix}\n  1 & \\cdots & \\rho_{1, p} \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\rho_{1, p} & \\cdots & 1\n\\end{pmatrix} \\coloneqq R.\\]\nPropriété des moments:\n\n\n\n\n\n\nProperties\n\n\n\nSoit \\(X\\) un vecteur aléatoire de moyenne \\(\\mathbb{E}(X) = \\mu\\) et de variance \\(\\mathrm{Var}(X) = \\Sigma\\), et soit \\(M\\) une matrice de constantes et \\(v\\) un vecteur de constantes.\n\n\\(\\Sigma\\) est définie non-négative et symétrique.\n\\(\\Sigma = \\mathbb{E}\\left[ (X - \\mu)(X - \\mu)^\\top \\right] = \\mathbb{E}(X X^\\top) - \\mu \\mu^\\top\\).\n\\(\\mathbb{E}(MX + v) = \\mathbb{E}(X) + v\\).\n\\(\\mathrm{Var}(MX + v) = \\mathrm{Var}(MX) = M \\Sigma M^\\top\\).\n\\(\\Sigma = \\Delta R \\Delta \\iff R = \\Delta^{-1} \\Sigma \\Delta^{-1}\\).\n\n\n\nAjouter qqc sur l’indépendance de variables aléatoires!\nLoi normale multivariée: On dit qu’un vecteur aléatoire \\(X\\) de dimension \\(p\\) suit une loi normale multidimensionnelle de moyenne \\(\\mu\\) et de variance \\(\\Sigma \\sim \\mathcal{N}_{p}(\\mu, \\sigma^2)\\), si sa densité est données par \\[f_X(x) = \\frac{1}{(2 \\pi)^{p /2}} \\cdot \\frac{1}{(\\text{det} \\Sigma)^{1/2}} \\cdot \\exp\\left\\{ -\\frac{1}{2}\\left( x - \\mu \\right)^\\top \\Sigma^{-1} \\left( x - \\mu \\right) \\right\\}, \\quad x \\in \\mathbb{R}^p.\\]\nEstimation avec un échantillon: En practique, nous ne connaissons pas les valeurs de \\(\\mu\\) et de \\(\\Sigma\\) et nous voulons les estimer à partir d’un échantillon. Soit \\(X_{1}, \\dots, X_{n}\\), \\(n\\) réalisations indépendantes d’un vecteur aléatoire \\(X\\) de moyenne \\(\\mu\\) et de variance \\(\\Sigma\\). On estime \\(\\mu\\) et \\(\\Sigma\\) par :\n\\[\\widehat{\\mu} = \\overline{X} \\coloneqq \\frac{1}{n} \\sum_{i = 1}^{n} X_i\\]\n\\[\\widehat{\\Sigma} = S^2 \\coloneqq \\frac{1}{n - 1}\\sum_{i = 1}^{n} (X_i - \\overline{X})(X_i - \\overline{X})^\\top.\\]\nNotons \\(D = \\{\\text{diag}(S^2)\\}^{1/2}\\), la matrice des écarts-types calculés sur l’échantillon. On peut calculer la matrice des corrélations sur l’échantillon par : \\[\\widehat{R} = D^{-1} S^2 D^{-1} \\iff S^2 = D \\widehat{R} D.\\]",
+    "text": "Slides: link",
     "crumbs": [
       "Modules",
-      "02 - Révisions",
-      "Probabilités et Statistiques"
+      "03 - Généralités"
     ]
   },
   {
-    "objectID": "contents/remainders/02-probabilities.html#révisions-de-probabilité",
-    "href": "contents/remainders/02-probabilities.html#révisions-de-probabilité",
-    "title": "Probabilités et Statistiques",
+    "objectID": "informations/description.html",
+    "href": "informations/description.html",
+    "title": "Description du cours",
     "section": "",
-    "text": "Vecteurs aléatoires:\nSoit \\(X = (X_{1}, \\dots, X_{p})^\\top\\), un vecteur aléatoire de taille \\(p\\).\nEspérance: \\[\\mathbb{E}(X) = \\begin{pmatrix}\n  \\mathbb{E}(X_{1}) \\\\\n  \\vdots \\\\\n  \\mathbb{E}(X_{p})\n\\end{pmatrix} \\coloneqq \\begin{pmatrix}\n  \\mu_{1} \\\\\n  \\vdots \\\\\n  \\mu_{p}\n\\end{pmatrix} \\coloneqq \\mu.\\]\nMatrice de variance/covariance: \\[\\mathrm{Var}(X) = \\begin{pmatrix}\n  \\mathrm{Var}(X_{1}) & \\cdots & \\mathrm{Cov}(X_{1}, X_{p}) \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\mathrm{Cov}(X_{1}, X_{p}) & \\cdots & \\mathrm{Var}(X_p)  \n  \\end{pmatrix} \\coloneqq \\begin{pmatrix}\n  \\sigma_{1}^2 & \\cdots & \\sigma_{1, p} \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\sigma_{1, p} & \\cdots & \\sigma_p   \n\\end{pmatrix} \\coloneqq \\Sigma.\\]\nMatrice de corrélation: \\[\\mathrm{Cor}(X) = \\begin{pmatrix}\n  1 & \\cdots & \\mathrm{Corr}(X_{1}, X_{p})  \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\mathrm{Corr}(X_{1}, X_{p}) & \\cdots & 1\n  \\end{pmatrix} \\coloneqq \\begin{pmatrix}\n  1 & \\cdots & \\rho_{1, p} \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  \\rho_{1, p} & \\cdots & 1\n\\end{pmatrix} \\coloneqq R.\\]\nPropriété des moments:\n\n\n\n\n\n\nProperties\n\n\n\nSoit \\(X\\) un vecteur aléatoire de moyenne \\(\\mathbb{E}(X) = \\mu\\) et de variance \\(\\mathrm{Var}(X) = \\Sigma\\), et soit \\(M\\) une matrice de constantes et \\(v\\) un vecteur de constantes.\n\n\\(\\Sigma\\) est définie non-négative et symétrique.\n\\(\\Sigma = \\mathbb{E}\\left[ (X - \\mu)(X - \\mu)^\\top \\right] = \\mathbb{E}(X X^\\top) - \\mu \\mu^\\top\\).\n\\(\\mathbb{E}(MX + v) = \\mathbb{E}(X) + v\\).\n\\(\\mathrm{Var}(MX + v) = \\mathrm{Var}(MX) = M \\Sigma M^\\top\\).\n\\(\\Sigma = \\Delta R \\Delta \\iff R = \\Delta^{-1} \\Sigma \\Delta^{-1}\\).\n\n\n\nAjouter qqc sur l’indépendance de variables aléatoires!\nLoi normale multivariée: On dit qu’un vecteur aléatoire \\(X\\) de dimension \\(p\\) suit une loi normale multidimensionnelle de moyenne \\(\\mu\\) et de variance \\(\\Sigma \\sim \\mathcal{N}_{p}(\\mu, \\sigma^2)\\), si sa densité est données par \\[f_X(x) = \\frac{1}{(2 \\pi)^{p /2}} \\cdot \\frac{1}{(\\text{det} \\Sigma)^{1/2}} \\cdot \\exp\\left\\{ -\\frac{1}{2}\\left( x - \\mu \\right)^\\top \\Sigma^{-1} \\left( x - \\mu \\right) \\right\\}, \\quad x \\in \\mathbb{R}^p.\\]\nEstimation avec un échantillon: En practique, nous ne connaissons pas les valeurs de \\(\\mu\\) et de \\(\\Sigma\\) et nous voulons les estimer à partir d’un échantillon. Soit \\(X_{1}, \\dots, X_{n}\\), \\(n\\) réalisations indépendantes d’un vecteur aléatoire \\(X\\) de moyenne \\(\\mu\\) et de variance \\(\\Sigma\\). On estime \\(\\mu\\) et \\(\\Sigma\\) par :\n\\[\\widehat{\\mu} = \\overline{X} \\coloneqq \\frac{1}{n} \\sum_{i = 1}^{n} X_i\\]\n\\[\\widehat{\\Sigma} = S^2 \\coloneqq \\frac{1}{n - 1}\\sum_{i = 1}^{n} (X_i - \\overline{X})(X_i - \\overline{X})^\\top.\\]\nNotons \\(D = \\{\\text{diag}(S^2)\\}^{1/2}\\), la matrice des écarts-types calculés sur l’échantillon. On peut calculer la matrice des corrélations sur l’échantillon par : \\[\\widehat{R} = D^{-1} S^2 D^{-1} \\iff S^2 = D \\widehat{R} D.\\]",
-    "crumbs": [
-      "Modules",
-      "02 - Révisions",
-      "Probabilités et Statistiques"
-    ]
-  },
-  {
-    "objectID": "informations/schedule.html",
-    "href": "informations/schedule.html",
-    "title": "Plan",
-    "section": "",
-    "text": "Le plan est donné à titre indicatif.\n\n\n\nSemaine\nDate\nDurée\nPlan\nÉvaluations",
+    "text": "Dans ce cours, nous visons à introduire des méthodes qui permettront aux étudiantes et étudiants d’étudier un jeu de données de “haute dimension” (“haute” dans le sens ici où l’on ne peut faire un simple graphique de l’ensemble des observations de toutes les variables) sans avoir recours à un modèle probabiliste. Les techniques qu’on y enseigne servent à réduire la dimension des données, identifier certains liens entre les variables, visualiser les données ou à diviser le jeu de données en groupes/classes.\nSans négliger la théorie, l’accent sera mis sur l’aspect pratique de l’analyse des données et l’utilisation du langage R.",
     "crumbs": [
       "Informations",
-      "Plan"
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#objectifs",
+    "href": "informations/description.html#objectifs",
+    "title": "Description du cours",
+    "section": "",
+    "text": "Dans ce cours, nous visons à introduire des méthodes qui permettront aux étudiantes et étudiants d’étudier un jeu de données de “haute dimension” (“haute” dans le sens ici où l’on ne peut faire un simple graphique de l’ensemble des observations de toutes les variables) sans avoir recours à un modèle probabiliste. Les techniques qu’on y enseigne servent à réduire la dimension des données, identifier certains liens entre les variables, visualiser les données ou à diviser le jeu de données en groupes/classes.\nSans négliger la théorie, l’accent sera mis sur l’aspect pratique de l’analyse des données et l’utilisation du langage R.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#place-du-cours-dans-le-programme",
+    "href": "informations/description.html#place-du-cours-dans-le-programme",
+    "title": "Description du cours",
+    "section": "Place du cours dans le programme",
+    "text": "Place du cours dans le programme\nCe cours généralement suivi par des étudiants du baccalauréat en statistique lors de leur deuxième année de formation. Il est aussi un cours à option en actuariat, en mathématique ainsi que dans certains programmes de génie et d’administration.\nTous les étudiants doivent s’assurer d’avoir suivi au minimum un cours d’algèbre (ex. MAT1200) et un cours de statistique de base (ex. STT1000), car la majorité des méthodes d’analyse de données s’appuient sur ces notions.\nLes étudiants devraient aussi avoir une certaine familiarité avec le langage R ou avec la programmation.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#objectifs-spécifiques",
+    "href": "informations/description.html#objectifs-spécifiques",
+    "title": "Description du cours",
+    "section": "Objectifs spécifiques",
+    "text": "Objectifs spécifiques\nÀ la fin du cours, l’étudiant ou l’étudiante devra être capable :\n\nde comprendre et décrire succinctement les fondements théoriques des méthodes d’analyse de données étudiées;\nd’identifier correctement les situations où l’emploi de ces méthodes est indiqué;\nd’utiliser efficacement un logiciel tel SAS ou R pour mettre en oeuvre ces méthodes;\nd’analyser et d’interpréter judicieusement les résultats découlant de l’analyse;\nde formuler par écrit les conclusions de l’analyse, dans le respect des limites de la méthodologie.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#équipement-informatique",
+    "href": "informations/description.html#équipement-informatique",
+    "title": "Description du cours",
+    "section": "Équipement informatique",
+    "text": "Équipement informatique\nVous pourriez avoir besoin d’un ordinateur, de haut-parleurs ou d’un casque d’écoute, d’un microphone, d’une webcam et d’une connexion Internet avec fil à large bande ou sans fil. Pour vérifier les paramètres de configuration minimaux selon le système d’exploitation, nous vous invitons à visiter cette page.\nDe plus, ce cours peut nécessiter des besoins logiciels particuliers qui seront alors décrits dans d’autres sections du plan de cours, le cas échéant.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#fonctionnement",
+    "href": "informations/description.html#fonctionnement",
+    "title": "Description du cours",
+    "section": "Fonctionnement",
+    "text": "Fonctionnement\nLes cours et examen auront lieu en présentiel les mardi et vendredi matin, mais une portion du matériel sera disponible en ligne. De façon générale, la séance du vendredi sera une séance magistrale et la séance du mardi sera dédiée à des exercices pratiques réalisés de façon autonome par les étudiants avec le soutien de l’enseignant.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#approches-pédagogiques",
+    "href": "informations/description.html#approches-pédagogiques",
+    "title": "Description du cours",
+    "section": "Approches pédagogiques",
+    "text": "Approches pédagogiques\nL’approche pédagogique privilégiée est l’exposé interactif (vendredi) en alternance avec des périodes de laboratoires (mardi). L’approche pédagogique est très axée sur l’apprentissage actif et exige un engagement soutenu des étudiants tout au long de la session.",
+    "crumbs": [
+      "Informations",
+      "Description"
     ]
   },
   {
@@ -703,6 +739,30 @@
     "crumbs": [
       "Informations",
       "Évaluations"
+    ]
+  },
+  {
+    "objectID": "informations/mcq.html",
+    "href": "informations/mcq.html",
+    "title": "QCM",
+    "section": "",
+    "text": "Le premier examen est un questionaire à choix multiples avec quantification de l’incertitude.\nL’ utilisation de degrés de certitude permet à l’étudiant d’évaluer le niveau de connaissance de la réponse donnée. La barème des notes, basé sur la théorie des décision (Leclercq et al. 1993), peut sembler bizarre mais il a été fait de tel manière que:\n\ndire la vérité soit la stratégie qui rapporte le plus de points;\nceux qui s’auto-évaluent bien gagnent plus de points que si l’on appliquait un barème correctif tenant compte des probabilités d’avoir la réponse correcte aléatoirement.\n\n\n\n\nSi vous condidérez que votre réponse a une probabilité d’être correcte comprise entre…\n\n\nChoisissez le degré de certitude…\n\n\nVous obtiendrez les points suivants en case de réponse…\n\n\n\n\n\n\n\n\ncorrecte\n\n\nincorrecte\n\n\n\n\n0% et 25%\n\n\n0\n\n\n+13\n\n\n+4\n\n\n\n\n25% et 50%\n\n\n1\n\n\n+16\n\n\n+3\n\n\n\n\n50% et 70%\n\n\n2\n\n\n+17\n\n\n+2\n\n\n\n\n70% et 85%\n\n\n3\n\n\n+18\n\n\n0\n\n\n\n\n85% et 95%\n\n\n4\n\n\n+19\n\n\n-6\n\n\n\n\n95% et 100%\n\n\n5\n\n\n+20\n\n\n-10\n\n\n\nGénéralement, les étudiants s’auto-estiment avec réalisme, et sont avantagés par les degrés de certitude. Leur score obtenu est meilleur que s’il avait été calculé uniquement sur la base du nombre de réponses justes.",
+    "crumbs": [
+      "Informations",
+      "Évaluations",
+      "QCM"
+    ]
+  },
+  {
+    "objectID": "informations/mcq.html#information-sur-le-premier-examen",
+    "href": "informations/mcq.html#information-sur-le-premier-examen",
+    "title": "QCM",
+    "section": "",
+    "text": "Le premier examen est un questionaire à choix multiples avec quantification de l’incertitude.\nL’ utilisation de degrés de certitude permet à l’étudiant d’évaluer le niveau de connaissance de la réponse donnée. La barème des notes, basé sur la théorie des décision (Leclercq et al. 1993), peut sembler bizarre mais il a été fait de tel manière que:\n\ndire la vérité soit la stratégie qui rapporte le plus de points;\nceux qui s’auto-évaluent bien gagnent plus de points que si l’on appliquait un barème correctif tenant compte des probabilités d’avoir la réponse correcte aléatoirement.\n\n\n\n\nSi vous condidérez que votre réponse a une probabilité d’être correcte comprise entre…\n\n\nChoisissez le degré de certitude…\n\n\nVous obtiendrez les points suivants en case de réponse…\n\n\n\n\n\n\n\n\ncorrecte\n\n\nincorrecte\n\n\n\n\n0% et 25%\n\n\n0\n\n\n+13\n\n\n+4\n\n\n\n\n25% et 50%\n\n\n1\n\n\n+16\n\n\n+3\n\n\n\n\n50% et 70%\n\n\n2\n\n\n+17\n\n\n+2\n\n\n\n\n70% et 85%\n\n\n3\n\n\n+18\n\n\n0\n\n\n\n\n85% et 95%\n\n\n4\n\n\n+19\n\n\n-6\n\n\n\n\n95% et 100%\n\n\n5\n\n\n+20\n\n\n-10\n\n\n\nGénéralement, les étudiants s’auto-estiment avec réalisme, et sont avantagés par les degrés de certitude. Leur score obtenu est meilleur que s’il avait été calculé uniquement sur la base du nombre de réponses justes.",
+    "crumbs": [
+      "Informations",
+      "Évaluations",
+      "QCM"
     ]
   }
 ]

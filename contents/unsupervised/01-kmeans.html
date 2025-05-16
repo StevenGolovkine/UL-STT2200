@@ -29,9 +29,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script><link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-8e6c22c7739c08f934f3ec200d7360b1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-fcf47b2b8fc72e317a2d1f29573bce58.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-8e6c22c7739c08f934f3ec200d7360b1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-9db8ff7d6d1fd2410fae1d2039720068.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-86f9e1b20d7c1f75f29fb6b795d4720b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-9db8ff7d6d1fd2410fae1d2039720068.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -576,11 +576,19 @@ window.Quarto = {
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+<li><a href="#k-m%C3%A9doides" id="toc-k-médoides" class="nav-link active" data-scroll-target="#k-médoides"><span class="math inline">\(k\)</span>-médoides</a></li>
+  </ul>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/unsupervised/01-kmeans.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
+</ul></div>
+<div class="quarto-alternate-formats">
 <h2>Autres formats</h2>
 <ul><li><a href="01-kmeans.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
-</div>
+</div></nav>
 </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
@@ -603,24 +611,41 @@ window.Quarto = {
   
 
 
-</header><p>On veut partitionner <span class="math inline">\(n\)</span> observations en <span class="math inline">\(K\)</span> groupes avec comme objectifs:</p>
+</header><p>Algorithme des <span class="math inline">\(k\)</span>-moyennes:</p>
 <ol type="1">
-<li><p>que les observations dans une même classe soient le plus similaire possible;</p></li>
-<li><p>que les observations dans des classes différentes soient les moins similaires possibles.</p></li>
+<li><p>On choisit le nombre de groupes <span class="math inline">\(K\)</span>.</p></li>
+<li><p>On partionne aléatoirement les <span class="math inline">\(n\)</span> observations en <span class="math inline">\(K\)</span> groupes.</p></li>
+<li><p>On calcule le vecteur-moyenne pour chacun des <span class="math inline">\(K\)</span> groupes, soit</p></li>
 </ol>
-<p>On veut donc définir une fonction, que l’on appelle classifieur, qui prend un numéro d’observation <span class="math inline">\(i\)</span> en entrée et qui donne son numéro de groupe en sortie qui va remplir ces deux objectifs.</p>
-<p><span class="math display">\[\begin{align}
-C: \{ 1, \dots, n \} &amp;\rightarrow \{ 1, \dots, K\} \\
-i &amp;\mapsto C(i)
-\end{align}\]</span></p>
-<p>La fonction objectif est <span class="math display">\[W(C) = \sum_{k = 1}^{K} \sum_{i: C(i) = k} \sum_{j: C(j) = k} d(x_i, x_j),\]</span></p>
-<p>ou <span class="math inline">\(d(x_i, x_j)\)</span></p>
-<p>Problème de grande taille!</p>
-<p>Comme on ne peut pas explorer l’espace de toutes les possibilités, nous utiliserons des algorithmes gloutons (greedy algorithm), c’est-à-dire qu’ils vont nous donner une règle <span class="math inline">\(C\)</span> qui minimise <span class="math inline">\(W(C)\)</span> sur un espace restreint et qui ne garantissent pas nous ayons trouvé un minimum global.</p>
-
-
-
-</main><!-- /main --><script>
+<p><span class="math display">\[\mu_{k} = \frac{1}{N_k} \sum_{i: C(i) = k} x_i, \quad k = 1, \dots, K,\]</span></p>
+<p>où <span class="math inline">\(N_{k}\)</span> est le nombre d’observations dans le group <span class="math inline">\(k\)</span>.</p>
+<ol start="4" type="1">
+<li><p>On calcule la distance entre chaque observation et chacun des <span class="math inline">\(K\)</span> vecteurs-moyennes.</p></li>
+<li><p>On assigne chacune des <span class="math inline">\(n\)</span> observations au groupe dont le vecteur-moyenne est le plus près.</p></li>
+<li><p>On repète les étapes 3 à 5 jusqu’à ce qu’aucune observation ne soit réassignée à un nouveau groupe.</p></li>
+</ol>
+<p>Example</p>
+<p>Inconvénients des <span class="math inline">\(k\)</span>-means:</p>
+<ul>
+<li><p>Sensible au choix des centroïdes initiaux (à l’initialisation).</p></li>
+<li><p>Il faut connaître le nombre de groupes.</p></li>
+<li><p>Nécessite une mesure de distance recalculée à chaque itération.</p></li>
+<li><p>Assez sensible aux valeurs extrêmes.</p></li>
+</ul>
+<p>Expliciter chaque nconvénients et de potentielles solutions.</p>
+<section id="k-médoides" class="level2"><h2 class="anchored" data-anchor-id="k-médoides">
+<span class="math inline">\(k\)</span>-médoides</h2>
+<p>On n’utilise plus le centre, mais l’observation qui minimise les distances dans chaque groupe. La médiane plutôt que la moyenne.</p>
+<p>Avantages:</p>
+<ul>
+<li><p>Permet d’intégrer des variables ordinales</p></li>
+<li><p>Robuste</p></li>
+<li><p>Permet de bien spécifier la matrix de distance</p></li>
+</ul>
+<p>Inconvénients:</p>
+<ul>
+<li>Il faut connaître le nombre de groupes.</li>
+</ul></section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -1259,7 +1284,7 @@ window.onload = function() {
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions"><ul>
+<div class="toc-actions d-sm-block d-md-none"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/unsupervised/01-kmeans.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
 </ul></div>
