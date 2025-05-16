@@ -583,6 +583,9 @@ window.Quarto = {
   <li><a href="#notation" id="toc-notation" class="nav-link" data-scroll-target="#notation">Notation</a></li>
   <li><a href="#analyse-factorielle-des-correspondances" id="toc-analyse-factorielle-des-correspondances" class="nav-link" data-scroll-target="#analyse-factorielle-des-correspondances">Analyse factorielle des correspondances</a></li>
   <li><a href="#centre-de-gravit%C3%A9-et-inertie" id="toc-centre-de-gravité-et-inertie" class="nav-link" data-scroll-target="#centre-de-gravité-et-inertie">Centre de gravité et inertie</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  <li><a href="#analyse-des-correspondances-multiples" id="toc-analyse-des-correspondances-multiples" class="nav-link" data-scroll-target="#analyse-des-correspondances-multiples">Analyse des correspondances multiples</a></li>
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example</a></li>
   </ul>
 <div class="toc-actions"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
@@ -680,7 +683,71 @@ C_j &amp;= \left( \frac{k_{1 j}}{k_{\bullet j}}, \dots, \frac{k_{n j}}{k_{\bulle
 <li><p>Ceci ne signifie pas pour autant que les points sont près du centre du graphique.</p></li>
 <li><p>Les points éloignés du centre de gravité se distinguent du centre de gravité.</p></li>
 <li><p>Une interprétation semblable existe pour les points-lignes.</p></li>
-</ol></section></main><!-- /main --><script>
+</ol></section><section id="example" class="level2"><h2 class="anchored" data-anchor-id="example">Example</h2>
+</section><section id="analyse-des-correspondances-multiples" class="level2"><h2 class="anchored" data-anchor-id="analyse-des-correspondances-multiples">Analyse des correspondances multiples</h2>
+<p>L’analyse des correspondances multiples est une généralisation de l’analyse des correspondances binaires. Elle permet la representation graphique de tableaux de fréquences contnant plus de deux variables. Un exemple classique d’un tableau de fréquences avec plus de deux variables est le tableau présentant les réponses d’individus à un questionnaire contenant <span class="math inline">\(Q\)</span> questions à choix multiples.</p>
+<p>Très utile pour visualiser les résultats d’une étude par questionnaire.</p>
+<p>L’ACM peut aussi être vue comme une version de l’ACP quand les variables sont catégorielles:</p>
+<ul>
+<li><p>l’analyse duale permet de voir les individus ayant des profils de réponses similaires</p></li>
+<li><p>on peut obtenir des scores continus pour les individus qui capturent une grande partie de l’information</p></li>
+<li><p>donc aussi utile pour scorer les résultats d’une étude par questionnaire dans un but éventuel de partitionnement, par exemple</p></li>
+</ul>
+<p>En général, pour un questionnaire contenant <span class="math inline">\(Q\)</span> questions, on a un tableau de la forme suivante: <span class="math display">\[Z = \left[ Z_1 \mid \cdots \mid Z_{Q} \right].\]</span></p>
+<p>Notation:</p>
+<ul>
+<li>
+<span class="math inline">\(Q\)</span>: nombre de questions</li>
+<li>
+<span class="math inline">\(n\)</span>: nombre d’individus répondant au questionnaire</li>
+<li>
+<span class="math inline">\(p_q\)</span>: nombre de modalités (choix de réponses) de la question <span class="math inline">\(q\)</span>.</li>
+<li><span class="math inline">\(p = p_{1} + p_{Q}\)</span></li>
+</ul>
+<p>Potentiel problème: plus le nombre de questions est grand, plus il y aura de cellules vides. C’est aussi le cas si le nombre de réponses aux questions est important. La proportion de cellules non vides est <span class="math display">\[\frac{nQ}{np} = \frac{Q}{p}.\]</span>.</p>
+<p>Si toutes les questions ont le même nombre de choix de réponses, alors <span class="math inline">\(p_{1} = \dots = p_{Q} = \frac{p}{Q}\)</span>, de sorte que <span class="math display">\[\frac{Q}{p} = \frac{1}{p_{1}} \longrightarrow 0, \quad\text{quand}~ p_{1} \rightarrow \infty.\]</span></p>
+<p>Le tableau résumé est un tableau de taille <span class="math inline">\(n \times Q\)</span>. Il contient le numéro de la modalité associée à la réponse de chaque individu pour chacune des questions.</p>
+<p>La tableau de Burt est une autre faon de présenter un tableau de fréquences contenant plus de deux variables. Étant donné un tableau logique <span class="math inline">\(Z = \left[ Z_{1} \mid \cdots \mid Z_{Q} \right]\)</span>, le tableau de Burt associé est la matrice carrée <span class="math inline">\(p \times p\)</span> définie comme étant <span class="math display">\[ B = \begin{pmatrix}
+  Z_1^\top Z_1 &amp; \cdots &amp; Z_1^\top Z_Q \\
+  \vdots &amp; \ddots &amp; \vdots \\
+  Z_Q^\top Z_1 &amp; \cdots &amp; Z_Q^\top Z_Q
+\end{pmatrix}.\]</span></p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Propriétés de <span class="math inline">\(Z_q^\top Z_q\)</span>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p><span class="math inline">\(Z_{q}^\top Z_q\)</span> est une matrice diagonale <span class="math inline">\(p_q \times p_q\)</span> présentant les réponses à la <span class="math inline">\(q\)</span>e question.</p></li>
+<li><p>L’élément <span class="math inline">\((j, j)\)</span> de la matrice <span class="math inline">\(Z_q^\top Z_q\)</span> est égal au nombre d’individus <span class="math inline">\(d_{jj}\)</span> qui appartiennent à la <span class="math inline">\(j\)</span>e catégorie de la <span class="math inline">\(q\)</span>e question.</p></li>
+<li><p><span class="math inline">\(Z_{q}^\top Z_{r}\)</span> est le tableau de fréquences présentant les répones au x <span class="math inline">\(q\)</span>e et <span class="math inline">\(r\)</span>e questions.</p></li>
+<li><p>L’élément <span class="math inline">\((j, k)\)</span> de la matrice <span class="math inline">\(Z_q^\top Z_r\)</span> est égal au nombre d’individus <span class="math inline">\(d_{jk}\)</span> qui appartiennent à la <span class="math inline">\(j\)</span>e catégorie de la <span class="math inline">\(q\)</span>e question et à la <span class="math inline">\(k\)</span>e catégorie de la <span class="math inline">\(r\)</span>e question.</p></li>
+</ol>
+</div>
+</div>
+<p>D’un point de vue mathématique, l’ACM est une AFC effectuée sur la matrice logique <span class="math inline">\(Z\)</span> ou sur le tableau de Burt <span class="math inline">\(B\)</span>. On peut démontrer que l’on obtient les mêmes facteurs, et ce, peu importe la matrice utilisé pour l’analyse.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On peut créé un graphique comme l’AFC. Cependant, en ACM, la distance entre les points de même couleur et la géométrie globale du graphique ne peuvent pas s’interpréter comme en AFC. En fait, on s’intéresse aux points qui sont dans une même direction par rapport à l’origine.</p>
+</div>
+</div>
+</section><section id="example-1" class="level2"><h2 class="anchored" data-anchor-id="example-1">Example</h2>
+
+
+</section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {

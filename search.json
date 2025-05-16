@@ -229,6 +229,42 @@
     ]
   },
   {
+    "objectID": "contents/dimension/02-mca.html#example",
+    "href": "contents/dimension/02-mca.html#example",
+    "title": "ACM",
+    "section": "Example",
+    "text": "Example",
+    "crumbs": [
+      "Modules",
+      "04 - Dimension",
+      "ACM"
+    ]
+  },
+  {
+    "objectID": "contents/dimension/02-mca.html#analyse-des-correspondances-multiples",
+    "href": "contents/dimension/02-mca.html#analyse-des-correspondances-multiples",
+    "title": "ACM",
+    "section": "Analyse des correspondances multiples",
+    "text": "Analyse des correspondances multiples\nL’analyse des correspondances multiples est une généralisation de l’analyse des correspondances binaires. Elle permet la representation graphique de tableaux de fréquences contnant plus de deux variables. Un exemple classique d’un tableau de fréquences avec plus de deux variables est le tableau présentant les réponses d’individus à un questionnaire contenant \\(Q\\) questions à choix multiples.\nTrès utile pour visualiser les résultats d’une étude par questionnaire.\nL’ACM peut aussi être vue comme une version de l’ACP quand les variables sont catégorielles:\n\nl’analyse duale permet de voir les individus ayant des profils de réponses similaires\non peut obtenir des scores continus pour les individus qui capturent une grande partie de l’information\ndonc aussi utile pour scorer les résultats d’une étude par questionnaire dans un but éventuel de partitionnement, par exemple\n\nEn général, pour un questionnaire contenant \\(Q\\) questions, on a un tableau de la forme suivante: \\[Z = \\left[ Z_1 \\mid \\cdots \\mid Z_{Q} \\right].\\]\nNotation:\n\n\\(Q\\): nombre de questions\n\\(n\\): nombre d’individus répondant au questionnaire\n\\(p_q\\): nombre de modalités (choix de réponses) de la question \\(q\\).\n\\(p = p_{1} + p_{Q}\\)\n\nPotentiel problème: plus le nombre de questions est grand, plus il y aura de cellules vides. C’est aussi le cas si le nombre de réponses aux questions est important. La proportion de cellules non vides est \\[\\frac{nQ}{np} = \\frac{Q}{p}.\\].\nSi toutes les questions ont le même nombre de choix de réponses, alors \\(p_{1} = \\dots = p_{Q} = \\frac{p}{Q}\\), de sorte que \\[\\frac{Q}{p} = \\frac{1}{p_{1}} \\longrightarrow 0, \\quad\\text{quand}~ p_{1} \\rightarrow \\infty.\\]\nLe tableau résumé est un tableau de taille \\(n \\times Q\\). Il contient le numéro de la modalité associée à la réponse de chaque individu pour chacune des questions.\nLa tableau de Burt est une autre faon de présenter un tableau de fréquences contenant plus de deux variables. Étant donné un tableau logique \\(Z = \\left[ Z_{1} \\mid \\cdots \\mid Z_{Q} \\right]\\), le tableau de Burt associé est la matrice carrée \\(p \\times p\\) définie comme étant \\[ B = \\begin{pmatrix}\n  Z_1^\\top Z_1 & \\cdots & Z_1^\\top Z_Q \\\\\n  \\vdots & \\ddots & \\vdots \\\\\n  Z_Q^\\top Z_1 & \\cdots & Z_Q^\\top Z_Q\n\\end{pmatrix}.\\]\n\n\n\n\n\n\nPropriétés de \\(Z_q^\\top Z_q\\)\n\n\n\n\n\\(Z_{q}^\\top Z_q\\) est une matrice diagonale \\(p_q \\times p_q\\) présentant les réponses à la \\(q\\)e question.\nL’élément \\((j, j)\\) de la matrice \\(Z_q^\\top Z_q\\) est égal au nombre d’individus \\(d_{jj}\\) qui appartiennent à la \\(j\\)e catégorie de la \\(q\\)e question.\n\\(Z_{q}^\\top Z_{r}\\) est le tableau de fréquences présentant les répones au x \\(q\\)e et \\(r\\)e questions.\nL’élément \\((j, k)\\) de la matrice \\(Z_q^\\top Z_r\\) est égal au nombre d’individus \\(d_{jk}\\) qui appartiennent à la \\(j\\)e catégorie de la \\(q\\)e question et à la \\(k\\)e catégorie de la \\(r\\)e question.\n\n\n\nD’un point de vue mathématique, l’ACM est une AFC effectuée sur la matrice logique \\(Z\\) ou sur le tableau de Burt \\(B\\). On peut démontrer que l’on obtient les mêmes facteurs, et ce, peu importe la matrice utilisé pour l’analyse.\n\n\n\n\n\n\nNote\n\n\n\nOn peut créé un graphique comme l’AFC. Cependant, en ACM, la distance entre les points de même couleur et la géométrie globale du graphique ne peuvent pas s’interpréter comme en AFC. En fait, on s’intéresse aux points qui sont dans une même direction par rapport à l’origine.",
+    "crumbs": [
+      "Modules",
+      "04 - Dimension",
+      "ACM"
+    ]
+  },
+  {
+    "objectID": "contents/dimension/02-mca.html#example-1",
+    "href": "contents/dimension/02-mca.html#example-1",
+    "title": "ACM",
+    "section": "Example",
+    "text": "Example",
+    "crumbs": [
+      "Modules",
+      "04 - Dimension",
+      "ACM"
+    ]
+  },
+  {
     "objectID": "contents/dimension/01-pca.html",
     "href": "contents/dimension/01-pca.html",
     "title": "ACP",
@@ -321,6 +357,29 @@
     "title": "Introduction",
     "section": "Test",
     "text": "Test\nCoucou"
+  },
+  {
+    "objectID": "contents/06-nonsupervisee.html",
+    "href": "contents/06-nonsupervisee.html",
+    "title": "Non-supervisée",
+    "section": "",
+    "text": "On veut partitionner \\(n\\) observations en \\(K\\) groupes avec comme objectifs:\n\nque les observations dans une même classe soient le plus similaire possible;\nque les observations dans des classes différentes soient les moins similaires possibles.\n\nOn veut donc définir une fonction, que l’on appelle classifieur, qui prend un numéro d’observation \\(i\\) en entrée et qui donne son numéro de groupe en sortie qui va remplir ces deux objectifs.\n\\[\\begin{align}\nC: \\{ 1, \\dots, n \\} &\\rightarrow \\{ 1, \\dots, K\\} \\\\\ni &\\mapsto C(i)\n\\end{align}\\]\nLa fonction objectif est \\[W(C) = \\sum_{k = 1}^{K} \\sum_{i: C(i) = k} \\sum_{j: C(j) = k} d(x_i, x_j),\\]\nou \\(d(x_i, x_j)\\)\nProblème de grande taille!\nComme on ne peut pas explorer l’espace de toutes les possibilités, nous utiliserons des algorithmes gloutons (greedy algorithm), c’est-à-dire qu’ils vont nous donner une règle \\(C\\) qui minimise \\(W(C)\\) sur un espace restreint et qui ne garantissent pas nous ayons trouvé un minimum global.\nDans notre contexte:\n\n\\(p\\) variables sont numériques/ordinales (et habituellement standardisées).\nLa valeur de \\(K\\) est fixé.",
+    "crumbs": [
+      "Modules",
+      "06 - Non-supervisée"
+    ]
+  },
+  {
+    "objectID": "contents/unsupervised/01-kmeans.html",
+    "href": "contents/unsupervised/01-kmeans.html",
+    "title": "\\(k\\)-means",
+    "section": "",
+    "text": "On veut partitionner \\(n\\) observations en \\(K\\) groupes avec comme objectifs:\n\nque les observations dans une même classe soient le plus similaire possible;\nque les observations dans des classes différentes soient les moins similaires possibles.\n\nOn veut donc définir une fonction, que l’on appelle classifieur, qui prend un numéro d’observation \\(i\\) en entrée et qui donne son numéro de groupe en sortie qui va remplir ces deux objectifs.\n\\[\\begin{align}\nC: \\{ 1, \\dots, n \\} &\\rightarrow \\{ 1, \\dots, K\\} \\\\\ni &\\mapsto C(i)\n\\end{align}\\]\nLa fonction objectif est \\[W(C) = \\sum_{k = 1}^{K} \\sum_{i: C(i) = k} \\sum_{j: C(j) = k} d(x_i, x_j),\\]\nou \\(d(x_i, x_j)\\)\nProblème de grande taille!\nComme on ne peut pas explorer l’espace de toutes les possibilités, nous utiliserons des algorithmes gloutons (greedy algorithm), c’est-à-dire qu’ils vont nous donner une règle \\(C\\) qui minimise \\(W(C)\\) sur un espace restreint et qui ne garantissent pas nous ayons trouvé un minimum global.",
+    "crumbs": [
+      "Modules",
+      "06 - Non-supervisée",
+      "$k$-means"
+    ]
   },
   {
     "objectID": "contents/generalities/01-spaces.html",
@@ -426,6 +485,30 @@
     "crumbs": [
       "Modules",
       "03 - Généralités"
+    ]
+  },
+  {
+    "objectID": "contents/dimension/04-others.html",
+    "href": "contents/dimension/04-others.html",
+    "title": "Divers",
+    "section": "",
+    "text": "L’idée est de présenter rapidement d’autres méthodes de changement de dimension.",
+    "crumbs": [
+      "Modules",
+      "04 - Dimension",
+      "Divers"
+    ]
+  },
+  {
+    "objectID": "contents/dimension/04-others.html#t-sne",
+    "href": "contents/dimension/04-others.html#t-sne",
+    "title": "Divers",
+    "section": "\\(t\\)-SNE",
+    "text": "\\(t\\)-SNE",
+    "crumbs": [
+      "Modules",
+      "04 - Dimension",
+      "Divers"
     ]
   },
   {
