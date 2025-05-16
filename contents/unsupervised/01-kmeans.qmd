@@ -7,24 +7,52 @@ format:
       - \usepackage{mathtools} 
 --- 
 
-On veut partitionner $n$ observations en $K$ groupes avec comme objectifs:
+Algorithme des $k$-moyennes:
 
-1. que les observations dans une même classe soient le plus similaire possible;
+1. On choisit le nombre de groupes $K$.
 
-2. que les observations dans des classes différentes soient les moins similaires possibles.
+2. On partionne aléatoirement les $n$ observations en $K$ groupes.
 
-On veut donc définir une fonction, que l'on appelle classifieur, qui prend un numéro d'observation $i$ en entrée et qui donne son numéro de groupe en sortie qui va remplir ces deux objectifs.
+3. On calcule le vecteur-moyenne pour chacun des $K$ groupes, soit 
 
-\begin{align}
-C: \{ 1, \dots, n \} &\rightarrow \{ 1, \dots, K\} \\
- i &\mapsto C(i)
-\end{align}
+$$\mu_{k} = \frac{1}{N_k} \sum_{i: C(i) = k} x_i, \quad k = 1, \dots, K,$$
 
-La fonction objectif est 
-$$W(C) = \sum_{k = 1}^{K} \sum_{i: C(i) = k} \sum_{j: C(j) = k} d(x_i, x_j),$$
+où $N_{k}$ est le nombre d'observations dans le group $k$.
 
-ou $d(x_i, x_j)$ 
+4. On calcule la distance entre chaque observation et chacun des $K$ vecteurs-moyennes.
 
-Problème de grande taille!
+5. On assigne chacune des $n$ observations au groupe dont le vecteur-moyenne est le plus près. 
 
-Comme on ne peut pas explorer l'espace de toutes les possibilités, nous utiliserons des algorithmes gloutons (greedy algorithm), c'est-à-dire qu'ils vont nous donner une règle $C$ qui minimise $W(C)$ sur un espace restreint et qui ne garantissent pas nous ayons trouvé un minimum global.
+6. On repète les étapes 3 à 5 jusqu'à ce qu'aucune observation ne soit réassignée à un nouveau groupe.
+
+Example
+
+Inconvénients des $k$-means:
+
+* Sensible au choix des centroïdes initiaux (à l'initialisation).
+
+* Il faut connaître le nombre de groupes.
+
+* Nécessite une mesure de distance recalculée à chaque itération.
+
+* Assez sensible aux valeurs extrêmes.
+
+Expliciter chaque nconvénients et de potentielles solutions.
+
+## $k$-médoides
+
+On n'utilise plus le centre, mais l'observation qui minimise les distances dans chaque groupe. La médiane plutôt que la moyenne. 
+
+Avantages:
+
+* Permet d'intégrer des variables ordinales
+
+* Robuste
+
+* Permet de bien spécifier la matrix de distance
+
+Inconvénients:
+
+* Il faut connaître le nombre de groupes.
+
+
