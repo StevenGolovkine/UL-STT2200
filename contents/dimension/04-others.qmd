@@ -7,6 +7,8 @@ format:
       - \usepackage{mathtools} 
 ---
 
+L'idée est de présenter rapidement d'autres méthodes de changement de dimension. 
+
 ## $t$-SNE 
 
 
