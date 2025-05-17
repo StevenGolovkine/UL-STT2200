@@ -147,6 +147,18 @@
     ]
   },
   {
+    "objectID": "contents/unsupervised/02-hierarchy.html#pratique",
+    "href": "contents/unsupervised/02-hierarchy.html#pratique",
+    "title": "Hierarchique",
+    "section": "Pratique",
+    "text": "Pratique\nL’exécution d’un algorithme nous donne une séquence de \\(n\\) partitions ayant de \\(n\\) à \\(1\\) groupes.\nQuelle partition de cette séquence devrions-nous choisir?\nL’une des \\(n\\) partitions est-elle particulièrement interprétable? L’une des \\(n\\) partitions a-t-elle a un sens pratique? Visions-nous séparer la population en un nombre \\(K\\) de groupes?\nS’il n’y a pas de réponse claire à ces questions, des critères peuvent nous guider …\nIl y a plusieurs indications pour nous aider dans le choix du nombre de classe (surtout si les variables sont continues). La librairie NbClust en contient une trentaine: https://www.rdocumentation.org/packages/NbClust/versions/3.0.1/topics/NbClust\n\nLes indicateurs basées sur l’inertie\n\n\\[I_{tot} = I_{intra-groupe}+ I_{inter-groupe}\\] Ces indicateurs sont plus pertinents avec des variables continues. Prendre garde au poids des variables et à la standardisation.\n\nPseudo- \\(R^2\\)\n\n\\[Pseudo-R^2 =\\frac{I_{inter-groupe}}{I_{tot}}\\]\n\nStatistique de Caliliski-Harabasz (CH):\n\n\\[CH = \\frac{I_{inter-groupe}/(k-1)}{I_{intra-groupe}/(n-k)}\\]",
+    "crumbs": [
+      "Modules",
+      "06 - Non-supervisée",
+      "Hierarchique"
+    ]
+  },
+  {
     "objectID": "contents/01-introduction.html",
     "href": "contents/01-introduction.html",
     "title": "Introduction",

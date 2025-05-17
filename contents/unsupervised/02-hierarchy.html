@@ -582,6 +582,7 @@ window.Quarto = {
 <li><a href="#algorithme-descendant" id="toc-algorithme-descendant" class="nav-link active" data-scroll-target="#algorithme-descendant">Algorithme descendant</a></li>
   <li><a href="#algorithme-ascendant" id="toc-algorithme-ascendant" class="nav-link" data-scroll-target="#algorithme-ascendant">Algorithme ascendant</a></li>
   <li><a href="#distance-entre-groupes" id="toc-distance-entre-groupes" class="nav-link" data-scroll-target="#distance-entre-groupes">Distance entre groupes</a></li>
+  <li><a href="#pratique" id="toc-pratique" class="nav-link" data-scroll-target="#pratique">Pratique</a></li>
   </ul>
 <div class="toc-actions"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
@@ -755,6 +756,25 @@ window.Quarto = {
 </table>
 <p>Avec la méthode flexible, on impose arbitrairement les contraintes suivantes: <span class="math display">\[\alpha_A + \alpha_B + \beta = 1, \quad \alpha_A = \alpha_B, \quad \gamma = 0.\]</span></p>
 <p>Ainsi, <span class="math display">\[\alpha_A = \alpha_B = \frac{1 - \beta}{2}.\]</span> Et il ne reste qu’à choisir <span class="math inline">\(\beta\)</span>. Les autheurs suggèrent de poser <span class="math inline">\(\beta = -0.25\)</span> sauf quand on souponne la présence de données aberrantes où l’on suggère <span class="math inline">\(\beta = -0.5\)</span>.</p>
+</section><section id="pratique" class="level2"><h2 class="anchored" data-anchor-id="pratique">Pratique</h2>
+<p>L’exécution d’un algorithme nous donne une séquence de <span class="math inline">\(n\)</span> partitions ayant de <span class="math inline">\(n\)</span> à <span class="math inline">\(1\)</span> groupes.</p>
+<p>Quelle partition de cette séquence devrions-nous choisir?</p>
+<p>L’une des <span class="math inline">\(n\)</span> partitions est-elle particulièrement interprétable? L’une des <span class="math inline">\(n\)</span> partitions a-t-elle a un sens pratique? Visions-nous séparer la population en un nombre <span class="math inline">\(K\)</span> de groupes?</p>
+<p>S’il n’y a pas de réponse claire à ces questions, des critères peuvent nous guider …</p>
+<p>Il y a plusieurs indications pour nous aider dans le choix du nombre de classe (surtout si les variables sont continues). La librairie <strong>NbClust</strong> en contient une trentaine: https://www.rdocumentation.org/packages/NbClust/versions/3.0.1/topics/NbClust</p>
+<ul>
+<li>Les indicateurs basées sur l’inertie</li>
+</ul>
+<p><span class="math display">\[I_{tot} = I_{intra-groupe}+ I_{inter-groupe}\]</span> Ces indicateurs sont plus pertinents avec des variables continues. Prendre garde au poids des variables et à la standardisation.</p>
+<ul>
+<li>Pseudo- <span class="math inline">\(R^2\)</span>
+</li>
+</ul>
+<p><span class="math display">\[Pseudo-R^2 =\frac{I_{inter-groupe}}{I_{tot}}\]</span></p>
+<ul>
+<li>Statistique de Caliliski-Harabasz (CH):</li>
+</ul>
+<p><span class="math display">\[CH = \frac{I_{inter-groupe}/(k-1)}{I_{intra-groupe}/(n-k)}\]</span></p>
 
 
 </section></main><!-- /main --><script>
