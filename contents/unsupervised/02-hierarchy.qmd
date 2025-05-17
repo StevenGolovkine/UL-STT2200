@@ -179,3 +179,32 @@ Ainsi,
 $$\alpha_A = \alpha_B = \frac{1 - \beta}{2}.$$
 Et il ne reste qu'à choisir $\beta$. Les autheurs suggèrent de poser $\beta = -0.25$ sauf quand on soup\c{c}onne la présence de données aberrantes où l'on suggère $\beta = -0.5$.
 
+## Pratique 
+
+L'exécution d'un algorithme nous donne une séquence de $n$ partitions ayant de $n$ à $1$ groupes.
+
+Quelle partition de cette séquence devrions-nous choisir?
+
+L'une des $n$ partitions est-elle particulièrement interprétable?
+L'une des $n$ partitions a-t-elle a un sens pratique?
+Visions-nous séparer la population en un nombre $K$ de groupes?
+
+S'il n'y a pas de réponse claire à ces questions, des critères peuvent nous guider ...
+
+Il y a plusieurs indications pour nous aider dans le choix du nombre de classe (surtout si les variables sont continues).
+La librairie **NbClust** en contient une trentaine: https://www.rdocumentation.org/packages/NbClust/versions/3.0.1/topics/NbClust 
+
+
+* Les indicateurs basées sur l'inertie
+
+$$I_{tot} = I_{intra-groupe}+ I_{inter-groupe}$$
+Ces indicateurs sont plus pertinents avec des variables continues. Prendre garde au poids des variables et à la
+standardisation.
+
+* Pseudo- $R^2$
+
+$$Pseudo-R^2 =\frac{I_{inter-groupe}}{I_{tot}}$$
+
+* Statistique de Caliliski-Harabasz (CH):
+
+$$CH = \frac{I_{inter-groupe}/(k-1)}{I_{intra-groupe}/(n-k)}$$
