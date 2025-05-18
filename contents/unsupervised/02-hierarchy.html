@@ -775,6 +775,30 @@ window.Quarto = {
 <li>Statistique de Caliliski-Harabasz (CH):</li>
 </ul>
 <p><span class="math display">\[CH = \frac{I_{inter-groupe}/(k-1)}{I_{intra-groupe}/(n-k)}\]</span></p>
+<ul>
+<li>Indice de Dunn: On maxime l’indice suivant:</li>
+</ul>
+<p><span class="math display">\[D= \frac{\text{Distance minimale entre 2 groupes}}{\text{Distance maximale dans un groupe}}\]</span></p>
+<p>L’indice de Dunn cherche donc à créer des groupes denses et bien séparés.</p>
+<ul>
+<li>Indice de silhouette</li>
+</ul>
+<p>La silhouette de l’observation <span class="math inline">\(i\)</span> mesure la confiance dans le choix du groupe pour l’observation <span class="math inline">\(i\)</span>: <span class="math display">\[S(i) = \frac{b_i-a_i}{max(b_i,a_i)}\]</span> où <span class="math inline">\(a_i\)</span> est la distance moyenne entre l’observation <span class="math inline">\(i\)</span> et les autres observations de son groupe et <span class="math inline">\(b_i\)</span> est la distance moyenne entre l’observation <span class="math inline">\(i\)</span> et les observations du groupe le plus proche de <span class="math inline">\(i\)</span>. On souhaite maximiser la silhouette moyenne des observations.</p>
+<ul>
+<li>Critère de classification cubique (CCC)</li>
+</ul>
+<p>On fait un graphique avec le CCC en ordonnée et le nombre de groupes en abscisse. Pour le nombre de groupes, on ne considère que les partitions de <span class="math inline">\(K=1\)</span> à <span class="math inline">\(K=n/10\)</span>. Si <span class="math inline">\(CCC&gt;2\)</span>, on est en présence d’une classification de bonne qualité. Si <span class="math inline">\(0&lt;CCC&lt;2\)</span>, on est en présence d’une classification de qualité moyenne. Si <span class="math inline">\(CCC&lt;0\)</span>, on est en présence d’une classification de mauvaise qualité. Pour choisir le nombre de classes à retenir, on peut considérer les nombres de classes associés aux fortes hausses du critère CCC entre deux nombres de classes subséquents. On considère les pics, atteignant des valeurs du critère supérieures à 2 ou à 3 comme étant de fortes hausses de ce critère.</p>
+<p>Il ne faut pas utiliser le critère CCC avec la méthode du plus proche voisin, ou lorsque l’on suspecte que les groupes sont de forme très allongée ou irrégulière. Le critères ne fonctionne pas bien quand le nombre d’observations dans certains groupes est inférieur à 10.</p>
+<ul>
+<li>Statistique pseudo-<span class="math inline">\(F\)</span>
+</li>
+</ul>
+<p>Statistique presque distribuée selon une loi <span class="math inline">\(F\)</span> lorsque la loi des données pas trop loin de la normale multivariée avec variances égales dans toutes les classes. Même si on est loin de la normalité, en pratique cette statistique peut quand-même être informative. On cherche des nombres de classes pour lesquels la statistique du pseudo-<span class="math inline">\(F\)</span> se démarque par une grande valeur. Sur un graphique de la statistique du pseudo-<span class="math inline">\(F\)</span> en fonction du nombre de classes, ceci se traduit par la recherche de pics. Il ne faut pas utiliser la statistique du pseudo-<span class="math inline">\(F\)</span> avec la méthode du plus proche voisin.</p>
+<ul>
+<li>Statistique du pseudo-<span class="math inline">\(t^2\)</span>
+</li>
+</ul>
+<p>Statistique presque distribuée selon une loi <span class="math inline">\(t\)</span> lorsque loi des données pas trop loin de la normale multivariée avec des variances égales dans toutes les classes. En pratique, on regarde le graphique de la statistique du pseudo-<span class="math inline">\(t^2\)</span> en fonction du nombre de classes de droite à gauche, on essaie de trouver des valeurs de la statistique qui sont beaucoup plus élevées que la valeur précédente. Supposons que la forte hausse se produit entre <span class="math inline">\(k\)</span> et <span class="math inline">\(k-1\)</span> classes. On choisit <span class="math inline">\(k\)</span> classes dans le partitionnement de nos observations. Il ne faut pas utiliser la statistique du pseudo-<span class="math inline">\(t^2\)</span> avec la méthode du plus proche voisin.</p>
 
 
 </section></main><!-- /main --><script>
