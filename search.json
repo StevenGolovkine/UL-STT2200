@@ -51,6 +51,17 @@
     "text": "Bienvenue à tous au cours STT-2200 de l’automne 2025.\nVous trouverez sur ce site toute les informations nécessaire pour les cours, les différents travaux et les exams. Les contenus seront mis à jour au cours de la session avec les corrigés de certains travaux. Je vous invite à regarder les différents modules avant les cours.\nCe site a été créé avec Quarto."
   },
   {
+    "objectID": "contents/05-supervisee.html",
+    "href": "contents/05-supervisee.html",
+    "title": "Supervisée",
+    "section": "",
+    "text": "On considère une population comportant \\(q\\) groupes. On observe \\(p\\) variables \\(X_{1}, \\dots, X_{p}\\) pour chaque individu/objet de la population. On cherche à obtenir un modèle/algortihme pour classer de nouveaux individus/objets dans les bons groupes, c’est-à-dire de prédire \\(Y\\) à partir de \\(X_{1}, \\dots, X_{p}\\).\n\n\n\n\n\n\nExample\n\n\n\n\nRevenue Québce désire identifier les déclarations fiscales méritant d’être examinées de faon plus approfondies (détection de fraude).\nReconnaissance automatique des chiffres et des lettres des codes postaux écrits à la main.\nIdentification de nouveaux clients potentiels.\nFiltrage de courriels indésirables.\nReconnaissance d’images.\n\n\n\nApproche générale\n\nSélectionner un certain nombre d’individus dont on connaît le groupe d’appartenance.\nMesurer \\(p\\) caractéristiques \\(X_{1}, \\dots, X_{p}\\) sur ces individus.\nDiviser ce jeu de données en deux:\n\n\nUn jeu de données pour la modélisation (entrainement, “train”)\nUn jeu de données pour la vérification (valisation, “test”)\n\n\nDévelopper un modèle/algorithme pour classer le mieux possible les individus du jeu de données d’entrainement.\nÉvaluer notre modèle/algorithme sur le jeu de données de valisation.\n(Répéter étapes 3-4-5 avec d’autres modèles/algorithmes et choisir le meilleur).\n\nQuelques méthodes:\n\nAnalyse discriminante\nArbre de classification\nRégression\nClassificateur naïf de Bayes\nMéthode des \\(k\\) plus proches voisins\nSupport vector machine\nRéseaux de neurones.",
+    "crumbs": [
+      "Modules",
+      "05 - Supervisée"
+    ]
+  },
+  {
     "objectID": "contents/remainders/02-probabilities.html",
     "href": "contents/remainders/02-probabilities.html",
     "title": "Probabilités et Statistiques",
@@ -211,6 +222,18 @@
     "crumbs": [
       "Modules",
       "06 - Non-supervisée"
+    ]
+  },
+  {
+    "objectID": "contents/generalities/03-bias-variance.html",
+    "href": "contents/generalities/03-bias-variance.html",
+    "title": "Biais/Variance",
+    "section": "",
+    "text": "On veut prédire \\(Y\\) à partir de \\(X\\). Pour cela, on cherche à estimer \\(f(X)\\) la fonction qui relie \\(X\\) à \\(Y\\) par \\[Y = f(X) + \\epsilon\\]\nOn peut mesurer deux fonctions qui vont nous aider:\n\nFonction de perte (\\(L\\)): c’est la mesure de l’écart par rapport à ce qu’on souhaite mesurer, par example: \\[L(Y, f(X)) = (Y - f(X))^2.\\]\nFonction de risque : c’est la quantité que l’on cherche à minimiser. Il s’agit de l’espérance de la fonction de perte.\n\nComment trouver \\(f\\):\nObjectif: Trouver une fonction \\(\\widehat{f}\\) qui minimise le risque.\nComment: Supposer une certaine forme pour \\(f(X)\\) et minimiser la fonction de perte de faon analytique ou numérique.\n\nParamétrique: On donne une forme explication à \\(f(X)\\) qui dépend de paramètres. On cherche une méthode d’estimation des paramètres.\nNon-paramétrique: aucune forme forme particulière de \\(f\\), on estime une courbe ou fonction.\n\n\n\n\n\n\n\nExample: la régression linéaire simple\n\n\n\nOn suppose que \\(f(X) = \\beta_{0} + \\beta_{1}X\\), on cherche donc les valeurs \\(\\widehat{\\beta}_0\\) et \\(\\widehat{\\beta}_1\\) qui minimisent : \\[\\mathbb{E}(Y - (\\beta_{0} + \\beta_{1}X))^2.\\]\n\n\nQue faire dans le cas discret ?\nOn cherche à prédire \\(G\\) (un groupe ou facteur) à partir de \\(X\\). Supposons que nous avons \\(\\widehat{G}\\) qui prédise le classe des observations sachant \\(X\\), alors on peut définir la fonction de perte (0-1) comme le nombre d’erreur que l’on a effectué: \\[L(G, \\widehat{G}) = \\mathbb{1}_{G \\neq \\widehat{G}}.\\]\nAvec cette fonction de perte 0-1, \\(\\widehat{G}(x)\\) est la classe \\(g\\) qui maximise \\(\\mathbb{P}(g | X = x)\\).",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités",
+      "Biais/Variance"
     ]
   },
   {

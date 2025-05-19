@@ -85,6 +85,7 @@ window.Quarto = {
   typesetMath
 };
 </script><meta property="og:title" content="Supervisée – STT-2200: Analyse de données">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
 <body class="nav-sidebar floating quarto-light">
@@ -599,7 +600,51 @@ window.Quarto = {
   
 
 
-</header></main><!-- /main --><script>
+</header><p>On considère une population comportant <span class="math inline">\(q\)</span> groupes. On observe <span class="math inline">\(p\)</span> variables <span class="math inline">\(X_{1}, \dots, X_{p}\)</span> pour chaque individu/objet de la population. On cherche à obtenir un modèle/algortihme pour classer de nouveaux individus/objets dans les bons groupes, c’est-à-dire de prédire <span class="math inline">\(Y\)</span> à partir de <span class="math inline">\(X_{1}, \dots, X_{p}\)</span>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Revenue Québce désire identifier les déclarations fiscales méritant d’être examinées de faon plus approfondies (détection de fraude).</p></li>
+<li><p>Reconnaissance automatique des chiffres et des lettres des codes postaux écrits à la main.</p></li>
+<li><p>Identification de nouveaux clients potentiels.</p></li>
+<li><p>Filtrage de courriels indésirables.</p></li>
+<li><p>Reconnaissance d’images.</p></li>
+</ul>
+</div>
+</div>
+<p>Approche générale</p>
+<ol type="1">
+<li><p>Sélectionner un certain nombre d’individus dont on connaît le groupe d’appartenance.</p></li>
+<li><p>Mesurer <span class="math inline">\(p\)</span> caractéristiques <span class="math inline">\(X_{1}, \dots, X_{p}\)</span> sur ces individus.</p></li>
+<li><p>Diviser ce jeu de données en deux:</p></li>
+</ol>
+<ul>
+<li>Un jeu de données pour la modélisation (entrainement, “train”)</li>
+<li>Un jeu de données pour la vérification (valisation, “test”)</li>
+</ul>
+<ol start="4" type="1">
+<li><p>Développer un modèle/algorithme pour classer le mieux possible les individus du jeu de données d’entrainement.</p></li>
+<li><p>Évaluer notre modèle/algorithme sur le jeu de données de valisation.</p></li>
+<li><p>(Répéter étapes 3-4-5 avec d’autres modèles/algorithmes et choisir le meilleur).</p></li>
+</ol>
+<p>Quelques méthodes:</p>
+<ul>
+<li><p>Analyse discriminante</p></li>
+<li><p>Arbre de classification</p></li>
+<li><p>Régression</p></li>
+<li><p>Classificateur naïf de Bayes</p></li>
+<li><p>Méthode des <span class="math inline">\(k\)</span> plus proches voisins</p></li>
+<li><p>Support vector machine</p></li>
+<li><p>Réseaux de neurones.</p></li>
+</ul></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {

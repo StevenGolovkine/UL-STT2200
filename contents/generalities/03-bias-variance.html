@@ -85,6 +85,7 @@ window.Quarto = {
   typesetMath
 };
 </script><meta property="og:title" content="Biais/Variance – STT-2200: Analyse de données">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
 <body class="nav-sidebar floating quarto-light">
@@ -601,7 +602,39 @@ window.Quarto = {
   
 
 
-</header></main><!-- /main --><script>
+</header><p>On veut prédire <span class="math inline">\(Y\)</span> à partir de <span class="math inline">\(X\)</span>. Pour cela, on cherche à estimer <span class="math inline">\(f(X)\)</span> la fonction qui relie <span class="math inline">\(X\)</span> à <span class="math inline">\(Y\)</span> par <span class="math display">\[Y = f(X) + \epsilon\]</span></p>
+<p>On peut mesurer deux fonctions qui vont nous aider:</p>
+<ul>
+<li><p>Fonction de perte (<span class="math inline">\(L\)</span>): c’est la mesure de l’écart par rapport à ce qu’on souhaite mesurer, par example: <span class="math display">\[L(Y, f(X)) = (Y - f(X))^2.\]</span></p></li>
+<li><p>Fonction de risque : c’est la quantité que l’on cherche à minimiser. Il s’agit de l’espérance de la fonction de perte.</p></li>
+</ul>
+<p>Comment trouver <span class="math inline">\(f\)</span>:</p>
+<p>Objectif: Trouver une fonction <span class="math inline">\(\widehat{f}\)</span> qui minimise le risque.</p>
+<p>Comment: Supposer une certaine forme pour <span class="math inline">\(f(X)\)</span> et minimiser la fonction de perte de faon analytique ou numérique.</p>
+<ul>
+<li><p>Paramétrique: On donne une forme explication à <span class="math inline">\(f(X)\)</span> qui dépend de paramètres. On cherche une méthode d’estimation des paramètres.</p></li>
+<li><p>Non-paramétrique: aucune forme forme particulière de <span class="math inline">\(f\)</span>, on estime une courbe ou fonction.</p></li>
+</ul>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example: la régression linéaire simple
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On suppose que <span class="math inline">\(f(X) = \beta_{0} + \beta_{1}X\)</span>, on cherche donc les valeurs <span class="math inline">\(\widehat{\beta}_0\)</span> et <span class="math inline">\(\widehat{\beta}_1\)</span> qui minimisent : <span class="math display">\[\mathbb{E}(Y - (\beta_{0} + \beta_{1}X))^2.\]</span></p>
+</div>
+</div>
+<p>Que faire dans le cas discret ?</p>
+<p>On cherche à prédire <span class="math inline">\(G\)</span> (un groupe ou facteur) à partir de <span class="math inline">\(X\)</span>. Supposons que nous avons <span class="math inline">\(\widehat{G}\)</span> qui prédise le classe des observations sachant <span class="math inline">\(X\)</span>, alors on peut définir la fonction de perte (0-1) comme le nombre d’erreur que l’on a effectué: <span class="math display">\[L(G, \widehat{G}) = \mathbb{1}_{G \neq \widehat{G}}.\]</span></p>
+<p>Avec cette fonction de perte 0-1, <span class="math inline">\(\widehat{G}(x)\)</span> est la classe <span class="math inline">\(g\)</span> qui maximise <span class="math inline">\(\mathbb{P}(g | X = x)\)</span>.</p>
+
+
+
+</main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
