@@ -85,6 +85,7 @@ window.Quarto = {
   typesetMath
 };
 </script><meta property="og:title" content="Arbres – STT-2200: Analyse de données">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
 <body class="nav-sidebar floating quarto-light">
@@ -578,11 +579,24 @@ window.Quarto = {
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+<li><a href="#algortihme" id="toc-algortihme" class="nav-link active" data-scroll-target="#algortihme">Algortihme</a></li>
+  <li><a href="#crit%C3%A8res" id="toc-critères" class="nav-link" data-scroll-target="#critères">Critères</a></li>
+  <li><a href="#choix-du-nombre-de-divisionsfeuilles" id="toc-choix-du-nombre-de-divisionsfeuilles" class="nav-link" data-scroll-target="#choix-du-nombre-de-divisionsfeuilles">Choix du nombre de divisions/feuilles</a></li>
+  <li><a href="#avantages" id="toc-avantages" class="nav-link" data-scroll-target="#avantages">Avantages</a></li>
+  <li><a href="#points-faibles" id="toc-points-faibles" class="nav-link" data-scroll-target="#points-faibles">Points faibles</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  </ul>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/supervised/03-tree.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
+</ul></div>
+<div class="quarto-alternate-formats">
 <h2>Autres formats</h2>
 <ul><li><a href="03-tree.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
-</div>
+</div></nav>
 </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
@@ -604,7 +618,64 @@ window.Quarto = {
   
 
 
-</header></main><!-- /main --><script>
+</header><p>Les arbres de régression et de classification (Classification And Regression Trres, CART) font partie des méthodes d’apprentissage supervisée. On dispose d’observations qui appartiennent à <span class="math inline">\(\mathbb{R}^p\)</span>, soit <span class="math inline">\(X_{1}, \dots, X_p\)</span>. Un arbre de classification cherche à assigner une observation à l’un des <span class="math inline">\(K\)</span> groupes sur la base de <span class="math inline">\(X_{1}, \dots, X_p\)</span>. Un arbre de régression cherche à prédire la valeur d’une valeur numérique continue <span class="math inline">\(Y\)</span> à partir de <span class="math inline">\(X_{1}, \dots, X_p\)</span>.</p>
+<p>La construction d’arbres, on partitionne l’ensemble <span class="math inline">\(R^p\)</span> en hyper-rectangles en effectuant des divisions binaires successives en fonction de la valeur d’une des <span class="math inline">\(p\)</span> variables (algorithme de dédoublements binaires successifs).</p>
+<ol type="1">
+<li><p>On effectue des divisions binaires successives de l’ensemble <span class="math inline">\(R^p\)</span> en fonction de la valeur d’une variable. Le choix de la variable et le choix de la limite pour la division binaire sont déterminés par un certain critère.</p></li>
+<li><p>On cesse d’effectuer des divisions lorsqu’un critère d’arrêt est rencontré (nombre minimal d’observations par feuille atteint, nombre de feuilles désirées atteint, etc.)</p></li>
+<li><p>Chaque sous-division finale de l’ensemble <span class="math inline">\(\mathbb{R}^p\)</span>est appelée “feuille” ou “noeud terminal”. On prédit une catégorie à chaque observation selon la feuille à laquelle elle appartient.</p></li>
+</ol>
+<p>Toutes les observations dans une même “feuille” reoivent la même prédiction, soit la classe la plus fréquente parmi les données du jeu d’entrainement qui aboutissent dans cette feuille.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Remarque
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>L’algorithme de partitions binaires successives est un algortihme glouton qui ne nous garantit pas l’arbre optimal…</p>
+<p>Supposons que nous désirions partionner <span class="math inline">\(\mathbb{R}^p\)</span> en J hyper-rectangles (donc un arbre à <span class="math inline">\(J\)</span> feuilles) et soit <span class="math inline">\(c_j\)</span> un critère de “coût” pour les observations qui sont mal classées dans la région <span class="math inline">\(j\)</span>. On aimerait pouvoir trouver les hyper-rectangles <span class="math inline">\(R_1, \dots, R_J\)</span> tels que <span class="math inline">\(\sum_{j = 1}^{J} c_j\)</span> soit minimal, mais il n’est pas computationnellement possible de le faire !</p>
+</div>
+</div>
+<section id="algortihme" class="level3"><h3 class="anchored" data-anchor-id="algortihme">Algortihme</h3>
+<p>Pour chaque noeud de l’arbre, on doit décider si on le découpe en deux et si oui, en utilisant quelle valeur de quelle variable :</p>
+<ol type="1">
+<li><p>Pour chacune des <span class="math inline">\(p\)</span> variables et pour chaque point de coupure possible pour cette variable, calculer l’amélioration du critère de qualité et choisir la variable et le point de coupure résultant en la meilleur amélioration du critère.</p></li>
+<li><p>Créer une division binaire de l’arbre à l’aide de la variable et du point de coupure choisis en 1.</p></li>
+<li><p>Répéter 1 et 2 jusqu’à ce que l’arbre ait le nombre de feuilles désiré ou que le nombre minimal d’observations soit atteint dans chaque feuille.</p></li>
+</ol></section><section id="critères" class="level3"><h3 class="anchored" data-anchor-id="critères">Critères</h3>
+<p>Soit <span class="math inline">\(\widehat{p}_{jk}\)</span>, la proporiton d’observations de la <span class="math inline">\(j\)</span>e région de l’ensemble <span class="math inline">\(\mathbb{R}^p\)</span> qui appartiennent à la <span class="math inline">\(k\)</span>e classe.</p>
+<p>Trois critères sont habituellement utilisés pour déterminer les divisions optimales à chaque étape de la construction de l’arbre:</p>
+<ol type="1">
+<li><p>Taux d’erreurs de classification <span class="math display">\[E_j = 1 - \max_k \widehat{p}_{jk}.\]</span> Pas assez sensible pour construire l’arbre.</p></li>
+<li><p>Indice de Gini <span class="math display">\[G_j = \sum_{k = 1}^{K} \widehat{p}_{jk} (1 - \widehat{p}_{i j}).\]</span> Plus c’est faible, mieux c’est.</p></li>
+<li><p>Entropie croisée <span class="math display">\[D_j = - \sum_{k = 1}^{K}  \widehat{p}_{jk} \log(\widehat{p}_{m k}).\]</span> Plus c’est faible, mieux c’est.</p></li>
+</ol>
+<p>Le gain d’information est ce que l’on cherche à maximiser lorque l’on choisit comment scinder en deux un noeud donné. Par example, avec l’indice de Gini, le gain d’information est donné par <span class="math display">\[\text{indice de Gini avant la division} - \sum_{j = 1}^{2} \frac{n_j}{n_{1} + n_{2}} G_j,\]</span> où <span class="math inline">\(j = 1, 2\)</span> dénote les deux morceaux créés par la division, <span class="math inline">\(n_j\)</span> est le nombre d’observations qui tombent dans le morceau <span class="math inline">\(j\)</span> et <span class="math inline">\(G_j\)</span> est l’indice de Gini pour le morceau <span class="math inline">\(j\)</span>.</p>
+</section><section id="choix-du-nombre-de-divisionsfeuilles" class="level3"><h3 class="anchored" data-anchor-id="choix-du-nombre-de-divisionsfeuilles">Choix du nombre de divisions/feuilles</h3>
+<p>L’algorithme va faire croître l’arbre tant qu’on n’aura pas atteint un nombre de feuilles fixé ou tant que le nombre de d’observations dans chaque feuille ne sera pas trop petit. Mais, pas assez de feuilles veut dire manque d’ajustement car classification trop simpliste et inadéquate. Et trop de feuilles n’est pas mieux, car on fait du sur-ajustement et l’arbre n’aura pas une bonne performance sur un jeu de validation.</p>
+<p>Élage des arbres de classification (pruning): la stratégie commune en pratique est de laisser croître l’arbre et ensuite de l’élaguer de faon à atteindre un compromis entre ajustement aux données d’entrainement et taille de l’arbre (élagage coût-complexité). Si <span class="math inline">\(| T |\)</span> est la taille (nombre de feuilles) de l’arbre <span class="math inline">\(T\)</span>, on veut <span class="math display">\[\min \sum_{j = 1}^{|T|} c_j + \alpha | T |,\]</span> où <span class="math inline">\(\alpha \geq 0\)</span> est un hyper-paramètre qui contrôle le compromis et que l’on chosit par validation croisée.</p>
+</section><section id="avantages" class="level3"><h3 class="anchored" data-anchor-id="avantages">Avantages</h3>
+<ul>
+<li><p>Fonctionnent aussi bien avec des variables continues que catégorielles.</p></li>
+<li><p>Aucune hypothèse a priori n’est faite sur la distribution des données.</p></li>
+<li><p>Robuste aux données extrêmes.</p></li>
+<li><p>Faciles à interpréter.</p></li>
+<li><p>Tiennent implicitement compte des interactions possibles entre les variables.</p></li>
+<li><p>Sélectionnent implicitement les variables importantes.</p></li>
+<li><p>Permettent d’obtenir un modèle non linéaire.</p></li>
+</ul></section><section id="points-faibles" class="level3"><h3 class="anchored" data-anchor-id="points-faibles">Points faibles</h3>
+<ul>
+<li><p>Nécessitent un grand nombre de données.</p></li>
+<li><p>Peuvent être instables dans les résultats qu’elle produit.</p></li>
+<li><p>Ne fonctionnent pas très bien lorsque certaines des <span class="math inline">\(q\)</span> classes sont rares ou que certaines des modalités de <span class="math inline">\(X_j\)</span> catégorielles sont rares.</p></li>
+</ul></section><section id="example" class="level3"><h3 class="anchored" data-anchor-id="example">Example</h3>
+
+
+</section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -1243,7 +1314,7 @@ window.onload = function() {
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions"><ul>
+<div class="toc-actions d-sm-block d-md-none"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/supervised/03-tree.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
 </ul></div>
