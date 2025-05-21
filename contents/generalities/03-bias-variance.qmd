@@ -41,3 +41,9 @@ $$L(G, \widehat{G}) = \mathbb{1}_{G \neq \widehat{G}}.$$
 
 Avec cette fonction de perte 0-1, $\widehat{G}(x)$ est la classe $g$ qui maximise $\mathbb{P}(g | X = x)$.
 
+On peut décomposer l'erreur quadratique moyenne (EQM):
+$$\mathbb{E}\left( (Y - \widehat{f}(x_0))^2 \right) = \text{Biais}(\widehat{f}(x_{0}))^2 + \mathrm{Var}(\widehat{f}(x_{0}) + \sigma^2_{\epsilon}.$$
+
+Démontrer la décomposition de l'EQM en un compromis biais variance.
+
+
