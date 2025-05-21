@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/contents/supervised/05-others.html" />
-<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/contents/supervised/05-others.en.html" />
+<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/contents/supervised/06-others.html" />
+<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/contents/supervised/06-others.en.html" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.31">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Autres – STT-2200: Analyse de données</title>
+<title>Others – STT-2200: Data Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 </style>
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script><script src="../../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../../site_libs/quarto-search/fuse.min.js"></script><script src="../../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../../">
 <link href="../../contents/06-nonsupervisee.html" rel="next">
-<link href="../../contents/supervised/04-hierarchy.html" rel="prev">
+<link href="../../contents/supervised/05-ensemble.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script><script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../../site_libs/quarto-html/popper.min.js"></script><script src="../../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../../site_libs/quarto-html/anchor.min.js"></script><link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
@@ -46,17 +46,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Pas de résultats",
-    "search-matching-documents-text": "documents trouvés",
-    "search-copy-link-title": "Copier le lien vers la recherche",
-    "search-hide-matches-text": "Cacher les correspondances additionnelles",
-    "search-more-match-text": "correspondance de plus dans ce document",
-    "search-more-matches-text": "correspondances de plus dans ce document",
-    "search-clear-button-title": "Effacer",
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Annuler",
-    "search-submit-button-title": "Envoyer",
-    "search-label": "Recherche"
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script><style>html{ scroll-behavior: smooth; }</style>
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
@@ -84,8 +84,8 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script><meta property="og:title" content="Autres – STT-2200: Analyse de données">
-<meta property="og:site_name" content="STT-2200: Analyse de données">
+</script><meta property="og:title" content="Others – STT-2200: Data Analysis">
+<meta property="og:site_name" content="STT-2200: Data Analysis">
 </head>
 <body class="nav-sidebar floating quarto-light">
 <script id="quarto-html-before-body" type="application/javascript">
@@ -252,16 +252,16 @@ window.Quarto = {
     }
   </script><div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/05-supervisee.html">05 - Supervisée</a></li>
-<li class="breadcrumb-item"><a href="../../contents/supervised/05-others.html">Autres</a></li>
-</ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+<li class="breadcrumb-item"><a href="../../contents/supervised/06-others.html">Others</a></li>
+</ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -272,16 +272,16 @@ window.Quarto = {
       <img src="../.././include/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
       <div class="sidebar-tools-main">
     <a href="https://github.com/StevenGolovkine/UL-STT2200" title="Github organization" class="quarto-navigation-tool px-1" aria-label="Github organization"><i class="bi bi-github"></i></a>
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Basculer le mode sombre"><i class="bi"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Recherche"></div>
+        <div id="quarto-search" class="" title="Search"></div>
         </div>
         </div>
     <div class="dropdown" id="languages-links-parent">
-<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Français</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="https://stt2200.netlify.app/en/contents/supervised/05-others.html" id="language-link-en">English</a></li></ul>
+<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> English</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="https://stt2200.netlify.app/contents/supervised/06-others.html" id="language-link-fr">Français</a></li></ul>
 </div>
 <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
@@ -289,7 +289,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">Informations</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -316,7 +316,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../informations/evaluations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Évaluations</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -324,7 +324,7 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../informations/mcq.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">QCM</span></a>
+ <span class="menu-text">MCQ</span></a>
   </div>
 </li>
       </ul>
@@ -341,7 +341,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Modules</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -356,7 +356,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../contents/02-revisions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">02 - Révisions</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -364,19 +364,19 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/remainders/01-linear-algebra.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Algèbre</span></a>
+ <span class="menu-text">Algebra</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/remainders/02-probabilities.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Probabilités et Statistiques</span></a>
+ <span class="menu-text">Probabilité</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/remainders/03-stat.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Analyse de données</span></a>
+ <span class="menu-text">Statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -391,7 +391,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../contents/03-generalities.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">03 - Généralités</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -399,25 +399,25 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/generalities/01-spaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Espace</span></a>
+ <span class="menu-text">Space</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/generalities/02-distance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Distances</span></a>
+ <span class="menu-text">Distance</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/generalities/03-bias-variance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Biais/Variance</span></a>
+ <span class="menu-text">Bias-variance</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/generalities/04-model-evaluation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Evaluation de modeles</span></a>
+ <span class="menu-text">Model evaluation</span></a>
   </div>
 </li>
       </ul>
@@ -426,7 +426,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../contents/04-dimension.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">04 - Dimension</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -434,25 +434,25 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/dimension/01-pca.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ACP</span></a>
+ <span class="menu-text">PCA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/dimension/02-mca.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ACM</span></a>
+ <span class="menu-text">MCA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/dimension/03-kernel.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Noyau</span></a>
+ <span class="menu-text">Kernel</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/dimension/04-others.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Divers</span></a>
+ <span class="menu-text">Others</span></a>
   </div>
 </li>
       </ul>
@@ -461,7 +461,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../contents/05-supervisee.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">05 - Supervisée</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -481,19 +481,25 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/supervised/03-tree.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Arbres</span></a>
+ <span class="menu-text">Tree</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/supervised/04-hierarchy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Hierarchique</span></a>
+ <span class="menu-text">Hierarchical</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/supervised/05-others.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Autres</span></a>
+  <a href="../../contents/supervised/05-ensemble.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ensemble</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/supervised/06-others.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Others</span></a>
   </div>
 </li>
       </ul>
@@ -502,7 +508,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../contents/06-nonsupervisee.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">06 - Non-supervisée</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -516,19 +522,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/unsupervised/02-hierarchy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Hierarchique</span></a>
+ <span class="menu-text">Hierarchical</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/unsupervised/03-gaussian-mixtures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mélange de gaussiennes</span></a>
+ <span class="menu-text">Gaussian mixtures</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/unsupervised/04-others.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Autres</span></a>
+ <span class="menu-text">Others</span></a>
   </div>
 </li>
       </ul>
@@ -537,7 +543,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../contents/07-further.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">07 - Autres</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -557,22 +563,28 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/further_topics/03-timeseries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Série temporelle</span></a>
+ <span class="menu-text">Time series</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/further_topics/04-network.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Réseaux</span></a>
+ <span class="menu-text">Network</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/further_topics/05-text.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Texte</span></a>
+ <span class="menu-text">Text</span></a>
   </div>
 </li>
       </ul>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/08-conclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">08 - Conclusion</span></a>
+  </div>
 </li>
       </ul>
 </li>
@@ -583,17 +595,17 @@ window.Quarto = {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
     <div class="quarto-alternate-formats">
-<h2>Autres formats</h2>
-<ul><li><a href="05-others.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
+<h2>Other Formats</h2>
+<ul><li><a href="06-others.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
 </div>
 </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/05-supervisee.html">05 - Supervisée</a></li>
-<li class="breadcrumb-item"><a href="../../contents/supervised/05-others.html">Autres</a></li>
+<li class="breadcrumb-item"><a href="../../contents/supervised/06-others.html">Others</a></li>
 </ol></nav><div class="quarto-title">
-<h1 class="title">Autres</h1>
+<h1 class="title">Others</h1>
 </div>
 
 
@@ -850,12 +862,12 @@ window.onload = function() {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copié");
+      button.setAttribute("title", "Copied!");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copié");
+        button.setAttribute("data-bs-title", "Copied!");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
@@ -1229,8 +1241,8 @@ window.onload = function() {
     }
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../../contents/supervised/04-hierarchy.html" class="pagination-link" aria-label="Hierarchique">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Hierarchique</span>
+      <a href="../../contents/supervised/05-ensemble.html" class="pagination-link" aria-label="Ensemble">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Ensemble</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -1247,8 +1259,8 @@ window.onload = function() {
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
 <div class="toc-actions"><ul>
-<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
-<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/supervised/05-others.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/supervised/06-others.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li>
 </ul></div>
 </div>
     <div class="nav-footer-right">

@@ -492,7 +492,13 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contents/supervised/05-others.html" class="sidebar-item-text sidebar-link">
+  <a href="../contents/supervised/05-ensemble.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ensemble</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/supervised/06-others.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Autres</span></a>
   </div>
 </li>
@@ -574,6 +580,12 @@ window.Quarto = {
 </li>
       </ul>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents/08-conclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">08 - Conclusion</span></a>
+  </div>
+</li>
       </ul>
 </li>
     </ul>
@@ -650,7 +662,13 @@ Example
 <li><p>Méthode des <span class="math inline">\(k\)</span> plus proches voisins</p></li>
 <li><p>Support vector machine</p></li>
 <li><p>Réseaux de neurones.</p></li>
-</ul></main><!-- /main --><script>
+</ul>
+<p>Il n’y a aucun algorithme qui garantit le meilleur classificateur pour toute situation donnée. Chaque problème est nouveau et on doit tenter de trouver la meilleure façon de procéder par essai et erreur. Ceci étant dit, certains principes s’appliquent plus généralement * Commencer par une exploration des données (p.ex. statistiques descriptives sur toutes les variables prises individuellement, ACP, ACB/ACM, classification non-supervisée) * Tirer avantage de la connaissance du sujet des experts qui nous entourent * Voir si certaines méthodes n’ont pas déjà eu du succès dans des analyses similaires</p>
+<p>La principale difficulté vient habituellement de la dimension du problème : le nombre de modèles/méthodes possibles pour un problème donné est énorme et croît rapidement avec le nombre de variables disponibles. Parfois, réduire la dimension du problème (ACP, ACB/ACM, classification non-supervisée) peut aider : on applique ces techniques à un sous-ensemble des variables, et on utilise ensuite les scores produits comme prédicteurs dans les algos de classifications Il n’y a pas de recette générale pour savoir quel sous-ensemble choisir … Allez voir sur des sites de concours d’analyse de données (p.ex. Kaggle, KD Nuggets, etc.) et regardez les approches utilisées par les gagnants des concours pour lesquels le problème à résoudre s’apparente un peu au vôtre.</p>
+
+
+
+</main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
