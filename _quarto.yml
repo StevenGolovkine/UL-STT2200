@@ -86,7 +86,8 @@ website:
               - contents/supervised/02-discriminant.qmd
               - contents/supervised/03-tree.qmd
               - contents/supervised/04-hierarchy.qmd 
-              - contents/supervised/05-others.qmd 
+              - contents/supervised/05-ensemble.qmd
+              - contents/supervised/06-others.qmd
           - href: contents/06-nonsupervisee.qmd 
             text: 06 - Non-supervisée
             contents:
@@ -102,6 +103,8 @@ website:
               - contents/further_topics/03-timeseries.qmd 
               - contents/further_topics/04-network.qmd 
               - contents/further_topics/05-text.qmd
+          - href: contents/08-conclusion.qmd 
+            text: 08 - Conclusion
 
 
 bibliography: ./include/biblio.bib

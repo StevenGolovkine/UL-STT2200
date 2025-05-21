@@ -57,3 +57,16 @@ Quelques méthodes:
 * Réseaux de neurones.
 
 
+Il n'y a aucun algorithme qui garantit le meilleur classificateur pour toute situation donnée.
+Chaque problème est nouveau et on doit tenter de trouver la meilleure façon de procéder par essai et erreur.
+Ceci étant dit, certains principes s'appliquent plus généralement
+  * Commencer par une exploration des données (p.ex. statistiques descriptives sur toutes les variables prises individuellement, ACP, ACB/ACM, classification non-supervisée)
+  * Tirer avantage de la connaissance du sujet des experts qui nous entourent
+  * Voir si certaines méthodes n'ont pas déjà eu du succès dans des analyses similaires
+
+La principale difficulté vient habituellement de la dimension du problème : le nombre de modèles/méthodes possibles pour un problème donné est énorme et croît rapidement avec le nombre de variables disponibles.
+Parfois, réduire la dimension du problème (ACP, ACB/ACM, classification non-supervisée) peut aider : on applique ces techniques à un sous-ensemble des variables, et on utilise ensuite les scores produits comme prédicteurs dans les algos de classifications
+Il n'y a pas de recette générale pour savoir quel sous-ensemble choisir ...
+Allez voir sur des sites de concours d'analyse de données (p.ex. Kaggle, KD Nuggets, etc.) et regardez les approches utilisées par les gagnants des concours pour lesquels le problème à résoudre s'apparente un peu au vôtre.
+
+

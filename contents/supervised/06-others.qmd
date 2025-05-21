@@ -1,0 +1,10 @@
+--- 
+title: "Autres"
+format: 
+  html: default
+  pdf:
+    header-includes:
+      - \usepackage{mathtools} 
+--- 
+
+
