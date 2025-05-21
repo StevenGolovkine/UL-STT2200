@@ -492,8 +492,11 @@ window.Quarto = {
   </div>
 </li>
           <li class="sidebar-item">
- <span class="menu-text">contents/supervised/05-others.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/supervised/05-others.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Autres</span></a>
+  </div>
+</li>
       </ul>
 </li>
           <li class="sidebar-item sidebar-item-section">
@@ -634,6 +637,8 @@ Example: la régression linéaire simple
 <p>Que faire dans le cas discret ?</p>
 <p>On cherche à prédire <span class="math inline">\(G\)</span> (un groupe ou facteur) à partir de <span class="math inline">\(X\)</span>. Supposons que nous avons <span class="math inline">\(\widehat{G}\)</span> qui prédise le classe des observations sachant <span class="math inline">\(X\)</span>, alors on peut définir la fonction de perte (0-1) comme le nombre d’erreur que l’on a effectué: <span class="math display">\[L(G, \widehat{G}) = \mathbb{1}_{G \neq \widehat{G}}.\]</span></p>
 <p>Avec cette fonction de perte 0-1, <span class="math inline">\(\widehat{G}(x)\)</span> est la classe <span class="math inline">\(g\)</span> qui maximise <span class="math inline">\(\mathbb{P}(g | X = x)\)</span>.</p>
+<p>On peut décomposer l’erreur quadratique moyenne (EQM): <span class="math display">\[\mathbb{E}\left( (Y - \widehat{f}(x_0))^2 \right) = \text{Biais}(\widehat{f}(x_{0}))^2 + \mathrm{Var}(\widehat{f}(x_{0}) + \sigma^2_{\epsilon}.\]</span></p>
+<p>Démontrer la décomposition de l’EQM en un compromis biais variance.</p>
 
 
 
