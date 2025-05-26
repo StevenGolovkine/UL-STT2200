@@ -33,6 +33,17 @@
     ]
   },
   {
+    "objectID": "informations/materials.html",
+    "href": "informations/materials.html",
+    "title": "Matériel",
+    "section": "",
+    "text": "Cette page regroupe différentes ressources utiles pour le cours.\nThe Elements of Statistical Learning: Data Mining, Inference and Prediction, 2nd Edition\nAuteurs: Trevor Hastie, Robert Tibshirani et Jerome Friedman\nÉditeur: Springer (New York, 2009)\nISBN: 0-387-84857-0\nLien: site web des authors\nAn Introduction to Statistical Learning: with application in R, 2nd Edition\nAuteurs: Gareth James, Daniela Witten, Trevor Hastie et Robert Tibshirani\nÉditeur: Springer (New York, 2021)\nISBN: 1-0716-1417-4\nLien: site web des authors\nAn Introduction to Statistical Learning: with application in Python\nAuteurs: Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani et Jonathan Taylor\nÉditeur: Springer (Suisse, 2023)\nISBN: 3-031-38746-3\nLien: site web des authors",
+    "crumbs": [
+      "Informations",
+      "Matériel"
+    ]
+  },
+  {
     "objectID": "informations/schedule.html",
     "href": "informations/schedule.html",
     "title": "Plan",
@@ -221,29 +232,18 @@
     "href": "contents/01-introduction.html#quest-ce-que-lanalyse-de-données",
     "title": "Introduction",
     "section": "Qu’est-ce que l’analyse de données ?",
-    "text": "Qu’est-ce que l’analyse de données ?\nL’analyse de données est un ensemble de méthodes permettant de retirer de l’information d’un jeu de données. On parle aussi d’apprentissage statistique (statistical learning). L’idée est d’utiliser des modèles statistiques pour comprendre comment les données sont structurées et comment elles intéragissent l’une avec l’autre.\n\n\n\n\n\n\nExample\n\n\n\nImaginons que vous êtes le gérant d’un magasin. Vous aimeriez savoir quand ouvrir votre magasin pour maximiser votre chiffre d’affaires. Pour cela, vous pouvez comptez le nombre de clients par heure pendant une période de temps, disons un mois, et ensuite s’interesser à comment ses données sont structurées par rapport aux horaires d’ouverture.",
+    "text": "Qu’est-ce que l’analyse de données ?\nL’analyse de données est un ensemble de méthodes permettant de retirer de l’information d’un jeu de données. On parle aussi d’apprentissage statistique (statistical learning). L’idée est d’utiliser des modèles statistiques pour comprendre comment les données sont structurées et comment elles intéragissent l’une avec l’autre.\n\n\n\n\n\n\nExemple\n\n\n\nImaginons que vous êtes employé par l’Organisation des Nations Unies (ONU). Votre mission est d’analyser l’espérance de vie à travers le monde. Pour celà, vous disposez d’une mesure de l’espérance de vie dans chaque pays membre de l’ONU, bien sûr, mais aussi le PIB par habitant, les montants des dépenses liés à la santé, le taux de fertilité, le taux d’urbanisation, le niveau d’éducation du pays, etc. Le but de l’analyse de données est de trouver des liens entre ses différentes variables et la variable d’intérêt, l’espérance de vie, de visualiser ces données, et éventuellement de prédire l’espérance de vie à partir des autres variables.",
     "crumbs": [
       "Modules",
       "01 - Introduction"
     ]
   },
   {
-    "objectID": "contents/01-introduction.html#objectifs",
-    "href": "contents/01-introduction.html#objectifs",
+    "objectID": "contents/01-introduction.html#objectifs-du-cours",
+    "href": "contents/01-introduction.html#objectifs-du-cours",
     "title": "Introduction",
-    "section": "Objectifs",
-    "text": "Objectifs\nCe cours n’a pas vocation à être exhaustif, dans le sens de présenter toutes les méthodes possibles. Ce cours n’a pas non plus vocation à être à l’état de l’art, dans le sens où on ne s’intéressera pas aux derniers développements en apprentissage machine. Ce cours n’est pas non plus un cours de programmation.",
-    "crumbs": [
-      "Modules",
-      "01 - Introduction"
-    ]
-  },
-  {
-    "objectID": "contents/01-introduction.html#pratique-de-programmation",
-    "href": "contents/01-introduction.html#pratique-de-programmation",
-    "title": "Introduction",
-    "section": "Pratique de programmation",
-    "text": "Pratique de programmation\n\nConseils généraux\nSpécifique à R\nSpécifique à Python",
+    "section": "Objectifs du cours",
+    "text": "Objectifs du cours\nDans ce cours, on cherche à introduire des méthodes qui permettent une étude d’un jeu de données de “haute dimension” (dans le sens où l’on ne peut pas faire un simple graphique de l’ensemble des variables pour chaque observation) sans avoir recours à un modèle probabiliste. Les différentes techniques que l’on va voir peuvent servir à:\n\nvisualiser les données;\nréduire la dimension des données;\nidentifier certains liens entre les variables;\ndiviser le jeu de données en groupes/classes.\n\nCe cours n’a pas vocation à être exhaustif, dans le sens de présenter toutes les méthodes possibles. Ce cours n’a pas non plus vocation à être à l’état de l’art, dans le sens où on ne s’intéressera pas aux derniers développements en apprentissage machine. Ce cours n’est pas non plus un cours de programmation.",
     "crumbs": [
       "Modules",
       "01 - Introduction"
@@ -892,7 +892,7 @@
     "href": "informations/evaluations.html#absence-à-une-activité-obligatoire",
     "title": "Évaluations",
     "section": "Absence à une activité obligatoire",
-    "text": "Absence à une activité obligatoire\nCes modalités s’appliquent en vertu des articles 4.41 et 4.42 du Réglement des études de l’Université Laval:\n\nArticle 4.41: Tout défaut de se soumettre à une activité d’évaluation entraîne la note de zéro pour cette activité d’évaluation, à moins que l’étudiante ou l’étudiant ne démontre que cette omission est attribuable à des motifs sérieux.\n\nArticle 4.42: La reprise d’une évaluation est possible pour des motifs sérieux. Elle se fait selon les modalités prévues par l’unité responsable de l’activité de formation.\n\n\nLa reprise d’une évaluation peut donc execptionnellement être autorisée pour des motifs jugés sérieux, dans la mesure où la procédure décrite ci-dessous est respectée.\nMotifs d’absence jugés sérieux\nLes motifs suivants sont jugés sérieux et donc acceptables pour demander une reprise d’évaluation:\n\nmaladie ou accident empêchant de se déplacer;\nhospitalisation;\nmaladie grave ou décès d’un proche;\nparticipation à une activité sportive de haut niveau;\nconvocation en cour de justice.\n\nProcédure à suivre\nDès que possible et au plus tard cinq (5) jours ouvrables après la date de l’évaluation (ou dans certains cas, avant la date de l’évaluation, dès que le motif sera connu), l’étudiante ou l’étudiant qui veut faire une demande de reprise d’évaluation doit remplir et soumettre le formulaire électronique “Demande de reprise d’une évaluation” en prenant soin d’y joindre les pièces justificatives requises.\nPour avoir plus de détail sur les procédures à suivre et les motifs sérieux pouvant donner droit à une reprise d’évaluation, consulter le document “Modalités et procédure de reprise d’une évaluation sommative à la Faculté des sciences et de génie” disponible sur le site web de la FSG.\nDans certains cas, la ou le responsable du cours pourrait adopter une procédure simplifiée de gestion des demandes de reprises d’évaluation, tout en respectant les critères décrits dans cette politique. Dans ces cas, des explications particulières seront données à cet effet dans le plan de cours et présentées lors de la première séance.",
+    "text": "Absence à une activité obligatoire\nCes modalités s’appliquent en vertu des articles 4.41 et 4.42 du Réglement des études de l’Université Laval:\n\nArticle 4.41: Tout défaut de se soumettre à une activité d’évaluation entraîne la note de zéro pour cette activité d’évaluation, à moins que l’étudiante ou l’étudiant ne démontre que cette omission est attribuable à des motifs sérieux.\nArticle 4.42: La reprise d’une évaluation est possible pour des motifs sérieux. Elle se fait selon les modalités prévues par l’unité responsable de l’activité de formation.\n\nLa reprise d’une évaluation peut donc execptionnellement être autorisée pour des motifs jugés sérieux, dans la mesure où la procédure décrite ci-dessous est respectée.\nMotifs d’absence jugés sérieux\nLes motifs suivants sont jugés sérieux et donc acceptables pour demander une reprise d’évaluation:\n\nmaladie ou accident empêchant de se déplacer;\nhospitalisation;\nmaladie grave ou décès d’un proche;\nparticipation à une activité sportive de haut niveau;\nconvocation en cour de justice.\n\nProcédure à suivre\nDès que possible et au plus tard cinq (5) jours ouvrables après la date de l’évaluation (ou dans certains cas, avant la date de l’évaluation, dès que le motif sera connu), l’étudiante ou l’étudiant qui veut faire une demande de reprise d’évaluation doit remplir et soumettre le formulaire électronique “Demande de reprise d’une évaluation” en prenant soin d’y joindre les pièces justificatives requises.\nPour avoir plus de détail sur les procédures à suivre et les motifs sérieux pouvant donner droit à une reprise d’évaluation, consulter le document “Modalités et procédure de reprise d’une évaluation sommative à la Faculté des sciences et de génie” disponible sur le site web de la FSG.\nDans certains cas, la ou le responsable du cours pourrait adopter une procédure simplifiée de gestion des demandes de reprises d’évaluation, tout en respectant les critères décrits dans cette politique. Dans ces cas, des explications particulières seront données à cet effet dans le plan de cours et présentées lors de la première séance.",
     "crumbs": [
       "Informations",
       "Évaluations"
@@ -936,7 +936,7 @@
     "href": "informations/mcq.html",
     "title": "QCM",
     "section": "",
-    "text": "Le premier examen est un questionaire à choix multiples avec quantification de l’incertitude.\nL’ utilisation de degrés de certitude permet à l’étudiant d’évaluer le niveau de connaissance de la réponse donnée. La barème des notes, basé sur la théorie des décision (Leclercq et al. 1993), peut sembler bizarre mais il a été fait de tel manière que:\n\ndire la vérité soit la stratégie qui rapporte le plus de points;\nceux qui s’auto-évaluent bien gagnent plus de points que si l’on appliquait un barème correctif tenant compte des probabilités d’avoir la réponse correcte aléatoirement.\n\n\n\n\nSi vous condidérez que votre réponse a une probabilité d’être correcte comprise entre…\n\n\nChoisissez le degré de certitude…\n\n\nVous obtiendrez les points suivants en case de réponse…\n\n\n\n\n\n\n\n\ncorrecte\n\n\nincorrecte\n\n\n\n\n0% et 25%\n\n\n0\n\n\n+13\n\n\n+4\n\n\n\n\n25% et 50%\n\n\n1\n\n\n+16\n\n\n+3\n\n\n\n\n50% et 70%\n\n\n2\n\n\n+17\n\n\n+2\n\n\n\n\n70% et 85%\n\n\n3\n\n\n+18\n\n\n0\n\n\n\n\n85% et 95%\n\n\n4\n\n\n+19\n\n\n-6\n\n\n\n\n95% et 100%\n\n\n5\n\n\n+20\n\n\n-10\n\n\n\nGénéralement, les étudiants s’auto-estiment avec réalisme, et sont avantagés par les degrés de certitude. Leur score obtenu est meilleur que s’il avait été calculé uniquement sur la base du nombre de réponses justes.",
+    "text": "Le premier examen est un questionaire à choix multiples avec quantification de l’incertitude.\nL’ utilisation de degrés de certitude permet à l’étudiant et à l’étudiante d’évaluer le niveau de connaissance de la réponse donnée. La barème des notes, basé sur la théorie des décision (Leclercq et al. 1993), peut sembler bizarre mais il a été fait de tel manière que:\n\ndire la vérité soit la stratégie qui rapporte le plus de points;\nceux qui s’auto-évaluent bien gagnent plus de points que si l’on appliquait un barème correctif tenant compte des probabilités d’avoir la réponse correcte aléatoirement.\n\n\n\n\nSi vous condidérez que votre réponse a une probabilité d’être correcte comprise entre…\n\n\nChoisissez le degré de certitude…\n\n\nVous obtiendrez les points suivants en case de réponse…\n\n\n\n\n\n\n\n\ncorrecte\n\n\nincorrecte\n\n\n\n\n0% et 25%\n\n\n0\n\n\n+13\n\n\n+4\n\n\n\n\n25% et 50%\n\n\n1\n\n\n+16\n\n\n+3\n\n\n\n\n50% et 70%\n\n\n2\n\n\n+17\n\n\n+2\n\n\n\n\n70% et 85%\n\n\n3\n\n\n+18\n\n\n0\n\n\n\n\n85% et 95%\n\n\n4\n\n\n+19\n\n\n-6\n\n\n\n\n95% et 100%\n\n\n5\n\n\n+20\n\n\n-10\n\n\n\nGénéralement, les étudiants s’auto-estiment avec réalisme, et sont avantagés par les degrés de certitude. Leur score obtenu est meilleur que s’il avait été calculé uniquement sur la base du nombre de réponses justes.",
     "crumbs": [
       "Informations",
       "Évaluations",
@@ -948,7 +948,7 @@
     "href": "informations/mcq.html#information-sur-le-premier-examen",
     "title": "QCM",
     "section": "",
-    "text": "Le premier examen est un questionaire à choix multiples avec quantification de l’incertitude.\nL’ utilisation de degrés de certitude permet à l’étudiant d’évaluer le niveau de connaissance de la réponse donnée. La barème des notes, basé sur la théorie des décision (Leclercq et al. 1993), peut sembler bizarre mais il a été fait de tel manière que:\n\ndire la vérité soit la stratégie qui rapporte le plus de points;\nceux qui s’auto-évaluent bien gagnent plus de points que si l’on appliquait un barème correctif tenant compte des probabilités d’avoir la réponse correcte aléatoirement.\n\n\n\n\nSi vous condidérez que votre réponse a une probabilité d’être correcte comprise entre…\n\n\nChoisissez le degré de certitude…\n\n\nVous obtiendrez les points suivants en case de réponse…\n\n\n\n\n\n\n\n\ncorrecte\n\n\nincorrecte\n\n\n\n\n0% et 25%\n\n\n0\n\n\n+13\n\n\n+4\n\n\n\n\n25% et 50%\n\n\n1\n\n\n+16\n\n\n+3\n\n\n\n\n50% et 70%\n\n\n2\n\n\n+17\n\n\n+2\n\n\n\n\n70% et 85%\n\n\n3\n\n\n+18\n\n\n0\n\n\n\n\n85% et 95%\n\n\n4\n\n\n+19\n\n\n-6\n\n\n\n\n95% et 100%\n\n\n5\n\n\n+20\n\n\n-10\n\n\n\nGénéralement, les étudiants s’auto-estiment avec réalisme, et sont avantagés par les degrés de certitude. Leur score obtenu est meilleur que s’il avait été calculé uniquement sur la base du nombre de réponses justes.",
+    "text": "Le premier examen est un questionaire à choix multiples avec quantification de l’incertitude.\nL’ utilisation de degrés de certitude permet à l’étudiant et à l’étudiante d’évaluer le niveau de connaissance de la réponse donnée. La barème des notes, basé sur la théorie des décision (Leclercq et al. 1993), peut sembler bizarre mais il a été fait de tel manière que:\n\ndire la vérité soit la stratégie qui rapporte le plus de points;\nceux qui s’auto-évaluent bien gagnent plus de points que si l’on appliquait un barème correctif tenant compte des probabilités d’avoir la réponse correcte aléatoirement.\n\n\n\n\nSi vous condidérez que votre réponse a une probabilité d’être correcte comprise entre…\n\n\nChoisissez le degré de certitude…\n\n\nVous obtiendrez les points suivants en case de réponse…\n\n\n\n\n\n\n\n\ncorrecte\n\n\nincorrecte\n\n\n\n\n0% et 25%\n\n\n0\n\n\n+13\n\n\n+4\n\n\n\n\n25% et 50%\n\n\n1\n\n\n+16\n\n\n+3\n\n\n\n\n50% et 70%\n\n\n2\n\n\n+17\n\n\n+2\n\n\n\n\n70% et 85%\n\n\n3\n\n\n+18\n\n\n0\n\n\n\n\n85% et 95%\n\n\n4\n\n\n+19\n\n\n-6\n\n\n\n\n95% et 100%\n\n\n5\n\n\n+20\n\n\n-10\n\n\n\nGénéralement, les étudiants s’auto-estiment avec réalisme, et sont avantagés par les degrés de certitude. Leur score obtenu est meilleur que s’il avait été calculé uniquement sur la base du nombre de réponses justes.",
     "crumbs": [
       "Informations",
       "Évaluations",

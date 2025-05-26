@@ -33,11 +33,66 @@
     ]
   },
   {
+    "objectID": "informations/materials.html",
+    "href": "informations/materials.html",
+    "title": "Materials",
+    "section": "",
+    "text": "This page brings together various useful resources for the course.\nThe Elements of Statistical Learning: Data Mining, Inference and Prediction, 2nd Edition\nAuthors: Trevor Hastie, Robert Tibshirani and Jerome Friedman\nPublisher: Springer (New York, 2009)\nISBN: 0-387-84857-0\nLink: authors’ website\nAn Introduction to Statistical Learning: with application in R, 2nd Edition\nAuthors: Gareth James, Daniela Witten, Trevor Hastie and Robert Tibshirani\nPublisher: Springer (New York, 2021)\nISBN: 1-0716-1417-4\nLink: authors’ website\nAn Introduction to Statistical Learning: with application in Python\nAuthors: Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani and Jonathan Taylor\nPublisher: Springer (Switzerland, 2023)\nISBN: 3-031-38746-3\nLink: authors’ website",
+    "crumbs": [
+      "Informations",
+      "Matériel"
+    ]
+  },
+  {
+    "objectID": "informations/schedule.html",
+    "href": "informations/schedule.html",
+    "title": "Schedule",
+    "section": "",
+    "text": "The plan is given for information only.\n\n\n\nWeek\nDate\nHour\nPlan\nEvaluations",
+    "crumbs": [
+      "Informations",
+      "Plan"
+    ]
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "STT-2200: Data Analysis",
     "section": "",
     "text": "Welcome everyone to the class STT-2200 in Autumn 2025.\nYou will find on this website every necessary information for the modules, the practicals and the exams. The contents will be updated during the session with the answers to some work. I invite you to skim through the differents modules before classes.\nThis website has been created with the help of Aurélien Nicosia and Thierry Duchesne notes.\nThis website a been built using Quarto.\nMost of the contents has been translated using DeepL.\n\n\n\nData trap (xkcd:2582)."
+  },
+  {
+    "objectID": "contents/01-introduction.html",
+    "href": "contents/01-introduction.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "Data analysis is a set of methods for extracting information from a data set. It’s also known as statistical learning. The idea is to use statistical models to understand how data is structured and how it interacts with each other.\n\n\n\n\n\n\nExample\n\n\n\nLet’s imagine you work for the United Nations (UN). Your mission is to analyze life expectancy around the world. To do this, you’ll have a measure of life expectancy in each UN member country, of course, but also GDP per capita, health expenditure, fertility rate, urbanization rate, education level of the country, and so on. The aim of data analysis is to find links between these different variables and the variable of interest, life expectancy, to visualize these data, and eventually to predict life expectancy from the other variables.",
+    "crumbs": [
+      "Modules",
+      "01 - Introduction"
+    ]
+  },
+  {
+    "objectID": "contents/01-introduction.html#what-is-data-analysis",
+    "href": "contents/01-introduction.html#what-is-data-analysis",
+    "title": "Introduction",
+    "section": "",
+    "text": "Data analysis is a set of methods for extracting information from a data set. It’s also known as statistical learning. The idea is to use statistical models to understand how data is structured and how it interacts with each other.\n\n\n\n\n\n\nExample\n\n\n\nLet’s imagine you work for the United Nations (UN). Your mission is to analyze life expectancy around the world. To do this, you’ll have a measure of life expectancy in each UN member country, of course, but also GDP per capita, health expenditure, fertility rate, urbanization rate, education level of the country, and so on. The aim of data analysis is to find links between these different variables and the variable of interest, life expectancy, to visualize these data, and eventually to predict life expectancy from the other variables.",
+    "crumbs": [
+      "Modules",
+      "01 - Introduction"
+    ]
+  },
+  {
+    "objectID": "contents/01-introduction.html#course-objectives",
+    "href": "contents/01-introduction.html#course-objectives",
+    "title": "Introduction",
+    "section": "Course objectives",
+    "text": "Course objectives\nIn this course, we aim to introduce methods that allow us to study a “high-dimensional” dataset (in the sense that we can’t simply graph all the variables for each observation) without having to resort to a probabilistic model. The various techniques we’ll be looking at can be used to:\n\nvisualize data\nreduce data size;\nidentify certain relationships between variables;\ndivide the dataset into groups/classes.\n\nThis course is not intended to be exhaustive, in the sense of presenting all possible methods. Nor is it intended to be state-of-the-art, in the sense that it will not cover the latest developments in machine learning. Nor is it a programming course.",
+    "crumbs": [
+      "Modules",
+      "01 - Introduction"
+    ]
   },
   {
     "objectID": "informations/description.html",
@@ -176,7 +231,7 @@
     "href": "informations/evaluations.html#absence-from-a-mandatory-activity",
     "title": "Grading",
     "section": "Absence from a mandatory activity",
-    "text": "Absence from a mandatory activity\nThese conditions apply in accordance with articles 4.41 and 4.42 of the Réglement des études de l’Université Laval:\n\nArticle 4.41: Any failure to submit to an evaluation activity will result in a grade of zero for that evaluation activity, unless the student demonstrates that the omission is attributable to serious reasons. Article 4.42: An evaluation may be repeated for serious reasons. This is done in accordance with the procedures laid down by the unit responsible for the training activity.\n\nThe retaking of an assessment may therefore exceptionally be authorized for reasons deemed serious, as long as the procedure described below is followed.\nReasons for absence deemed to be serious\nThe following reasons are considered serious and therefore acceptable for requesting a retake of an assessment:\n\nillness or accident preventing travel;\nhospitalization;\nserious illness or death of a close relative;\nparticipation in a high-level sporting activity;\ncourt summons.\n\nProcedure to follow\nAs soon as possible and no later than five (5) working days after the evaluation date (or in certain cases, before the evaluation date, as soon as the reason is known), the student who wishes to apply for an evaluation re-sit must complete and submit the electronic form “Application to re-sit an evaluation”, taking care to attach the required supporting documents.\nFor more details on the procedures to be followed and the serious grounds for retaking an evaluation, please consult the document “Modalités et procédure de reprise d’une évaluation sommative à la Faculté des sciences et de génie” available on the FSG website.\nIn certain cases, the course leader may adopt a simplified procedure for managing requests to repeat an evaluation, while respecting the criteria described in this policy. In such cases, specific explanations will be provided in the course syllabus and presented at the first session.",
+    "text": "Absence from a mandatory activity\nThese conditions apply in accordance with articles 4.41 and 4.42 of the Réglement des études de l’Université Laval:\n\nArticle 4.41: Any failure to submit to an evaluation activity will result in a grade of zero for that evaluation activity, unless the student demonstrates that the omission is attributable to serious reasons.\nArticle 4.42: An evaluation may be repeated for serious reasons. This is done in accordance with the procedures laid down by the unit responsible for the training activity.\n\nThe retaking of an assessment may therefore exceptionally be authorized for reasons deemed serious, as long as the procedure described below is followed.\nReasons for absence deemed to be serious\nThe following reasons are considered serious and therefore acceptable for requesting a retake of an assessment:\n\nillness or accident preventing travel;\nhospitalization;\nserious illness or death of a close relative;\nparticipation in a high-level sporting activity;\ncourt summons.\n\nProcedure to follow\nAs soon as possible and no later than five (5) working days after the evaluation date (or in certain cases, before the evaluation date, as soon as the reason is known), the student who wishes to apply for an evaluation re-sit must complete and submit the electronic form “Application to re-sit an evaluation”, taking care to attach the required supporting documents.\nFor more details on the procedures to be followed and the serious grounds for retaking an evaluation, please consult the document “Modalités et procédure de reprise d’une évaluation sommative à la Faculté des sciences et de génie” available on the FSG website.\nIn certain cases, the course leader may adopt a simplified procedure for managing requests to repeat an evaluation, while respecting the criteria described in this policy. In such cases, specific explanations will be provided in the course syllabus and presented at the first session.",
     "crumbs": [
       "Informations",
       "Évaluations"
@@ -213,6 +268,30 @@
     "crumbs": [
       "Informations",
       "Évaluations"
+    ]
+  },
+  {
+    "objectID": "informations/mcq.html",
+    "href": "informations/mcq.html",
+    "title": "MCQ",
+    "section": "",
+    "text": "The first exam is a multiple-choice question with quantification of uncertainty.\nThe use of degrees of certainty enables the student to assess the level of knowledge of the answer given. The scoring system, based on decision theory (Leclercq et al. 1993), may seem odd but it has been designed in such a way that:\n\ntelling the truth is the strategy that earns the most points;\nthose who self-assess well earn more points than if we applied a corrective scale taking into account the probabilities of having the correct answer randomly.\n\nIn general, students self-assess realistically, and benefit from degrees of certainty. Their score is better than if it had been calculated solely on the basis of the number of correct answers.",
+    "crumbs": [
+      "Informations",
+      "Évaluations",
+      "MCQ"
+    ]
+  },
+  {
+    "objectID": "informations/mcq.html#information-on-the-first-exam",
+    "href": "informations/mcq.html#information-on-the-first-exam",
+    "title": "MCQ",
+    "section": "",
+    "text": "The first exam is a multiple-choice question with quantification of uncertainty.\nThe use of degrees of certainty enables the student to assess the level of knowledge of the answer given. The scoring system, based on decision theory (Leclercq et al. 1993), may seem odd but it has been designed in such a way that:\n\ntelling the truth is the strategy that earns the most points;\nthose who self-assess well earn more points than if we applied a corrective scale taking into account the probabilities of having the correct answer randomly.\n\nIn general, students self-assess realistically, and benefit from degrees of certainty. Their score is better than if it had been calculated solely on the basis of the number of correct answers.",
+    "crumbs": [
+      "Informations",
+      "Évaluations",
+      "MCQ"
     ]
   }
 ]

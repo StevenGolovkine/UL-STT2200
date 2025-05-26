@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script><script src="../site_libs/clipboard/clipboard.min.js"></script><script src="../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../site_libs/quarto-search/fuse.min.js"></script><script src="../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../">
 <link href="../informations/materials.html" rel="next">
 <link href="../informations/evaluations.html" rel="prev">
@@ -85,6 +105,7 @@ window.Quarto = {
   typesetMath
 };
 </script><meta property="og:title" content="MCQ – STT-2200: Data Analysis">
+<meta property="og:description" content="Website for STT-2200">
 <meta property="og:site_name" content="STT-2200: Data Analysis">
 </head>
 <body class="nav-sidebar floating quarto-light">
@@ -593,11 +614,19 @@ window.Quarto = {
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#information-on-the-first-exam" id="toc-information-on-the-first-exam" class="nav-link active" data-scroll-target="#information-on-the-first-exam">Information on the first exam</a></li>
+  </ul>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/informations/mcq.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li>
+</ul></div>
+<div class="quarto-alternate-formats">
 <h2>Other Formats</h2>
 <ul><li><a href="mcq.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
-</div>
+</div></nav>
 </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
@@ -619,7 +648,23 @@ window.Quarto = {
   
 
 
-</header></main><!-- /main --><script>
+</header><section id="information-on-the-first-exam" class="level2"><h2 class="anchored" data-anchor-id="information-on-the-first-exam">Information on the first exam</h2>
+<p>The first exam is a multiple-choice question with quantification of uncertainty.</p>
+<p>The use of degrees of certainty enables the student to assess the level of knowledge of the answer given. The scoring system, based on decision theory <span class="citation" data-cites="leclercqTASTEApproachGeneral1993">(<a href="#ref-leclercqTASTEApproachGeneral1993" role="doc-biblioref">Leclercq et al. 1993</a>)</span>, may seem odd but it has been designed in such a way that:</p>
+<ul>
+<li>telling the truth is the strategy that earns the most points;</li>
+<li>those who self-assess well earn more points than if we applied a corrective scale taking into account the probabilities of having the correct answer randomly.</li>
+</ul>
+<p>In general, students self-assess realistically, and benefit from degrees of certainty. Their score is better than if it had been calculated solely on the basis of the number of correct answers.</p>
+
+
+
+</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-leclercqTASTEApproachGeneral1993" class="csl-entry" role="listitem">
+Leclercq, D., E. Boxus, P. de Brogniez, H. Wuidar, and F. Lambert. 1993. <span>“The <span>TASTE Approach</span>: <span>General Implicit Solutions</span> in <span>Multiple Choice Questions</span> (<span>MCQs</span>), <span>Open Books Exams</span> and <span>Interactive Testing</span>.”</span> In <em>Item <span>Banking</span>: <span>Interactive Testing</span> and <span>Self-Assessment</span></em>, edited by Dieudonnè A. Leclercq and James E. Bruno, 210–32. Berlin, Heidelberg: Springer. <a href="https://doi.org/10.1007/978-3-642-58033-8_17">https://doi.org/10.1007/978-3-642-58033-8_17</a>.
+</div>
+</div></section></div></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -1258,7 +1303,7 @@ window.onload = function() {
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions"><ul>
+<div class="toc-actions d-sm-block d-md-none"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/informations/mcq.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li>
 </ul></div>
