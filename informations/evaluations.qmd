@@ -7,6 +7,8 @@ format:
 
 ## Modalités d'évaluations
 
+Voici les différents examens prévus pour ce module.
+
 | Titre      | Date    | Mode de travail | Pondération |
 | ---------- | ------- | --------------- | ----------- |
 | Examen 1   |         | Individuel      | 25\%        |
@@ -17,7 +19,7 @@ format:
 
 ## Informations détaillées sur les évaluations
 
-### Examen 1 
+**Examen 1** 
 
 Date et lieu: 
 
@@ -31,10 +33,10 @@ Directives de l'évaluation: Tout le contenu du cours est susceptible d'être a 
 
 Matériel autorisé: pas de restriction. 
 
-Information supplementaire: [lien](./mcq.qmd)
+Information supplementaire: [lien](./mcq.qmd).
 
 
-### Examen 2
+**Examen 2**
 
 Date et lieu: 
 
@@ -49,7 +51,7 @@ Directives de l'évaluation: Tout le contenu du cours est susceptible d'être à
 Matériel autorisé: pas de restriction. 
 
 
-### Projet 
+**Projet** 
 
 Date et lieu: 
 
@@ -92,20 +94,20 @@ Toute reprise d'évaluation accordée par la politique de reprise d'évaluation 
 
 Ces modalités s'appliquent en vertu des articles 4.41 et 4.42 du Réglement des études de l'Université Laval: 
 
-  * 4.41 Tout défaut de se soumettre à une activité d' évaluation entraine la note zéro pour cette activité d' évaluation, à moins que l' étudiante ou l' étudiant ne démontre que cette omission est attribuable à des motifs sérieux.
-  * 4.42 La reprise d' une évaluation est possible pour des motifs sérieux. Elle se fait selon les modalités prévues par l' unité responsable de l' activité de formation.
+* **Article 4.41:** Tout défaut de se soumettre à une activité d'évaluation entraîne la note de zéro pour cette activité d'évaluation, à moins que l'étudiante ou l'étudiant ne démontre que cette omission est attribuable à des motifs sérieux.
+  * **Article 4.42:** La reprise d'une évaluation est possible pour des motifs sérieux. Elle se fait selon les modalités prévues par l'unité responsable de l'activité de formation.
 
-La reprise d' une évaluation peut donc execptionnellement être autorisée pour des motifs jugés sérieux, dans la mesure où la procédure décrite ci-dessous est respectée. 
+La reprise d'une évaluation peut donc execptionnellement être autorisée pour des motifs jugés sérieux, dans la mesure où la procédure décrite ci-dessous est respectée. 
 
 **Motifs d'absence jugés sérieux**
 
 Les motifs suivants sont jugés sérieux et donc acceptables pour demander une reprise d'évaluation: 
 
-  - Maladie ou accident empêchant de se déplacer;
-  - Hospitalisation;
-  - Maladie grave ou décès d'un proche;
-  - Participation à une activité sportive de haut niveau;
-  - Convocation en cour de justice.
+  - maladie ou accident empêchant de se déplacer;
+  - hospitalisation;
+  - maladie grave ou décès d'un proche;
+  - participation à une activité sportive de haut niveau;
+  - convocation en cour de justice.
 
 **Procédure à suivre**
 
@@ -117,7 +119,7 @@ Dans certains cas, la ou le responsable du cours pourrait adopter une procédure
 
 ## Politique sur l'utilisation d'appareils électroniques
 
-La politique sur l' utilisation d'appareils électroniques de la Faculté des Sciences et de Génie peut être consultée à l' adresse: [lien](https://www.fsg.ulaval.ca/fileadmin/site_facultaire/Espace_facultaire/Étudiants/Politiques_facultaires/_Calculatrices-autorisées-FSG_20250221.pdf).
+La politique sur l'utilisation d'appareils électroniques de la Faculté des Sciences et de Génie peut être consultée à l'adresse: [lien](https://www.fsg.ulaval.ca/fileadmin/site_facultaire/Espace_facultaire/Étudiants/Politiques_facultaires/_Calculatrices-autorisées-FSG_20250221.pdf).
 
 ## Politique sur le plagiat et la fraude académique 
 
