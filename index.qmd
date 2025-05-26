@@ -5,8 +5,13 @@ format: html
 
 Bienvenue à tous au cours STT-2200 de l'automne 2025.
 
-Vous trouverez sur ce site toute les informations nécessaire pour les cours, les différents travaux et les exams. Les contenus seront mis à jour au cours de la session avec les corrigés de certains travaux. Je vous invite à regarder les différents modules avant les cours.
+Vous trouverez sur ce site toute les informations nécessaire pour les cours, les différents travaux et les examens. Les contenus seront mis à jour au cours de la session avec les corrigés de certains travaux. Je vous invite à regarder les différents modules avant les cours.
+
+Ce site a été créé en s'aidant des notes de cours de Aurélien Nicosia et de Thierry Duchesne.
 
 
 Ce site a été créé avec [Quarto](https://quarto.org/docs/websites). 
+
+
+![Data trap ([xkcd:2582](https://xkcd.com/2582/)).](./include/data_trap.png)
 

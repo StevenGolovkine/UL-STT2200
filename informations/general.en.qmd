@@ -8,3 +8,45 @@ format:
 **Faculté des sciences et de génie**
 
 Département de mathématiques et de statistique
+
+## STT-2200: Data Analysis 
+
+Teaching format: Face-to-face
+
+Time spent: 
+
+  - Lecture: 2h
+  - Laboratory: 1h 
+  - Personal work: 6h
+  - Total: 9h
+
+Credits: 3
+
+Prerequisites: 
+
+  - ACT-2000 or STT-1000 or STT-1300 or STT-1900
+  - MAT-1200 or ACT-2002
+  - STT-1100 or IFT-4902 or ECN-2090 or GLO-1901 or IFT-1004
+
+
+Time range: 
+
+| Type   | Day      | Time    | Dates |
+| ------ | -------- | ------- | ----- |
+| Lab    | Tuesday  |         |       |
+| Class  | Friday   |         |       |
+
+
+## Contact details and availability
+
+Teacher: Steven Golovkine 
+
+Local: VCH-2209
+
+Email: [steven.golovkine@mat.ulaval.ca](mailto:steven.golovkine@mat.ulaval.ca)
+
+Availability: I am available to meet with you by appointment by email or without appointment from Monday to Thursday between 8am and 10am.
+
+
+<p style=“font-size:10px;”>The University recognizes the right to disconnect of professors, lecturers and other teaching staff. This means that they are not required to check messages sent to them (email, voicemail, forum messages, etc.) during evenings, weekends and vacations. The person who has sent a message during these periods should therefore expect to receive a reply within a reasonable time, calculated from the resumption of normal working hours.</p>
+
