@@ -8,3 +8,7 @@ format:
 --- 
 
 * Slides: [link](../slides/02-revisions-slides.qmd)
+
+* TD: [link](../td/02-revision-td.qmd)
+
+* TP: [link](../tp/02-revision-tp.qmd)
