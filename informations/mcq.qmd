@@ -12,7 +12,7 @@ format:
 
 Le premier examen est un questionaire à choix multiples avec quantification de l'incertitude.  
 
-L' utilisation de degrés de certitude permet à l'étudiant d'évaluer le niveau de connaissance de la réponse donnée. La barème des notes, basé sur la théorie des décision [@leclercqTASTEApproachGeneral1993], peut sembler bizarre mais il a été fait de tel manière que: 
+L' utilisation de degrés de certitude permet à l'étudiant et à l'étudiante d'évaluer le niveau de connaissance de la réponse donnée. La barème des notes, basé sur la théorie des décision [@leclercqTASTEApproachGeneral1993], peut sembler bizarre mais il a été fait de tel manière que: 
 
 * dire la vérité soit la stratégie qui rapporte le plus de points;
 * ceux qui s'auto-évaluent bien gagnent plus de points que si l'on appliquait un barème correctif tenant compte des probabilités d'avoir la réponse correcte aléatoirement.

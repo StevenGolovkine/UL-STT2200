@@ -5,4 +5,39 @@ format:
   pdf: default
 ---
 
+Cette page regroupe différentes ressources utiles pour le cours.
+
+
+**The Elements of Statistical Learning: Data Mining, Inference and Prediction**, 2nd Edition
+
+Auteurs: Trevor Hastie, Robert Tibshirani et Jerome Friedman
+
+Éditeur: Springer (New York, 2009)
+
+ISBN: 0-387-84857-0
+
+Lien: [site web des authors](https://hastie.su.domains/ElemStatLearn/)
+
+
+**An Introduction to Statistical Learning: with application in R**, 2nd Edition
+
+Auteurs: Gareth James, Daniela Witten, Trevor Hastie et Robert Tibshirani 
+
+Éditeur: Springer (New York, 2021)
+
+ISBN: 1-0716-1417-4
+
+Lien: [site web des authors](https://www.statlearning.com)
+
+
+**An Introduction to Statistical Learning: with application in Python**
+
+Auteurs:  Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani et Jonathan Taylor
+
+Éditeur: Springer (Suisse, 2023)
+
+ISBN: 3-031-38746-3
+
+Lien: [site web des authors](https://www.statlearning.com)
+
 

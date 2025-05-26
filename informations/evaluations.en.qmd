@@ -98,7 +98,8 @@ Any resits granted under the Department's resit policy will take place on the fa
 These conditions apply in accordance with articles 4.41 and 4.42 of the Réglement des études de l'Université Laval: 
 
 * **Article 4.41:** Any failure to submit to an evaluation activity will result in a grade of zero for that evaluation activity, unless the student demonstrates that the omission is attributable to serious reasons.
-  **Article 4.42:** An evaluation may be repeated for serious reasons. This is done in accordance with the procedures laid down by the unit responsible for the training activity.
+
+* **Article 4.42:** An evaluation may be repeated for serious reasons. This is done in accordance with the procedures laid down by the unit responsible for the training activity.
 
 The retaking of an assessment may therefore exceptionally be authorized for reasons deemed serious, as long as the procedure described below is followed. 
 

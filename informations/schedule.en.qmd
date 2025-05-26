@@ -5,4 +5,8 @@ format:
   pdf: default
 --- 
 
+The plan is given for information only.
+
+| Week   | Date   | Hour  | Plan  | Evaluations  |
+| -----: | -----: | ----: | :---: | -----------: |
 

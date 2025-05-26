@@ -2,11 +2,13 @@
 title: "Introduction"
 format: 
   html: default
-  pdf: default
+  pdf:
+    number-sections: true
 ---
 
 
 * Slides: [link](../slides/01-introduction-slides.qmd)
+
 
 ## Qu'est-ce que l'analyse de données ?
 
@@ -14,25 +16,26 @@ L'analyse de données est un ensemble de méthodes permettant de retirer de l'in
 L'idée est d'utiliser des modèles statistiques pour comprendre comment les données sont structurées et comment elles intéragissent l'une avec l'autre. 
 
 ::: {.callout-note icon=false}
-## Example
+## Exemple
 
-Imaginons que vous êtes le gérant d'un magasin. Vous aimeriez savoir quand ouvrir votre magasin pour maximiser votre chiffre d'affaires. Pour cela, vous pouvez comptez le nombre de clients par heure pendant une période de temps, disons un mois, et ensuite s'interesser 
-à comment ses données sont structurées par rapport aux horaires d'ouverture.
+Imaginons que vous êtes employé par l'Organisation des Nations Unies (ONU). Votre mission est d'analyser l'espérance de vie à travers le monde. Pour celà, vous disposez d'une mesure de l'espérance de vie dans chaque pays membre de l'ONU, bien sûr, mais aussi le PIB par habitant, les montants des dépenses liés à la santé, le taux de fertilité, le taux d'urbanisation, le niveau d'éducation du pays, etc. Le but de l'analyse de données est de trouver des liens entre ses différentes variables et la variable d'intérêt, l'espérance de vie, de visualiser ces données, et éventuellement de prédire l'espérance de vie à partir des autres variables. 
 
 ::: 
 
 
 
-## Objectifs
+## Objectifs du cours
+
+Dans ce cours, on cherche à introduire des méthodes qui permettent une étude d'un jeu de données de "haute dimension" (dans le sens où l'on ne peut pas faire un simple graphique de l'ensemble des variables pour chaque observation) sans avoir recours à un modèle probabiliste. Les différentes techniques que l'on va voir peuvent servir à:
+
+* visualiser les données;
+
+* réduire la dimension des données;
+
+* identifier certains liens entre les variables;
+
+* diviser le jeu de données en groupes/classes.
 
 
 Ce cours n'a pas vocation à être exhaustif, dans le sens de présenter toutes les méthodes possibles. Ce cours n'a pas non plus vocation à être à l'état de l'art, dans le sens où on ne s'intéressera pas aux derniers développements en apprentissage machine. Ce cours n'est pas non plus un cours de programmation.
 
-
-## Pratique de programmation
-
-* Conseils généraux
-
-* Spécifique à R 
-
-* Spécifique à Python 
