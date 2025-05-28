@@ -7,30 +7,56 @@ format:
       - \usepackage{mathtools} 
 ---
 
+Dans cette partie, on présente quelques résultats d'algèbre linéaire utile dans le cadre de ce cours. Pour plus d'information, vous pouvez vous référer au cours MAT-1200, [@deisenrothMathematicsMachineLearning2020] (en anglais) et [@grifoneAlgebreLineaire2024] (en fran\c{c}ais).
 
-## Révisions d'algèbre linéaire 
 
-Cf. cours MAT-1200. Donner quelques reférences.
+## Quelques propriétés matricielles 
 
-Notons $M$, $N$ et $P$ des matrices de taille $n \times m$, $A$ et $B$ des matrices carrées et $I_n$ la matrice identités, de dimension $n \times n$, et $u$ et $v$ des vecteurs colonnes de taille $n$.
+Notons $M_{n, m}(\mathbb{R})$, l'ensemble des matrices à $n$ lignes et $m$ colonnes dont les entrées appartiennent à $\mathbb{R}$. Notons $M_{n}(\mathbb{R})$, l'ensemble des matrices carrées de taille $n$, i.e. à $n$ lignes et $n$ colonnes dont les entrées appartiennent à $\mathbb{R}$. Soient $M$, $N$ et $P$ des matrices appartenant à $M_{n, m}(\mathbb{R})$. Soient $A$ et $B$ des matrices appartenant à $M_{n}(\mathbb{R})$. Notons $I_n$ la matrice identité de taille $n$, i.e. qui contient des $1$ sur le diagonale et des $0$ sur les éléments hors de la diagonale. Soient $u$ et $v$ appartenant à $\mathbb{R}^n$, i.e. des vecteurs colonnes de taille $n$.
 
 ::: {.callout-important icon=false}
 ## Propriétés de l'inverse
 
-$$(AB)^{-1} = B^{-1} A^{-1}$$
+Supposons que les matrices $A$ et $B$ sont inversibles. Alors le produit matriciel $AB$ est inversible et est donné par:
 
-::: 
+$$(AB)^{-1} = B^{-1} A^{-1}.$$
+
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Preuve
+
+Posons $C = AB$ et $D = B^{-1} A^{-1}$. Alors 
+
+\begin{align*}
+  CD &= A B B^{-1} A^{-1} \\
+     &= A A^{-1} \\
+     &= I_n 
+\end{align*}
+
+De même fa\c{c}on, on trouve que $DC = I_n$. Ainsi, $AB$ est inversible et son inverse est donné par $B^{-1} A^{-1}$.
+
+:::
 
 ::: {.callout-important icon=false}
 ## Propriétés du déterminant
 
-\begin{align*}
-  \text{det}(A^\top) &= \text{det}(A) \\
-  \text{det}(A^{-1}) &= 1 / \text{det}(A) \\
-  \text{det}(AB) &= \text{det}(A)\text{det}(B)
-\end{align*}
+Concernant le déterminant, on a:
+
+1. $\text{det}(A^\top) = \text{det}(A)$,
+
+2. $\text{det}(AB) = \text{det}(A)\text{det}(B)$,
+
+3. $\text{det}(A^{-1}) = 1 / \text{det}(A)$.
 
 ::: 
+
+::: {.callout-note icon=false collapse=true}
+## Preuve
+
+Les preuves des propriétés $1$ et $2$ sont techniques et sont donc omises, mais peuvent être trouvé, par exemple, [ici](https://mbernste.github.io/posts/determinantsformula/). Pour ce qui est de la troisième propriété, par définition, on a $A A^{-1} = I_n$. Le déterminant de $I_n$ est égale à $1$ (produit des éléments sur la diagonale). Donc $\text{det}(A A^{-1}) = 1$. Or, d'après la deuxième propriété, $\text{det}(A A^{-1}) = \text{det}(A)\text{det}(A^{-1})$. On a donc bien $\text{det}(A^{-1}) = 1 / \text{det}(A)$.
+
+:::
 
 ::: {.callout-important icon=false}
 ## Propriétés de la trace
