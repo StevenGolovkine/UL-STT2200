@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script><script src="../../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../../site_libs/quarto-search/fuse.min.js"></script><script src="../../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../../">
 <link href="../../contents/remainders/02-probabilities.html" rel="next">
 <link href="../../contents/02-revisions.html" rel="prev">
@@ -597,7 +617,7 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-<li><a href="#r%C3%A9visions-dalg%C3%A8bre-lin%C3%A9aire" id="toc-révisions-dalgèbre-linéaire" class="nav-link active" data-scroll-target="#révisions-dalgèbre-linéaire">Révisions d’algèbre linéaire</a></li>
+<li><a href="#quelques-propri%C3%A9t%C3%A9s-matricielles" id="toc-quelques-propriétés-matricielles" class="nav-link active" data-scroll-target="#quelques-propriétés-matricielles">Quelques propriétés matricielles</a></li>
   </ul>
 <div class="toc-actions"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
@@ -628,9 +648,9 @@ window.Quarto = {
   
 
 
-</header><section id="révisions-dalgèbre-linéaire" class="level2"><h2 class="anchored" data-anchor-id="révisions-dalgèbre-linéaire">Révisions d’algèbre linéaire</h2>
-<p>Cf. cours MAT-1200. Donner quelques reférences.</p>
-<p>Notons <span class="math inline">\(M\)</span>, <span class="math inline">\(N\)</span> et <span class="math inline">\(P\)</span> des matrices de taille <span class="math inline">\(n \times m\)</span>, <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> des matrices carrées et <span class="math inline">\(I_n\)</span> la matrice identités, de dimension <span class="math inline">\(n \times n\)</span>, et <span class="math inline">\(u\)</span> et <span class="math inline">\(v\)</span> des vecteurs colonnes de taille <span class="math inline">\(n\)</span>.</p>
+</header><p>Dans cette partie, on présente quelques résultats d’algèbre linéaire utile dans le cadre de ce cours. Pour plus d’information, vous pouvez vous référer au cours MAT-1200, <span class="citation" data-cites="deisenrothMathematicsMachineLearning2020">(<a href="#ref-deisenrothMathematicsMachineLearning2020" role="doc-biblioref">Deisenroth, Faisal, et Ong 2020</a>)</span> (en anglais) et <span class="citation" data-cites="grifoneAlgebreLineaire2024">(<a href="#ref-grifoneAlgebreLineaire2024" role="doc-biblioref">Grifone 2024</a>)</span> (en franais).</p>
+<section id="quelques-propriétés-matricielles" class="level2"><h2 class="anchored" data-anchor-id="quelques-propriétés-matricielles">Quelques propriétés matricielles</h2>
+<p>Notons <span class="math inline">\(M_{n, m}(\mathbb{R})\)</span>, l’ensemble des matrices à <span class="math inline">\(n\)</span> lignes et <span class="math inline">\(m\)</span> colonnes dont les entrées appartiennent à <span class="math inline">\(\mathbb{R}\)</span>. Notons <span class="math inline">\(M_{n}(\mathbb{R})\)</span>, l’ensemble des matrices carrées de taille <span class="math inline">\(n\)</span>, i.e. à <span class="math inline">\(n\)</span> lignes et <span class="math inline">\(n\)</span> colonnes dont les entrées appartiennent à <span class="math inline">\(\mathbb{R}\)</span>. Soient <span class="math inline">\(M\)</span>, <span class="math inline">\(N\)</span> et <span class="math inline">\(P\)</span> des matrices appartenant à <span class="math inline">\(M_{n, m}(\mathbb{R})\)</span>. Soient <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> des matrices appartenant à <span class="math inline">\(M_{n}(\mathbb{R})\)</span>. Notons <span class="math inline">\(I_n\)</span> la matrice identité de taille <span class="math inline">\(n\)</span>, i.e. qui contient des <span class="math inline">\(1\)</span> sur le diagonale et des <span class="math inline">\(0\)</span> sur les éléments hors de la diagonale. Soient <span class="math inline">\(u\)</span> et <span class="math inline">\(v\)</span> appartenant à <span class="math inline">\(\mathbb{R}^n\)</span>, i.e. des vecteurs colonnes de taille <span class="math inline">\(n\)</span>.</p>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -641,7 +661,30 @@ Propriétés de l’inverse
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><span class="math display">\[(AB)^{-1} = B^{-1} A^{-1}\]</span></p>
+<p>Supposons que les matrices <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> sont inversibles. Alors le produit matriciel <span class="math inline">\(AB\)</span> est inversible et est donné par:</p>
+<p><span class="math display">\[(AB)^{-1} = B^{-1} A^{-1}.\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Preuve
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Posons <span class="math inline">\(C = AB\)</span> et <span class="math inline">\(D = B^{-1} A^{-1}\)</span>. Alors</p>
+<p><span class="math display">\[\begin{align*}
+  CD &amp;= A B B^{-1} A^{-1} \\
+     &amp;= A A^{-1} \\
+     &amp;= I_n
+\end{align*}\]</span></p>
+<p>De même faon, on trouve que <span class="math inline">\(DC = I_n\)</span>. Ainsi, <span class="math inline">\(AB\)</span> est inversible et son inverse est donné par <span class="math inline">\(B^{-1} A^{-1}\)</span>.</p>
+</div>
 </div>
 </div>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
@@ -654,11 +697,28 @@ Propriétés du déterminant
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><span class="math display">\[\begin{align*}
-  \text{det}(A^\top) &amp;= \text{det}(A) \\
-  \text{det}(A^{-1}) &amp;= 1 / \text{det}(A) \\
-  \text{det}(AB) &amp;= \text{det}(A)\text{det}(B)
-\end{align*}\]</span></p>
+<p>Concernant le déterminant, on a:</p>
+<ol type="1">
+<li><p><span class="math inline">\(\text{det}(A^\top) = \text{det}(A)\)</span>,</p></li>
+<li><p><span class="math inline">\(\text{det}(AB) = \text{det}(A)\text{det}(B)\)</span>,</p></li>
+<li><p><span class="math inline">\(\text{det}(A^{-1}) = 1 / \text{det}(A)\)</span>.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Preuve
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Les preuves des propriétés <span class="math inline">\(1\)</span> et <span class="math inline">\(2\)</span> sont techniques et sont donc omises, mais peuvent être trouvé, par exemple, <a href="https://mbernste.github.io/posts/determinantsformula/">ici</a>. Pour ce qui est de la troisième propriété, par définition, on a <span class="math inline">\(A A^{-1} = I_n\)</span>. Le déterminant de <span class="math inline">\(I_n\)</span> est égale à <span class="math inline">\(1\)</span> (produit des éléments sur la diagonale). Donc <span class="math inline">\(\text{det}(A A^{-1}) = 1\)</span>. Or, d’après la deuxième propriété, <span class="math inline">\(\text{det}(A A^{-1}) = \text{det}(A)\text{det}(A^{-1})\)</span>. On a donc bien <span class="math inline">\(\text{det}(A^{-1}) = 1 / \text{det}(A)\)</span>.</p>
+</div>
 </div>
 </div>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
@@ -703,7 +763,16 @@ Propriétés de la trace
 <p>Soit deux matrices symétriques, <span class="math inline">\(A\)</span> et <span class="math inline">\(M\)</span>, comment déterminer le vecteur <span class="math inline">\(u\)</span> tel que <span class="math inline">\(u^{\top}Au\)</span> soit maximal, sachant que <span class="math inline">\(u^{\top}Mu = 1\)</span> ? Il faut prendre <span class="math inline">\(u\)</span> comment le vecteur propre de <span class="math inline">\(M^{-1}A\)</span> associé à <span class="math inline">\(\lambda\)</span> la valeur propre maximale de <span class="math inline">\(M^{-1}A\)</span>. On obtient ainsi <span class="math display">\[u^{\top} A u = u^{\top}\lambda M u = \lambda U^{\top} M u = \lambda.\]</span></p>
 
 
-</section></main><!-- /main --><script>
+
+</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Les références</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-deisenrothMathematicsMachineLearning2020" class="csl-entry" role="listitem">
+Deisenroth, Marc Peter, A. Aldo Faisal, et Cheng Soon Ong. 2020. <em>Mathematics for <span>Machine Learning</span></em>. 1ʳᵉ éd. Cambridge University Press. <a href="https://doi.org/10.1017/9781108679930">https://doi.org/10.1017/9781108679930</a>.
+</div>
+<div id="ref-grifoneAlgebreLineaire2024" class="csl-entry" role="listitem">
+Grifone, Joseph. 2024. <em><span>Alg<span>è</span>bre Lin<span>é</span>aire</span></em>. 7e edition. Toulouse: CEPADUES.
+</div>
+</div></section></div></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
