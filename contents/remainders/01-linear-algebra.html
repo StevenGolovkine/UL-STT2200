@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.31">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Algèbre – STT-2200: Analyse de données</title>
+<title>Algèbre linéaire – STT-2200: Analyse de données</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -104,7 +104,7 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script><meta property="og:title" content="Algèbre – STT-2200: Analyse de données">
+</script><meta property="og:title" content="Algèbre linéaire – STT-2200: Analyse de données">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
@@ -279,7 +279,7 @@ window.Quarto = {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/02-revisions.html">02 - Révisions</a></li>
-<li class="breadcrumb-item"><a href="../../contents/remainders/01-linear-algebra.html">Algèbre</a></li>
+<li class="breadcrumb-item"><a href="../../contents/remainders/01-linear-algebra.html">Algèbre linéaire</a></li>
 </ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
@@ -385,7 +385,7 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/remainders/01-linear-algebra.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Algèbre</span></a>
+ <span class="menu-text">Algèbre linéaire</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -618,6 +618,8 @@ window.Quarto = {
    
   <ul>
 <li><a href="#quelques-propri%C3%A9t%C3%A9s-matricielles" id="toc-quelques-propriétés-matricielles" class="nav-link active" data-scroll-target="#quelques-propriétés-matricielles">Quelques propriétés matricielles</a></li>
+  <li><a href="#valeurs-et-vecteurs-propres" id="toc-valeurs-et-vecteurs-propres" class="nav-link" data-scroll-target="#valeurs-et-vecteurs-propres">Valeurs et vecteurs propres</a></li>
+  <li><a href="#diagonalisation-de-matrices" id="toc-diagonalisation-de-matrices" class="nav-link" data-scroll-target="#diagonalisation-de-matrices">Diagonalisation de matrices</a></li>
   </ul>
 <div class="toc-actions"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
@@ -632,9 +634,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/02-revisions.html">02 - Révisions</a></li>
-<li class="breadcrumb-item"><a href="../../contents/remainders/01-linear-algebra.html">Algèbre</a></li>
+<li class="breadcrumb-item"><a href="../../contents/remainders/01-linear-algebra.html">Algèbre linéaire</a></li>
 </ol></nav><div class="quarto-title">
-<h1 class="title">Algèbre</h1>
+<h1 class="title">Algèbre linéaire</h1>
 </div>
 
 
@@ -648,7 +650,7 @@ window.Quarto = {
   
 
 
-</header><p>Dans cette partie, on présente quelques résultats d’algèbre linéaire utile dans le cadre de ce cours. Pour plus d’information, vous pouvez vous référer au cours MAT-1200, <span class="citation" data-cites="deisenrothMathematicsMachineLearning2020">(<a href="#ref-deisenrothMathematicsMachineLearning2020" role="doc-biblioref">Deisenroth, Faisal, et Ong 2020</a>)</span> (en anglais) et <span class="citation" data-cites="grifoneAlgebreLineaire2024">(<a href="#ref-grifoneAlgebreLineaire2024" role="doc-biblioref">Grifone 2024</a>)</span> (en franais).</p>
+</header><p>Dans cette partie, on présente quelques résultats d’algèbre linéaire utiles dans le cadre de ce cours. Pour plus d’information, vous pouvez vous référer au cours MAT-1200, à <span class="citation" data-cites="deisenrothMathematicsMachineLearning2020">Deisenroth, Faisal, et Ong (<a href="#ref-deisenrothMathematicsMachineLearning2020" role="doc-biblioref">2020</a>)</span> (en anglais) et à <span class="citation" data-cites="grifoneAlgebreLineaire2024">Grifone (<a href="#ref-grifoneAlgebreLineaire2024" role="doc-biblioref">2024</a>)</span> (en français).</p>
 <section id="quelques-propriétés-matricielles" class="level2"><h2 class="anchored" data-anchor-id="quelques-propriétés-matricielles">Quelques propriétés matricielles</h2>
 <p>Notons <span class="math inline">\(M_{n, m}(\mathbb{R})\)</span>, l’ensemble des matrices à <span class="math inline">\(n\)</span> lignes et <span class="math inline">\(m\)</span> colonnes dont les entrées appartiennent à <span class="math inline">\(\mathbb{R}\)</span>. Notons <span class="math inline">\(M_{n}(\mathbb{R})\)</span>, l’ensemble des matrices carrées de taille <span class="math inline">\(n\)</span>, i.e. à <span class="math inline">\(n\)</span> lignes et <span class="math inline">\(n\)</span> colonnes dont les entrées appartiennent à <span class="math inline">\(\mathbb{R}\)</span>. Soient <span class="math inline">\(M\)</span>, <span class="math inline">\(N\)</span> et <span class="math inline">\(P\)</span> des matrices appartenant à <span class="math inline">\(M_{n, m}(\mathbb{R})\)</span>. Soient <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> des matrices appartenant à <span class="math inline">\(M_{n}(\mathbb{R})\)</span>. Notons <span class="math inline">\(I_n\)</span> la matrice identité de taille <span class="math inline">\(n\)</span>, i.e. qui contient des <span class="math inline">\(1\)</span> sur le diagonale et des <span class="math inline">\(0\)</span> sur les éléments hors de la diagonale. Soient <span class="math inline">\(u\)</span> et <span class="math inline">\(v\)</span> appartenant à <span class="math inline">\(\mathbb{R}^n\)</span>, i.e. des vecteurs colonnes de taille <span class="math inline">\(n\)</span>.</p>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
@@ -657,11 +659,11 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Propriétés de l’inverse
+Propriétés de l’inverse de matrices
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Supposons que les matrices <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> sont inversibles. Alors le produit matriciel <span class="math inline">\(AB\)</span> est inversible et est donné par:</p>
+<p>Supposons que les matrices <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> soient inversibles. Alors le produit matriciel <span class="math inline">\(AB\)</span> est inversible et est donné par:</p>
 <p><span class="math display">\[(AB)^{-1} = B^{-1} A^{-1}.\]</span></p>
 </div>
 </div>
@@ -683,7 +685,7 @@ Preuve
      &amp;= A A^{-1} \\
      &amp;= I_n
 \end{align*}\]</span></p>
-<p>De même faon, on trouve que <span class="math inline">\(DC = I_n\)</span>. Ainsi, <span class="math inline">\(AB\)</span> est inversible et son inverse est donné par <span class="math inline">\(B^{-1} A^{-1}\)</span>.</p>
+<p>De la même façon, on trouve que <span class="math inline">\(DC = I_n\)</span>. Ainsi, <span class="math inline">\(AB\)</span> est inversible et son inverse est donné par <span class="math inline">\(B^{-1} A^{-1}\)</span>.</p>
 </div>
 </div>
 </div>
@@ -693,11 +695,11 @@ Preuve
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Propriétés du déterminant
+Propriétés du déterminant de matrices
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Concernant le déterminant, on a:</p>
+<p>Considérant les matrices définies en début de section, on a :</p>
 <ol type="1">
 <li><p><span class="math inline">\(\text{det}(A^\top) = \text{det}(A)\)</span>,</p></li>
 <li><p><span class="math inline">\(\text{det}(AB) = \text{det}(A)\text{det}(B)\)</span>,</p></li>
@@ -717,7 +719,7 @@ Preuve
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Les preuves des propriétés <span class="math inline">\(1\)</span> et <span class="math inline">\(2\)</span> sont techniques et sont donc omises, mais peuvent être trouvé, par exemple, <a href="https://mbernste.github.io/posts/determinantsformula/">ici</a>. Pour ce qui est de la troisième propriété, par définition, on a <span class="math inline">\(A A^{-1} = I_n\)</span>. Le déterminant de <span class="math inline">\(I_n\)</span> est égale à <span class="math inline">\(1\)</span> (produit des éléments sur la diagonale). Donc <span class="math inline">\(\text{det}(A A^{-1}) = 1\)</span>. Or, d’après la deuxième propriété, <span class="math inline">\(\text{det}(A A^{-1}) = \text{det}(A)\text{det}(A^{-1})\)</span>. On a donc bien <span class="math inline">\(\text{det}(A^{-1}) = 1 / \text{det}(A)\)</span>.</p>
+<p>Les preuves des propriétés <span class="math inline">\(1\)</span> et <span class="math inline">\(2\)</span> sont techniques et sont omises, mais peuvent être trouvées, par exemple, <a href="https://mbernste.github.io/posts/determinantsformula/">ici</a>. Pour ce qui est de la troisième propriété, par définition, on a <span class="math inline">\(A A^{-1} = I_n\)</span>. Le déterminant de <span class="math inline">\(I_n\)</span> est égale à <span class="math inline">\(1\)</span> (produit des éléments sur la diagonale). Donc <span class="math inline">\(\text{det}(A A^{-1}) = 1\)</span>. Or, d’après la deuxième propriété, <span class="math inline">\(\text{det}(A A^{-1}) = \text{det}(A)\text{det}(A^{-1})\)</span>. On a donc bien <span class="math inline">\(\text{det}(A^{-1}) = 1 / \text{det}(A)\)</span>.</p>
 </div>
 </div>
 </div>
@@ -727,40 +729,209 @@ Preuve
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Propriétés de la trace
+Propriétés de la trace de matrices
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><span class="math display">\[\begin{align*}
-  \text{tr}(A + B) &amp;= \text{tr}(A) + \text{tr}(B) \\
-  \text{tr}(MN) &amp;= \text{tr}(NM)
-\end{align*}\]</span></p>
+<p>Considérant les matrices définies en début de section, on a :</p>
+<ol type="1">
+<li><p><span class="math inline">\(\text{tr}(A) = \text{tr}(A^{\top})\)</span>,</p></li>
+<li><p><span class="math inline">\(\text{tr}(A + B) = \text{tr}(A) + \text{tr}(B)\)</span>,</p></li>
+<li><p><span class="math inline">\(\text{tr}(MN^{\top}) = \text{tr}(N^{\top}M)\)</span>.</p></li>
+</ol>
 </div>
 </div>
-<p>Propriété de matrices:</p>
-<ul>
-<li><p>Soit <span class="math inline">\(A\)</span> une matrice symmétrique de dimension <span class="math inline">\(n \times n\)</span>. <span class="math inline">\(A\)</span> est définie positive si elle est positive et inversible, c’est-à-dire si <span class="math inline">\(u^\top A u &gt; 0\)</span> pour tout <span class="math inline">\(x \in \mathbb{R}^n\)</span> tel que <span class="math inline">\(x \neq 0\)</span>.</p></li>
-<li><p>Soit <span class="math inline">\(A\)</span> une matrice carrée à valeur dans <span class="math inline">\(\mathbb{R}\)</span>. <span class="math inline">\(A\)</span> est orthogonal si <span class="math inline">\(A^\top A = A A^\top = I_n\)</span>.</p></li>
-</ul>
-<p>Valeurs et vecteurs propres:</p>
-<ul>
-<li><p>Soit <span class="math inline">\(A\)</span> une matrice carrée de dimension <span class="math inline">\(n \times n\)</span>. On dit que <span class="math inline">\(\lambda\)</span> est une valeur propre de <span class="math inline">\(A\)</span> si il existe un vecteur <span class="math inline">\(u \neq 0 \in \mathbb{R}^n\)</span> tel que <span class="math display">\[Au = \lambda u.\]</span> Le vecteur <span class="math inline">\(u\)</span> est appelé vecteur propre correspondant à la valeur propre <span class="math inline">\(\lambda\)</span> et l’ensemble des nombres réels <span class="math inline">\(\lambda\)</span> satidfaisant l’équation est appelé spectre de la matrice <span class="math inline">\(A\)</span> et noté <span class="math inline">\(\text{sp}(A)\)</span>.</p></li>
-<li><p>Si <span class="math inline">\(u\)</span> est un vecteur propre de <span class="math inline">\(A\)</span> correspondant à une valeur propre <span class="math inline">\(\lambda\)</span>, alors <span class="math inline">\(cu\)</span>, <span class="math inline">\(c \neq 0 \in \mathbb{R}\)</span> sera également un vecteur propre de <span class="math inline">\(A\)</span> correspondant à <span class="math inline">\(\lambda\)</span>.</p></li>
-<li><p>Si <span class="math inline">\(A\)</span> est symmétrique et <span class="math inline">\(u_{1}\)</span> et <span class="math inline">\(u_{2}\)</span> sont des vecteurs propres correspondant à des valeurs propres différentes de <span class="math inline">\(A\)</span>, alors <span class="math inline">\(u_{1}\)</span> et <span class="math inline">\(u_{2}\)</span> sont orthogonaux, <em>i.e.</em> <span class="math inline">\(u_{1}^\top u_{2} = 0\)</span>.</p></li>
-<li><p>Si <span class="math inline">\(A\)</span> a comme valeurs propres (réelles, mais pas forcément distinctes) <span class="math inline">\(\lambda_{1}, \dots, \lambda_{n}\)</span>, alors <span class="math display">\[\text{A} = \prod_{i = 1}^{n} \lambda_i \quad\text{et}\quad \text{tr}(A) = \sum_{i = 1}^{n} \lambda_i.\]</span></p></li>
-<li><p>Si <span class="math inline">\(A\)</span> est symmétrique, <strong>toutes</strong> ses valeurs propres sont réelles.</p></li>
-<li><p>Si <span class="math inline">\(A\)</span> est définie positive, alors toutes ses valeurs propres sont positives.</p></li>
-</ul>
-<p>Diagonalisation de matrices:</p>
-<ul>
-<li>Soit <span class="math inline">\(A\)</span> une matrice carrée de dimension <span class="math inline">\(n \times n\)</span>. On dit que <span class="math inline">\(A\)</span> est diagonalisable s’il existe une matrice carrée <span class="math inline">\(n \times n\)</span> non-singulière <span class="math inline">\(P\)</span> et une matrice <span class="math inline">\(n \times n\)</span> diagonale <span class="math inline">\(D\)</span> telles que <span class="math display">\[P^{-1} A P = D \leftrightarrow A = P D P^{-1}.\]</span>
-</li>
-</ul>
-<p>Toute matrice carrée symmétrique est diagonalisable part une matrice orthogonal <span class="math inline">\(P\)</span>.</p>
-<p>Théorème de décomposition spectrale:</p>
-<p>Soit <span class="math inline">\(A\)</span> une matrice carrée symmétrique de dimension <span class="math inline">\(n \times n\)</span> et ses <span class="math inline">\(n\)</span> valeurs propres <span class="math inline">\(\lambda_{1}, \dots, \lambda_n\)</span>. Alors il existe une matrice orthogonal <span class="math inline">\(P\)</span> telle que <span class="math display">\[A = P \Lambda P^\top, \quad\text{où}\quad \Lambda = \text{diag}(\lambda_1, \dots, \lambda_n).\]</span></p>
-<p>Si <span class="math inline">\(A\)</span> admet <span class="math inline">\(n\)</span> valeurs propres positives distinctes, alors on peut prendre <span class="math inline">\(P\)</span> comme la matrice dont la <span class="math inline">\(k\)</span>e coloone est le vacteur propre normé correspondant à la <span class="math inline">\(k\)</span>e valeur propre <span class="math inline">\(\lambda_k\)</span>.</p>
-<p>Soit deux matrices symétriques, <span class="math inline">\(A\)</span> et <span class="math inline">\(M\)</span>, comment déterminer le vecteur <span class="math inline">\(u\)</span> tel que <span class="math inline">\(u^{\top}Au\)</span> soit maximal, sachant que <span class="math inline">\(u^{\top}Mu = 1\)</span> ? Il faut prendre <span class="math inline">\(u\)</span> comment le vecteur propre de <span class="math inline">\(M^{-1}A\)</span> associé à <span class="math inline">\(\lambda\)</span> la valeur propre maximale de <span class="math inline">\(M^{-1}A\)</span>. On obtient ainsi <span class="math display">\[u^{\top} A u = u^{\top}\lambda M u = \lambda U^{\top} M u = \lambda.\]</span></p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Preuve
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Pour une matrice carré <span class="math inline">\(A\)</span>, notons <span class="math inline">\(a_{ij}\)</span>, l’élément de la matrice <span class="math inline">\(A\)</span> à la ligne <span class="math inline">\(i\)</span> et à la colonne <span class="math inline">\(j\)</span>. La trace de <span class="math inline">\(A\)</span> est donnée par la somme des éléments diagonaux, i.e. <span class="math inline">\(\text{tr}(A) = \sum_{i = 1}^{n} a_{ii}\)</span>.</p>
+<ol type="1">
+<li><p>La transposition ne changeant pas les éléments diagonaux, le résultat est direct.</p></li>
+<li><p>Notons <span class="math inline">\(C = A + B\)</span>. Comme <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> sont des matrices carrées, <span class="math inline">\(C\)</span> est une matrice carrée. On a <span class="math inline">\(c_{ij} = a_{ij} + b_{ij}\)</span> pour tout <span class="math inline">\(i, j = 1, \dots, n\)</span>. Donc <span class="math display">\[\text{tr}(A + B) = \text{tr}(C) = \sum_{i = 1}^{n} c_{ii} = \sum_{i = 1}^{n} a_{ii} + b_{ii} = \sum_{i = 1}^{n} a_{ii} + \sum_{i = 1}^{n} b_{ii} = \text{tr}(A) + \text{tr}(B).\]</span></p></li>
+<li><p>Les matrices <span class="math inline">\(M N^{\top}\)</span> et <span class="math inline">\(N^{\top} M\)</span> sont carrées, de dimension respectives <span class="math inline">\(n \times n\)</span> et <span class="math inline">\(m \times m\)</span>, on peut donc bien calculer leur trace. Notons <span class="math inline">\(C = M N^{\top}\)</span> et <span class="math inline">\(D = N^{\top} M\)</span>. <span class="math display">\[\text{tr}(M N^{\top}) = \text{tr}(C) = \sum_{i = 1}^{n} c_{ii} = \sum_{i = 1}^{n} \sum_{j = 1}^{m} m_{ij} n_{ji} = \sum_{j = 1}^{m} \sum_{i = 1}^{n} n_{ji} m_{ij} = \sum_{j = 1}^{m} d_{jj} = \text{tr}(D)  = \text{tr}(N^{\top} M).\]</span></p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Définition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Soit <span class="math inline">\(A\)</span> une matrice symétrique appartenant à <span class="math inline">\(M_n(\mathbb{R})\)</span>. <span class="math inline">\(A\)</span> est <strong>définie positive</strong> si <span class="math inline">\(u^\top A u &gt; 0\)</span> pour tout <span class="math inline">\(u \in \mathbb{R}^n\)</span> tel que <span class="math inline">\(u \neq 0\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(A\)</span> appartenant à <span class="math inline">\(M_n(\mathbb{R})\)</span>. <span class="math inline">\(A\)</span> est <strong>orthogonal</strong> si <span class="math inline">\(A^\top A = A A^\top = I_n\)</span>.</p></li>
+</ol>
+</div>
+</div>
+</section><section id="valeurs-et-vecteurs-propres" class="level2"><h2 class="anchored" data-anchor-id="valeurs-et-vecteurs-propres">Valeurs et vecteurs propres</h2>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Définition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soit <span class="math inline">\(A\)</span> appartenant à <span class="math inline">\(M_n(\mathbb{R})\)</span>. On dit que <span class="math inline">\(\lambda \in \mathbb{R}\)</span> est une <strong>valeur propre</strong> de <span class="math inline">\(A\)</span> s’il existe un vecteur <span class="math inline">\(u \in \mathbb{R}^n\)</span> non nul tel que <span id="eq-eigen"><span class="math display">\[Au = \lambda u. \tag{1}\]</span></span> Le vecteur <span class="math inline">\(u\)</span> est appelé <strong>vecteur propre</strong> de <span class="math inline">\(A\)</span> correspondant à la valeur propre <span class="math inline">\(\lambda\)</span>.</p>
+<p>L’ensemble des nombres réels <span class="math inline">\(\lambda\)</span> satisfaisant <a href="#eq-eigen" class="quarto-xref">Équation 1</a> est appelé <strong>spectre</strong> de la matrice <span class="math inline">\(A\)</span> et noté <span class="math inline">\(\text{sp}(A)\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Propriété des vecteurs propres
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Si <span class="math inline">\(u\)</span> est un vecteur propre de <span class="math inline">\(A\)</span> correspondant à une valeur propre <span class="math inline">\(\lambda\)</span>, alors le vecteur <span class="math inline">\(cu\)</span>, <span class="math inline">\(c \in \mathbb{R}^\star\)</span> est également un vecteur propre de <span class="math inline">\(A\)</span> correspondant à <span class="math inline">\(\lambda\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(A\)</span> est symétrique et <span class="math inline">\(u_{1}\)</span> et <span class="math inline">\(u_{2}\)</span> sont des vecteurs propres correspondant à des valeurs propres différentes de <span class="math inline">\(A\)</span>, alors <span class="math inline">\(u_{1}\)</span> et <span class="math inline">\(u_{2}\)</span> sont orthogonaux, i.e. <span class="math inline">\(u_{1}^\top u_{2} = 0\)</span>.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Preuve
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Soit <span class="math inline">\(c \in \mathbb{R}^\star\)</span> et <span class="math inline">\(u\)</span> un vecteur propre de <span class="math inline">\(A\)</span> associé à la valeur propre <span class="math inline">\(\lambda\)</span>. On a : <span class="math display">\[A(cu) = cAu = c \lambda u = \lambda (cu).\]</span> Donc, le vecteur <span class="math inline">\(cu\)</span> est aussi vecteur propre de <span class="math inline">\(A\)</span> associé à la valeur propre <span class="math inline">\(\lambda\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\(\lambda_{1}\)</span> et <span class="math inline">\(\lambda_{2}\)</span>, les valeurs propres associées à <span class="math inline">\(u_{1}\)</span> et <span class="math inline">\(u_{2}\)</span>, tel que <span class="math inline">\(\lambda_{1} \neq \lambda_{2}\)</span>. On a <span class="math inline">\(A u_{1} = \lambda_{1} u_{1}\)</span> et <span class="math inline">\(A u_{2} = \lambda_{2} u_{2}\)</span>. Ensuite <span class="math display">\[\lambda_{1} u_{1}^{\top} u_{2} = u_{1}^\top A u_{2} = \lambda_{2} u_{1}^\top u_{2}.\]</span> Cela implique que <span class="math inline">\((\lambda_{1} - \lambda_{2})u_{1}^\top u_{2} = 0\)</span>. Or, <span class="math inline">\(\lambda_{1} \neq \lambda_{2}\)</span>. Donc, nécessairement, <span class="math inline">\(u_{1}^\top u_{2} = 0\)</span>.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<p>Cette deuxième propriété nous sera utile lorque l’on s’intéressera à la réduction de dimension et, en particulier, à l’analyse en composantes principales.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caractérisation de matrices avec ses éléments propres
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Si <span class="math inline">\(A\)</span> est symétrique, alors <strong>toutes</strong> ses valeurs propres sont réelles.</p></li>
+<li><p>Si <span class="math inline">\(A\)</span> est définie positive, alors <strong>toutes</strong> ses valeurs propres sont strictement positives.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Preuve
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Considérons le cas plus général où <span class="math inline">\(A\)</span> est une matrice hermitenne. La matrice <span class="math inline">\(A\)</span> est égale la transposé de son conjugué, noté <span class="math inline">\(A^*\)</span>. Notons <span class="math inline">\(\lambda\)</span> une valeur propre associée à un vecteur propre <span class="math inline">\(u\)</span>, éventuellement complexe. On a : <span class="math display">\[\begin{align}
+\overline{u}^{\top} A u &amp;= \overline{u}^\top \lambda u = \lambda \overline{u}^{\top} u, \\
+\overline{u}^\top A u &amp;= \overline{u}^\top A^* u = \overline{Au}^\top u = \overline{\lambda} \overline{u}^\top u.
+\end{align}\]</span> Cela implique que <span class="math inline">\((\lambda - \overline{\lambda}) \overline{u}^{\top} u = 0\)</span>. Comme <span class="math inline">\(u \neq 0\)</span>, on a <span class="math inline">\(\lambda = \overline{\lambda}\)</span>. Donc <span class="math inline">\(\lambda \in \mathbb{R}\)</span>.</p></li>
+<li><p>Considérons <span class="math inline">\(u\)</span>, vecteur propre de <span class="math inline">\(A\)</span> associé à la valeur propre <span class="math inline">\(\lambda\)</span>. On a que <span class="math inline">\(u^{\top} A u = \lambda u^{\top} u\)</span>. Or, comme <span class="math inline">\(u \neq 0\)</span>, <span class="math inline">\(u^{\top}u \neq 0\)</span>. Donc <span class="math display">\[\lambda = \frac{u^{\top} A u}{u^{\top} u}.\]</span> Comme <span class="math inline">\(A\)</span> est définie postive, <span class="math inline">\(u^{\top} A u &gt; 0\)</span> pour tout vecteur <span class="math inline">\(u\)</span> non nul. On en déduit que <span class="math inline">\(\lambda &gt; 0\)</span>.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section><section id="diagonalisation-de-matrices" class="level2"><h2 class="anchored" data-anchor-id="diagonalisation-de-matrices">Diagonalisation de matrices</h2>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Définition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soit <span class="math inline">\(A\)</span> appartenant à <span class="math inline">\(M_n(\mathbb{R})\)</span>. On dit que <span class="math inline">\(A\)</span> est <strong>diagonalisable</strong> s’il existe une matrice <span class="math inline">\(P\)</span> appartenant à <span class="math inline">\(M_n(\mathbb{R})\)</span> non-singulière et une matrice diagonale <span class="math inline">\(D\)</span> appartenant à <span class="math inline">\(M_n(\mathbb{R})\)</span> telles que <span class="math display">\[P^{-1} A P = D \Longleftrightarrow A = P D P^{-1}.\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Théorème de décomposition spectrale
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soit <span class="math inline">\(A\)</span> une matrice symmétrique appartenant à <span class="math inline">\(M_n(\mathbb{R})\)</span> et <span class="math inline">\(\lambda_{1}, \dots, \lambda_n\)</span>, ses <span class="math inline">\(n\)</span> valeurs propres. Alors, il existe une matrice orthogonal <span class="math inline">\(P\)</span> appartenant à <span class="math inline">\(M_n(\mathbb{R})\)</span> telle que <span class="math display">\[A = P \Lambda P^\top, \quad\text{où}\quad \Lambda = \text{diag}(\lambda_1, \dots, \lambda_n).\]</span></p>
+</div>
+</div>
+<p>Si <span class="math inline">\(A\)</span> admet <span class="math inline">\(n\)</span> valeurs propres positives distinctes, alors on peut prendre <span class="math inline">\(P\)</span> comme étant la matrice dont la <span class="math inline">\(k\)</span>-ième colonne est le vecteur propre normé correspondant à la <span class="math inline">\(k\)</span>-ième valeur propre <span class="math inline">\(\lambda_k\)</span> de <span class="math inline">\(A\)</span>.</p>
+<p>Soit deux matrices symétriques, <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span>, comment déterminer le vecteur <span class="math inline">\(u\)</span> tel que <span class="math inline">\(u^{\top} A u\)</span> soit maximal, sachant que <span class="math inline">\(u^{\top} B u = 1\)</span> ? Il suffit de prendre <span class="math inline">\(u\)</span> comme le vecteur propre de <span class="math inline">\(B^{-1}A\)</span> associé à <span class="math inline">\(\lambda\)</span> la valeur propre maximale de <span class="math inline">\(B^{-1}A\)</span>. On obtient ainsi <span class="math display">\[u^{\top} A u = u^{\top}\lambda M u = \lambda U^{\top} M u = \lambda.\]</span></p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caractérisation du déterminant et de la trace de matrices avec ses éléments propres
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si <span class="math inline">\(A\)</span> a comme valeurs propres (réelles, mais pas forcément distinctes) <span class="math inline">\(\lambda_{1}, \dots, \lambda_{n}\)</span>, alors</p>
+<ol type="1">
+<li><p><span class="math inline">\(\text{det}(A) = \prod_{i = 1}^{n} \lambda_i\)</span></p></li>
+<li><p><span class="math inline">\(\text{tr}(A) = \sum_{i = 1}^{n} \lambda_i.\)</span></p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Preuve
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>En utilisant le théorème de décomposition spectrale, il existe une matrice <span class="math inline">\(P\)</span> inversible tel que <span class="math inline">\(A = P \Lambda P^{-1}\)</span>, où <span class="math inline">\(\Lambda\)</span> est une matrice diagonale contenant les valeurs propres. On a donc, pour le déterminant,</p>
+<p><span class="math display">\[\text{det}(A) = \text{det}(P \Lambda P^{-1}) = \text{det}(P)\text{det}(\Lambda)\text{det}(P^{-1}) = \text{det}(P)\text{det}(\Lambda)\text{det}(P)^{-1} = \text{det}(\lambda) = \prod_{i = 1}^{n} \lambda_i, \]</span></p>
+<p>et, pour la trace,</p>
+<p><span class="math display">\[\text{tr}(A) = \text{tr}(P \Lambda P^{-1}) = \text{tr}(P^{-1} P \Lambda) = \text{tr}(\Lambda) = \sum_{i = 1}^{n} \lambda_i.\]</span></p>
+</div>
+</div>
+</div>
 
 
 

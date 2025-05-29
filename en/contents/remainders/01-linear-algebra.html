@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.31">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Algebra – STT-2200: Data Analysis</title>
+<title>Linear Algebra – STT-2200: Data Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script><script src="../../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../../site_libs/quarto-search/fuse.min.js"></script><script src="../../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../../">
 <link href="../../contents/remainders/02-probabilities.html" rel="next">
 <link href="../../contents/02-revisions.html" rel="prev">
@@ -84,7 +104,8 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script><meta property="og:title" content="Algebra – STT-2200: Data Analysis">
+</script><meta property="og:title" content="Linear Algebra – STT-2200: Data Analysis">
+<meta property="og:description" content="Website for STT-2200">
 <meta property="og:site_name" content="STT-2200: Data Analysis">
 </head>
 <body class="nav-sidebar floating quarto-light">
@@ -258,7 +279,7 @@ window.Quarto = {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/02-revisions.html">02 - Révisions</a></li>
-<li class="breadcrumb-item"><a href="../../contents/remainders/01-linear-algebra.html">Algebra</a></li>
+<li class="breadcrumb-item"><a href="../../contents/remainders/01-linear-algebra.html">Linear Algebra</a></li>
 </ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -364,7 +385,7 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/remainders/01-linear-algebra.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Algebra</span></a>
+ <span class="menu-text">Linear Algebra</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -593,19 +614,29 @@ window.Quarto = {
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#some-matrix-properties" id="toc-some-matrix-properties" class="nav-link active" data-scroll-target="#some-matrix-properties">Some matrix properties</a></li>
+  <li><a href="#eigenvalues-and-eigenvectors" id="toc-eigenvalues-and-eigenvectors" class="nav-link" data-scroll-target="#eigenvalues-and-eigenvectors">Eigenvalues and eigenvectors</a></li>
+  <li><a href="#diagonalization-of-matrices" id="toc-diagonalization-of-matrices" class="nav-link" data-scroll-target="#diagonalization-of-matrices">Diagonalization of matrices</a></li>
+  </ul>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/remainders/01-linear-algebra.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li>
+</ul></div>
+<div class="quarto-alternate-formats">
 <h2>Other Formats</h2>
 <ul><li><a href="01-linear-algebra.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
-</div>
+</div></nav>
 </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/02-revisions.html">02 - Révisions</a></li>
-<li class="breadcrumb-item"><a href="../../contents/remainders/01-linear-algebra.html">Algebra</a></li>
+<li class="breadcrumb-item"><a href="../../contents/remainders/01-linear-algebra.html">Linear Algebra</a></li>
 </ol></nav><div class="quarto-title">
-<h1 class="title">Algebra</h1>
+<h1 class="title">Linear Algebra</h1>
 </div>
 
 
@@ -619,7 +650,300 @@ window.Quarto = {
   
 
 
-</header></main><!-- /main --><script>
+</header><p>In this section, we present some linear algebra results that are useful in the context of this course. For more information, you can refer to the MAT-1200 course, <span class="citation" data-cites="deisenrothMathematicsMachineLearning2020">Deisenroth, Faisal, and Ong (<a href="#ref-deisenrothMathematicsMachineLearning2020" role="doc-biblioref">2020</a>)</span> (in English), and <span class="citation" data-cites="grifoneAlgebreLineaire2024">Grifone (<a href="#ref-grifoneAlgebreLineaire2024" role="doc-biblioref">2024</a>)</span> (in French).</p>
+<section id="some-matrix-properties" class="level2"><h2 class="anchored" data-anchor-id="some-matrix-properties">Some matrix properties</h2>
+<p>Let <span class="math inline">\(M_{n, m}(\mathbb{R})\)</span> be the set of matrices with <span class="math inline">\(n\)</span> rows and <span class="math inline">\(m\)</span> columns whose entries belong to <span class="math inline">\(\mathbb{R}\)</span>. Let <span class="math inline">\(M_{n}(\mathbb{R})\)</span> be the set of square matrices of size <span class="math inline">\(n\)</span>, i.e., with <span class="math inline">\(n\)</span> rows and <span class="math inline">\(n\)</span> columns whose entries belong to <span class="math inline">\(\mathbb{R}\)</span>. Let <span class="math inline">\(M\)</span>, <span class="math inline">\(N\)</span>, and <span class="math inline">\(P\)</span> be matrices in <span class="math inline">\(M_{n, m}(\mathbb{R})\)</span>. Let <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> be matrices in <span class="math inline">\(M_{n}(\mathbb{R})\)</span>. Let <span class="math inline">\(I_n\)</span> be the identity matrix of size <span class="math inline">\(n\)</span>, i.e., containing <span class="math inline">\(1\)</span>s on the diagonal and <span class="math inline">\(0\)</span>s on the elements outside the diagonal. Let <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> in <span class="math inline">\(\mathbb{R}^n\)</span>, i.e., column vectors of size <span class="math inline">\(n\)</span>.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Properties of the inverse of matrices
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose that the matrices <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are invertible. Then the matrix product <span class="math inline">\(AB\)</span> is invertible and is given by:</p>
+<p><span class="math display">\[(AB)^{-1} = B^{-1} A^{-1}.\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(C = AB\)</span> and <span class="math inline">\(D = B^{-1} A^{-1}\)</span>. Then</p>
+<p><span class="math display">\[\begin{align*}
+  CD &amp;= A B B^{-1} A^{-1} \\
+     &amp;= A A^{-1} \\
+     &amp;= I_n
+\end{align*}\]</span></p>
+<p>Similarly, we find that <span class="math inline">\(DC = I_n\)</span>. Thus, <span class="math inline">\(AB\)</span> is invertible and its inverse is given by <span class="math inline">\(B^{-1} A^{-1}\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Properties of the determinant of matrices
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Considering the matrices defined at the beginning of the section, we have:</p>
+<ol type="1">
+<li><p><span class="math inline">\(\text{det}(A^\top) = \text{det}(A)\)</span>,</p></li>
+<li><p><span class="math inline">\(\text{det}(AB) = \text{det}(A)\text{det}(B)\)</span>,</p></li>
+<li><p><span class="math inline">\(\text{det}(A^{-1}) = 1 / \text{det}(A)\)</span>.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The proofs of properties <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span> are technical and are omitted, but can be found, for example, <a href="https://mbernste.github.io/posts/determinantsformula/">here</a>. As for the third property, by definition, we have <span class="math inline">\(A A^{-1} = I_n\)</span>. The determinant of <span class="math inline">\(I_n\)</span> is equal to <span class="math inline">\(1\)</span> (product of the elements on the diagonal). Therefore, <span class="math inline">\(\text{det}(A A^{-1}) = 1\)</span>. However, according to the second property, <span class="math inline">\(\text{det}(A A^{-1}) = \text{det}(A)\text{det}(A^{-1})\)</span>. We therefore have <span class="math inline">\(\text{det}(A^{-1}) = 1 / \text{det}(A)\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Properties of the trace of matrices
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Considering the matrices defined at the beginning of the section, we have:</p>
+<ol type="1">
+<li><p><span class="math inline">\(\text{tr}(A) = \text{tr}(A^{\top})\)</span>,</p></li>
+<li><p><span class="math inline">\(\text{tr}(A + B) = \text{tr}(A) + \text{tr}(B)\)</span>,</p></li>
+<li><p><span class="math inline">\(\text{tr}(MN^{\top}) = \text{tr}(N^{\top}M)\)</span>.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For a square matrix <span class="math inline">\(A\)</span>, let <span class="math inline">\(a_{ij}\)</span> be the element of matrix <span class="math inline">\(A\)</span> in row <span class="math inline">\(i\)</span> and column <span class="math inline">\(j\)</span>. The trace of <span class="math inline">\(A\)</span> is given by the sum of the diagonal elements, i.e. <span class="math inline">\(\text{tr}(A) = \sum_{i = 1}^{n} a_{ii}\)</span>.</p>
+<ol type="1">
+<li><p>Since transposition does not change the diagonal elements, the result is straightforward.</p></li>
+<li><p>Let <span class="math inline">\(C = A + B\)</span>. Since <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are square matrices, <span class="math inline">\(C\)</span> is a square matrix. We have <span class="math inline">\(c_{ij} = a_{ij} + b_{ij}\)</span> for all <span class="math inline">\(i, j = 1, \dots, n\)</span>. Therefore <span class="math display">\[\text{tr}(A + B) = \text{tr}(C) = \sum_{i = 1}^{n} c_{ii} = \sum_{i = 1}^{n} a_{ii} + b_{ii} = \sum_{i = 1}^{n} a_{ii} + \sum_{i = 1}^{n} b_{ii} = \text{tr}(A) + \text{tr}(B).\]</span></p></li>
+<li><p>The matrices <span class="math inline">\(M N^{\top}\)</span> and <span class="math inline">\(N^{\top} M\)</span> are square, with dimensions <span class="math inline">\(n \times n\)</span> and <span class="math inline">\(m \times m\)</span> respectively, so we can calculate their traces. Let <span class="math inline">\(C = M N^{\top}\)</span> and <span class="math inline">\(D = N^{\top} M\)</span>. <span class="math display">\[\text{tr}(M N^{\top}) = \text{tr}(C) = \sum_{i = 1}^{n} c_{ii} = \sum_{i = 1}^{n} \sum_{j = 1}^{m} m_{ij} n_{ji} = \sum_{j = 1}^{m} \sum_{i = 1}^{n} n_{ji} m_{ij} = \sum_{j = 1}^{m} d_{jj} = \text{tr}(D)  = \text{tr}(N^{\top} M).\]</span></p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Let <span class="math inline">\(A\)</span> be a symmetric matrix in <span class="math inline">\(M_n(\mathbb{R})\)</span>. <span class="math inline">\(A\)</span> is <strong>positive definite</strong> if <span class="math inline">\(u^\top A u &gt; 0\)</span> for all <span class="math inline">\(u \in \mathbb{R}^n\)</span> such that <span class="math inline">\(u \neq 0\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(A \in M_n(\mathbb{R})\)</span>. <span class="math inline">\(A\)</span> is <strong>orthogonal</strong> if <span class="math inline">\(A^\top A = A A^\top = I_n\)</span>.</p></li>
+</ol>
+</div>
+</div>
+</section><section id="eigenvalues-and-eigenvectors" class="level2"><h2 class="anchored" data-anchor-id="eigenvalues-and-eigenvectors">Eigenvalues and eigenvectors</h2>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(A \in M_n(\mathbb{R})\)</span>. We say that <span class="math inline">\(\lambda \in \mathbb{R}\)</span> is an <strong>eigenvalue</strong> of <span class="math inline">\(A\)</span> if there exists a nonzero vector <span class="math inline">\(u \in \mathbb{R}^n\)</span> such that <span id="eq-eigen"><span class="math display">\[Au = \lambda u. \tag{1}\]</span></span> The vector <span class="math inline">\(u\)</span> is called an <strong>eigenvector</strong> of <span class="math inline">\(A\)</span> corresponding to the eigenvalue <span class="math inline">\(\lambda\)</span>.</p>
+<p>The set of real numbers <span class="math inline">\(\lambda\)</span> satisfying <a href="#eq-eigen" class="quarto-xref">Equation 1</a> is called the <strong>spectrum</strong> of the matrix <span class="math inline">\(A\)</span> and is denoted by <span class="math inline">\(\text{sp}(A)\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Property of eigenvectors
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>If <span class="math inline">\(u\)</span> is an eigenvector of <span class="math inline">\(A\)</span> corresponding to an eigenvalue <span class="math inline">\(\lambda\)</span>, then the vector <span class="math inline">\(cu\)</span>, <span class="math inline">\(c \in \mathbb{R}^\star\)</span> is also an eigenvector of <span class="math inline">\(A\)</span> corresponding to <span class="math inline">\(\lambda\)</span>.</p></li>
+<li><p>If <span class="math inline">\(A\)</span> is symmetric and <span class="math inline">\(u_{1}\)</span> and <span class="math inline">\(u_{2}\)</span> are eigenvectors corresponding to different eigenvalues of <span class="math inline">\(A\)</span>, then <span class="math inline">\(u_{1}\)</span> and <span class="math inline">\(u_{2}\)</span> are orthogonal, i.e. <span class="math inline">\(u_{1}^\top u_{2} = 0\)</span>.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Let <span class="math inline">\(c \in \mathbb{R}^\star\)</span> and <span class="math inline">\(u\)</span> be an eigenvector of <span class="math inline">\(A\)</span> associated with the eigenvalue <span class="math inline">\(\lambda\)</span>. We have: <span class="math display">\[A(cu) = cAu = c \lambda u = \lambda (cu).\]</span> Therefore, the vector <span class="math inline">\(cu\)</span> is also an eigenvector of <span class="math inline">\(A\)</span> associated with the eigenvalue <span class="math inline">\(\lambda\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(\lambda_{1}\)</span> and <span class="math inline">\(\lambda_{2}\)</span> be the eigenvalues associated with <span class="math inline">\(u_{1}\)</span> and <span class="math inline">\(u_{2}\)</span>, such that <span class="math inline">\(\lambda_{1} \neq \lambda_{2}\)</span>. We have <span class="math inline">\(A u_{1} = \lambda_{1} u_{1}\)</span> and <span class="math inline">\(A u_{2} = \lambda_{2} u_{2}\)</span>. Then <span class="math display">\[\lambda_{1} u_{1}^{\top} u_{2} = u_{1}^\top A u_{2} = \lambda_{2} u_{1}^\top u_{2}.\]</span> This implies that <span class="math inline">\((\lambda_{1} - \lambda_{2})u_{1}^\top u_{2} = 0\)</span>. However, <span class="math inline">\(\lambda_{1} \neq \lambda_{2}\)</span>. Therefore, necessarily, <span class="math inline">\(u_{1}^\top u_{2} = 0\)</span>.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<p>This second property will be useful when we look at dimension reduction and, in particular, principal component analysis.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Characterization of matrices with their eigenvalues
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>If <span class="math inline">\(A\)</span> is symmetric, then <strong>all</strong> its eigenvalues are real.</p></li>
+<li><p>If <span class="math inline">\(A\)</span> is positive definite, then <strong>all</strong> its eigenvalues are strictly positive.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Consider the more general case where <span class="math inline">\(A\)</span> is a Hermitian matrix. The matrix <span class="math inline">\(A\)</span> is equal to the transpose of its conjugate, denoted <span class="math inline">\(A^*\)</span>. Let <span class="math inline">\(\lambda\)</span> be an eigenvalue associated with an eigenvector <span class="math inline">\(u\)</span>, which may be complex. We have: <span class="math display">\[\begin{align}
+\overline{u}^{\top} A u &amp;= \overline{u}^\top \lambda u = \lambda \overline{u}^{\top} u, \\
+\overline{u}^\top A u &amp;= \overline{u}^\top A^* u = \overline{Au}^\top u = \overline{\lambda} \overline{u}^\top u.
+\end{align}\]</span> This implies that <span class="math inline">\((\lambda - \overline{\lambda}) \overline{u}^{\top} u = 0\)</span>. Since <span class="math inline">\(u \neq 0\)</span>, we have <span class="math inline">\(\lambda = \overline{\lambda}\)</span>. Therefore, <span class="math inline">\(\lambda \in \mathbb{R}\)</span>.</p></li>
+<li><p>Consider <span class="math inline">\(u\)</span>, an eigenvector of <span class="math inline">\(A\)</span> associated with the eigenvalue <span class="math inline">\(\lambda\)</span>. We have that <span class="math inline">\(u^{\top} A u = \lambda u^{\top} u\)</span>. However, since <span class="math inline">\(u \neq 0\)</span>, <span class="math inline">\(u^{\top}u \neq 0\)</span>. Therefore, <span class="math display">\[\lambda = \frac{u^{\top} A u}{u^{\top} u}.\]</span> Since <span class="math inline">\(A\)</span> is positive definite, <span class="math inline">\(u^{\top} A u &gt; 0\)</span> for all nonzero vectors <span class="math inline">\(u\)</span>. We can therefore deduce that <span class="math inline">\(\lambda &gt; 0\)</span>.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section><section id="diagonalization-of-matrices" class="level2"><h2 class="anchored" data-anchor-id="diagonalization-of-matrices">Diagonalization of matrices</h2>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(A \in M_n(\mathbb{R})\)</span>. We say that <span class="math inline">\(A\)</span> is <strong>diagonalizable</strong> if there exists a non-singular matrix <span class="math inline">\(P \in M_n(\mathbb{R})\)</span> and a diagonal matrix <span class="math inline">\(D \in M_n(\mathbb{R})\)</span> such that <span class="math display">\[P^{-1} A P = D \Longleftrightarrow A = P D P^{-1}.\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Spectral decomposition theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(A\)</span> be a symmetric matrix in <span class="math inline">\(M_n(\mathbb{R})\)</span> and <span class="math inline">\(\lambda_{1}, \dots, \lambda_n\)</span> its <span class="math inline">\(n\)</span> eigenvalues. Then there exists an orthogonal matrix <span class="math inline">\(P\)</span> in <span class="math inline">\(M_n(\mathbb{R})\)</span> such that <span class="math display">\[A = P \Lambda P^\top, \quad\text{where}\quad \Lambda = \text{diag}(\lambda_1, \dots, \lambda_n).\]</span></p>
+</div>
+</div>
+<p>If <span class="math inline">\(A\)</span> has <span class="math inline">\(n\)</span> distinct positive eigenvalues, then we can take <span class="math inline">\(P\)</span> to be the matrix whose <span class="math inline">\(k\)</span>th column is the normalized eigenvector corresponding to the <span class="math inline">\(k\)</span>th eigenvalue <span class="math inline">\(\lambda_k\)</span> of <span class="math inline">\(A\)</span>.</p>
+<p>Given two symmetric matrices, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, how can we determine the vector <span class="math inline">\(u\)</span> such that <span class="math inline">\(u^{\top} A u\)</span> is maximal, knowing that <span class="math inline">\(u^{\top} B u = 1\)</span>? We simply take <span class="math inline">\(u\)</span> as the eigenvector of <span class="math inline">\(B^{-1}A\)</span> associated with <span class="math inline">\(\lambda\)</span>, the maximal eigenvalue of <span class="math inline">\(B^{-1}A\)</span>. We thus obtain <span class="math display">\[u^{\top} A u = u^{\top}\lambda M u = \lambda U^{\top} M u = \lambda.\]</span></p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Characterization of the determinant and trace of matrices with their eigenvalues
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\(A\)</span> has eigenvalues (real, but not necessarily distinct) <span class="math inline">\(\lambda_{1}, \dots, \lambda_{n}\)</span>, then</p>
+<ol type="1">
+<li><p><span class="math inline">\(\text{det}(A) = \prod_{i = 1}^{n} \lambda_i\)</span></p></li>
+<li><p><span class="math inline">\(\text{tr}(A) = \sum_{i = 1}^{n} \lambda_i.\)</span></p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Using the spectral decomposition theorem, there exists an invertible matrix <span class="math inline">\(P\)</span> such that <span class="math inline">\(A = P \Lambda P^{-1}\)</span>, where <span class="math inline">\(\Lambda\)</span> is a diagonal matrix containing the eigenvalues. We therefore have, for the determinant,</p>
+<p><span class="math display">\[\text{det}(A) = \text{det}(P \Lambda P^{-1}) = \text{det}(P)\text{det}(\Lambda)\text{det}(P^{-1}) = \text{det}(P)\text{det}(\Lambda)\text{det}(P)^{-1} = \text{det}(\lambda) = \prod_{i = 1}^{n} \lambda_i, \]</span></p>
+<p>and, for the trace,</p>
+<p><span class="math display">\[\text{tr}(A) = \text{tr}(P \Lambda P^{-1}) = \text{tr}(P^{-1} P \Lambda) = \text{tr}(\Lambda) = \sum_{i = 1}^{n} \lambda_i.\]</span></p>
+</div>
+</div>
+</div>
+
+
+
+</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-deisenrothMathematicsMachineLearning2020" class="csl-entry" role="listitem">
+Deisenroth, Marc Peter, A. Aldo Faisal, and Cheng Soon Ong. 2020. <em>Mathematics for <span>Machine Learning</span></em>. 1st ed. Cambridge University Press. <a href="https://doi.org/10.1017/9781108679930">https://doi.org/10.1017/9781108679930</a>.
+</div>
+<div id="ref-grifoneAlgebreLineaire2024" class="csl-entry" role="listitem">
+Grifone, Joseph. 2024. <em><span>Alg<span>è</span>bre Lin<span>é</span>aire</span></em>. 7e edition. Toulouse: CEPADUES.
+</div>
+</div></section></div></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -1258,7 +1582,7 @@ window.onload = function() {
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions"><ul>
+<div class="toc-actions d-sm-block d-md-none"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/remainders/01-linear-algebra.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li>
 </ul></div>

@@ -95,6 +95,76 @@
     ]
   },
   {
+    "objectID": "contents/02-revisions.html",
+    "href": "contents/02-revisions.html",
+    "title": "Remainders",
+    "section": "",
+    "text": "Slides: link\nTD: link\nTP: link",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions"
+    ]
+  },
+  {
+    "objectID": "contents/02-revisions.html#sommaire",
+    "href": "contents/02-revisions.html#sommaire",
+    "title": "Remainders",
+    "section": "Sommaire",
+    "text": "Sommaire\n\nLinear algebra\nProbabilities\nStatistics\nAlgorithmic / Programming\n\n\n\n\nPrediction (xkcd:2370).",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/01-linear-algebra.html",
+    "href": "contents/remainders/01-linear-algebra.html",
+    "title": "Linear Algebra",
+    "section": "",
+    "text": "In this section, we present some linear algebra results that are useful in the context of this course. For more information, you can refer to the MAT-1200 course, Deisenroth, Faisal, and Ong (2020) (in English), and Grifone (2024) (in French).",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Linear Algebra"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/01-linear-algebra.html#some-matrix-properties",
+    "href": "contents/remainders/01-linear-algebra.html#some-matrix-properties",
+    "title": "Linear Algebra",
+    "section": "Some matrix properties",
+    "text": "Some matrix properties\nLet \\(M_{n, m}(\\mathbb{R})\\) be the set of matrices with \\(n\\) rows and \\(m\\) columns whose entries belong to \\(\\mathbb{R}\\). Let \\(M_{n}(\\mathbb{R})\\) be the set of square matrices of size \\(n\\), i.e., with \\(n\\) rows and \\(n\\) columns whose entries belong to \\(\\mathbb{R}\\). Let \\(M\\), \\(N\\), and \\(P\\) be matrices in \\(M_{n, m}(\\mathbb{R})\\). Let \\(A\\) and \\(B\\) be matrices in \\(M_{n}(\\mathbb{R})\\). Let \\(I_n\\) be the identity matrix of size \\(n\\), i.e., containing \\(1\\)s on the diagonal and \\(0\\)s on the elements outside the diagonal. Let \\(u\\) and \\(v\\) in \\(\\mathbb{R}^n\\), i.e., column vectors of size \\(n\\).\n\n\n\n\n\n\nProperties of the inverse of matrices\n\n\n\nSuppose that the matrices \\(A\\) and \\(B\\) are invertible. Then the matrix product \\(AB\\) is invertible and is given by:\n\\[(AB)^{-1} = B^{-1} A^{-1}.\\]\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nLet \\(C = AB\\) and \\(D = B^{-1} A^{-1}\\). Then\n\\[\\begin{align*}\n  CD &= A B B^{-1} A^{-1} \\\\\n     &= A A^{-1} \\\\\n     &= I_n\n\\end{align*}\\]\nSimilarly, we find that \\(DC = I_n\\). Thus, \\(AB\\) is invertible and its inverse is given by \\(B^{-1} A^{-1}\\).\n\n\n\n\n\n\n\n\n\nProperties of the determinant of matrices\n\n\n\nConsidering the matrices defined at the beginning of the section, we have:\n\n\\(\\text{det}(A^\\top) = \\text{det}(A)\\),\n\\(\\text{det}(AB) = \\text{det}(A)\\text{det}(B)\\),\n\\(\\text{det}(A^{-1}) = 1 / \\text{det}(A)\\).\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nThe proofs of properties \\(1\\) and \\(2\\) are technical and are omitted, but can be found, for example, here. As for the third property, by definition, we have \\(A A^{-1} = I_n\\). The determinant of \\(I_n\\) is equal to \\(1\\) (product of the elements on the diagonal). Therefore, \\(\\text{det}(A A^{-1}) = 1\\). However, according to the second property, \\(\\text{det}(A A^{-1}) = \\text{det}(A)\\text{det}(A^{-1})\\). We therefore have \\(\\text{det}(A^{-1}) = 1 / \\text{det}(A)\\).\n\n\n\n\n\n\n\n\n\nProperties of the trace of matrices\n\n\n\nConsidering the matrices defined at the beginning of the section, we have:\n\n\\(\\text{tr}(A) = \\text{tr}(A^{\\top})\\),\n\\(\\text{tr}(A + B) = \\text{tr}(A) + \\text{tr}(B)\\),\n\\(\\text{tr}(MN^{\\top}) = \\text{tr}(N^{\\top}M)\\).\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nFor a square matrix \\(A\\), let \\(a_{ij}\\) be the element of matrix \\(A\\) in row \\(i\\) and column \\(j\\). The trace of \\(A\\) is given by the sum of the diagonal elements, i.e. \\(\\text{tr}(A) = \\sum_{i = 1}^{n} a_{ii}\\).\n\nSince transposition does not change the diagonal elements, the result is straightforward.\nLet \\(C = A + B\\). Since \\(A\\) and \\(B\\) are square matrices, \\(C\\) is a square matrix. We have \\(c_{ij} = a_{ij} + b_{ij}\\) for all \\(i, j = 1, \\dots, n\\). Therefore \\[\\text{tr}(A + B) = \\text{tr}(C) = \\sum_{i = 1}^{n} c_{ii} = \\sum_{i = 1}^{n} a_{ii} + b_{ii} = \\sum_{i = 1}^{n} a_{ii} + \\sum_{i = 1}^{n} b_{ii} = \\text{tr}(A) + \\text{tr}(B).\\]\nThe matrices \\(M N^{\\top}\\) and \\(N^{\\top} M\\) are square, with dimensions \\(n \\times n\\) and \\(m \\times m\\) respectively, so we can calculate their traces. Let \\(C = M N^{\\top}\\) and \\(D = N^{\\top} M\\). \\[\\text{tr}(M N^{\\top}) = \\text{tr}(C) = \\sum_{i = 1}^{n} c_{ii} = \\sum_{i = 1}^{n} \\sum_{j = 1}^{m} m_{ij} n_{ji} = \\sum_{j = 1}^{m} \\sum_{i = 1}^{n} n_{ji} m_{ij} = \\sum_{j = 1}^{m} d_{jj} = \\text{tr}(D)  = \\text{tr}(N^{\\top} M).\\]\n\n\n\n\n\n\n\n\n\n\nDefinition\n\n\n\n\nLet \\(A\\) be a symmetric matrix in \\(M_n(\\mathbb{R})\\). \\(A\\) is positive definite if \\(u^\\top A u &gt; 0\\) for all \\(u \\in \\mathbb{R}^n\\) such that \\(u \\neq 0\\).\nLet \\(A \\in M_n(\\mathbb{R})\\). \\(A\\) is orthogonal if \\(A^\\top A = A A^\\top = I_n\\).",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Linear Algebra"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/01-linear-algebra.html#eigenvalues-and-eigenvectors",
+    "href": "contents/remainders/01-linear-algebra.html#eigenvalues-and-eigenvectors",
+    "title": "Linear Algebra",
+    "section": "Eigenvalues and eigenvectors",
+    "text": "Eigenvalues and eigenvectors\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(A \\in M_n(\\mathbb{R})\\). We say that \\(\\lambda \\in \\mathbb{R}\\) is an eigenvalue of \\(A\\) if there exists a nonzero vector \\(u \\in \\mathbb{R}^n\\) such that \\[Au = \\lambda u. \\tag{1}\\] The vector \\(u\\) is called an eigenvector of \\(A\\) corresponding to the eigenvalue \\(\\lambda\\).\nThe set of real numbers \\(\\lambda\\) satisfying Equation 1 is called the spectrum of the matrix \\(A\\) and is denoted by \\(\\text{sp}(A)\\).\n\n\n\n\n\n\n\n\nProperty of eigenvectors\n\n\n\n\nIf \\(u\\) is an eigenvector of \\(A\\) corresponding to an eigenvalue \\(\\lambda\\), then the vector \\(cu\\), \\(c \\in \\mathbb{R}^\\star\\) is also an eigenvector of \\(A\\) corresponding to \\(\\lambda\\).\nIf \\(A\\) is symmetric and \\(u_{1}\\) and \\(u_{2}\\) are eigenvectors corresponding to different eigenvalues of \\(A\\), then \\(u_{1}\\) and \\(u_{2}\\) are orthogonal, i.e. \\(u_{1}^\\top u_{2} = 0\\).\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\n\nLet \\(c \\in \\mathbb{R}^\\star\\) and \\(u\\) be an eigenvector of \\(A\\) associated with the eigenvalue \\(\\lambda\\). We have: \\[A(cu) = cAu = c \\lambda u = \\lambda (cu).\\] Therefore, the vector \\(cu\\) is also an eigenvector of \\(A\\) associated with the eigenvalue \\(\\lambda\\).\nLet \\(\\lambda_{1}\\) and \\(\\lambda_{2}\\) be the eigenvalues associated with \\(u_{1}\\) and \\(u_{2}\\), such that \\(\\lambda_{1} \\neq \\lambda_{2}\\). We have \\(A u_{1} = \\lambda_{1} u_{1}\\) and \\(A u_{2} = \\lambda_{2} u_{2}\\). Then \\[\\lambda_{1} u_{1}^{\\top} u_{2} = u_{1}^\\top A u_{2} = \\lambda_{2} u_{1}^\\top u_{2}.\\] This implies that \\((\\lambda_{1} - \\lambda_{2})u_{1}^\\top u_{2} = 0\\). However, \\(\\lambda_{1} \\neq \\lambda_{2}\\). Therefore, necessarily, \\(u_{1}^\\top u_{2} = 0\\).\n\n\n\n\nThis second property will be useful when we look at dimension reduction and, in particular, principal component analysis.\n\n\n\n\n\n\nCharacterization of matrices with their eigenvalues\n\n\n\n\nIf \\(A\\) is symmetric, then all its eigenvalues are real.\nIf \\(A\\) is positive definite, then all its eigenvalues are strictly positive.\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\n\nConsider the more general case where \\(A\\) is a Hermitian matrix. The matrix \\(A\\) is equal to the transpose of its conjugate, denoted \\(A^*\\). Let \\(\\lambda\\) be an eigenvalue associated with an eigenvector \\(u\\), which may be complex. We have: \\[\\begin{align}\n\\overline{u}^{\\top} A u &= \\overline{u}^\\top \\lambda u = \\lambda \\overline{u}^{\\top} u, \\\\\n\\overline{u}^\\top A u &= \\overline{u}^\\top A^* u = \\overline{Au}^\\top u = \\overline{\\lambda} \\overline{u}^\\top u.\n\\end{align}\\] This implies that \\((\\lambda - \\overline{\\lambda}) \\overline{u}^{\\top} u = 0\\). Since \\(u \\neq 0\\), we have \\(\\lambda = \\overline{\\lambda}\\). Therefore, \\(\\lambda \\in \\mathbb{R}\\).\nConsider \\(u\\), an eigenvector of \\(A\\) associated with the eigenvalue \\(\\lambda\\). We have that \\(u^{\\top} A u = \\lambda u^{\\top} u\\). However, since \\(u \\neq 0\\), \\(u^{\\top}u \\neq 0\\). Therefore, \\[\\lambda = \\frac{u^{\\top} A u}{u^{\\top} u}.\\] Since \\(A\\) is positive definite, \\(u^{\\top} A u &gt; 0\\) for all nonzero vectors \\(u\\). We can therefore deduce that \\(\\lambda &gt; 0\\).",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Linear Algebra"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/01-linear-algebra.html#diagonalization-of-matrices",
+    "href": "contents/remainders/01-linear-algebra.html#diagonalization-of-matrices",
+    "title": "Linear Algebra",
+    "section": "Diagonalization of matrices",
+    "text": "Diagonalization of matrices\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(A \\in M_n(\\mathbb{R})\\). We say that \\(A\\) is diagonalizable if there exists a non-singular matrix \\(P \\in M_n(\\mathbb{R})\\) and a diagonal matrix \\(D \\in M_n(\\mathbb{R})\\) such that \\[P^{-1} A P = D \\Longleftrightarrow A = P D P^{-1}.\\]\n\n\n\n\n\n\n\n\nSpectral decomposition theorem\n\n\n\nLet \\(A\\) be a symmetric matrix in \\(M_n(\\mathbb{R})\\) and \\(\\lambda_{1}, \\dots, \\lambda_n\\) its \\(n\\) eigenvalues. Then there exists an orthogonal matrix \\(P\\) in \\(M_n(\\mathbb{R})\\) such that \\[A = P \\Lambda P^\\top, \\quad\\text{where}\\quad \\Lambda = \\text{diag}(\\lambda_1, \\dots, \\lambda_n).\\]\n\n\nIf \\(A\\) has \\(n\\) distinct positive eigenvalues, then we can take \\(P\\) to be the matrix whose \\(k\\)th column is the normalized eigenvector corresponding to the \\(k\\)th eigenvalue \\(\\lambda_k\\) of \\(A\\).\nGiven two symmetric matrices, \\(A\\) and \\(B\\), how can we determine the vector \\(u\\) such that \\(u^{\\top} A u\\) is maximal, knowing that \\(u^{\\top} B u = 1\\)? We simply take \\(u\\) as the eigenvector of \\(B^{-1}A\\) associated with \\(\\lambda\\), the maximal eigenvalue of \\(B^{-1}A\\). We thus obtain \\[u^{\\top} A u = u^{\\top}\\lambda M u = \\lambda U^{\\top} M u = \\lambda.\\]\n\n\n\n\n\n\nCharacterization of the determinant and trace of matrices with their eigenvalues\n\n\n\nIf \\(A\\) has eigenvalues (real, but not necessarily distinct) \\(\\lambda_{1}, \\dots, \\lambda_{n}\\), then\n\n\\(\\text{det}(A) = \\prod_{i = 1}^{n} \\lambda_i\\)\n\\(\\text{tr}(A) = \\sum_{i = 1}^{n} \\lambda_i.\\)\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nUsing the spectral decomposition theorem, there exists an invertible matrix \\(P\\) such that \\(A = P \\Lambda P^{-1}\\), where \\(\\Lambda\\) is a diagonal matrix containing the eigenvalues. We therefore have, for the determinant,\n\\[\\text{det}(A) = \\text{det}(P \\Lambda P^{-1}) = \\text{det}(P)\\text{det}(\\Lambda)\\text{det}(P^{-1}) = \\text{det}(P)\\text{det}(\\Lambda)\\text{det}(P)^{-1} = \\text{det}(\\lambda) = \\prod_{i = 1}^{n} \\lambda_i, \\]\nand, for the trace,\n\\[\\text{tr}(A) = \\text{tr}(P \\Lambda P^{-1}) = \\text{tr}(P^{-1} P \\Lambda) = \\text{tr}(\\Lambda) = \\sum_{i = 1}^{n} \\lambda_i.\\]",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Linear Algebra"
+    ]
+  },
+  {
     "objectID": "informations/description.html",
     "href": "informations/description.html",
     "title": "Description",
