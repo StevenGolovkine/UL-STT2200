@@ -1,13 +1,14 @@
 --- 
-title: "Algèbre"
+title: "Algèbre linéaire"
 format: 
   html: default
   pdf:
+    number-sections: true
     header-includes:
       - \usepackage{mathtools} 
 ---
 
-Dans cette partie, on présente quelques résultats d'algèbre linéaire utile dans le cadre de ce cours. Pour plus d'information, vous pouvez vous référer au cours MAT-1200, [@deisenrothMathematicsMachineLearning2020] (en anglais) et [@grifoneAlgebreLineaire2024] (en fran\c{c}ais).
+Dans cette partie, on présente quelques résultats d'algèbre linéaire utiles dans le cadre de ce cours. Pour plus d'information, vous pouvez vous référer au cours MAT-1200, à @deisenrothMathematicsMachineLearning2020 (en anglais) et à @grifoneAlgebreLineaire2024 (en français).
 
 
 ## Quelques propriétés matricielles 
@@ -15,9 +16,9 @@ Dans cette partie, on présente quelques résultats d'algèbre linéaire utile d
 Notons $M_{n, m}(\mathbb{R})$, l'ensemble des matrices à $n$ lignes et $m$ colonnes dont les entrées appartiennent à $\mathbb{R}$. Notons $M_{n}(\mathbb{R})$, l'ensemble des matrices carrées de taille $n$, i.e. à $n$ lignes et $n$ colonnes dont les entrées appartiennent à $\mathbb{R}$. Soient $M$, $N$ et $P$ des matrices appartenant à $M_{n, m}(\mathbb{R})$. Soient $A$ et $B$ des matrices appartenant à $M_{n}(\mathbb{R})$. Notons $I_n$ la matrice identité de taille $n$, i.e. qui contient des $1$ sur le diagonale et des $0$ sur les éléments hors de la diagonale. Soient $u$ et $v$ appartenant à $\mathbb{R}^n$, i.e. des vecteurs colonnes de taille $n$.
 
 ::: {.callout-important icon=false}
-## Propriétés de l'inverse
+## Propriétés de l'inverse de matrices
 
-Supposons que les matrices $A$ et $B$ sont inversibles. Alors le produit matriciel $AB$ est inversible et est donné par:
+Supposons que les matrices $A$ et $B$ soient inversibles. Alors le produit matriciel $AB$ est inversible et est donné par:
 
 $$(AB)^{-1} = B^{-1} A^{-1}.$$
 
@@ -34,14 +35,14 @@ Posons $C = AB$ et $D = B^{-1} A^{-1}$. Alors
      &= I_n 
 \end{align*}
 
-De même fa\c{c}on, on trouve que $DC = I_n$. Ainsi, $AB$ est inversible et son inverse est donné par $B^{-1} A^{-1}$.
+De la même façon, on trouve que $DC = I_n$. Ainsi, $AB$ est inversible et son inverse est donné par $B^{-1} A^{-1}$.
 
 :::
 
 ::: {.callout-important icon=false}
-## Propriétés du déterminant
+## Propriétés du déterminant de matrices
 
-Concernant le déterminant, on a:
+Considérant les matrices définies en début de section, on a :
 
 1. $\text{det}(A^\top) = \text{det}(A)$,
 
@@ -54,60 +55,160 @@ Concernant le déterminant, on a:
 ::: {.callout-note icon=false collapse=true}
 ## Preuve
 
-Les preuves des propriétés $1$ et $2$ sont techniques et sont donc omises, mais peuvent être trouvé, par exemple, [ici](https://mbernste.github.io/posts/determinantsformula/). Pour ce qui est de la troisième propriété, par définition, on a $A A^{-1} = I_n$. Le déterminant de $I_n$ est égale à $1$ (produit des éléments sur la diagonale). Donc $\text{det}(A A^{-1}) = 1$. Or, d'après la deuxième propriété, $\text{det}(A A^{-1}) = \text{det}(A)\text{det}(A^{-1})$. On a donc bien $\text{det}(A^{-1}) = 1 / \text{det}(A)$.
+Les preuves des propriétés $1$ et $2$ sont techniques et sont omises, mais peuvent être trouvées, par exemple, [ici](https://mbernste.github.io/posts/determinantsformula/). Pour ce qui est de la troisième propriété, par définition, on a $A A^{-1} = I_n$. Le déterminant de $I_n$ est égale à $1$ (produit des éléments sur la diagonale). Donc $\text{det}(A A^{-1}) = 1$. Or, d'après la deuxième propriété, $\text{det}(A A^{-1}) = \text{det}(A)\text{det}(A^{-1})$. On a donc bien $\text{det}(A^{-1}) = 1 / \text{det}(A)$.
 
 :::
 
 ::: {.callout-important icon=false}
-## Propriétés de la trace
+## Propriétés de la trace de matrices
 
-\begin{align*}
-  \text{tr}(A + B) &= \text{tr}(A) + \text{tr}(B) \\
-  \text{tr}(MN) &= \text{tr}(NM)
-\end{align*}
+Considérant les matrices définies en début de section, on a :
+
+
+1. $\text{tr}(A) = \text{tr}(A^{\top})$,
+
+2. $\text{tr}(A + B) = \text{tr}(A) + \text{tr}(B)$,
+
+3. $\text{tr}(MN^{\top}) = \text{tr}(N^{\top}M)$.
+
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Preuve
+
+Pour une matrice carré $A$, notons $a_{ij}$, l'élément de la matrice $A$ à la ligne $i$ et à la colonne $j$. La trace de $A$ est donnée par la somme des éléments diagonaux, i.e. $\text{tr}(A) = \sum_{i = 1}^{n} a_{ii}$.
+
+1. La transposition ne changeant pas les éléments diagonaux, le résultat est direct.
+
+2. Notons $C = A + B$. Comme $A$ et $B$ sont des matrices carrées, $C$ est une matrice carrée. On a $c_{ij} = a_{ij} + b_{ij}$ pour tout $i, j = 1, \dots, n$. Donc 
+$$\text{tr}(A + B) = \text{tr}(C) = \sum_{i = 1}^{n} c_{ii} = \sum_{i = 1}^{n} a_{ii} + b_{ii} = \sum_{i = 1}^{n} a_{ii} + \sum_{i = 1}^{n} b_{ii} = \text{tr}(A) + \text{tr}(B).$$
+
+3. Les matrices $M N^{\top}$ et $N^{\top} M$ sont carrées, de dimension respectives $n \times n$ et $m \times m$, on peut donc bien calculer leur trace. Notons $C = M N^{\top}$ et $D = N^{\top} M$. 
+$$\text{tr}(M N^{\top}) = \text{tr}(C) = \sum_{i = 1}^{n} c_{ii} = \sum_{i = 1}^{n} \sum_{j = 1}^{m} m_{ij} n_{ji} = \sum_{j = 1}^{m} \sum_{i = 1}^{n} n_{ji} m_{ij} = \sum_{j = 1}^{m} d_{jj} = \text{tr}(D)  = \text{tr}(N^{\top} M).$$
 
 :::
 
 
+::: {.callout-warning icon=false}
+## Définition
 
-Propriété de matrices: 
+1. Soit $A$ une matrice symétrique appartenant à $M_n(\mathbb{R})$. $A$ est **définie positive** si $u^\top A u > 0$ pour tout $u \in \mathbb{R}^n$ tel que $u \neq 0$.
 
-* Soit $A$ une matrice symmétrique de dimension $n \times n$. $A$ est définie positive si elle est positive et inversible, c'est-à-dire si $u^\top A u > 0$ pour tout $x \in \mathbb{R}^n$ tel que $x \neq 0$.
+2. Soit $A$ appartenant à $M_n(\mathbb{R})$. $A$ est **orthogonal** si $A^\top A = A A^\top = I_n$.
 
-* Soit $A$ une matrice carrée à valeur dans $\mathbb{R}$. $A$ est orthogonal si $A^\top A = A A^\top = I_n$.
-
-Valeurs et vecteurs propres: 
-
-* Soit $A$ une matrice carrée de dimension $n \times n$. On dit que $\lambda$ est une valeur propre de $A$ si il existe un vecteur $u \neq 0 \in \mathbb{R}^n$ tel que
-$$Au = \lambda u.$$
-Le vecteur $u$ est appelé vecteur propre correspondant à la valeur propre $\lambda$ et l'ensemble des nombres réels $\lambda$ satidfaisant l'équation est appelé spectre de la matrice $A$ et noté $\text{sp}(A)$.
-
-* Si $u$ est un vecteur propre de $A$ correspondant à une valeur propre $\lambda$, alors $cu$, $c \neq 0 \in \mathbb{R}$ sera également un vecteur propre de $A$ correspondant à $\lambda$.
-
-* Si $A$ est symmétrique et $u_{1}$ et $u_{2}$ sont des vecteurs propres correspondant à des valeurs propres différentes de $A$, alors $u_{1}$ et $u_{2}$ sont orthogonaux, *i.e.* $u_{1}^\top u_{2} = 0$.
-
-* Si $A$ a comme valeurs propres (réelles, mais pas forcément distinctes) $\lambda_{1}, \dots, \lambda_{n}$, alors
-$$\text{A} = \prod_{i = 1}^{n} \lambda_i \quad\text{et}\quad \text{tr}(A) = \sum_{i = 1}^{n} \lambda_i.$$
-
-* Si $A$ est symmétrique, **toutes** ses valeurs propres sont réelles.
-
-* Si $A$ est définie positive, alors toutes ses valeurs propres sont positives.
+:::
 
 
-Diagonalisation de matrices: 
+## Valeurs et vecteurs propres
 
-* Soit $A$ une matrice carrée de dimension $n \times n$. On dit que $A$ est diagonalisable s'il existe une matrice carrée $n \times n$ non-singulière $P$ et une matrice $n \times n$ diagonale $D$ telles que 
-$$P^{-1} A P = D \leftrightarrow A = P D P^{-1}.$$
+::: {.callout-warning icon=false}
+## Définition
 
-Toute matrice carrée symmétrique est diagonalisable part une matrice orthogonal $P$.
+Soit $A$ appartenant à $M_n(\mathbb{R})$. On dit que $\lambda \in \mathbb{R}$ est une **valeur propre** de $A$ s'il existe un vecteur $u \in \mathbb{R}^n$ non nul tel que
+$$Au = \lambda u.$$ {#eq-eigen}
+Le vecteur $u$ est appelé **vecteur propre** de $A$ correspondant à la valeur propre $\lambda$.
+
+L'ensemble des nombres réels $\lambda$ satisfaisant @eq-eigen est appelé **spectre** de la matrice $A$ et noté $\text{sp}(A)$.
+
+:::
+
+::: {.callout-important icon=false}
+## Propriété des vecteurs propres
+
+1. Si $u$ est un vecteur propre de $A$ correspondant à une valeur propre $\lambda$, alors le vecteur $cu$, $c \in \mathbb{R}^\star$ est également un vecteur propre de $A$ correspondant à $\lambda$.
+
+2. Si $A$ est symétrique et $u_{1}$ et $u_{2}$ sont des vecteurs propres correspondant à des valeurs propres différentes de $A$, alors $u_{1}$ et $u_{2}$ sont orthogonaux, i.e. $u_{1}^\top u_{2} = 0$.
+
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Preuve
+
+1. Soit $c \in \mathbb{R}^\star$ et $u$ un vecteur propre de $A$ associé à la valeur propre $\lambda$. On a :
+$$A(cu) = cAu = c \lambda u = \lambda (cu).$$
+Donc, le vecteur $cu$ est aussi vecteur propre de $A$ associé à la valeur propre $\lambda$.
+
+2. Soient $\lambda_{1}$ et $\lambda_{2}$, les valeurs propres associées à $u_{1}$ et $u_{2}$, tel que $\lambda_{1} \neq \lambda_{2}$. On a $A u_{1} = \lambda_{1} u_{1}$ et $A u_{2} = \lambda_{2} u_{2}$. Ensuite 
+$$\lambda_{1} u_{1}^{\top} u_{2} = u_{1}^\top A u_{2} = \lambda_{2} u_{1}^\top u_{2}.$$ 
+Cela implique que $(\lambda_{1} - \lambda_{2})u_{1}^\top u_{2} = 0$. Or, $\lambda_{1} \neq \lambda_{2}$. Donc, nécessairement, $u_{1}^\top u_{2} = 0$.
+
+:::
+
+Cette deuxième propriété nous sera utile lorque l'on s'intéressera à la réduction de dimension et, en particulier, à l'analyse en composantes principales.
 
 
-Théorème de décomposition spectrale:
+::: {.callout-important icon=false}
+## Caractérisation de matrices avec ses éléments propres 
 
-Soit $A$ une matrice carrée symmétrique de dimension $n \times n$ et ses $n$ valeurs propres $\lambda_{1}, \dots, \lambda_n$. Alors il existe une matrice orthogonal $P$ telle que 
+1. Si $A$ est symétrique, alors **toutes** ses valeurs propres sont réelles.
+
+2. Si $A$ est définie positive, alors **toutes** ses valeurs propres sont strictement positives.
+
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Preuve
+
+1. Considérons le cas plus général où $A$ est une matrice hermitenne. La matrice $A$ est égale la transposé de son conjugué, noté $A^*$. Notons $\lambda$ une valeur propre associée à un vecteur propre $u$, éventuellement complexe. On a :
+\begin{align}
+\overline{u}^{\top} A u &= \overline{u}^\top \lambda u = \lambda \overline{u}^{\top} u, \\
+\overline{u}^\top A u &= \overline{u}^\top A^* u = \overline{Au}^\top u = \overline{\lambda} \overline{u}^\top u.
+\end{align}
+Cela implique que $(\lambda - \overline{\lambda}) \overline{u}^{\top} u = 0$. Comme $u \neq 0$, on a $\lambda = \overline{\lambda}$. Donc $\lambda \in \mathbb{R}$.
+
+2. Considérons $u$, vecteur propre de $A$ associé à la valeur propre $\lambda$. On a que $u^{\top} A u = \lambda u^{\top} u$. Or, comme $u \neq 0$, $u^{\top}u \neq 0$. Donc 
+$$\lambda = \frac{u^{\top} A u}{u^{\top} u}.$$
+Comme $A$ est définie postive, $u^{\top} A u > 0$ pour tout vecteur $u$ non nul. On en déduit que $\lambda > 0$.
+
+:::
+
+## Diagonalisation de matrices
+
+::: {.callout-warning icon=false}
+## Définition
+
+Soit $A$ appartenant à $M_n(\mathbb{R})$. On dit que $A$ est **diagonalisable** s'il existe une matrice $P$ appartenant à $M_n(\mathbb{R})$ non-singulière et une matrice diagonale $D$  appartenant à $M_n(\mathbb{R})$ telles que 
+$$P^{-1} A P = D \Longleftrightarrow A = P D P^{-1}.$$
+
+:::
+
+::: {.callout-caution icon=false}
+## Théorème de décomposition spectrale
+
+Soit $A$ une matrice symmétrique appartenant à $M_n(\mathbb{R})$ et $\lambda_{1}, \dots, \lambda_n$, ses $n$ valeurs propres. Alors, il existe une matrice orthogonal $P$ appartenant à $M_n(\mathbb{R})$ telle que 
 $$A = P \Lambda P^\top, \quad\text{où}\quad \Lambda = \text{diag}(\lambda_1, \dots, \lambda_n).$$
 
-Si $A$ admet $n$ valeurs propres positives distinctes, alors on peut prendre $P$ comme la matrice dont la $k$e coloone est le vacteur propre normé correspondant à la $k$e valeur propre $\lambda_k$.
+:::
 
-Soit deux matrices symétriques, $A$ et $M$, comment déterminer le vecteur $u$ tel que $u^{\top}Au$ soit maximal, sachant que $u^{\top}Mu = 1$ ? Il faut prendre $u$ comment le vecteur propre de $M^{-1}A$ associé à $\lambda$ la valeur propre maximale de $M^{-1}A$. On obtient ainsi
+
+Si $A$ admet $n$ valeurs propres positives distinctes, alors on peut prendre $P$ comme étant la matrice dont la $k$-ième colonne est le vecteur propre normé correspondant à la $k$-ième valeur propre $\lambda_k$ de $A$.
+
+Soit deux matrices symétriques, $A$ et $B$, comment déterminer le vecteur $u$ tel que $u^{\top} A u$ soit maximal, sachant que $u^{\top} B u = 1$ ? Il suffit de prendre $u$ comme le vecteur propre de $B^{-1}A$ associé à $\lambda$ la valeur propre maximale de $B^{-1}A$. On obtient ainsi
 $$u^{\top} A u = u^{\top}\lambda M u = \lambda U^{\top} M u = \lambda.$$
+
+
+
+::: {.callout-important icon=false}
+## Caractérisation du déterminant et de la trace de matrices avec ses éléments propres 
+
+Si $A$ a comme valeurs propres (réelles, mais pas forcément distinctes) $\lambda_{1}, \dots, \lambda_{n}$, alors
+
+1. $\text{det}(A) = \prod_{i = 1}^{n} \lambda_i$
+
+2. $\text{tr}(A) = \sum_{i = 1}^{n} \lambda_i.$
+
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Preuve
+
+En utilisant le théorème de décomposition spectrale, il existe une matrice $P$ inversible tel que $A = P \Lambda P^{-1}$, où $\Lambda$ est une matrice diagonale contenant les valeurs propres. On a donc, pour le déterminant,  
+
+$$\text{det}(A) = \text{det}(P \Lambda P^{-1}) = \text{det}(P)\text{det}(\Lambda)\text{det}(P^{-1}) = \text{det}(P)\text{det}(\Lambda)\text{det}(P)^{-1} = \text{det}(\lambda) = \prod_{i = 1}^{n} \lambda_i, $$
+
+et, pour la trace,
+
+$$\text{tr}(A) = \text{tr}(P \Lambda P^{-1}) = \text{tr}(P^{-1} P \Lambda) = \text{tr}(\Lambda) = \sum_{i = 1}^{n} \lambda_i.$$
+
+:::
+

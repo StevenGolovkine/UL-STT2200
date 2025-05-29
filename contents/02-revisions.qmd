@@ -12,3 +12,19 @@ format:
 * TD: [link](../td/02-revision-td.qmd)
 
 * TP: [link](../tp/02-revision-tp.qmd)
+
+
+## Sommaire
+
+1. [Algèbre linéaire](./remainders/01-linear-algebra.qmd)
+
+2. [Probabilités](./remainders/02-probabilities.qmd)
+
+3. [Statistiques](./remainders/03-stat.qmd)
+
+4. [Algorithmique / Programmation](./remainders/04-programming.qmd)
+
+
+![Prediction ([xkcd:2370](https://xkcd.com/2370/)).](../include/prediction.png)
+
+

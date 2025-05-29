@@ -1,4 +1,30 @@
 --- 
 title: "Remainders"
+format: 
+  html: default
+  pdf:
+    header-includes:
+      - \usepackage{mathtools} 
 --- 
+
+* Slides: [link](../slides/02-revisions-slides.qmd)
+
+* TD: [link](../td/02-revision-td.qmd)
+
+* TP: [link](../tp/02-revision-tp.qmd)
+
+
+## Sommaire
+
+1. [Linear algebra](./remainders/01-linear-algebra.qmd)
+
+2. [Probabilities](./remainders/02-probabilities.qmd)
+
+3. [Statistics](./remainders/03-stat.qmd)
+
+4. [Algorithmic / Programming](./remainders/04-programming.qmd)
+
+
+![Prediction ([xkcd:2370](https://xkcd.com/2370/)).](../include/prediction.png)
+
 
