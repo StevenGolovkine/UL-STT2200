@@ -214,3 +214,7 @@ $$\text{tr}(A) = \text{tr}(P \Lambda P^{-1}) = \text{tr}(P^{-1} P \Lambda) = \te
 :::
 
 
+::: {.content-visible when-format="pdf"}
+## References
+
+:::

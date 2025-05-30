@@ -7,13 +7,56 @@ format:
       - \usepackage{mathtools} 
 ---
 
+Dans cette partie, on présente quelques résultats en probabilités et statistiques dans le cadre de ce cours. Pour plus d'information, vous pouvez vous référer au cours STT-1000, à @wassermanAllStatisticsConcise2010 (en anglais) et à @delmasIntroductionAuCalcul2013 (en français).
 
-## Révisions de probabilité
+## Modéliser le hasard 
+
+Beaucoup de phénomènes réels ne sont pas prévisibles et généralement, leurs résultats contiennent une certaine variabilité. Cette variabilité est prise en compte grâce à une mesure de l'incertitude que l'on appelle **mesure de probabilités**. 
+
+::: {.callout-warning icon=false}
+## Définition
+
+L'**espace d'évènements** $S$ est l'ensemble de tous les résultats possibles d'un phénomène. Un **évènement** est un sous-ensemble de l'espace d'évènements $S$.
+
+:::
+
+::: {.callout-note icon=false}
+## Exemples
+
+1. Si l'expérience consiste à lancer un pièce, $S = \{0, 1\}$. Le résultat de cette expérience ne peut pas être connu à l'avance. Par exemple, $E = \{1\}$ est un évènement de $S$. 
+
+2. Si on s'intéresse à la durée de vie d'un téléphone, $S = \mathbb{R}_{+}$. On peut aussi choisir $S = [0, M]$, car cette durée de vie n'est probablement pas infini ! L'évènement $E = [10, \infty)$ représente l'évènement "une durée de vie de plus de 10 unités de temps".
+
+3. Pour le nombre de jours sans neige à Québec dans l'année, on peut choisir $S = \mathbb{N}$. L'évènement $E = (0, 5]$ représente l'évènement "moins de 5 jours sans neige à Québec dans l'année". 
+
+:::
+
+::: {.callout-warning icon=false}
+## Définition
+
+Une **mesure de probabilités** $\mathbb{P}$ sur $S$ est une application (fonction) définie sur l'espace d'évènements et satisfaisant les propriétés suivantes :
+
+1. Pour chaque évènement $E$, $\mathbb{P}(E) \in [0, 1]$. 
+
+2. $\mathbb{P}(S) = 1$.
+
+3. Soient $E_{1}, E_{2}, \dots$, une séquence d'évènements (finie ou infinie) mutuellement exclusive, i.e. $\forall i \neq j, E_{i} \cap E_{j} = \varnothing$. On a 
+$$\mathbb{P}(\bigcup_{n = 1}^{\infty} E_n) = \sum_{n = 1}^{\infty} \mathbb{P}(E_n).$$
+
+On appelle $\mathbb{P}(E)$, la probabilité de l'évènement $E$.
+
+:::
+
+La définition de mesures de probabilités peut être subjective et lié à l'expérience du statisticien. En reprenant l'exemple 3 sur le nombre de jours sans neige à Québec dans l'année. Une personne venant d'arriver au Canada peut vouloir donner la même probabilité à chacun des jours, alors qu'un Québécois aura plus d'information et pourras faire varier les probabilités en fonction de cette connaissance.
 
 
-Vecteurs aléatoires: 
 
-Soit $X = (X_{1}, \dots, X_{p})^\top$, un vecteur aléatoire de taille $p$. 
+## Vecteurs aléatoires 
+
+Soit $X = (X_{1}, \dots, X_{p})^\top \in \mathbb{R}^p$, un vecteur aléatoire de taille $p$. 
+
+::: {.callout-warning icon=false}
+## Définition
 
 Espérance: 
 $$\mathbb{E}(X) = \begin{pmatrix}
@@ -25,6 +68,9 @@ $$\mathbb{E}(X) = \begin{pmatrix}
   \vdots \\
   \mu_{p}
 \end{pmatrix} \coloneqq \mu.$$
+
+:::
+
 
 Matrice de variance/covariance: 
 $$\mathrm{Var}(X) = \begin{pmatrix}
