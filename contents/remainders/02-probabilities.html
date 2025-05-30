@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script><script src="../../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../../site_libs/quarto-search/fuse.min.js"></script><script src="../../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../../">
 <link href="../../contents/remainders/03-stat.html" rel="next">
 <link href="../../contents/remainders/01-linear-algebra.html" rel="prev">
@@ -597,7 +617,8 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-<li><a href="#r%C3%A9visions-de-probabilit%C3%A9" id="toc-révisions-de-probabilité" class="nav-link active" data-scroll-target="#révisions-de-probabilité">Révisions de probabilité</a></li>
+<li><a href="#mod%C3%A9liser-le-hasard" id="toc-modéliser-le-hasard" class="nav-link active" data-scroll-target="#modéliser-le-hasard">Modéliser le hasard</a></li>
+  <li><a href="#vecteurs-al%C3%A9atoires" id="toc-vecteurs-aléatoires" class="nav-link" data-scroll-target="#vecteurs-aléatoires">Vecteurs aléatoires</a></li>
   </ul>
 <div class="toc-actions"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
@@ -628,9 +649,71 @@ window.Quarto = {
   
 
 
-</header><section id="révisions-de-probabilité" class="level2"><h2 class="anchored" data-anchor-id="révisions-de-probabilité">Révisions de probabilité</h2>
-<p>Vecteurs aléatoires:</p>
-<p>Soit <span class="math inline">\(X = (X_{1}, \dots, X_{p})^\top\)</span>, un vecteur aléatoire de taille <span class="math inline">\(p\)</span>.</p>
+</header><p>Dans cette partie, on présente quelques résultats en probabilités et statistiques dans le cadre de ce cours. Pour plus d’information, vous pouvez vous référer au cours STT-1000, à <span class="citation" data-cites="wassermanAllStatisticsConcise2010">Wasserman (<a href="#ref-wassermanAllStatisticsConcise2010" role="doc-biblioref">2010</a>)</span> (en anglais) et à <span class="citation" data-cites="delmasIntroductionAuCalcul2013">Delmas (<a href="#ref-delmasIntroductionAuCalcul2013" role="doc-biblioref">2013</a>)</span> (en français).</p>
+<section id="modéliser-le-hasard" class="level2"><h2 class="anchored" data-anchor-id="modéliser-le-hasard">Modéliser le hasard</h2>
+<p>Beaucoup de phénomènes réels ne sont pas prévisibles et généralement, leurs résultats contiennent une certaine variabilité. Cette variabilité est prise en compte grâce à une mesure de l’incertitude que l’on appelle <strong>mesure de probabilités</strong>.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Définition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>L’<strong>espace d’évènements</strong> <span class="math inline">\(S\)</span> est l’ensemble de tous les résultats possibles d’un phénomène. Un <strong>évènement</strong> est un sous-ensemble de l’espace d’évènements <span class="math inline">\(S\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exemples
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Si l’expérience consiste à lancer un pièce, <span class="math inline">\(S = \{0, 1\}\)</span>. Le résultat de cette expérience ne peut pas être connu à l’avance. Par exemple, <span class="math inline">\(E = \{1\}\)</span> est un évènement de <span class="math inline">\(S\)</span>.</p></li>
+<li><p>Si on s’intéresse à la durée de vie d’un téléphone, <span class="math inline">\(S = \mathbb{R}_{+}\)</span>. On peut aussi choisir <span class="math inline">\(S = [0, M]\)</span>, car cette durée de vie n’est probablement pas infini ! L’évènement <span class="math inline">\(E = [10, \infty)\)</span> représente l’évènement “une durée de vie de plus de 10 unités de temps”.</p></li>
+<li><p>Pour le nombre de jours sans neige à Québec dans l’année, on peut choisir <span class="math inline">\(S = \mathbb{N}\)</span>. L’évènement <span class="math inline">\(E = (0, 5]\)</span> représente l’évènement “moins de 5 jours sans neige à Québec dans l’année”.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Définition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Une <strong>mesure de probabilités</strong> <span class="math inline">\(\mathbb{P}\)</span> sur <span class="math inline">\(S\)</span> est une application (fonction) définie sur l’espace d’évènements et satisfaisant les propriétés suivantes :</p>
+<ol type="1">
+<li><p>Pour chaque évènement <span class="math inline">\(E\)</span>, <span class="math inline">\(\mathbb{P}(E) \in [0, 1]\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathbb{P}(S) = 1\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\(E_{1}, E_{2}, \dots\)</span>, une séquence d’évènements (finie ou infinie) mutuellement exclusive, i.e. <span class="math inline">\(\forall i \neq j, E_{i} \cap E_{j} = \varnothing\)</span>. On a <span class="math display">\[\mathbb{P}(\bigcup_{n = 1}^{\infty} E_n) = \sum_{n = 1}^{\infty} \mathbb{P}(E_n).\]</span></p></li>
+</ol>
+<p>On appelle <span class="math inline">\(\mathbb{P}(E)\)</span>, la probabilité de l’évènement <span class="math inline">\(E\)</span>.</p>
+</div>
+</div>
+<p>La définition de mesures de probabilités peut être subjective et lié à l’expérience du statisticien. En reprenant l’exemple 3 sur le nombre de jours sans neige à Québec dans l’année. Une personne venant d’arriver au Canada peut vouloir donner la même probabilité à chacun des jours, alors qu’un Québécois aura plus d’information et pourras faire varier les probabilités en fonction de cette connaissance.</p>
+</section><section id="vecteurs-aléatoires" class="level2"><h2 class="anchored" data-anchor-id="vecteurs-aléatoires">Vecteurs aléatoires</h2>
+<p>Soit <span class="math inline">\(X = (X_{1}, \dots, X_{p})^\top \in \mathbb{R}^p\)</span>, un vecteur aléatoire de taille <span class="math inline">\(p\)</span>.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Définition
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Espérance: <span class="math display">\[\mathbb{E}(X) = \begin{pmatrix}
   \mathbb{E}(X_{1}) \\
   \vdots \\
@@ -640,6 +723,8 @@ window.Quarto = {
   \vdots \\
   \mu_{p}
 \end{pmatrix} \coloneqq \mu.\]</span></p>
+</div>
+</div>
 <p>Matrice de variance/covariance: <span class="math display">\[\mathrm{Var}(X) = \begin{pmatrix}
   \mathrm{Var}(X_{1}) &amp; \cdots &amp; \mathrm{Cov}(X_{1}, X_{p}) \\
   \vdots &amp; \ddots &amp; \vdots \\
@@ -687,7 +772,16 @@ Properties
 <p>Notons <span class="math inline">\(D = \{\text{diag}(S^2)\}^{1/2}\)</span>, la matrice des écarts-types calculés sur l’échantillon. On peut calculer la matrice des corrélations sur l’échantillon par : <span class="math display">\[\widehat{R} = D^{-1} S^2 D^{-1} \iff S^2 = D \widehat{R} D.\]</span></p>
 
 
-</section></main><!-- /main --><script>
+
+</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Les références</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-delmasIntroductionAuCalcul2013" class="csl-entry" role="listitem">
+Delmas, Jean-François. 2013. <em><span>Introduction au calcul des probabilit<span>é</span>s et <span>à</span> la statistique : exercices, probl<span>è</span>mes et corrections (2e <span>é</span>dition)</span></em>. Les Presses de l’ENSTA.
+</div>
+<div id="ref-wassermanAllStatisticsConcise2010" class="csl-entry" role="listitem">
+Wasserman, Larry. 2010. <em>All of <span>Statistics</span>: <span>A Concise Course</span> in <span>Statistical Inference</span></em>. Springer Publishing Company, Incorporated.
+</div>
+</div></section></div></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
