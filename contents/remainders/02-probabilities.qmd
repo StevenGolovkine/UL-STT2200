@@ -49,9 +49,26 @@ On appelle $\mathbb{P}(E)$, la probabilité de l'évènement $E$.
 
 La définition de mesures de probabilités peut être subjective et lié à l'expérience du statisticien. En reprenant l'exemple 3 sur le nombre de jours sans neige à Québec dans l'année. Une personne venant d'arriver au Canada peut vouloir donner la même probabilité à chacun des jours, alors qu'un Québécois aura plus d'information et pourras faire varier les probabilités en fonction de cette connaissance.
 
+::: {.callout-warning icon=false}
+## Définition
 
+Deux évènements $E$ et $F$ sont dits **indépendants** si $\mathbb{P}(E \cap F) = \mathbb{P}(E) \times \mathbb{P}(F)$.
 
-## Vecteurs aléatoires 
+:::
+
+::: {.callout-warning icon=false}
+## Définition
+
+Soient $E$ et $F$, deux évènements, la **probabilité conditionelle** que $E$ se réalise sachant que $F$ s'est réalisé est définie par :
+$$\mathbb{P}(E \mid F) = \frac{\mathbb{P}(E \cap F)}{\mathbb{P}(F)}.$$
+
+:::
+
+De façon intuitive, deux évènements sont indépendants si la connaissance de l'un ne donne aucune information sur la réalisation de l'autre. On a aussi $\mathbb{P}(E \mid F) = \mathbb{P}(E)$.
+
+## Variables aléatoires
+
+En probabilité, la convention est d'exprimer le résultat d'expériences comme la valeur d'une fonction appelé **variable aléatoire**. Cette caractérisation est toujours possible.
 
 Soit $X = (X_{1}, \dots, X_{p})^\top \in \mathbb{R}^p$, un vecteur aléatoire de taille $p$. 
 
