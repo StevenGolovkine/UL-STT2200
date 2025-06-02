@@ -618,7 +618,7 @@ window.Quarto = {
    
   <ul>
 <li><a href="#mod%C3%A9liser-le-hasard" id="toc-modéliser-le-hasard" class="nav-link active" data-scroll-target="#modéliser-le-hasard">Modéliser le hasard</a></li>
-  <li><a href="#vecteurs-al%C3%A9atoires" id="toc-vecteurs-aléatoires" class="nav-link" data-scroll-target="#vecteurs-aléatoires">Vecteurs aléatoires</a></li>
+  <li><a href="#variables-al%C3%A9atoires" id="toc-variables-aléatoires" class="nav-link" data-scroll-target="#variables-aléatoires">Variables aléatoires</a></li>
   </ul>
 <div class="toc-actions"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
@@ -702,7 +702,35 @@ Définition
 </div>
 </div>
 <p>La définition de mesures de probabilités peut être subjective et lié à l’expérience du statisticien. En reprenant l’exemple 3 sur le nombre de jours sans neige à Québec dans l’année. Une personne venant d’arriver au Canada peut vouloir donner la même probabilité à chacun des jours, alors qu’un Québécois aura plus d’information et pourras faire varier les probabilités en fonction de cette connaissance.</p>
-</section><section id="vecteurs-aléatoires" class="level2"><h2 class="anchored" data-anchor-id="vecteurs-aléatoires">Vecteurs aléatoires</h2>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Définition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Deux évènements <span class="math inline">\(E\)</span> et <span class="math inline">\(F\)</span> sont dits <strong>indépendants</strong> si <span class="math inline">\(\mathbb{P}(E \cap F) = \mathbb{P}(E) \times \mathbb{P}(F)\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Définition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soient <span class="math inline">\(E\)</span> et <span class="math inline">\(F\)</span>, deux évènements, la <strong>probabilité conditionelle</strong> que <span class="math inline">\(E\)</span> se réalise sachant que <span class="math inline">\(F\)</span> s’est réalisé est définie par : <span class="math display">\[\mathbb{P}(E \mid F) = \frac{\mathbb{P}(E \cap F)}{\mathbb{P}(F)}.\]</span></p>
+</div>
+</div>
+<p>De façon intuitive, deux évènements sont indépendants si la connaissance de l’un ne donne aucune information sur la réalisation de l’autre. On a aussi <span class="math inline">\(\mathbb{P}(E \mid F) = \mathbb{P}(E)\)</span>.</p>
+</section><section id="variables-aléatoires" class="level2"><h2 class="anchored" data-anchor-id="variables-aléatoires">Variables aléatoires</h2>
+<p>En probabilité, la convention est d’exprimer le résultat d’expériences comme la valeur d’une fonction appelé <strong>variable aléatoire</strong>. Cette caractérisation est toujours possible.</p>
 <p>Soit <span class="math inline">\(X = (X_{1}, \dots, X_{p})^\top \in \mathbb{R}^p\)</span>, un vecteur aléatoire de taille <span class="math inline">\(p\)</span>.</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
