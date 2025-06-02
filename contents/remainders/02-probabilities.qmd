@@ -70,37 +70,84 @@ De façon intuitive, deux évènements sont indépendants si la connaissance de 
 
 En probabilité, la convention est d'exprimer le résultat d'expériences comme la valeur d'une fonction appelé **variable aléatoire**. Cette caractérisation est toujours possible.
 
+::: {.callout-warning icon=false}
+## Définition
 
-Soit $X = (X_{1}, \dots, X_{p})^\top \in \mathbb{R}^p$, un vecteur aléatoire de taille $p$. 
+Soit une variable aléatoire $X$. La **distribution** de cette variable aléatoire est définie par l'application $A \mapsto \mathbb{P(X \in A)}$.
+
+:::
 
 ::: {.callout-warning icon=false}
 ## Définition
 
-Espérance: 
-$$\mathbb{E}(X) = \begin{pmatrix}
-  \mathbb{E}(X_{1}) \\
-  \vdots \\
-  \mathbb{E}(X_{p})
-\end{pmatrix} \coloneqq \begin{pmatrix}
-  \mu_{1} \\
-  \vdots \\
-  \mu_{p}
-\end{pmatrix} \coloneqq \mu.$$
+Soit une variable aléatoire $X$. Cette variable aléatoire est **discrète** si elle prend, au plus, un nombre dénombrable de valeurs. Dans ce cas, la distribution de $X$ est donnée par les probabilités $\mathbb{P}(X = x)$ pour tout résultat $x$.
 
 :::
 
 
-Matrice de variance/covariance: 
-$$\mathrm{Var}(X) = \begin{pmatrix}
-  \mathrm{Var}(X_{1}) & \cdots & \mathrm{Cov}(X_{1}, X_{p}) \\
-  \vdots & \ddots & \vdots \\
-  \mathrm{Cov}(X_{1}, X_{p}) & \cdots & \mathrm{Var}(X_p)  
-  \end{pmatrix} \coloneqq \begin{pmatrix}
-  \sigma_{1}^2 & \cdots & \sigma_{1, p} \\
-  \vdots & \ddots & \vdots \\
-  \sigma_{1, p} & \cdots & \sigma_p   
-\end{pmatrix} \coloneqq \Sigma.$$
+::: {.callout-warning icon=false}
+## Définition
 
+Soit une variable aléatoire $X$. Cette variable aléatoire est **continue** si les probabilités $\mathbb{P}(X \in A)$ sont données par des intégrales de la forme $\int_{A} f(x) dx$ où $f: \mathbb{R}^d \to \mathbb{R}_+$ est une fonction intégrable tel que $\int_{\mathbb{R}^d} f(x) dx = 1$. Notons que, pour un résultat $x$ fixé, $\mathbb{P}(X = x) = 0$.
+
+:::
+
+
+::: {.callout-warning icon=false}
+## Définition
+
+Soit une variable aléatoire $X$. L'**espérance mathématique** $\mathbb{E}(X)$ de $X$ est la valeur moyenne du résultat de $X$ par rapport à sa distribution de probabilité. L'espérance est généralement noté $\mu$.
+
+:::
+
+
+Soit $F$ un ensemble dénombrable. Une variable aléatoire discrète $X$ a pour espérance $\mathbb{E}(X) = \sum_{x \in F} x \mathbb{P}(X = x)$. Soit une variable aléatoire continue $X$ ayant pour densité $f$, son espérance est donnée par $\mathbb{E}(X) = \int_{\mathbb{R}^d} x f(x) dx$. 
+
+::: {.callout-caution icon=false}
+## Théorème de transfert 
+
+Soit une variable aléatoire $X$. Soit $g: \mathbb{R}^d \mapsto \mathbb{R}$ une fonction telle que $\mathbb{E}\left[ g(X) \right]$ existe. On a :
+
+1. Si $X$ est une variable aléatoire discrète, $\mathbb{E}\left[ g(X) \right] = \sum_{x \in F} g(x) \mathbb{P}(X = x)$;
+
+2. Si $X$ est une variable aléatoire continue de densité $f$, $\mathbb{E}\left[ g(X) \right] = \int_{\mathbb{R}^d} g(x)f(x) dx$.
+
+:::
+
+::: {.callout-important icon=false}
+## Propriétés: Linéarité de l'espérance
+
+Soient $X$ et $Y$, deux variables aléatoires, dont les espérances sont définies et soit $\lambda \in R$. On a :
+
+1. $\mathbb{E}(X + Y) = \mathbb{E}(X) + \mathbb{E}(Y)$;
+
+2. $\mathbb{E}(\lambda X) = \lambda \mathbb{E}(X)$.
+
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Preuve
+
+La preuve se déduit du théorème de transfert et de la linéarité de l'addition et de l'intégration.
+:::
+
+
+::: {.callout-warning icon=false}
+## Définition
+
+Soit $X$ une variable aléatoire telle que l'espérance de son carré existe. La **variance** de $X$ est définie par 
+$$\mathrm{Var}(X) = \mathbb{E}\left[ \left( X - \mathbb{E}(X) \right)^2 \right] = \mathbb{E}\left[ X^2 \right] - \mathbb{E}\left[ X \right]^2.$$
+
+:::
+
+La variance mesure la dispersion d'une variable aléatoire autour de sa moyenne. On peut aussi s'intéresser à l'**écart-type**, défini comme la racine carrée de la variance : $\sigma(X) = \sqrt{\mathrm{Var}(X)}$.
+
+::: {.callout-warning icon=false}
+## Définition
+
+Soient $X$ et $Y$, deux variables aléatoires et $A$ et $B$, deux évenements. Si les évenements $\left{ X \in A \right}$ et $\left{ Y \in B \right}$ sont indépendants, alors on dit que les variables aléatoires $X$ et $Y$ sont indépendantes.
+
+:::
 Matrice de corrélation: 
 $$\mathrm{Cor}(X) = \begin{pmatrix}
   1 & \cdots & \mathrm{Corr}(X_{1}, X_{p})  \\
