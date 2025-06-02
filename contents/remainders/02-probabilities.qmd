@@ -70,6 +70,7 @@ De façon intuitive, deux évènements sont indépendants si la connaissance de 
 
 En probabilité, la convention est d'exprimer le résultat d'expériences comme la valeur d'une fonction appelé **variable aléatoire**. Cette caractérisation est toujours possible.
 
+
 Soit $X = (X_{1}, \dots, X_{p})^\top \in \mathbb{R}^p$, un vecteur aléatoire de taille $p$. 
 
 ::: {.callout-warning icon=false}
