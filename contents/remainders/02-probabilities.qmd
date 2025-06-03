@@ -73,7 +73,8 @@ En probabilité, la convention est d'exprimer le résultat d'expériences comme 
 ::: {.callout-warning icon=false}
 ## Définition
 
-Soit une variable aléatoire $X$. La **distribution** de cette variable aléatoire est définie par l'application $A \mapsto \mathbb{P(X \in A)}$.
+Soit une variable aléatoire $X$. La **distribution** de cette variable aléatoire est définie par l'application $A \mapsto \mathbb{P}(X \in A)$.
+
 
 :::
 
@@ -145,53 +146,96 @@ La variance mesure la dispersion d'une variable aléatoire autour de sa moyenne.
 ::: {.callout-warning icon=false}
 ## Définition
 
-Soient $X$ et $Y$, deux variables aléatoires et $A$ et $B$, deux évenements. Si les évenements $\left{ X \in A \right}$ et $\left{ Y \in B \right}$ sont indépendants, alors on dit que les variables aléatoires $X$ et $Y$ sont indépendantes.
-
-:::
-Matrice de corrélation: 
-$$\mathrm{Cor}(X) = \begin{pmatrix}
-  1 & \cdots & \mathrm{Corr}(X_{1}, X_{p})  \\
-  \vdots & \ddots & \vdots \\
-  \mathrm{Corr}(X_{1}, X_{p}) & \cdots & 1
-  \end{pmatrix} \coloneqq \begin{pmatrix}
-  1 & \cdots & \rho_{1, p} \\
-  \vdots & \ddots & \vdots \\
-  \rho_{1, p} & \cdots & 1
-\end{pmatrix} \coloneqq R.$$
-
-Propriété des moments:
-
-::: {.callout-important icon=false}
-## Properties
-
-Soit $X$ un vecteur aléatoire de moyenne $\mathbb{E}(X) = \mu$ et de variance $\mathrm{Var}(X) = \Sigma$, et soit $M$ une matrice de constantes et $v$ un vecteur de constantes.
-
-1. $\Sigma$ est définie non-négative et symétrique.
-
-2. $\Sigma = \mathbb{E}\left[ (X - \mu)(X - \mu)^\top \right] = \mathbb{E}(X X^\top) - \mu \mu^\top$.
-
-3. $\mathbb{E}(MX + v) = \mathbb{E}(X) + v$.
-
-4. $\mathrm{Var}(MX + v) = \mathrm{Var}(MX) = M \Sigma M^\top$.
-
-5. $\Sigma = \Delta R \Delta \iff R = \Delta^{-1} \Sigma \Delta^{-1}$.
+Soient $X$ et $Y$, deux variables aléatoires et $A$ et $B$, deux évenements. Si les évenements $\left\{ X \in A \right\}$ et $\left\{ Y \in B \right\}$ sont indépendants, alors on dit que les variables aléatoires $X$ et $Y$ sont **indépendantes**.
 
 :::
 
-Ajouter qqc sur l'indépendance de variables aléatoires!
+De cette définition, on en déduit que :
+
+1. pour des fonctions $f$ et $g$, les variables aléatoires $f(X)$ et $g(Y)$ sont indépendantes;
+
+2. si les variables aléatoires $X$ et $Y$ sont à valeurs réelles et que leur espérance existe, alors l'espérance du produit $XY$ existe et $\mathbb{E}(XY) = \mathbb{E}(X) \times \mathbb{E}(Y)$.
 
 
-Loi normale multivariée: 
-On dit qu'un vecteur aléatoire $X$ de dimension $p$ suit une loi normale multidimensionnelle de moyenne $\mu$ et de variance $\Sigma \sim \mathcal{N}_{p}(\mu, \sigma^2)$, si sa densité est données par 
+::: {.callout-warning icon=false}
+## Définition
+
+Soit $X$ une variable aléatoire. La **fonction de répartition** $F: \mathbb{R} \mapsto [0, 1]$ de $X$ est définie par 
+$$F(t) = \mathbb{P}(X \leq t), \quad t \in \mathbb{R}.$$
+
+:::
+
+
+## Vecteurs aléatoires
+
+Supposons que $X = (X_{1}, X_{2})$ est une variable aléatoire de dimension $2$ de densité $f_{X}$. On appelle généralement les variables aléatoires de dimension supérieure à $1$, des **vecteurs aléatoires**. Les densités de $X_{1}$ et $X_{2}$ sont appelées les **densités marginales**. Lorsque $X_{1}$ et $X_{2}$ sont indépendantes, on a :
+$$f_X(x, y) = f_{X_{1}}(x) \cdot f_{X_{2}}(y), \quad (x, y) \in \mathbb{R}^2.$$
+
+
+::: {.callout-note icon=false}
+## Exemple de la loi normale multidimensionnelle 
+
+On dit qu'un vecteur aléatoire $X$ de dimension $p$ suit une loi normale multidimensionnelle de moyenne $\mu$ et de variance $\Sigma$, si sa densité est donnée par 
 $$f_X(x) = \frac{1}{(2 \pi)^{p /2}} \cdot \frac{1}{(\text{det} \Sigma)^{1/2}} \cdot \exp\left\{ -\frac{1}{2}\left( x - \mu \right)^\top \Sigma^{-1} \left( x - \mu \right) \right\}, \quad x \in \mathbb{R}^p.$$
 
-Estimation avec un échantillon: 
-En practique, nous ne connaissons pas les valeurs de $\mu$ et de $\Sigma$ et nous voulons les estimer à partir d'un échantillon. Soit $X_{1}, \dots, X_{n}$, $n$ réalisations indépendantes d'un vecteur aléatoire $X$ de moyenne $\mu$ et de variance $\Sigma$. On estime $\mu$ et $\Sigma$ par : 
+On note $X \sim \mathcal{N}_{p}(\mu, \Sigma)$.
+
+:::
 
 
-$$\widehat{\mu} = \overline{X} \coloneqq \frac{1}{n} \sum_{i = 1}^{n} X_i$$
+En statistiques, une quantité importante à mesurer est la dépendance linéaire entre $X_{1}$ et $X_{2}$. Pour cela, on peut utiliser la covariance ou la correlation.
 
-$$\widehat{\Sigma} = S^2 \coloneqq \frac{1}{n - 1}\sum_{i = 1}^{n} (X_i - \overline{X})(X_i - \overline{X})^\top.$$
+::: {.callout-warning icon=false}
+## Définition
 
-Notons $D = \{\text{diag}(S^2)\}^{1/2}$, la matrice des écarts-types calculés sur l'échantillon. On peut calculer la matrice des corrélations sur l'échantillon par : 
-$$\widehat{R} = D^{-1} S^2 D^{-1} \iff S^2 = D \widehat{R} D.$$
+Soit $X = (X_{1}, X_{2})$ un vecteur aléatoire tel que l'espérance du carré de $X_{1}$ et de $X_{2}$ existe. La **covariance** entre $X_{1}$ et $X_{2}$ est donnée par
+$$\mathrm{Cov}(X_{1}, X_{2}) = \mathbb{E}\left[ (X_{1} - \mathbb{E}(X_{1})) (X_{2} - \mathbb{E}(X_{2}))\right].$$
+
+La **corrélation** entre $X_{1}$ et $X_{2}$ est une version de la covariance normalisée par l'écart-type des variables aléatoires. Elle est donnée par 
+$$\mathrm{Corr}(X_{1}, X_{2}) = \frac{\mathrm{Cov}(X_{1}, X_{2})}{\sigma(X_{1}) \sigma(X_{2})}.$$
+
+:::
+
+On peut interpréter le signe de la covariance et de la corrélation. Si elles sont strictement positives, $X_{1}$ et $X_{2}$ ont tendance à aller dans la même direction. Si $X_{1}$ augmente, alors $X_{2}$ aussi, et inversement. Si elles sont strictement négatives, $X_{1}$ et $X_{2}$ ont tendance à aller dans des directions opposées. Si $X_{1}$ augmente, alors $X_{2}$ diminue, et inversement. Si la covariance est égales à $0$, il n'y a pas de règles et $X_{1}$ et $X_{2}$ sont dites orthogonales.
+
+::: {.callout-important icon=false}
+## Propriétés 
+
+Soit $X = (X_{1}, X_{2})$ un vecteur aléatoire. On a 
+
+1. $\mathrm{Cov}(X_{1}, X_{2}) = \mathbb{E}(X_{1}X_{2}) - \mathbb{E}(X_{1})\mathbb{E}(X_{2})$;
+
+2. $\mathrm{Cov}(X_{1}, X_{2}) = \mathrm{Cov}(X_{2}, X_{1})$;
+
+3. $\mathrm{Cov}(X_{1} + \lambda Y_{1}, X_{2}) = \mathrm{Cov}(X_{1}, X_{2}) + \lambda \mathrm{Cov}(Y_{1}, X_{2})$.
+
+:::
+
+::: {.callout-note icon=false collaspe=true}
+## Preuve
+
+1. On trouve le résultat en développement le produit dans la définition de la covariance.
+
+2. En utilisant le point 1. et la commutativité de la multiplication.
+
+3. En utilisant le point 1. et la linéarité de l'espérance.
+
+:::
+
+## Estimation
+
+En practique, nous n'avons pas une connaissance parfaite de nos vecteurs aléatoires, mais seulement des réalisations de ceux-ci (que l'on appelle échantillon). Notons $x_{1}, \dots, x_{n}$, $n$ réalisations indépendantes d'un vecteur aléatoire $X$ de moyenne $\mu$ et de variance $\Sigma$. 
+
+L'estimateur de la moyenne $\mu$ est donné par 
+$$\widehat{\mu} = \overline{X} \coloneqq \frac{1}{n} \sum_{i = 1}^{n} x_i.$$
+
+L'estimateur de la variance $\Sigma$ est donné par
+$$\widehat{\Sigma} \coloneqq \frac{1}{n - 1}\sum_{i = 1}^{n} (x_i - \widehat{\mu})(x_i - \widehat{\mu})^\top.$$
+
+Pourquoi divise t-on cette somme par $n -1$ et non par $n$ pour estimer la variance ? Si l'on divise par $n$, $\widehat{\Sigma}$ est un estimateur biaisé de la variance. En effet, il faut prendre en compte que l'on utilise un estimateur biaisé de la moyenne dans l'estimateur de la variance et donc corriger pour cette estimation.
+
+
+Notons $D = \{\text{diag}(\widehat{\Sigma})\}^{1/2}$, la matrice des écarts-types calculés sur l'échantillon. On peut estimer la matrice des corrélations sur l'échantillon par
+$$\widehat{R} = D^{-1} \widehat{\Sigma} D^{-1}.$$
+
+
