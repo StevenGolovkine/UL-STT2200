@@ -619,6 +619,8 @@ window.Quarto = {
   <ul>
 <li><a href="#mod%C3%A9liser-le-hasard" id="toc-modéliser-le-hasard" class="nav-link active" data-scroll-target="#modéliser-le-hasard">Modéliser le hasard</a></li>
   <li><a href="#variables-al%C3%A9atoires" id="toc-variables-aléatoires" class="nav-link" data-scroll-target="#variables-aléatoires">Variables aléatoires</a></li>
+  <li><a href="#vecteurs-al%C3%A9atoires" id="toc-vecteurs-aléatoires" class="nav-link" data-scroll-target="#vecteurs-aléatoires">Vecteurs aléatoires</a></li>
+  <li><a href="#estimation" id="toc-estimation" class="nav-link" data-scroll-target="#estimation">Estimation</a></li>
   </ul>
 <div class="toc-actions"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
@@ -731,7 +733,6 @@ Définition
 <p>De façon intuitive, deux évènements sont indépendants si la connaissance de l’un ne donne aucune information sur la réalisation de l’autre. On a aussi <span class="math inline">\(\mathbb{P}(E \mid F) = \mathbb{P}(E)\)</span>.</p>
 </section><section id="variables-aléatoires" class="level2"><h2 class="anchored" data-anchor-id="variables-aléatoires">Variables aléatoires</h2>
 <p>En probabilité, la convention est d’exprimer le résultat d’expériences comme la valeur d’une fonction appelé <strong>variable aléatoire</strong>. Cette caractérisation est toujours possible.</p>
-<p>Soit <span class="math inline">\(X = (X_{1}, \dots, X_{p})^\top \in \mathbb{R}^p\)</span>, un vecteur aléatoire de taille <span class="math inline">\(p\)</span>.</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -742,62 +743,217 @@ Définition
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Espérance: <span class="math display">\[\mathbb{E}(X) = \begin{pmatrix}
-  \mathbb{E}(X_{1}) \\
-  \vdots \\
-  \mathbb{E}(X_{p})
-\end{pmatrix} \coloneqq \begin{pmatrix}
-  \mu_{1} \\
-  \vdots \\
-  \mu_{p}
-\end{pmatrix} \coloneqq \mu.\]</span></p>
+<p>Soit une variable aléatoire <span class="math inline">\(X\)</span>. La <strong>distribution</strong> de cette variable aléatoire est définie par l’application <span class="math inline">\(A \mapsto \mathbb{P}(X \in A)\)</span>.</p>
 </div>
 </div>
-<p>Matrice de variance/covariance: <span class="math display">\[\mathrm{Var}(X) = \begin{pmatrix}
-  \mathrm{Var}(X_{1}) &amp; \cdots &amp; \mathrm{Cov}(X_{1}, X_{p}) \\
-  \vdots &amp; \ddots &amp; \vdots \\
-  \mathrm{Cov}(X_{1}, X_{p}) &amp; \cdots &amp; \mathrm{Var}(X_p)  
-  \end{pmatrix} \coloneqq \begin{pmatrix}
-  \sigma_{1}^2 &amp; \cdots &amp; \sigma_{1, p} \\
-  \vdots &amp; \ddots &amp; \vdots \\
-  \sigma_{1, p} &amp; \cdots &amp; \sigma_p   
-\end{pmatrix} \coloneqq \Sigma.\]</span></p>
-<p>Matrice de corrélation: <span class="math display">\[\mathrm{Cor}(X) = \begin{pmatrix}
-  1 &amp; \cdots &amp; \mathrm{Corr}(X_{1}, X_{p})  \\
-  \vdots &amp; \ddots &amp; \vdots \\
-  \mathrm{Corr}(X_{1}, X_{p}) &amp; \cdots &amp; 1
-  \end{pmatrix} \coloneqq \begin{pmatrix}
-  1 &amp; \cdots &amp; \rho_{1, p} \\
-  \vdots &amp; \ddots &amp; \vdots \\
-  \rho_{1, p} &amp; \cdots &amp; 1
-\end{pmatrix} \coloneqq R.\]</span></p>
-<p>Propriété des moments:</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Définition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soit une variable aléatoire <span class="math inline">\(X\)</span>. Cette variable aléatoire est <strong>discrète</strong> si elle prend, au plus, un nombre dénombrable de valeurs. Dans ce cas, la distribution de <span class="math inline">\(X\)</span> est donnée par les probabilités <span class="math inline">\(\mathbb{P}(X = x)\)</span> pour tout résultat <span class="math inline">\(x\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Définition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soit une variable aléatoire <span class="math inline">\(X\)</span>. Cette variable aléatoire est <strong>continue</strong> si les probabilités <span class="math inline">\(\mathbb{P}(X \in A)\)</span> sont données par des intégrales de la forme <span class="math inline">\(\int_{A} f(x) dx\)</span> où <span class="math inline">\(f: \mathbb{R}^d \to \mathbb{R}_+\)</span> est une fonction intégrable tel que <span class="math inline">\(\int_{\mathbb{R}^d} f(x) dx = 1\)</span>. Notons que, pour un résultat <span class="math inline">\(x\)</span> fixé, <span class="math inline">\(\mathbb{P}(X = x) = 0\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Définition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soit une variable aléatoire <span class="math inline">\(X\)</span>. L’<strong>espérance mathématique</strong> <span class="math inline">\(\mathbb{E}(X)\)</span> de <span class="math inline">\(X\)</span> est la valeur moyenne du résultat de <span class="math inline">\(X\)</span> par rapport à sa distribution de probabilité. L’espérance est généralement noté <span class="math inline">\(\mu\)</span>.</p>
+</div>
+</div>
+<p>Soit <span class="math inline">\(F\)</span> un ensemble dénombrable. Une variable aléatoire discrète <span class="math inline">\(X\)</span> a pour espérance <span class="math inline">\(\mathbb{E}(X) = \sum_{x \in F} x \mathbb{P}(X = x)\)</span>. Soit une variable aléatoire continue <span class="math inline">\(X\)</span> ayant pour densité <span class="math inline">\(f\)</span>, son espérance est donnée par <span class="math inline">\(\mathbb{E}(X) = \int_{\mathbb{R}^d} x f(x) dx\)</span>.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Théorème de transfert
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soit une variable aléatoire <span class="math inline">\(X\)</span>. Soit <span class="math inline">\(g: \mathbb{R}^d \mapsto \mathbb{R}\)</span> une fonction telle que <span class="math inline">\(\mathbb{E}\left[ g(X) \right]\)</span> existe. On a :</p>
+<ol type="1">
+<li><p>Si <span class="math inline">\(X\)</span> est une variable aléatoire discrète, <span class="math inline">\(\mathbb{E}\left[ g(X) \right] = \sum_{x \in F} g(x) \mathbb{P}(X = x)\)</span>;</p></li>
+<li><p>Si <span class="math inline">\(X\)</span> est une variable aléatoire continue de densité <span class="math inline">\(f\)</span>, <span class="math inline">\(\mathbb{E}\left[ g(X) \right] = \int_{\mathbb{R}^d} g(x)f(x) dx\)</span>.</p></li>
+</ol>
+</div>
+</div>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Properties
+Propriétés: Linéarité de l’espérance
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soit <span class="math inline">\(X\)</span> un vecteur aléatoire de moyenne <span class="math inline">\(\mathbb{E}(X) = \mu\)</span> et de variance <span class="math inline">\(\mathrm{Var}(X) = \Sigma\)</span>, et soit <span class="math inline">\(M\)</span> une matrice de constantes et <span class="math inline">\(v\)</span> un vecteur de constantes.</p>
+<p>Soient <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span>, deux variables aléatoires, dont les espérances sont définies et soit <span class="math inline">\(\lambda \in R\)</span>. On a :</p>
 <ol type="1">
-<li><p><span class="math inline">\(\Sigma\)</span> est définie non-négative et symétrique.</p></li>
-<li><p><span class="math inline">\(\Sigma = \mathbb{E}\left[ (X - \mu)(X - \mu)^\top \right] = \mathbb{E}(X X^\top) - \mu \mu^\top\)</span>.</p></li>
-<li><p><span class="math inline">\(\mathbb{E}(MX + v) = \mathbb{E}(X) + v\)</span>.</p></li>
-<li><p><span class="math inline">\(\mathrm{Var}(MX + v) = \mathrm{Var}(MX) = M \Sigma M^\top\)</span>.</p></li>
-<li><p><span class="math inline">\(\Sigma = \Delta R \Delta \iff R = \Delta^{-1} \Sigma \Delta^{-1}\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathbb{E}(X + Y) = \mathbb{E}(X) + \mathbb{E}(Y)\)</span>;</p></li>
+<li><p><span class="math inline">\(\mathbb{E}(\lambda X) = \lambda \mathbb{E}(X)\)</span>.</p></li>
 </ol>
 </div>
 </div>
-<p>Ajouter qqc sur l’indépendance de variables aléatoires!</p>
-<p>Loi normale multivariée: On dit qu’un vecteur aléatoire <span class="math inline">\(X\)</span> de dimension <span class="math inline">\(p\)</span> suit une loi normale multidimensionnelle de moyenne <span class="math inline">\(\mu\)</span> et de variance <span class="math inline">\(\Sigma \sim \mathcal{N}_{p}(\mu, \sigma^2)\)</span>, si sa densité est données par <span class="math display">\[f_X(x) = \frac{1}{(2 \pi)^{p /2}} \cdot \frac{1}{(\text{det} \Sigma)^{1/2}} \cdot \exp\left\{ -\frac{1}{2}\left( x - \mu \right)^\top \Sigma^{-1} \left( x - \mu \right) \right\}, \quad x \in \mathbb{R}^p.\]</span></p>
-<p>Estimation avec un échantillon: En practique, nous ne connaissons pas les valeurs de <span class="math inline">\(\mu\)</span> et de <span class="math inline">\(\Sigma\)</span> et nous voulons les estimer à partir d’un échantillon. Soit <span class="math inline">\(X_{1}, \dots, X_{n}\)</span>, <span class="math inline">\(n\)</span> réalisations indépendantes d’un vecteur aléatoire <span class="math inline">\(X\)</span> de moyenne <span class="math inline">\(\mu\)</span> et de variance <span class="math inline">\(\Sigma\)</span>. On estime <span class="math inline">\(\mu\)</span> et <span class="math inline">\(\Sigma\)</span> par :</p>
-<p><span class="math display">\[\widehat{\mu} = \overline{X} \coloneqq \frac{1}{n} \sum_{i = 1}^{n} X_i\]</span></p>
-<p><span class="math display">\[\widehat{\Sigma} = S^2 \coloneqq \frac{1}{n - 1}\sum_{i = 1}^{n} (X_i - \overline{X})(X_i - \overline{X})^\top.\]</span></p>
-<p>Notons <span class="math inline">\(D = \{\text{diag}(S^2)\}^{1/2}\)</span>, la matrice des écarts-types calculés sur l’échantillon. On peut calculer la matrice des corrélations sur l’échantillon par : <span class="math display">\[\widehat{R} = D^{-1} S^2 D^{-1} \iff S^2 = D \widehat{R} D.\]</span></p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Preuve
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>La preuve se déduit du théorème de transfert et de la linéarité de l’addition et de l’intégration.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Définition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soit <span class="math inline">\(X\)</span> une variable aléatoire telle que l’espérance de son carré existe. La <strong>variance</strong> de <span class="math inline">\(X\)</span> est définie par <span class="math display">\[\mathrm{Var}(X) = \mathbb{E}\left[ \left( X - \mathbb{E}(X) \right)^2 \right] = \mathbb{E}\left[ X^2 \right] - \mathbb{E}\left[ X \right]^2.\]</span></p>
+</div>
+</div>
+<p>La variance mesure la dispersion d’une variable aléatoire autour de sa moyenne. On peut aussi s’intéresser à l’<strong>écart-type</strong>, défini comme la racine carrée de la variance : <span class="math inline">\(\sigma(X) = \sqrt{\mathrm{Var}(X)}\)</span>.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Définition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soient <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span>, deux variables aléatoires et <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span>, deux évenements. Si les évenements <span class="math inline">\(\left\{ X \in A \right\}\)</span> et <span class="math inline">\(\left\{ Y \in B \right\}\)</span> sont indépendants, alors on dit que les variables aléatoires <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> sont <strong>indépendantes</strong>.</p>
+</div>
+</div>
+<p>De cette définition, on en déduit que :</p>
+<ol type="1">
+<li><p>pour des fonctions <span class="math inline">\(f\)</span> et <span class="math inline">\(g\)</span>, les variables aléatoires <span class="math inline">\(f(X)\)</span> et <span class="math inline">\(g(Y)\)</span> sont indépendantes;</p></li>
+<li><p>si les variables aléatoires <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> sont à valeurs réelles et que leur espérance existe, alors l’espérance du produit <span class="math inline">\(XY\)</span> existe et <span class="math inline">\(\mathbb{E}(XY) = \mathbb{E}(X) \times \mathbb{E}(Y)\)</span>.</p></li>
+</ol>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Définition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soit <span class="math inline">\(X\)</span> une variable aléatoire. La <strong>fonction de répartition</strong> <span class="math inline">\(F: \mathbb{R} \mapsto [0, 1]\)</span> de <span class="math inline">\(X\)</span> est définie par <span class="math display">\[F(t) = \mathbb{P}(X \leq t), \quad t \in \mathbb{R}.\]</span></p>
+</div>
+</div>
+</section><section id="vecteurs-aléatoires" class="level2"><h2 class="anchored" data-anchor-id="vecteurs-aléatoires">Vecteurs aléatoires</h2>
+<p>Supposons que <span class="math inline">\(X = (X_{1}, X_{2})\)</span> est une variable aléatoire de dimension <span class="math inline">\(2\)</span> de densité <span class="math inline">\(f_{X}\)</span>. On appelle généralement les variables aléatoires de dimension supérieure à <span class="math inline">\(1\)</span>, des <strong>vecteurs aléatoires</strong>. Les densités de <span class="math inline">\(X_{1}\)</span> et <span class="math inline">\(X_{2}\)</span> sont appelées les <strong>densités marginales</strong>. Lorsque <span class="math inline">\(X_{1}\)</span> et <span class="math inline">\(X_{2}\)</span> sont indépendantes, on a : <span class="math display">\[f_X(x, y) = f_{X_{1}}(x) \cdot f_{X_{2}}(y), \quad (x, y) \in \mathbb{R}^2.\]</span></p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exemple de la loi normale multidimensionnelle
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On dit qu’un vecteur aléatoire <span class="math inline">\(X\)</span> de dimension <span class="math inline">\(p\)</span> suit une loi normale multidimensionnelle de moyenne <span class="math inline">\(\mu\)</span> et de variance <span class="math inline">\(\Sigma\)</span>, si sa densité est donnée par <span class="math display">\[f_X(x) = \frac{1}{(2 \pi)^{p /2}} \cdot \frac{1}{(\text{det} \Sigma)^{1/2}} \cdot \exp\left\{ -\frac{1}{2}\left( x - \mu \right)^\top \Sigma^{-1} \left( x - \mu \right) \right\}, \quad x \in \mathbb{R}^p.\]</span></p>
+<p>On note <span class="math inline">\(X \sim \mathcal{N}_{p}(\mu, \Sigma)\)</span>.</p>
+</div>
+</div>
+<p>En statistiques, une quantité importante à mesurer est la dépendance linéaire entre <span class="math inline">\(X_{1}\)</span> et <span class="math inline">\(X_{2}\)</span>. Pour cela, on peut utiliser la covariance ou la correlation.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Définition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soit <span class="math inline">\(X = (X_{1}, X_{2})\)</span> un vecteur aléatoire tel que l’espérance du carré de <span class="math inline">\(X_{1}\)</span> et de <span class="math inline">\(X_{2}\)</span> existe. La <strong>covariance</strong> entre <span class="math inline">\(X_{1}\)</span> et <span class="math inline">\(X_{2}\)</span> est donnée par <span class="math display">\[\mathrm{Cov}(X_{1}, X_{2}) = \mathbb{E}\left[ (X_{1} - \mathbb{E}(X_{1})) (X_{2} - \mathbb{E}(X_{2}))\right].\]</span></p>
+<p>La <strong>corrélation</strong> entre <span class="math inline">\(X_{1}\)</span> et <span class="math inline">\(X_{2}\)</span> est une version de la covariance normalisée par l’écart-type des variables aléatoires. Elle est donnée par <span class="math display">\[\mathrm{Corr}(X_{1}, X_{2}) = \frac{\mathrm{Cov}(X_{1}, X_{2})}{\sigma(X_{1}) \sigma(X_{2})}.\]</span></p>
+</div>
+</div>
+<p>On peut interpréter le signe de la covariance et de la corrélation. Si elles sont strictement positives, <span class="math inline">\(X_{1}\)</span> et <span class="math inline">\(X_{2}\)</span> ont tendance à aller dans la même direction. Si <span class="math inline">\(X_{1}\)</span> augmente, alors <span class="math inline">\(X_{2}\)</span> aussi, et inversement. Si elles sont strictement négatives, <span class="math inline">\(X_{1}\)</span> et <span class="math inline">\(X_{2}\)</span> ont tendance à aller dans des directions opposées. Si <span class="math inline">\(X_{1}\)</span> augmente, alors <span class="math inline">\(X_{2}\)</span> diminue, et inversement. Si la covariance est égales à <span class="math inline">\(0\)</span>, il n’y a pas de règles et <span class="math inline">\(X_{1}\)</span> et <span class="math inline">\(X_{2}\)</span> sont dites orthogonales.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Propriétés
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soit <span class="math inline">\(X = (X_{1}, X_{2})\)</span> un vecteur aléatoire. On a</p>
+<ol type="1">
+<li><p><span class="math inline">\(\mathrm{Cov}(X_{1}, X_{2}) = \mathbb{E}(X_{1}X_{2}) - \mathbb{E}(X_{1})\mathbb{E}(X_{2})\)</span>;</p></li>
+<li><p><span class="math inline">\(\mathrm{Cov}(X_{1}, X_{2}) = \mathrm{Cov}(X_{2}, X_{1})\)</span>;</p></li>
+<li><p><span class="math inline">\(\mathrm{Cov}(X_{1} + \lambda Y_{1}, X_{2}) = \mathrm{Cov}(X_{1}, X_{2}) + \lambda \mathrm{Cov}(Y_{1}, X_{2})\)</span>.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled" data-collaspe="true">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Preuve
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>On trouve le résultat en développement le produit dans la définition de la covariance.</p></li>
+<li><p>En utilisant le point 1. et la commutativité de la multiplication.</p></li>
+<li><p>En utilisant le point 1. et la linéarité de l’espérance.</p></li>
+</ol>
+</div>
+</div>
+</section><section id="estimation" class="level2"><h2 class="anchored" data-anchor-id="estimation">Estimation</h2>
+<p>En practique, nous n’avons pas une connaissance parfaite de nos vecteurs aléatoires, mais seulement des réalisations de ceux-ci (que l’on appelle échantillon). Notons <span class="math inline">\(x_{1}, \dots, x_{n}\)</span>, <span class="math inline">\(n\)</span> réalisations indépendantes d’un vecteur aléatoire <span class="math inline">\(X\)</span> de moyenne <span class="math inline">\(\mu\)</span> et de variance <span class="math inline">\(\Sigma\)</span>.</p>
+<p>L’estimateur de la moyenne <span class="math inline">\(\mu\)</span> est donné par <span class="math display">\[\widehat{\mu} = \overline{X} \coloneqq \frac{1}{n} \sum_{i = 1}^{n} x_i.\]</span></p>
+<p>L’estimateur de la variance <span class="math inline">\(\Sigma\)</span> est donné par <span class="math display">\[\widehat{\Sigma} \coloneqq \frac{1}{n - 1}\sum_{i = 1}^{n} (x_i - \widehat{\mu})(x_i - \widehat{\mu})^\top.\]</span></p>
+<p>Pourquoi divise t-on cette somme par <span class="math inline">\(n -1\)</span> et non par <span class="math inline">\(n\)</span> pour estimer la variance ? Si l’on divise par <span class="math inline">\(n\)</span>, <span class="math inline">\(\widehat{\Sigma}\)</span> est un estimateur biaisé de la variance. En effet, il faut prendre en compte que l’on utilise un estimateur biaisé de la moyenne dans l’estimateur de la variance et donc corriger pour cette estimation.</p>
+<p>Notons <span class="math inline">\(D = \{\text{diag}(\widehat{\Sigma})\}^{1/2}\)</span>, la matrice des écarts-types calculés sur l’échantillon. On peut estimer la matrice des corrélations sur l’échantillon par <span class="math display">\[\widehat{R} = D^{-1} \widehat{\Sigma} D^{-1}.\]</span></p>
 
 
 
