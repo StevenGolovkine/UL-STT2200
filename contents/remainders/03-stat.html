@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.31">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Analyse de données – STT-2200: Analyse de données</title>
+<title>Projet d’analyse de données – STT-2200: Analyse de données</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script><script src="../../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../../site_libs/quarto-search/fuse.min.js"></script><script src="../../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../../">
 <link href="../../contents/remainders/04-programming.html" rel="next">
 <link href="../../contents/remainders/02-probabilities.html" rel="prev">
@@ -84,7 +104,7 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script><meta property="og:title" content="Analyse de données – STT-2200: Analyse de données">
+</script><meta property="og:title" content="Projet d’analyse de données – STT-2200: Analyse de données">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
@@ -259,7 +279,7 @@ window.Quarto = {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/02-revisions.html">02 - Révisions</a></li>
-<li class="breadcrumb-item"><a href="../../contents/remainders/03-stat.html">Analyse de données</a></li>
+<li class="breadcrumb-item"><a href="../../contents/remainders/03-stat.html">Projet d’analyse de données</a></li>
 </ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
@@ -377,7 +397,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/remainders/03-stat.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Analyse de données</span></a>
+ <span class="menu-text">Projet d’analyse de données</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -598,7 +618,7 @@ window.Quarto = {
    
   <ul>
 <li>
-<a href="#project-danalyse-donn%C3%A9es" id="toc-project-danalyse-données" class="nav-link active" data-scroll-target="#project-danalyse-données">Project d’analyse données</a>
+<a href="#projet-danalyse-donn%C3%A9es" id="toc-projet-danalyse-données" class="nav-link active" data-scroll-target="#projet-danalyse-données">Projet d’analyse données</a>
   <ul class="collapse">
 <li><a href="#d%C3%A9finition-des-objectifs" id="toc-définition-des-objectifs" class="nav-link" data-scroll-target="#définition-des-objectifs">Définition des objectifs</a></li>
   <li><a href="#donn%C3%A9es" id="toc-données" class="nav-link" data-scroll-target="#données">Données</a></li>
@@ -618,9 +638,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/02-revisions.html">02 - Révisions</a></li>
-<li class="breadcrumb-item"><a href="../../contents/remainders/03-stat.html">Analyse de données</a></li>
+<li class="breadcrumb-item"><a href="../../contents/remainders/03-stat.html">Projet d’analyse de données</a></li>
 </ol></nav><div class="quarto-title">
-<h1 class="title">Analyse de données</h1>
+<h1 class="title">Projet d’analyse de données</h1>
 </div>
 
 
@@ -634,8 +654,9 @@ window.Quarto = {
   
 
 
-</header><section id="project-danalyse-données" class="level2"><h2 class="anchored" data-anchor-id="project-danalyse-données">Project d’analyse données</h2>
-<p>Un projet d’analyse de données se découpe en cinq étapes:</p>
+</header><p>Dans cette partie, on présente les différentes étapes d’un projet d’analyse de données.</p>
+<section id="projet-danalyse-données" class="level2"><h2 class="anchored" data-anchor-id="projet-danalyse-données">Projet d’analyse données</h2>
+<p>Un projet d’analyse de données peut se découper en cinq grandes étapes:</p>
 <ol type="1">
 <li><p>Définition des objectifs</p></li>
 <li><p>Données</p></li>
@@ -656,7 +677,47 @@ Remarque
 <p>Dans ce cours, on s’intéressera principalement à l’élaboration et à la validation de modèles.</p>
 </div>
 </div>
-<p>TODO: Planification d’un projet</p>
+<p>Lors de la planification d’un projet, il faut prendre en compte que chaque étape à une importance différente, mais aussi que chacune ne prend pas le même temps d’exécution. <span class="citation" data-cites="pyleDataPreparationData1999">Pyle (<a href="#ref-pyleDataPreparationData1999" role="doc-biblioref">1999</a>)</span> donne une estimation du temps de chaque étape, ainsi que de leur importance dans la réussite du projet (donné en pourcentage du total).</p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th style="text-align: left;">Étape</th>
+<th style="text-align: center;">Temps</th>
+<th style="text-align: center;">Importance</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Comprendre le problème</td>
+<td style="text-align: center;"><span class="math inline">\(10/%\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(15/%\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Explorer la solution</td>
+<td style="text-align: center;"><span class="math inline">\(9/%\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(14/%\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Implementer la solution</td>
+<td style="text-align: center;"><span class="math inline">\(1/%\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(51/%\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Préparer les données</td>
+<td style="text-align: center;"><span class="math inline">\(60/%\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(15/%\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Analyser les données</td>
+<td style="text-align: center;"><span class="math inline">\(15/%\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3/%\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Modéliser les données</td>
+<td style="text-align: center;"><span class="math inline">\(5/%\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2/%\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>On remarque deux faits importants: ce n’est pas parce qu’une étape est très importante qu’elle va prendre beaucoup de temps. L’implémentation de la solution est très importante (sinon il n’y a pas de résultat), mais ne sera généralement pas très longue à faire (possiblement en quelques lignes de code). À l’inverse, la préparation des données est un étape d’importance moyenne (encore que c’est discutable), mais elle prend la majeur partie du temps du projet. En effet, il faut, par exemple, gérer les données manquantes, les données aberrantes, les éventuels accents pour des données en français, etc.</p>
 <section id="définition-des-objectifs" class="level3"><h3 class="anchored" data-anchor-id="définition-des-objectifs">Définition des objectifs</h3>
 <p>Est-ce que l’on veut: visualiser les données ? explorer et émettre des hypothèses? tester? regrouper? comprendre? prédire?</p>
 <p>Comment fait-on en pratique ? On pose des questions ! Tout d’abord, il faut clarifier les termes. Qui va utiliser le modèle et comment ? Quelle est la population cible ?</p>
@@ -696,7 +757,13 @@ Examples
 <p>Statistiques descriptives</p>
 
 
-</section></section></main><!-- /main --><script>
+
+</section></section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Les références</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-pyleDataPreparationData1999" class="csl-entry" role="listitem">
+Pyle, Dorian. 1999. <em>Data <span>Preparation</span> for <span>Data Mining</span></em>. Morgan Kaufmann.
+</div>
+</div></section></div></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {

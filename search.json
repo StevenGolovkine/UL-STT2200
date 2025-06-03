@@ -734,7 +734,7 @@
     "href": "contents/02-revisions.html#sommaire",
     "title": "Révisions",
     "section": "Sommaire",
-    "text": "Sommaire\n\nAlgèbre linéaire\nProbabilités\nStatistiques\nAlgorithmique / Programmation\n\n\n\n\nPrediction (xkcd:2370).",
+    "text": "Sommaire\n\nAlgèbre linéaire\nProbabilités et statistiques\nProjet d’analyse de données\nAlgorithmique / Programmation\n\n\n\n\nPrediction (xkcd:2370).",
     "crumbs": [
       "Modules",
       "02 - Révisions"
@@ -836,25 +836,25 @@
   {
     "objectID": "contents/remainders/03-stat.html",
     "href": "contents/remainders/03-stat.html",
-    "title": "Analyse de données",
+    "title": "Projet d’analyse de données",
     "section": "",
-    "text": "Un projet d’analyse de données se découpe en cinq étapes:\n\nDéfinition des objectifs\nDonnées\nÉlaboration et validation des modèles\nMise en oeuvre\nSuivi de la performance et amélioration\n\n\n\n\n\n\n\nRemarque\n\n\n\nDans ce cours, on s’intéressera principalement à l’élaboration et à la validation de modèles.\n\n\nTODO: Planification d’un projet\n\n\nEst-ce que l’on veut: visualiser les données ? explorer et émettre des hypothèses? tester? regrouper? comprendre? prédire?\nComment fait-on en pratique ? On pose des questions ! Tout d’abord, il faut clarifier les termes. Qui va utiliser le modèle et comment ? Quelle est la population cible ?\n\n\n\n\n\n\nExamples\n\n\n\n\nLa Banque National du Canada veut lancer un nouveau produit d’épargne et souhaite mieux connaître ses clients pour prédire s’ils veulent l’acheter.\nL’équipe de hockey des Canadiens de Montréal souhaite mieux connaître ses adversaires pour développer des nouvelles tactiques de jeu.\nPharmascience souhaite savoir si son nouveau médicament est efficace.\n\n\n\n\n\n\n\nInventaire et qualité\nConstitution de la base de données\nExploration et traitement préliminaire\n\nQu’est-ce que l’on veut dire par qualité des données ?\n\nEst-ce que les données sont représentatives de la population cible ?\nEst-ce que les données permetternt de tirer des conclusions de causalité ?\nEst-ce que les données sont fiables ?\n\nSource de données:\nQuelques liens pour récupérer des données.\nNettoyage de données: cf R (importation, nettoyage, tidyverse, types de variables, retirer les doublons, uniformiser les modalités, vérifier le format des valeurs spéciales, pivot, opérateur pipe, jointure).\nExploration des données: modalités rares, modalités trop nombreuses, asymétrie, débalancement des classes, valeurs extrêmes ou aberrantes, variables fortement corrélées, valeurs manquantes.\nStatistiques descriptives",
+    "text": "Dans cette partie, on présente les différentes étapes d’un projet d’analyse de données.",
     "crumbs": [
       "Modules",
       "02 - Révisions",
-      "Analyse de données"
+      "Projet d'analyse de données"
     ]
   },
   {
-    "objectID": "contents/remainders/03-stat.html#project-danalyse-données",
-    "href": "contents/remainders/03-stat.html#project-danalyse-données",
-    "title": "Analyse de données",
-    "section": "",
-    "text": "Un projet d’analyse de données se découpe en cinq étapes:\n\nDéfinition des objectifs\nDonnées\nÉlaboration et validation des modèles\nMise en oeuvre\nSuivi de la performance et amélioration\n\n\n\n\n\n\n\nRemarque\n\n\n\nDans ce cours, on s’intéressera principalement à l’élaboration et à la validation de modèles.\n\n\nTODO: Planification d’un projet\n\n\nEst-ce que l’on veut: visualiser les données ? explorer et émettre des hypothèses? tester? regrouper? comprendre? prédire?\nComment fait-on en pratique ? On pose des questions ! Tout d’abord, il faut clarifier les termes. Qui va utiliser le modèle et comment ? Quelle est la population cible ?\n\n\n\n\n\n\nExamples\n\n\n\n\nLa Banque National du Canada veut lancer un nouveau produit d’épargne et souhaite mieux connaître ses clients pour prédire s’ils veulent l’acheter.\nL’équipe de hockey des Canadiens de Montréal souhaite mieux connaître ses adversaires pour développer des nouvelles tactiques de jeu.\nPharmascience souhaite savoir si son nouveau médicament est efficace.\n\n\n\n\n\n\n\nInventaire et qualité\nConstitution de la base de données\nExploration et traitement préliminaire\n\nQu’est-ce que l’on veut dire par qualité des données ?\n\nEst-ce que les données sont représentatives de la population cible ?\nEst-ce que les données permetternt de tirer des conclusions de causalité ?\nEst-ce que les données sont fiables ?\n\nSource de données:\nQuelques liens pour récupérer des données.\nNettoyage de données: cf R (importation, nettoyage, tidyverse, types de variables, retirer les doublons, uniformiser les modalités, vérifier le format des valeurs spéciales, pivot, opérateur pipe, jointure).\nExploration des données: modalités rares, modalités trop nombreuses, asymétrie, débalancement des classes, valeurs extrêmes ou aberrantes, variables fortement corrélées, valeurs manquantes.\nStatistiques descriptives",
+    "objectID": "contents/remainders/03-stat.html#projet-danalyse-données",
+    "href": "contents/remainders/03-stat.html#projet-danalyse-données",
+    "title": "Projet d’analyse de données",
+    "section": "Projet d’analyse données",
+    "text": "Projet d’analyse données\nUn projet d’analyse de données peut se découper en cinq grandes étapes:\n\nDéfinition des objectifs\nDonnées\nÉlaboration et validation des modèles\nMise en oeuvre\nSuivi de la performance et amélioration\n\n\n\n\n\n\n\nRemarque\n\n\n\nDans ce cours, on s’intéressera principalement à l’élaboration et à la validation de modèles.\n\n\nLors de la planification d’un projet, il faut prendre en compte que chaque étape à une importance différente, mais aussi que chacune ne prend pas le même temps d’exécution. Pyle (1999) donne une estimation du temps de chaque étape, ainsi que de leur importance dans la réussite du projet (donné en pourcentage du total).\n\n\n\nÉtape\nTemps\nImportance\n\n\n\n\nComprendre le problème\n\\(10/%\\)\n\\(15/%\\)\n\n\nExplorer la solution\n\\(9/%\\)\n\\(14/%\\)\n\n\nImplementer la solution\n\\(1/%\\)\n\\(51/%\\)\n\n\nPréparer les données\n\\(60/%\\)\n\\(15/%\\)\n\n\nAnalyser les données\n\\(15/%\\)\n\\(3/%\\)\n\n\nModéliser les données\n\\(5/%\\)\n\\(2/%\\)\n\n\n\nOn remarque deux faits importants: ce n’est pas parce qu’une étape est très importante qu’elle va prendre beaucoup de temps. L’implémentation de la solution est très importante (sinon il n’y a pas de résultat), mais ne sera généralement pas très longue à faire (possiblement en quelques lignes de code). À l’inverse, la préparation des données est un étape d’importance moyenne (encore que c’est discutable), mais elle prend la majeur partie du temps du projet. En effet, il faut, par exemple, gérer les données manquantes, les données aberrantes, les éventuels accents pour des données en français, etc.\n\nDéfinition des objectifs\nEst-ce que l’on veut: visualiser les données ? explorer et émettre des hypothèses? tester? regrouper? comprendre? prédire?\nComment fait-on en pratique ? On pose des questions ! Tout d’abord, il faut clarifier les termes. Qui va utiliser le modèle et comment ? Quelle est la population cible ?\n\n\n\n\n\n\nExamples\n\n\n\n\nLa Banque National du Canada veut lancer un nouveau produit d’épargne et souhaite mieux connaître ses clients pour prédire s’ils veulent l’acheter.\nL’équipe de hockey des Canadiens de Montréal souhaite mieux connaître ses adversaires pour développer des nouvelles tactiques de jeu.\nPharmascience souhaite savoir si son nouveau médicament est efficace.\n\n\n\n\n\nDonnées\n\nInventaire et qualité\nConstitution de la base de données\nExploration et traitement préliminaire\n\nQu’est-ce que l’on veut dire par qualité des données ?\n\nEst-ce que les données sont représentatives de la population cible ?\nEst-ce que les données permetternt de tirer des conclusions de causalité ?\nEst-ce que les données sont fiables ?\n\nSource de données:\nQuelques liens pour récupérer des données.\nNettoyage de données: cf R (importation, nettoyage, tidyverse, types de variables, retirer les doublons, uniformiser les modalités, vérifier le format des valeurs spéciales, pivot, opérateur pipe, jointure).\nExploration des données: modalités rares, modalités trop nombreuses, asymétrie, débalancement des classes, valeurs extrêmes ou aberrantes, variables fortement corrélées, valeurs manquantes.\nStatistiques descriptives",
     "crumbs": [
       "Modules",
       "02 - Révisions",
-      "Analyse de données"
+      "Projet d'analyse de données"
     ]
   },
   {
