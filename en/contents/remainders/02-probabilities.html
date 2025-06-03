@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.31">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Probabilité – STT-2200: Data Analysis</title>
+<title>Probability – STT-2200: Data Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script><script src="../../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../../site_libs/quarto-search/fuse.min.js"></script><script src="../../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../../">
 <link href="../../contents/remainders/03-stat.html" rel="next">
 <link href="../../contents/remainders/01-linear-algebra.html" rel="prev">
@@ -84,7 +104,8 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script><meta property="og:title" content="Probabilité – STT-2200: Data Analysis">
+</script><meta property="og:title" content="Probability – STT-2200: Data Analysis">
+<meta property="og:description" content="Website for STT-2200">
 <meta property="og:site_name" content="STT-2200: Data Analysis">
 </head>
 <body class="nav-sidebar floating quarto-light">
@@ -258,7 +279,7 @@ window.Quarto = {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/02-revisions.html">02 - Révisions</a></li>
-<li class="breadcrumb-item"><a href="../../contents/remainders/02-probabilities.html">Probabilité</a></li>
+<li class="breadcrumb-item"><a href="../../contents/remainders/02-probabilities.html">Probability</a></li>
 </ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -370,7 +391,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/remainders/02-probabilities.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Probabilité</span></a>
+ <span class="menu-text">Probability</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -593,19 +614,30 @@ window.Quarto = {
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#modeling-randomness" id="toc-modeling-randomness" class="nav-link active" data-scroll-target="#modeling-randomness">Modeling randomness</a></li>
+  <li><a href="#random-variables" id="toc-random-variables" class="nav-link" data-scroll-target="#random-variables">Random variables</a></li>
+  <li><a href="#random-vectors" id="toc-random-vectors" class="nav-link" data-scroll-target="#random-vectors">Random vectors</a></li>
+  <li><a href="#estimation" id="toc-estimation" class="nav-link" data-scroll-target="#estimation">Estimation</a></li>
+  </ul>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/remainders/02-probabilities.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li>
+</ul></div>
+<div class="quarto-alternate-formats">
 <h2>Other Formats</h2>
 <ul><li><a href="02-probabilities.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
-</div>
+</div></nav>
 </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/02-revisions.html">02 - Révisions</a></li>
-<li class="breadcrumb-item"><a href="../../contents/remainders/02-probabilities.html">Probabilité</a></li>
+<li class="breadcrumb-item"><a href="../../contents/remainders/02-probabilities.html">Probability</a></li>
 </ol></nav><div class="quarto-title">
-<h1 class="title">Probabilité</h1>
+<h1 class="title">Probability</h1>
 </div>
 
 
@@ -619,7 +651,321 @@ window.Quarto = {
   
 
 
-</header></main><!-- /main --><script>
+</header><p>In this section, we present some results in probability and statistics within the framework of this course. For more information, you can refer to the STT-1000 course, <span class="citation" data-cites="wassermanAllStatisticsConcise2010">Wasserman (<a href="#ref-wassermanAllStatisticsConcise2010" role="doc-biblioref">2010</a>)</span> (in English) and <span class="citation" data-cites="delmasIntroductionAuCalcul2013">Delmas (<a href="#ref-delmasIntroductionAuCalcul2013" role="doc-biblioref">2013</a>)</span> (in French).</p>
+<section id="modeling-randomness" class="level2"><h2 class="anchored" data-anchor-id="modeling-randomness">Modeling randomness</h2>
+<p>Many real-world phenomena are unpredictable, and their outcomes generally contain a certain amount of variability. This variability is taken into account using a measure of uncertainty called <strong>probability measure</strong>.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <strong>sample space</strong> <span class="math inline">\(S\)</span> is the set of all possible outcomes of a phenomenon. An <strong>event</strong> is a subset of the sample space <span class="math inline">\(S\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Examples
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>If the experiment consists of tossing a coin, <span class="math inline">\(S = \{0, 1\}\)</span>. The result of this experiment cannot be known in advance. For example, <span class="math inline">\(E = \{1\}\)</span> is an event of <span class="math inline">\(S\)</span>.</p></li>
+<li><p>If we are interested in the lifespan of a phone, <span class="math inline">\(S = \mathbb{R}_{+}\)</span>. We can also choose <span class="math inline">\(S = [0, M]\)</span>, because this lifespan is probably not infinite! The event <span class="math inline">\(E = [10, \infty)\)</span> represents the event “the lifespan of more than 10 time units.”</p></li>
+<li><p>For the number of days without snow in Quebec City in a year, we can choose <span class="math inline">\(S = \mathbb{N}\)</span>. The event <span class="math inline">\(E = (0, 5]\)</span> represents the event “fewer than 5 days without snow in Quebec City in a year.”</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <strong>probability measure</strong> <span class="math inline">\(\mathbb{P}\)</span> on <span class="math inline">\(S\)</span> is an application (function) defined on the sample space and satisfying the following properties:</p>
+<ol type="1">
+<li><p>For each event <span class="math inline">\(E\)</span>, <span class="math inline">\(\mathbb{P}(E) \in [0, 1]\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathbb{P}(S) = 1\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(E_{1}, E_{2}, \dots\)</span> be a sequence of mutually exclusive events (finite or infinite), i.e. <span class="math inline">\(\forall i \neq j, E_{i} \cap E_{j} = \varnothing\)</span>. We have <span class="math display">\[\mathbb{P}(\bigcup_{n = 1}^{\infty} E_n) = \sum_{n = 1}^{\infty} \mathbb{P}(E_n).\]</span></p></li>
+</ol>
+<p>We call <span class="math inline">\(\mathbb{P}(E)\)</span> the probability of event <span class="math inline">\(E\)</span>.</p>
+</div>
+</div>
+<p>The definition of probability measures can be subjective and linked to the statistician’s experience. Let’s take example 3 on the number of days without snow in Quebec City during the year. Someone who has just arrived in Canada may want to give the same probability to each day, while a Quebecer will have more information and will be able to vary the probabilities based on this knowledge.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Two events <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span> are said to be <strong>independent</strong> if <span class="math inline">\(\mathbb{P}(E \cap F) = \mathbb{P}(E) \times \mathbb{P}(F)\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span> be two events. The <strong>conditional probability</strong> that <span class="math inline">\(E\)</span> occurs given that <span class="math inline">\(F\)</span> has occurred is defined by: <span class="math display">\[\mathbb{P}(E \mid F) = \frac{\mathbb{P}(E \cap F)} {\mathbb{P}(F)}.\]</span></p>
+</div>
+</div>
+<p>Intuitively, two events are independent if knowledge of one provides no information about the occurrence of the other. We also have <span class="math inline">\(\mathbb{P}(E \mid F) = \mathbb{P}(E)\)</span>.</p>
+</section><section id="random-variables" class="level2"><h2 class="anchored" data-anchor-id="random-variables">Random variables</h2>
+<p>In probability theory, it is customary to express the outcome of experiments as the value of a function called a <strong>random variable</strong>. This characterization is always possible.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(X\)</span> be a random variable. The <strong>distribution</strong> of this random variable is defined by the application <span class="math inline">\(A \mapsto \mathbb{P}(X \in A)\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(X\)</span> be a random variable. This random variable is <strong>discrete</strong> if it takes, at most, a countable number of values. In this case, the distribution of <span class="math inline">\(X\)</span> is given by the probabilities <span class="math inline">\(\mathbb{P}(X = x)\)</span> for all outcomes <span class="math inline">\(x\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(X\)</span> be a random variable. This random variable is <strong>continuous</strong> if the probabilities <span class="math inline">\(\mathbb{P}(X \in A)\)</span> are given by integrals of the form <span class="math inline">\(\int_{A} f(x) dx\)</span> where <span class="math inline">\(f: \mathbb{R}^d \to \mathbb{R}_+\)</span> is an integrable function such that <span class="math inline">\(\int_{\mathbb{R}^d} f(x) dx = 1\)</span>. Note that, for a fixed outcome <span class="math inline">\(x\)</span>, <span class="math inline">\(\mathbb{P}(X = x) = 0\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(X\)</span> be a random variable. The <strong>mathematical expectation</strong> <span class="math inline">\(\mathbb{E}(X)\)</span> of <span class="math inline">\(X\)</span> is the average value of the outcome of <span class="math inline">\(X\)</span> with respect to its probability distribution. The expectation is usually denoted by <span class="math inline">\(\mu\)</span>.</p>
+</div>
+</div>
+<p>Let <span class="math inline">\(F\)</span> be a countable set. A discrete random variable <span class="math inline">\(X\)</span> has an expectation <span class="math inline">\(\mathbb{E}(X) = \sum_{x \in F} x \mathbb{P}(X = x)\)</span>. Let <span class="math inline">\(X\)</span> be a continuous random variable with density <span class="math inline">\(f\)</span>. Its expectation is given by <span class="math inline">\(\mathbb{E}(X) = \int_{\mathbb{R}^d} x f(x) dx\)</span>.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Transfer theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(X\)</span> be a random variable. Let <span class="math inline">\(g: \mathbb{R}^d \mapsto \mathbb{R}\)</span> be a function such that <span class="math inline">\(\mathbb{E}\left[ g(X) \right]\)</span> exists. We have:</p>
+<ol type="1">
+<li><p>If <span class="math inline">\(X\)</span> is a discrete random variable, <span class="math inline">\(\mathbb{E}\left[ g(X) \right] = \sum_{x \in F} g(x) \mathbb{P}(X = x)\)</span>;</p></li>
+<li><p>If <span class="math inline">\(X\)</span> is a continuous random variable with density <span class="math inline">\(f\)</span>, <span class="math inline">\(\mathbb{E}\left[ g(X) \right] = \int_{\mathbb{R}^d} g(x)f(x) dx\)</span>.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Properties: Linearity of expectation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be two random variables whose expectations exist, and let <span class="math inline">\(\lambda \in R\)</span>. We have:</p>
+<ol type="1">
+<li><p><span class="math inline">\(\mathbb{E}(X + Y) = \mathbb{E}(X) + \mathbb{E}(Y)\)</span>;</p></li>
+<li><p><span class="math inline">\(\mathbb{E}(\lambda X) = \lambda \mathbb{E}(X)\)</span>.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The proof is derived from the transfer theorem and the linearity of addition and integration.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(X\)</span> be a random variable such that the expectation of its square exists. The <strong>variance</strong> of <span class="math inline">\(X\)</span> is defined by <span class="math display">\[\mathrm{Var}(X) = \mathbb{E}\left[ \left( X - \mathbb{E}(X) \right)^2 \right] = \mathbb{E}\left[ X^2 \right] - \mathbb{E}\left[ X \right]^2.\]</span></p>
+</div>
+</div>
+<p>The variance measures the dispersion of a random variable around its mean. We can also look at the <strong>standard deviation</strong>, defined as the square root of the variance: <span class="math inline">\(\sigma(X) = \sqrt{\mathrm{Var}(X)}\)</span>.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be two random variables and <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> be two events. If the events <span class="math inline">\(\left\{ X \in A \right\}\)</span> and <span class="math inline">\(\left\{ Y \in B \right\}\)</span> are independent, then we say that the random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <strong>independent</strong>.</p>
+</div>
+</div>
+<p>From this definition, we can deduce that:</p>
+<ol type="1">
+<li><p>for functions <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span>, the random variables <span class="math inline">\(f(X)\)</span> and <span class="math inline">\(g(Y)\)</span> are independent;</p></li>
+<li><p>if the random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are real-valued and their expectation exists, then the expectation of the product <span class="math inline">\(XY\)</span> exists and <span class="math inline">\(\mathbb{E}(XY) = \mathbb{E}(X) \times \mathbb{E}(Y)\)</span>.</p></li>
+</ol>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(X\)</span> be a random variable. The <strong>distribution function</strong> <span class="math inline">\(F: \mathbb{R} \mapsto [0, 1]\)</span> of <span class="math inline">\(X\)</span> is defined by <span class="math display">\[F(t) = \mathbb{P}(X \leq t), \quad t \in \mathbb{R}.\]</span></p>
+</div>
+</div>
+</section><section id="random-vectors" class="level2"><h2 class="anchored" data-anchor-id="random-vectors">Random vectors</h2>
+<p>Suppose that <span class="math inline">\(X = (X_{1}, X_{2})\)</span> is a random variable of dimension <span class="math inline">\(2\)</span> with density <span class="math inline">\(f_{X}\)</span>. Random variables of dimension greater than <span class="math inline">\(1\)</span> are generally referred to as <strong>random vectors</strong>. The densities of <span class="math inline">\(X_{1}\)</span> and <span class="math inline">\(X_{2}\)</span> are called <strong>marginal densities</strong>. When <span class="math inline">\(X_{1}\)</span> and <span class="math inline">\(X_{2}\)</span> are independent, we have: <span class="math display">\[f_X(x, y) = f_{X_{1}}(x) \cdot f_{X_{2}}(y), \quad (x, y) \in \mathbb{R}^2.\]</span></p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example of the multivariate normal distribution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A random vector <span class="math inline">\(X\)</span> of dimension <span class="math inline">\(p\)</span> is said to follow a multivariate normal distribution with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\Sigma\)</span> if its density is given by <span class="math display">\[f_X(x) = \frac{1}{(2 \pi)^{p /2}} \cdot \frac{1}{(\text{det} \Sigma)^{1/2}} \cdot \exp\left\{ -\frac{1}{2}\left( x - \mu \right)^\top \Sigma^{-1} \left( x - \mu \right) \right\}, \quad x \in \mathbb{R}^p.\]</span></p>
+<p>We denote <span class="math inline">\(X \sim \mathcal{N}_{p}(\mu, \Sigma)\)</span>.</p>
+</div>
+</div>
+<p>In statistics, an important quantity to measure is the linear dependence between <span class="math inline">\(X_{1}\)</span> and <span class="math inline">\(X_{2}\)</span>. For this, we can use the covariance or the correlation.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(X = (X_{1}, X_{2})\)</span> be a random vector such that the expectation of the square of <span class="math inline">\(X_{1}\)</span> and <span class="math inline">\(X_{2}\)</span> exists. The <strong>covariance</strong> between <span class="math inline">\(X_{1}\)</span> and <span class="math inline">\(X_{2}\)</span> is given by <span class="math display">\[\mathrm{Cov}(X_{1}, X_{2}) = \mathbb{E}\left[ (X_{1} - \mathbb{E}(X_{1})) (X_{2} - \mathbb{E}(X_{2}))\right].\]</span></p>
+<p>The <strong>correlation</strong> between <span class="math inline">\(X_{1}\)</span> and <span class="math inline">\(X_{2}\)</span> is a version of the covariance normalized by the standard deviation of the random variables. It is given by <span class="math display">\[\mathrm{Corr}(X_{1}, X_{2}) = \frac{\mathrm{Cov}(X_{1}, X_{2})}{\sigma(X_{1}) \sigma(X_{2})}.\]</span></p>
+</div>
+</div>
+<p>The sign of the covariance and correlation can be interpreted. If they are strictly positive, <span class="math inline">\(X_{1}\)</span> and <span class="math inline">\(X_{2}\)</span> tend to move in the same direction. If <span class="math inline">\(X_{1}\)</span> increases, then <span class="math inline">\(X_{2}\)</span> also increases, and vice versa. If they are strictly negative, <span class="math inline">\(X_{1}\)</span> and <span class="math inline">\(X_{2}\)</span> tend to move in opposite directions. If <span class="math inline">\(X_{1}\)</span> increases, then <span class="math inline">\(X_{2}\)</span> decreases, and vice versa. If the covariance is equal to <span class="math inline">\(0\)</span>, there are no rules and <span class="math inline">\(X_{1}\)</span> and <span class="math inline">\(X_{2}\)</span> are said to be orthogonal.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Properties
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(X = (X_{1}, X_{2})\)</span> be a random vector. We have</p>
+<ol type="1">
+<li><p><span class="math inline">\(\mathrm{Cov}(X_{1}, X_{2}) = \mathbb{E}(X_{1}X_{2}) - \mathbb{E}(X_{1})\mathbb{E}(X_{2})\)</span>;</p></li>
+<li><p><span class="math inline">\(\mathrm{Cov}(X_{1}, X_{2}) = \mathrm{Cov}(X_{2}, X_{1})\)</span>;</p></li>
+<li><p><span class="math inline">\(\mathrm{Cov}(X_{1} + \lambda Y_{1}, X_{2}) = \mathrm{Cov}(X_{1}, X_{2}) + \lambda \mathrm{Cov}(Y_{1}, X_{2})\)</span>.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled" data-collaspe="true">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>We find the result by expanding the product in the definition of the covariance.</p></li>
+<li><p>Using point 1. and the commutativity of multiplication.</p></li>
+<li><p>Using point 1. and the linearity of expectation.</p></li>
+</ol>
+</div>
+</div>
+</section><section id="estimation" class="level2"><h2 class="anchored" data-anchor-id="estimation">Estimation</h2>
+<p>In practice, we do not have perfect knowledge of our random vectors, but only some of their realizations (called samples). Let <span class="math inline">\(x_{1}, \dots, x_{n}\)</span> be <span class="math inline">\(n\)</span> independent realizations of a random vector <span class="math inline">\(X\)</span> with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\Sigma\)</span>.</p>
+<p>The estimator of the mean <span class="math inline">\(\mu\)</span> is given by <span class="math display">\[\widehat{\mu} = \overline{X} \coloneqq \frac{1}{n} \sum_{i = 1}^{n} x_i.\]</span></p>
+<p>The estimator of the variance <span class="math inline">\(\Sigma\)</span> is given by <span class="math display">\[\widehat{\Sigma} \coloneqq \frac{1}{n - 1}\sum_{i = 1}^{n} (x_i - \widehat{\mu})(x_i - \widehat{\mu})^\top.\]</span></p>
+<p>Why do we divide this sum by <span class="math inline">\(n -1\)</span> and not by <span class="math inline">\(n\)</span> to estimate the variance? If we divide by <span class="math inline">\(n\)</span>, <span class="math inline">\(\widehat{\Sigma}\)</span> is a biased estimator of the variance. Indeed, we must take into account that we are using a biased estimator of the mean in the variance estimator and therefore correct for this estimate.</p>
+<p>Let <span class="math inline">\(D = \{\text{diag}(\widehat{\Sigma})\}^{1/2}\)</span> be the matrix of standard deviations calculated on the sample. We can estimate the correlation matrix on the sample by <span class="math display">\[\widehat{R} = D^{-1} \widehat{\Sigma} D^{-1}.\]</span></p>
+
+
+
+</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-delmasIntroductionAuCalcul2013" class="csl-entry" role="listitem">
+Delmas, Jean-François. 2013. <em><span>Introduction au calcul des probabilit<span>é</span>s et <span>à</span> la statistique : exercices, probl<span>è</span>mes et corrections (2e <span>é</span>dition)</span></em>. Les Presses de l’ENSTA.
+</div>
+<div id="ref-wassermanAllStatisticsConcise2010" class="csl-entry" role="listitem">
+Wasserman, Larry. 2010. <em>All of <span>Statistics</span>: <span>A Concise Course</span> in <span>Statistical Inference</span></em>. Springer Publishing Company, Incorporated.
+</div>
+</div></section></div></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -1258,7 +1604,7 @@ window.onload = function() {
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions"><ul>
+<div class="toc-actions d-sm-block d-md-none"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/remainders/02-probabilities.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li>
 </ul></div>

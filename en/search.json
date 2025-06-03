@@ -62,6 +62,66 @@
     "text": "Welcome everyone to the class STT-2200 in Autumn 2025.\nYou will find on this website every necessary information for the modules, the practicals and the exams. The contents will be updated during the session with the answers to some work. I invite you to skim through the differents modules before classes.\nThis website has been created with the help of Aurélien Nicosia and Thierry Duchesne notes.\nThis website a been built using Quarto.\nMost of the contents has been translated using DeepL.\n\n\n\nData trap (xkcd:2582)."
   },
   {
+    "objectID": "contents/remainders/02-probabilities.html",
+    "href": "contents/remainders/02-probabilities.html",
+    "title": "Probability",
+    "section": "",
+    "text": "In this section, we present some results in probability and statistics within the framework of this course. For more information, you can refer to the STT-1000 course, Wasserman (2010) (in English) and Delmas (2013) (in French).",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Probability"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/02-probabilities.html#modeling-randomness",
+    "href": "contents/remainders/02-probabilities.html#modeling-randomness",
+    "title": "Probability",
+    "section": "Modeling randomness",
+    "text": "Modeling randomness\nMany real-world phenomena are unpredictable, and their outcomes generally contain a certain amount of variability. This variability is taken into account using a measure of uncertainty called probability measure.\n\n\n\n\n\n\nDefinition\n\n\n\nThe sample space \\(S\\) is the set of all possible outcomes of a phenomenon. An event is a subset of the sample space \\(S\\).\n\n\n\n\n\n\n\n\nExamples\n\n\n\n\nIf the experiment consists of tossing a coin, \\(S = \\{0, 1\\}\\). The result of this experiment cannot be known in advance. For example, \\(E = \\{1\\}\\) is an event of \\(S\\).\nIf we are interested in the lifespan of a phone, \\(S = \\mathbb{R}_{+}\\). We can also choose \\(S = [0, M]\\), because this lifespan is probably not infinite! The event \\(E = [10, \\infty)\\) represents the event “the lifespan of more than 10 time units.”\nFor the number of days without snow in Quebec City in a year, we can choose \\(S = \\mathbb{N}\\). The event \\(E = (0, 5]\\) represents the event “fewer than 5 days without snow in Quebec City in a year.”\n\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nA probability measure \\(\\mathbb{P}\\) on \\(S\\) is an application (function) defined on the sample space and satisfying the following properties:\n\nFor each event \\(E\\), \\(\\mathbb{P}(E) \\in [0, 1]\\).\n\\(\\mathbb{P}(S) = 1\\).\nLet \\(E_{1}, E_{2}, \\dots\\) be a sequence of mutually exclusive events (finite or infinite), i.e. \\(\\forall i \\neq j, E_{i} \\cap E_{j} = \\varnothing\\). We have \\[\\mathbb{P}(\\bigcup_{n = 1}^{\\infty} E_n) = \\sum_{n = 1}^{\\infty} \\mathbb{P}(E_n).\\]\n\nWe call \\(\\mathbb{P}(E)\\) the probability of event \\(E\\).\n\n\nThe definition of probability measures can be subjective and linked to the statistician’s experience. Let’s take example 3 on the number of days without snow in Quebec City during the year. Someone who has just arrived in Canada may want to give the same probability to each day, while a Quebecer will have more information and will be able to vary the probabilities based on this knowledge.\n\n\n\n\n\n\nDefinition\n\n\n\nTwo events \\(E\\) and \\(F\\) are said to be independent if \\(\\mathbb{P}(E \\cap F) = \\mathbb{P}(E) \\times \\mathbb{P}(F)\\).\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(E\\) and \\(F\\) be two events. The conditional probability that \\(E\\) occurs given that \\(F\\) has occurred is defined by: \\[\\mathbb{P}(E \\mid F) = \\frac{\\mathbb{P}(E \\cap F)} {\\mathbb{P}(F)}.\\]\n\n\nIntuitively, two events are independent if knowledge of one provides no information about the occurrence of the other. We also have \\(\\mathbb{P}(E \\mid F) = \\mathbb{P}(E)\\).",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Probability"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/02-probabilities.html#random-variables",
+    "href": "contents/remainders/02-probabilities.html#random-variables",
+    "title": "Probability",
+    "section": "Random variables",
+    "text": "Random variables\nIn probability theory, it is customary to express the outcome of experiments as the value of a function called a random variable. This characterization is always possible.\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(X\\) be a random variable. The distribution of this random variable is defined by the application \\(A \\mapsto \\mathbb{P}(X \\in A)\\).\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(X\\) be a random variable. This random variable is discrete if it takes, at most, a countable number of values. In this case, the distribution of \\(X\\) is given by the probabilities \\(\\mathbb{P}(X = x)\\) for all outcomes \\(x\\).\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(X\\) be a random variable. This random variable is continuous if the probabilities \\(\\mathbb{P}(X \\in A)\\) are given by integrals of the form \\(\\int_{A} f(x) dx\\) where \\(f: \\mathbb{R}^d \\to \\mathbb{R}_+\\) is an integrable function such that \\(\\int_{\\mathbb{R}^d} f(x) dx = 1\\). Note that, for a fixed outcome \\(x\\), \\(\\mathbb{P}(X = x) = 0\\).\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(X\\) be a random variable. The mathematical expectation \\(\\mathbb{E}(X)\\) of \\(X\\) is the average value of the outcome of \\(X\\) with respect to its probability distribution. The expectation is usually denoted by \\(\\mu\\).\n\n\nLet \\(F\\) be a countable set. A discrete random variable \\(X\\) has an expectation \\(\\mathbb{E}(X) = \\sum_{x \\in F} x \\mathbb{P}(X = x)\\). Let \\(X\\) be a continuous random variable with density \\(f\\). Its expectation is given by \\(\\mathbb{E}(X) = \\int_{\\mathbb{R}^d} x f(x) dx\\).\n\n\n\n\n\n\nTransfer theorem\n\n\n\nLet \\(X\\) be a random variable. Let \\(g: \\mathbb{R}^d \\mapsto \\mathbb{R}\\) be a function such that \\(\\mathbb{E}\\left[ g(X) \\right]\\) exists. We have:\n\nIf \\(X\\) is a discrete random variable, \\(\\mathbb{E}\\left[ g(X) \\right] = \\sum_{x \\in F} g(x) \\mathbb{P}(X = x)\\);\nIf \\(X\\) is a continuous random variable with density \\(f\\), \\(\\mathbb{E}\\left[ g(X) \\right] = \\int_{\\mathbb{R}^d} g(x)f(x) dx\\).\n\n\n\n\n\n\n\n\n\nProperties: Linearity of expectation\n\n\n\nLet \\(X\\) and \\(Y\\) be two random variables whose expectations exist, and let \\(\\lambda \\in R\\). We have:\n\n\\(\\mathbb{E}(X + Y) = \\mathbb{E}(X) + \\mathbb{E}(Y)\\);\n\\(\\mathbb{E}(\\lambda X) = \\lambda \\mathbb{E}(X)\\).\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nThe proof is derived from the transfer theorem and the linearity of addition and integration.\n\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(X\\) be a random variable such that the expectation of its square exists. The variance of \\(X\\) is defined by \\[\\mathrm{Var}(X) = \\mathbb{E}\\left[ \\left( X - \\mathbb{E}(X) \\right)^2 \\right] = \\mathbb{E}\\left[ X^2 \\right] - \\mathbb{E}\\left[ X \\right]^2.\\]\n\n\nThe variance measures the dispersion of a random variable around its mean. We can also look at the standard deviation, defined as the square root of the variance: \\(\\sigma(X) = \\sqrt{\\mathrm{Var}(X)}\\).\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(X\\) and \\(Y\\) be two random variables and \\(A\\) and \\(B\\) be two events. If the events \\(\\left\\{ X \\in A \\right\\}\\) and \\(\\left\\{ Y \\in B \\right\\}\\) are independent, then we say that the random variables \\(X\\) and \\(Y\\) are independent.\n\n\nFrom this definition, we can deduce that:\n\nfor functions \\(f\\) and \\(g\\), the random variables \\(f(X)\\) and \\(g(Y)\\) are independent;\nif the random variables \\(X\\) and \\(Y\\) are real-valued and their expectation exists, then the expectation of the product \\(XY\\) exists and \\(\\mathbb{E}(XY) = \\mathbb{E}(X) \\times \\mathbb{E}(Y)\\).\n\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(X\\) be a random variable. The distribution function \\(F: \\mathbb{R} \\mapsto [0, 1]\\) of \\(X\\) is defined by \\[F(t) = \\mathbb{P}(X \\leq t), \\quad t \\in \\mathbb{R}.\\]",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Probability"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/02-probabilities.html#random-vectors",
+    "href": "contents/remainders/02-probabilities.html#random-vectors",
+    "title": "Probability",
+    "section": "Random vectors",
+    "text": "Random vectors\nSuppose that \\(X = (X_{1}, X_{2})\\) is a random variable of dimension \\(2\\) with density \\(f_{X}\\). Random variables of dimension greater than \\(1\\) are generally referred to as random vectors. The densities of \\(X_{1}\\) and \\(X_{2}\\) are called marginal densities. When \\(X_{1}\\) and \\(X_{2}\\) are independent, we have: \\[f_X(x, y) = f_{X_{1}}(x) \\cdot f_{X_{2}}(y), \\quad (x, y) \\in \\mathbb{R}^2.\\]\n\n\n\n\n\n\nExample of the multivariate normal distribution\n\n\n\nA random vector \\(X\\) of dimension \\(p\\) is said to follow a multivariate normal distribution with mean \\(\\mu\\) and variance \\(\\Sigma\\) if its density is given by \\[f_X(x) = \\frac{1}{(2 \\pi)^{p /2}} \\cdot \\frac{1}{(\\text{det} \\Sigma)^{1/2}} \\cdot \\exp\\left\\{ -\\frac{1}{2}\\left( x - \\mu \\right)^\\top \\Sigma^{-1} \\left( x - \\mu \\right) \\right\\}, \\quad x \\in \\mathbb{R}^p.\\]\nWe denote \\(X \\sim \\mathcal{N}_{p}(\\mu, \\Sigma)\\).\n\n\nIn statistics, an important quantity to measure is the linear dependence between \\(X_{1}\\) and \\(X_{2}\\). For this, we can use the covariance or the correlation.\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(X = (X_{1}, X_{2})\\) be a random vector such that the expectation of the square of \\(X_{1}\\) and \\(X_{2}\\) exists. The covariance between \\(X_{1}\\) and \\(X_{2}\\) is given by \\[\\mathrm{Cov}(X_{1}, X_{2}) = \\mathbb{E}\\left[ (X_{1} - \\mathbb{E}(X_{1})) (X_{2} - \\mathbb{E}(X_{2}))\\right].\\]\nThe correlation between \\(X_{1}\\) and \\(X_{2}\\) is a version of the covariance normalized by the standard deviation of the random variables. It is given by \\[\\mathrm{Corr}(X_{1}, X_{2}) = \\frac{\\mathrm{Cov}(X_{1}, X_{2})}{\\sigma(X_{1}) \\sigma(X_{2})}.\\]\n\n\nThe sign of the covariance and correlation can be interpreted. If they are strictly positive, \\(X_{1}\\) and \\(X_{2}\\) tend to move in the same direction. If \\(X_{1}\\) increases, then \\(X_{2}\\) also increases, and vice versa. If they are strictly negative, \\(X_{1}\\) and \\(X_{2}\\) tend to move in opposite directions. If \\(X_{1}\\) increases, then \\(X_{2}\\) decreases, and vice versa. If the covariance is equal to \\(0\\), there are no rules and \\(X_{1}\\) and \\(X_{2}\\) are said to be orthogonal.\n\n\n\n\n\n\nProperties\n\n\n\nLet \\(X = (X_{1}, X_{2})\\) be a random vector. We have\n\n\\(\\mathrm{Cov}(X_{1}, X_{2}) = \\mathbb{E}(X_{1}X_{2}) - \\mathbb{E}(X_{1})\\mathbb{E}(X_{2})\\);\n\\(\\mathrm{Cov}(X_{1}, X_{2}) = \\mathrm{Cov}(X_{2}, X_{1})\\);\n\\(\\mathrm{Cov}(X_{1} + \\lambda Y_{1}, X_{2}) = \\mathrm{Cov}(X_{1}, X_{2}) + \\lambda \\mathrm{Cov}(Y_{1}, X_{2})\\).\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\nWe find the result by expanding the product in the definition of the covariance.\nUsing point 1. and the commutativity of multiplication.\nUsing point 1. and the linearity of expectation.",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Probability"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/02-probabilities.html#estimation",
+    "href": "contents/remainders/02-probabilities.html#estimation",
+    "title": "Probability",
+    "section": "Estimation",
+    "text": "Estimation\nIn practice, we do not have perfect knowledge of our random vectors, but only some of their realizations (called samples). Let \\(x_{1}, \\dots, x_{n}\\) be \\(n\\) independent realizations of a random vector \\(X\\) with mean \\(\\mu\\) and variance \\(\\Sigma\\).\nThe estimator of the mean \\(\\mu\\) is given by \\[\\widehat{\\mu} = \\overline{X} \\coloneqq \\frac{1}{n} \\sum_{i = 1}^{n} x_i.\\]\nThe estimator of the variance \\(\\Sigma\\) is given by \\[\\widehat{\\Sigma} \\coloneqq \\frac{1}{n - 1}\\sum_{i = 1}^{n} (x_i - \\widehat{\\mu})(x_i - \\widehat{\\mu})^\\top.\\]\nWhy do we divide this sum by \\(n -1\\) and not by \\(n\\) to estimate the variance? If we divide by \\(n\\), \\(\\widehat{\\Sigma}\\) is a biased estimator of the variance. Indeed, we must take into account that we are using a biased estimator of the mean in the variance estimator and therefore correct for this estimate.\nLet \\(D = \\{\\text{diag}(\\widehat{\\Sigma})\\}^{1/2}\\) be the matrix of standard deviations calculated on the sample. We can estimate the correlation matrix on the sample by \\[\\widehat{R} = D^{-1} \\widehat{\\Sigma} D^{-1}.\\]",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Probability"
+    ]
+  },
+  {
     "objectID": "contents/01-introduction.html",
     "href": "contents/01-introduction.html",
     "title": "Introduction",
