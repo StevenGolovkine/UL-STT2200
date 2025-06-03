@@ -1,5 +1,5 @@
 --- 
-title: "Probability"
+title: "Probabilities and Statistics"
 format: 
   html: default
   pdf:

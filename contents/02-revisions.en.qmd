@@ -18,9 +18,9 @@ format:
 
 1. [Linear algebra](./remainders/01-linear-algebra.qmd)
 
-2. [Probabilities](./remainders/02-probabilities.qmd)
+2. [Probabilities and statistics](./remainders/02-probabilities.qmd)
 
-3. [Statistics](./remainders/03-stat.qmd)
+3. [Data analysis project](./remainders/03-stat.qmd)
 
 4. [Algorithmic / Programming](./remainders/04-programming.qmd)
 

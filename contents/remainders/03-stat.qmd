@@ -1,17 +1,19 @@
 --- 
-title: "Analyse de données"
+title: "Projet d'analyse de données"
 format: 
   html: default
   pdf:
+    number-sections: true
     header-includes:
       - \usepackage{mathtools} 
 ---
 
+Dans cette partie, on présente les différentes étapes d'un projet d'analyse de données. 
 
 
-## Project d'analyse données
+## Projet d'analyse données
 
-Un projet d'analyse de données se découpe en cinq étapes: 
+Un projet d'analyse de données peut se découper en cinq grandes étapes: 
 
 1. Définition des objectifs 
 
@@ -23,6 +25,7 @@ Un projet d'analyse de données se découpe en cinq étapes:
 
 5. Suivi de la performance et amélioration 
 
+
 ::: {.callout-tip icon=false}
 ## Remarque
 
@@ -31,7 +34,20 @@ Dans ce cours, on s'intéressera principalement à l'élaboration et à la valid
 :::
 
 
-TODO: Planification d'un projet
+Lors de la planification d'un projet, il faut prendre en compte que chaque étape à une importance différente, mais aussi que chacune ne prend pas le même temps d'exécution. @pyleDataPreparationData1999 donne une estimation du temps de chaque étape, ainsi que de leur importance dans la réussite du projet (donné en pourcentage du total).
+
+| Étape | Temps | Importance |
+| :---- | :---: | :--------: |
+| Comprendre le problème | $10/%$ | $15/%$ |
+| Explorer la solution | $9/%$ | $14/%$ |
+| Implementer la solution | $1/%$ | $51/%$ |
+| Préparer les données | $60/%$ | $15/%$ |
+| Analyser les données | $15/%$ | $3/%$ |
+| Modéliser les données | $5/%$ | $2/%$ |
+
+On remarque deux faits importants: ce n'est pas parce qu'une étape est très importante qu'elle va prendre beaucoup de temps. L'implémentation de la solution est très importante (sinon il n'y a pas de résultat), mais ne sera généralement pas très longue à faire (possiblement en quelques lignes de code). À l'inverse, la préparation des données est un étape d'importance moyenne (encore que c'est discutable), mais elle prend la majeur partie du temps du projet. En effet, il faut, par exemple, gérer les données manquantes, les données aberrantes, les éventuels accents pour des données en français, etc.
+
+
 
 ### Définition des objectifs 
 
