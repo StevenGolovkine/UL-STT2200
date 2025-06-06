@@ -204,7 +204,18 @@
     "href": "contents/03-generalities.html",
     "title": "Généralités",
     "section": "",
-    "text": "Slides: link",
+    "text": "Slides: link\nTD: link\nTP: link",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités"
+    ]
+  },
+  {
+    "objectID": "contents/03-generalities.html#sommaire",
+    "href": "contents/03-generalities.html#sommaire",
+    "title": "Généralités",
+    "section": "Sommaire",
+    "text": "Sommaire\n\nProjet d’analyse de données\nEspaces\nDistances\nBiais / Variance\nÉvaluation de modèles\n\n\n\n\nCorrelation (xkcd:552).",
     "crumbs": [
       "Modules",
       "03 - Généralités"
@@ -280,6 +291,77 @@
       "Modules",
       "05 - Supervisée",
       "Ensemble"
+    ]
+  },
+  {
+    "objectID": "contents/05-supervisee.html",
+    "href": "contents/05-supervisee.html",
+    "title": "Supervisée",
+    "section": "",
+    "text": "On considère une population comportant \\(q\\) groupes. On observe \\(p\\) variables \\(X_{1}, \\dots, X_{p}\\) pour chaque individu/objet de la population. On cherche à obtenir un modèle/algortihme pour classer de nouveaux individus/objets dans les bons groupes, c’est-à-dire de prédire \\(Y\\) à partir de \\(X_{1}, \\dots, X_{p}\\).\n\n\n\n\n\n\nExample\n\n\n\n\nRevenue Québce désire identifier les déclarations fiscales méritant d’être examinées de faon plus approfondies (détection de fraude).\nReconnaissance automatique des chiffres et des lettres des codes postaux écrits à la main.\nIdentification de nouveaux clients potentiels.\nFiltrage de courriels indésirables.\nReconnaissance d’images.\n\n\n\nApproche générale\n\nSélectionner un certain nombre d’individus dont on connaît le groupe d’appartenance.\nMesurer \\(p\\) caractéristiques \\(X_{1}, \\dots, X_{p}\\) sur ces individus.\nDiviser ce jeu de données en deux:\n\n\nUn jeu de données pour la modélisation (entrainement, “train”)\nUn jeu de données pour la vérification (valisation, “test”)\n\n\nDévelopper un modèle/algorithme pour classer le mieux possible les individus du jeu de données d’entrainement.\nÉvaluer notre modèle/algorithme sur le jeu de données de valisation.\n(Répéter étapes 3-4-5 avec d’autres modèles/algorithmes et choisir le meilleur).\n\nQuelques méthodes:\n\nAnalyse discriminante\nArbre de classification\nRégression\nClassificateur naïf de Bayes\nMéthode des \\(k\\) plus proches voisins\nSupport vector machine\nRéseaux de neurones.\n\nIl n’y a aucun algorithme qui garantit le meilleur classificateur pour toute situation donnée. Chaque problème est nouveau et on doit tenter de trouver la meilleure façon de procéder par essai et erreur. Ceci étant dit, certains principes s’appliquent plus généralement * Commencer par une exploration des données (p.ex. statistiques descriptives sur toutes les variables prises individuellement, ACP, ACB/ACM, classification non-supervisée) * Tirer avantage de la connaissance du sujet des experts qui nous entourent * Voir si certaines méthodes n’ont pas déjà eu du succès dans des analyses similaires\nLa principale difficulté vient habituellement de la dimension du problème : le nombre de modèles/méthodes possibles pour un problème donné est énorme et croît rapidement avec le nombre de variables disponibles. Parfois, réduire la dimension du problème (ACP, ACB/ACM, classification non-supervisée) peut aider : on applique ces techniques à un sous-ensemble des variables, et on utilise ensuite les scores produits comme prédicteurs dans les algos de classifications Il n’y a pas de recette générale pour savoir quel sous-ensemble choisir … Allez voir sur des sites de concours d’analyse de données (p.ex. Kaggle, KD Nuggets, etc.) et regardez les approches utilisées par les gagnants des concours pour lesquels le problème à résoudre s’apparente un peu au vôtre.",
+    "crumbs": [
+      "Modules",
+      "05 - Supervisée"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/02-probabilities.html",
+    "href": "contents/remainders/02-probabilities.html",
+    "title": "Probabilités et Statistiques",
+    "section": "",
+    "text": "Dans cette partie, on présente quelques résultats en probabilités et statistiques dans le cadre de ce cours. Pour plus d’information, vous pouvez vous référer au cours STT-1000, à Wasserman (2010) (en anglais) et à Delmas (2013) (en français).",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Probabilités et Statistiques"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/02-probabilities.html#modéliser-le-hasard",
+    "href": "contents/remainders/02-probabilities.html#modéliser-le-hasard",
+    "title": "Probabilités et Statistiques",
+    "section": "Modéliser le hasard",
+    "text": "Modéliser le hasard\nBeaucoup de phénomènes réels ne sont pas prévisibles et généralement, leurs résultats contiennent une certaine variabilité. Cette variabilité est prise en compte grâce à une mesure de l’incertitude que l’on appelle mesure de probabilités.\n\n\n\n\n\n\nDéfinition\n\n\n\nL’espace d’évènements \\(S\\) est l’ensemble de tous les résultats possibles d’un phénomène. Un évènement est un sous-ensemble de l’espace d’évènements \\(S\\).\n\n\n\n\n\n\n\n\nExemples\n\n\n\n\nSi l’expérience consiste à lancer un pièce, \\(S = \\{0, 1\\}\\). Le résultat de cette expérience ne peut pas être connu à l’avance. Par exemple, \\(E = \\{1\\}\\) est un évènement de \\(S\\).\nSi on s’intéresse à la durée de vie d’un téléphone, \\(S = \\mathbb{R}_{+}\\). On peut aussi choisir \\(S = [0, M]\\), car cette durée de vie n’est probablement pas infini ! L’évènement \\(E = [10, \\infty)\\) représente l’évènement “une durée de vie de plus de 10 unités de temps”.\nPour le nombre de jours sans neige à Québec dans l’année, on peut choisir \\(S = \\mathbb{N}\\). L’évènement \\(E = (0, 5]\\) représente l’évènement “moins de 5 jours sans neige à Québec dans l’année”.\n\n\n\n\n\n\n\n\n\nDéfinition\n\n\n\nUne mesure de probabilités \\(\\mathbb{P}\\) sur \\(S\\) est une application (fonction) définie sur l’espace d’évènements et satisfaisant les propriétés suivantes :\n\nPour chaque évènement \\(E\\), \\(\\mathbb{P}(E) \\in [0, 1]\\).\n\\(\\mathbb{P}(S) = 1\\).\nSoient \\(E_{1}, E_{2}, \\dots\\), une séquence d’évènements (finie ou infinie) mutuellement exclusive, i.e. \\(\\forall i \\neq j, E_{i} \\cap E_{j} = \\varnothing\\). On a \\[\\mathbb{P}(\\bigcup_{n = 1}^{\\infty} E_n) = \\sum_{n = 1}^{\\infty} \\mathbb{P}(E_n).\\]\n\nOn appelle \\(\\mathbb{P}(E)\\), la probabilité de l’évènement \\(E\\).\n\n\nLa définition de mesures de probabilités peut être subjective et lié à l’expérience du statisticien. En reprenant l’exemple 3 sur le nombre de jours sans neige à Québec dans l’année. Une personne venant d’arriver au Canada peut vouloir donner la même probabilité à chacun des jours, alors qu’un Québécois aura plus d’information et pourras faire varier les probabilités en fonction de cette connaissance.\n\n\n\n\n\n\nDéfinition\n\n\n\nDeux évènements \\(E\\) et \\(F\\) sont dits indépendants si \\(\\mathbb{P}(E \\cap F) = \\mathbb{P}(E) \\times \\mathbb{P}(F)\\).\n\n\n\n\n\n\n\n\nDéfinition\n\n\n\nSoient \\(E\\) et \\(F\\), deux évènements, la probabilité conditionelle que \\(E\\) se réalise sachant que \\(F\\) s’est réalisé est définie par : \\[\\mathbb{P}(E \\mid F) = \\frac{\\mathbb{P}(E \\cap F)}{\\mathbb{P}(F)}.\\]\n\n\nDe façon intuitive, deux évènements sont indépendants si la connaissance de l’un ne donne aucune information sur la réalisation de l’autre. On a aussi \\(\\mathbb{P}(E \\mid F) = \\mathbb{P}(E)\\).",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Probabilités et Statistiques"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/02-probabilities.html#variables-aléatoires",
+    "href": "contents/remainders/02-probabilities.html#variables-aléatoires",
+    "title": "Probabilités et Statistiques",
+    "section": "Variables aléatoires",
+    "text": "Variables aléatoires\nEn probabilité, la convention est d’exprimer le résultat d’expériences comme la valeur d’une fonction appelé variable aléatoire. Cette caractérisation est toujours possible.\n\n\n\n\n\n\nDéfinition\n\n\n\nSoit une variable aléatoire \\(X\\). La distribution de cette variable aléatoire est définie par l’application \\(A \\mapsto \\mathbb{P}(X \\in A)\\).\n\n\n\n\n\n\n\n\nDéfinition\n\n\n\nSoit une variable aléatoire \\(X\\). Cette variable aléatoire est discrète si elle prend, au plus, un nombre dénombrable de valeurs. Dans ce cas, la distribution de \\(X\\) est donnée par les probabilités \\(\\mathbb{P}(X = x)\\) pour tout résultat \\(x\\).\n\n\n\n\n\n\n\n\nDéfinition\n\n\n\nSoit une variable aléatoire \\(X\\). Cette variable aléatoire est continue si les probabilités \\(\\mathbb{P}(X \\in A)\\) sont données par des intégrales de la forme \\(\\int_{A} f(x) dx\\) où \\(f: \\mathbb{R}^d \\to \\mathbb{R}_+\\) est une fonction intégrable tel que \\(\\int_{\\mathbb{R}^d} f(x) dx = 1\\). Notons que, pour un résultat \\(x\\) fixé, \\(\\mathbb{P}(X = x) = 0\\).\n\n\n\n\n\n\n\n\nDéfinition\n\n\n\nSoit une variable aléatoire \\(X\\). L’espérance mathématique \\(\\mathbb{E}(X)\\) de \\(X\\) est la valeur moyenne du résultat de \\(X\\) par rapport à sa distribution de probabilité. L’espérance est généralement noté \\(\\mu\\).\n\n\nSoit \\(F\\) un ensemble dénombrable. Une variable aléatoire discrète \\(X\\) a pour espérance \\(\\mathbb{E}(X) = \\sum_{x \\in F} x \\mathbb{P}(X = x)\\). Soit une variable aléatoire continue \\(X\\) ayant pour densité \\(f\\), son espérance est donnée par \\(\\mathbb{E}(X) = \\int_{\\mathbb{R}^d} x f(x) dx\\).\n\n\n\n\n\n\nThéorème de transfert\n\n\n\nSoit une variable aléatoire \\(X\\). Soit \\(g: \\mathbb{R}^d \\mapsto \\mathbb{R}\\) une fonction telle que \\(\\mathbb{E}\\left[ g(X) \\right]\\) existe. On a :\n\nSi \\(X\\) est une variable aléatoire discrète, \\(\\mathbb{E}\\left[ g(X) \\right] = \\sum_{x \\in F} g(x) \\mathbb{P}(X = x)\\);\nSi \\(X\\) est une variable aléatoire continue de densité \\(f\\), \\(\\mathbb{E}\\left[ g(X) \\right] = \\int_{\\mathbb{R}^d} g(x)f(x) dx\\).\n\n\n\n\n\n\n\n\n\nPropriétés: Linéarité de l’espérance\n\n\n\nSoient \\(X\\) et \\(Y\\), deux variables aléatoires, dont les espérances sont définies et soit \\(\\lambda \\in R\\). On a :\n\n\\(\\mathbb{E}(X + Y) = \\mathbb{E}(X) + \\mathbb{E}(Y)\\);\n\\(\\mathbb{E}(\\lambda X) = \\lambda \\mathbb{E}(X)\\).\n\n\n\n\n\n\n\n\n\nPreuve\n\n\n\n\n\nLa preuve se déduit du théorème de transfert et de la linéarité de l’addition et de l’intégration.\n\n\n\n\n\n\n\n\n\nDéfinition\n\n\n\nSoit \\(X\\) une variable aléatoire telle que l’espérance de son carré existe. La variance de \\(X\\) est définie par \\[\\mathrm{Var}(X) = \\mathbb{E}\\left[ \\left( X - \\mathbb{E}(X) \\right)^2 \\right] = \\mathbb{E}\\left[ X^2 \\right] - \\mathbb{E}\\left[ X \\right]^2.\\]\n\n\nLa variance mesure la dispersion d’une variable aléatoire autour de sa moyenne. On peut aussi s’intéresser à l’écart-type, défini comme la racine carrée de la variance : \\(\\sigma(X) = \\sqrt{\\mathrm{Var}(X)}\\).\n\n\n\n\n\n\nDéfinition\n\n\n\nSoient \\(X\\) et \\(Y\\), deux variables aléatoires et \\(A\\) et \\(B\\), deux évenements. Si les évenements \\(\\left\\{ X \\in A \\right\\}\\) et \\(\\left\\{ Y \\in B \\right\\}\\) sont indépendants, alors on dit que les variables aléatoires \\(X\\) et \\(Y\\) sont indépendantes.\n\n\nDe cette définition, on en déduit que :\n\npour des fonctions \\(f\\) et \\(g\\), les variables aléatoires \\(f(X)\\) et \\(g(Y)\\) sont indépendantes;\nsi les variables aléatoires \\(X\\) et \\(Y\\) sont à valeurs réelles et que leur espérance existe, alors l’espérance du produit \\(XY\\) existe et \\(\\mathbb{E}(XY) = \\mathbb{E}(X) \\times \\mathbb{E}(Y)\\).\n\n\n\n\n\n\n\nDéfinition\n\n\n\nSoit \\(X\\) une variable aléatoire. La fonction de répartition \\(F: \\mathbb{R} \\mapsto [0, 1]\\) de \\(X\\) est définie par \\[F(t) = \\mathbb{P}(X \\leq t), \\quad t \\in \\mathbb{R}.\\]",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Probabilités et Statistiques"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/02-probabilities.html#vecteurs-aléatoires",
+    "href": "contents/remainders/02-probabilities.html#vecteurs-aléatoires",
+    "title": "Probabilités et Statistiques",
+    "section": "Vecteurs aléatoires",
+    "text": "Vecteurs aléatoires\nSupposons que \\(X = (X_{1}, X_{2})\\) est une variable aléatoire de dimension \\(2\\) de densité \\(f_{X}\\). On appelle généralement les variables aléatoires de dimension supérieure à \\(1\\), des vecteurs aléatoires. Les densités de \\(X_{1}\\) et \\(X_{2}\\) sont appelées les densités marginales. Lorsque \\(X_{1}\\) et \\(X_{2}\\) sont indépendantes, on a : \\[f_X(x, y) = f_{X_{1}}(x) \\cdot f_{X_{2}}(y), \\quad (x, y) \\in \\mathbb{R}^2.\\]\n\n\n\n\n\n\nExemple de la loi normale multidimensionnelle\n\n\n\nOn dit qu’un vecteur aléatoire \\(X\\) de dimension \\(p\\) suit une loi normale multidimensionnelle de moyenne \\(\\mu\\) et de variance \\(\\Sigma\\), si sa densité est donnée par \\[f_X(x) = \\frac{1}{(2 \\pi)^{p /2}} \\cdot \\frac{1}{(\\text{det} \\Sigma)^{1/2}} \\cdot \\exp\\left\\{ -\\frac{1}{2}\\left( x - \\mu \\right)^\\top \\Sigma^{-1} \\left( x - \\mu \\right) \\right\\}, \\quad x \\in \\mathbb{R}^p.\\]\nOn note \\(X \\sim \\mathcal{N}_{p}(\\mu, \\Sigma)\\).\n\n\nEn statistiques, une quantité importante à mesurer est la dépendance linéaire entre \\(X_{1}\\) et \\(X_{2}\\). Pour cela, on peut utiliser la covariance ou la correlation.\n\n\n\n\n\n\nDéfinition\n\n\n\nSoit \\(X = (X_{1}, X_{2})\\) un vecteur aléatoire tel que l’espérance du carré de \\(X_{1}\\) et de \\(X_{2}\\) existe. La covariance entre \\(X_{1}\\) et \\(X_{2}\\) est donnée par \\[\\mathrm{Cov}(X_{1}, X_{2}) = \\mathbb{E}\\left[ (X_{1} - \\mathbb{E}(X_{1})) (X_{2} - \\mathbb{E}(X_{2}))\\right].\\]\nLa corrélation entre \\(X_{1}\\) et \\(X_{2}\\) est une version de la covariance normalisée par l’écart-type des variables aléatoires. Elle est donnée par \\[\\mathrm{Corr}(X_{1}, X_{2}) = \\frac{\\mathrm{Cov}(X_{1}, X_{2})}{\\sigma(X_{1}) \\sigma(X_{2})}.\\]\n\n\nOn peut interpréter le signe de la covariance et de la corrélation. Si elles sont strictement positives, \\(X_{1}\\) et \\(X_{2}\\) ont tendance à aller dans la même direction. Si \\(X_{1}\\) augmente, alors \\(X_{2}\\) aussi, et inversement. Si elles sont strictement négatives, \\(X_{1}\\) et \\(X_{2}\\) ont tendance à aller dans des directions opposées. Si \\(X_{1}\\) augmente, alors \\(X_{2}\\) diminue, et inversement. Si la covariance est égales à \\(0\\), il n’y a pas de règles et \\(X_{1}\\) et \\(X_{2}\\) sont dites orthogonales.\n\n\n\n\n\n\nPropriétés\n\n\n\nSoit \\(X = (X_{1}, X_{2})\\) un vecteur aléatoire. On a\n\n\\(\\mathrm{Cov}(X_{1}, X_{2}) = \\mathbb{E}(X_{1}X_{2}) - \\mathbb{E}(X_{1})\\mathbb{E}(X_{2})\\);\n\\(\\mathrm{Cov}(X_{1}, X_{2}) = \\mathrm{Cov}(X_{2}, X_{1})\\);\n\\(\\mathrm{Cov}(X_{1} + \\lambda Y_{1}, X_{2}) = \\mathrm{Cov}(X_{1}, X_{2}) + \\lambda \\mathrm{Cov}(Y_{1}, X_{2})\\).\n\n\n\n\n\n\n\n\n\nPreuve\n\n\n\n\nOn trouve le résultat en développement le produit dans la définition de la covariance.\nEn utilisant le point 1. et la commutativité de la multiplication.\nEn utilisant le point 1. et la linéarité de l’espérance.",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Probabilités et Statistiques"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/02-probabilities.html#estimation",
+    "href": "contents/remainders/02-probabilities.html#estimation",
+    "title": "Probabilités et Statistiques",
+    "section": "Estimation",
+    "text": "Estimation\nEn practique, nous n’avons pas une connaissance parfaite de nos vecteurs aléatoires, mais seulement des réalisations de ceux-ci (que l’on appelle échantillon). Notons \\(x_{1}, \\dots, x_{n}\\), \\(n\\) réalisations indépendantes d’un vecteur aléatoire \\(X\\) de moyenne \\(\\mu\\) et de variance \\(\\Sigma\\).\nL’estimateur de la moyenne \\(\\mu\\) est donné par \\[\\widehat{\\mu} = \\overline{X} \\coloneqq \\frac{1}{n} \\sum_{i = 1}^{n} x_i.\\]\nL’estimateur de la variance \\(\\Sigma\\) est donné par \\[\\widehat{\\Sigma} \\coloneqq \\frac{1}{n - 1}\\sum_{i = 1}^{n} (x_i - \\widehat{\\mu})(x_i - \\widehat{\\mu})^\\top.\\]\nPourquoi divise t-on cette somme par \\(n -1\\) et non par \\(n\\) pour estimer la variance ? Si l’on divise par \\(n\\), \\(\\widehat{\\Sigma}\\) est un estimateur biaisé de la variance. En effet, il faut prendre en compte que l’on utilise un estimateur biaisé de la moyenne dans l’estimateur de la variance et donc corriger pour cette estimation.\nNotons \\(D = \\{\\text{diag}(\\widehat{\\Sigma})\\}^{1/2}\\), la matrice des écarts-types calculés sur l’échantillon. On peut estimer la matrice des corrélations sur l’échantillon par \\[\\widehat{R} = D^{-1} \\widehat{\\Sigma} D^{-1}.\\]",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Probabilités et Statistiques"
     ]
   },
   {
@@ -377,87 +459,141 @@
     ]
   },
   {
-    "objectID": "contents/generalities/03-bias-variance.html",
-    "href": "contents/generalities/03-bias-variance.html",
-    "title": "Biais/Variance",
+    "objectID": "contents/generalities/05-model-evaluation.html",
+    "href": "contents/generalities/05-model-evaluation.html",
+    "title": "Evaluation de modeles",
     "section": "",
-    "text": "On veut prédire \\(Y\\) à partir de \\(X\\). Pour cela, on cherche à estimer \\(f(X)\\) la fonction qui relie \\(X\\) à \\(Y\\) par \\[Y = f(X) + \\epsilon\\]\nOn peut mesurer deux fonctions qui vont nous aider:\n\nFonction de perte (\\(L\\)): c’est la mesure de l’écart par rapport à ce qu’on souhaite mesurer, par example: \\[L(Y, f(X)) = (Y - f(X))^2.\\]\nFonction de risque : c’est la quantité que l’on cherche à minimiser. Il s’agit de l’espérance de la fonction de perte.\n\nComment trouver \\(f\\):\nObjectif: Trouver une fonction \\(\\widehat{f}\\) qui minimise le risque.\nComment: Supposer une certaine forme pour \\(f(X)\\) et minimiser la fonction de perte de faon analytique ou numérique.\n\nParamétrique: On donne une forme explication à \\(f(X)\\) qui dépend de paramètres. On cherche une méthode d’estimation des paramètres.\nNon-paramétrique: aucune forme forme particulière de \\(f\\), on estime une courbe ou fonction.\n\n\n\n\n\n\n\nExample: la régression linéaire simple\n\n\n\nOn suppose que \\(f(X) = \\beta_{0} + \\beta_{1}X\\), on cherche donc les valeurs \\(\\widehat{\\beta}_0\\) et \\(\\widehat{\\beta}_1\\) qui minimisent : \\[\\mathbb{E}(Y - (\\beta_{0} + \\beta_{1}X))^2.\\]\n\n\nQue faire dans le cas discret ?\nOn cherche à prédire \\(G\\) (un groupe ou facteur) à partir de \\(X\\). Supposons que nous avons \\(\\widehat{G}\\) qui prédise le classe des observations sachant \\(X\\), alors on peut définir la fonction de perte (0-1) comme le nombre d’erreur que l’on a effectué: \\[L(G, \\widehat{G}) = \\mathbb{1}_{G \\neq \\widehat{G}}.\\]\nAvec cette fonction de perte 0-1, \\(\\widehat{G}(x)\\) est la classe \\(g\\) qui maximise \\(\\mathbb{P}(g | X = x)\\).\nOn peut décomposer l’erreur quadratique moyenne (EQM): \\[\\mathbb{E}\\left( (Y - \\widehat{f}(x_0))^2 \\right) = \\text{Biais}(\\widehat{f}(x_{0}))^2 + \\mathrm{Var}(\\widehat{f}(x_{0}) + \\sigma^2_{\\epsilon}.\\]\nDémontrer la décomposition de l’EQM en un compromis biais variance.",
+    "text": "Pourquoi mesurer l’erreur d’un modèle ?",
     "crumbs": [
       "Modules",
       "03 - Généralités",
-      "Biais/Variance"
+      "Evaluation de modeles"
     ]
   },
   {
-    "objectID": "contents/generalities/01-spaces.html",
-    "href": "contents/generalities/01-spaces.html",
-    "title": "Espace",
-    "section": "",
-    "text": "Variable numérique: Variable dont la valeur numérique mesure quelque chose de quantifiable et dont la différence entre les valeurs reflète la différence entre les objets. Exemples: revenu en dollars, masse, âge, …\nVariable ordinale: Variable qui ne donne pas une quantification précise d’un phénomène, mais dont les modalités peuvent être naturellement ordonnées. Examples: revenu faible, moyen ou élevé, ou niveau d’accord entre “tout-à-fait en désaccord”, “en désaccord”, “pas d’avis”, “d’accord”, “tout-à-fait d’accord”.\nNominales symétriques: Variable qualitative dont toutes les modalités sont aussi informatives l’une que l’autre. Examples: Sexe, sections d’un cours.\nNominales asymétriques: Variable qualitative dont les modalités ne contiennent pas toutes le même niveau d’information, habituellement lorsque l’une des modalités est très fréquente, un peu la modalité par defaut, mais que les autres ne le sont pas. Exemples: variable indiquant si un individu est daltonien ou non (deux individus daltoniens ont quelque chose en commun, mais deux individus non-daltoniens n’ont pas forcément quelque chose en commun), variable indiquant si une transaction est frauduleuse.\nIl y a plein d’autre type de variables: fonctions, textes, images, graphs, …",
+    "objectID": "contents/generalities/05-model-evaluation.html#validation-croisée",
+    "href": "contents/generalities/05-model-evaluation.html#validation-croisée",
+    "title": "Evaluation de modeles",
+    "section": "Validation croisée",
+    "text": "Validation croisée\n\nOn sépare l’échantillon en \\(K\\) plus de faon aléatoire.\nPour \\(k\\) allant de \\(1\\) à \\(K\\):\n\n\nOn estime \\(\\widehat{f}(k)\\) en utilisant uniquement les observations qui ne sont pas dans \\(k\\).\nOn prédit \\(\\widehat{Y}(k) = \\widehat{f}(k)(X(k))\\).\nOn calcule \\(CV(k) = \\frac{1}{N_k} \\sum_{i = 1}^{N_k} L(Y(k), \\widehat{Y}(k))\\).\n\n\nOn calcule la moyenne \\(CV = \\frac{1}{K} \\sum_{k = 1}^{K} CV(k)\\).\nOn répète 1 à 3 pour tous les modèles et on choisit le modèle ont la valeur de CV est la plus basse.",
     "crumbs": [
       "Modules",
       "03 - Généralités",
-      "Espace"
+      "Evaluation de modeles"
     ]
   },
   {
-    "objectID": "contents/generalities/01-spaces.html#types-de-variables",
-    "href": "contents/generalities/01-spaces.html#types-de-variables",
-    "title": "Espace",
-    "section": "",
-    "text": "Variable numérique: Variable dont la valeur numérique mesure quelque chose de quantifiable et dont la différence entre les valeurs reflète la différence entre les objets. Exemples: revenu en dollars, masse, âge, …\nVariable ordinale: Variable qui ne donne pas une quantification précise d’un phénomène, mais dont les modalités peuvent être naturellement ordonnées. Examples: revenu faible, moyen ou élevé, ou niveau d’accord entre “tout-à-fait en désaccord”, “en désaccord”, “pas d’avis”, “d’accord”, “tout-à-fait d’accord”.\nNominales symétriques: Variable qualitative dont toutes les modalités sont aussi informatives l’une que l’autre. Examples: Sexe, sections d’un cours.\nNominales asymétriques: Variable qualitative dont les modalités ne contiennent pas toutes le même niveau d’information, habituellement lorsque l’une des modalités est très fréquente, un peu la modalité par defaut, mais que les autres ne le sont pas. Exemples: variable indiquant si un individu est daltonien ou non (deux individus daltoniens ont quelque chose en commun, mais deux individus non-daltoniens n’ont pas forcément quelque chose en commun), variable indiquant si une transaction est frauduleuse.\nIl y a plein d’autre type de variables: fonctions, textes, images, graphs, …",
+    "objectID": "contents/generalities/05-model-evaluation.html#cas-dun-réponse-binaire",
+    "href": "contents/generalities/05-model-evaluation.html#cas-dun-réponse-binaire",
+    "title": "Evaluation de modeles",
+    "section": "Cas d’un réponse binaire",
+    "text": "Cas d’un réponse binaire\nDams le cas où il n’existe que deux groupes dans la population, la matrice de confusion est de la forme suivante:\n\n\n\n\nPositif\nNégatif\n\n\n\n\nPositif\nVrais positifs (VP)\nFaux négatif (FN)\n\n\nNégatif\nFaux positifs (FP)\nVrais négatif (VN)\n\n\n\n\nSensibilité (sensitivity, rappel, recall, hit rate)\n\nProbailité qu’un individu qui appartient au groupe positif soit classé dans le groupe positifs: \\[\\frac{VP}{VP + FN}.\\]\n\nSpécifité (specificity)\n\nProbailité qu’un individu qui appartient au groupe négatif soit classé dans le groupe négatif: \\[\\frac{VN}{VN + FP}.\\]\n\nPrécision \\[\\frac{VP}{VP + FP}.\\]\nAccuracy \\[\\frac{VP + VN}{VP + VN + FP + FN}.\\]\nScore \\(F_{1}\\): moyenne harmonique de précision et de sensibilité \\[F_{1} = 2 \\times \\frac{précision \\times sensibilité}{précision + sensibilité} = \\frac{2 VP}{VP + FP + FN}.\\]\n\nEn practique, la situation typique va comme suit:\n\nOn a partagé notre jeu de données en eju d’entrainment et en jeu de validation.\nOn a appliqué \\(M\\) méthodes de classification au jeu d’entrainement.\nOn aimerait utiliser les données de validation pour choisir la meilleure des \\(M\\) méthodes.\n\nOn cherche donc à se doter d’outils qui permettent de mesurer la performance de méthodes de classification.\n\nMesure triviale\nLa première étape consiste à comparer le taux de bonnes classification (accuracy) des données de validation obtenu avec chacune des méthodes. On peut faire la même chose avec le score \\(F_{1}\\).\n\n\nSensibilité et spécifité\nSupposons une classe que nous voulons plus particulièrement identifier, que nous appelons des obbservations positives et on traite toues les autres observations comme si elles étaient dans la même classe, soit les observations négatives.\nLa sensibilité est le ratio entre le nombre de vrais positifs classé positifs et le nombre de vrais positifs. La spécifité est le ratio entre le nombre de vrais négatifs classé négatifs et le nombre de vrais négatifs.\nNotons que si on est prêt à vivre avec une spécifité de \\(0\\%\\), on peut toujours avoir une sensibilité de \\(100\\%\\) et si on est prêt à vivre avec une sensibilité de \\(0\\%\\), on peut toujours avoir une spécifité de \\(100\\%\\). Si la proportion de négatifs est très élevé, par exemple \\(99.9\\%\\), alors une méthode qui classifie \\(100\\%\\) des observations dans la classe négative aura un taux de bonnes classifications de \\(99.9\\%\\). Mais clairement, cette méthode ne nous sera pas très utile si notre but est d’identifier les cas positifs.\nOn peut exploiter l’estimation d’une probabilité. Les méthodes de classification donnent souvent la probabilité qu’une observation appartienne à une classe, pas uniquement une prévision de la classe elle-même. Une meilleure mesure de la performance de la méthode serait de voir si ces probabilité sont réalistes.\n\n\nLa courbe ROC\nLa courbe ROC (Receiver Operating Characteristic) peut être vue comme une variation de la courbe de gain.\n\nSoit \\(p^{(2)}_i\\), la probabilité que l’observation \\(i\\) appartienne à la classe \\(2\\) selon notre modèle.\nOn choisit une valeur de \\(u \\in [0, 1]\\) et on prédit que l’observation \\(i\\) appartient à la classe \\(2\\) si \\(p^{(2)}_i \\geq u\\) et à la classe \\(1\\) sinon.\nOn répète l’étape \\(2\\) pour \\(i = 1, \\dots, n\\) et on calcule la sensibilité \\(SEN(u)\\) et la spécifité \\(SPE(U)\\) ainsi obtenu.\nOn répète les étapes \\(2\\) et \\(3\\) pour tous les \\(u \\in [0, 1]\\), on place les paires \\((1 - SPE(u), SEN(u))\\) sur un graphique et on lie les points part des segments.\n\nInterprétation:\n\nElle part du point \\((0, 0)\\) et finit au point \\((1, 1)\\).\nSi on classifie les points au hasard, on obtiendra une ligne droite à \\(45\\) degrés.\nUne mesure unique du pouvoir prédictif est l’aire sous la courbe ROC (AUC, Area Under the Curve). Une AUC de 0.5 est ce que l’on espère en classifiant au hasard, et plus on s’approche de \\(1\\), meilleure est la méthode.\n\n\n\nExample",
     "crumbs": [
       "Modules",
       "03 - Généralités",
-      "Espace"
+      "Evaluation de modeles"
     ]
   },
   {
-    "objectID": "contents/generalities/01-spaces.html#espaces-associés",
-    "href": "contents/generalities/01-spaces.html#espaces-associés",
-    "title": "Espace",
-    "section": "Espaces associés",
-    "text": "Espaces associés",
+    "objectID": "contents/generalities/01-stat.html",
+    "href": "contents/generalities/01-stat.html",
+    "title": "Projet d’analyse de données",
+    "section": "",
+    "text": "Dans cette partie, on présente les différentes étapes d’un projet d’analyse de données.",
     "crumbs": [
       "Modules",
       "03 - Généralités",
-      "Espace"
+      "Projet d'analyse de données"
     ]
   },
   {
-    "objectID": "contents/dimension/04-others.html",
-    "href": "contents/dimension/04-others.html",
-    "title": "Divers",
+    "objectID": "contents/generalities/01-stat.html#projet-danalyse-données",
+    "href": "contents/generalities/01-stat.html#projet-danalyse-données",
+    "title": "Projet d’analyse de données",
+    "section": "Projet d’analyse données",
+    "text": "Projet d’analyse données\nUn projet d’analyse de données peut se découper en cinq grandes étapes:\n\nDéfinition des objectifs\nDonnées\nÉlaboration et validation des modèles\nMise en oeuvre\nSuivi de la performance et amélioration\n\n\n\n\n\n\n\nRemarque\n\n\n\nDans ce cours, on s’intéressera principalement à l’élaboration et à la validation de modèles.\n\n\nLors de la planification d’un projet, il faut prendre en compte que chaque étape à une importance différente, mais aussi que chacune ne prend pas le même temps d’exécution. Pyle (1999) donne une estimation du temps de chaque étape, ainsi que de leur importance dans la réussite du projet (donné en pourcentage du total).\n\n\n\nÉtape\nTemps\nImportance\n\n\n\n\nComprendre le problème\n\\(10/%\\)\n\\(15/%\\)\n\n\nExplorer la solution\n\\(9/%\\)\n\\(14/%\\)\n\n\nImplementer la solution\n\\(1/%\\)\n\\(51/%\\)\n\n\nPréparer les données\n\\(60/%\\)\n\\(15/%\\)\n\n\nAnalyser les données\n\\(15/%\\)\n\\(3/%\\)\n\n\nModéliser les données\n\\(5/%\\)\n\\(2/%\\)\n\n\n\nOn remarque deux faits importants: ce n’est pas parce qu’une étape est très importante qu’elle va prendre beaucoup de temps. L’implémentation de la solution est très importante (sinon il n’y a pas de résultat), mais ne sera généralement pas très longue à faire (possiblement en quelques lignes de code). À l’inverse, la préparation des données est un étape d’importance moyenne (encore que c’est discutable), mais elle prend la majeur partie du temps du projet. En effet, il faut, par exemple, gérer les données manquantes, les données aberrantes, les éventuels accents pour des données en français, etc.\n\nDéfinition des objectifs\nEst-ce que l’on veut: visualiser les données ? explorer et émettre des hypothèses? tester? regrouper? comprendre? prédire?\nComment fait-on en pratique ? On pose des questions ! Tout d’abord, il faut clarifier les termes. Qui va utiliser le modèle et comment ? Quelle est la population cible ?\n\n\n\n\n\n\nExamples\n\n\n\n\nLa Banque National du Canada veut lancer un nouveau produit d’épargne et souhaite mieux connaître ses clients pour prédire s’ils veulent l’acheter.\nL’équipe de hockey des Canadiens de Montréal souhaite mieux connaître ses adversaires pour développer des nouvelles tactiques de jeu.\nPharmascience souhaite savoir si son nouveau médicament est efficace.\n\n\n\n\n\nDonnées\n\nInventaire et qualité\nConstitution de la base de données\nExploration et traitement préliminaire\n\nQu’est-ce que l’on veut dire par qualité des données ?\n\nEst-ce que les données sont représentatives de la population cible ?\nEst-ce que les données permetternt de tirer des conclusions de causalité ?\nEst-ce que les données sont fiables ?\n\nSource de données:\nQuelques liens pour récupérer des données.\nNettoyage de données: cf R (importation, nettoyage, tidyverse, types de variables, retirer les doublons, uniformiser les modalités, vérifier le format des valeurs spéciales, pivot, opérateur pipe, jointure).\nExploration des données: modalités rares, modalités trop nombreuses, asymétrie, débalancement des classes, valeurs extrêmes ou aberrantes, variables fortement corrélées, valeurs manquantes.\nStatistiques descriptives",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités",
+      "Projet d'analyse de données"
+    ]
+  },
+  {
+    "objectID": "contents/dimension/01-pca.html",
+    "href": "contents/dimension/01-pca.html",
+    "title": "ACP",
     "section": "",
-    "text": "L’idée est de présenter rapidement d’autres méthodes de changement de dimension.",
+    "text": "Il y a plusieurs raisons de vouloir changer le dimension des données. Il est possible que la dimension des données soit trop importante pour avoir une visualisation intéressante, que la dimension actuelle ne permette pas une bonne séparation des classes dans les données, etc.",
     "crumbs": [
       "Modules",
       "04 - Dimension",
-      "Divers"
+      "ACP"
     ]
   },
   {
-    "objectID": "contents/dimension/04-others.html#t-sne",
-    "href": "contents/dimension/04-others.html#t-sne",
-    "title": "Divers",
-    "section": "\\(t\\)-SNE",
-    "text": "\\(t\\)-SNE",
+    "objectID": "contents/dimension/01-pca.html#changer-de-dimension---pourquoi-faire",
+    "href": "contents/dimension/01-pca.html#changer-de-dimension---pourquoi-faire",
+    "title": "ACP",
+    "section": "",
+    "text": "Il y a plusieurs raisons de vouloir changer le dimension des données. Il est possible que la dimension des données soit trop importante pour avoir une visualisation intéressante, que la dimension actuelle ne permette pas une bonne séparation des classes dans les données, etc.",
     "crumbs": [
       "Modules",
       "04 - Dimension",
-      "Divers"
+      "ACP"
     ]
   },
   {
-    "objectID": "contents/dimension/04-others.html#umap",
-    "href": "contents/dimension/04-others.html#umap",
-    "title": "Divers",
-    "section": "UMAP",
-    "text": "UMAP",
+    "objectID": "contents/dimension/01-pca.html#analyse-en-composantes-principales",
+    "href": "contents/dimension/01-pca.html#analyse-en-composantes-principales",
+    "title": "ACP",
+    "section": "Analyse en composantes principales",
+    "text": "Analyse en composantes principales\nL’analyse en composantes principales (ACP) est une méthode permettant de réduire la dimension d’un jeu de données tout en conservant le plus d’information possible. Cette méthode est utilisée lorsque l’on a \\(n\\) observations de \\(p\\) variables continues avec \\(p\\) trop “grand” pour nos besoins.\nPourquoi l’ACP est-elle utilisée ?\n\nVisualisation d’un jeu de données;\nRéduction du nombre de variables de \\(p\\) à \\(p^{\\prime} \\ll p\\) pour faciliter la construction de modèle. Exemples: analyse de texte, analyse de données génétique;\nEffectuer une rotation d’axes pour simplifier la structure de corrélation;\nCompression de données.\n\nLa méthode a été introduite par H. Hotelling dans (Hotelling 1933).\nVisualiser, comprendre, modéliser, classifier des données sont toutes des tâches beacoup simples à accomplir si le nomnre de variables dans un jeu de données est faible. Si un jeu de données comprend un grand nombre de variables, une première question que l’on peut se poser est: “Est-il possible de réduire la dimension du problème sans trop perdre d’information ?”. En omettant tout simplement des variables, on risque de perdre beaucoup d’information utile. Une meilleure solution consiste à trouver des combinaisons linéaires des variables en vue de conserver le maximum d’information sur le jeu de données.\n\n\n\n\n\n\nExample\n\n\n\n\nComparer des équipes de hockey sur la base de six statistiques de fin de saison.\nComparer la criminalité entre états sur la base des taux de sept types de crimes différents.\nCompresser des images formées de \\(1084 \\times 1084\\) pixels.\nIdentifier le nombre de variantes d’un type de tumeur à partir du degré d’expression de millions de gènes.\n\n\n\n\nLes maths\nSoit un vecteur aléatoire composé de \\(p\\) variables \\(X = \\left( X_{1}, \\dots, X_p \\right)\\) ayant comme matrice de variance \\(\\Sigma\\). On aimerait définir une première composante principale, \\[Y_{1} = \\alpha_{1}^{\\top} X = \\sum_{i = 1}^{p} \\alpha_{1i}X_i,\\] de sorte que la variance de \\(Y_{1}\\) soit maximale. L’idée est simple: on désire combiner \\(p\\) variables en une seule, mais en “capturant” la plus grande partie possible de la variabilité.\nIl faut d’abord ajouter une contrainte sur \\(\\alpha_{1}\\), puisque sinon on n’aurait qu’à prendre \\(\\alpha_{1i} = \\pm \\infty\\) et on aurait \\(\\mathrm{Var}(Y_{1}) = +\\infty\\) ce qui est définitivement maximal ! On verra qu’il est pratique de contraindre \\(\\alpha_{1}\\) de sorte qu’il ait une norme égale à \\(1\\).\n\nCalcul de la première composante:\n\n\\[\\mathrm{Var}(Y_1) = \\alpha_1^\\top \\Sigma \\alpha_{1} \\]\nLe problème est donc de maximiser \\[F(\\alpha_{1} = \\alpha_{1}^\\top \\Sigma \\alpha_1, \\quad\\text{s.c.}\\quad \\alpha_1^\\top \\alpha_1 = 1.\\]\nOn peut récrire ce problème à l’aide des multiplicateurs de Lagrange, soit maximiser \\[F(\\alpha_1, \\lambda) = \\alpha_1^\\top \\Sigma \\alpha_1 - \\lambda (\\alpha_1^\\top \\alpha_1 -1 ),\\] où \\(\\lambda\\) est un multiplicateur de Lagrange.\nPour solutionner ce problème, on dérive \\(F\\) par rapport à \\(\\alpha_{1}\\) et à \\(\\lambda\\).\n\\[\\begin{cases}\n\\frac{\\partial F(\\alpha_{1}, \\lambda)}{\\partial \\alpha_{1}} = 2 \\Sigma \\alpha_{1} - 2 \\lambda \\alpha_{1} \\\\\n\\frac{\\partial F(\\alpha_{1}, \\lambda)}{\\partial \\lambda} = 1 - \\alpha_{1}^\\top \\alpha_{1}\n\\end{cases}\n.\\]\nEnsuite, on égalise à \\(0\\), ce qui donne: \\[\\begin{cases}\n\\Sigma \\alpha_{1} = \\lambda \\alpha_{1} \\\\\n\\alpha_{1}^\\top \\alpha_{1} = 1\n\\end{cases}\n.\\] La seconde équation est bien entendue notre contrainte. La première équation est celle qui nous intéresse. En utilisant cette équation et la définition des éléments propres, on déduit que\n\n\\(\\alpha_{1}\\) est un vecteur propre (normé) de \\(\\Sigma\\);\n\\(\\lambda\\) est la valeur propre correspondante.\n\nOn a donc que \\[\\mathrm{Var}(Y_{1}) = \\alpha_{1}^\\top \\Sigma \\alpha_{1} = \\lambda \\alpha_{1}^\\top \\alpha_1 = \\lambda.\\] Puisque l’on veut maximiser cette quantité, on conclut que:\n\n\\(\\lambda = \\lambda_{1}\\), la plus grande valeur propre de \\(\\Sigma\\);\n\\(\\alpha_{1}\\), le vecteur propre normé correspondant.\n\n\nCalcul de la deuxième composante:\n\nOn poursuit simultanément deux objectifs:\n\nConserver le maximum de variation présente dans \\(X\\);\nSimplifier la structure de dépendancce pour faciliter l’interprétation et assurer la stabilité numérique d’éventuelles méthodes qui utiliseront les composantes principales obtenues.\n\nÉtant donné \\(Y_{1}\\), la deuxième composante principale \\(Y_{2} = \\alpha_{2}^\\top X\\) est définie telle que\n\n\\(\\mathrm{Var}(Y_{2}) = \\alpha_{2}^\\top \\Sigma \\alpha_{2}\\) est maximale;\n\\(\\alpha_{2}^\\top \\alpha_{2} = 1\\);\n\\(\\mathrm{Cov}(Y_{1}, Y_{2}) = 0\\).\n\nOn a que \\[\\mathrm{Cov}(Y_{1}, Y_{2}) = \\mathrm{Cov}(\\alpha_{1}^\\top X, \\alpha_{2}^\\top X) = \\alpha_{1}^\\top \\Sigma \\alpha_{2} = \\alpha_{2}^\\top \\Sigma \\alpha_{1} = \\lambda_{1} \\alpha_{2}^\\top \\alpha_{1}.\\]\nOn cherche donc le vecteur \\(\\alpha_{2}\\) qui maximise: \\[F(\\alpha_{2}, \\lambda, \\kappa) = \\alpha_{2}^\\top \\Sigma \\alpha_{2} - \\lambda (\\alpha_{2}^\\top \\alpha_{2} - 1) - \\kappa (\\alpha_{2}^\\top \\alpha_{1} - 0).\\]\nDe même que pour la première composante, on dérive \\(F\\) par rapport à \\(\\alpha_{2}\\), \\(\\lambda\\) et \\(\\kappa\\).\n\\[\\begin{cases}\n\\frac{\\partial F(\\alpha_{2}, \\lambda, \\kappa)}{\\partial \\alpha_{2}} = 2 \\Sigma \\alpha_{2} - 2 \\lambda \\alpha_{2} - \\kappa \\alpha_1 \\\\\n\\frac{\\partial F(\\alpha_{2}, \\lambda, \\kappa)}{\\partial \\lambda} = 1 - \\alpha_{2}^\\top \\alpha_{2} \\\\\n\\frac{\\partial F(\\alpha_{2}, \\lambda, \\kappa)}{\\partial \\kappa} = - \\alpha_2^\\top \\alpha_1\n\\end{cases}\n\\]\nEn égalisant les équations à \\(0\\), on retrouve les deux équations des contraintes, ainsi que\n\\[2 \\Sigma \\alpha_{2} - 2 \\lambda \\alpha_{2} - \\kappa \\alpha_{1} = 0.\\]\nEn multipliant cette équation à gauche et à droite par \\(\\alpha_{1}^\\top\\), on trouve\n\\[2 \\alpha_{1}^\\top \\Sigma \\alpha_{2} - 2 \\alpha_{1}^\\top \\lambda \\alpha_{2} - \\kappa \\alpha_{1}^\\top \\alpha_{1} = 0.\\]\nOr \\(\\alpha_{1}^\\top \\Sigma = \\lambda_{1} \\alpha_{1}^\\top\\), et \\(\\lambda_{1}^\\top \\alpha_{1} = 1\\), donc \\[2 \\alpha_{1}^\\top \\lambda \\alpha_{2} - 2 \\alpha_{1}^\\top \\lambda \\alpha_{2} - \\kappa \\alpha_{1}^\\top \\alpha_{1} = 0 \\implies - \\kappa = 0.\\]\nEn substituant ce résulat, on obtient \\[\\Sigma \\alpha_{2} = \\lambda \\alpha_{2}.\\]\net donc \\(\\lambda\\) est une autre valeur propre de \\(\\Sigma\\). Puisque \\[\\mathrm{Var}(Y_{2} = \\alpha_{2}^\\top \\Sigma \\alpha_{2} = \\alpha_{2}^\\top \\lambda \\alpha_{2} = \\lambda,\\] on a que cette variance est maximale si \\(\\lambda = \\lambda_{2}\\), la deuxième plus grande valeur propre de \\(\\Sigma\\), et conséquemment \\(\\alpha_{2}\\) est le vecteur propre normé correspondant.\nOn peut généraliser ce résultat en utilisant des maximisations successives. On en conclut que \\[Y_k = \\alpha_k^\\top X,\\] où \\(\\alpha_k\\) est le vecteur propre normé associé à \\(\\lambda_k\\), la \\(k\\)e plus grande valeur propre de \\(\\Sigma\\).\n\nNotation matricielle:\n\nPour définir simultanément et de facon plus compacte les composantes principales, on pose \\[Y = AX,\\] où \\[A = \\left( \\alpha_{1}, \\dots, \\alpha_{p} \\right) = \\begin{pmatrix}\n  \\alpha_{1, 1} & \\alpha_{2, 1} & \\cdots & \\alpha_{p, 1} \\\\\n  \\alpha_{1, 1} & \\alpha_{2, 2} & \\cdots & \\alpha_{p, 1} \\\\\n  \\vdots & \\vdots & \\ddots & \\vdots \\\\\n  \\alpha_{1, p} & \\alpha_{2, p} & \\cdots & \\alpha_{p, p}\n\\end{pmatrix}.\\]\n\n\n\n\n\n\nPropriétés de \\(A\\)\n\n\n\n\nLes colonnes de la matrice \\(A\\) sont les vecteurs propres de \\(\\Sigma\\);\n\\(A^{\\top} A = A A^{\\top} = I_p\\);\n\\(A^{\\top} = A^{-1}\\);\n\\(\\Sigma A = A \\Lambda\\), où \\(\\Lambda = \\text{diag}(\\lambda_{1}, \\dots, \\lambda_p)\\);\n\\(\\mathrm{Var}(Y) = A^{\\top} \\Sigma A = \\Lambda \\implies \\mathrm{Cov}(Y_i, Y_j) = 0\\) si \\(i \\neq j\\) et \\(\\mathrm{Var}(Y_i) = \\lambda_i \\geq \\mathrm{Var}(Y_j) = \\lambda_j\\) si et seulement si \\(i \\leq j\\).\n\n\n\nUne mesure globale de la variation presente dans les données est donnée par la trace de la matrice \\(\\Sigma\\): \\[\\text{tr}(\\Sigma) = \\text{tr}(\\Lambda) = \\sum_{i = 1}^{p} \\lambda_i.\\]\nLa proportion de variation expliquée par la composante principale \\(Y_i\\) est \\[\\frac{\\lambda_i}{\\lambda_{1} + \\cdots + \\lambda_p}.\\]\nSimilairement, les \\(m\\) première composantes expliquent \\[\\frac{\\sum_{i = 1}^{m} \\lambda_i}{\\sum_{i = 1}^{p} \\lambda_i} \\times 100\\%.\\] de la variabilité dans les variables.",
     "crumbs": [
       "Modules",
       "04 - Dimension",
-      "Divers"
+      "ACP"
+    ]
+  },
+  {
+    "objectID": "contents/dimension/03-kernel.html",
+    "href": "contents/dimension/03-kernel.html",
+    "title": "Noyau",
+    "section": "",
+    "text": "Dans certains cas, réduire la dimension des données n’est pas la chose à faire. Dans certains cas, il est même préférable d’augmenter la dimension des données ! Pourquoi ?\nRegardons l’exemple suivant: ajouter exemple en 2d, type cercle.\nDans ce cas, on s’intéresse à la méthode des noyaux (kernel trick).",
+    "crumbs": [
+      "Modules",
+      "04 - Dimension",
+      "Noyau"
+    ]
+  },
+  {
+    "objectID": "contents/dimension/03-kernel.html#la-méthode-du-noyau",
+    "href": "contents/dimension/03-kernel.html#la-méthode-du-noyau",
+    "title": "Noyau",
+    "section": "",
+    "text": "Dans certains cas, réduire la dimension des données n’est pas la chose à faire. Dans certains cas, il est même préférable d’augmenter la dimension des données ! Pourquoi ?\nRegardons l’exemple suivant: ajouter exemple en 2d, type cercle.\nDans ce cas, on s’intéresse à la méthode des noyaux (kernel trick).",
+    "crumbs": [
+      "Modules",
+      "04 - Dimension",
+      "Noyau"
+    ]
+  },
+  {
+    "objectID": "slides/01-introduction-slides.html#test",
+    "href": "slides/01-introduction-slides.html#test",
+    "title": "Introduction",
+    "section": "Test",
+    "text": "Test\nCoucou"
+  },
+  {
+    "objectID": "contents/04-dimension.html",
+    "href": "contents/04-dimension.html",
+    "title": "Dimension",
+    "section": "",
+    "text": "Slides: link",
+    "crumbs": [
+      "Modules",
+      "04 - Dimension"
     ]
   },
   {
@@ -557,122 +693,56 @@
     ]
   },
   {
-    "objectID": "contents/04-dimension.html",
-    "href": "contents/04-dimension.html",
-    "title": "Dimension",
+    "objectID": "contents/dimension/04-others.html",
+    "href": "contents/dimension/04-others.html",
+    "title": "Divers",
     "section": "",
-    "text": "Slides: link",
-    "crumbs": [
-      "Modules",
-      "04 - Dimension"
-    ]
-  },
-  {
-    "objectID": "slides/01-introduction-slides.html#test",
-    "href": "slides/01-introduction-slides.html#test",
-    "title": "Introduction",
-    "section": "Test",
-    "text": "Test\nCoucou"
-  },
-  {
-    "objectID": "contents/dimension/03-kernel.html",
-    "href": "contents/dimension/03-kernel.html",
-    "title": "Noyau",
-    "section": "",
-    "text": "Dans certains cas, réduire la dimension des données n’est pas la chose à faire. Dans certains cas, il est même préférable d’augmenter la dimension des données ! Pourquoi ?\nRegardons l’exemple suivant: ajouter exemple en 2d, type cercle.\nDans ce cas, on s’intéresse à la méthode des noyaux (kernel trick).",
+    "text": "L’idée est de présenter rapidement d’autres méthodes de changement de dimension.",
     "crumbs": [
       "Modules",
       "04 - Dimension",
-      "Noyau"
+      "Divers"
     ]
   },
   {
-    "objectID": "contents/dimension/03-kernel.html#la-méthode-du-noyau",
-    "href": "contents/dimension/03-kernel.html#la-méthode-du-noyau",
-    "title": "Noyau",
-    "section": "",
-    "text": "Dans certains cas, réduire la dimension des données n’est pas la chose à faire. Dans certains cas, il est même préférable d’augmenter la dimension des données ! Pourquoi ?\nRegardons l’exemple suivant: ajouter exemple en 2d, type cercle.\nDans ce cas, on s’intéresse à la méthode des noyaux (kernel trick).",
+    "objectID": "contents/dimension/04-others.html#t-sne",
+    "href": "contents/dimension/04-others.html#t-sne",
+    "title": "Divers",
+    "section": "\\(t\\)-SNE",
+    "text": "\\(t\\)-SNE",
     "crumbs": [
       "Modules",
       "04 - Dimension",
-      "Noyau"
+      "Divers"
     ]
   },
   {
-    "objectID": "contents/dimension/01-pca.html",
-    "href": "contents/dimension/01-pca.html",
-    "title": "ACP",
-    "section": "",
-    "text": "Il y a plusieurs raisons de vouloir changer le dimension des données. Il est possible que la dimension des données soit trop importante pour avoir une visualisation intéressante, que la dimension actuelle ne permette pas une bonne séparation des classes dans les données, etc.",
+    "objectID": "contents/dimension/04-others.html#umap",
+    "href": "contents/dimension/04-others.html#umap",
+    "title": "Divers",
+    "section": "UMAP",
+    "text": "UMAP",
     "crumbs": [
       "Modules",
       "04 - Dimension",
-      "ACP"
+      "Divers"
     ]
   },
   {
-    "objectID": "contents/dimension/01-pca.html#changer-de-dimension---pourquoi-faire",
-    "href": "contents/dimension/01-pca.html#changer-de-dimension---pourquoi-faire",
-    "title": "ACP",
+    "objectID": "contents/generalities/04-bias-variance.html",
+    "href": "contents/generalities/04-bias-variance.html",
+    "title": "Biais/Variance",
     "section": "",
-    "text": "Il y a plusieurs raisons de vouloir changer le dimension des données. Il est possible que la dimension des données soit trop importante pour avoir une visualisation intéressante, que la dimension actuelle ne permette pas une bonne séparation des classes dans les données, etc.",
-    "crumbs": [
-      "Modules",
-      "04 - Dimension",
-      "ACP"
-    ]
-  },
-  {
-    "objectID": "contents/dimension/01-pca.html#analyse-en-composantes-principales",
-    "href": "contents/dimension/01-pca.html#analyse-en-composantes-principales",
-    "title": "ACP",
-    "section": "Analyse en composantes principales",
-    "text": "Analyse en composantes principales\nL’analyse en composantes principales (ACP) est une méthode permettant de réduire la dimension d’un jeu de données tout en conservant le plus d’information possible. Cette méthode est utilisée lorsque l’on a \\(n\\) observations de \\(p\\) variables continues avec \\(p\\) trop “grand” pour nos besoins.\nPourquoi l’ACP est-elle utilisée ?\n\nVisualisation d’un jeu de données;\nRéduction du nombre de variables de \\(p\\) à \\(p^{\\prime} \\ll p\\) pour faciliter la construction de modèle. Exemples: analyse de texte, analyse de données génétique;\nEffectuer une rotation d’axes pour simplifier la structure de corrélation;\nCompression de données.\n\nLa méthode a été introduite par H. Hotelling dans (Hotelling 1933).\nVisualiser, comprendre, modéliser, classifier des données sont toutes des tâches beacoup simples à accomplir si le nomnre de variables dans un jeu de données est faible. Si un jeu de données comprend un grand nombre de variables, une première question que l’on peut se poser est: “Est-il possible de réduire la dimension du problème sans trop perdre d’information ?”. En omettant tout simplement des variables, on risque de perdre beaucoup d’information utile. Une meilleure solution consiste à trouver des combinaisons linéaires des variables en vue de conserver le maximum d’information sur le jeu de données.\n\n\n\n\n\n\nExample\n\n\n\n\nComparer des équipes de hockey sur la base de six statistiques de fin de saison.\nComparer la criminalité entre états sur la base des taux de sept types de crimes différents.\nCompresser des images formées de \\(1084 \\times 1084\\) pixels.\nIdentifier le nombre de variantes d’un type de tumeur à partir du degré d’expression de millions de gènes.\n\n\n\n\nLes maths\nSoit un vecteur aléatoire composé de \\(p\\) variables \\(X = \\left( X_{1}, \\dots, X_p \\right)\\) ayant comme matrice de variance \\(\\Sigma\\). On aimerait définir une première composante principale, \\[Y_{1} = \\alpha_{1}^{\\top} X = \\sum_{i = 1}^{p} \\alpha_{1i}X_i,\\] de sorte que la variance de \\(Y_{1}\\) soit maximale. L’idée est simple: on désire combiner \\(p\\) variables en une seule, mais en “capturant” la plus grande partie possible de la variabilité.\nIl faut d’abord ajouter une contrainte sur \\(\\alpha_{1}\\), puisque sinon on n’aurait qu’à prendre \\(\\alpha_{1i} = \\pm \\infty\\) et on aurait \\(\\mathrm{Var}(Y_{1}) = +\\infty\\) ce qui est définitivement maximal ! On verra qu’il est pratique de contraindre \\(\\alpha_{1}\\) de sorte qu’il ait une norme égale à \\(1\\).\n\nCalcul de la première composante:\n\n\\[\\mathrm{Var}(Y_1) = \\alpha_1^\\top \\Sigma \\alpha_{1} \\]\nLe problème est donc de maximiser \\[F(\\alpha_{1} = \\alpha_{1}^\\top \\Sigma \\alpha_1, \\quad\\text{s.c.}\\quad \\alpha_1^\\top \\alpha_1 = 1.\\]\nOn peut récrire ce problème à l’aide des multiplicateurs de Lagrange, soit maximiser \\[F(\\alpha_1, \\lambda) = \\alpha_1^\\top \\Sigma \\alpha_1 - \\lambda (\\alpha_1^\\top \\alpha_1 -1 ),\\] où \\(\\lambda\\) est un multiplicateur de Lagrange.\nPour solutionner ce problème, on dérive \\(F\\) par rapport à \\(\\alpha_{1}\\) et à \\(\\lambda\\).\n\\[\\begin{cases}\n\\frac{\\partial F(\\alpha_{1}, \\lambda)}{\\partial \\alpha_{1}} = 2 \\Sigma \\alpha_{1} - 2 \\lambda \\alpha_{1} \\\\\n\\frac{\\partial F(\\alpha_{1}, \\lambda)}{\\partial \\lambda} = 1 - \\alpha_{1}^\\top \\alpha_{1}\n\\end{cases}\n.\\]\nEnsuite, on égalise à \\(0\\), ce qui donne: \\[\\begin{cases}\n\\Sigma \\alpha_{1} = \\lambda \\alpha_{1} \\\\\n\\alpha_{1}^\\top \\alpha_{1} = 1\n\\end{cases}\n.\\] La seconde équation est bien entendue notre contrainte. La première équation est celle qui nous intéresse. En utilisant cette équation et la définition des éléments propres, on déduit que\n\n\\(\\alpha_{1}\\) est un vecteur propre (normé) de \\(\\Sigma\\);\n\\(\\lambda\\) est la valeur propre correspondante.\n\nOn a donc que \\[\\mathrm{Var}(Y_{1}) = \\alpha_{1}^\\top \\Sigma \\alpha_{1} = \\lambda \\alpha_{1}^\\top \\alpha_1 = \\lambda.\\] Puisque l’on veut maximiser cette quantité, on conclut que:\n\n\\(\\lambda = \\lambda_{1}\\), la plus grande valeur propre de \\(\\Sigma\\);\n\\(\\alpha_{1}\\), le vecteur propre normé correspondant.\n\n\nCalcul de la deuxième composante:\n\nOn poursuit simultanément deux objectifs:\n\nConserver le maximum de variation présente dans \\(X\\);\nSimplifier la structure de dépendancce pour faciliter l’interprétation et assurer la stabilité numérique d’éventuelles méthodes qui utiliseront les composantes principales obtenues.\n\nÉtant donné \\(Y_{1}\\), la deuxième composante principale \\(Y_{2} = \\alpha_{2}^\\top X\\) est définie telle que\n\n\\(\\mathrm{Var}(Y_{2}) = \\alpha_{2}^\\top \\Sigma \\alpha_{2}\\) est maximale;\n\\(\\alpha_{2}^\\top \\alpha_{2} = 1\\);\n\\(\\mathrm{Cov}(Y_{1}, Y_{2}) = 0\\).\n\nOn a que \\[\\mathrm{Cov}(Y_{1}, Y_{2}) = \\mathrm{Cov}(\\alpha_{1}^\\top X, \\alpha_{2}^\\top X) = \\alpha_{1}^\\top \\Sigma \\alpha_{2} = \\alpha_{2}^\\top \\Sigma \\alpha_{1} = \\lambda_{1} \\alpha_{2}^\\top \\alpha_{1}.\\]\nOn cherche donc le vecteur \\(\\alpha_{2}\\) qui maximise: \\[F(\\alpha_{2}, \\lambda, \\kappa) = \\alpha_{2}^\\top \\Sigma \\alpha_{2} - \\lambda (\\alpha_{2}^\\top \\alpha_{2} - 1) - \\kappa (\\alpha_{2}^\\top \\alpha_{1} - 0).\\]\nDe même que pour la première composante, on dérive \\(F\\) par rapport à \\(\\alpha_{2}\\), \\(\\lambda\\) et \\(\\kappa\\).\n\\[\\begin{cases}\n\\frac{\\partial F(\\alpha_{2}, \\lambda, \\kappa)}{\\partial \\alpha_{2}} = 2 \\Sigma \\alpha_{2} - 2 \\lambda \\alpha_{2} - \\kappa \\alpha_1 \\\\\n\\frac{\\partial F(\\alpha_{2}, \\lambda, \\kappa)}{\\partial \\lambda} = 1 - \\alpha_{2}^\\top \\alpha_{2} \\\\\n\\frac{\\partial F(\\alpha_{2}, \\lambda, \\kappa)}{\\partial \\kappa} = - \\alpha_2^\\top \\alpha_1\n\\end{cases}\n\\]\nEn égalisant les équations à \\(0\\), on retrouve les deux équations des contraintes, ainsi que\n\\[2 \\Sigma \\alpha_{2} - 2 \\lambda \\alpha_{2} - \\kappa \\alpha_{1} = 0.\\]\nEn multipliant cette équation à gauche et à droite par \\(\\alpha_{1}^\\top\\), on trouve\n\\[2 \\alpha_{1}^\\top \\Sigma \\alpha_{2} - 2 \\alpha_{1}^\\top \\lambda \\alpha_{2} - \\kappa \\alpha_{1}^\\top \\alpha_{1} = 0.\\]\nOr \\(\\alpha_{1}^\\top \\Sigma = \\lambda_{1} \\alpha_{1}^\\top\\), et \\(\\lambda_{1}^\\top \\alpha_{1} = 1\\), donc \\[2 \\alpha_{1}^\\top \\lambda \\alpha_{2} - 2 \\alpha_{1}^\\top \\lambda \\alpha_{2} - \\kappa \\alpha_{1}^\\top \\alpha_{1} = 0 \\implies - \\kappa = 0.\\]\nEn substituant ce résulat, on obtient \\[\\Sigma \\alpha_{2} = \\lambda \\alpha_{2}.\\]\net donc \\(\\lambda\\) est une autre valeur propre de \\(\\Sigma\\). Puisque \\[\\mathrm{Var}(Y_{2} = \\alpha_{2}^\\top \\Sigma \\alpha_{2} = \\alpha_{2}^\\top \\lambda \\alpha_{2} = \\lambda,\\] on a que cette variance est maximale si \\(\\lambda = \\lambda_{2}\\), la deuxième plus grande valeur propre de \\(\\Sigma\\), et conséquemment \\(\\alpha_{2}\\) est le vecteur propre normé correspondant.\nOn peut généraliser ce résultat en utilisant des maximisations successives. On en conclut que \\[Y_k = \\alpha_k^\\top X,\\] où \\(\\alpha_k\\) est le vecteur propre normé associé à \\(\\lambda_k\\), la \\(k\\)e plus grande valeur propre de \\(\\Sigma\\).\n\nNotation matricielle:\n\nPour définir simultanément et de facon plus compacte les composantes principales, on pose \\[Y = AX,\\] où \\[A = \\left( \\alpha_{1}, \\dots, \\alpha_{p} \\right) = \\begin{pmatrix}\n  \\alpha_{1, 1} & \\alpha_{2, 1} & \\cdots & \\alpha_{p, 1} \\\\\n  \\alpha_{1, 1} & \\alpha_{2, 2} & \\cdots & \\alpha_{p, 1} \\\\\n  \\vdots & \\vdots & \\ddots & \\vdots \\\\\n  \\alpha_{1, p} & \\alpha_{2, p} & \\cdots & \\alpha_{p, p}\n\\end{pmatrix}.\\]\n\n\n\n\n\n\nPropriétés de \\(A\\)\n\n\n\n\nLes colonnes de la matrice \\(A\\) sont les vecteurs propres de \\(\\Sigma\\);\n\\(A^{\\top} A = A A^{\\top} = I_p\\);\n\\(A^{\\top} = A^{-1}\\);\n\\(\\Sigma A = A \\Lambda\\), où \\(\\Lambda = \\text{diag}(\\lambda_{1}, \\dots, \\lambda_p)\\);\n\\(\\mathrm{Var}(Y) = A^{\\top} \\Sigma A = \\Lambda \\implies \\mathrm{Cov}(Y_i, Y_j) = 0\\) si \\(i \\neq j\\) et \\(\\mathrm{Var}(Y_i) = \\lambda_i \\geq \\mathrm{Var}(Y_j) = \\lambda_j\\) si et seulement si \\(i \\leq j\\).\n\n\n\nUne mesure globale de la variation presente dans les données est donnée par la trace de la matrice \\(\\Sigma\\): \\[\\text{tr}(\\Sigma) = \\text{tr}(\\Lambda) = \\sum_{i = 1}^{p} \\lambda_i.\\]\nLa proportion de variation expliquée par la composante principale \\(Y_i\\) est \\[\\frac{\\lambda_i}{\\lambda_{1} + \\cdots + \\lambda_p}.\\]\nSimilairement, les \\(m\\) première composantes expliquent \\[\\frac{\\sum_{i = 1}^{m} \\lambda_i}{\\sum_{i = 1}^{p} \\lambda_i} \\times 100\\%.\\] de la variabilité dans les variables.",
-    "crumbs": [
-      "Modules",
-      "04 - Dimension",
-      "ACP"
-    ]
-  },
-  {
-    "objectID": "contents/generalities/04-model-evaluation.html",
-    "href": "contents/generalities/04-model-evaluation.html",
-    "title": "Evaluation de modeles",
-    "section": "",
-    "text": "Pourquoi mesurer l’erreur d’un modèle ?",
+    "text": "On veut prédire \\(Y\\) à partir de \\(X\\). Pour cela, on cherche à estimer \\(f(X)\\) la fonction qui relie \\(X\\) à \\(Y\\) par \\[Y = f(X) + \\epsilon\\]\nOn peut mesurer deux fonctions qui vont nous aider:\n\nFonction de perte (\\(L\\)): c’est la mesure de l’écart par rapport à ce qu’on souhaite mesurer, par example: \\[L(Y, f(X)) = (Y - f(X))^2.\\]\nFonction de risque : c’est la quantité que l’on cherche à minimiser. Il s’agit de l’espérance de la fonction de perte.\n\nComment trouver \\(f\\):\nObjectif: Trouver une fonction \\(\\widehat{f}\\) qui minimise le risque.\nComment: Supposer une certaine forme pour \\(f(X)\\) et minimiser la fonction de perte de faon analytique ou numérique.\n\nParamétrique: On donne une forme explication à \\(f(X)\\) qui dépend de paramètres. On cherche une méthode d’estimation des paramètres.\nNon-paramétrique: aucune forme forme particulière de \\(f\\), on estime une courbe ou fonction.\n\n\n\n\n\n\n\nExample: la régression linéaire simple\n\n\n\nOn suppose que \\(f(X) = \\beta_{0} + \\beta_{1}X\\), on cherche donc les valeurs \\(\\widehat{\\beta}_0\\) et \\(\\widehat{\\beta}_1\\) qui minimisent : \\[\\mathbb{E}(Y - (\\beta_{0} + \\beta_{1}X))^2.\\]\n\n\nQue faire dans le cas discret ?\nOn cherche à prédire \\(G\\) (un groupe ou facteur) à partir de \\(X\\). Supposons que nous avons \\(\\widehat{G}\\) qui prédise le classe des observations sachant \\(X\\), alors on peut définir la fonction de perte (0-1) comme le nombre d’erreur que l’on a effectué: \\[L(G, \\widehat{G}) = \\mathbb{1}_{G \\neq \\widehat{G}}.\\]\nAvec cette fonction de perte 0-1, \\(\\widehat{G}(x)\\) est la classe \\(g\\) qui maximise \\(\\mathbb{P}(g | X = x)\\).\nOn peut décomposer l’erreur quadratique moyenne (EQM): \\[\\mathbb{E}\\left( (Y - \\widehat{f}(x_0))^2 \\right) = \\text{Biais}(\\widehat{f}(x_{0}))^2 + \\mathrm{Var}(\\widehat{f}(x_{0}) + \\sigma^2_{\\epsilon}.\\]\nDémontrer la décomposition de l’EQM en un compromis biais variance.",
     "crumbs": [
       "Modules",
       "03 - Généralités",
-      "Evaluation de modeles"
+      "Biais/Variance"
     ]
   },
   {
-    "objectID": "contents/generalities/04-model-evaluation.html#validation-croisée",
-    "href": "contents/generalities/04-model-evaluation.html#validation-croisée",
-    "title": "Evaluation de modeles",
-    "section": "Validation croisée",
-    "text": "Validation croisée\n\nOn sépare l’échantillon en \\(K\\) plus de faon aléatoire.\nPour \\(k\\) allant de \\(1\\) à \\(K\\):\n\n\nOn estime \\(\\widehat{f}(k)\\) en utilisant uniquement les observations qui ne sont pas dans \\(k\\).\nOn prédit \\(\\widehat{Y}(k) = \\widehat{f}(k)(X(k))\\).\nOn calcule \\(CV(k) = \\frac{1}{N_k} \\sum_{i = 1}^{N_k} L(Y(k), \\widehat{Y}(k))\\).\n\n\nOn calcule la moyenne \\(CV = \\frac{1}{K} \\sum_{k = 1}^{K} CV(k)\\).\nOn répète 1 à 3 pour tous les modèles et on choisit le modèle ont la valeur de CV est la plus basse.",
-    "crumbs": [
-      "Modules",
-      "03 - Généralités",
-      "Evaluation de modeles"
-    ]
-  },
-  {
-    "objectID": "contents/generalities/04-model-evaluation.html#cas-dun-réponse-binaire",
-    "href": "contents/generalities/04-model-evaluation.html#cas-dun-réponse-binaire",
-    "title": "Evaluation de modeles",
-    "section": "Cas d’un réponse binaire",
-    "text": "Cas d’un réponse binaire\nDams le cas où il n’existe que deux groupes dans la population, la matrice de confusion est de la forme suivante:\n\n\n\n\nPositif\nNégatif\n\n\n\n\nPositif\nVrais positifs (VP)\nFaux négatif (FN)\n\n\nNégatif\nFaux positifs (FP)\nVrais négatif (VN)\n\n\n\n\nSensibilité (sensitivity, rappel, recall, hit rate)\n\nProbailité qu’un individu qui appartient au groupe positif soit classé dans le groupe positifs: \\[\\frac{VP}{VP + FN}.\\]\n\nSpécifité (specificity)\n\nProbailité qu’un individu qui appartient au groupe négatif soit classé dans le groupe négatif: \\[\\frac{VN}{VN + FP}.\\]\n\nPrécision \\[\\frac{VP}{VP + FP}.\\]\nAccuracy \\[\\frac{VP + VN}{VP + VN + FP + FN}.\\]\nScore \\(F_{1}\\): moyenne harmonique de précision et de sensibilité \\[F_{1} = 2 \\times \\frac{précision \\times sensibilité}{précision + sensibilité} = \\frac{2 VP}{VP + FP + FN}.\\]\n\nEn practique, la situation typique va comme suit:\n\nOn a partagé notre jeu de données en eju d’entrainment et en jeu de validation.\nOn a appliqué \\(M\\) méthodes de classification au jeu d’entrainement.\nOn aimerait utiliser les données de validation pour choisir la meilleure des \\(M\\) méthodes.\n\nOn cherche donc à se doter d’outils qui permettent de mesurer la performance de méthodes de classification.\n\nMesure triviale\nLa première étape consiste à comparer le taux de bonnes classification (accuracy) des données de validation obtenu avec chacune des méthodes. On peut faire la même chose avec le score \\(F_{1}\\).\n\n\nSensibilité et spécifité\nSupposons une classe que nous voulons plus particulièrement identifier, que nous appelons des obbservations positives et on traite toues les autres observations comme si elles étaient dans la même classe, soit les observations négatives.\nLa sensibilité est le ratio entre le nombre de vrais positifs classé positifs et le nombre de vrais positifs. La spécifité est le ratio entre le nombre de vrais négatifs classé négatifs et le nombre de vrais négatifs.\nNotons que si on est prêt à vivre avec une spécifité de \\(0\\%\\), on peut toujours avoir une sensibilité de \\(100\\%\\) et si on est prêt à vivre avec une sensibilité de \\(0\\%\\), on peut toujours avoir une spécifité de \\(100\\%\\). Si la proportion de négatifs est très élevé, par exemple \\(99.9\\%\\), alors une méthode qui classifie \\(100\\%\\) des observations dans la classe négative aura un taux de bonnes classifications de \\(99.9\\%\\). Mais clairement, cette méthode ne nous sera pas très utile si notre but est d’identifier les cas positifs.\nOn peut exploiter l’estimation d’une probabilité. Les méthodes de classification donnent souvent la probabilité qu’une observation appartienne à une classe, pas uniquement une prévision de la classe elle-même. Une meilleure mesure de la performance de la méthode serait de voir si ces probabilité sont réalistes.\n\n\nLa courbe ROC\nLa courbe ROC (Receiver Operating Characteristic) peut être vue comme une variation de la courbe de gain.\n\nSoit \\(p^{(2)}_i\\), la probabilité que l’observation \\(i\\) appartienne à la classe \\(2\\) selon notre modèle.\nOn choisit une valeur de \\(u \\in [0, 1]\\) et on prédit que l’observation \\(i\\) appartient à la classe \\(2\\) si \\(p^{(2)}_i \\geq u\\) et à la classe \\(1\\) sinon.\nOn répète l’étape \\(2\\) pour \\(i = 1, \\dots, n\\) et on calcule la sensibilité \\(SEN(u)\\) et la spécifité \\(SPE(U)\\) ainsi obtenu.\nOn répète les étapes \\(2\\) et \\(3\\) pour tous les \\(u \\in [0, 1]\\), on place les paires \\((1 - SPE(u), SEN(u))\\) sur un graphique et on lie les points part des segments.\n\nInterprétation:\n\nElle part du point \\((0, 0)\\) et finit au point \\((1, 1)\\).\nSi on classifie les points au hasard, on obtiendra une ligne droite à \\(45\\) degrés.\nUne mesure unique du pouvoir prédictif est l’aire sous la courbe ROC (AUC, Area Under the Curve). Une AUC de 0.5 est ce que l’on espère en classifiant au hasard, et plus on s’approche de \\(1\\), meilleure est la méthode.\n\n\n\nExample",
-    "crumbs": [
-      "Modules",
-      "03 - Généralités",
-      "Evaluation de modeles"
-    ]
-  },
-  {
-    "objectID": "contents/generalities/02-distance.html",
-    "href": "contents/generalities/02-distance.html",
+    "objectID": "contents/generalities/03-distance.html",
+    "href": "contents/generalities/03-distance.html",
     "title": "Distances",
     "section": "",
     "text": "On a besoin d’une notion de distance et de similarité. On a besoin d’une définition de ce que sont des observations similaires ou des observations différentes. On veut quantifier la similarité ou la distance entre deux observations. Le choix de la métrique est une étape essentielle dans le processus d’analyse de données.",
@@ -683,8 +753,8 @@
     ]
   },
   {
-    "objectID": "contents/generalities/02-distance.html#introduction",
-    "href": "contents/generalities/02-distance.html#introduction",
+    "objectID": "contents/generalities/03-distance.html#introduction",
+    "href": "contents/generalities/03-distance.html#introduction",
     "title": "Distances",
     "section": "",
     "text": "On a besoin d’une notion de distance et de similarité. On a besoin d’une définition de ce que sont des observations similaires ou des observations différentes. On veut quantifier la similarité ou la distance entre deux observations. Le choix de la métrique est une étape essentielle dans le processus d’analyse de données.",
@@ -695,8 +765,8 @@
     ]
   },
   {
-    "objectID": "contents/generalities/02-distance.html#notion-de-distance",
-    "href": "contents/generalities/02-distance.html#notion-de-distance",
+    "objectID": "contents/generalities/03-distance.html#notion-de-distance",
+    "href": "contents/generalities/03-distance.html#notion-de-distance",
     "title": "Distances",
     "section": "Notion de distance",
     "text": "Notion de distance\n\n\n\n\n\n\nDéfinition de distance\n\n\n\nUne mesure de distance \\(d\\) doit satisfaire les propriétés suivantes pour tout \\(x, y, z \\in A\\), \\(A\\) étant un ensemble quelconque:\n\n\\(d(x, y) \\geq 0\\);\n\\(d(x, x) = 0\\);\n\\(d(x, y) = d(y, x)\\);\n\\(d(x, y) \\leq d(x, z) + d(y, z)\\).\n\n\n\nLa distance euclidienne:\nSi les observations sont constituées de \\(p\\) nombres réels de même ordre de grandeur, alors la distance euclidienne entre deux éléments de \\(\\mathbb{R}^p\\) est une mesure raisonnable.\nSoit \\(x, y \\in \\mathbb{R}^n\\), la distance euclidienne est données par : \\[d(x, y) = \\left\\| x - y \\right\\|_2 = \\left( \\sum_{i = 1}^{n} (x_i - y_i)^2 \\right)^{1/2}.\\]\nQue fait-on dans d’autres cas ? Plusieurs mesures ont été développées pour leur application particulière. Voici les plus classiques.\nUne distance est peu plus générale que la distance euclidienne est la distance \\(L_p\\). Soit \\(x, y \\in \\mathbb{R}^n\\), la distance \\(L_p\\) est donnée, pour \\(p &gt; 0\\), par : \\[d(x, y) = \\left\\| x - y \\right\\|_p = \\left( \\sum_{i = 1}^{n} |x_i - y_i|^p \\right)^{1 /p} .\\]\nLa distance euclidienne correspond à la distance \\(L_p\\) avec \\(p = 2\\). Cas particulier avec \\(p = 1\\), distance de Manhattan:\n\\[d(x, y) = \\left\\| x - y \\right\\|_1 = \\sum_{i = 1}^{n} | x_i - y_i |.\\]\n\n\n\n\n\n\nProperties\n\n\n\nLa distance \\(L_p\\) n’est pas invariante à un changement d’échelle, i.e., \\(L_p(x, y) \\neq L_p(\\lambda x, \\lambda y)\\).\n\n\nStandardisation",
@@ -707,8 +777,8 @@
     ]
   },
   {
-    "objectID": "contents/generalities/02-distance.html#notion-de-similarité",
-    "href": "contents/generalities/02-distance.html#notion-de-similarité",
+    "objectID": "contents/generalities/03-distance.html#notion-de-similarité",
+    "href": "contents/generalities/03-distance.html#notion-de-similarité",
     "title": "Distances",
     "section": "Notion de similarité",
     "text": "Notion de similarité\n\n\n\n\n\n\nDéfinition d’un indice de similarité\n\n\n\nUn indice de similarité \\(s\\) doit satisfaire les propriétés suivantes pour tout \\(x, y \\in A\\), \\(A\\) étant un ensemble quelconque:\n\n\\(s(x, y) \\geq 0\\);\n\\(s(x, y) = s(y, x)\\);\n\\(s(x, x) = 1 \\geq s(x, y)\\).\n\n\n\nUne distance peut se transformer en similarité en posant \\(s(x, y) = \\frac{1}{1 + d(x, y)}\\). L’inverse n’est pas vrai, dû à l’inégalité triangulaire. On peut aussi définir la dissemblance entre deux objects: \\(d^\\star(x, y) = 1 - s(x, y)\\).",
@@ -716,6 +786,42 @@
       "Modules",
       "03 - Généralités",
       "Distances"
+    ]
+  },
+  {
+    "objectID": "contents/generalities/02-spaces.html",
+    "href": "contents/generalities/02-spaces.html",
+    "title": "Espace",
+    "section": "",
+    "text": "Variable numérique: Variable dont la valeur numérique mesure quelque chose de quantifiable et dont la différence entre les valeurs reflète la différence entre les objets. Exemples: revenu en dollars, masse, âge, …\nVariable ordinale: Variable qui ne donne pas une quantification précise d’un phénomène, mais dont les modalités peuvent être naturellement ordonnées. Examples: revenu faible, moyen ou élevé, ou niveau d’accord entre “tout-à-fait en désaccord”, “en désaccord”, “pas d’avis”, “d’accord”, “tout-à-fait d’accord”.\nNominales symétriques: Variable qualitative dont toutes les modalités sont aussi informatives l’une que l’autre. Examples: Sexe, sections d’un cours.\nNominales asymétriques: Variable qualitative dont les modalités ne contiennent pas toutes le même niveau d’information, habituellement lorsque l’une des modalités est très fréquente, un peu la modalité par defaut, mais que les autres ne le sont pas. Exemples: variable indiquant si un individu est daltonien ou non (deux individus daltoniens ont quelque chose en commun, mais deux individus non-daltoniens n’ont pas forcément quelque chose en commun), variable indiquant si une transaction est frauduleuse.\nIl y a plein d’autre type de variables: fonctions, textes, images, graphs, …",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités",
+      "Espace"
+    ]
+  },
+  {
+    "objectID": "contents/generalities/02-spaces.html#types-de-variables",
+    "href": "contents/generalities/02-spaces.html#types-de-variables",
+    "title": "Espace",
+    "section": "",
+    "text": "Variable numérique: Variable dont la valeur numérique mesure quelque chose de quantifiable et dont la différence entre les valeurs reflète la différence entre les objets. Exemples: revenu en dollars, masse, âge, …\nVariable ordinale: Variable qui ne donne pas une quantification précise d’un phénomène, mais dont les modalités peuvent être naturellement ordonnées. Examples: revenu faible, moyen ou élevé, ou niveau d’accord entre “tout-à-fait en désaccord”, “en désaccord”, “pas d’avis”, “d’accord”, “tout-à-fait d’accord”.\nNominales symétriques: Variable qualitative dont toutes les modalités sont aussi informatives l’une que l’autre. Examples: Sexe, sections d’un cours.\nNominales asymétriques: Variable qualitative dont les modalités ne contiennent pas toutes le même niveau d’information, habituellement lorsque l’une des modalités est très fréquente, un peu la modalité par defaut, mais que les autres ne le sont pas. Exemples: variable indiquant si un individu est daltonien ou non (deux individus daltoniens ont quelque chose en commun, mais deux individus non-daltoniens n’ont pas forcément quelque chose en commun), variable indiquant si une transaction est frauduleuse.\nIl y a plein d’autre type de variables: fonctions, textes, images, graphs, …",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités",
+      "Espace"
+    ]
+  },
+  {
+    "objectID": "contents/generalities/02-spaces.html#espaces-associés",
+    "href": "contents/generalities/02-spaces.html#espaces-associés",
+    "title": "Espace",
+    "section": "Espaces associés",
+    "text": "Espaces associés",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités",
+      "Espace"
     ]
   },
   {
@@ -734,7 +840,7 @@
     "href": "contents/02-revisions.html#sommaire",
     "title": "Révisions",
     "section": "Sommaire",
-    "text": "Sommaire\n\nAlgèbre linéaire\nProbabilités et statistiques\nProjet d’analyse de données\nAlgorithmique / Programmation\n\n\n\n\nPrediction (xkcd:2370).",
+    "text": "Sommaire\n\nAlgèbre linéaire\nProbabilités et statistiques\nAlgorithmique / Programmation\n\n\n\n\nPrediction (xkcd:2370).",
     "crumbs": [
       "Modules",
       "02 - Révisions"
@@ -834,99 +940,99 @@
     ]
   },
   {
-    "objectID": "contents/remainders/03-stat.html",
-    "href": "contents/remainders/03-stat.html",
-    "title": "Projet d’analyse de données",
+    "objectID": "contents/remainders/03-programming.html",
+    "href": "contents/remainders/03-programming.html",
+    "title": "Programmation",
     "section": "",
-    "text": "Dans cette partie, on présente les différentes étapes d’un projet d’analyse de données.",
+    "text": "Dans cette partie, on présente quelques références sur les bases de la programmation dans différents langages. Ce cours ne spécifie pas de langage à utiliser, vous êtes donc libre de choisir celui qui vous convient le mieux pour faire les différents exercices, ainsi que votre projet. Dans tous les cas, il y a un ensemble de bonnes pratiques qui permet d’avoir un code lisible, compréhensible et réutilisable. Vous trouvez un (rapide) guide des bonnes pratiques en programmation à ce lien.",
     "crumbs": [
       "Modules",
       "02 - Révisions",
-      "Projet d'analyse de données"
+      "Programmation"
     ]
   },
   {
-    "objectID": "contents/remainders/03-stat.html#projet-danalyse-données",
-    "href": "contents/remainders/03-stat.html#projet-danalyse-données",
-    "title": "Projet d’analyse de données",
-    "section": "Projet d’analyse données",
-    "text": "Projet d’analyse données\nUn projet d’analyse de données peut se découper en cinq grandes étapes:\n\nDéfinition des objectifs\nDonnées\nÉlaboration et validation des modèles\nMise en oeuvre\nSuivi de la performance et amélioration\n\n\n\n\n\n\n\nRemarque\n\n\n\nDans ce cours, on s’intéressera principalement à l’élaboration et à la validation de modèles.\n\n\nLors de la planification d’un projet, il faut prendre en compte que chaque étape à une importance différente, mais aussi que chacune ne prend pas le même temps d’exécution. Pyle (1999) donne une estimation du temps de chaque étape, ainsi que de leur importance dans la réussite du projet (donné en pourcentage du total).\n\n\n\nÉtape\nTemps\nImportance\n\n\n\n\nComprendre le problème\n\\(10/%\\)\n\\(15/%\\)\n\n\nExplorer la solution\n\\(9/%\\)\n\\(14/%\\)\n\n\nImplementer la solution\n\\(1/%\\)\n\\(51/%\\)\n\n\nPréparer les données\n\\(60/%\\)\n\\(15/%\\)\n\n\nAnalyser les données\n\\(15/%\\)\n\\(3/%\\)\n\n\nModéliser les données\n\\(5/%\\)\n\\(2/%\\)\n\n\n\nOn remarque deux faits importants: ce n’est pas parce qu’une étape est très importante qu’elle va prendre beaucoup de temps. L’implémentation de la solution est très importante (sinon il n’y a pas de résultat), mais ne sera généralement pas très longue à faire (possiblement en quelques lignes de code). À l’inverse, la préparation des données est un étape d’importance moyenne (encore que c’est discutable), mais elle prend la majeur partie du temps du projet. En effet, il faut, par exemple, gérer les données manquantes, les données aberrantes, les éventuels accents pour des données en français, etc.\n\nDéfinition des objectifs\nEst-ce que l’on veut: visualiser les données ? explorer et émettre des hypothèses? tester? regrouper? comprendre? prédire?\nComment fait-on en pratique ? On pose des questions ! Tout d’abord, il faut clarifier les termes. Qui va utiliser le modèle et comment ? Quelle est la population cible ?\n\n\n\n\n\n\nExamples\n\n\n\n\nLa Banque National du Canada veut lancer un nouveau produit d’épargne et souhaite mieux connaître ses clients pour prédire s’ils veulent l’acheter.\nL’équipe de hockey des Canadiens de Montréal souhaite mieux connaître ses adversaires pour développer des nouvelles tactiques de jeu.\nPharmascience souhaite savoir si son nouveau médicament est efficace.\n\n\n\n\n\nDonnées\n\nInventaire et qualité\nConstitution de la base de données\nExploration et traitement préliminaire\n\nQu’est-ce que l’on veut dire par qualité des données ?\n\nEst-ce que les données sont représentatives de la population cible ?\nEst-ce que les données permetternt de tirer des conclusions de causalité ?\nEst-ce que les données sont fiables ?\n\nSource de données:\nQuelques liens pour récupérer des données.\nNettoyage de données: cf R (importation, nettoyage, tidyverse, types de variables, retirer les doublons, uniformiser les modalités, vérifier le format des valeurs spéciales, pivot, opérateur pipe, jointure).\nExploration des données: modalités rares, modalités trop nombreuses, asymétrie, débalancement des classes, valeurs extrêmes ou aberrantes, variables fortement corrélées, valeurs manquantes.\nStatistiques descriptives",
+    "objectID": "contents/remainders/03-programming.html#r",
+    "href": "contents/remainders/03-programming.html#r",
+    "title": "Programmation",
+    "section": "R",
+    "text": "R\nR est un langage de programmation spécialisé dans l’analyse statistique et la visualisation de données. Il est gratuit, open-source et disponible sur Windows, macOS et Linux. Régulièrement mis à jour, de nouveaux packages sont disponibles chaque jour (cf. CRAN).\nVoici un guide qui présente les bases de R: Apprendre R en Y minutes.\nBonnes pratiques en R\nL’opérateur pipe",
     "crumbs": [
       "Modules",
       "02 - Révisions",
-      "Projet d'analyse de données"
+      "Programmation"
     ]
   },
   {
-    "objectID": "contents/remainders/02-probabilities.html",
-    "href": "contents/remainders/02-probabilities.html",
-    "title": "Probabilités et Statistiques",
+    "objectID": "contents/remainders/03-programming.html#python",
+    "href": "contents/remainders/03-programming.html#python",
+    "title": "Programmation",
+    "section": "Python",
+    "text": "Python\nPython est un langage de programmation généraliste. Il est gratuit, open-source et disponible sur Windows, macOS et Linux. Bien que généraliste, il y a une importante communauté autour du l’analyse de données, machine learning en Python. Ainsi, les méthodes usuelles ont déjà été implementées, e.g. dans le package sklearn, mais si besoin, il est possible d’aller voir le code pour le modifier.\nVoici un guide qui présente les bases de Python: Apprendre Python en Y minutes.\nBonnes pratiques en Python",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Programmation"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/03-programming.html#julia",
+    "href": "contents/remainders/03-programming.html#julia",
+    "title": "Programmation",
+    "section": "Julia",
+    "text": "Julia\nJulia est aussi un langage de programmation généraliste. C’est un langage bien plus récent que ses deux compères, R et Python (début des années 2010 pour Julia vs. début des années 1990 pour R et Python). Il peut donc sembler moins mature sur certains points, mais la plupart des méthodes d’analyse de données classiques ont été implémentées. De même que R et Python, ce langage est gratuit, open-source et disponible sur les principaux systèmes d’exploitation. Julia a l’avantage d’être plus rapide que R et Python. Il inclut aussi un support natif d’appel à des librairies en C ou en Fortran, et un support non-natif d’appel à des librairies en R et Python.\nVoici un guide qui présente les bases de Julia: Learn Julia in Y minutes (il n’y a pas de version française pour l’instant).\nBonnes pratiques en Julia",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Programmation"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/03-programming.html#sas",
+    "href": "contents/remainders/03-programming.html#sas",
+    "title": "Programmation",
+    "section": "SAS",
+    "text": "SAS\nSAS est un langage de programmation propriétaire spécialisé dans l’analyse de données. Bien qu’utilisé dans certaines industries, e.g. pharmaceutique, son utilisation tend à diminuer. De plus, la license à renouveler tous les ans, l’absence de communauté en ligne (pour avoir de l’aide, à part la documentation officielle, il n’y a pas grand chose) et l’impossibilité de voir le code des différentes procédures font que je déconseille l’utilisation de SAS dans le cadre de ce cours. Cependant, si vous le voulez, l’université peut fournir des licenses moyennant paiement.",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Programmation"
+    ]
+  },
+  {
+    "objectID": "contents/misc/good-practices.html",
+    "href": "contents/misc/good-practices.html",
+    "title": "Bonnes pratiques de programmation",
     "section": "",
-    "text": "Dans cette partie, on présente quelques résultats en probabilités et statistiques dans le cadre de ce cours. Pour plus d’information, vous pouvez vous référer au cours STT-1000, à Wasserman (2010) (en anglais) et à Delmas (2013) (en français).",
-    "crumbs": [
-      "Modules",
-      "02 - Révisions",
-      "Probabilités et Statistiques"
-    ]
+    "text": "Cette page est basé sur un document qu’Aurélien Nicosia (ULaval) a créé en 2023 appelé “Bonnes pratiques de programmation en R”. Celui-ci a été mis à jour et écrit dans un contexte plus général.\nPeu importe le langage informatique, employer de bonnes pratiques de programmation signifie respecter certaines normes afin de créer du “bon” code. On peut donc se demander ce qu’est un “bon” code. Pour moi, un “bon” code est un code qui remplit trois objectifs:\nPourquoi est-ce souhaitable d’adopter de bonnes pratiques ? Cela permet que le code soit compris et utilisé par n’importe qui (et en particulier, soi-même dans le futur). À long terme, les bonnes pratiques apportent une augmentation de notre productivité en évitant les répétitions inutiles."
   },
   {
-    "objectID": "contents/remainders/02-probabilities.html#modéliser-le-hasard",
-    "href": "contents/remainders/02-probabilities.html#modéliser-le-hasard",
-    "title": "Probabilités et Statistiques",
-    "section": "Modéliser le hasard",
-    "text": "Modéliser le hasard\nBeaucoup de phénomènes réels ne sont pas prévisibles et généralement, leurs résultats contiennent une certaine variabilité. Cette variabilité est prise en compte grâce à une mesure de l’incertitude que l’on appelle mesure de probabilités.\n\n\n\n\n\n\nDéfinition\n\n\n\nL’espace d’évènements \\(S\\) est l’ensemble de tous les résultats possibles d’un phénomène. Un évènement est un sous-ensemble de l’espace d’évènements \\(S\\).\n\n\n\n\n\n\n\n\nExemples\n\n\n\n\nSi l’expérience consiste à lancer un pièce, \\(S = \\{0, 1\\}\\). Le résultat de cette expérience ne peut pas être connu à l’avance. Par exemple, \\(E = \\{1\\}\\) est un évènement de \\(S\\).\nSi on s’intéresse à la durée de vie d’un téléphone, \\(S = \\mathbb{R}_{+}\\). On peut aussi choisir \\(S = [0, M]\\), car cette durée de vie n’est probablement pas infini ! L’évènement \\(E = [10, \\infty)\\) représente l’évènement “une durée de vie de plus de 10 unités de temps”.\nPour le nombre de jours sans neige à Québec dans l’année, on peut choisir \\(S = \\mathbb{N}\\). L’évènement \\(E = (0, 5]\\) représente l’évènement “moins de 5 jours sans neige à Québec dans l’année”.\n\n\n\n\n\n\n\n\n\nDéfinition\n\n\n\nUne mesure de probabilités \\(\\mathbb{P}\\) sur \\(S\\) est une application (fonction) définie sur l’espace d’évènements et satisfaisant les propriétés suivantes :\n\nPour chaque évènement \\(E\\), \\(\\mathbb{P}(E) \\in [0, 1]\\).\n\\(\\mathbb{P}(S) = 1\\).\nSoient \\(E_{1}, E_{2}, \\dots\\), une séquence d’évènements (finie ou infinie) mutuellement exclusive, i.e. \\(\\forall i \\neq j, E_{i} \\cap E_{j} = \\varnothing\\). On a \\[\\mathbb{P}(\\bigcup_{n = 1}^{\\infty} E_n) = \\sum_{n = 1}^{\\infty} \\mathbb{P}(E_n).\\]\n\nOn appelle \\(\\mathbb{P}(E)\\), la probabilité de l’évènement \\(E\\).\n\n\nLa définition de mesures de probabilités peut être subjective et lié à l’expérience du statisticien. En reprenant l’exemple 3 sur le nombre de jours sans neige à Québec dans l’année. Une personne venant d’arriver au Canada peut vouloir donner la même probabilité à chacun des jours, alors qu’un Québécois aura plus d’information et pourras faire varier les probabilités en fonction de cette connaissance.\n\n\n\n\n\n\nDéfinition\n\n\n\nDeux évènements \\(E\\) et \\(F\\) sont dits indépendants si \\(\\mathbb{P}(E \\cap F) = \\mathbb{P}(E) \\times \\mathbb{P}(F)\\).\n\n\n\n\n\n\n\n\nDéfinition\n\n\n\nSoient \\(E\\) et \\(F\\), deux évènements, la probabilité conditionelle que \\(E\\) se réalise sachant que \\(F\\) s’est réalisé est définie par : \\[\\mathbb{P}(E \\mid F) = \\frac{\\mathbb{P}(E \\cap F)}{\\mathbb{P}(F)}.\\]\n\n\nDe façon intuitive, deux évènements sont indépendants si la connaissance de l’un ne donne aucune information sur la réalisation de l’autre. On a aussi \\(\\mathbb{P}(E \\mid F) = \\mathbb{P}(E)\\).",
-    "crumbs": [
-      "Modules",
-      "02 - Révisions",
-      "Probabilités et Statistiques"
-    ]
+    "objectID": "contents/misc/good-practices.html#objectif-1-produire-les-résultats-escomptés",
+    "href": "contents/misc/good-practices.html#objectif-1-produire-les-résultats-escomptés",
+    "title": "Bonnes pratiques de programmation",
+    "section": "Objectif 1 : Produire les résultats escomptés",
+    "text": "Objectif 1 : Produire les résultats escomptés\nLa priorité lors du développement de tout code informatique est certainement l’écriture d’un code qui réalise bien ce qu’il doit réaliser. Donc, un “bon”” code doit produire les bons résultats. Pour y arriver, le code doit d’abord être fonctionnel, c’est-à-dire ne pas contenir de bogues. Pour s’assurer d’écrire du code qui fonctionne correctement, il faut simplement le tester. Il vaut mieux tester fréquemment, à chaque petit ajout, plutôt que de produire beaucoup de code avant de le tester. Ainsi, il y a beaucoup moins de débogage à faire. Un courant de pensée en informatique prône même l’écriture des tests avant l’écriture du code (test driven development). Cependant, une meilleure pratique est de formaliser les tests afin de pouvoir facilement les lancer à nouveau lors de modifications futures apportées au code."
   },
   {
-    "objectID": "contents/remainders/02-probabilities.html#variables-aléatoires",
-    "href": "contents/remainders/02-probabilities.html#variables-aléatoires",
-    "title": "Probabilités et Statistiques",
-    "section": "Variables aléatoires",
-    "text": "Variables aléatoires\nEn probabilité, la convention est d’exprimer le résultat d’expériences comme la valeur d’une fonction appelé variable aléatoire. Cette caractérisation est toujours possible.\n\n\n\n\n\n\nDéfinition\n\n\n\nSoit une variable aléatoire \\(X\\). La distribution de cette variable aléatoire est définie par l’application \\(A \\mapsto \\mathbb{P}(X \\in A)\\).\n\n\n\n\n\n\n\n\nDéfinition\n\n\n\nSoit une variable aléatoire \\(X\\). Cette variable aléatoire est discrète si elle prend, au plus, un nombre dénombrable de valeurs. Dans ce cas, la distribution de \\(X\\) est donnée par les probabilités \\(\\mathbb{P}(X = x)\\) pour tout résultat \\(x\\).\n\n\n\n\n\n\n\n\nDéfinition\n\n\n\nSoit une variable aléatoire \\(X\\). Cette variable aléatoire est continue si les probabilités \\(\\mathbb{P}(X \\in A)\\) sont données par des intégrales de la forme \\(\\int_{A} f(x) dx\\) où \\(f: \\mathbb{R}^d \\to \\mathbb{R}_+\\) est une fonction intégrable tel que \\(\\int_{\\mathbb{R}^d} f(x) dx = 1\\). Notons que, pour un résultat \\(x\\) fixé, \\(\\mathbb{P}(X = x) = 0\\).\n\n\n\n\n\n\n\n\nDéfinition\n\n\n\nSoit une variable aléatoire \\(X\\). L’espérance mathématique \\(\\mathbb{E}(X)\\) de \\(X\\) est la valeur moyenne du résultat de \\(X\\) par rapport à sa distribution de probabilité. L’espérance est généralement noté \\(\\mu\\).\n\n\nSoit \\(F\\) un ensemble dénombrable. Une variable aléatoire discrète \\(X\\) a pour espérance \\(\\mathbb{E}(X) = \\sum_{x \\in F} x \\mathbb{P}(X = x)\\). Soit une variable aléatoire continue \\(X\\) ayant pour densité \\(f\\), son espérance est donnée par \\(\\mathbb{E}(X) = \\int_{\\mathbb{R}^d} x f(x) dx\\).\n\n\n\n\n\n\nThéorème de transfert\n\n\n\nSoit une variable aléatoire \\(X\\). Soit \\(g: \\mathbb{R}^d \\mapsto \\mathbb{R}\\) une fonction telle que \\(\\mathbb{E}\\left[ g(X) \\right]\\) existe. On a :\n\nSi \\(X\\) est une variable aléatoire discrète, \\(\\mathbb{E}\\left[ g(X) \\right] = \\sum_{x \\in F} g(x) \\mathbb{P}(X = x)\\);\nSi \\(X\\) est une variable aléatoire continue de densité \\(f\\), \\(\\mathbb{E}\\left[ g(X) \\right] = \\int_{\\mathbb{R}^d} g(x)f(x) dx\\).\n\n\n\n\n\n\n\n\n\nPropriétés: Linéarité de l’espérance\n\n\n\nSoient \\(X\\) et \\(Y\\), deux variables aléatoires, dont les espérances sont définies et soit \\(\\lambda \\in R\\). On a :\n\n\\(\\mathbb{E}(X + Y) = \\mathbb{E}(X) + \\mathbb{E}(Y)\\);\n\\(\\mathbb{E}(\\lambda X) = \\lambda \\mathbb{E}(X)\\).\n\n\n\n\n\n\n\n\n\nPreuve\n\n\n\n\n\nLa preuve se déduit du théorème de transfert et de la linéarité de l’addition et de l’intégration.\n\n\n\n\n\n\n\n\n\nDéfinition\n\n\n\nSoit \\(X\\) une variable aléatoire telle que l’espérance de son carré existe. La variance de \\(X\\) est définie par \\[\\mathrm{Var}(X) = \\mathbb{E}\\left[ \\left( X - \\mathbb{E}(X) \\right)^2 \\right] = \\mathbb{E}\\left[ X^2 \\right] - \\mathbb{E}\\left[ X \\right]^2.\\]\n\n\nLa variance mesure la dispersion d’une variable aléatoire autour de sa moyenne. On peut aussi s’intéresser à l’écart-type, défini comme la racine carrée de la variance : \\(\\sigma(X) = \\sqrt{\\mathrm{Var}(X)}\\).\n\n\n\n\n\n\nDéfinition\n\n\n\nSoient \\(X\\) et \\(Y\\), deux variables aléatoires et \\(A\\) et \\(B\\), deux évenements. Si les évenements \\(\\left\\{ X \\in A \\right\\}\\) et \\(\\left\\{ Y \\in B \\right\\}\\) sont indépendants, alors on dit que les variables aléatoires \\(X\\) et \\(Y\\) sont indépendantes.\n\n\nDe cette définition, on en déduit que :\n\npour des fonctions \\(f\\) et \\(g\\), les variables aléatoires \\(f(X)\\) et \\(g(Y)\\) sont indépendantes;\nsi les variables aléatoires \\(X\\) et \\(Y\\) sont à valeurs réelles et que leur espérance existe, alors l’espérance du produit \\(XY\\) existe et \\(\\mathbb{E}(XY) = \\mathbb{E}(X) \\times \\mathbb{E}(Y)\\).\n\n\n\n\n\n\n\nDéfinition\n\n\n\nSoit \\(X\\) une variable aléatoire. La fonction de répartition \\(F: \\mathbb{R} \\mapsto [0, 1]\\) de \\(X\\) est définie par \\[F(t) = \\mathbb{P}(X \\leq t), \\quad t \\in \\mathbb{R}.\\]",
-    "crumbs": [
-      "Modules",
-      "02 - Révisions",
-      "Probabilités et Statistiques"
-    ]
+    "objectID": "contents/misc/good-practices.html#objectif-2-code-facile-à-maintenir",
+    "href": "contents/misc/good-practices.html#objectif-2-code-facile-à-maintenir",
+    "title": "Bonnes pratiques de programmation",
+    "section": "Objectif 2 : Code facile à maintenir",
+    "text": "Objectif 2 : Code facile à maintenir\nMaintenir un code informatique signifie de s’assurer qu’il continue de fonctionner correctement dans le futur, malgré les modifications qui lui sont apportées. Un code utilisé fréquemment est un code appelé à être mis à jour, soit pour y ajouter des fonctionnalités, soit pour corriger des bogues non détectés par les tests, mais découverts par des utilisateurs. Reprendre un code écrit par quelqu’un d’autre, ou écrit par nous-mêmes quelques mois auparavant, n’est pas toujours une tâche facile. Cependant, s’il s’agit d’un code correctement écrit, il ne devrait pas être trop difficile à comprendre et à modifier."
   },
   {
-    "objectID": "contents/remainders/02-probabilities.html#vecteurs-aléatoires",
-    "href": "contents/remainders/02-probabilities.html#vecteurs-aléatoires",
-    "title": "Probabilités et Statistiques",
-    "section": "Vecteurs aléatoires",
-    "text": "Vecteurs aléatoires\nSupposons que \\(X = (X_{1}, X_{2})\\) est une variable aléatoire de dimension \\(2\\) de densité \\(f_{X}\\). On appelle généralement les variables aléatoires de dimension supérieure à \\(1\\), des vecteurs aléatoires. Les densités de \\(X_{1}\\) et \\(X_{2}\\) sont appelées les densités marginales. Lorsque \\(X_{1}\\) et \\(X_{2}\\) sont indépendantes, on a : \\[f_X(x, y) = f_{X_{1}}(x) \\cdot f_{X_{2}}(y), \\quad (x, y) \\in \\mathbb{R}^2.\\]\n\n\n\n\n\n\nExemple de la loi normale multidimensionnelle\n\n\n\nOn dit qu’un vecteur aléatoire \\(X\\) de dimension \\(p\\) suit une loi normale multidimensionnelle de moyenne \\(\\mu\\) et de variance \\(\\Sigma\\), si sa densité est donnée par \\[f_X(x) = \\frac{1}{(2 \\pi)^{p /2}} \\cdot \\frac{1}{(\\text{det} \\Sigma)^{1/2}} \\cdot \\exp\\left\\{ -\\frac{1}{2}\\left( x - \\mu \\right)^\\top \\Sigma^{-1} \\left( x - \\mu \\right) \\right\\}, \\quad x \\in \\mathbb{R}^p.\\]\nOn note \\(X \\sim \\mathcal{N}_{p}(\\mu, \\Sigma)\\).\n\n\nEn statistiques, une quantité importante à mesurer est la dépendance linéaire entre \\(X_{1}\\) et \\(X_{2}\\). Pour cela, on peut utiliser la covariance ou la correlation.\n\n\n\n\n\n\nDéfinition\n\n\n\nSoit \\(X = (X_{1}, X_{2})\\) un vecteur aléatoire tel que l’espérance du carré de \\(X_{1}\\) et de \\(X_{2}\\) existe. La covariance entre \\(X_{1}\\) et \\(X_{2}\\) est donnée par \\[\\mathrm{Cov}(X_{1}, X_{2}) = \\mathbb{E}\\left[ (X_{1} - \\mathbb{E}(X_{1})) (X_{2} - \\mathbb{E}(X_{2}))\\right].\\]\nLa corrélation entre \\(X_{1}\\) et \\(X_{2}\\) est une version de la covariance normalisée par l’écart-type des variables aléatoires. Elle est donnée par \\[\\mathrm{Corr}(X_{1}, X_{2}) = \\frac{\\mathrm{Cov}(X_{1}, X_{2})}{\\sigma(X_{1}) \\sigma(X_{2})}.\\]\n\n\nOn peut interpréter le signe de la covariance et de la corrélation. Si elles sont strictement positives, \\(X_{1}\\) et \\(X_{2}\\) ont tendance à aller dans la même direction. Si \\(X_{1}\\) augmente, alors \\(X_{2}\\) aussi, et inversement. Si elles sont strictement négatives, \\(X_{1}\\) et \\(X_{2}\\) ont tendance à aller dans des directions opposées. Si \\(X_{1}\\) augmente, alors \\(X_{2}\\) diminue, et inversement. Si la covariance est égales à \\(0\\), il n’y a pas de règles et \\(X_{1}\\) et \\(X_{2}\\) sont dites orthogonales.\n\n\n\n\n\n\nPropriétés\n\n\n\nSoit \\(X = (X_{1}, X_{2})\\) un vecteur aléatoire. On a\n\n\\(\\mathrm{Cov}(X_{1}, X_{2}) = \\mathbb{E}(X_{1}X_{2}) - \\mathbb{E}(X_{1})\\mathbb{E}(X_{2})\\);\n\\(\\mathrm{Cov}(X_{1}, X_{2}) = \\mathrm{Cov}(X_{2}, X_{1})\\);\n\\(\\mathrm{Cov}(X_{1} + \\lambda Y_{1}, X_{2}) = \\mathrm{Cov}(X_{1}, X_{2}) + \\lambda \\mathrm{Cov}(Y_{1}, X_{2})\\).\n\n\n\n\n\n\n\n\n\nPreuve\n\n\n\n\nOn trouve le résultat en développement le produit dans la définition de la covariance.\nEn utilisant le point 1. et la commutativité de la multiplication.\nEn utilisant le point 1. et la linéarité de l’espérance.",
-    "crumbs": [
-      "Modules",
-      "02 - Révisions",
-      "Probabilités et Statistiques"
-    ]
+    "objectID": "contents/misc/good-practices.html#objectif-3-code-suffisamment-rapide",
+    "href": "contents/misc/good-practices.html#objectif-3-code-suffisamment-rapide",
+    "title": "Bonnes pratiques de programmation",
+    "section": "Objectif 3 : Code suffisamment rapide",
+    "text": "Objectif 3 : Code suffisamment rapide\nAprès nous être assurés que notre code fonctionne correctement et qu’il est facilement maintenable, nous pouvons nous préoccuper de son temps d’exécution. Bien qu’il ne s’agisse pas du critère le plus important pour définir ce qu’est du “bon” code, c’est tout de même un critère à ne pas négliger, car un code trop lent risque de ne pas être utilisé. Pour produire du code computationnellement efficace, il faut :\n\nmettre en pratique quelques trucs simples, i.e. utiliser les syntaxes optimisées des différents langages;\ncomparer le temps d’exécution de différentes façons de programmer une tâche;\nparfois faire du calcul en parallèle;\nparfois programmer des bouts de code dans un autre langage plus bas niveau."
   },
   {
-    "objectID": "contents/remainders/02-probabilities.html#estimation",
-    "href": "contents/remainders/02-probabilities.html#estimation",
-    "title": "Probabilités et Statistiques",
-    "section": "Estimation",
-    "text": "Estimation\nEn practique, nous n’avons pas une connaissance parfaite de nos vecteurs aléatoires, mais seulement des réalisations de ceux-ci (que l’on appelle échantillon). Notons \\(x_{1}, \\dots, x_{n}\\), \\(n\\) réalisations indépendantes d’un vecteur aléatoire \\(X\\) de moyenne \\(\\mu\\) et de variance \\(\\Sigma\\).\nL’estimateur de la moyenne \\(\\mu\\) est donné par \\[\\widehat{\\mu} = \\overline{X} \\coloneqq \\frac{1}{n} \\sum_{i = 1}^{n} x_i.\\]\nL’estimateur de la variance \\(\\Sigma\\) est donné par \\[\\widehat{\\Sigma} \\coloneqq \\frac{1}{n - 1}\\sum_{i = 1}^{n} (x_i - \\widehat{\\mu})(x_i - \\widehat{\\mu})^\\top.\\]\nPourquoi divise t-on cette somme par \\(n -1\\) et non par \\(n\\) pour estimer la variance ? Si l’on divise par \\(n\\), \\(\\widehat{\\Sigma}\\) est un estimateur biaisé de la variance. En effet, il faut prendre en compte que l’on utilise un estimateur biaisé de la moyenne dans l’estimateur de la variance et donc corriger pour cette estimation.\nNotons \\(D = \\{\\text{diag}(\\widehat{\\Sigma})\\}^{1/2}\\), la matrice des écarts-types calculés sur l’échantillon. On peut estimer la matrice des corrélations sur l’échantillon par \\[\\widehat{R} = D^{-1} \\widehat{\\Sigma} D^{-1}.\\]",
-    "crumbs": [
-      "Modules",
-      "02 - Révisions",
-      "Probabilités et Statistiques"
-    ]
-  },
-  {
-    "objectID": "contents/05-supervisee.html",
-    "href": "contents/05-supervisee.html",
-    "title": "Supervisée",
-    "section": "",
-    "text": "On considère une population comportant \\(q\\) groupes. On observe \\(p\\) variables \\(X_{1}, \\dots, X_{p}\\) pour chaque individu/objet de la population. On cherche à obtenir un modèle/algortihme pour classer de nouveaux individus/objets dans les bons groupes, c’est-à-dire de prédire \\(Y\\) à partir de \\(X_{1}, \\dots, X_{p}\\).\n\n\n\n\n\n\nExample\n\n\n\n\nRevenue Québce désire identifier les déclarations fiscales méritant d’être examinées de faon plus approfondies (détection de fraude).\nReconnaissance automatique des chiffres et des lettres des codes postaux écrits à la main.\nIdentification de nouveaux clients potentiels.\nFiltrage de courriels indésirables.\nReconnaissance d’images.\n\n\n\nApproche générale\n\nSélectionner un certain nombre d’individus dont on connaît le groupe d’appartenance.\nMesurer \\(p\\) caractéristiques \\(X_{1}, \\dots, X_{p}\\) sur ces individus.\nDiviser ce jeu de données en deux:\n\n\nUn jeu de données pour la modélisation (entrainement, “train”)\nUn jeu de données pour la vérification (valisation, “test”)\n\n\nDévelopper un modèle/algorithme pour classer le mieux possible les individus du jeu de données d’entrainement.\nÉvaluer notre modèle/algorithme sur le jeu de données de valisation.\n(Répéter étapes 3-4-5 avec d’autres modèles/algorithmes et choisir le meilleur).\n\nQuelques méthodes:\n\nAnalyse discriminante\nArbre de classification\nRégression\nClassificateur naïf de Bayes\nMéthode des \\(k\\) plus proches voisins\nSupport vector machine\nRéseaux de neurones.\n\nIl n’y a aucun algorithme qui garantit le meilleur classificateur pour toute situation donnée. Chaque problème est nouveau et on doit tenter de trouver la meilleure façon de procéder par essai et erreur. Ceci étant dit, certains principes s’appliquent plus généralement * Commencer par une exploration des données (p.ex. statistiques descriptives sur toutes les variables prises individuellement, ACP, ACB/ACM, classification non-supervisée) * Tirer avantage de la connaissance du sujet des experts qui nous entourent * Voir si certaines méthodes n’ont pas déjà eu du succès dans des analyses similaires\nLa principale difficulté vient habituellement de la dimension du problème : le nombre de modèles/méthodes possibles pour un problème donné est énorme et croît rapidement avec le nombre de variables disponibles. Parfois, réduire la dimension du problème (ACP, ACB/ACM, classification non-supervisée) peut aider : on applique ces techniques à un sous-ensemble des variables, et on utilise ensuite les scores produits comme prédicteurs dans les algos de classifications Il n’y a pas de recette générale pour savoir quel sous-ensemble choisir … Allez voir sur des sites de concours d’analyse de données (p.ex. Kaggle, KD Nuggets, etc.) et regardez les approches utilisées par les gagnants des concours pour lesquels le problème à résoudre s’apparente un peu au vôtre.",
-    "crumbs": [
-      "Modules",
-      "05 - Supervisée"
-    ]
+    "objectID": "contents/misc/good-practices.html#résumer",
+    "href": "contents/misc/good-practices.html#résumer",
+    "title": "Bonnes pratiques de programmation",
+    "section": "Résumer",
+    "text": "Résumer\nEn résumer, pour adopter de bonnes pratiques de programmation, il faut :\n\nTester son code fréquemment son code.\nUtiliser un logiciel de gestion de versions.\nDocumenter son code.\nRespecter un guide de style.\nFactoriser son code en créant des fonctions et des packages.\nOptimiser le temps d’exécution."
   },
   {
     "objectID": "contents/supervised/02-discriminant.html",

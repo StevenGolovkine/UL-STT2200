@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/contents/generalities/04-model-evaluation.html" />
-<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/contents/generalities/04-model-evaluation.en.html" />
+<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/contents/generalities/02-spaces.html" />
+<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/contents/generalities/02-spaces.en.html" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.31">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Model evaluation – STT-2200: Data Analysis</title>
+<title>Space – STT-2200: Data Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,8 +22,8 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script><script src="../../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../../site_libs/quarto-search/fuse.min.js"></script><script src="../../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../../">
-<link href="../../contents/04-dimension.html" rel="next">
-<link href="../../contents/generalities/03-bias-variance.html" rel="prev">
+<link href="../../contents/generalities/03-distance.html" rel="next">
+<link href="../../contents/generalities/01-stat.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script><script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../../site_libs/quarto-html/popper.min.js"></script><script src="../../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../../site_libs/quarto-html/anchor.min.js"></script><link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
@@ -84,7 +84,7 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script><meta property="og:title" content="Model evaluation – STT-2200: Data Analysis">
+</script><meta property="og:title" content="Space – STT-2200: Data Analysis">
 <meta property="og:site_name" content="STT-2200: Data Analysis">
 </head>
 <body class="nav-sidebar floating quarto-light">
@@ -258,7 +258,7 @@ window.Quarto = {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/03-generalities.html">03 - Généralités</a></li>
-<li class="breadcrumb-item"><a href="../../contents/generalities/04-model-evaluation.html">Model evaluation</a></li>
+<li class="breadcrumb-item"><a href="../../contents/generalities/02-spaces.html">Space</a></li>
 </ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -281,7 +281,7 @@ window.Quarto = {
         </div>
         </div>
     <div class="dropdown" id="languages-links-parent">
-<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> English</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="https://stt2200.netlify.app/contents/generalities/04-model-evaluation.html" id="language-link-fr">Français</a></li></ul>
+<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> English</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="https://stt2200.netlify.app/contents/generalities/02-spaces.html" id="language-link-fr">Français</a></li></ul>
 </div>
 <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
@@ -375,13 +375,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/remainders/03-stat.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Statistics</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../contents/remainders/04-programming.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/remainders/03-programming.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Programming</span></a>
   </div>
 </li>
@@ -398,25 +392,31 @@ window.Quarto = {
       <ul id="" class="collapse list-unstyled sidebar-section depth2 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/generalities/01-spaces.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/generalities/01-stat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/generalities/02-spaces.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Space</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/generalities/02-distance.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/generalities/03-distance.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Distance</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/generalities/03-bias-variance.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/generalities/04-bias-variance.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bias-variance</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/generalities/04-model-evaluation.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../contents/generalities/05-model-evaluation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Model evaluation</span></a>
   </div>
 </li>
@@ -596,16 +596,16 @@ window.Quarto = {
         
     <div class="quarto-alternate-formats">
 <h2>Other Formats</h2>
-<ul><li><a href="04-model-evaluation.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
+<ul><li><a href="02-spaces.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
 </div>
 </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/03-generalities.html">03 - Généralités</a></li>
-<li class="breadcrumb-item"><a href="../../contents/generalities/04-model-evaluation.html">Model evaluation</a></li>
+<li class="breadcrumb-item"><a href="../../contents/generalities/02-spaces.html">Space</a></li>
 </ol></nav><div class="quarto-title">
-<h1 class="title">Model evaluation</h1>
+<h1 class="title">Space</h1>
 </div>
 
 
@@ -1241,13 +1241,13 @@ window.onload = function() {
     }
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../../contents/generalities/03-bias-variance.html" class="pagination-link" aria-label="Bias-variance">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Bias-variance</span>
+      <a href="../../contents/generalities/01-stat.html" class="pagination-link" aria-label="Statistics">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Statistics</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../contents/04-dimension.html" class="pagination-link" aria-label="04 - Dimension">
-        <span class="nav-page-text">04 - Dimension</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../contents/generalities/03-distance.html" class="pagination-link" aria-label="Distance">
+        <span class="nav-page-text">Distance</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1260,7 +1260,7 @@ window.onload = function() {
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
 <div class="toc-actions"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li>
-<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/generalities/04-model-evaluation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/generalities/02-spaces.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li>
 </ul></div>
 </div>
     <div class="nav-footer-right">

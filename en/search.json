@@ -122,61 +122,6 @@
     ]
   },
   {
-    "objectID": "contents/01-introduction.html",
-    "href": "contents/01-introduction.html",
-    "title": "Introduction",
-    "section": "",
-    "text": "Data analysis is a set of methods for extracting information from a data set. It’s also known as statistical learning. The idea is to use statistical models to understand how data is structured and how it interacts with each other.\n\n\n\n\n\n\nExample\n\n\n\nLet’s imagine you work for the United Nations (UN). Your mission is to analyze life expectancy around the world. To do this, you’ll have a measure of life expectancy in each UN member country, of course, but also GDP per capita, health expenditure, fertility rate, urbanization rate, education level of the country, and so on. The aim of data analysis is to find links between these different variables and the variable of interest, life expectancy, to visualize these data, and eventually to predict life expectancy from the other variables.",
-    "crumbs": [
-      "Modules",
-      "01 - Introduction"
-    ]
-  },
-  {
-    "objectID": "contents/01-introduction.html#what-is-data-analysis",
-    "href": "contents/01-introduction.html#what-is-data-analysis",
-    "title": "Introduction",
-    "section": "",
-    "text": "Data analysis is a set of methods for extracting information from a data set. It’s also known as statistical learning. The idea is to use statistical models to understand how data is structured and how it interacts with each other.\n\n\n\n\n\n\nExample\n\n\n\nLet’s imagine you work for the United Nations (UN). Your mission is to analyze life expectancy around the world. To do this, you’ll have a measure of life expectancy in each UN member country, of course, but also GDP per capita, health expenditure, fertility rate, urbanization rate, education level of the country, and so on. The aim of data analysis is to find links between these different variables and the variable of interest, life expectancy, to visualize these data, and eventually to predict life expectancy from the other variables.",
-    "crumbs": [
-      "Modules",
-      "01 - Introduction"
-    ]
-  },
-  {
-    "objectID": "contents/01-introduction.html#course-objectives",
-    "href": "contents/01-introduction.html#course-objectives",
-    "title": "Introduction",
-    "section": "Course objectives",
-    "text": "Course objectives\nIn this course, we aim to introduce methods that allow us to study a “high-dimensional” dataset (in the sense that we can’t simply graph all the variables for each observation) without having to resort to a probabilistic model. The various techniques we’ll be looking at can be used to:\n\nvisualize data\nreduce data size;\nidentify certain relationships between variables;\ndivide the dataset into groups/classes.\n\nThis course is not intended to be exhaustive, in the sense of presenting all possible methods. Nor is it intended to be state-of-the-art, in the sense that it will not cover the latest developments in machine learning. Nor is it a programming course.\nTo finish this introduction, here is a quote from Statistical Rethinking by Richard McElreath (McElreath 2020) particularly accurate in this course.\n\nStatistics courses […] tend to resemble horosscopes. There are two senses to this resemblance. First, in order to remain plausibly correct, they must remain tremendously vague. This is because the targets of the advice, for both horoscopes and statistical advice, are diverse. But only the most general advice applies to all cases. A horoscope uses only the basic facts of birth to forecast life events, and a […] statistical guide uses only the basic facts of measurement and design to dictate a model. It is easy to do better, once more detail is available. In the case of statistical analysis, it is tipically only the scientist whho can provide that detail, not the statistician. Second, there are strong incentives for both astrologers and statisticians to exaggerate the power and importance of their advice. No one likes an astrologer who forecasts doom, and few want a statistician who admits the answers as desired are not in the data as collected. Scientists desire results, and they will buy and attend to statisticians and statistical procedures that promise them. What we end up with is too often horoscopic: vague and optimistic, but still claiming critical importance.",
-    "crumbs": [
-      "Modules",
-      "01 - Introduction"
-    ]
-  },
-  {
-    "objectID": "contents/02-revisions.html",
-    "href": "contents/02-revisions.html",
-    "title": "Remainders",
-    "section": "",
-    "text": "Slides: link\nTD: link\nTP: link",
-    "crumbs": [
-      "Modules",
-      "02 - Révisions"
-    ]
-  },
-  {
-    "objectID": "contents/02-revisions.html#sommaire",
-    "href": "contents/02-revisions.html#sommaire",
-    "title": "Remainders",
-    "section": "Sommaire",
-    "text": "Sommaire\n\nLinear algebra\nProbabilities and statistics\nData analysis project\nAlgorithmic / Programming\n\n\n\n\nPrediction (xkcd:2370).",
-    "crumbs": [
-      "Modules",
-      "02 - Révisions"
-    ]
-  },
-  {
     "objectID": "contents/remainders/01-linear-algebra.html",
     "href": "contents/remainders/01-linear-algebra.html",
     "title": "Linear Algebra",
@@ -222,6 +167,83 @@
       "Modules",
       "02 - Révisions",
       "Linear Algebra"
+    ]
+  },
+  {
+    "objectID": "contents/02-revisions.html",
+    "href": "contents/02-revisions.html",
+    "title": "Remainders",
+    "section": "",
+    "text": "Slides: link\nTD: link\nTP: link",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions"
+    ]
+  },
+  {
+    "objectID": "contents/02-revisions.html#outline",
+    "href": "contents/02-revisions.html#outline",
+    "title": "Remainders",
+    "section": "Outline",
+    "text": "Outline\n\nLinear algebra\nProbabilities and statistics\nAlgorithmic / Programming\n\n\n\n\nPrediction (xkcd:2370).",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions"
+    ]
+  },
+  {
+    "objectID": "contents/01-introduction.html",
+    "href": "contents/01-introduction.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "Data analysis is a set of methods for extracting information from a data set. It’s also known as statistical learning. The idea is to use statistical models to understand how data is structured and how it interacts with each other.\n\n\n\n\n\n\nExample\n\n\n\nLet’s imagine you work for the United Nations (UN). Your mission is to analyze life expectancy around the world. To do this, you’ll have a measure of life expectancy in each UN member country, of course, but also GDP per capita, health expenditure, fertility rate, urbanization rate, education level of the country, and so on. The aim of data analysis is to find links between these different variables and the variable of interest, life expectancy, to visualize these data, and eventually to predict life expectancy from the other variables.",
+    "crumbs": [
+      "Modules",
+      "01 - Introduction"
+    ]
+  },
+  {
+    "objectID": "contents/01-introduction.html#what-is-data-analysis",
+    "href": "contents/01-introduction.html#what-is-data-analysis",
+    "title": "Introduction",
+    "section": "",
+    "text": "Data analysis is a set of methods for extracting information from a data set. It’s also known as statistical learning. The idea is to use statistical models to understand how data is structured and how it interacts with each other.\n\n\n\n\n\n\nExample\n\n\n\nLet’s imagine you work for the United Nations (UN). Your mission is to analyze life expectancy around the world. To do this, you’ll have a measure of life expectancy in each UN member country, of course, but also GDP per capita, health expenditure, fertility rate, urbanization rate, education level of the country, and so on. The aim of data analysis is to find links between these different variables and the variable of interest, life expectancy, to visualize these data, and eventually to predict life expectancy from the other variables.",
+    "crumbs": [
+      "Modules",
+      "01 - Introduction"
+    ]
+  },
+  {
+    "objectID": "contents/01-introduction.html#course-objectives",
+    "href": "contents/01-introduction.html#course-objectives",
+    "title": "Introduction",
+    "section": "Course objectives",
+    "text": "Course objectives\nIn this course, we aim to introduce methods that allow us to study a “high-dimensional” dataset (in the sense that we can’t simply graph all the variables for each observation) without having to resort to a probabilistic model. The various techniques we’ll be looking at can be used to:\n\nvisualize data\nreduce data size;\nidentify certain relationships between variables;\ndivide the dataset into groups/classes.\n\nThis course is not intended to be exhaustive, in the sense of presenting all possible methods. Nor is it intended to be state-of-the-art, in the sense that it will not cover the latest developments in machine learning. Nor is it a programming course.\nTo finish this introduction, here is a quote from Statistical Rethinking by Richard McElreath (McElreath 2020) particularly accurate in this course.\n\nStatistics courses […] tend to resemble horosscopes. There are two senses to this resemblance. First, in order to remain plausibly correct, they must remain tremendously vague. This is because the targets of the advice, for both horoscopes and statistical advice, are diverse. But only the most general advice applies to all cases. A horoscope uses only the basic facts of birth to forecast life events, and a […] statistical guide uses only the basic facts of measurement and design to dictate a model. It is easy to do better, once more detail is available. In the case of statistical analysis, it is tipically only the scientist whho can provide that detail, not the statistician. Second, there are strong incentives for both astrologers and statisticians to exaggerate the power and importance of their advice. No one likes an astrologer who forecasts doom, and few want a statistician who admits the answers as desired are not in the data as collected. Scientists desire results, and they will buy and attend to statisticians and statistical procedures that promise them. What we end up with is too often horoscopic: vague and optimistic, but still claiming critical importance.",
+    "crumbs": [
+      "Modules",
+      "01 - Introduction"
+    ]
+  },
+  {
+    "objectID": "contents/03-generalities.html",
+    "href": "contents/03-generalities.html",
+    "title": "Generalities",
+    "section": "",
+    "text": "Slides: link\nTD: link\nTP: link",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités"
+    ]
+  },
+  {
+    "objectID": "contents/03-generalities.html#outline",
+    "href": "contents/03-generalities.html#outline",
+    "title": "Generalities",
+    "section": "Outline",
+    "text": "Outline\n\nData analysis project\nSpaces\nDistances\nBias / Variance\nModel evaluation\n\n\n\n\nCorrelation (xkcd:552).",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités"
     ]
   },
   {

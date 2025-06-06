@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
 <head>
-<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/contents/generalities/03-bias-variance.html" />
-<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/contents/generalities/03-bias-variance.en.html" />
+<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/contents/generalities/01-stat.html" />
+<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/contents/generalities/01-stat.en.html" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.31">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Biais/Variance – STT-2200: Analyse de données</title>
+<title>Projet d’analyse de données – STT-2200: Analyse de données</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,10 +20,30 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script><script src="../../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../../site_libs/quarto-search/fuse.min.js"></script><script src="../../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../../">
-<link href="../../contents/generalities/04-model-evaluation.html" rel="next">
-<link href="../../contents/generalities/02-distance.html" rel="prev">
+<link href="../../contents/generalities/02-spaces.html" rel="next">
+<link href="../../contents/03-generalities.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script><script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../../site_libs/quarto-html/popper.min.js"></script><script src="../../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../../site_libs/quarto-html/anchor.min.js"></script><link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
@@ -84,7 +104,7 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script><meta property="og:title" content="Biais/Variance – STT-2200: Analyse de données">
+</script><meta property="og:title" content="Projet d’analyse de données – STT-2200: Analyse de données">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
@@ -259,7 +279,7 @@ window.Quarto = {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/03-generalities.html">03 - Généralités</a></li>
-<li class="breadcrumb-item"><a href="../../contents/generalities/03-bias-variance.html">Biais/Variance</a></li>
+<li class="breadcrumb-item"><a href="../../contents/generalities/01-stat.html">Projet d’analyse de données</a></li>
 </ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
@@ -282,7 +302,7 @@ window.Quarto = {
         </div>
         </div>
     <div class="dropdown" id="languages-links-parent">
-<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Français</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="https://stt2200.netlify.app/en/contents/generalities/03-bias-variance.html" id="language-link-en">English</a></li></ul>
+<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Français</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="https://stt2200.netlify.app/en/contents/generalities/01-stat.html" id="language-link-en">English</a></li></ul>
 </div>
 <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
@@ -376,14 +396,8 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/remainders/03-stat.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Projet d’analyse de données</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../contents/remainders/04-programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Programming</span></a>
+  <a href="../../contents/remainders/03-programming.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Programmation</span></a>
   </div>
 </li>
       </ul>
@@ -399,25 +413,31 @@ window.Quarto = {
       <ul id="" class="collapse list-unstyled sidebar-section depth2 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/generalities/01-spaces.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/generalities/01-stat.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Projet d’analyse de données</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/generalities/02-spaces.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Espace</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/generalities/02-distance.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/generalities/03-distance.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Distances</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/generalities/03-bias-variance.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../contents/generalities/04-bias-variance.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Biais/Variance</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/generalities/04-model-evaluation.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/generalities/05-model-evaluation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Evaluation de modeles</span></a>
   </div>
 </li>
@@ -594,19 +614,33 @@ window.Quarto = {
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+<li>
+<a href="#projet-danalyse-donn%C3%A9es" id="toc-projet-danalyse-données" class="nav-link active" data-scroll-target="#projet-danalyse-données">Projet d’analyse données</a>
+  <ul class="collapse">
+<li><a href="#d%C3%A9finition-des-objectifs" id="toc-définition-des-objectifs" class="nav-link" data-scroll-target="#définition-des-objectifs">Définition des objectifs</a></li>
+  <li><a href="#donn%C3%A9es" id="toc-données" class="nav-link" data-scroll-target="#données">Données</a></li>
+  </ul>
+</li>
+  </ul>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/generalities/01-stat.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
+</ul></div>
+<div class="quarto-alternate-formats">
 <h2>Autres formats</h2>
-<ul><li><a href="03-bias-variance.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
-</div>
+<ul><li><a href="01-stat.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
+</div></nav>
 </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/03-generalities.html">03 - Généralités</a></li>
-<li class="breadcrumb-item"><a href="../../contents/generalities/03-bias-variance.html">Biais/Variance</a></li>
+<li class="breadcrumb-item"><a href="../../contents/generalities/01-stat.html">Projet d’analyse de données</a></li>
 </ol></nav><div class="quarto-title">
-<h1 class="title">Biais/Variance</h1>
+<h1 class="title">Projet d’analyse de données</h1>
 </div>
 
 
@@ -620,41 +654,116 @@ window.Quarto = {
   
 
 
-</header><p>On veut prédire <span class="math inline">\(Y\)</span> à partir de <span class="math inline">\(X\)</span>. Pour cela, on cherche à estimer <span class="math inline">\(f(X)\)</span> la fonction qui relie <span class="math inline">\(X\)</span> à <span class="math inline">\(Y\)</span> par <span class="math display">\[Y = f(X) + \epsilon\]</span></p>
-<p>On peut mesurer deux fonctions qui vont nous aider:</p>
-<ul>
-<li><p>Fonction de perte (<span class="math inline">\(L\)</span>): c’est la mesure de l’écart par rapport à ce qu’on souhaite mesurer, par example: <span class="math display">\[L(Y, f(X)) = (Y - f(X))^2.\]</span></p></li>
-<li><p>Fonction de risque : c’est la quantité que l’on cherche à minimiser. Il s’agit de l’espérance de la fonction de perte.</p></li>
-</ul>
-<p>Comment trouver <span class="math inline">\(f\)</span>:</p>
-<p>Objectif: Trouver une fonction <span class="math inline">\(\widehat{f}\)</span> qui minimise le risque.</p>
-<p>Comment: Supposer une certaine forme pour <span class="math inline">\(f(X)\)</span> et minimiser la fonction de perte de faon analytique ou numérique.</p>
-<ul>
-<li><p>Paramétrique: On donne une forme explication à <span class="math inline">\(f(X)\)</span> qui dépend de paramètres. On cherche une méthode d’estimation des paramètres.</p></li>
-<li><p>Non-paramétrique: aucune forme forme particulière de <span class="math inline">\(f\)</span>, on estime une courbe ou fonction.</p></li>
-</ul>
+</header><p>Dans cette partie, on présente les différentes étapes d’un projet d’analyse de données.</p>
+<section id="projet-danalyse-données" class="level2"><h2 class="anchored" data-anchor-id="projet-danalyse-données">Projet d’analyse données</h2>
+<p>Un projet d’analyse de données peut se découper en cinq grandes étapes:</p>
+<ol type="1">
+<li><p>Définition des objectifs</p></li>
+<li><p>Données</p></li>
+<li><p>Élaboration et validation des modèles</p></li>
+<li><p>Mise en oeuvre</p></li>
+<li><p>Suivi de la performance et amélioration</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Remarque
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Dans ce cours, on s’intéressera principalement à l’élaboration et à la validation de modèles.</p>
+</div>
+</div>
+<p>Lors de la planification d’un projet, il faut prendre en compte que chaque étape à une importance différente, mais aussi que chacune ne prend pas le même temps d’exécution. <span class="citation" data-cites="pyleDataPreparationData1999">Pyle (<a href="#ref-pyleDataPreparationData1999" role="doc-biblioref">1999</a>)</span> donne une estimation du temps de chaque étape, ainsi que de leur importance dans la réussite du projet (donné en pourcentage du total).</p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th style="text-align: left;">Étape</th>
+<th style="text-align: center;">Temps</th>
+<th style="text-align: center;">Importance</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Comprendre le problème</td>
+<td style="text-align: center;"><span class="math inline">\(10/%\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(15/%\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Explorer la solution</td>
+<td style="text-align: center;"><span class="math inline">\(9/%\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(14/%\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Implementer la solution</td>
+<td style="text-align: center;"><span class="math inline">\(1/%\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(51/%\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Préparer les données</td>
+<td style="text-align: center;"><span class="math inline">\(60/%\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(15/%\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Analyser les données</td>
+<td style="text-align: center;"><span class="math inline">\(15/%\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3/%\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Modéliser les données</td>
+<td style="text-align: center;"><span class="math inline">\(5/%\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2/%\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>On remarque deux faits importants: ce n’est pas parce qu’une étape est très importante qu’elle va prendre beaucoup de temps. L’implémentation de la solution est très importante (sinon il n’y a pas de résultat), mais ne sera généralement pas très longue à faire (possiblement en quelques lignes de code). À l’inverse, la préparation des données est un étape d’importance moyenne (encore que c’est discutable), mais elle prend la majeur partie du temps du projet. En effet, il faut, par exemple, gérer les données manquantes, les données aberrantes, les éventuels accents pour des données en français, etc.</p>
+<section id="définition-des-objectifs" class="level3"><h3 class="anchored" data-anchor-id="définition-des-objectifs">Définition des objectifs</h3>
+<p>Est-ce que l’on veut: visualiser les données ? explorer et émettre des hypothèses? tester? regrouper? comprendre? prédire?</p>
+<p>Comment fait-on en pratique ? On pose des questions ! Tout d’abord, il faut clarifier les termes. Qui va utiliser le modèle et comment ? Quelle est la population cible ?</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Example: la régression linéaire simple
+Examples
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>On suppose que <span class="math inline">\(f(X) = \beta_{0} + \beta_{1}X\)</span>, on cherche donc les valeurs <span class="math inline">\(\widehat{\beta}_0\)</span> et <span class="math inline">\(\widehat{\beta}_1\)</span> qui minimisent : <span class="math display">\[\mathbb{E}(Y - (\beta_{0} + \beta_{1}X))^2.\]</span></p>
+<ol type="1">
+<li><p>La Banque National du Canada veut lancer un nouveau produit d’épargne et souhaite mieux connaître ses clients pour prédire s’ils veulent l’acheter.</p></li>
+<li><p>L’équipe de hockey des Canadiens de Montréal souhaite mieux connaître ses adversaires pour développer des nouvelles tactiques de jeu.</p></li>
+<li><p>Pharmascience souhaite savoir si son nouveau médicament est efficace.</p></li>
+</ol>
 </div>
 </div>
-<p>Que faire dans le cas discret ?</p>
-<p>On cherche à prédire <span class="math inline">\(G\)</span> (un groupe ou facteur) à partir de <span class="math inline">\(X\)</span>. Supposons que nous avons <span class="math inline">\(\widehat{G}\)</span> qui prédise le classe des observations sachant <span class="math inline">\(X\)</span>, alors on peut définir la fonction de perte (0-1) comme le nombre d’erreur que l’on a effectué: <span class="math display">\[L(G, \widehat{G}) = \mathbb{1}_{G \neq \widehat{G}}.\]</span></p>
-<p>Avec cette fonction de perte 0-1, <span class="math inline">\(\widehat{G}(x)\)</span> est la classe <span class="math inline">\(g\)</span> qui maximise <span class="math inline">\(\mathbb{P}(g | X = x)\)</span>.</p>
-<p>On peut décomposer l’erreur quadratique moyenne (EQM): <span class="math display">\[\mathbb{E}\left( (Y - \widehat{f}(x_0))^2 \right) = \text{Biais}(\widehat{f}(x_{0}))^2 + \mathrm{Var}(\widehat{f}(x_{0}) + \sigma^2_{\epsilon}.\]</span></p>
-<p>Démontrer la décomposition de l’EQM en un compromis biais variance.</p>
+</section><section id="données" class="level3"><h3 class="anchored" data-anchor-id="données">Données</h3>
+<ul>
+<li><p>Inventaire et qualité</p></li>
+<li><p>Constitution de la base de données</p></li>
+<li><p>Exploration et traitement préliminaire</p></li>
+</ul>
+<p>Qu’est-ce que l’on veut dire par qualité des données ?</p>
+<ul>
+<li><p>Est-ce que les données sont représentatives de la population cible ?</p></li>
+<li><p>Est-ce que les données permetternt de tirer des conclusions de causalité ?</p></li>
+<li><p>Est-ce que les données sont fiables ?</p></li>
+</ul>
+<p>Source de données:</p>
+<p>Quelques liens pour récupérer des données.</p>
+<p>Nettoyage de données: cf R (importation, nettoyage, tidyverse, types de variables, retirer les doublons, uniformiser les modalités, vérifier le format des valeurs spéciales, pivot, opérateur pipe, jointure).</p>
+<p>Exploration des données: modalités rares, modalités trop nombreuses, asymétrie, débalancement des classes, valeurs extrêmes ou aberrantes, variables fortement corrélées, valeurs manquantes.</p>
+<p>Statistiques descriptives</p>
 
 
 
-</main><!-- /main --><script>
+</section></section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Les références</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-pyleDataPreparationData1999" class="csl-entry" role="listitem">
+Pyle, Dorian. 1999. <em>Data <span>Preparation</span> for <span>Data Mining</span></em>. Morgan Kaufmann.
+</div>
+</div></section></div></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -1276,13 +1385,13 @@ window.onload = function() {
     }
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../../contents/generalities/02-distance.html" class="pagination-link" aria-label="Distances">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Distances</span>
+      <a href="../../contents/03-generalities.html" class="pagination-link" aria-label="03 - Généralités">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">03 - Généralités</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../contents/generalities/04-model-evaluation.html" class="pagination-link" aria-label="Evaluation de modeles">
-        <span class="nav-page-text">Evaluation de modeles</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../contents/generalities/02-spaces.html" class="pagination-link" aria-label="Espace">
+        <span class="nav-page-text">Espace</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1293,9 +1402,9 @@ window.onload = function() {
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions"><ul>
+<div class="toc-actions d-sm-block d-md-none"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
-<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/generalities/03-bias-variance.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/generalities/01-stat.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
 </ul></div>
 </div>
     <div class="nav-footer-right">

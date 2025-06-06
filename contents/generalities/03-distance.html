@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
 <head>
-<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/contents/generalities/04-model-evaluation.html" />
-<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/contents/generalities/04-model-evaluation.en.html" />
+<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/contents/generalities/03-distance.html" />
+<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/contents/generalities/03-distance.en.html" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.31">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Evaluation de modeles – STT-2200: Analyse de données</title>
+<title>Distances – STT-2200: Analyse de données</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,8 +22,8 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script><script src="../../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../../site_libs/quarto-search/fuse.min.js"></script><script src="../../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../../">
-<link href="../../contents/04-dimension.html" rel="next">
-<link href="../../contents/generalities/03-bias-variance.html" rel="prev">
+<link href="../../contents/generalities/04-bias-variance.html" rel="next">
+<link href="../../contents/generalities/02-spaces.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script><script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../../site_libs/quarto-html/popper.min.js"></script><script src="../../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../../site_libs/quarto-html/anchor.min.js"></script><link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
@@ -84,7 +84,7 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script><meta property="og:title" content="Evaluation de modeles – STT-2200: Analyse de données">
+</script><meta property="og:title" content="Distances – STT-2200: Analyse de données">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
@@ -259,7 +259,7 @@ window.Quarto = {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/03-generalities.html">03 - Généralités</a></li>
-<li class="breadcrumb-item"><a href="../../contents/generalities/04-model-evaluation.html">Evaluation de modeles</a></li>
+<li class="breadcrumb-item"><a href="../../contents/generalities/03-distance.html">Distances</a></li>
 </ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
@@ -282,7 +282,7 @@ window.Quarto = {
         </div>
         </div>
     <div class="dropdown" id="languages-links-parent">
-<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Français</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="https://stt2200.netlify.app/en/contents/generalities/04-model-evaluation.html" id="language-link-en">English</a></li></ul>
+<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Français</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="https://stt2200.netlify.app/en/contents/generalities/03-distance.html" id="language-link-en">English</a></li></ul>
 </div>
 <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
@@ -376,14 +376,8 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/remainders/03-stat.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Projet d’analyse de données</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../contents/remainders/04-programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Programming</span></a>
+  <a href="../../contents/remainders/03-programming.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Programmation</span></a>
   </div>
 </li>
       </ul>
@@ -399,25 +393,31 @@ window.Quarto = {
       <ul id="" class="collapse list-unstyled sidebar-section depth2 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/generalities/01-spaces.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/generalities/01-stat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Projet d’analyse de données</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/generalities/02-spaces.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Espace</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/generalities/02-distance.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/generalities/03-distance.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Distances</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/generalities/03-bias-variance.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/generalities/04-bias-variance.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Biais/Variance</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/generalities/04-model-evaluation.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../contents/generalities/05-model-evaluation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Evaluation de modeles</span></a>
   </div>
 </li>
@@ -597,33 +597,26 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-<li><a href="#validation-crois%C3%A9e" id="toc-validation-croisée" class="nav-link active" data-scroll-target="#validation-croisée">Validation croisée</a></li>
-  <li>
-<a href="#cas-dun-r%C3%A9ponse-binaire" id="toc-cas-dun-réponse-binaire" class="nav-link" data-scroll-target="#cas-dun-réponse-binaire">Cas d’un réponse binaire</a>
-  <ul class="collapse">
-<li><a href="#mesure-triviale" id="toc-mesure-triviale" class="nav-link" data-scroll-target="#mesure-triviale">Mesure triviale</a></li>
-  <li><a href="#sensibilit%C3%A9-et-sp%C3%A9cifit%C3%A9" id="toc-sensibilité-et-spécifité" class="nav-link" data-scroll-target="#sensibilité-et-spécifité">Sensibilité et spécifité</a></li>
-  <li><a href="#la-courbe-roc" id="toc-la-courbe-roc" class="nav-link" data-scroll-target="#la-courbe-roc">La courbe ROC</a></li>
-  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
-  </ul>
-</li>
+<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#notion-de-distance" id="toc-notion-de-distance" class="nav-link" data-scroll-target="#notion-de-distance">Notion de distance</a></li>
+  <li><a href="#notion-de-similarit%C3%A9" id="toc-notion-de-similarité" class="nav-link" data-scroll-target="#notion-de-similarité">Notion de similarité</a></li>
   </ul>
 <div class="toc-actions"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
-<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/generalities/04-model-evaluation.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/generalities/03-distance.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
 </ul></div>
 <div class="quarto-alternate-formats">
 <h2>Autres formats</h2>
-<ul><li><a href="04-model-evaluation.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
+<ul><li><a href="03-distance.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
 </div></nav>
 </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/03-generalities.html">03 - Généralités</a></li>
-<li class="breadcrumb-item"><a href="../../contents/generalities/04-model-evaluation.html">Evaluation de modeles</a></li>
+<li class="breadcrumb-item"><a href="../../contents/generalities/03-distance.html">Distances</a></li>
 </ol></nav><div class="quarto-title">
-<h1 class="title">Evaluation de modeles</h1>
+<h1 class="title">Distances</h1>
 </div>
 
 
@@ -637,89 +630,72 @@ window.Quarto = {
   
 
 
-</header><p>Pourquoi mesurer l’erreur d’un modèle ?</p>
-<ul>
-<li><p>Choisir le meilleur modèle.</p></li>
-<li><p>Avoir une idée de la confiance qu’on peut accorder à notre modèle.</p></li>
-</ul>
-<section id="validation-croisée" class="level2"><h2 class="anchored" data-anchor-id="validation-croisée">Validation croisée</h2>
+</header><section id="introduction" class="level2"><h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>On a besoin d’une notion de distance et de similarité. On a besoin d’une définition de ce que sont des observations similaires ou des observations différentes. On veut quantifier la similarité ou la distance entre deux observations. Le choix de la métrique est une étape essentielle dans le processus d’analyse de données.</p>
+</section><section id="notion-de-distance" class="level2"><h2 class="anchored" data-anchor-id="notion-de-distance">Notion de distance</h2>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Définition de distance
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Une mesure de distance <span class="math inline">\(d\)</span> doit satisfaire les propriétés suivantes pour tout <span class="math inline">\(x, y, z \in A\)</span>, <span class="math inline">\(A\)</span> étant un ensemble quelconque:</p>
 <ol type="1">
-<li><p>On sépare l’échantillon en <span class="math inline">\(K\)</span> plus de faon aléatoire.</p></li>
-<li><p>Pour <span class="math inline">\(k\)</span> allant de <span class="math inline">\(1\)</span> à <span class="math inline">\(K\)</span>:</p></li>
+<li><p><span class="math inline">\(d(x, y) \geq 0\)</span>;</p></li>
+<li><p><span class="math inline">\(d(x, x) = 0\)</span>;</p></li>
+<li><p><span class="math inline">\(d(x, y) = d(y, x)\)</span>;</p></li>
+<li><p><span class="math inline">\(d(x, y) \leq d(x, z) + d(y, z)\)</span>.</p></li>
 </ol>
-<ol type="i">
-<li><p>On estime <span class="math inline">\(\widehat{f}(k)\)</span> en utilisant uniquement les observations qui ne sont pas dans <span class="math inline">\(k\)</span>.</p></li>
-<li><p>On prédit <span class="math inline">\(\widehat{Y}(k) = \widehat{f}(k)(X(k))\)</span>.</p></li>
-<li><p>On calcule <span class="math inline">\(CV(k) = \frac{1}{N_k} \sum_{i = 1}^{N_k} L(Y(k), \widehat{Y}(k))\)</span>.</p></li>
-</ol>
-<ol start="3" type="1">
-<li><p>On calcule la moyenne <span class="math inline">\(CV = \frac{1}{K} \sum_{k = 1}^{K} CV(k)\)</span>.</p></li>
-<li><p>On répète 1 à 3 pour tous les modèles et on choisit le modèle ont la valeur de CV est la plus basse.</p></li>
-</ol></section><section id="cas-dun-réponse-binaire" class="level2"><h2 class="anchored" data-anchor-id="cas-dun-réponse-binaire">Cas d’un réponse binaire</h2>
-<p>Dams le cas où il n’existe que deux groupes dans la population, la matrice de confusion est de la forme suivante:</p>
-<table class="caption-top table">
-<thead><tr class="header">
-<th></th>
-<th>Positif</th>
-<th>Négatif</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td>Positif</td>
-<td>Vrais positifs (VP)</td>
-<td>Faux négatif (FN)</td>
-</tr>
-<tr class="even">
-<td>Négatif</td>
-<td>Faux positifs (FP)</td>
-<td>Vrais négatif (VN)</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>Sensibilité (sensitivity, rappel, recall, hit rate)</li>
-</ul>
-<p>Probailité qu’un individu qui appartient au groupe positif soit classé dans le groupe positifs: <span class="math display">\[\frac{VP}{VP + FN}.\]</span></p>
-<ul>
-<li>Spécifité (specificity)</li>
-</ul>
-<p>Probailité qu’un individu qui appartient au groupe négatif soit classé dans le groupe négatif: <span class="math display">\[\frac{VN}{VN + FP}.\]</span></p>
-<ul>
-<li><p>Précision <span class="math display">\[\frac{VP}{VP + FP}.\]</span></p></li>
-<li><p>Accuracy <span class="math display">\[\frac{VP + VN}{VP + VN + FP + FN}.\]</span></p></li>
-<li><p>Score <span class="math inline">\(F_{1}\)</span>: moyenne harmonique de précision et de sensibilité <span class="math display">\[F_{1} = 2 \times \frac{précision \times sensibilité}{précision + sensibilité} = \frac{2 VP}{VP + FP + FN}.\]</span></p></li>
-</ul>
-<p>En practique, la situation typique va comme suit:</p>
-<ul>
-<li><p>On a partagé notre jeu de données en eju d’entrainment et en jeu de validation.</p></li>
-<li><p>On a appliqué <span class="math inline">\(M\)</span> méthodes de classification au jeu d’entrainement.</p></li>
-<li><p>On aimerait utiliser les données de validation pour choisir la meilleure des <span class="math inline">\(M\)</span> méthodes.</p></li>
-</ul>
-<p>On cherche donc à se doter d’outils qui permettent de mesurer la performance de méthodes de classification.</p>
-<section id="mesure-triviale" class="level3"><h3 class="anchored" data-anchor-id="mesure-triviale">Mesure triviale</h3>
-<p>La première étape consiste à comparer le taux de bonnes classification (accuracy) des données de validation obtenu avec chacune des méthodes. On peut faire la même chose avec le score <span class="math inline">\(F_{1}\)</span>.</p>
-</section><section id="sensibilité-et-spécifité" class="level3"><h3 class="anchored" data-anchor-id="sensibilité-et-spécifité">Sensibilité et spécifité</h3>
-<p>Supposons une classe que nous voulons plus particulièrement identifier, que nous appelons des obbservations positives et on traite toues les autres observations comme si elles étaient dans la même classe, soit les observations négatives.</p>
-<p>La sensibilité est le ratio entre le nombre de vrais positifs classé positifs et le nombre de vrais positifs. La spécifité est le ratio entre le nombre de vrais négatifs classé négatifs et le nombre de vrais négatifs.</p>
-<p>Notons que si on est prêt à vivre avec une spécifité de <span class="math inline">\(0\%\)</span>, on peut toujours avoir une sensibilité de <span class="math inline">\(100\%\)</span> et si on est prêt à vivre avec une sensibilité de <span class="math inline">\(0\%\)</span>, on peut toujours avoir une spécifité de <span class="math inline">\(100\%\)</span>. Si la proportion de négatifs est très élevé, par exemple <span class="math inline">\(99.9\%\)</span>, alors une méthode qui classifie <span class="math inline">\(100\%\)</span> des observations dans la classe négative aura un taux de bonnes classifications de <span class="math inline">\(99.9\%\)</span>. Mais clairement, cette méthode ne nous sera pas très utile si notre but est d’identifier les cas positifs.</p>
-<p>On peut exploiter l’estimation d’une probabilité. Les méthodes de classification donnent souvent la probabilité qu’une observation appartienne à une classe, pas uniquement une prévision de la classe elle-même. Une meilleure mesure de la performance de la méthode serait de voir si ces probabilité sont réalistes.</p>
-</section><section id="la-courbe-roc" class="level3"><h3 class="anchored" data-anchor-id="la-courbe-roc">La courbe ROC</h3>
-<p>La courbe ROC (Receiver Operating Characteristic) peut être vue comme une variation de la courbe de gain.</p>
+</div>
+</div>
+<p>La distance euclidienne:</p>
+<p>Si les observations sont constituées de <span class="math inline">\(p\)</span> nombres réels de même ordre de grandeur, alors la distance euclidienne entre deux éléments de <span class="math inline">\(\mathbb{R}^p\)</span> est une mesure raisonnable.</p>
+<p>Soit <span class="math inline">\(x, y \in \mathbb{R}^n\)</span>, la distance euclidienne est données par : <span class="math display">\[d(x, y) = \left\| x - y \right\|_2 = \left( \sum_{i = 1}^{n} (x_i - y_i)^2 \right)^{1/2}.\]</span></p>
+<p>Que fait-on dans d’autres cas ? Plusieurs mesures ont été développées pour leur application particulière. Voici les plus classiques.</p>
+<p>Une distance est peu plus générale que la distance euclidienne est la distance <span class="math inline">\(L_p\)</span>. Soit <span class="math inline">\(x, y \in \mathbb{R}^n\)</span>, la distance <span class="math inline">\(L_p\)</span> est donnée, pour <span class="math inline">\(p &gt; 0\)</span>, par : <span class="math display">\[d(x, y) = \left\| x - y \right\|_p = \left( \sum_{i = 1}^{n} |x_i - y_i|^p \right)^{1 /p} .\]</span></p>
+<p>La distance euclidienne correspond à la distance <span class="math inline">\(L_p\)</span> avec <span class="math inline">\(p = 2\)</span>. Cas particulier avec <span class="math inline">\(p = 1\)</span>, distance de Manhattan:</p>
+<p><span class="math display">\[d(x, y) = \left\| x - y \right\|_1 = \sum_{i = 1}^{n} | x_i - y_i |.\]</span></p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Properties
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La distance <span class="math inline">\(L_p\)</span> n’est pas invariante à un changement d’échelle, <em>i.e.</em>, <span class="math inline">\(L_p(x, y) \neq L_p(\lambda x, \lambda y)\)</span>.</p>
+</div>
+</div>
+<p>Standardisation</p>
+</section><section id="notion-de-similarité" class="level2"><h2 class="anchored" data-anchor-id="notion-de-similarité">Notion de similarité</h2>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Définition d’un indice de similarité
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un indice de similarité <span class="math inline">\(s\)</span> doit satisfaire les propriétés suivantes pour tout <span class="math inline">\(x, y \in A\)</span>, <span class="math inline">\(A\)</span> étant un ensemble quelconque:</p>
 <ol type="1">
-<li><p>Soit <span class="math inline">\(p^{(2)}_i\)</span>, la probabilité que l’observation <span class="math inline">\(i\)</span> appartienne à la classe <span class="math inline">\(2\)</span> selon notre modèle.</p></li>
-<li><p>On choisit une valeur de <span class="math inline">\(u \in [0, 1]\)</span> et on prédit que l’observation <span class="math inline">\(i\)</span> appartient à la classe <span class="math inline">\(2\)</span> si <span class="math inline">\(p^{(2)}_i \geq u\)</span> et à la classe <span class="math inline">\(1\)</span> sinon.</p></li>
-<li><p>On répète l’étape <span class="math inline">\(2\)</span> pour <span class="math inline">\(i = 1, \dots, n\)</span> et on calcule la sensibilité <span class="math inline">\(SEN(u)\)</span> et la spécifité <span class="math inline">\(SPE(U)\)</span> ainsi obtenu.</p></li>
-<li><p>On répète les étapes <span class="math inline">\(2\)</span> et <span class="math inline">\(3\)</span> pour tous les <span class="math inline">\(u \in [0, 1]\)</span>, on place les paires <span class="math inline">\((1 - SPE(u), SEN(u))\)</span> sur un graphique et on lie les points part des segments.</p></li>
+<li><p><span class="math inline">\(s(x, y) \geq 0\)</span>;</p></li>
+<li><p><span class="math inline">\(s(x, y) = s(y, x)\)</span>;</p></li>
+<li><p><span class="math inline">\(s(x, x) = 1 \geq s(x, y)\)</span>.</p></li>
 </ol>
-<p>Interprétation:</p>
-<ol type="1">
-<li><p>Elle part du point <span class="math inline">\((0, 0)\)</span> et finit au point <span class="math inline">\((1, 1)\)</span>.</p></li>
-<li><p>Si on classifie les points au hasard, on obtiendra une ligne droite à <span class="math inline">\(45\)</span> degrés.</p></li>
-<li><p>Une mesure unique du pouvoir prédictif est l’aire sous la courbe ROC (AUC, Area Under the Curve). Une AUC de 0.5 est ce que l’on espère en classifiant au hasard, et plus on s’approche de <span class="math inline">\(1\)</span>, meilleure est la méthode.</p></li>
-</ol></section><section id="example" class="level3"><h3 class="anchored" data-anchor-id="example">Example</h3>
+</div>
+</div>
+<p>Une distance peut se transformer en similarité en posant <span class="math inline">\(s(x, y) = \frac{1}{1 + d(x, y)}\)</span>. L’inverse n’est pas vrai, dû à l’inégalité triangulaire. On peut aussi définir la dissemblance entre deux objects: <span class="math inline">\(d^\star(x, y) = 1 - s(x, y)\)</span>.</p>
 
 
-</section></section></main><!-- /main --><script>
+</section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -1341,13 +1317,13 @@ window.onload = function() {
     }
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../../contents/generalities/03-bias-variance.html" class="pagination-link" aria-label="Biais/Variance">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Biais/Variance</span>
+      <a href="../../contents/generalities/02-spaces.html" class="pagination-link" aria-label="Espace">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Espace</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../contents/04-dimension.html" class="pagination-link" aria-label="04 - Dimension">
-        <span class="nav-page-text">04 - Dimension</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../contents/generalities/04-bias-variance.html" class="pagination-link" aria-label="Biais/Variance">
+        <span class="nav-page-text">Biais/Variance</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1360,7 +1336,7 @@ window.onload = function() {
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
 <div class="toc-actions d-sm-block d-md-none"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
-<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/generalities/04-model-evaluation.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/generalities/03-distance.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
 </ul></div>
 </div>
     <div class="nav-footer-right">

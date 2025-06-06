@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
 <head>
-<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/contents/remainders/03-stat.html" />
-<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/contents/remainders/03-stat.en.html" />
+<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/contents/generalities/05-model-evaluation.html" />
+<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/contents/generalities/05-model-evaluation.en.html" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.31">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Projet d’analyse de données – STT-2200: Analyse de données</title>
+<title>Evaluation de modeles – STT-2200: Analyse de données</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,30 +20,10 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script><script src="../../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../../site_libs/quarto-search/fuse.min.js"></script><script src="../../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../../">
-<link href="../../contents/remainders/04-programming.html" rel="next">
-<link href="../../contents/remainders/02-probabilities.html" rel="prev">
+<link href="../../contents/04-dimension.html" rel="next">
+<link href="../../contents/generalities/04-bias-variance.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script><script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../../site_libs/quarto-html/popper.min.js"></script><script src="../../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../../site_libs/quarto-html/anchor.min.js"></script><link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
@@ -104,7 +84,7 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script><meta property="og:title" content="Projet d’analyse de données – STT-2200: Analyse de données">
+</script><meta property="og:title" content="Evaluation de modeles – STT-2200: Analyse de données">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
@@ -278,8 +258,8 @@ window.Quarto = {
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
-<li class="breadcrumb-item"><a href="../../contents/02-revisions.html">02 - Révisions</a></li>
-<li class="breadcrumb-item"><a href="../../contents/remainders/03-stat.html">Projet d’analyse de données</a></li>
+<li class="breadcrumb-item"><a href="../../contents/03-generalities.html">03 - Généralités</a></li>
+<li class="breadcrumb-item"><a href="../../contents/generalities/05-model-evaluation.html">Evaluation de modeles</a></li>
 </ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
@@ -302,7 +282,7 @@ window.Quarto = {
         </div>
         </div>
     <div class="dropdown" id="languages-links-parent">
-<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Français</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="https://stt2200.netlify.app/en/contents/remainders/03-stat.html" id="language-link-en">English</a></li></ul>
+<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Français</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="https://stt2200.netlify.app/en/contents/generalities/05-model-evaluation.html" id="language-link-en">English</a></li></ul>
 </div>
 <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
@@ -377,11 +357,11 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../contents/02-revisions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">02 - Révisions</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="" class="collapse list-unstyled sidebar-section depth2 show">
+      <ul id="" class="collapse list-unstyled sidebar-section depth2 ">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/remainders/01-linear-algebra.html" class="sidebar-item-text sidebar-link">
@@ -396,14 +376,8 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/remainders/03-stat.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Projet d’analyse de données</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../contents/remainders/04-programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Programming</span></a>
+  <a href="../../contents/remainders/03-programming.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Programmation</span></a>
   </div>
 </li>
       </ul>
@@ -412,32 +386,38 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../contents/03-generalities.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">03 - Généralités</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="" class="collapse list-unstyled sidebar-section depth2 ">
+      <ul id="" class="collapse list-unstyled sidebar-section depth2 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/generalities/01-spaces.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/generalities/01-stat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Projet d’analyse de données</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/generalities/02-spaces.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Espace</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/generalities/02-distance.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/generalities/03-distance.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Distances</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/generalities/03-bias-variance.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/generalities/04-bias-variance.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Biais/Variance</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/generalities/04-model-evaluation.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contents/generalities/05-model-evaluation.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Evaluation de modeles</span></a>
   </div>
 </li>
@@ -617,30 +597,33 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-<li>
-<a href="#projet-danalyse-donn%C3%A9es" id="toc-projet-danalyse-données" class="nav-link active" data-scroll-target="#projet-danalyse-données">Projet d’analyse données</a>
+<li><a href="#validation-crois%C3%A9e" id="toc-validation-croisée" class="nav-link active" data-scroll-target="#validation-croisée">Validation croisée</a></li>
+  <li>
+<a href="#cas-dun-r%C3%A9ponse-binaire" id="toc-cas-dun-réponse-binaire" class="nav-link" data-scroll-target="#cas-dun-réponse-binaire">Cas d’un réponse binaire</a>
   <ul class="collapse">
-<li><a href="#d%C3%A9finition-des-objectifs" id="toc-définition-des-objectifs" class="nav-link" data-scroll-target="#définition-des-objectifs">Définition des objectifs</a></li>
-  <li><a href="#donn%C3%A9es" id="toc-données" class="nav-link" data-scroll-target="#données">Données</a></li>
+<li><a href="#mesure-triviale" id="toc-mesure-triviale" class="nav-link" data-scroll-target="#mesure-triviale">Mesure triviale</a></li>
+  <li><a href="#sensibilit%C3%A9-et-sp%C3%A9cifit%C3%A9" id="toc-sensibilité-et-spécifité" class="nav-link" data-scroll-target="#sensibilité-et-spécifité">Sensibilité et spécifité</a></li>
+  <li><a href="#la-courbe-roc" id="toc-la-courbe-roc" class="nav-link" data-scroll-target="#la-courbe-roc">La courbe ROC</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
   </ul>
 </li>
   </ul>
 <div class="toc-actions"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
-<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/remainders/03-stat.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/generalities/05-model-evaluation.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
 </ul></div>
 <div class="quarto-alternate-formats">
 <h2>Autres formats</h2>
-<ul><li><a href="03-stat.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
+<ul><li><a href="05-model-evaluation.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
 </div></nav>
 </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
-<li class="breadcrumb-item"><a href="../../contents/02-revisions.html">02 - Révisions</a></li>
-<li class="breadcrumb-item"><a href="../../contents/remainders/03-stat.html">Projet d’analyse de données</a></li>
+<li class="breadcrumb-item"><a href="../../contents/03-generalities.html">03 - Généralités</a></li>
+<li class="breadcrumb-item"><a href="../../contents/generalities/05-model-evaluation.html">Evaluation de modeles</a></li>
 </ol></nav><div class="quarto-title">
-<h1 class="title">Projet d’analyse de données</h1>
+<h1 class="title">Evaluation de modeles</h1>
 </div>
 
 
@@ -654,116 +637,89 @@ window.Quarto = {
   
 
 
-</header><p>Dans cette partie, on présente les différentes étapes d’un projet d’analyse de données.</p>
-<section id="projet-danalyse-données" class="level2"><h2 class="anchored" data-anchor-id="projet-danalyse-données">Projet d’analyse données</h2>
-<p>Un projet d’analyse de données peut se découper en cinq grandes étapes:</p>
+</header><p>Pourquoi mesurer l’erreur d’un modèle ?</p>
+<ul>
+<li><p>Choisir le meilleur modèle.</p></li>
+<li><p>Avoir une idée de la confiance qu’on peut accorder à notre modèle.</p></li>
+</ul>
+<section id="validation-croisée" class="level2"><h2 class="anchored" data-anchor-id="validation-croisée">Validation croisée</h2>
 <ol type="1">
-<li><p>Définition des objectifs</p></li>
-<li><p>Données</p></li>
-<li><p>Élaboration et validation des modèles</p></li>
-<li><p>Mise en oeuvre</p></li>
-<li><p>Suivi de la performance et amélioration</p></li>
+<li><p>On sépare l’échantillon en <span class="math inline">\(K\)</span> plus de faon aléatoire.</p></li>
+<li><p>Pour <span class="math inline">\(k\)</span> allant de <span class="math inline">\(1\)</span> à <span class="math inline">\(K\)</span>:</p></li>
 </ol>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Remarque
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Dans ce cours, on s’intéressera principalement à l’élaboration et à la validation de modèles.</p>
-</div>
-</div>
-<p>Lors de la planification d’un projet, il faut prendre en compte que chaque étape à une importance différente, mais aussi que chacune ne prend pas le même temps d’exécution. <span class="citation" data-cites="pyleDataPreparationData1999">Pyle (<a href="#ref-pyleDataPreparationData1999" role="doc-biblioref">1999</a>)</span> donne une estimation du temps de chaque étape, ainsi que de leur importance dans la réussite du projet (donné en pourcentage du total).</p>
+<ol type="i">
+<li><p>On estime <span class="math inline">\(\widehat{f}(k)\)</span> en utilisant uniquement les observations qui ne sont pas dans <span class="math inline">\(k\)</span>.</p></li>
+<li><p>On prédit <span class="math inline">\(\widehat{Y}(k) = \widehat{f}(k)(X(k))\)</span>.</p></li>
+<li><p>On calcule <span class="math inline">\(CV(k) = \frac{1}{N_k} \sum_{i = 1}^{N_k} L(Y(k), \widehat{Y}(k))\)</span>.</p></li>
+</ol>
+<ol start="3" type="1">
+<li><p>On calcule la moyenne <span class="math inline">\(CV = \frac{1}{K} \sum_{k = 1}^{K} CV(k)\)</span>.</p></li>
+<li><p>On répète 1 à 3 pour tous les modèles et on choisit le modèle ont la valeur de CV est la plus basse.</p></li>
+</ol></section><section id="cas-dun-réponse-binaire" class="level2"><h2 class="anchored" data-anchor-id="cas-dun-réponse-binaire">Cas d’un réponse binaire</h2>
+<p>Dams le cas où il n’existe que deux groupes dans la population, la matrice de confusion est de la forme suivante:</p>
 <table class="caption-top table">
 <thead><tr class="header">
-<th style="text-align: left;">Étape</th>
-<th style="text-align: center;">Temps</th>
-<th style="text-align: center;">Importance</th>
+<th></th>
+<th>Positif</th>
+<th>Négatif</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Comprendre le problème</td>
-<td style="text-align: center;"><span class="math inline">\(10/%\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(15/%\)</span></td>
+<td>Positif</td>
+<td>Vrais positifs (VP)</td>
+<td>Faux négatif (FN)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Explorer la solution</td>
-<td style="text-align: center;"><span class="math inline">\(9/%\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(14/%\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Implementer la solution</td>
-<td style="text-align: center;"><span class="math inline">\(1/%\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(51/%\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Préparer les données</td>
-<td style="text-align: center;"><span class="math inline">\(60/%\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(15/%\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Analyser les données</td>
-<td style="text-align: center;"><span class="math inline">\(15/%\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(3/%\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Modéliser les données</td>
-<td style="text-align: center;"><span class="math inline">\(5/%\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(2/%\)</span></td>
+<td>Négatif</td>
+<td>Faux positifs (FP)</td>
+<td>Vrais négatif (VN)</td>
 </tr>
 </tbody>
 </table>
-<p>On remarque deux faits importants: ce n’est pas parce qu’une étape est très importante qu’elle va prendre beaucoup de temps. L’implémentation de la solution est très importante (sinon il n’y a pas de résultat), mais ne sera généralement pas très longue à faire (possiblement en quelques lignes de code). À l’inverse, la préparation des données est un étape d’importance moyenne (encore que c’est discutable), mais elle prend la majeur partie du temps du projet. En effet, il faut, par exemple, gérer les données manquantes, les données aberrantes, les éventuels accents pour des données en français, etc.</p>
-<section id="définition-des-objectifs" class="level3"><h3 class="anchored" data-anchor-id="définition-des-objectifs">Définition des objectifs</h3>
-<p>Est-ce que l’on veut: visualiser les données ? explorer et émettre des hypothèses? tester? regrouper? comprendre? prédire?</p>
-<p>Comment fait-on en pratique ? On pose des questions ! Tout d’abord, il faut clarifier les termes. Qui va utiliser le modèle et comment ? Quelle est la population cible ?</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Examples
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<ul>
+<li>Sensibilité (sensitivity, rappel, recall, hit rate)</li>
+</ul>
+<p>Probailité qu’un individu qui appartient au groupe positif soit classé dans le groupe positifs: <span class="math display">\[\frac{VP}{VP + FN}.\]</span></p>
+<ul>
+<li>Spécifité (specificity)</li>
+</ul>
+<p>Probailité qu’un individu qui appartient au groupe négatif soit classé dans le groupe négatif: <span class="math display">\[\frac{VN}{VN + FP}.\]</span></p>
+<ul>
+<li><p>Précision <span class="math display">\[\frac{VP}{VP + FP}.\]</span></p></li>
+<li><p>Accuracy <span class="math display">\[\frac{VP + VN}{VP + VN + FP + FN}.\]</span></p></li>
+<li><p>Score <span class="math inline">\(F_{1}\)</span>: moyenne harmonique de précision et de sensibilité <span class="math display">\[F_{1} = 2 \times \frac{précision \times sensibilité}{précision + sensibilité} = \frac{2 VP}{VP + FP + FN}.\]</span></p></li>
+</ul>
+<p>En practique, la situation typique va comme suit:</p>
+<ul>
+<li><p>On a partagé notre jeu de données en eju d’entrainment et en jeu de validation.</p></li>
+<li><p>On a appliqué <span class="math inline">\(M\)</span> méthodes de classification au jeu d’entrainement.</p></li>
+<li><p>On aimerait utiliser les données de validation pour choisir la meilleure des <span class="math inline">\(M\)</span> méthodes.</p></li>
+</ul>
+<p>On cherche donc à se doter d’outils qui permettent de mesurer la performance de méthodes de classification.</p>
+<section id="mesure-triviale" class="level3"><h3 class="anchored" data-anchor-id="mesure-triviale">Mesure triviale</h3>
+<p>La première étape consiste à comparer le taux de bonnes classification (accuracy) des données de validation obtenu avec chacune des méthodes. On peut faire la même chose avec le score <span class="math inline">\(F_{1}\)</span>.</p>
+</section><section id="sensibilité-et-spécifité" class="level3"><h3 class="anchored" data-anchor-id="sensibilité-et-spécifité">Sensibilité et spécifité</h3>
+<p>Supposons une classe que nous voulons plus particulièrement identifier, que nous appelons des obbservations positives et on traite toues les autres observations comme si elles étaient dans la même classe, soit les observations négatives.</p>
+<p>La sensibilité est le ratio entre le nombre de vrais positifs classé positifs et le nombre de vrais positifs. La spécifité est le ratio entre le nombre de vrais négatifs classé négatifs et le nombre de vrais négatifs.</p>
+<p>Notons que si on est prêt à vivre avec une spécifité de <span class="math inline">\(0\%\)</span>, on peut toujours avoir une sensibilité de <span class="math inline">\(100\%\)</span> et si on est prêt à vivre avec une sensibilité de <span class="math inline">\(0\%\)</span>, on peut toujours avoir une spécifité de <span class="math inline">\(100\%\)</span>. Si la proportion de négatifs est très élevé, par exemple <span class="math inline">\(99.9\%\)</span>, alors une méthode qui classifie <span class="math inline">\(100\%\)</span> des observations dans la classe négative aura un taux de bonnes classifications de <span class="math inline">\(99.9\%\)</span>. Mais clairement, cette méthode ne nous sera pas très utile si notre but est d’identifier les cas positifs.</p>
+<p>On peut exploiter l’estimation d’une probabilité. Les méthodes de classification donnent souvent la probabilité qu’une observation appartienne à une classe, pas uniquement une prévision de la classe elle-même. Une meilleure mesure de la performance de la méthode serait de voir si ces probabilité sont réalistes.</p>
+</section><section id="la-courbe-roc" class="level3"><h3 class="anchored" data-anchor-id="la-courbe-roc">La courbe ROC</h3>
+<p>La courbe ROC (Receiver Operating Characteristic) peut être vue comme une variation de la courbe de gain.</p>
 <ol type="1">
-<li><p>La Banque National du Canada veut lancer un nouveau produit d’épargne et souhaite mieux connaître ses clients pour prédire s’ils veulent l’acheter.</p></li>
-<li><p>L’équipe de hockey des Canadiens de Montréal souhaite mieux connaître ses adversaires pour développer des nouvelles tactiques de jeu.</p></li>
-<li><p>Pharmascience souhaite savoir si son nouveau médicament est efficace.</p></li>
+<li><p>Soit <span class="math inline">\(p^{(2)}_i\)</span>, la probabilité que l’observation <span class="math inline">\(i\)</span> appartienne à la classe <span class="math inline">\(2\)</span> selon notre modèle.</p></li>
+<li><p>On choisit une valeur de <span class="math inline">\(u \in [0, 1]\)</span> et on prédit que l’observation <span class="math inline">\(i\)</span> appartient à la classe <span class="math inline">\(2\)</span> si <span class="math inline">\(p^{(2)}_i \geq u\)</span> et à la classe <span class="math inline">\(1\)</span> sinon.</p></li>
+<li><p>On répète l’étape <span class="math inline">\(2\)</span> pour <span class="math inline">\(i = 1, \dots, n\)</span> et on calcule la sensibilité <span class="math inline">\(SEN(u)\)</span> et la spécifité <span class="math inline">\(SPE(U)\)</span> ainsi obtenu.</p></li>
+<li><p>On répète les étapes <span class="math inline">\(2\)</span> et <span class="math inline">\(3\)</span> pour tous les <span class="math inline">\(u \in [0, 1]\)</span>, on place les paires <span class="math inline">\((1 - SPE(u), SEN(u))\)</span> sur un graphique et on lie les points part des segments.</p></li>
 </ol>
-</div>
-</div>
-</section><section id="données" class="level3"><h3 class="anchored" data-anchor-id="données">Données</h3>
-<ul>
-<li><p>Inventaire et qualité</p></li>
-<li><p>Constitution de la base de données</p></li>
-<li><p>Exploration et traitement préliminaire</p></li>
-</ul>
-<p>Qu’est-ce que l’on veut dire par qualité des données ?</p>
-<ul>
-<li><p>Est-ce que les données sont représentatives de la population cible ?</p></li>
-<li><p>Est-ce que les données permetternt de tirer des conclusions de causalité ?</p></li>
-<li><p>Est-ce que les données sont fiables ?</p></li>
-</ul>
-<p>Source de données:</p>
-<p>Quelques liens pour récupérer des données.</p>
-<p>Nettoyage de données: cf R (importation, nettoyage, tidyverse, types de variables, retirer les doublons, uniformiser les modalités, vérifier le format des valeurs spéciales, pivot, opérateur pipe, jointure).</p>
-<p>Exploration des données: modalités rares, modalités trop nombreuses, asymétrie, débalancement des classes, valeurs extrêmes ou aberrantes, variables fortement corrélées, valeurs manquantes.</p>
-<p>Statistiques descriptives</p>
+<p>Interprétation:</p>
+<ol type="1">
+<li><p>Elle part du point <span class="math inline">\((0, 0)\)</span> et finit au point <span class="math inline">\((1, 1)\)</span>.</p></li>
+<li><p>Si on classifie les points au hasard, on obtiendra une ligne droite à <span class="math inline">\(45\)</span> degrés.</p></li>
+<li><p>Une mesure unique du pouvoir prédictif est l’aire sous la courbe ROC (AUC, Area Under the Curve). Une AUC de 0.5 est ce que l’on espère en classifiant au hasard, et plus on s’approche de <span class="math inline">\(1\)</span>, meilleure est la méthode.</p></li>
+</ol></section><section id="example" class="level3"><h3 class="anchored" data-anchor-id="example">Example</h3>
 
 
-
-</section></section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Les références</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-pyleDataPreparationData1999" class="csl-entry" role="listitem">
-Pyle, Dorian. 1999. <em>Data <span>Preparation</span> for <span>Data Mining</span></em>. Morgan Kaufmann.
-</div>
-</div></section></div></main><!-- /main --><script>
+</section></section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -1385,13 +1341,13 @@ window.onload = function() {
     }
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../../contents/remainders/02-probabilities.html" class="pagination-link" aria-label="Probabilités et Statistiques">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Probabilités et Statistiques</span>
+      <a href="../../contents/generalities/04-bias-variance.html" class="pagination-link" aria-label="Biais/Variance">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Biais/Variance</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../contents/remainders/04-programming.html" class="pagination-link" aria-label="Programming">
-        <span class="nav-page-text">Programming</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../contents/04-dimension.html" class="pagination-link" aria-label="04 - Dimension">
+        <span class="nav-page-text">04 - Dimension</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1404,7 +1360,7 @@ window.onload = function() {
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
 <div class="toc-actions d-sm-block d-md-none"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
-<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/remainders/03-stat.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/generalities/05-model-evaluation.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
 </ul></div>
 </div>
     <div class="nav-footer-right">
