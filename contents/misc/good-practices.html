@@ -625,7 +625,7 @@ window.Quarto = {
   <li><a href="#objectif-1-produire-les-résultats-escomptés" id="toc-objectif-1-produire-les-résultats-escomptés" class="nav-link active" data-scroll-target="#objectif-1-produire-les-résultats-escomptés">Objectif 1 : Produire les résultats escomptés</a></li>
   <li><a href="#objectif-2-code-facile-à-maintenir" id="toc-objectif-2-code-facile-à-maintenir" class="nav-link" data-scroll-target="#objectif-2-code-facile-à-maintenir">Objectif 2 : Code facile à maintenir</a></li>
   <li><a href="#objectif-3-code-suffisamment-rapide" id="toc-objectif-3-code-suffisamment-rapide" class="nav-link" data-scroll-target="#objectif-3-code-suffisamment-rapide">Objectif 3 : Code suffisamment rapide</a></li>
-  <li><a href="#résumer" id="toc-résumer" class="nav-link" data-scroll-target="#résumer">Résumer</a></li>
+  <li><a href="#résumé" id="toc-résumé" class="nav-link" data-scroll-target="#résumé">Résumé</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/misc/good-practices.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="good-practices.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -667,6 +667,9 @@ window.Quarto = {
 <section id="objectif-2-code-facile-à-maintenir" class="level2">
 <h2 class="anchored" data-anchor-id="objectif-2-code-facile-à-maintenir">Objectif 2 : Code facile à maintenir</h2>
 <p>Maintenir un code informatique signifie de s’assurer qu’il continue de fonctionner correctement dans le futur, malgré les modifications qui lui sont apportées. Un code utilisé fréquemment est un code appelé à être mis à jour, soit pour y ajouter des fonctionnalités, soit pour corriger des bogues non détectés par les tests, mais découverts par des utilisateurs. Reprendre un code écrit par quelqu’un d’autre, ou écrit par nous-mêmes quelques mois auparavant, n’est pas toujours une tâche facile. Cependant, s’il s’agit d’un code correctement écrit, il ne devrait pas être trop difficile à comprendre et à modifier.</p>
+<p>La maintenance d’un code est basé sur trois principes: son versionnage, sa compréhensibilité et sa réutilisabilité.</p>
+<p>Le principe du versionnage est d’utiliser un logiciel qui enregistre les différentes modifications faites sur le code. Le plus connu est <strong>Git</strong>. Il permet de naviguer entre les différentes versions de votre code, de créer plusieurs versions (appelée branches), de collaborer à plusieurs sur un même code. C’est vraiment un indispensable à avoir dans sa panoplie. Le versionnage peut ensuite être enregistré sur Github qui gère la machinerie sous-jacente. À titre d’exemple, ce site utilise Git et Github pour son versionnage et vous pouvez voir les différentes versions <a href="https://github.com/StevenGolovkine/UL-STT2200/commits/main/">ici</a>.</p>
+<p>Un code compréhensible est clair et se lit bien (presque comme du texte). Il comporte souvent des instructions qui parlent d’elles-mêmes. Ces instructions sont typiquement succinctes, car une instruction trop longue effectue souvent plusieurs tâches difficilement discernables. Si la lecture d’une instruction ne permet pas à un programmeur initié dans le langage informatique employé de comprendre ce qu’elle réalise, il est alors recommandé d’insérer un commentaire dans le code pour expliquer à quoi sert l’instruction. En plus de commentaires pour expliquer certains instructions, toutes fonctions devraient être documentées. La documentation d’une fonction devrait contenir: un texte explicatif de ce que fait la fonction, une description des arguments acceptés en entrée, une description des résultats produits et un exemple d’utilisation. Lorsque que l’on programme, il est aussi de bon ton de suivre un <strong>guide de style</strong>. Un guide de style est un ensemble de règles sur lesquelles les développeurs se sont mis d’accord et qui permet d’avoir une syntaxe similaire à travers les différents projets. En R, vous pouvez utiliser le guide de style du <a href="https://style.tidyverse.org">tidyverse</a>. En Python, vous pouvez utiliser le guide de style <a href="https://peps.python.org/pep-0008/">PEP8</a> écrit par le créateur de Python. Et en Julia, vous pouvez utiliser le guide de style fournit avec le <a href="https://docs.julialang.org/en/v1/manual/style-guide/">manuel du langage</a>. Vous pouvez utiliser un <strong>linter</strong>, un outil d’analyse de code statique pour vous aidez à respecter ces guides de styles. À noter que ces guides de style sont des récommendations et il n’y a rien d’obligatoire à les suivre. Certaines règles se contredisant, je vous recommanderai même de ne pas en suivre certaines.</p>
 </section>
 <section id="objectif-3-code-suffisamment-rapide" class="level2">
 <h2 class="anchored" data-anchor-id="objectif-3-code-suffisamment-rapide">Objectif 3 : Code suffisamment rapide</h2>
@@ -678,8 +681,8 @@ window.Quarto = {
 <li>parfois programmer des bouts de code dans un autre langage plus bas niveau.</li>
 </ul>
 </section>
-<section id="résumer" class="level2">
-<h2 class="anchored" data-anchor-id="résumer">Résumer</h2>
+<section id="résumé" class="level2">
+<h2 class="anchored" data-anchor-id="résumé">Résumé</h2>
 <p>En résumer, pour adopter de bonnes pratiques de programmation, il faut :</p>
 <ul>
 <li><p><strong>Tester</strong> son code fréquemment son code.</p></li>
