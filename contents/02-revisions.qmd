@@ -20,9 +20,7 @@ format:
 
 2. [Probabilités et statistiques](./remainders/02-probabilities.qmd)
 
-3. [Projet d'analyse de données](./remainders/03-stat.qmd)
-
-4. [Algorithmique / Programmation](./remainders/04-programming.qmd)
+3. [Algorithmique / Programmation](./remainders/03-programming.qmd)
 
 
 ![Prediction ([xkcd:2370](https://xkcd.com/2370/)).](../include/prediction.png)

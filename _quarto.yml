@@ -63,15 +63,15 @@ website:
             contents:
               - contents/remainders/01-linear-algebra.qmd
               - contents/remainders/02-probabilities.qmd 
-              - contents/remainders/03-stat.qmd 
-              - contents/remainders/04-programming.qmd
+              - contents/remainders/03-programming.qmd
           - href: contents/03-generalities.qmd 
             text: 03 - Généralités
             contents:
-              - contents/generalities/01-spaces.qmd
-              - contents/generalities/02-distance.qmd 
-              - contents/generalities/03-bias-variance.qmd 
-              - contents/generalities/04-model-evaluation.qmd
+              - contents/generalities/01-stat.qmd
+              - contents/generalities/02-spaces.qmd
+              - contents/generalities/03-distance.qmd 
+              - contents/generalities/04-bias-variance.qmd 
+              - contents/generalities/05-model-evaluation.qmd
           - href: contents/04-dimension.qmd
             text: 04 - Dimension
             contents:

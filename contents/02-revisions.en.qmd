@@ -14,15 +14,13 @@ format:
 * TP: [link](../tp/02-revision-tp.qmd)
 
 
-## Sommaire
+## Outline
 
 1. [Linear algebra](./remainders/01-linear-algebra.qmd)
 
 2. [Probabilities and statistics](./remainders/02-probabilities.qmd)
 
-3. [Data analysis project](./remainders/03-stat.qmd)
-
-4. [Algorithmic / Programming](./remainders/04-programming.qmd)
+3. [Algorithmic / Programming](./remainders/03-programming.qmd)
 
 
 ![Prediction ([xkcd:2370](https://xkcd.com/2370/)).](../include/prediction.png)

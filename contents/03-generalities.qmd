@@ -9,4 +9,21 @@ format:
 
 * Slides: [link](../slides/03-generalites-slides.qmd)
 
+* TD: [link](../td/03-generalites-td.qmd)
+
+* TP: [link](../td/03-generalites-tp.qmd)
+
+## Sommaire
+
+1. [Projet d'analyse de données](./generalities/01-stat.qmd)
+
+2. [Espaces](./generalities/02-spaces.qmd)
+
+3. [Distances](./generalities/03-distance.qmd)
+
+4. [Biais / Variance](./generalities/04-bias-variance.qmd)
+
+5. [Évaluation de modèles](./generalities/05-model-evaluation.qmd)
+
+![Correlation ([xkcd:552](https://xkcd.com/552/)).](../include/correlation.png)
 

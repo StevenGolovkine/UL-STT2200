@@ -1,0 +1,55 @@
+--- 
+title: "Bonnes pratiques de programmation"
+format: 
+  html: default
+  pdf:
+    header-includes:
+      - \usepackage{mathtools} 
+--- 
+
+Cette page est basé sur un document qu'Aurélien Nicosia (ULaval) a créé en 2023 appelé "Bonnes pratiques de programmation en R". Celui-ci a été mis à jour et écrit dans un contexte plus général. 
+
+Peu importe le langage informatique, employer de bonnes pratiques de programmation signifie respecter certaines **normes** afin de créer du "bon" code. On peut donc se demander ce qu'est un "bon" code. Pour moi, un "bon" code est un code qui remplit trois objectifs:
+
+1. Il produit les résultats escomptés.
+
+2. Il est facile à maintenir.
+
+3. Son temps de calcul est raisonnable.
+
+Pourquoi est-ce souhaitable d'adopter de bonnes pratiques ? Cela permet que le code soit compris et utilisé par n'importe qui (et en particulier, soi-même dans le futur). À long terme, les bonnes pratiques apportent une augmentation de notre productivité en évitant les répétitions inutiles.
+
+## Objectif 1 : Produire les résultats escomptés
+
+La priorité lors du développement de tout code informatique est certainement l’écriture d’un code qui réalise bien ce qu’il doit réaliser. Donc, un "bon"" code doit produire les bons résultats. Pour y arriver, le code doit d’abord être fonctionnel, c’est-à-dire ne pas contenir de bogues. Pour s’assurer d’écrire du code qui fonctionne correctement, il faut simplement le tester. Il vaut mieux tester fréquemment, à chaque petit ajout, plutôt que de produire beaucoup de code avant de le tester. Ainsi, il y a beaucoup moins de débogage à faire. Un courant de pensée en informatique prône même l’écriture des tests avant l’écriture du code (*test driven development*). Cependant, une meilleure pratique est de formaliser les tests afin de pouvoir facilement les lancer à nouveau lors de modifications futures apportées au code.
+
+## Objectif 2 : Code facile à maintenir 
+
+Maintenir un code informatique signifie de s’assurer qu’il continue de fonctionner correctement dans le futur, malgré les modifications qui lui sont apportées. Un code utilisé fréquemment est un code appelé à être mis à jour, soit pour y ajouter des fonctionnalités, soit pour corriger des bogues non détectés par les tests, mais découverts par des utilisateurs. Reprendre un code écrit par quelqu’un d’autre, ou écrit par nous-mêmes quelques mois auparavant, n’est pas toujours une tâche facile. Cependant, s’il s’agit d’un code correctement écrit, il ne devrait pas être trop difficile à comprendre et à modifier.
+
+
+## Objectif 3 : Code suffisamment rapide
+
+Après nous être assurés que notre code fonctionne correctement et qu’il est facilement maintenable, nous pouvons nous préoccuper de son temps d’exécution. Bien qu'il ne s’agisse pas du critère le plus important pour définir ce qu’est du "bon" code, c’est tout de même un critère à ne pas négliger, car un code trop lent risque de ne pas être utilisé. Pour produire du code computationnellement efficace, il faut :
+
+- mettre en pratique quelques trucs simples, i.e. utiliser les syntaxes optimisées des différents langages;
+- comparer le temps d’exécution de différentes façons de programmer une tâche;
+- parfois faire du calcul en parallèle;
+- parfois programmer des bouts de code dans un autre langage plus bas niveau. 
+
+
+## Résumer 
+
+En résumer, pour adopter de bonnes pratiques de programmation, il faut :
+
+- **Tester** son code fréquemment son code.
+
+- Utiliser un logiciel de **gestion de versions**.
+
+- **Documenter** son code.
+
+- Respecter un **guide de style**.
+
+- **Factoriser** son code en créant des fonctions et des packages.
+
+- **Optimiser** le temps d'exécution.
