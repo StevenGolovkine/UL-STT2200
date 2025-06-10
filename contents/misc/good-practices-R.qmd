@@ -1,0 +1,13 @@
+--- 
+title: "Bonnes pratiques en R"
+format: 
+  html: default
+  pdf:
+    number-sections: true
+    header-includes:
+      - \usepackage{mathtools} 
+---
+
+Cette page est basé sur un document qu'Aurélien Nicosia (ULaval) a créé en 2023 appelé "Bonnes pratiques de programmation en R". Celui-ci a été mis à jour. 
+
+

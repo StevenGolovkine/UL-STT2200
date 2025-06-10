@@ -93,7 +93,7 @@ This instruction is a little difficult to read because of the call to the `gsub`
 #| eval: true
 text |> 
   gsub(pattern = "example", replacement = "example", x = _) |> 
-  paste0(“.”)
+  paste0(".")
 ```
 
 Let's take another numerical example. We want to perform the following calculation:

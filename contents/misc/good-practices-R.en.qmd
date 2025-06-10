@@ -1,0 +1,11 @@
+--- 
+title: "Good practices in R"
+format: 
+  html: default
+  pdf:
+    number-sections: true
+    header-includes:
+      - \usepackage{mathtools} 
+---
+
+

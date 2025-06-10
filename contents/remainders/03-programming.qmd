@@ -14,11 +14,7 @@ Dans cette partie, on présente quelques références sur les bases de la progra
 
 R est un langage de programmation spécialisé dans l'analyse statistique et la visualisation de données. Il est gratuit, open-source et disponible sur Windows, macOS et Linux. Régulièrement mis à jour, de nouveaux packages sont disponibles chaque jour (cf. [CRAN](https://cloud.r-project.org/web/packages/available_packages_by_date.html)).
 
-Voici un guide qui présente les bases de R: [Apprendre R en Y minutes](https://learnxinyminutes.com/fr/r/).
-
-[Bonnes pratiques en R]()
-
-L'opérateur [pipe](../misc/pipe.qmd)
+Voici un guide qui présente les bases de R: [Apprendre R en Y minutes](https://learnxinyminutes.com/fr/r/) et un guide de [bonnes pratiques en R](../misc/good-practices-R.qmd). Enfin, un point important du langage R est l'opérateur *pipe*. Celui-ci permet de rendre le code plus clair. Vous pouvez trouver une explication de cette opérateur [ici](../misc/pipe.qmd).
 
 ## Python
 
