@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
 <link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/contents/misc/good-practices.html" />
 <link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/contents/misc/good-practices.en.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.31">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
 <title>Bonnes pratiques de programmation – STT-2200: Analyse de données</title>
 <style>
 code{white-space: pre-wrap;}
@@ -23,28 +21,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 </style>
-
-
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script><script src="../../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../../site_libs/quarto-search/fuse.min.js"></script><script src="../../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script><script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../../site_libs/quarto-html/popper.min.js"></script><script src="../../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../../site_libs/quarto-html/anchor.min.js"></script><link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-9db8ff7d6d1fd2410fae1d2039720068.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-86f9e1b20d7c1f75f29fb6b795d4720b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-9db8ff7d6d1fd2410fae1d2039720068.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script><link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-2e16821d5899aa16f46292d645da32a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-bb46903cb00499392aeb77c1b494ac25.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-2e16821d5899aa16f46292d645da32a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -71,13 +56,8 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Envoyer",
     "search-label": "Recherche"
   }
-}</script>
-<style>html{ scroll-behavior: smooth; }</style>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
+}</script><style>html{ scroll-behavior: smooth; }</style>
+<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -102,14 +82,12 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script>
-
-<meta property="og:title" content="Bonnes pratiques de programmation – STT-2200: Analyse de données">
+</script><meta property="og:title" content="Bonnes pratiques de programmation – STT-2200: Analyse de données">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
-
-<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar floating quarto-light">
+<script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -271,32 +249,22 @@ window.Quarto = {
     } else {
       toggleColorMode(false);
     }
-  </script>
-
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  </script><div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Bonnes pratiques de programmation</li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Bonnes pratiques de programmation</li></ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-center sidebar-header">
       <a href="../../index.html" class="sidebar-logo-link">
-      <img src="../.././include/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
-      </a>
+      <img src="../.././include/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
       <div class="sidebar-tools-main">
     <a href="https://github.com/StevenGolovkine/UL-STT2200" title="Github organization" class="quarto-navigation-tool px-1" aria-label="Github organization"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Basculer le mode sombre"><i class="bi"></i></a>
@@ -307,9 +275,12 @@ window.Quarto = {
         <div id="quarto-search" class="" title="Recherche"></div>
         </div>
         </div>
-    <div class="sidebar-menu-container"> 
+    <div class="dropdown" id="languages-links-parent">
+<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Français</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="https://stt2200.netlify.app/en/contents/misc/good-practices.html" id="language-link-en">English</a></li></ul>
+</div>
+<div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
+<li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">Informations</span></a>
@@ -317,8 +288,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../informations/general.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Générales</span></a>
@@ -344,15 +315,15 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../informations/mcq.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">QCM</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../informations/materials.html" class="sidebar-item-text sidebar-link">
@@ -360,7 +331,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
@@ -369,8 +340,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/01-introduction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">01 - Introduction</span></a>
@@ -384,8 +355,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
+      <ul id="" class="collapse list-unstyled sidebar-section depth2 ">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/remainders/01-linear-algebra.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Algèbre linéaire</span></a>
@@ -404,7 +375,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../contents/03-generalities.html" class="sidebar-item-text sidebar-link">
@@ -413,8 +384,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
+      <ul id="" class="collapse list-unstyled sidebar-section depth2 ">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/generalities/01-stat.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Projet d’analyse de données</span></a>
@@ -445,7 +416,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../contents/04-dimension.html" class="sidebar-item-text sidebar-link">
@@ -454,8 +425,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
+      <ul id="" class="collapse list-unstyled sidebar-section depth2 ">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/dimension/01-pca.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ACP</span></a>
@@ -480,7 +451,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../contents/05-supervisee.html" class="sidebar-item-text sidebar-link">
@@ -489,8 +460,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
+      <ul id="" class="collapse list-unstyled sidebar-section depth2 ">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/supervised/01-regression.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Regression</span></a>
@@ -527,7 +498,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../contents/06-nonsupervisee.html" class="sidebar-item-text sidebar-link">
@@ -536,8 +507,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
+      <ul id="" class="collapse list-unstyled sidebar-section depth2 ">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/unsupervised/01-kmeans.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="math inline">\(k\)</span>-means</span></a>
@@ -562,7 +533,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../contents/07-further.html" class="sidebar-item-text sidebar-link">
@@ -571,8 +542,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
+      <ul id="" class="collapse list-unstyled sidebar-section depth2 ">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/further_topics/01-fda.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">FDA</span></a>
@@ -603,7 +574,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/08-conclusion.html" class="sidebar-item-text sidebar-link">
@@ -611,30 +582,31 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Sur cette page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#objectif-1-produire-les-résultats-escomptés" id="toc-objectif-1-produire-les-résultats-escomptés" class="nav-link active" data-scroll-target="#objectif-1-produire-les-résultats-escomptés">Objectif 1 : Produire les résultats escomptés</a></li>
-  <li><a href="#objectif-2-code-facile-à-maintenir" id="toc-objectif-2-code-facile-à-maintenir" class="nav-link" data-scroll-target="#objectif-2-code-facile-à-maintenir">Objectif 2 : Code facile à maintenir</a></li>
+<li><a href="#objectif-1-produire-les-r%C3%A9sultats-escompt%C3%A9s" id="toc-objectif-1-produire-les-résultats-escomptés" class="nav-link active" data-scroll-target="#objectif-1-produire-les-résultats-escomptés">Objectif 1 : Produire les résultats escomptés</a></li>
+  <li><a href="#objectif-2-code-facile-%C3%A0-maintenir" id="toc-objectif-2-code-facile-à-maintenir" class="nav-link" data-scroll-target="#objectif-2-code-facile-à-maintenir">Objectif 2 : Code facile à maintenir</a></li>
   <li><a href="#objectif-3-code-suffisamment-rapide" id="toc-objectif-3-code-suffisamment-rapide" class="nav-link" data-scroll-target="#objectif-3-code-suffisamment-rapide">Objectif 3 : Code suffisamment rapide</a></li>
-  <li><a href="#en-résumé" id="toc-en-résumé" class="nav-link" data-scroll-target="#en-résumé">En résumé</a></li>
+  <li><a href="#en-r%C3%A9sum%C3%A9" id="toc-en-résumé" class="nav-link" data-scroll-target="#en-résumé">En résumé</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/misc/good-practices.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="good-practices.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
-    </div>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/misc/good-practices.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
+</ul></div>
+<div class="quarto-alternate-formats">
+<h2>Autres formats</h2>
+<ul><li><a href="good-practices.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
+</div></nav>
+</div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">Bonnes pratiques de programmation</h1>
 </div>
 
@@ -649,10 +621,7 @@ window.Quarto = {
   
 
 
-</header>
-
-
-<p>Cette page est basé sur un document qu’Aurélien Nicosia (ULaval) a créé en 2023 appelé “Bonnes pratiques de programmation en R”. Celui-ci a été mis à jour et écrit dans un contexte plus général.</p>
+</header><p>Cette page est basé sur un document qu’Aurélien Nicosia (ULaval) a créé en 2023 appelé “Bonnes pratiques de programmation en R”. Celui-ci a été mis à jour et écrit dans un contexte plus général.</p>
 <p>Peu importe le langage informatique, employer de bonnes pratiques de programmation signifie respecter certaines <strong>normes</strong> afin de créer du “bon” code. On peut donc se demander ce qu’est un “bon” code. Pour moi, un “bon” code est un code qui remplit trois objectifs:</p>
 <ol type="1">
 <li><p>Il produit les résultats escomptés.</p></li>
@@ -660,30 +629,22 @@ window.Quarto = {
 <li><p>Son temps de calcul est raisonnable.</p></li>
 </ol>
 <p>Pourquoi est-ce souhaitable d’adopter de bonnes pratiques ? Cela permet que le code soit compris et utilisé par n’importe qui (et en particulier, soi-même dans le futur). À long terme, les bonnes pratiques apportent une augmentation de notre productivité en évitant les répétitions inutiles.</p>
-<section id="objectif-1-produire-les-résultats-escomptés" class="level2">
-<h2 class="anchored" data-anchor-id="objectif-1-produire-les-résultats-escomptés">Objectif 1 : Produire les résultats escomptés</h2>
+<section id="objectif-1-produire-les-résultats-escomptés" class="level2"><h2 class="anchored" data-anchor-id="objectif-1-produire-les-résultats-escomptés">Objectif 1 : Produire les résultats escomptés</h2>
 <p>La priorité lors du développement de tout code informatique est certainement l’écriture d’un code qui réalise bien ce qu’il doit réaliser. Donc, un “bon”” code doit produire les bons résultats. Pour y arriver, le code doit d’abord être fonctionnel, c’est-à-dire ne pas contenir de bogues. Pour s’assurer d’écrire du code qui fonctionne correctement, il faut simplement le tester. Il vaut mieux tester fréquemment, à chaque petit ajout, plutôt que de produire beaucoup de code avant de le tester. Ainsi, il y a beaucoup moins de débogage à faire. Un courant de pensée en informatique prône même l’écriture des tests avant l’écriture du code (<em>test driven development</em>). Cependant, une meilleure pratique est de formaliser les tests afin de pouvoir facilement les lancer à nouveau lors de modifications futures apportées au code.</p>
-</section>
-<section id="objectif-2-code-facile-à-maintenir" class="level2">
-<h2 class="anchored" data-anchor-id="objectif-2-code-facile-à-maintenir">Objectif 2 : Code facile à maintenir</h2>
+</section><section id="objectif-2-code-facile-à-maintenir" class="level2"><h2 class="anchored" data-anchor-id="objectif-2-code-facile-à-maintenir">Objectif 2 : Code facile à maintenir</h2>
 <p>Maintenir un code informatique signifie de s’assurer qu’il continue de fonctionner correctement dans le futur, malgré les modifications qui lui sont apportées. Un code utilisé fréquemment est un code appelé à être mis à jour, soit pour y ajouter des fonctionnalités, soit pour corriger des bogues non détectés par les tests, mais découverts par des utilisateurs. Reprendre un code écrit par quelqu’un d’autre, ou écrit par nous-mêmes quelques mois auparavant, n’est pas toujours une tâche facile. Cependant, s’il s’agit d’un code correctement écrit, il ne devrait pas être trop difficile à comprendre et à modifier.</p>
 <p>La maintenance d’un code est basé sur trois principes: son versionnage, sa compréhensibilité et sa réutilisabilité.</p>
 <p>Le principe du versionnage est d’utiliser un logiciel qui enregistre les différentes modifications faites sur le code. Le plus connu est <strong>Git</strong>. Il permet de naviguer entre les différentes versions de votre code, de créer plusieurs versions (appelée branches), de collaborer à plusieurs sur un même code. C’est vraiment un indispensable à avoir dans sa panoplie. Le versionnage peut ensuite être enregistré sur Github qui gère la machinerie sous-jacente. À titre d’exemple, ce site utilise Git et Github pour son versionnage et vous pouvez voir les différentes versions <a href="https://github.com/StevenGolovkine/UL-STT2200/commits/main/">ici</a>.</p>
 <p>Un code compréhensible est clair et se lit bien (presque comme du texte). Il comporte souvent des instructions qui parlent d’elles-mêmes. Ces instructions sont typiquement succinctes, car une instruction trop longue effectue souvent plusieurs tâches difficilement discernables. Si la lecture d’une instruction ne permet pas à un programmeur initié dans le langage informatique employé de comprendre ce qu’elle réalise, il est alors recommandé d’insérer un commentaire dans le code pour expliquer à quoi sert l’instruction. En plus de commentaires pour expliquer certains instructions, toutes fonctions devraient être documentées. La documentation d’une fonction devrait contenir: un texte explicatif de ce que fait la fonction, une description des arguments acceptés en entrée, une description des résultats produits et un exemple d’utilisation. Lorsque que l’on programme, il est aussi de bon ton de suivre un <strong>guide de style</strong>. Un guide de style est un ensemble de règles sur lesquelles les développeurs se sont mis d’accord et qui permet d’avoir une syntaxe similaire à travers les différents projets. En R, vous pouvez utiliser le guide de style du <a href="https://style.tidyverse.org">tidyverse</a>. En Python, vous pouvez utiliser le guide de style <a href="https://peps.python.org/pep-0008/">PEP8</a> écrit par le créateur de Python. Et en Julia, vous pouvez utiliser le guide de style fournit avec le <a href="https://docs.julialang.org/en/v1/manual/style-guide/">manuel du langage</a>. Vous pouvez utiliser un <strong>linter</strong>, un outil d’analyse de code statique pour vous aidez à respecter ces guides de styles. À noter que ces guides de style sont des recommendations et il n’y a rien d’obligatoire à les suivre. Certaines règles se contredisant, je vous recommanderai même de ne pas en suivre certaines.</p>
 <p>La façon la plus commune d’avoir un code facile à réutiliser est d’en faire des fonctions que l’on peut ensuite partager à travers un package.</p>
-</section>
-<section id="objectif-3-code-suffisamment-rapide" class="level2">
-<h2 class="anchored" data-anchor-id="objectif-3-code-suffisamment-rapide">Objectif 3 : Code suffisamment rapide</h2>
+</section><section id="objectif-3-code-suffisamment-rapide" class="level2"><h2 class="anchored" data-anchor-id="objectif-3-code-suffisamment-rapide">Objectif 3 : Code suffisamment rapide</h2>
 <p>Après nous être assurés que notre code fonctionne correctement et qu’il est facilement maintenable, nous pouvons nous préoccuper de son temps d’exécution. Bien qu’il ne s’agisse pas du critère le plus important pour définir ce qu’est du “bon” code, c’est tout de même un critère à ne pas négliger, car un code trop lent risque de ne pas être utilisé. Pour produire du code computationnellement efficace, il faut :</p>
 <ul>
-<li>mettre en pratique quelques trucs simples, i.e.&nbsp;utiliser les syntaxes optimisées des différents langages;</li>
+<li>mettre en pratique quelques trucs simples, i.e. utiliser les syntaxes optimisées des différents langages;</li>
 <li>comparer le temps d’exécution de différentes façons de programmer une tâche;</li>
 <li>parfois faire du calcul en parallèle;</li>
 <li>parfois programmer des bouts de code dans un autre langage plus bas niveau.</li>
-</ul>
-</section>
-<section id="en-résumé" class="level2">
-<h2 class="anchored" data-anchor-id="en-résumé">En résumé</h2>
+</ul></section><section id="en-résumé" class="level2"><h2 class="anchored" data-anchor-id="en-résumé">En résumé</h2>
 <p>En résumer, pour adopter de bonnes pratiques de programmation, il faut :</p>
 <ul>
 <li><p><strong>Tester</strong> son code fréquemment son code.</p></li>
@@ -692,13 +653,7 @@ window.Quarto = {
 <li><p>Respecter un <strong>guide de style</strong>.</p></li>
 <li><p><strong>Factoriser</strong> son code en créant des fonctions et des packages.</p></li>
 <li><p><strong>Optimiser</strong> le temps d’exécution.</p></li>
-</ul>
-
-
-</section>
-
-</main> <!-- /main -->
-<script>
+</ul></section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -903,8 +858,7 @@ window.onload = function() {
   update_total_correct();
 }
 
-</script>
-<script id="quarto-html-after-body" type="application/javascript">
+</script><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -1322,22 +1276,21 @@ window.onload = function() {
   });
   </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
-      &nbsp;
+       
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/misc/good-practices.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/misc/good-practices.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
+</ul></div>
+</div>
     <div class="nav-footer-right">
-      &nbsp;
+       
     </div>
   </div>
-</footer>
-
-
-
-
-<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
-</body></html>
+</footer><script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body>
+</html>
