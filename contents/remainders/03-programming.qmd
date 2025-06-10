@@ -3,6 +3,7 @@ title: "Programmation"
 format: 
   html: default
   pdf:
+    number-sections: true
     header-includes:
       - \usepackage{mathtools} 
 --- 
@@ -17,7 +18,7 @@ Voici un guide qui présente les bases de R: [Apprendre R en Y minutes](https://
 
 [Bonnes pratiques en R]()
 
-L'opérateur [pipe]()
+L'opérateur [pipe](../misc/pipe.qmd)
 
 ## Python
 
