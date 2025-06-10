@@ -1,10 +1,369 @@
 [
   {
+    "objectID": "informations/general.html",
+    "href": "informations/general.html",
+    "title": "General informations",
+    "section": "",
+    "text": "Faculté des sciences et de génie\nDépartement de mathématiques et de statistique",
+    "crumbs": [
+      "Informations",
+      "Générales"
+    ]
+  },
+  {
+    "objectID": "informations/general.html#stt-2200-data-analysis",
+    "href": "informations/general.html#stt-2200-data-analysis",
+    "title": "General informations",
+    "section": "STT-2200: Data Analysis",
+    "text": "STT-2200: Data Analysis\nTeaching format: Face-to-face\nTime spent:\n\nLecture: 2h\nLaboratory: 1h\nPersonal work: 6h\nTotal: 9h\n\nCredits: 3\nPrerequisites:\n\nACT-2000 or STT-1000 or STT-1300 or STT-1900\nMAT-1200 or ACT-2002\nSTT-1100 or IFT-4902 or ECN-2090 or GLO-1901 or IFT-1004\n\nTime range:\n\n\n\nType\nDay\nTime\nDates\n\n\n\n\nLab\nTuesday\n\n\n\n\nClass\nFriday",
+    "crumbs": [
+      "Informations",
+      "Générales"
+    ]
+  },
+  {
+    "objectID": "informations/general.html#contact-details-and-availability",
+    "href": "informations/general.html#contact-details-and-availability",
+    "title": "General informations",
+    "section": "Contact details and availability",
+    "text": "Contact details and availability\nTeacher: Steven Golovkine\nLocal: VCH-2209\nEmail: steven.golovkine@mat.ulaval.ca\nAvailability: I am available to meet with you by appointment by email or without appointment from Monday to Thursday between 8am and 10am.\n\nThe University recognizes the right to disconnect of professors, lecturers and other teaching staff. This means that they are not required to check messages sent to them (email, voicemail, forum messages, etc.) during evenings, weekends and vacations. The person who has sent a message during these periods should therefore expect to receive a reply within a reasonable time, calculated from the resumption of normal working hours.",
+    "crumbs": [
+      "Informations",
+      "Générales"
+    ]
+  },
+  {
+    "objectID": "informations/materials.html",
+    "href": "informations/materials.html",
+    "title": "Materials",
+    "section": "",
+    "text": "This page brings together various useful resources for the course.\nThe Elements of Statistical Learning: Data Mining, Inference and Prediction, 2nd Edition\nAuthors: Trevor Hastie, Robert Tibshirani and Jerome Friedman\nPublisher: Springer (New York, 2009)\nISBN: 0-387-84857-0\nLink: authors’ website\nAn Introduction to Statistical Learning: with application in R, 2nd Edition\nAuthors: Gareth James, Daniela Witten, Trevor Hastie and Robert Tibshirani\nPublisher: Springer (New York, 2021)\nISBN: 1-0716-1417-4\nLink: authors’ website\nAn Introduction to Statistical Learning: with application in Python\nAuthors: Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani and Jonathan Taylor\nPublisher: Springer (Switzerland, 2023)\nISBN: 3-031-38746-3\nLink: authors’ website",
+    "crumbs": [
+      "Informations",
+      "Matériel"
+    ]
+  },
+  {
+    "objectID": "informations/schedule.html",
+    "href": "informations/schedule.html",
+    "title": "Schedule",
+    "section": "",
+    "text": "The plan is given for information only.\n\n\n\nWeek\nDate\nHour\nPlan\nEvaluations",
+    "crumbs": [
+      "Informations",
+      "Plan"
+    ]
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "STT-2200: Data Analysis",
     "section": "",
     "text": "Welcome everyone to the class STT-2200 in Autumn 2025.\nYou will find on this website every necessary information for the modules, the practicals and the exams. The contents will be updated during the session with the answers to some work. I invite you to skim through the differents modules before classes.\nThis website has been created with the help of Aurélien Nicosia and Thierry Duchesne notes.\nThis website a been built using Quarto.\nMost of the contents has been translated using DeepL.\n\n\n\nData trap (xkcd:2582)."
+  },
+  {
+    "objectID": "contents/misc/good-practices.html",
+    "href": "contents/misc/good-practices.html",
+    "title": "Programming good practices",
+    "section": "",
+    "text": "This page is based on a document created by Aurélien Nicosia (ULaval) in 2023 called “Bonnes pratiques de programmation en R.” It has been updated and written in a more general context.\nRegardless of the programming language, employing good programming practices means adhering to certain standards in order to create “good” code. This raises the question of what constitutes “good” code. For me, “good” code is code that fulfills three objectives:\nWhy is it desirable to adopt good practices? It allows the code to be understood and used by anyone (and in particular, by yourself in the future). In the long term, good practices increase our productivity by avoiding unnecessary repetition."
+  },
+  {
+    "objectID": "contents/misc/good-practices.html#objective-1-produce-the-expected-results",
+    "href": "contents/misc/good-practices.html#objective-1-produce-the-expected-results",
+    "title": "Programming good practices",
+    "section": "Objective 1: Produce the expected results",
+    "text": "Objective 1: Produce the expected results\nThe priority when developing any computer code is undoubtedly to write code that does what it is supposed to do. Therefore, “good” code must produce the right results. To achieve this, the code must first be functional, i.e., it must not contain any bugs. To ensure that the code works correctly, it simply needs to be tested. It is better to test frequently, with each small addition, rather than producing a lot of code before testing it. This way, there is much less debugging to do. One school of thought in computer science even advocates writing tests before writing code (test-driven development). However, a better practice is to formalize the tests so that they can be easily rerun when future changes are made to the code."
+  },
+  {
+    "objectID": "contents/misc/good-practices.html#objective-2-easy-to-maintain-code",
+    "href": "contents/misc/good-practices.html#objective-2-easy-to-maintain-code",
+    "title": "Programming good practices",
+    "section": "Objective 2: Easy-to-maintain code",
+    "text": "Objective 2: Easy-to-maintain code\nMaintaining computer code means ensuring that it continues to function properly in the future, despite any changes made to it. Code that is used frequently is code that will need to be updated, either to add features or to fix bugs that were not detected by testing but discovered by users. Taking over code written by someone else, or written by ourselves a few months ago, is not always an easy task. However, if the code is written correctly, it should not be too difficult to understand and modify.\nCode maintenance is based on three principles: versioning, comprehensibility, and reusability.\nThe principle of versioning is to use software that records the various changes made to the code. The best known is Git. It allows you to navigate between different versions of your code, create multiple versions (called branches), and collaborate with others on the same code. It is truly an essential tool to have in your arsenal. Versioning can then be recorded on Github, which manages the underlying machinery. For example, this site uses Git and Github for versioning, and you can see the different versions here.\nComprehensible code is clear and easy to read (almost like text). It often includes instructions that are self-explanatory. These instructions are typically succinct, as overly long instructions often perform several tasks that are difficult to discern. If reading an instruction does not allow a programmer familiar with the computer language used to understand what it does, it is recommended to insert a comment in the code to explain what the instruction is for. In addition to comments explaining certain instructions, all functions should be documented. The documentation for a function should contain: an explanatory text describing what the function does, a description of the arguments accepted as input, a description of the results produced, and an example of use. When programming, it is also good practice to follow a style guide. A style guide is a set of rules that developers have agreed upon to ensure consistent syntax across different projects. In R, you can use the tidyverse style guide. In Python, you can use the PEP8 style guide written by the creator of Python. And in Julia, you can use the style guide provided with the language manual. You can use a linter, a static code analysis tool, to help you comply with these style guides. Note that these style guides are recommendations and there is no obligation to follow them. Some rules contradict each other, so I would even recommend not following some of them.\nThe most common way to make code easy to reuse is to turn it into functions that can then be shared through a package."
+  },
+  {
+    "objectID": "contents/misc/good-practices.html#objective-3-sufficiently-fast-code",
+    "href": "contents/misc/good-practices.html#objective-3-sufficiently-fast-code",
+    "title": "Programming good practices",
+    "section": "Objective 3: Sufficiently fast code",
+    "text": "Objective 3: Sufficiently fast code\nOnce we have ensured that our code works correctly and is easy to maintain, we can focus on its execution time. Although this is not the most important criterion for defining “good” code, it is still a criterion that should not be overlooked, as code that is too slow may not be used. To produce computationally efficient code, you need to:\n\nput a few simple tricks into practice, i.e., use the optimized syntaxes of the different languages;\ncompare the execution time of different ways of programming a task;\nsometimes perform parallel calculations;\nsometimes program pieces of code in another, lower-level language."
+  },
+  {
+    "objectID": "contents/misc/good-practices.html#in-summary",
+    "href": "contents/misc/good-practices.html#in-summary",
+    "title": "Programming good practices",
+    "section": "In summary",
+    "text": "In summary\nIn summary, to adopt good programming practices, you need to:\n\nTest your code frequently.\nUse version control software.\nDocument your code.\nFollow a style guide.\nFactorize your code by creating functions and packages.\nOptimize execution time."
+  },
+  {
+    "objectID": "contents/01-introduction.html",
+    "href": "contents/01-introduction.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "Data analysis is a set of methods for extracting information from a data set. It’s also known as statistical learning. The idea is to use statistical models to understand how data is structured and how it interacts with each other.\n\n\n\n\n\n\nExample\n\n\n\nLet’s imagine you work for the United Nations (UN). Your mission is to analyze life expectancy around the world. To do this, you’ll have a measure of life expectancy in each UN member country, of course, but also GDP per capita, health expenditure, fertility rate, urbanization rate, education level of the country, and so on. The aim of data analysis is to find links between these different variables and the variable of interest, life expectancy, to visualize these data, and eventually to predict life expectancy from the other variables.",
+    "crumbs": [
+      "Modules",
+      "01 - Introduction"
+    ]
+  },
+  {
+    "objectID": "contents/01-introduction.html#what-is-data-analysis",
+    "href": "contents/01-introduction.html#what-is-data-analysis",
+    "title": "Introduction",
+    "section": "",
+    "text": "Data analysis is a set of methods for extracting information from a data set. It’s also known as statistical learning. The idea is to use statistical models to understand how data is structured and how it interacts with each other.\n\n\n\n\n\n\nExample\n\n\n\nLet’s imagine you work for the United Nations (UN). Your mission is to analyze life expectancy around the world. To do this, you’ll have a measure of life expectancy in each UN member country, of course, but also GDP per capita, health expenditure, fertility rate, urbanization rate, education level of the country, and so on. The aim of data analysis is to find links between these different variables and the variable of interest, life expectancy, to visualize these data, and eventually to predict life expectancy from the other variables.",
+    "crumbs": [
+      "Modules",
+      "01 - Introduction"
+    ]
+  },
+  {
+    "objectID": "contents/01-introduction.html#course-objectives",
+    "href": "contents/01-introduction.html#course-objectives",
+    "title": "Introduction",
+    "section": "Course objectives",
+    "text": "Course objectives\nIn this course, we aim to introduce methods that allow us to study a “high-dimensional” dataset (in the sense that we can’t simply graph all the variables for each observation) without having to resort to a probabilistic model. The various techniques we’ll be looking at can be used to:\n\nvisualize data\nreduce data size;\nidentify certain relationships between variables;\ndivide the dataset into groups/classes.\n\nThis course is not intended to be exhaustive, in the sense of presenting all possible methods. Nor is it intended to be state-of-the-art, in the sense that it will not cover the latest developments in machine learning. Nor is it a programming course.\nTo finish this introduction, here is a quote from Statistical Rethinking by Richard McElreath (McElreath 2020) particularly accurate in this course.\n\nStatistics courses […] tend to resemble horosscopes. There are two senses to this resemblance. First, in order to remain plausibly correct, they must remain tremendously vague. This is because the targets of the advice, for both horoscopes and statistical advice, are diverse. But only the most general advice applies to all cases. A horoscope uses only the basic facts of birth to forecast life events, and a […] statistical guide uses only the basic facts of measurement and design to dictate a model. It is easy to do better, once more detail is available. In the case of statistical analysis, it is tipically only the scientist whho can provide that detail, not the statistician. Second, there are strong incentives for both astrologers and statisticians to exaggerate the power and importance of their advice. No one likes an astrologer who forecasts doom, and few want a statistician who admits the answers as desired are not in the data as collected. Scientists desire results, and they will buy and attend to statisticians and statistical procedures that promise them. What we end up with is too often horoscopic: vague and optimistic, but still claiming critical importance.",
+    "crumbs": [
+      "Modules",
+      "01 - Introduction"
+    ]
+  },
+  {
+    "objectID": "contents/02-revisions.html",
+    "href": "contents/02-revisions.html",
+    "title": "Remainders",
+    "section": "",
+    "text": "Slides: link\nTD: link\nTP: link",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions"
+    ]
+  },
+  {
+    "objectID": "contents/02-revisions.html#outline",
+    "href": "contents/02-revisions.html#outline",
+    "title": "Remainders",
+    "section": "Outline",
+    "text": "Outline\n\nLinear algebra\nProbabilities and statistics\nAlgorithmic / Programming\n\n\n\n\nPrediction (xkcd:2370).",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/01-linear-algebra.html",
+    "href": "contents/remainders/01-linear-algebra.html",
+    "title": "Linear Algebra",
+    "section": "",
+    "text": "In this section, we present some linear algebra results that are useful in the context of this course. For more information, you can refer to the MAT-1200 course, Deisenroth, Faisal, and Ong (2020) (in English), and Grifone (2024) (in French).",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Linear Algebra"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/01-linear-algebra.html#some-matrix-properties",
+    "href": "contents/remainders/01-linear-algebra.html#some-matrix-properties",
+    "title": "Linear Algebra",
+    "section": "Some matrix properties",
+    "text": "Some matrix properties\nLet \\(M_{n, m}(\\mathbb{R})\\) be the set of matrices with \\(n\\) rows and \\(m\\) columns whose entries belong to \\(\\mathbb{R}\\). Let \\(M_{n}(\\mathbb{R})\\) be the set of square matrices of size \\(n\\), i.e., with \\(n\\) rows and \\(n\\) columns whose entries belong to \\(\\mathbb{R}\\). Let \\(M\\), \\(N\\), and \\(P\\) be matrices in \\(M_{n, m}(\\mathbb{R})\\). Let \\(A\\) and \\(B\\) be matrices in \\(M_{n}(\\mathbb{R})\\). Let \\(I_n\\) be the identity matrix of size \\(n\\), i.e., containing \\(1\\)s on the diagonal and \\(0\\)s on the elements outside the diagonal. Let \\(u\\) and \\(v\\) in \\(\\mathbb{R}^n\\), i.e., column vectors of size \\(n\\).\n\n\n\n\n\n\nProperties of the inverse of matrices\n\n\n\nSuppose that the matrices \\(A\\) and \\(B\\) are invertible. Then the matrix product \\(AB\\) is invertible and is given by:\n\\[(AB)^{-1} = B^{-1} A^{-1}.\\]\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nLet \\(C = AB\\) and \\(D = B^{-1} A^{-1}\\). Then\n\\[\\begin{align*}\n  CD &= A B B^{-1} A^{-1} \\\\\n     &= A A^{-1} \\\\\n     &= I_n\n\\end{align*}\\]\nSimilarly, we find that \\(DC = I_n\\). Thus, \\(AB\\) is invertible and its inverse is given by \\(B^{-1} A^{-1}\\).\n\n\n\n\n\n\n\n\n\nProperties of the determinant of matrices\n\n\n\nConsidering the matrices defined at the beginning of the section, we have:\n\n\\(\\text{det}(A^\\top) = \\text{det}(A)\\),\n\\(\\text{det}(AB) = \\text{det}(A)\\text{det}(B)\\),\n\\(\\text{det}(A^{-1}) = 1 / \\text{det}(A)\\).\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nThe proofs of properties \\(1\\) and \\(2\\) are technical and are omitted, but can be found, for example, here. As for the third property, by definition, we have \\(A A^{-1} = I_n\\). The determinant of \\(I_n\\) is equal to \\(1\\) (product of the elements on the diagonal). Therefore, \\(\\text{det}(A A^{-1}) = 1\\). However, according to the second property, \\(\\text{det}(A A^{-1}) = \\text{det}(A)\\text{det}(A^{-1})\\). We therefore have \\(\\text{det}(A^{-1}) = 1 / \\text{det}(A)\\).\n\n\n\n\n\n\n\n\n\nProperties of the trace of matrices\n\n\n\nConsidering the matrices defined at the beginning of the section, we have:\n\n\\(\\text{tr}(A) = \\text{tr}(A^{\\top})\\),\n\\(\\text{tr}(A + B) = \\text{tr}(A) + \\text{tr}(B)\\),\n\\(\\text{tr}(MN^{\\top}) = \\text{tr}(N^{\\top}M)\\).\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nFor a square matrix \\(A\\), let \\(a_{ij}\\) be the element of matrix \\(A\\) in row \\(i\\) and column \\(j\\). The trace of \\(A\\) is given by the sum of the diagonal elements, i.e. \\(\\text{tr}(A) = \\sum_{i = 1}^{n} a_{ii}\\).\n\nSince transposition does not change the diagonal elements, the result is straightforward.\nLet \\(C = A + B\\). Since \\(A\\) and \\(B\\) are square matrices, \\(C\\) is a square matrix. We have \\(c_{ij} = a_{ij} + b_{ij}\\) for all \\(i, j = 1, \\dots, n\\). Therefore \\[\\text{tr}(A + B) = \\text{tr}(C) = \\sum_{i = 1}^{n} c_{ii} = \\sum_{i = 1}^{n} a_{ii} + b_{ii} = \\sum_{i = 1}^{n} a_{ii} + \\sum_{i = 1}^{n} b_{ii} = \\text{tr}(A) + \\text{tr}(B).\\]\nThe matrices \\(M N^{\\top}\\) and \\(N^{\\top} M\\) are square, with dimensions \\(n \\times n\\) and \\(m \\times m\\) respectively, so we can calculate their traces. Let \\(C = M N^{\\top}\\) and \\(D = N^{\\top} M\\). \\[\\text{tr}(M N^{\\top}) = \\text{tr}(C) = \\sum_{i = 1}^{n} c_{ii} = \\sum_{i = 1}^{n} \\sum_{j = 1}^{m} m_{ij} n_{ji} = \\sum_{j = 1}^{m} \\sum_{i = 1}^{n} n_{ji} m_{ij} = \\sum_{j = 1}^{m} d_{jj} = \\text{tr}(D)  = \\text{tr}(N^{\\top} M).\\]\n\n\n\n\n\n\n\n\n\n\nDefinition\n\n\n\n\nLet \\(A\\) be a symmetric matrix in \\(M_n(\\mathbb{R})\\). \\(A\\) is positive definite if \\(u^\\top A u &gt; 0\\) for all \\(u \\in \\mathbb{R}^n\\) such that \\(u \\neq 0\\).\nLet \\(A \\in M_n(\\mathbb{R})\\). \\(A\\) is orthogonal if \\(A^\\top A = A A^\\top = I_n\\).",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Linear Algebra"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/01-linear-algebra.html#eigenvalues-and-eigenvectors",
+    "href": "contents/remainders/01-linear-algebra.html#eigenvalues-and-eigenvectors",
+    "title": "Linear Algebra",
+    "section": "Eigenvalues and eigenvectors",
+    "text": "Eigenvalues and eigenvectors\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(A \\in M_n(\\mathbb{R})\\). We say that \\(\\lambda \\in \\mathbb{R}\\) is an eigenvalue of \\(A\\) if there exists a nonzero vector \\(u \\in \\mathbb{R}^n\\) such that \\[Au = \\lambda u. \\tag{1}\\] The vector \\(u\\) is called an eigenvector of \\(A\\) corresponding to the eigenvalue \\(\\lambda\\).\nThe set of real numbers \\(\\lambda\\) satisfying Equation 1 is called the spectrum of the matrix \\(A\\) and is denoted by \\(\\text{sp}(A)\\).\n\n\n\n\n\n\n\n\nProperty of eigenvectors\n\n\n\n\nIf \\(u\\) is an eigenvector of \\(A\\) corresponding to an eigenvalue \\(\\lambda\\), then the vector \\(cu\\), \\(c \\in \\mathbb{R}^\\star\\) is also an eigenvector of \\(A\\) corresponding to \\(\\lambda\\).\nIf \\(A\\) is symmetric and \\(u_{1}\\) and \\(u_{2}\\) are eigenvectors corresponding to different eigenvalues of \\(A\\), then \\(u_{1}\\) and \\(u_{2}\\) are orthogonal, i.e. \\(u_{1}^\\top u_{2} = 0\\).\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\n\nLet \\(c \\in \\mathbb{R}^\\star\\) and \\(u\\) be an eigenvector of \\(A\\) associated with the eigenvalue \\(\\lambda\\). We have: \\[A(cu) = cAu = c \\lambda u = \\lambda (cu).\\] Therefore, the vector \\(cu\\) is also an eigenvector of \\(A\\) associated with the eigenvalue \\(\\lambda\\).\nLet \\(\\lambda_{1}\\) and \\(\\lambda_{2}\\) be the eigenvalues associated with \\(u_{1}\\) and \\(u_{2}\\), such that \\(\\lambda_{1} \\neq \\lambda_{2}\\). We have \\(A u_{1} = \\lambda_{1} u_{1}\\) and \\(A u_{2} = \\lambda_{2} u_{2}\\). Then \\[\\lambda_{1} u_{1}^{\\top} u_{2} = u_{1}^\\top A u_{2} = \\lambda_{2} u_{1}^\\top u_{2}.\\] This implies that \\((\\lambda_{1} - \\lambda_{2})u_{1}^\\top u_{2} = 0\\). However, \\(\\lambda_{1} \\neq \\lambda_{2}\\). Therefore, necessarily, \\(u_{1}^\\top u_{2} = 0\\).\n\n\n\n\nThis second property will be useful when we look at dimension reduction and, in particular, principal component analysis.\n\n\n\n\n\n\nCharacterization of matrices with their eigenvalues\n\n\n\n\nIf \\(A\\) is symmetric, then all its eigenvalues are real.\nIf \\(A\\) is positive definite, then all its eigenvalues are strictly positive.\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\n\nConsider the more general case where \\(A\\) is a Hermitian matrix. The matrix \\(A\\) is equal to the transpose of its conjugate, denoted \\(A^*\\). Let \\(\\lambda\\) be an eigenvalue associated with an eigenvector \\(u\\), which may be complex. We have: \\[\\begin{align}\n\\overline{u}^{\\top} A u &= \\overline{u}^\\top \\lambda u = \\lambda \\overline{u}^{\\top} u, \\\\\n\\overline{u}^\\top A u &= \\overline{u}^\\top A^* u = \\overline{Au}^\\top u = \\overline{\\lambda} \\overline{u}^\\top u.\n\\end{align}\\] This implies that \\((\\lambda - \\overline{\\lambda}) \\overline{u}^{\\top} u = 0\\). Since \\(u \\neq 0\\), we have \\(\\lambda = \\overline{\\lambda}\\). Therefore, \\(\\lambda \\in \\mathbb{R}\\).\nConsider \\(u\\), an eigenvector of \\(A\\) associated with the eigenvalue \\(\\lambda\\). We have that \\(u^{\\top} A u = \\lambda u^{\\top} u\\). However, since \\(u \\neq 0\\), \\(u^{\\top}u \\neq 0\\). Therefore, \\[\\lambda = \\frac{u^{\\top} A u}{u^{\\top} u}.\\] Since \\(A\\) is positive definite, \\(u^{\\top} A u &gt; 0\\) for all nonzero vectors \\(u\\). We can therefore deduce that \\(\\lambda &gt; 0\\).",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Linear Algebra"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/01-linear-algebra.html#diagonalization-of-matrices",
+    "href": "contents/remainders/01-linear-algebra.html#diagonalization-of-matrices",
+    "title": "Linear Algebra",
+    "section": "Diagonalization of matrices",
+    "text": "Diagonalization of matrices\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(A \\in M_n(\\mathbb{R})\\). We say that \\(A\\) is diagonalizable if there exists a non-singular matrix \\(P \\in M_n(\\mathbb{R})\\) and a diagonal matrix \\(D \\in M_n(\\mathbb{R})\\) such that \\[P^{-1} A P = D \\Longleftrightarrow A = P D P^{-1}.\\]\n\n\n\n\n\n\n\n\nSpectral decomposition theorem\n\n\n\nLet \\(A\\) be a symmetric matrix in \\(M_n(\\mathbb{R})\\) and \\(\\lambda_{1}, \\dots, \\lambda_n\\) its \\(n\\) eigenvalues. Then there exists an orthogonal matrix \\(P\\) in \\(M_n(\\mathbb{R})\\) such that \\[A = P \\Lambda P^\\top, \\quad\\text{where}\\quad \\Lambda = \\text{diag}(\\lambda_1, \\dots, \\lambda_n).\\]\n\n\nIf \\(A\\) has \\(n\\) distinct positive eigenvalues, then we can take \\(P\\) to be the matrix whose \\(k\\)th column is the normalized eigenvector corresponding to the \\(k\\)th eigenvalue \\(\\lambda_k\\) of \\(A\\).\nGiven two symmetric matrices, \\(A\\) and \\(B\\), how can we determine the vector \\(u\\) such that \\(u^{\\top} A u\\) is maximal, knowing that \\(u^{\\top} B u = 1\\)? We simply take \\(u\\) as the eigenvector of \\(B^{-1}A\\) associated with \\(\\lambda\\), the maximal eigenvalue of \\(B^{-1}A\\). We thus obtain \\[u^{\\top} A u = u^{\\top}\\lambda M u = \\lambda U^{\\top} M u = \\lambda.\\]\n\n\n\n\n\n\nCharacterization of the determinant and trace of matrices with their eigenvalues\n\n\n\nIf \\(A\\) has eigenvalues (real, but not necessarily distinct) \\(\\lambda_{1}, \\dots, \\lambda_{n}\\), then\n\n\\(\\text{det}(A) = \\prod_{i = 1}^{n} \\lambda_i\\)\n\\(\\text{tr}(A) = \\sum_{i = 1}^{n} \\lambda_i.\\)\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nUsing the spectral decomposition theorem, there exists an invertible matrix \\(P\\) such that \\(A = P \\Lambda P^{-1}\\), where \\(\\Lambda\\) is a diagonal matrix containing the eigenvalues. We therefore have, for the determinant,\n\\[\\text{det}(A) = \\text{det}(P \\Lambda P^{-1}) = \\text{det}(P)\\text{det}(\\Lambda)\\text{det}(P^{-1}) = \\text{det}(P)\\text{det}(\\Lambda)\\text{det}(P)^{-1} = \\text{det}(\\lambda) = \\prod_{i = 1}^{n} \\lambda_i, \\]\nand, for the trace,\n\\[\\text{tr}(A) = \\text{tr}(P \\Lambda P^{-1}) = \\text{tr}(P^{-1} P \\Lambda) = \\text{tr}(\\Lambda) = \\sum_{i = 1}^{n} \\lambda_i.\\]",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Linear Algebra"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/02-probabilities.html",
+    "href": "contents/remainders/02-probabilities.html",
+    "title": "Probabilities and Statistics",
+    "section": "",
+    "text": "In this section, we present some results in probability and statistics within the framework of this course. For more information, you can refer to the STT-1000 course, Wasserman (2010) (in English) and Delmas (2013) (in French).",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Probabilities and Statistics"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/02-probabilities.html#modeling-randomness",
+    "href": "contents/remainders/02-probabilities.html#modeling-randomness",
+    "title": "Probabilities and Statistics",
+    "section": "Modeling randomness",
+    "text": "Modeling randomness\nMany real-world phenomena are unpredictable, and their outcomes generally contain a certain amount of variability. This variability is taken into account using a measure of uncertainty called probability measure.\n\n\n\n\n\n\nDefinition\n\n\n\nThe sample space \\(S\\) is the set of all possible outcomes of a phenomenon. An event is a subset of the sample space \\(S\\).\n\n\n\n\n\n\n\n\nExamples\n\n\n\n\nIf the experiment consists of tossing a coin, \\(S = \\{0, 1\\}\\). The result of this experiment cannot be known in advance. For example, \\(E = \\{1\\}\\) is an event of \\(S\\).\nIf we are interested in the lifespan of a phone, \\(S = \\mathbb{R}_{+}\\). We can also choose \\(S = [0, M]\\), because this lifespan is probably not infinite! The event \\(E = [10, \\infty)\\) represents the event “the lifespan of more than 10 time units.”\nFor the number of days without snow in Quebec City in a year, we can choose \\(S = \\mathbb{N}\\). The event \\(E = (0, 5]\\) represents the event “fewer than 5 days without snow in Quebec City in a year.”\n\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nA probability measure \\(\\mathbb{P}\\) on \\(S\\) is an application (function) defined on the sample space and satisfying the following properties:\n\nFor each event \\(E\\), \\(\\mathbb{P}(E) \\in [0, 1]\\).\n\\(\\mathbb{P}(S) = 1\\).\nLet \\(E_{1}, E_{2}, \\dots\\) be a sequence of mutually exclusive events (finite or infinite), i.e. \\(\\forall i \\neq j, E_{i} \\cap E_{j} = \\varnothing\\). We have \\[\\mathbb{P}(\\bigcup_{n = 1}^{\\infty} E_n) = \\sum_{n = 1}^{\\infty} \\mathbb{P}(E_n).\\]\n\nWe call \\(\\mathbb{P}(E)\\) the probability of event \\(E\\).\n\n\nThe definition of probability measures can be subjective and linked to the statistician’s experience. Let’s take example 3 on the number of days without snow in Quebec City during the year. Someone who has just arrived in Canada may want to give the same probability to each day, while a Quebecer will have more information and will be able to vary the probabilities based on this knowledge.\n\n\n\n\n\n\nDefinition\n\n\n\nTwo events \\(E\\) and \\(F\\) are said to be independent if \\(\\mathbb{P}(E \\cap F) = \\mathbb{P}(E) \\times \\mathbb{P}(F)\\).\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(E\\) and \\(F\\) be two events. The conditional probability that \\(E\\) occurs given that \\(F\\) has occurred is defined by: \\[\\mathbb{P}(E \\mid F) = \\frac{\\mathbb{P}(E \\cap F)} {\\mathbb{P}(F)}.\\]\n\n\nIntuitively, two events are independent if knowledge of one provides no information about the occurrence of the other. We also have \\(\\mathbb{P}(E \\mid F) = \\mathbb{P}(E)\\).",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Probabilities and Statistics"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/02-probabilities.html#random-variables",
+    "href": "contents/remainders/02-probabilities.html#random-variables",
+    "title": "Probabilities and Statistics",
+    "section": "Random variables",
+    "text": "Random variables\nIn probability theory, it is customary to express the outcome of experiments as the value of a function called a random variable. This characterization is always possible.\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(X\\) be a random variable. The distribution of this random variable is defined by the application \\(A \\mapsto \\mathbb{P}(X \\in A)\\).\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(X\\) be a random variable. This random variable is discrete if it takes, at most, a countable number of values. In this case, the distribution of \\(X\\) is given by the probabilities \\(\\mathbb{P}(X = x)\\) for all outcomes \\(x\\).\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(X\\) be a random variable. This random variable is continuous if the probabilities \\(\\mathbb{P}(X \\in A)\\) are given by integrals of the form \\(\\int_{A} f(x) dx\\) where \\(f: \\mathbb{R}^d \\to \\mathbb{R}_+\\) is an integrable function such that \\(\\int_{\\mathbb{R}^d} f(x) dx = 1\\). Note that, for a fixed outcome \\(x\\), \\(\\mathbb{P}(X = x) = 0\\).\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(X\\) be a random variable. The mathematical expectation \\(\\mathbb{E}(X)\\) of \\(X\\) is the average value of the outcome of \\(X\\) with respect to its probability distribution. The expectation is usually denoted by \\(\\mu\\).\n\n\nLet \\(F\\) be a countable set. A discrete random variable \\(X\\) has an expectation \\(\\mathbb{E}(X) = \\sum_{x \\in F} x \\mathbb{P}(X = x)\\). Let \\(X\\) be a continuous random variable with density \\(f\\). Its expectation is given by \\(\\mathbb{E}(X) = \\int_{\\mathbb{R}^d} x f(x) dx\\).\n\n\n\n\n\n\nTransfer theorem\n\n\n\nLet \\(X\\) be a random variable. Let \\(g: \\mathbb{R}^d \\mapsto \\mathbb{R}\\) be a function such that \\(\\mathbb{E}\\left[ g(X) \\right]\\) exists. We have:\n\nIf \\(X\\) is a discrete random variable, \\(\\mathbb{E}\\left[ g(X) \\right] = \\sum_{x \\in F} g(x) \\mathbb{P}(X = x)\\);\nIf \\(X\\) is a continuous random variable with density \\(f\\), \\(\\mathbb{E}\\left[ g(X) \\right] = \\int_{\\mathbb{R}^d} g(x)f(x) dx\\).\n\n\n\n\n\n\n\n\n\nProperties: Linearity of expectation\n\n\n\nLet \\(X\\) and \\(Y\\) be two random variables whose expectations exist, and let \\(\\lambda \\in R\\). We have:\n\n\\(\\mathbb{E}(X + Y) = \\mathbb{E}(X) + \\mathbb{E}(Y)\\);\n\\(\\mathbb{E}(\\lambda X) = \\lambda \\mathbb{E}(X)\\).\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nThe proof is derived from the transfer theorem and the linearity of addition and integration.\n\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(X\\) be a random variable such that the expectation of its square exists. The variance of \\(X\\) is defined by \\[\\mathrm{Var}(X) = \\mathbb{E}\\left[ \\left( X - \\mathbb{E}(X) \\right)^2 \\right] = \\mathbb{E}\\left[ X^2 \\right] - \\mathbb{E}\\left[ X \\right]^2.\\]\n\n\nThe variance measures the dispersion of a random variable around its mean. We can also look at the standard deviation, defined as the square root of the variance: \\(\\sigma(X) = \\sqrt{\\mathrm{Var}(X)}\\).\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(X\\) and \\(Y\\) be two random variables and \\(A\\) and \\(B\\) be two events. If the events \\(\\left\\{ X \\in A \\right\\}\\) and \\(\\left\\{ Y \\in B \\right\\}\\) are independent, then we say that the random variables \\(X\\) and \\(Y\\) are independent.\n\n\nFrom this definition, we can deduce that:\n\nfor functions \\(f\\) and \\(g\\), the random variables \\(f(X)\\) and \\(g(Y)\\) are independent;\nif the random variables \\(X\\) and \\(Y\\) are real-valued and their expectation exists, then the expectation of the product \\(XY\\) exists and \\(\\mathbb{E}(XY) = \\mathbb{E}(X) \\times \\mathbb{E}(Y)\\).\n\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(X\\) be a random variable. The distribution function \\(F: \\mathbb{R} \\mapsto [0, 1]\\) of \\(X\\) is defined by \\[F(t) = \\mathbb{P}(X \\leq t), \\quad t \\in \\mathbb{R}.\\]",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Probabilities and Statistics"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/02-probabilities.html#random-vectors",
+    "href": "contents/remainders/02-probabilities.html#random-vectors",
+    "title": "Probabilities and Statistics",
+    "section": "Random vectors",
+    "text": "Random vectors\nSuppose that \\(X = (X_{1}, X_{2})\\) is a random variable of dimension \\(2\\) with density \\(f_{X}\\). Random variables of dimension greater than \\(1\\) are generally referred to as random vectors. The densities of \\(X_{1}\\) and \\(X_{2}\\) are called marginal densities. When \\(X_{1}\\) and \\(X_{2}\\) are independent, we have: \\[f_X(x, y) = f_{X_{1}}(x) \\cdot f_{X_{2}}(y), \\quad (x, y) \\in \\mathbb{R}^2.\\]\n\n\n\n\n\n\nExample of the multivariate normal distribution\n\n\n\nA random vector \\(X\\) of dimension \\(p\\) is said to follow a multivariate normal distribution with mean \\(\\mu\\) and variance \\(\\Sigma\\) if its density is given by \\[f_X(x) = \\frac{1}{(2 \\pi)^{p /2}} \\cdot \\frac{1}{(\\text{det} \\Sigma)^{1/2}} \\cdot \\exp\\left\\{ -\\frac{1}{2}\\left( x - \\mu \\right)^\\top \\Sigma^{-1} \\left( x - \\mu \\right) \\right\\}, \\quad x \\in \\mathbb{R}^p.\\]\nWe denote \\(X \\sim \\mathcal{N}_{p}(\\mu, \\Sigma)\\).\n\n\nIn statistics, an important quantity to measure is the linear dependence between \\(X_{1}\\) and \\(X_{2}\\). For this, we can use the covariance or the correlation.\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(X = (X_{1}, X_{2})\\) be a random vector such that the expectation of the square of \\(X_{1}\\) and \\(X_{2}\\) exists. The covariance between \\(X_{1}\\) and \\(X_{2}\\) is given by \\[\\mathrm{Cov}(X_{1}, X_{2}) = \\mathbb{E}\\left[ (X_{1} - \\mathbb{E}(X_{1})) (X_{2} - \\mathbb{E}(X_{2}))\\right].\\]\nThe correlation between \\(X_{1}\\) and \\(X_{2}\\) is a version of the covariance normalized by the standard deviation of the random variables. It is given by \\[\\mathrm{Corr}(X_{1}, X_{2}) = \\frac{\\mathrm{Cov}(X_{1}, X_{2})}{\\sigma(X_{1}) \\sigma(X_{2})}.\\]\n\n\nThe sign of the covariance and correlation can be interpreted. If they are strictly positive, \\(X_{1}\\) and \\(X_{2}\\) tend to move in the same direction. If \\(X_{1}\\) increases, then \\(X_{2}\\) also increases, and vice versa. If they are strictly negative, \\(X_{1}\\) and \\(X_{2}\\) tend to move in opposite directions. If \\(X_{1}\\) increases, then \\(X_{2}\\) decreases, and vice versa. If the covariance is equal to \\(0\\), there are no rules and \\(X_{1}\\) and \\(X_{2}\\) are said to be orthogonal.\n\n\n\n\n\n\nProperties\n\n\n\nLet \\(X = (X_{1}, X_{2})\\) be a random vector. We have\n\n\\(\\mathrm{Cov}(X_{1}, X_{2}) = \\mathbb{E}(X_{1}X_{2}) - \\mathbb{E}(X_{1})\\mathbb{E}(X_{2})\\);\n\\(\\mathrm{Cov}(X_{1}, X_{2}) = \\mathrm{Cov}(X_{2}, X_{1})\\);\n\\(\\mathrm{Cov}(X_{1} + \\lambda Y_{1}, X_{2}) = \\mathrm{Cov}(X_{1}, X_{2}) + \\lambda \\mathrm{Cov}(Y_{1}, X_{2})\\).\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\nWe find the result by expanding the product in the definition of the covariance.\nUsing point 1. and the commutativity of multiplication.\nUsing point 1. and the linearity of expectation.",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Probabilities and Statistics"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/02-probabilities.html#estimation",
+    "href": "contents/remainders/02-probabilities.html#estimation",
+    "title": "Probabilities and Statistics",
+    "section": "Estimation",
+    "text": "Estimation\nIn practice, we do not have perfect knowledge of our random vectors, but only some of their realizations (called samples). Let \\(x_{1}, \\dots, x_{n}\\) be \\(n\\) independent realizations of a random vector \\(X\\) with mean \\(\\mu\\) and variance \\(\\Sigma\\).\nThe estimator of the mean \\(\\mu\\) is given by \\[\\widehat{\\mu} = \\overline{X} \\coloneqq \\frac{1}{n} \\sum_{i = 1}^{n} x_i.\\]\nThe estimator of the variance \\(\\Sigma\\) is given by \\[\\widehat{\\Sigma} \\coloneqq \\frac{1}{n - 1}\\sum_{i = 1}^{n} (x_i - \\widehat{\\mu})(x_i - \\widehat{\\mu})^\\top.\\]\nWhy do we divide this sum by \\(n -1\\) and not by \\(n\\) to estimate the variance? If we divide by \\(n\\), \\(\\widehat{\\Sigma}\\) is a biased estimator of the variance. Indeed, we must take into account that we are using a biased estimator of the mean in the variance estimator and therefore correct for this estimate.\nLet \\(D = \\{\\text{diag}(\\widehat{\\Sigma})\\}^{1/2}\\) be the matrix of standard deviations calculated on the sample. We can estimate the correlation matrix on the sample by \\[\\widehat{R} = D^{-1} \\widehat{\\Sigma} D^{-1}.\\]",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Probabilities and Statistics"
+    ]
+  },
+  {
+    "objectID": "contents/misc/pipe.html",
+    "href": "contents/misc/pipe.html",
+    "title": "Pipe operator in R",
+    "section": "",
+    "text": "This page is based on a document created by Aurélien Nicosia (ULaval) in 2023 called “Pipe Operator.” It has been updated.\nSince version 4.1.0 of R, released in May 2021, the language has introduced the pipe operator |&gt;, inspired by what the magrittr package was doing. Starting with R 4.3.0, the style guide for the tidyverse recommends using the basic pipe operator, not the one from magrittr.\n\n\n\n\n\n\nKeyboard shortcuts\n\n\n\nIn RStudio, the keyboard shortcut for inserting the pipe operator is:\n\nOn Windows: Ctrl + Shift + M\nOn macOS: ⌘ + ⇧ + M\n\n\n\nThis operator introduces a way to chain instructions and pass arguments to functions in a more readable way than the traditional method.\nTo summarize how this operator works, here is how it transforms a few function calls:\n\nf(x) becomes x |&gt; f();\nf(x, y) becomes x |&gt; f(y);\nh(g(f(x))) becomes x |&gt; f() |&gt; g() |&gt; h().\n\nThis operator allows you to highlight the sequence of actions rather than the object on which the sequence of actions is performed. This makes the code more readable (and having readable code is a good practice). Reading the instruction h(g(f(x))) from left to right, we first see the call to the function h, then the call to the function g, and finally the call to the function f. However, this instruction is evaluated in reverse order. In fact, R will first:\n\nevaluate f(x);\nthen pass the result to the function g and return the result;\nwhich will be passed to the function h and the final result will be returned.\n\nIf we want to write code that correctly reflects the order of evaluation, we could write:\n\nres1 &lt;- f(x)\nres2 &lt;- g(res1)\nh(res2)\n\nHowever, this code has the disadvantage of creating objects that we do not necessarily want to keep. The |&gt; operator does not have this disadvantage! In fact, an instruction written using the |&gt; operator allows us to follow the order of evaluations without creating unnecessary objects in memory.\nFor even greater clarity, it is possible to extend an instruction containing several |&gt; operators over several lines so that there is one function per line:\n\nx |&gt; \n  f() |&gt; \n  g() |&gt; \n  h()\n\nIf the argument we want to pass with the |&gt; operator is not the first one, we must use _ as follows with a named argument: f(y, z = x) becomes x |&gt; f(y, z = _).\nLet’s take an example to illustrate the use of the |&gt; operator. Suppose we have the following character string:\n\ntext &lt;- \"This is an example\"\n\nand we want to correct it—replace “example” with “example” and add a period at the end—with the following instruction:\n\npaste0(gsub(pattern = \"example\", replacement = \"example\", x = text), \".\")\n\n[1] \"This is an example.\"\n\n\nThis instruction is a little difficult to read because of the call to the gsub function nested within a call to the paste0 function. We could rewrite it as follows using the |&gt; operator:\n\ntext |&gt; \n  gsub(pattern = \"example\", replacement = \"example\", x = _) |&gt; \n  paste0(\".\")\n\n[1] \"This is an example.\"\n\n\nLet’s take another numerical example. We want to perform the following calculation: \\[\\frac{(2 + 4) \\times 8}{2}.\\]\nTo do this, we need a few mathematical functions.\n\nadd &lt;- function(x, y) {\n  x + y\n}\n\nmul &lt;- function(x, y) {\n  x * y\n}\n\ndiv &lt;- function(x, y) {\n  x / y\n}\n\nWe can perform the calculation in three different ways:\n\n# By creating different objects \nres1 &lt;- add(2, 4)\nres2 &lt;- mul(res1, 8)\nres3 &lt;- div(res2, 2)\nprint(res3)\n\n[1] 24\n\n# By nesting functions\nres &lt;- div(mul(add(2, 4), 8), 2)\nprint(res)\n\n[1] 24\n\n# With the pipe operator \nres &lt;- 2 |&gt;\n  add(4) |&gt; \n  mul(8) |&gt; \n  div(2)\nprint(res)\n\n[1] 24"
+  },
+  {
+    "objectID": "contents/03-generalities.html",
+    "href": "contents/03-generalities.html",
+    "title": "Generalities",
+    "section": "",
+    "text": "Slides: link\nTD: link\nTP: link",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités"
+    ]
+  },
+  {
+    "objectID": "contents/03-generalities.html#outline",
+    "href": "contents/03-generalities.html#outline",
+    "title": "Generalities",
+    "section": "Outline",
+    "text": "Outline\n\nData analysis project\nSpaces\nDistances\nBias / Variance\nModel evaluation\n\n\n\n\nCorrelation (xkcd:552).",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités"
+    ]
+  },
+  {
+    "objectID": "informations/description.html",
+    "href": "informations/description.html",
+    "title": "Description",
+    "section": "",
+    "text": "In this course, we aim to introduce methods that will enable students to study a “high-dimensional” dataset (here, “high-dimensional” is taken in the sense that we can’t simply graph all the variables for all the observations) without resorting to a probabilistic model. The techniques we teach are used to reduce the dimension of the data, identify certain correlation between variables, visualize the data or divide the dataset into groups/classes.\nWithout neglecting the theory, the emphasis will be on the practical aspect of data analysis and the use of a programming language, whether R, Python or other.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#objectives",
+    "href": "informations/description.html#objectives",
+    "title": "Description",
+    "section": "",
+    "text": "In this course, we aim to introduce methods that will enable students to study a “high-dimensional” dataset (here, “high-dimensional” is taken in the sense that we can’t simply graph all the variables for all the observations) without resorting to a probabilistic model. The techniques we teach are used to reduce the dimension of the data, identify certain correlation between variables, visualize the data or divide the dataset into groups/classes.\nWithout neglecting the theory, the emphasis will be on the practical aspect of data analysis and the use of a programming language, whether R, Python or other.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#place-of-the-course-in-the-program",
+    "href": "informations/description.html#place-of-the-course-in-the-program",
+    "title": "Description",
+    "section": "Place of the course in the program",
+    "text": "Place of the course in the program\nThis course is generally taken by students in their second year of a bachelor’s degree in statistics. It is also an elective in actuarial science, mathematics and some engineering and business programs.\nAll students should ensure that they have taken at least one linear algebra course (e.g. MAT-1200) and one basic statistics course (e.g. STT-1000), as most data analysis methods are based on these concepts.\nStudents should also have some familiarity with basic algorithmic concepts, as well as with (at least) one programming language.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#specific-objectives",
+    "href": "informations/description.html#specific-objectives",
+    "title": "Description",
+    "section": "Specific objectives",
+    "text": "Specific objectives\nBy the end of the course, students should be able to:\n\nunderstand and briefly describe the theoretical foundations of the data analysis methods studied;\ncorrectly identify situations where the use of these methods is indicated;\nuse a programming language effectively to implement these methods;\nanalyze and interpret the results of analysis;\nformulate the conclusions of the analysis in writing, within the limits of the methodology.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#computer-equipment",
+    "href": "informations/description.html#computer-equipment",
+    "title": "Description",
+    "section": "Computer equipment",
+    "text": "Computer equipment\nYou may need a computer, speakers or headphones, a microphone, a webcam and a wired broadband or wireless Internet connection. To check the minimum configuration parameters for your operating system, please visit this page.\nIn addition, this course may require specific software requirements, which will be described in other sections of the course outline as appropriate.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#how-it-works",
+    "href": "informations/description.html#how-it-works",
+    "title": "Description",
+    "section": "How it works",
+    "text": "How it works\nClasses and exams will take place face-to-face on Tuesday and Friday mornings, but materials will be available online. In general, the Friday session will be a lecture session, and the Tuesday session will be dedicated to practical exercises carried out independently by students with the support of the teacher.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#pedagogical-approaches",
+    "href": "informations/description.html#pedagogical-approaches",
+    "title": "Description",
+    "section": "Pedagogical approaches",
+    "text": "Pedagogical approaches\nThe preferred teaching approach is interactive lectures (Fridays) alternating with laboratory periods (Tuesdays). The pedagogical approach is very much geared to active learning and requires sustained commitment from students throughout the session.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
   },
   {
     "objectID": "informations/evaluations.html",
@@ -106,325 +465,6 @@
     ]
   },
   {
-    "objectID": "informations/materials.html",
-    "href": "informations/materials.html",
-    "title": "Materials",
-    "section": "",
-    "text": "This page brings together various useful resources for the course.\nThe Elements of Statistical Learning: Data Mining, Inference and Prediction, 2nd Edition\nAuthors: Trevor Hastie, Robert Tibshirani and Jerome Friedman\nPublisher: Springer (New York, 2009)\nISBN: 0-387-84857-0\nLink: authors’ website\nAn Introduction to Statistical Learning: with application in R, 2nd Edition\nAuthors: Gareth James, Daniela Witten, Trevor Hastie and Robert Tibshirani\nPublisher: Springer (New York, 2021)\nISBN: 1-0716-1417-4\nLink: authors’ website\nAn Introduction to Statistical Learning: with application in Python\nAuthors: Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani and Jonathan Taylor\nPublisher: Springer (Switzerland, 2023)\nISBN: 3-031-38746-3\nLink: authors’ website",
-    "crumbs": [
-      "Informations",
-      "Matériel"
-    ]
-  },
-  {
-    "objectID": "informations/schedule.html",
-    "href": "informations/schedule.html",
-    "title": "Schedule",
-    "section": "",
-    "text": "The plan is given for information only.\n\n\n\nWeek\nDate\nHour\nPlan\nEvaluations",
-    "crumbs": [
-      "Informations",
-      "Plan"
-    ]
-  },
-  {
-    "objectID": "contents/remainders/01-linear-algebra.html",
-    "href": "contents/remainders/01-linear-algebra.html",
-    "title": "Linear Algebra",
-    "section": "",
-    "text": "In this section, we present some linear algebra results that are useful in the context of this course. For more information, you can refer to the MAT-1200 course, Deisenroth, Faisal, and Ong (2020) (in English), and Grifone (2024) (in French).",
-    "crumbs": [
-      "Modules",
-      "02 - Révisions",
-      "Linear Algebra"
-    ]
-  },
-  {
-    "objectID": "contents/remainders/01-linear-algebra.html#some-matrix-properties",
-    "href": "contents/remainders/01-linear-algebra.html#some-matrix-properties",
-    "title": "Linear Algebra",
-    "section": "Some matrix properties",
-    "text": "Some matrix properties\nLet \\(M_{n, m}(\\mathbb{R})\\) be the set of matrices with \\(n\\) rows and \\(m\\) columns whose entries belong to \\(\\mathbb{R}\\). Let \\(M_{n}(\\mathbb{R})\\) be the set of square matrices of size \\(n\\), i.e., with \\(n\\) rows and \\(n\\) columns whose entries belong to \\(\\mathbb{R}\\). Let \\(M\\), \\(N\\), and \\(P\\) be matrices in \\(M_{n, m}(\\mathbb{R})\\). Let \\(A\\) and \\(B\\) be matrices in \\(M_{n}(\\mathbb{R})\\). Let \\(I_n\\) be the identity matrix of size \\(n\\), i.e., containing \\(1\\)s on the diagonal and \\(0\\)s on the elements outside the diagonal. Let \\(u\\) and \\(v\\) in \\(\\mathbb{R}^n\\), i.e., column vectors of size \\(n\\).\n\n\n\n\n\n\nProperties of the inverse of matrices\n\n\n\nSuppose that the matrices \\(A\\) and \\(B\\) are invertible. Then the matrix product \\(AB\\) is invertible and is given by:\n\\[(AB)^{-1} = B^{-1} A^{-1}.\\]\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nLet \\(C = AB\\) and \\(D = B^{-1} A^{-1}\\). Then\n\\[\\begin{align*}\n  CD &= A B B^{-1} A^{-1} \\\\\n     &= A A^{-1} \\\\\n     &= I_n\n\\end{align*}\\]\nSimilarly, we find that \\(DC = I_n\\). Thus, \\(AB\\) is invertible and its inverse is given by \\(B^{-1} A^{-1}\\).\n\n\n\n\n\n\n\n\n\nProperties of the determinant of matrices\n\n\n\nConsidering the matrices defined at the beginning of the section, we have:\n\n\\(\\text{det}(A^\\top) = \\text{det}(A)\\),\n\\(\\text{det}(AB) = \\text{det}(A)\\text{det}(B)\\),\n\\(\\text{det}(A^{-1}) = 1 / \\text{det}(A)\\).\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nThe proofs of properties \\(1\\) and \\(2\\) are technical and are omitted, but can be found, for example, here. As for the third property, by definition, we have \\(A A^{-1} = I_n\\). The determinant of \\(I_n\\) is equal to \\(1\\) (product of the elements on the diagonal). Therefore, \\(\\text{det}(A A^{-1}) = 1\\). However, according to the second property, \\(\\text{det}(A A^{-1}) = \\text{det}(A)\\text{det}(A^{-1})\\). We therefore have \\(\\text{det}(A^{-1}) = 1 / \\text{det}(A)\\).\n\n\n\n\n\n\n\n\n\nProperties of the trace of matrices\n\n\n\nConsidering the matrices defined at the beginning of the section, we have:\n\n\\(\\text{tr}(A) = \\text{tr}(A^{\\top})\\),\n\\(\\text{tr}(A + B) = \\text{tr}(A) + \\text{tr}(B)\\),\n\\(\\text{tr}(MN^{\\top}) = \\text{tr}(N^{\\top}M)\\).\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nFor a square matrix \\(A\\), let \\(a_{ij}\\) be the element of matrix \\(A\\) in row \\(i\\) and column \\(j\\). The trace of \\(A\\) is given by the sum of the diagonal elements, i.e. \\(\\text{tr}(A) = \\sum_{i = 1}^{n} a_{ii}\\).\n\nSince transposition does not change the diagonal elements, the result is straightforward.\nLet \\(C = A + B\\). Since \\(A\\) and \\(B\\) are square matrices, \\(C\\) is a square matrix. We have \\(c_{ij} = a_{ij} + b_{ij}\\) for all \\(i, j = 1, \\dots, n\\). Therefore \\[\\text{tr}(A + B) = \\text{tr}(C) = \\sum_{i = 1}^{n} c_{ii} = \\sum_{i = 1}^{n} a_{ii} + b_{ii} = \\sum_{i = 1}^{n} a_{ii} + \\sum_{i = 1}^{n} b_{ii} = \\text{tr}(A) + \\text{tr}(B).\\]\nThe matrices \\(M N^{\\top}\\) and \\(N^{\\top} M\\) are square, with dimensions \\(n \\times n\\) and \\(m \\times m\\) respectively, so we can calculate their traces. Let \\(C = M N^{\\top}\\) and \\(D = N^{\\top} M\\). \\[\\text{tr}(M N^{\\top}) = \\text{tr}(C) = \\sum_{i = 1}^{n} c_{ii} = \\sum_{i = 1}^{n} \\sum_{j = 1}^{m} m_{ij} n_{ji} = \\sum_{j = 1}^{m} \\sum_{i = 1}^{n} n_{ji} m_{ij} = \\sum_{j = 1}^{m} d_{jj} = \\text{tr}(D)  = \\text{tr}(N^{\\top} M).\\]\n\n\n\n\n\n\n\n\n\n\nDefinition\n\n\n\n\nLet \\(A\\) be a symmetric matrix in \\(M_n(\\mathbb{R})\\). \\(A\\) is positive definite if \\(u^\\top A u &gt; 0\\) for all \\(u \\in \\mathbb{R}^n\\) such that \\(u \\neq 0\\).\nLet \\(A \\in M_n(\\mathbb{R})\\). \\(A\\) is orthogonal if \\(A^\\top A = A A^\\top = I_n\\).",
-    "crumbs": [
-      "Modules",
-      "02 - Révisions",
-      "Linear Algebra"
-    ]
-  },
-  {
-    "objectID": "contents/remainders/01-linear-algebra.html#eigenvalues-and-eigenvectors",
-    "href": "contents/remainders/01-linear-algebra.html#eigenvalues-and-eigenvectors",
-    "title": "Linear Algebra",
-    "section": "Eigenvalues and eigenvectors",
-    "text": "Eigenvalues and eigenvectors\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(A \\in M_n(\\mathbb{R})\\). We say that \\(\\lambda \\in \\mathbb{R}\\) is an eigenvalue of \\(A\\) if there exists a nonzero vector \\(u \\in \\mathbb{R}^n\\) such that \\[Au = \\lambda u. \\tag{1}\\] The vector \\(u\\) is called an eigenvector of \\(A\\) corresponding to the eigenvalue \\(\\lambda\\).\nThe set of real numbers \\(\\lambda\\) satisfying Equation 1 is called the spectrum of the matrix \\(A\\) and is denoted by \\(\\text{sp}(A)\\).\n\n\n\n\n\n\n\n\nProperty of eigenvectors\n\n\n\n\nIf \\(u\\) is an eigenvector of \\(A\\) corresponding to an eigenvalue \\(\\lambda\\), then the vector \\(cu\\), \\(c \\in \\mathbb{R}^\\star\\) is also an eigenvector of \\(A\\) corresponding to \\(\\lambda\\).\nIf \\(A\\) is symmetric and \\(u_{1}\\) and \\(u_{2}\\) are eigenvectors corresponding to different eigenvalues of \\(A\\), then \\(u_{1}\\) and \\(u_{2}\\) are orthogonal, i.e. \\(u_{1}^\\top u_{2} = 0\\).\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\n\nLet \\(c \\in \\mathbb{R}^\\star\\) and \\(u\\) be an eigenvector of \\(A\\) associated with the eigenvalue \\(\\lambda\\). We have: \\[A(cu) = cAu = c \\lambda u = \\lambda (cu).\\] Therefore, the vector \\(cu\\) is also an eigenvector of \\(A\\) associated with the eigenvalue \\(\\lambda\\).\nLet \\(\\lambda_{1}\\) and \\(\\lambda_{2}\\) be the eigenvalues associated with \\(u_{1}\\) and \\(u_{2}\\), such that \\(\\lambda_{1} \\neq \\lambda_{2}\\). We have \\(A u_{1} = \\lambda_{1} u_{1}\\) and \\(A u_{2} = \\lambda_{2} u_{2}\\). Then \\[\\lambda_{1} u_{1}^{\\top} u_{2} = u_{1}^\\top A u_{2} = \\lambda_{2} u_{1}^\\top u_{2}.\\] This implies that \\((\\lambda_{1} - \\lambda_{2})u_{1}^\\top u_{2} = 0\\). However, \\(\\lambda_{1} \\neq \\lambda_{2}\\). Therefore, necessarily, \\(u_{1}^\\top u_{2} = 0\\).\n\n\n\n\nThis second property will be useful when we look at dimension reduction and, in particular, principal component analysis.\n\n\n\n\n\n\nCharacterization of matrices with their eigenvalues\n\n\n\n\nIf \\(A\\) is symmetric, then all its eigenvalues are real.\nIf \\(A\\) is positive definite, then all its eigenvalues are strictly positive.\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\n\nConsider the more general case where \\(A\\) is a Hermitian matrix. The matrix \\(A\\) is equal to the transpose of its conjugate, denoted \\(A^*\\). Let \\(\\lambda\\) be an eigenvalue associated with an eigenvector \\(u\\), which may be complex. We have: \\[\\begin{align}\n\\overline{u}^{\\top} A u &= \\overline{u}^\\top \\lambda u = \\lambda \\overline{u}^{\\top} u, \\\\\n\\overline{u}^\\top A u &= \\overline{u}^\\top A^* u = \\overline{Au}^\\top u = \\overline{\\lambda} \\overline{u}^\\top u.\n\\end{align}\\] This implies that \\((\\lambda - \\overline{\\lambda}) \\overline{u}^{\\top} u = 0\\). Since \\(u \\neq 0\\), we have \\(\\lambda = \\overline{\\lambda}\\). Therefore, \\(\\lambda \\in \\mathbb{R}\\).\nConsider \\(u\\), an eigenvector of \\(A\\) associated with the eigenvalue \\(\\lambda\\). We have that \\(u^{\\top} A u = \\lambda u^{\\top} u\\). However, since \\(u \\neq 0\\), \\(u^{\\top}u \\neq 0\\). Therefore, \\[\\lambda = \\frac{u^{\\top} A u}{u^{\\top} u}.\\] Since \\(A\\) is positive definite, \\(u^{\\top} A u &gt; 0\\) for all nonzero vectors \\(u\\). We can therefore deduce that \\(\\lambda &gt; 0\\).",
-    "crumbs": [
-      "Modules",
-      "02 - Révisions",
-      "Linear Algebra"
-    ]
-  },
-  {
-    "objectID": "contents/remainders/01-linear-algebra.html#diagonalization-of-matrices",
-    "href": "contents/remainders/01-linear-algebra.html#diagonalization-of-matrices",
-    "title": "Linear Algebra",
-    "section": "Diagonalization of matrices",
-    "text": "Diagonalization of matrices\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(A \\in M_n(\\mathbb{R})\\). We say that \\(A\\) is diagonalizable if there exists a non-singular matrix \\(P \\in M_n(\\mathbb{R})\\) and a diagonal matrix \\(D \\in M_n(\\mathbb{R})\\) such that \\[P^{-1} A P = D \\Longleftrightarrow A = P D P^{-1}.\\]\n\n\n\n\n\n\n\n\nSpectral decomposition theorem\n\n\n\nLet \\(A\\) be a symmetric matrix in \\(M_n(\\mathbb{R})\\) and \\(\\lambda_{1}, \\dots, \\lambda_n\\) its \\(n\\) eigenvalues. Then there exists an orthogonal matrix \\(P\\) in \\(M_n(\\mathbb{R})\\) such that \\[A = P \\Lambda P^\\top, \\quad\\text{where}\\quad \\Lambda = \\text{diag}(\\lambda_1, \\dots, \\lambda_n).\\]\n\n\nIf \\(A\\) has \\(n\\) distinct positive eigenvalues, then we can take \\(P\\) to be the matrix whose \\(k\\)th column is the normalized eigenvector corresponding to the \\(k\\)th eigenvalue \\(\\lambda_k\\) of \\(A\\).\nGiven two symmetric matrices, \\(A\\) and \\(B\\), how can we determine the vector \\(u\\) such that \\(u^{\\top} A u\\) is maximal, knowing that \\(u^{\\top} B u = 1\\)? We simply take \\(u\\) as the eigenvector of \\(B^{-1}A\\) associated with \\(\\lambda\\), the maximal eigenvalue of \\(B^{-1}A\\). We thus obtain \\[u^{\\top} A u = u^{\\top}\\lambda M u = \\lambda U^{\\top} M u = \\lambda.\\]\n\n\n\n\n\n\nCharacterization of the determinant and trace of matrices with their eigenvalues\n\n\n\nIf \\(A\\) has eigenvalues (real, but not necessarily distinct) \\(\\lambda_{1}, \\dots, \\lambda_{n}\\), then\n\n\\(\\text{det}(A) = \\prod_{i = 1}^{n} \\lambda_i\\)\n\\(\\text{tr}(A) = \\sum_{i = 1}^{n} \\lambda_i.\\)\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nUsing the spectral decomposition theorem, there exists an invertible matrix \\(P\\) such that \\(A = P \\Lambda P^{-1}\\), where \\(\\Lambda\\) is a diagonal matrix containing the eigenvalues. We therefore have, for the determinant,\n\\[\\text{det}(A) = \\text{det}(P \\Lambda P^{-1}) = \\text{det}(P)\\text{det}(\\Lambda)\\text{det}(P^{-1}) = \\text{det}(P)\\text{det}(\\Lambda)\\text{det}(P)^{-1} = \\text{det}(\\lambda) = \\prod_{i = 1}^{n} \\lambda_i, \\]\nand, for the trace,\n\\[\\text{tr}(A) = \\text{tr}(P \\Lambda P^{-1}) = \\text{tr}(P^{-1} P \\Lambda) = \\text{tr}(\\Lambda) = \\sum_{i = 1}^{n} \\lambda_i.\\]",
-    "crumbs": [
-      "Modules",
-      "02 - Révisions",
-      "Linear Algebra"
-    ]
-  },
-  {
-    "objectID": "contents/03-generalities.html",
-    "href": "contents/03-generalities.html",
-    "title": "Generalities",
-    "section": "",
-    "text": "Slides: link\nTD: link\nTP: link",
-    "crumbs": [
-      "Modules",
-      "03 - Généralités"
-    ]
-  },
-  {
-    "objectID": "contents/03-generalities.html#outline",
-    "href": "contents/03-generalities.html#outline",
-    "title": "Generalities",
-    "section": "Outline",
-    "text": "Outline\n\nData analysis project\nSpaces\nDistances\nBias / Variance\nModel evaluation\n\n\n\n\nCorrelation (xkcd:552).",
-    "crumbs": [
-      "Modules",
-      "03 - Généralités"
-    ]
-  },
-  {
-    "objectID": "contents/01-introduction.html",
-    "href": "contents/01-introduction.html",
-    "title": "Introduction",
-    "section": "",
-    "text": "Data analysis is a set of methods for extracting information from a data set. It’s also known as statistical learning. The idea is to use statistical models to understand how data is structured and how it interacts with each other.\n\n\n\n\n\n\nExample\n\n\n\nLet’s imagine you work for the United Nations (UN). Your mission is to analyze life expectancy around the world. To do this, you’ll have a measure of life expectancy in each UN member country, of course, but also GDP per capita, health expenditure, fertility rate, urbanization rate, education level of the country, and so on. The aim of data analysis is to find links between these different variables and the variable of interest, life expectancy, to visualize these data, and eventually to predict life expectancy from the other variables.",
-    "crumbs": [
-      "Modules",
-      "01 - Introduction"
-    ]
-  },
-  {
-    "objectID": "contents/01-introduction.html#what-is-data-analysis",
-    "href": "contents/01-introduction.html#what-is-data-analysis",
-    "title": "Introduction",
-    "section": "",
-    "text": "Data analysis is a set of methods for extracting information from a data set. It’s also known as statistical learning. The idea is to use statistical models to understand how data is structured and how it interacts with each other.\n\n\n\n\n\n\nExample\n\n\n\nLet’s imagine you work for the United Nations (UN). Your mission is to analyze life expectancy around the world. To do this, you’ll have a measure of life expectancy in each UN member country, of course, but also GDP per capita, health expenditure, fertility rate, urbanization rate, education level of the country, and so on. The aim of data analysis is to find links between these different variables and the variable of interest, life expectancy, to visualize these data, and eventually to predict life expectancy from the other variables.",
-    "crumbs": [
-      "Modules",
-      "01 - Introduction"
-    ]
-  },
-  {
-    "objectID": "contents/01-introduction.html#course-objectives",
-    "href": "contents/01-introduction.html#course-objectives",
-    "title": "Introduction",
-    "section": "Course objectives",
-    "text": "Course objectives\nIn this course, we aim to introduce methods that allow us to study a “high-dimensional” dataset (in the sense that we can’t simply graph all the variables for each observation) without having to resort to a probabilistic model. The various techniques we’ll be looking at can be used to:\n\nvisualize data\nreduce data size;\nidentify certain relationships between variables;\ndivide the dataset into groups/classes.\n\nThis course is not intended to be exhaustive, in the sense of presenting all possible methods. Nor is it intended to be state-of-the-art, in the sense that it will not cover the latest developments in machine learning. Nor is it a programming course.\nTo finish this introduction, here is a quote from Statistical Rethinking by Richard McElreath (McElreath 2020) particularly accurate in this course.\n\nStatistics courses […] tend to resemble horosscopes. There are two senses to this resemblance. First, in order to remain plausibly correct, they must remain tremendously vague. This is because the targets of the advice, for both horoscopes and statistical advice, are diverse. But only the most general advice applies to all cases. A horoscope uses only the basic facts of birth to forecast life events, and a […] statistical guide uses only the basic facts of measurement and design to dictate a model. It is easy to do better, once more detail is available. In the case of statistical analysis, it is tipically only the scientist whho can provide that detail, not the statistician. Second, there are strong incentives for both astrologers and statisticians to exaggerate the power and importance of their advice. No one likes an astrologer who forecasts doom, and few want a statistician who admits the answers as desired are not in the data as collected. Scientists desire results, and they will buy and attend to statisticians and statistical procedures that promise them. What we end up with is too often horoscopic: vague and optimistic, but still claiming critical importance.",
-    "crumbs": [
-      "Modules",
-      "01 - Introduction"
-    ]
-  },
-  {
-    "objectID": "contents/misc/good-practices.html",
-    "href": "contents/misc/good-practices.html",
-    "title": "Programming good practices",
-    "section": "",
-    "text": "This page is based on a document created by Aurélien Nicosia (ULaval) in 2023 called “Bonnes pratiques de programmation en R.” It has been updated and written in a more general context.\nRegardless of the programming language, employing good programming practices means adhering to certain standards in order to create “good” code. This raises the question of what constitutes “good” code. For me, “good” code is code that fulfills three objectives:\nWhy is it desirable to adopt good practices? It allows the code to be understood and used by anyone (and in particular, by yourself in the future). In the long term, good practices increase our productivity by avoiding unnecessary repetition."
-  },
-  {
-    "objectID": "contents/misc/good-practices.html#objective-1-produce-the-expected-results",
-    "href": "contents/misc/good-practices.html#objective-1-produce-the-expected-results",
-    "title": "Programming good practices",
-    "section": "Objective 1: Produce the expected results",
-    "text": "Objective 1: Produce the expected results\nThe priority when developing any computer code is undoubtedly to write code that does what it is supposed to do. Therefore, “good” code must produce the right results. To achieve this, the code must first be functional, i.e., it must not contain any bugs. To ensure that the code works correctly, it simply needs to be tested. It is better to test frequently, with each small addition, rather than producing a lot of code before testing it. This way, there is much less debugging to do. One school of thought in computer science even advocates writing tests before writing code (test-driven development). However, a better practice is to formalize the tests so that they can be easily rerun when future changes are made to the code."
-  },
-  {
-    "objectID": "contents/misc/good-practices.html#objective-2-easy-to-maintain-code",
-    "href": "contents/misc/good-practices.html#objective-2-easy-to-maintain-code",
-    "title": "Programming good practices",
-    "section": "Objective 2: Easy-to-maintain code",
-    "text": "Objective 2: Easy-to-maintain code\nMaintaining computer code means ensuring that it continues to function properly in the future, despite any changes made to it. Code that is used frequently is code that will need to be updated, either to add features or to fix bugs that were not detected by testing but discovered by users. Taking over code written by someone else, or written by ourselves a few months ago, is not always an easy task. However, if the code is written correctly, it should not be too difficult to understand and modify.\nCode maintenance is based on three principles: versioning, comprehensibility, and reusability.\nThe principle of versioning is to use software that records the various changes made to the code. The best known is Git. It allows you to navigate between different versions of your code, create multiple versions (called branches), and collaborate with others on the same code. It is truly an essential tool to have in your arsenal. Versioning can then be recorded on Github, which manages the underlying machinery. For example, this site uses Git and Github for versioning, and you can see the different versions here.\nComprehensible code is clear and easy to read (almost like text). It often includes instructions that are self-explanatory. These instructions are typically succinct, as overly long instructions often perform several tasks that are difficult to discern. If reading an instruction does not allow a programmer familiar with the computer language used to understand what it does, it is recommended to insert a comment in the code to explain what the instruction is for. In addition to comments explaining certain instructions, all functions should be documented. The documentation for a function should contain: an explanatory text describing what the function does, a description of the arguments accepted as input, a description of the results produced, and an example of use. When programming, it is also good practice to follow a style guide. A style guide is a set of rules that developers have agreed upon to ensure consistent syntax across different projects. In R, you can use the tidyverse style guide. In Python, you can use the PEP8 style guide written by the creator of Python. And in Julia, you can use the style guide provided with the language manual. You can use a linter, a static code analysis tool, to help you comply with these style guides. Note that these style guides are recommendations and there is no obligation to follow them. Some rules contradict each other, so I would even recommend not following some of them.\nThe most common way to make code easy to reuse is to turn it into functions that can then be shared through a package."
-  },
-  {
-    "objectID": "contents/misc/good-practices.html#objective-3-sufficiently-fast-code",
-    "href": "contents/misc/good-practices.html#objective-3-sufficiently-fast-code",
-    "title": "Programming good practices",
-    "section": "Objective 3: Sufficiently fast code",
-    "text": "Objective 3: Sufficiently fast code\nOnce we have ensured that our code works correctly and is easy to maintain, we can focus on its execution time. Although this is not the most important criterion for defining “good” code, it is still a criterion that should not be overlooked, as code that is too slow may not be used. To produce computationally efficient code, you need to:\n\nput a few simple tricks into practice, i.e., use the optimized syntaxes of the different languages;\ncompare the execution time of different ways of programming a task;\nsometimes perform parallel calculations;\nsometimes program pieces of code in another, lower-level language."
-  },
-  {
-    "objectID": "contents/misc/good-practices.html#in-summary",
-    "href": "contents/misc/good-practices.html#in-summary",
-    "title": "Programming good practices",
-    "section": "In summary",
-    "text": "In summary\nIn summary, to adopt good programming practices, you need to:\n\nTest your code frequently.\nUse version control software.\nDocument your code.\nFollow a style guide.\nFactorize your code by creating functions and packages.\nOptimize execution time."
-  },
-  {
-    "objectID": "contents/remainders/02-probabilities.html",
-    "href": "contents/remainders/02-probabilities.html",
-    "title": "Probabilities and Statistics",
-    "section": "",
-    "text": "In this section, we present some results in probability and statistics within the framework of this course. For more information, you can refer to the STT-1000 course, Wasserman (2010) (in English) and Delmas (2013) (in French).",
-    "crumbs": [
-      "Modules",
-      "02 - Révisions",
-      "Probabilities and Statistics"
-    ]
-  },
-  {
-    "objectID": "contents/remainders/02-probabilities.html#modeling-randomness",
-    "href": "contents/remainders/02-probabilities.html#modeling-randomness",
-    "title": "Probabilities and Statistics",
-    "section": "Modeling randomness",
-    "text": "Modeling randomness\nMany real-world phenomena are unpredictable, and their outcomes generally contain a certain amount of variability. This variability is taken into account using a measure of uncertainty called probability measure.\n\n\n\n\n\n\nDefinition\n\n\n\nThe sample space \\(S\\) is the set of all possible outcomes of a phenomenon. An event is a subset of the sample space \\(S\\).\n\n\n\n\n\n\n\n\nExamples\n\n\n\n\nIf the experiment consists of tossing a coin, \\(S = \\{0, 1\\}\\). The result of this experiment cannot be known in advance. For example, \\(E = \\{1\\}\\) is an event of \\(S\\).\nIf we are interested in the lifespan of a phone, \\(S = \\mathbb{R}_{+}\\). We can also choose \\(S = [0, M]\\), because this lifespan is probably not infinite! The event \\(E = [10, \\infty)\\) represents the event “the lifespan of more than 10 time units.”\nFor the number of days without snow in Quebec City in a year, we can choose \\(S = \\mathbb{N}\\). The event \\(E = (0, 5]\\) represents the event “fewer than 5 days without snow in Quebec City in a year.”\n\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nA probability measure \\(\\mathbb{P}\\) on \\(S\\) is an application (function) defined on the sample space and satisfying the following properties:\n\nFor each event \\(E\\), \\(\\mathbb{P}(E) \\in [0, 1]\\).\n\\(\\mathbb{P}(S) = 1\\).\nLet \\(E_{1}, E_{2}, \\dots\\) be a sequence of mutually exclusive events (finite or infinite), i.e. \\(\\forall i \\neq j, E_{i} \\cap E_{j} = \\varnothing\\). We have \\[\\mathbb{P}(\\bigcup_{n = 1}^{\\infty} E_n) = \\sum_{n = 1}^{\\infty} \\mathbb{P}(E_n).\\]\n\nWe call \\(\\mathbb{P}(E)\\) the probability of event \\(E\\).\n\n\nThe definition of probability measures can be subjective and linked to the statistician’s experience. Let’s take example 3 on the number of days without snow in Quebec City during the year. Someone who has just arrived in Canada may want to give the same probability to each day, while a Quebecer will have more information and will be able to vary the probabilities based on this knowledge.\n\n\n\n\n\n\nDefinition\n\n\n\nTwo events \\(E\\) and \\(F\\) are said to be independent if \\(\\mathbb{P}(E \\cap F) = \\mathbb{P}(E) \\times \\mathbb{P}(F)\\).\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(E\\) and \\(F\\) be two events. The conditional probability that \\(E\\) occurs given that \\(F\\) has occurred is defined by: \\[\\mathbb{P}(E \\mid F) = \\frac{\\mathbb{P}(E \\cap F)} {\\mathbb{P}(F)}.\\]\n\n\nIntuitively, two events are independent if knowledge of one provides no information about the occurrence of the other. We also have \\(\\mathbb{P}(E \\mid F) = \\mathbb{P}(E)\\).",
-    "crumbs": [
-      "Modules",
-      "02 - Révisions",
-      "Probabilities and Statistics"
-    ]
-  },
-  {
-    "objectID": "contents/remainders/02-probabilities.html#random-variables",
-    "href": "contents/remainders/02-probabilities.html#random-variables",
-    "title": "Probabilities and Statistics",
-    "section": "Random variables",
-    "text": "Random variables\nIn probability theory, it is customary to express the outcome of experiments as the value of a function called a random variable. This characterization is always possible.\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(X\\) be a random variable. The distribution of this random variable is defined by the application \\(A \\mapsto \\mathbb{P}(X \\in A)\\).\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(X\\) be a random variable. This random variable is discrete if it takes, at most, a countable number of values. In this case, the distribution of \\(X\\) is given by the probabilities \\(\\mathbb{P}(X = x)\\) for all outcomes \\(x\\).\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(X\\) be a random variable. This random variable is continuous if the probabilities \\(\\mathbb{P}(X \\in A)\\) are given by integrals of the form \\(\\int_{A} f(x) dx\\) where \\(f: \\mathbb{R}^d \\to \\mathbb{R}_+\\) is an integrable function such that \\(\\int_{\\mathbb{R}^d} f(x) dx = 1\\). Note that, for a fixed outcome \\(x\\), \\(\\mathbb{P}(X = x) = 0\\).\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(X\\) be a random variable. The mathematical expectation \\(\\mathbb{E}(X)\\) of \\(X\\) is the average value of the outcome of \\(X\\) with respect to its probability distribution. The expectation is usually denoted by \\(\\mu\\).\n\n\nLet \\(F\\) be a countable set. A discrete random variable \\(X\\) has an expectation \\(\\mathbb{E}(X) = \\sum_{x \\in F} x \\mathbb{P}(X = x)\\). Let \\(X\\) be a continuous random variable with density \\(f\\). Its expectation is given by \\(\\mathbb{E}(X) = \\int_{\\mathbb{R}^d} x f(x) dx\\).\n\n\n\n\n\n\nTransfer theorem\n\n\n\nLet \\(X\\) be a random variable. Let \\(g: \\mathbb{R}^d \\mapsto \\mathbb{R}\\) be a function such that \\(\\mathbb{E}\\left[ g(X) \\right]\\) exists. We have:\n\nIf \\(X\\) is a discrete random variable, \\(\\mathbb{E}\\left[ g(X) \\right] = \\sum_{x \\in F} g(x) \\mathbb{P}(X = x)\\);\nIf \\(X\\) is a continuous random variable with density \\(f\\), \\(\\mathbb{E}\\left[ g(X) \\right] = \\int_{\\mathbb{R}^d} g(x)f(x) dx\\).\n\n\n\n\n\n\n\n\n\nProperties: Linearity of expectation\n\n\n\nLet \\(X\\) and \\(Y\\) be two random variables whose expectations exist, and let \\(\\lambda \\in R\\). We have:\n\n\\(\\mathbb{E}(X + Y) = \\mathbb{E}(X) + \\mathbb{E}(Y)\\);\n\\(\\mathbb{E}(\\lambda X) = \\lambda \\mathbb{E}(X)\\).\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nThe proof is derived from the transfer theorem and the linearity of addition and integration.\n\n\n\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(X\\) be a random variable such that the expectation of its square exists. The variance of \\(X\\) is defined by \\[\\mathrm{Var}(X) = \\mathbb{E}\\left[ \\left( X - \\mathbb{E}(X) \\right)^2 \\right] = \\mathbb{E}\\left[ X^2 \\right] - \\mathbb{E}\\left[ X \\right]^2.\\]\n\n\nThe variance measures the dispersion of a random variable around its mean. We can also look at the standard deviation, defined as the square root of the variance: \\(\\sigma(X) = \\sqrt{\\mathrm{Var}(X)}\\).\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(X\\) and \\(Y\\) be two random variables and \\(A\\) and \\(B\\) be two events. If the events \\(\\left\\{ X \\in A \\right\\}\\) and \\(\\left\\{ Y \\in B \\right\\}\\) are independent, then we say that the random variables \\(X\\) and \\(Y\\) are independent.\n\n\nFrom this definition, we can deduce that:\n\nfor functions \\(f\\) and \\(g\\), the random variables \\(f(X)\\) and \\(g(Y)\\) are independent;\nif the random variables \\(X\\) and \\(Y\\) are real-valued and their expectation exists, then the expectation of the product \\(XY\\) exists and \\(\\mathbb{E}(XY) = \\mathbb{E}(X) \\times \\mathbb{E}(Y)\\).\n\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(X\\) be a random variable. The distribution function \\(F: \\mathbb{R} \\mapsto [0, 1]\\) of \\(X\\) is defined by \\[F(t) = \\mathbb{P}(X \\leq t), \\quad t \\in \\mathbb{R}.\\]",
-    "crumbs": [
-      "Modules",
-      "02 - Révisions",
-      "Probabilities and Statistics"
-    ]
-  },
-  {
-    "objectID": "contents/remainders/02-probabilities.html#random-vectors",
-    "href": "contents/remainders/02-probabilities.html#random-vectors",
-    "title": "Probabilities and Statistics",
-    "section": "Random vectors",
-    "text": "Random vectors\nSuppose that \\(X = (X_{1}, X_{2})\\) is a random variable of dimension \\(2\\) with density \\(f_{X}\\). Random variables of dimension greater than \\(1\\) are generally referred to as random vectors. The densities of \\(X_{1}\\) and \\(X_{2}\\) are called marginal densities. When \\(X_{1}\\) and \\(X_{2}\\) are independent, we have: \\[f_X(x, y) = f_{X_{1}}(x) \\cdot f_{X_{2}}(y), \\quad (x, y) \\in \\mathbb{R}^2.\\]\n\n\n\n\n\n\nExample of the multivariate normal distribution\n\n\n\nA random vector \\(X\\) of dimension \\(p\\) is said to follow a multivariate normal distribution with mean \\(\\mu\\) and variance \\(\\Sigma\\) if its density is given by \\[f_X(x) = \\frac{1}{(2 \\pi)^{p /2}} \\cdot \\frac{1}{(\\text{det} \\Sigma)^{1/2}} \\cdot \\exp\\left\\{ -\\frac{1}{2}\\left( x - \\mu \\right)^\\top \\Sigma^{-1} \\left( x - \\mu \\right) \\right\\}, \\quad x \\in \\mathbb{R}^p.\\]\nWe denote \\(X \\sim \\mathcal{N}_{p}(\\mu, \\Sigma)\\).\n\n\nIn statistics, an important quantity to measure is the linear dependence between \\(X_{1}\\) and \\(X_{2}\\). For this, we can use the covariance or the correlation.\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(X = (X_{1}, X_{2})\\) be a random vector such that the expectation of the square of \\(X_{1}\\) and \\(X_{2}\\) exists. The covariance between \\(X_{1}\\) and \\(X_{2}\\) is given by \\[\\mathrm{Cov}(X_{1}, X_{2}) = \\mathbb{E}\\left[ (X_{1} - \\mathbb{E}(X_{1})) (X_{2} - \\mathbb{E}(X_{2}))\\right].\\]\nThe correlation between \\(X_{1}\\) and \\(X_{2}\\) is a version of the covariance normalized by the standard deviation of the random variables. It is given by \\[\\mathrm{Corr}(X_{1}, X_{2}) = \\frac{\\mathrm{Cov}(X_{1}, X_{2})}{\\sigma(X_{1}) \\sigma(X_{2})}.\\]\n\n\nThe sign of the covariance and correlation can be interpreted. If they are strictly positive, \\(X_{1}\\) and \\(X_{2}\\) tend to move in the same direction. If \\(X_{1}\\) increases, then \\(X_{2}\\) also increases, and vice versa. If they are strictly negative, \\(X_{1}\\) and \\(X_{2}\\) tend to move in opposite directions. If \\(X_{1}\\) increases, then \\(X_{2}\\) decreases, and vice versa. If the covariance is equal to \\(0\\), there are no rules and \\(X_{1}\\) and \\(X_{2}\\) are said to be orthogonal.\n\n\n\n\n\n\nProperties\n\n\n\nLet \\(X = (X_{1}, X_{2})\\) be a random vector. We have\n\n\\(\\mathrm{Cov}(X_{1}, X_{2}) = \\mathbb{E}(X_{1}X_{2}) - \\mathbb{E}(X_{1})\\mathbb{E}(X_{2})\\);\n\\(\\mathrm{Cov}(X_{1}, X_{2}) = \\mathrm{Cov}(X_{2}, X_{1})\\);\n\\(\\mathrm{Cov}(X_{1} + \\lambda Y_{1}, X_{2}) = \\mathrm{Cov}(X_{1}, X_{2}) + \\lambda \\mathrm{Cov}(Y_{1}, X_{2})\\).\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\nWe find the result by expanding the product in the definition of the covariance.\nUsing point 1. and the commutativity of multiplication.\nUsing point 1. and the linearity of expectation.",
-    "crumbs": [
-      "Modules",
-      "02 - Révisions",
-      "Probabilities and Statistics"
-    ]
-  },
-  {
-    "objectID": "contents/remainders/02-probabilities.html#estimation",
-    "href": "contents/remainders/02-probabilities.html#estimation",
-    "title": "Probabilities and Statistics",
-    "section": "Estimation",
-    "text": "Estimation\nIn practice, we do not have perfect knowledge of our random vectors, but only some of their realizations (called samples). Let \\(x_{1}, \\dots, x_{n}\\) be \\(n\\) independent realizations of a random vector \\(X\\) with mean \\(\\mu\\) and variance \\(\\Sigma\\).\nThe estimator of the mean \\(\\mu\\) is given by \\[\\widehat{\\mu} = \\overline{X} \\coloneqq \\frac{1}{n} \\sum_{i = 1}^{n} x_i.\\]\nThe estimator of the variance \\(\\Sigma\\) is given by \\[\\widehat{\\Sigma} \\coloneqq \\frac{1}{n - 1}\\sum_{i = 1}^{n} (x_i - \\widehat{\\mu})(x_i - \\widehat{\\mu})^\\top.\\]\nWhy do we divide this sum by \\(n -1\\) and not by \\(n\\) to estimate the variance? If we divide by \\(n\\), \\(\\widehat{\\Sigma}\\) is a biased estimator of the variance. Indeed, we must take into account that we are using a biased estimator of the mean in the variance estimator and therefore correct for this estimate.\nLet \\(D = \\{\\text{diag}(\\widehat{\\Sigma})\\}^{1/2}\\) be the matrix of standard deviations calculated on the sample. We can estimate the correlation matrix on the sample by \\[\\widehat{R} = D^{-1} \\widehat{\\Sigma} D^{-1}.\\]",
-    "crumbs": [
-      "Modules",
-      "02 - Révisions",
-      "Probabilities and Statistics"
-    ]
-  },
-  {
-    "objectID": "contents/02-revisions.html",
-    "href": "contents/02-revisions.html",
-    "title": "Remainders",
-    "section": "",
-    "text": "Slides: link\nTD: link\nTP: link",
-    "crumbs": [
-      "Modules",
-      "02 - Révisions"
-    ]
-  },
-  {
-    "objectID": "contents/02-revisions.html#outline",
-    "href": "contents/02-revisions.html#outline",
-    "title": "Remainders",
-    "section": "Outline",
-    "text": "Outline\n\nLinear algebra\nProbabilities and statistics\nAlgorithmic / Programming\n\n\n\n\nPrediction (xkcd:2370).",
-    "crumbs": [
-      "Modules",
-      "02 - Révisions"
-    ]
-  },
-  {
-    "objectID": "informations/description.html",
-    "href": "informations/description.html",
-    "title": "Description",
-    "section": "",
-    "text": "In this course, we aim to introduce methods that will enable students to study a “high-dimensional” dataset (here, “high-dimensional” is taken in the sense that we can’t simply graph all the variables for all the observations) without resorting to a probabilistic model. The techniques we teach are used to reduce the dimension of the data, identify certain correlation between variables, visualize the data or divide the dataset into groups/classes.\nWithout neglecting the theory, the emphasis will be on the practical aspect of data analysis and the use of a programming language, whether R, Python or other.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#objectives",
-    "href": "informations/description.html#objectives",
-    "title": "Description",
-    "section": "",
-    "text": "In this course, we aim to introduce methods that will enable students to study a “high-dimensional” dataset (here, “high-dimensional” is taken in the sense that we can’t simply graph all the variables for all the observations) without resorting to a probabilistic model. The techniques we teach are used to reduce the dimension of the data, identify certain correlation between variables, visualize the data or divide the dataset into groups/classes.\nWithout neglecting the theory, the emphasis will be on the practical aspect of data analysis and the use of a programming language, whether R, Python or other.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#place-of-the-course-in-the-program",
-    "href": "informations/description.html#place-of-the-course-in-the-program",
-    "title": "Description",
-    "section": "Place of the course in the program",
-    "text": "Place of the course in the program\nThis course is generally taken by students in their second year of a bachelor’s degree in statistics. It is also an elective in actuarial science, mathematics and some engineering and business programs.\nAll students should ensure that they have taken at least one linear algebra course (e.g. MAT-1200) and one basic statistics course (e.g. STT-1000), as most data analysis methods are based on these concepts.\nStudents should also have some familiarity with basic algorithmic concepts, as well as with (at least) one programming language.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#specific-objectives",
-    "href": "informations/description.html#specific-objectives",
-    "title": "Description",
-    "section": "Specific objectives",
-    "text": "Specific objectives\nBy the end of the course, students should be able to:\n\nunderstand and briefly describe the theoretical foundations of the data analysis methods studied;\ncorrectly identify situations where the use of these methods is indicated;\nuse a programming language effectively to implement these methods;\nanalyze and interpret the results of analysis;\nformulate the conclusions of the analysis in writing, within the limits of the methodology.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#computer-equipment",
-    "href": "informations/description.html#computer-equipment",
-    "title": "Description",
-    "section": "Computer equipment",
-    "text": "Computer equipment\nYou may need a computer, speakers or headphones, a microphone, a webcam and a wired broadband or wireless Internet connection. To check the minimum configuration parameters for your operating system, please visit this page.\nIn addition, this course may require specific software requirements, which will be described in other sections of the course outline as appropriate.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#how-it-works",
-    "href": "informations/description.html#how-it-works",
-    "title": "Description",
-    "section": "How it works",
-    "text": "How it works\nClasses and exams will take place face-to-face on Tuesday and Friday mornings, but materials will be available online. In general, the Friday session will be a lecture session, and the Tuesday session will be dedicated to practical exercises carried out independently by students with the support of the teacher.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#pedagogical-approaches",
-    "href": "informations/description.html#pedagogical-approaches",
-    "title": "Description",
-    "section": "Pedagogical approaches",
-    "text": "Pedagogical approaches\nThe preferred teaching approach is interactive lectures (Fridays) alternating with laboratory periods (Tuesdays). The pedagogical approach is very much geared to active learning and requires sustained commitment from students throughout the session.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
     "objectID": "informations/mcq.html",
     "href": "informations/mcq.html",
     "title": "MCQ",
@@ -446,39 +486,6 @@
       "Informations",
       "Évaluations",
       "MCQ"
-    ]
-  },
-  {
-    "objectID": "informations/general.html",
-    "href": "informations/general.html",
-    "title": "General informations",
-    "section": "",
-    "text": "Faculté des sciences et de génie\nDépartement de mathématiques et de statistique",
-    "crumbs": [
-      "Informations",
-      "Générales"
-    ]
-  },
-  {
-    "objectID": "informations/general.html#stt-2200-data-analysis",
-    "href": "informations/general.html#stt-2200-data-analysis",
-    "title": "General informations",
-    "section": "STT-2200: Data Analysis",
-    "text": "STT-2200: Data Analysis\nTeaching format: Face-to-face\nTime spent:\n\nLecture: 2h\nLaboratory: 1h\nPersonal work: 6h\nTotal: 9h\n\nCredits: 3\nPrerequisites:\n\nACT-2000 or STT-1000 or STT-1300 or STT-1900\nMAT-1200 or ACT-2002\nSTT-1100 or IFT-4902 or ECN-2090 or GLO-1901 or IFT-1004\n\nTime range:\n\n\n\nType\nDay\nTime\nDates\n\n\n\n\nLab\nTuesday\n\n\n\n\nClass\nFriday",
-    "crumbs": [
-      "Informations",
-      "Générales"
-    ]
-  },
-  {
-    "objectID": "informations/general.html#contact-details-and-availability",
-    "href": "informations/general.html#contact-details-and-availability",
-    "title": "General informations",
-    "section": "Contact details and availability",
-    "text": "Contact details and availability\nTeacher: Steven Golovkine\nLocal: VCH-2209\nEmail: steven.golovkine@mat.ulaval.ca\nAvailability: I am available to meet with you by appointment by email or without appointment from Monday to Thursday between 8am and 10am.\n\nThe University recognizes the right to disconnect of professors, lecturers and other teaching staff. This means that they are not required to check messages sent to them (email, voicemail, forum messages, etc.) during evenings, weekends and vacations. The person who has sent a message during these periods should therefore expect to receive a reply within a reasonable time, calculated from the resumption of normal working hours.",
-    "crumbs": [
-      "Informations",
-      "Générales"
     ]
   }
 ]
