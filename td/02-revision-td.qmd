@@ -1,8 +1,11 @@
----
-title: "TD 1"
+--- 
+title: "TD: Révision"
 format:
   html: default
-  pdf: default
---- 
+  pdf: 
+    number-sections: true
+    header-includes:
+      - \usepackage{mathtools} 
+---
 
 

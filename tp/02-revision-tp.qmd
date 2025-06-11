@@ -1,8 +1,40 @@
 --- 
-title: "TP 1"
+title: "TP: Révision"
 format:
   html: default
-  pdf: default
+  pdf: 
+    number-sections: true
+    header-includes:
+      - \usepackage{mathtools} 
 ---
 
+Vous pouvez faire les exercices dans le langage de votre choix.
 
+
+## Exercice 1: Estimer $\pi$
+
+Dans cet exercice, on se propose d'estimer $pi$ grâce à la méthode de Monte-Carlo. Le méthode de Monte-Carlo est une méthode algorithmique permettant d'estimer des quantités en utilisant des tirages aléatoires. Pour estimer $\pi$, l'idée est de générer des points dans un carré de façon uniforme et ensuite de compter la proportion de ces points qui sont dans le cercle unité.
+
+1. Générer un nombre $n$ de points $(x, y)$ dans un carré de longueur $2$ centré à l'origine, i.e. $x \in [-1, 1]$ et $y \in [-1, 1]$.
+
+2. Pour chaque point $n$, déterminer si le point appartient au cercle unité.
+
+3. Calculer la proportion du nombre de points dans le cercle unité.
+
+4. À partir du résultat précédent, estimer $\pi$.
+
+5. Notons $\widehat{\pi}(n)$, l'estimateur de $\pi$ utilisant $n$ points générés. Tracer l'erreur d'estimation $\left| \pi - \widehat{\pi}(n) \right|$ en fonction de $n$.
+
+
+## Exercice 2: Estimation d'intégrale
+
+Dans cette exercice, on se propose d'estimer 
+$$I = \int_{-1}^{1} \sqrt{1 - x^2} dx .$$
+
+1. Calculer $I$ en utilisant une primitive.
+
+2. Il est possible d'estimer $I = \int_{-1}^{1} f(x) dx$ à l'aide des sommes de Riemann $\widehat{I}(n) = \frac{1}{n}\sum_{i = 1}^{n} f(\frac{i}{n}), i = 1, \dots, n$. Estimer $I$ en utilisant les sommes de Riemann.
+
+3. L'intégrale $I$ peut être vu comme l'espérance d'un variable aléatoire. $I = \mathbb{E}[f(U)]$, où $U \sim \mathcal{U}(-1, 1)$. On peut estimer $I$ en utilisant $\widetilde{I}(n) = \frac{1}{n} \sum_{i = 1}^{n} f(u_i)$, où les $u_i$ sont des réalisations de la variable aléatoire $U$. Estimer $I$ en utilisant cette méthode.
+
+4. Comparer la qualité de ces deux estimateurs de $I$ en fonction de $n$.
