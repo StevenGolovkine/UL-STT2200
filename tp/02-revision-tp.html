@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>TP 1 – STT-2200: Analyse de données</title>
+<title>TP: Révision – STT-2200: Analyse de données</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -104,7 +104,8 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="TP 1 – STT-2200: Analyse de données">
+<meta property="og:title" content="TP: Révision – STT-2200: Analyse de données">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
 
@@ -279,7 +280,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">TP 1</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">TP: Révision</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
@@ -617,15 +618,22 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="02-revision-tp.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#exercice-1-estimer-pi" id="toc-exercice-1-estimer-pi" class="nav-link active" data-scroll-target="#exercice-1-estimer-pi">Exercice 1: Estimer <span class="math inline">\(\pi\)</span></a></li>
+  <li><a href="#exercice-2-estimation-dintégrale" id="toc-exercice-2-estimation-dintégrale" class="nav-link" data-scroll-target="#exercice-2-estimation-dintégrale">Exercice 2: Estimation d’intégrale</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/tp/02-revision-tp.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="02-revision-tp.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">TP 1</h1>
+<h1 class="title">TP: Révision</h1>
 </div>
 
 
@@ -642,8 +650,30 @@ window.Quarto = {
 </header>
 
 
+<p>Vous pouvez faire les exercices dans le langage de votre choix.</p>
+<section id="exercice-1-estimer-pi" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-1-estimer-pi">Exercice 1: Estimer <span class="math inline">\(\pi\)</span></h2>
+<p>Dans cet exercice, on se propose d’estimer <span class="math inline">\(pi\)</span> grâce à la méthode de Monte-Carlo. Le méthode de Monte-Carlo est une méthode algorithmique permettant d’estimer des quantités en utilisant des tirages aléatoires. Pour estimer <span class="math inline">\(\pi\)</span>, l’idée est de générer des points dans un carré de façon uniforme et ensuite de compter la proportion de ces points qui sont dans le cercle unité.</p>
+<ol type="1">
+<li><p>Générer un nombre <span class="math inline">\(n\)</span> de points <span class="math inline">\((x, y)\)</span> dans un carré de longueur <span class="math inline">\(2\)</span> centré à l’origine, i.e.&nbsp;<span class="math inline">\(x \in [-1, 1]\)</span> et <span class="math inline">\(y \in [-1, 1]\)</span>.</p></li>
+<li><p>Pour chaque point <span class="math inline">\(n\)</span>, déterminer si le point appartient au cercle unité.</p></li>
+<li><p>Calculer la proportion du nombre de points dans le cercle unité.</p></li>
+<li><p>À partir du résultat précédent, estimer <span class="math inline">\(\pi\)</span>.</p></li>
+<li><p>Notons <span class="math inline">\(\widehat{\pi}(n)\)</span>, l’estimateur de <span class="math inline">\(\pi\)</span> utilisant <span class="math inline">\(n\)</span> points générés. Tracer l’erreur d’estimation <span class="math inline">\(\left| \pi - \widehat{\pi}(n) \right|\)</span> en fonction de <span class="math inline">\(n\)</span>.</p></li>
+</ol>
+</section>
+<section id="exercice-2-estimation-dintégrale" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-2-estimation-dintégrale">Exercice 2: Estimation d’intégrale</h2>
+<p>Dans cette exercice, on se propose d’estimer <span class="math display">\[I = \int_{-1}^{1} \sqrt{1 - x^2} dx .\]</span></p>
+<ol type="1">
+<li><p>Calculer <span class="math inline">\(I\)</span> en utilisant une primitive.</p></li>
+<li><p>Il est possible d’estimer <span class="math inline">\(I = \int_{-1}^{1} f(x) dx\)</span> à l’aide des sommes de Riemann <span class="math inline">\(\widehat{I}(n) = \frac{1}{n}\sum_{i = 1}^{n} f(\frac{i}{n}), i = 1, \dots, n\)</span>. Estimer <span class="math inline">\(I\)</span> en utilisant les sommes de Riemann.</p></li>
+<li><p>L’intégrale <span class="math inline">\(I\)</span> peut être vu comme l’espérance d’un variable aléatoire. <span class="math inline">\(I = \mathbb{E}[f(U)]\)</span>, où <span class="math inline">\(U \sim \mathcal{U}(-1, 1)\)</span>. On peut estimer <span class="math inline">\(I\)</span> en utilisant <span class="math inline">\(\widetilde{I}(n) = \frac{1}{n} \sum_{i = 1}^{n} f(u_i)\)</span>, où les <span class="math inline">\(u_i\)</span> sont des réalisations de la variable aléatoire <span class="math inline">\(U\)</span>. Estimer <span class="math inline">\(I\)</span> en utilisant cette méthode.</p></li>
+<li><p>Comparer la qualité de ces deux estimateurs de <span class="math inline">\(I\)</span> en fonction de <span class="math inline">\(n\)</span>.</p></li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script>
@@ -1277,7 +1307,7 @@ window.onload = function() {
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions"><ul><li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/tp/02-revision-tp.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/tp/02-revision-tp.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

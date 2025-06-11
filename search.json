@@ -7,6 +7,27 @@
     "text": "Bienvenue à tous au cours STT-2200 de l’automne 2025.\nVous trouverez sur ce site toute les informations nécessaire pour les cours, les différents travaux et les examens. Les contenus seront mis à jour au cours de la session avec les corrigés de certains travaux. Je vous invite à regarder les différents modules avant les cours.\nCe site a été créé en s’aidant des notes de cours de Aurélien Nicosia et de Thierry Duchesne.\nCe site a été créé avec Quarto.\n\n\n\nData trap (xkcd:2582)."
   },
   {
+    "objectID": "tp/02-revision-tp.html",
+    "href": "tp/02-revision-tp.html",
+    "title": "TP: Révision",
+    "section": "",
+    "text": "Vous pouvez faire les exercices dans le langage de votre choix."
+  },
+  {
+    "objectID": "tp/02-revision-tp.html#exercice-1-estimer-pi",
+    "href": "tp/02-revision-tp.html#exercice-1-estimer-pi",
+    "title": "TP: Révision",
+    "section": "Exercice 1: Estimer \\(\\pi\\)",
+    "text": "Exercice 1: Estimer \\(\\pi\\)\nDans cet exercice, on se propose d’estimer \\(pi\\) grâce à la méthode de Monte-Carlo. Le méthode de Monte-Carlo est une méthode algorithmique permettant d’estimer des quantités en utilisant des tirages aléatoires. Pour estimer \\(\\pi\\), l’idée est de générer des points dans un carré de façon uniforme et ensuite de compter la proportion de ces points qui sont dans le cercle unité.\n\nGénérer un nombre \\(n\\) de points \\((x, y)\\) dans un carré de longueur \\(2\\) centré à l’origine, i.e. \\(x \\in [-1, 1]\\) et \\(y \\in [-1, 1]\\).\nPour chaque point \\(n\\), déterminer si le point appartient au cercle unité.\nCalculer la proportion du nombre de points dans le cercle unité.\nÀ partir du résultat précédent, estimer \\(\\pi\\).\nNotons \\(\\widehat{\\pi}(n)\\), l’estimateur de \\(\\pi\\) utilisant \\(n\\) points générés. Tracer l’erreur d’estimation \\(\\left| \\pi - \\widehat{\\pi}(n) \\right|\\) en fonction de \\(n\\)."
+  },
+  {
+    "objectID": "tp/02-revision-tp.html#exercice-2-estimation-dintégrale",
+    "href": "tp/02-revision-tp.html#exercice-2-estimation-dintégrale",
+    "title": "TP: Révision",
+    "section": "Exercice 2: Estimation d’intégrale",
+    "text": "Exercice 2: Estimation d’intégrale\nDans cette exercice, on se propose d’estimer \\[I = \\int_{-1}^{1} \\sqrt{1 - x^2} dx .\\]\n\nCalculer \\(I\\) en utilisant une primitive.\nIl est possible d’estimer \\(I = \\int_{-1}^{1} f(x) dx\\) à l’aide des sommes de Riemann \\(\\widehat{I}(n) = \\frac{1}{n}\\sum_{i = 1}^{n} f(\\frac{i}{n}), i = 1, \\dots, n\\). Estimer \\(I\\) en utilisant les sommes de Riemann.\nL’intégrale \\(I\\) peut être vu comme l’espérance d’un variable aléatoire. \\(I = \\mathbb{E}[f(U)]\\), où \\(U \\sim \\mathcal{U}(-1, 1)\\). On peut estimer \\(I\\) en utilisant \\(\\widetilde{I}(n) = \\frac{1}{n} \\sum_{i = 1}^{n} f(u_i)\\), où les \\(u_i\\) sont des réalisations de la variable aléatoire \\(U\\). Estimer \\(I\\) en utilisant cette méthode.\nComparer la qualité de ces deux estimateurs de \\(I\\) en fonction de \\(n\\)."
+  },
+  {
     "objectID": "informations/evaluations.html",
     "href": "informations/evaluations.html",
     "title": "Évaluations",
