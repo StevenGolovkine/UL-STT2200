@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script><script src="../../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../../site_libs/quarto-search/fuse.min.js"></script><script src="../../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script><script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../../site_libs/quarto-html/popper.min.js"></script><script src="../../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../../site_libs/quarto-html/anchor.min.js"></script><link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
@@ -27,9 +62,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script><link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-9db8ff7d6d1fd2410fae1d2039720068.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-86f9e1b20d7c1f75f29fb6b795d4720b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-9db8ff7d6d1fd2410fae1d2039720068.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-2e16821d5899aa16f46292d645da32a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-bb46903cb00499392aeb77c1b494ac25.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-2e16821d5899aa16f46292d645da32a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -83,6 +118,7 @@ window.Quarto = {
   typesetMath
 };
 </script><meta property="og:title" content="Good practices in R – STT-2200: Data Analysis">
+<meta property="og:description" content="Website for STT-2200">
 <meta property="og:site_name" content="STT-2200: Data Analysis">
 </head>
 <body class="nav-sidebar floating quarto-light">
@@ -609,7 +645,44 @@ window.Quarto = {
   
 
 
-</header></main><!-- /main --><script>
+</header><p>This page is based on a document created by Aurélien Nicosia (ULaval) in 2023 called “Bonnes pratiques de programmation en R.” It has been updated.</p>
+<p>Since R is “just” a programming language, it is technically possible to use a simple text editor to write R code and a terminal to run it. However, it is much more convenient—especially for beginners—to use a code editor such as <a href="https://posit.co/download/rstudio-desktop/">RStudio</a> to run your code. This allows you to run your code interactively, view your working environment, test your code, and more.</p>
+<p>In addition, it is best to make sure you are working with the latest version of R and the packages you need. This reduces the risk of encountering bugs and allows you to take advantage of the latest features. One point to note, however, is that I would advise against changing the version of R or the packages once you have started working on something. This change could introduce bugs in the middle of the analysis (so always report the versions of the packages used for reproducibility). You can get a summary of the working environment with the <code>systemInfo()</code> and <code>packageVersion(pkg)</code> functions.</p>
+<p>Regarding documentation, the <a href="https://roxygen2.r-lib.org"><code>roxygen</code></a> package allows you to convert comments in your functions and packages into clean documentation.</p>
+<p>A uniform syntax makes code much easier to read and understand. A style guide sets standards for uniform syntax. The <em>tidyverse</em> style guide (https://style.tidyverse.org) is recommended in R. Before presenting some style conventions, note that you can quickly change the formatting of a piece of R code in RStudio in the “Code -&gt; Reformat Selection” menu.</p>
+<p><strong>Line breaks and indentation</strong></p>
+<p>A simple way to make your code more readable is to insert appropriate line breaks and indentations. For example, suppose we have the following character string:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>text <span class="ot">&lt;-</span> <span class="st">"Ceci est un example"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We want to correct two errors in this sentence: the word “example” written in English rather than French and the missing period at the end of the sentence. This can be done with the following instruction:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="fu">gsub</span>(<span class="at">pattern =</span> <span class="st">"example"</span>, <span class="at">replacement =</span> <span class="st">"example"</span>, <span class="at">x =</span> text), <span class="st">"."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This instruction contains one function call nested within another. It is much easier to read as follows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gsub</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">pattern =</span> <span class="st">"example"</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">replacement =</span> <span class="st">"exemple"</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> text),</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Assignment operator</strong></p>
+<p>In R, <code>&lt;-</code> is used to assign a value to a variable, and <code>=</code> is used to pass values to arguments in a function call.</p>
+<p><strong>Naming conventions</strong></p>
+<p>The <em>tydiverse</em> style guide recommends using lowercase letters, numbers, and the underscore <code>_</code> to name variables and functions. Underscores are used to separate words in a name. Although other conventions may be found, these should be avoided. In any case, it is important to choose a convention and stick to it. In addition, it is best to avoid accents in variable names.</p>
+<p><strong>Code organization</strong></p>
+<p>When the code starts to get long, it becomes advantageous to separate it into several files. For example, you can have one file per part of the analysis (one for data cleaning, one for analysis, one for visualization, etc.). In addition, a data analysis does not usually consist solely of R code, e.g., C++ code files, data files, configuration files, etc. It is therefore recommended to create subfolders grouping files of the same type. RStudio projects are ideal for gathering all project-related files in one place. In addition, they make it easier to work on several projects simultaneously by managing the transition from one working directory to another.</p>
+<p><strong>A few things to do</strong></p>
+<ol type="1">
+<li><p>Write your code in a script and save it frequently. This prevents you from losing track of important instructions because they were written directly in the console.</p></li>
+<li><p>It is best to start every R work session with an empty work environment. To do this, disable automatic session image restoration in the settings. This allows you to be aware of the presence of different objects in the working environment.</p></li>
+<li><p>Do not use the <code>load</code> function when the working environment is not empty. This prevents you from modifying an object in the working environment by overwriting it.</p></li>
+<li><p>Do not use the <code>attach</code> function. This prevents you from modifying the file search path.</p></li>
+<li><p>Save the graphics options and settings before modifying them.</p></li>
+<li><p>Do not use <code>T</code> and <code>F</code> instead of <code>TRUE</code> and <code>FALSE</code>.</p></li>
+</ol></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {

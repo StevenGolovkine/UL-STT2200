@@ -62,9 +62,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script><link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-9db8ff7d6d1fd2410fae1d2039720068.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-86f9e1b20d7c1f75f29fb6b795d4720b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-9db8ff7d6d1fd2410fae1d2039720068.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-2e16821d5899aa16f46292d645da32a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-bb46903cb00499392aeb77c1b494ac25.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-2e16821d5899aa16f46292d645da32a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -645,9 +645,9 @@ window.Quarto = {
   
 
 
-</header><p>Cette page est basé sur un document qu’Aurélien Nicosia (ULaval) a créé en 2023 appelé “Bonnes pratiques de programmation en R”. Celui-ci a été mis à jour.</p>
+</header><p>Cette page est basée sur un document qu’Aurélien Nicosia (ULaval) a créé en 2023 appelé “Bonnes pratiques de programmation en R”. Celui-ci a été mis à jour.</p>
 <p>R étant “juste” un langage de programmation, il est techniquement possible d’utiliser un simple éditeur de texte pour écrire du R et un terminal pour lancer le code. Il est cependant bien plus commode—en particulier, pour les débutants—d’utiliser un éditeur de code comme <a href="https://posit.co/download/rstudio-desktop/">RStudio</a> pour lancer son code. En effet, celui-ci permet de lancer son code de façon intéractive, de pouvoir voir son environnement de travail, de tester son code, …</p>
-<p>De plus, il vaut mieux s’assurer de travailler avec la dernière version de R et des packages dont nous avons besoin. Ainsi, nous risquons moins de rencontrer des bogues et nous pouvons profiter des dernières fonctiionnalités. Un point d’attention, cependant, je vous déconseillerais de changer la version de R ou des packages une fois que vous avez commencé à travailler sur quelquechose. En effet, ce changement pourrais introduire des bogues au milieu de l’analyse (il faut donc toujours reporter les versions des packages utilisés pour la reproducibilité). Il est possible d’avoir un résumé de l’environnement de travail avec les fonctions <code>systemInfo()</code> et <code>packageVersion(pkg)</code>.</p>
+<p>De plus, il vaut mieux s’assurer de travailler avec la dernière version de R et des packages dont nous avons besoin. Ainsi, nous risquons moins de rencontrer des bogues et nous pouvons profiter des dernières fonctionnalités. Un point d’attention, cependant, je vous déconseillerais de changer la version de R ou des packages une fois que vous avez commencé à travailler sur quelquechose. En effet, ce changement pourrais introduire des bogues au milieu de l’analyse (il faut donc toujours reporter les versions des packages utilisés pour la reproducibilité). Il est possible d’avoir un résumé de l’environnement de travail avec les fonctions <code>systemInfo()</code> et <code>packageVersion(pkg)</code>.</p>
 <p>Concernant la documentation, le package <a href="https://roxygen2.r-lib.org"><code>roxygen</code></a> permet de convertir les commentaires de vos fonctions et packages en une documentation propre.</p>
 <p>Une syntaxe uniforme rend un code beaucoup plus facile à lire et à comprendre. Un guide de style énonce des normes pour avoir une syntaxe uniforme. Le <a href="https://style.tidyverse.org">guide de style</a> du <em>tidyverse</em> est recommandé en R. Avant de présenter quelques conventions de style, notons qu’il est possible de modifier rapidement la mise en forme d’un bout de code R dans RStudio dans le menu “Code -&gt; Reformat Selection”.</p>
 <p><strong>Retour à la ligne et indentation</strong></p>
@@ -673,10 +673,17 @@ window.Quarto = {
 <p>En R, on utilise <code>&lt;-</code> pour assigner une valeur à une variable et on utilise <code>=</code> pour passer des valeurs à des arguments dans un appel de fonctions.</p>
 <p><strong>Conventions de noms</strong></p>
 <p>Le guide de style du <em>tydiverse</em> préconise l’utilisation de lettres minuscules, de nombres et de l’underscore <code>_</code> pour nommer variables et fonctions. Les underscores sont utilisés pour séparer les mots dans un nom. Bien que l’on puisse trouver d’autres conventions, celles-ci sont à éviter. Dans tous les cas, il est important de choisir une convention et de la respecter. De plus, il est préférable d’éviter les accents dans les noms de variables.</p>
-
-
-
-</main><!-- /main --><script>
+<p><strong>Organisation du code</strong></p>
+<p>Lorsque le code commence à devenir long, il devient avantageux de le séparer en plusieurs fichiers. Par exemple, on peut avoir un fichier par partie de l’analyse (un pour le nettoyage des données, un pour l’analyse, un pour la visualisation, …). De plus, une analyse de données n’est généralement pas constitué uniquement de code R, e.g. fichiers de code C++, fichiers de données, fichiers du configuration, etc. Il est donc recommandé des créer des sous-dosssiers regroupant les fichiers du même type. Les projets RStudio sont parfaits pour rassembler au même endroit tous les fichiers relatifs au projet. De plus, ils permettent de faciliter le travail sur plusieurs projets simultanément en gérant le passage d’un répertoire de travail à un autre.</p>
+<p><strong>Quelques trucs à faire</strong></p>
+<ol type="1">
+<li><p>Rédiger son code dans un script et l’enregistrer fréquemment. Cela permet d’éviter de perdre la trace de certaines instructions importantes parce qu’elles ont été écrites directement dans la console.</p></li>
+<li><p>Il est préférable de débuter toute session de travail en R avec un environnement de travail vide. Pour ce faire, il faut désactiver la restauration automatique d’une image de session dans les paramètres. Cela permet d’être conscient de la présence des différents objets dans l’environnement de travail.</p></li>
+<li><p>Ne pas utiliser la fonction <code>load</code> lorsque l’environnement de travail n’est pas vide. Cela permet de ne pas modifier un objet de l’environnement de travail en l’écrasant.</p></li>
+<li><p>Ne pas utiliser la fonction <code>attach</code>. Cela permet de ne pas modifier le chemin de recherche des fichiers.</p></li>
+<li><p>Sauvegarder les options et paramètres graphiques avant de les modifier.</p></li>
+<li><p>Ne pas utiliser <code>T</code> et <code>F</code> à la place de <code>TRUE</code> et <code>FALSE</code>.</p></li>
+</ol></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
