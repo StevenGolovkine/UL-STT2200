@@ -1173,5 +1173,26 @@
       "Informations",
       "Générales"
     ]
+  },
+  {
+    "objectID": "td/02-revision-td.html",
+    "href": "td/02-revision-td.html",
+    "title": "TD: Révision",
+    "section": "",
+    "text": "Dans ce problème, on cherche à modéliser la répartition des vélos en libre service dans les différentes stations de l’université Laval. Le campus comporte cinq stations pouvant acceuillir un total de \\(136\\) vélos (lien):\n\nAbitibi-Prince (ABP)\nAlphone-Desjardins (ADJ)\nCharles-De Koninck (DKN)\nFerdinand-Vandry (VND)\nPEPS\n\nSupposons que tous les vélos sont retournés à une des cinq stations à la fin de la journée, i.e. pour chaque jour, il y a un moment dans la journée (par exemple, à minuit), où tous les vélos sont à une certaine station. Nous pouvons donc nous intéresser à ces stations à ce moment de la journée pour chaque jour. Nous cherchons à modéliser les movements des vélos de minuit pour un jour donné jusqu’à minuit du jour suivant. Nous trouvons que :\n\npour les vélos empruntés à ABP, \\(50\\%\\) y retourne, \\(10\\%\\) vont à ADJ, \\(20\\%\\) vont à DKN et \\(20\\%\\) vont à VND.\npour les vélos empruntés à ADJ, \\(30\\%\\) y retourne, \\(10\\%\\) vont à ABP, \\(10\\%\\) vont à DKN, \\(10\\%\\) vont à VND et \\(40\\%\\) vont au PEPS.\npour les vélos empruntés à DKN, \\(80\\%\\) y retourne, \\(5\\%\\) vont à ADJ, et \\(15\\%\\) vont au PEPS.\npour les vélos empruntés à VND, \\(50\\%\\) y retourne, \\(20\\%\\) vont à ABP, \\(5\\%\\) vont à ADJ, \\(15\\%\\) vont à DKN et \\(10\\%\\) vont au PEPS.\npour les vélos empruntés au PEPS, \\(0\\%\\) y retourne, \\(25\\%\\) vont à ABP, \\(25\\%\\) vont à ADJ, \\(25\\%\\) vont à DKN et \\(25\\%\\) vont à VND.\n\n\nFaire un graphe de la situation.\nÉcrire la matrice \\(T\\) tel que chaque entrée \\(t_{ij}\\) corresponde à la probabilité de passer de la station \\(i\\) à la station \\(j\\), \\(i, j \\in \\{ \\text{ABP}, \\text{ADJ}, \\text{DKN}, \\text{VND}, \\text{PEPS} \\}\\). On appelle cette matrice, la matrice de transition.\nQuelle est la probabilité qu’un vélo soit à la station PEPS au jour 2 sachant qu’il était à la station ADJ au début ?\nSupposons qu’il y ait \\(20\\) vélos à ABP, \\(35\\) vélos à ADJ, \\(26\\) vélos à DKN, \\(45\\) à VND et \\(10\\) au PEPS. En utilisant une diagonalisation de la matrice \\(T\\), donner la répartition des vélos après \\(10\\) jours."
+  },
+  {
+    "objectID": "td/02-revision-td.html#un-problème-de-vélo",
+    "href": "td/02-revision-td.html#un-problème-de-vélo",
+    "title": "TD: Révision",
+    "section": "",
+    "text": "Dans ce problème, on cherche à modéliser la répartition des vélos en libre service dans les différentes stations de l’université Laval. Le campus comporte cinq stations pouvant acceuillir un total de \\(136\\) vélos (lien):\n\nAbitibi-Prince (ABP)\nAlphone-Desjardins (ADJ)\nCharles-De Koninck (DKN)\nFerdinand-Vandry (VND)\nPEPS\n\nSupposons que tous les vélos sont retournés à une des cinq stations à la fin de la journée, i.e. pour chaque jour, il y a un moment dans la journée (par exemple, à minuit), où tous les vélos sont à une certaine station. Nous pouvons donc nous intéresser à ces stations à ce moment de la journée pour chaque jour. Nous cherchons à modéliser les movements des vélos de minuit pour un jour donné jusqu’à minuit du jour suivant. Nous trouvons que :\n\npour les vélos empruntés à ABP, \\(50\\%\\) y retourne, \\(10\\%\\) vont à ADJ, \\(20\\%\\) vont à DKN et \\(20\\%\\) vont à VND.\npour les vélos empruntés à ADJ, \\(30\\%\\) y retourne, \\(10\\%\\) vont à ABP, \\(10\\%\\) vont à DKN, \\(10\\%\\) vont à VND et \\(40\\%\\) vont au PEPS.\npour les vélos empruntés à DKN, \\(80\\%\\) y retourne, \\(5\\%\\) vont à ADJ, et \\(15\\%\\) vont au PEPS.\npour les vélos empruntés à VND, \\(50\\%\\) y retourne, \\(20\\%\\) vont à ABP, \\(5\\%\\) vont à ADJ, \\(15\\%\\) vont à DKN et \\(10\\%\\) vont au PEPS.\npour les vélos empruntés au PEPS, \\(0\\%\\) y retourne, \\(25\\%\\) vont à ABP, \\(25\\%\\) vont à ADJ, \\(25\\%\\) vont à DKN et \\(25\\%\\) vont à VND.\n\n\nFaire un graphe de la situation.\nÉcrire la matrice \\(T\\) tel que chaque entrée \\(t_{ij}\\) corresponde à la probabilité de passer de la station \\(i\\) à la station \\(j\\), \\(i, j \\in \\{ \\text{ABP}, \\text{ADJ}, \\text{DKN}, \\text{VND}, \\text{PEPS} \\}\\). On appelle cette matrice, la matrice de transition.\nQuelle est la probabilité qu’un vélo soit à la station PEPS au jour 2 sachant qu’il était à la station ADJ au début ?\nSupposons qu’il y ait \\(20\\) vélos à ABP, \\(35\\) vélos à ADJ, \\(26\\) vélos à DKN, \\(45\\) à VND et \\(10\\) au PEPS. En utilisant une diagonalisation de la matrice \\(T\\), donner la répartition des vélos après \\(10\\) jours."
+  },
+  {
+    "objectID": "td/02-revision-td.html#paradoxe-des-deux-enfants",
+    "href": "td/02-revision-td.html#paradoxe-des-deux-enfants",
+    "title": "TD: Révision",
+    "section": "Paradoxe des deux enfants",
+    "text": "Paradoxe des deux enfants\nOn cherche à modéliser les probabilités d’avoir des enfants d’un certain sexe. Dans toutes les questions, les enfants sont soit de sexe masculin, soit de sexe féminin, de façon équiprobable."
   }
 ]
