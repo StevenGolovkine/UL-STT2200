@@ -38,3 +38,5 @@ $$I = \int_{-1}^{1} \sqrt{1 - x^2} dx .$$
 3. L'intégrale $I$ peut être vu comme l'espérance d'un variable aléatoire. $I = \mathbb{E}[f(U)]$, où $U \sim \mathcal{U}(-1, 1)$. On peut estimer $I$ en utilisant $\widetilde{I}(n) = \frac{1}{n} \sum_{i = 1}^{n} f(u_i)$, où les $u_i$ sont des réalisations de la variable aléatoire $U$. Estimer $I$ en utilisant cette méthode.
 
 4. Comparer la qualité de ces deux estimateurs de $I$ en fonction de $n$.
+
+
