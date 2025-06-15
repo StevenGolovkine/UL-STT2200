@@ -13,7 +13,7 @@ Vous pouvez faire les exercices dans le langage de votre choix.
 
 ## Exercice 1: Estimer $\pi$
 
-Dans cet exercice, on se propose d'estimer $pi$ grâce à la méthode de Monte-Carlo. Le méthode de Monte-Carlo est une méthode algorithmique permettant d'estimer des quantités en utilisant des tirages aléatoires. Pour estimer $\pi$, l'idée est de générer des points dans un carré de façon uniforme et ensuite de compter la proportion de ces points qui sont dans le cercle unité.
+Dans cet exercice, on se propose d'estimer $\pi$ grâce à la méthode de Monte-Carlo. Le méthode de Monte-Carlo est une méthode algorithmique permettant d'estimer des quantités en utilisant des tirages aléatoires. Pour estimer $\pi$, l'idée est de générer des points dans un carré de façon uniforme et ensuite de compter la proportion de ces points qui sont dans le cercle unité.
 
 1. Générer un nombre $n$ de points $(x, y)$ dans un carré de longueur $2$ centré à l'origine, i.e. $x \in [-1, 1]$ et $y \in [-1, 1]$.
 
