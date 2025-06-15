@@ -624,6 +624,7 @@ window.Quarto = {
   <ul>
   <li><a href="#un-problème-de-vélo" id="toc-un-problème-de-vélo" class="nav-link active" data-scroll-target="#un-problème-de-vélo">Un problème de vélo</a></li>
   <li><a href="#paradoxe-des-deux-enfants" id="toc-paradoxe-des-deux-enfants" class="nav-link" data-scroll-target="#paradoxe-des-deux-enfants">Paradoxe des deux enfants</a></li>
+  <li><a href="#la-loi-dohm" id="toc-la-loi-dohm" class="nav-link" data-scroll-target="#la-loi-dohm">La loi d’Ohm</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/td/02-revision-td.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="02-revision-td.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -652,14 +653,7 @@ window.Quarto = {
 
 <section id="un-problème-de-vélo" class="level2">
 <h2 class="anchored" data-anchor-id="un-problème-de-vélo">Un problème de vélo</h2>
-<p>Dans ce problème, on cherche à modéliser la répartition des vélos en libre service dans les différentes stations de l’université Laval. Le campus comporte cinq stations pouvant acceuillir un total de <span class="math inline">\(136\)</span> vélos (<a href="https://www.sc.ulaval.ca/mobilite-durable/se-deplacer-a-velo#:~:text=àVélo,l'avenue%20de%20la%20Médecine">lien</a>):</p>
-<ul>
-<li><p>Abitibi-Prince (ABP)</p></li>
-<li><p>Alphone-Desjardins (ADJ)</p></li>
-<li><p>Charles-De Koninck (DKN)</p></li>
-<li><p>Ferdinand-Vandry (VND)</p></li>
-<li><p>PEPS</p></li>
-</ul>
+<p>Dans ce problème, on cherche à modéliser la répartition des vélos en libre service dans les différentes stations de l’université Laval. Le campus comporte cinq stations pouvant acceuillir un total de <span class="math inline">\(136\)</span> vélos (<a href="https://www.sc.ulaval.ca/mobilite-durable/se-deplacer-a-velo#:~:text=àVélo,l'avenue%20de%20la%20Médecine">lien</a>): Abitibi-Prince (ABP), Alphone-Desjardins (ADJ), Charles-De Koninck (DKN), Ferdinand-Vandry (VND) et PEPS.</p>
 <p>Supposons que tous les vélos sont retournés à une des cinq stations à la fin de la journée, i.e.&nbsp;pour chaque jour, il y a un moment dans la journée (par exemple, à minuit), où tous les vélos sont à une certaine station. Nous pouvons donc nous intéresser à ces stations à ce moment de la journée pour chaque jour. Nous cherchons à modéliser les movements des vélos de minuit pour un jour donné jusqu’à minuit du jour suivant. Nous trouvons que :</p>
 <ul>
 <li><p>pour les vélos empruntés à ABP, <span class="math inline">\(50\%\)</span> y retourne, <span class="math inline">\(10\%\)</span> vont à ADJ, <span class="math inline">\(20\%\)</span> vont à DKN et <span class="math inline">\(20\%\)</span> vont à VND.</p></li>
@@ -683,6 +677,55 @@ window.Quarto = {
 <li><p>Mme Tremblay a deux enfants. On lui pose la question suivante : “Avez-vous au moins un garçon ?” et elle répond : “Oui”. Quelle est la probabilité que les deux enfants soient des garçons ?</p></li>
 <li><p>Est-ce que la probabilité de Mme Tremblay d’avoir deux garçons change si on lui pose la question suivante : “Indiquez moi le sexe de l’un de vos enfants.” et qu’elle répond : “J’ai (au moins) un garçon.” ?</p></li>
 <li><p>On croise M. Gagnon dans la rue en train de se balader avec sa fille. On lui demande quel jour de la semaine elle est née. Elle nous répond: “Vendredi”. Quelle est la probabilité que son deuxième enfant soit aussi une fille ?</p></li>
+</ol>
+</section>
+<section id="la-loi-dohm" class="level2">
+<h2 class="anchored" data-anchor-id="la-loi-dohm">La loi d’Ohm</h2>
+<p>On cherche à calculer la valeur d’un résistance. Pour cela, on lui envoie un courant électrique (intensité en ampères, A) et on mesure la différence de potentiel entre les bornes de la résistance (tension en volt, V). On trouve les valeurs suivantes :</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Intensité (A)</th>
+<th style="text-align: right;">Voltage (V)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">4.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">10.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">18.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">21.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1.2</td>
+<td style="text-align: right;">25.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1.3</td>
+<td style="text-align: right;">27.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1.8</td>
+<td style="text-align: right;">37.8</td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li><p>Calculer l’intensité moyenne et le voltage moyen.</p></li>
+<li><p>Calculer les variances de l’intensité et du voltage.</p></li>
+<li><p>Calculer la covariance entre l’intensité et le voltage.</p></li>
+<li><p>La loi d’Ohm nous dit que l’intensité et le voltage sont proportionnelle suivant la relation <span class="math inline">\(V = R A\)</span> où <span class="math inline">\(R\)</span> est la valeur de la résistance en Ohm. Cette relation est équivalente à estimer un modèle linéaire entre l’intensité et le voltage. La résistance <span class="math inline">\(R\)</span> est donc donnée par le ratio entre la covariance entre l’intensité et le voltage et la variance de l’intensité (cf.&nbsp;cours de régression pour une preuve). Calculer la valeur de <span class="math inline">\(R\)</span>.</p></li>
+<li><p>En reprenant les valeurs du tableau, vérifier la valeur de <span class="math inline">\(R\)</span>. Pourquoi est-ce que l’on ne retrouve pas exactement les valeurs données ?</p></li>
 </ol>
 
 
