@@ -39,4 +39,4 @@ $$I = \int_{-1}^{1} \sqrt{1 - x^2} dx .$$
 
 4. Comparer la qualité de ces deux estimateurs de $I$ en fonction de $n$.
 
-
+## Exercice 3: La loi des gaz parfaits

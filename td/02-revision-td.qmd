@@ -8,7 +8,7 @@ format:
       - \usepackage{mathtools} 
 ---
 
-## Un problème de vélo
+## Exercice 1: Un problème de vélo
 
 Dans ce problème, on cherche à modéliser la répartition des vélos en libre service dans les différentes stations de l'université Laval. Le campus comporte cinq stations pouvant acceuillir un total de $136$ vélos ([lien](https://www.sc.ulaval.ca/mobilite-durable/se-deplacer-a-velo#:~:text=àVélo,l'avenue%20de%20la%20Médecine)): Abitibi-Prince (ABP), Alphone-Desjardins (ADJ), Charles-De Koninck (DKN), Ferdinand-Vandry (VND) et PEPS.
 
@@ -33,7 +33,7 @@ Supposons que tous les vélos sont retournés à une des cinq stations à la fin
 4. Supposons qu'il y ait $20$ vélos à ABP, $35$ vélos à ADJ, $26$ vélos à DKN, $45$ à VND et $10$ au PEPS. En utilisant une diagonalisation de la matrice $T$, donner la répartition des vélos après $10$ jours. 
 
 
-## Paradoxe des deux enfants
+## Exercice 2: Paradoxe des deux enfants
 
 On cherche à modéliser les probabilités d'avoir des enfants d'un certain sexe. Dans toutes les questions, les enfants sont soit de sexe masculin, soit de sexe féminin, de façon équiprobable.
 
@@ -45,7 +45,7 @@ On cherche à modéliser les probabilités d'avoir des enfants d'un certain sexe
 
 4. On croise M. Gagnon dans la rue en train de se balader avec sa fille. On lui demande quel jour de la semaine elle est née. Elle nous répond: "Vendredi". Quelle est la probabilité que son deuxième enfant soit aussi une fille ?
 
-## La loi d'Ohm 
+## Exercice 3: La loi d'Ohm 
 
 On cherche à calculer la valeur d'un résistance. Pour cela, on lui envoie un courant électrique (intensité en ampères, A) et on mesure la différence de potentiel entre les bornes de la résistance (tension en volt, V). On trouve les valeurs suivantes :
 
