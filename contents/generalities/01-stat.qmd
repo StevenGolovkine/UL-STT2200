@@ -26,7 +26,7 @@ Un projet d'analyse de données peut se découper en cinq grandes étapes:
 5. Suivi de la performance et amélioration 
 
 
-Lors de la planification d'un projet, il faut prendre en compte que chaque étape à une importance différente, mais aussi que chacune ne prend pas le même temps d'exécution. @pyleDataPreparationData1999 donne une estimation du temps de chaque étape, ainsi que de leur importance dans la réussite du projet (donné en pourcentage du total).
+Lors de la planification d'un projet, il faut prendre en compte que chaque étape à une importance différente, mais aussi que chacune ne prend pas le même temps d'exécution. @pyleDataPreparationData1999 donne une estimation du temps de chaque étape, ainsi que de leur importance dans la réussite du projet (donné en pourcentage du total, cf. @tbl-decoupage).
 
 | Étape | Temps | Importance |
 | :---- | :---: | :--------: |
@@ -36,6 +36,8 @@ Lors de la planification d'un projet, il faut prendre en compte que chaque étap
 | Préparer les données | $60\%$ | $15\%$ |
 | Analyser les données | $15\%$ | $3\%$ |
 | Modéliser les données | $5\%$ | $2\%$ |
+
+: Découpage d'un projet d'analyse des données. {#tbl-decoupage}
 
 On remarque deux faits importants: ce n'est pas parce qu'une étape est très importante qu'elle va prendre beaucoup de temps. L'implémentation de la solution est très importante (sinon il n'y a pas de résultat), mais ne sera généralement pas très longue à faire (possiblement en quelques lignes de code). À l'inverse, la préparation des données est un étape d'importance moyenne (encore que c'est discutable), mais elle prend la majeur partie du temps du projet. En effet, il faut, par exemple, gérer les données manquantes, les données aberrantes, les éventuels accents pour des données en français, etc.
 
@@ -88,25 +90,71 @@ Pharmascience souhaite savoir si son nouveau médicament est efficace.
 
 Les données sont le coeur du sujet. Pour être utile, les données doivent être disponibles et de bonnes qualités. Une fois les objectifs définis, on effectue une traitement préliminaire et une exploration basique des données pour ensuite aller vers des modèles plus développés.
 
-### Inventaire et qualité
+### Où trouver des données ?
 
-Qu'est-ce que l'on veut dire par qualité des données ?
+Réponse simple : Internet ! Voici une liste de sites (non-exhaustives) qui regroupent des jeux de données :
+
+* [Google datasets](https://datasetsearch.research.google.com/);
+
+* [Kaggle](https://www.kaggle.com);
+
+* [UC Irvine Machine Learning Repository](https://archive-beta.ics.uci.edu);
+
+* [Time Series Machine Learning website](https://www.timeseriesclassification.com/index.php);
+
+* [Physionet Database](https://physionet.org/about/database/).
+
+On peut aussi regarder les sites officiels de sources de données que l'on peut trouver pour une grande partie des pays du monde :
+
+* Canada: [StatCan](https://www.statcan.gc.ca/fr/debut);
+
+* France: [data.gouv.fr](https://www.data.gouv.fr/fr/);
+
+* USA: [data.gov](https://data.gov);
+
+* Angleterre: [data.gouv.uk](https://www.data.gov.uk);
+
+* etc.
+
+Pour des données sur des sujets plus spécifiques, vous pouvez regarder les différentes branches des gouvernements. Par exemple, le Centre Canadien de cartographie et d’observation de la terre fournit les données géospatiales du Canada ([ici](https://geo.ca/fr/accueil/?_gl=1*1hldmsu*_ga*ODI1NjQ1OTgxLjE3NDUyNDk2NDY.*_ga_C2N57Y7DX5*czE3NTAwOTQyMTckbzMkZzEkdDE3NTAwOTQyMjYkajUxJGwwJGgw)).
+
+Lorsque que l'on travaille pour une entreprise, on a généralement accès aux sources de données internes, e.g. base de données sur la production, les clients et les employés, les listes de transactions et de clients potentiels, des informations sur les visites web.
+
+
+### Qualité
+
+Il y a un dicton populaire en informatique, s'appliquant aussi en analyse de données: "Garbage in, garbage out". En gros, cela veut dire que peut importe à quel point le modèle est sophistiqué, si les données en entrée sont de mauvaise qualité, biaisé, incomplète, ... alors les résultats en sortie seront de mauvaise qualité. Ainsi, cela assure une certaine crédibilité, reproductibilité et utisabilité à nos conclusions.
+
+Mais qu'est-ce que l'on veut dire par qualité des données ?
 
 * Est-ce que les données sont représentatives de la population cible ?
 
-* Est-ce que les données permetternt de tirer des conclusions de causalité ?
+* Est-ce que les données sont correctes et pertinentes ?
 
-* Est-ce que les données sont fiables ?
+* Est-ce qu'il y a des données manquantes, redondantes, ... ?
+
+
 
 ### Constitution de la base de données
+
+Une fois nos données récupérées, on doit les charger en mémoire pour ensuite pouvoir faire des analyses. En Python, la librairie [pandas](https://pandas.pydata.org) permet de lire la plupart des formats de fichiers auxquels on aura affaire. En ce qui concerne R, il faut utiliser différentes libraries pour charger différents types de données (cf. @tbl-packages-R).
+
+| Format  | Extension    | Librarie   | 
+|---------|:------------ |-----------:|
+| Texte   | .txt; .csv   | `readr`    |
+| Excel   | .xlsx        | `readxl`   |
+| SAS     | .sas7bdat    | `haven`    |
+| SPSS    | .sav; .zsav  | `haven`    |
+| JSON    | .json        | `jsonlite` |
+
+: Différentes libraries pour différents formats de fichiers. {#tbl-packages-R}
+
+Depuis une dizaine d'année, le concept de "tidy data" a emergé (cf. @wickhamTidyData2014).
 
 
 ### Exploration et traitement préliminaire 
 
 
-Source de données: 
-
-Quelques liens pour récupérer des données.
 
 Nettoyage de données: cf R (importation, nettoyage, tidyverse, types de variables, retirer les doublons, uniformiser les modalités, vérifier le format des valeurs spéciales, pivot, opérateur pipe, jointure).
 
@@ -119,6 +167,7 @@ Statistiques descriptives
 
 
 ## Mise en oeuvre
+
 
 ## Suivi de la performance et amélioration
 
