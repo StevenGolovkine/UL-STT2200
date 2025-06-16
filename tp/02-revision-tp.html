@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -675,6 +710,36 @@ window.Quarto = {
 </section>
 <section id="exercice-3-la-loi-des-gaz-parfaits" class="level2">
 <h2 class="anchored" data-anchor-id="exercice-3-la-loi-des-gaz-parfaits">Exercice 3: La loi des gaz parfaits</h2>
+<p>Dans cet exercice, on se propose de vérifier la loi des gaz parfaits à partir des données. On rappelle que la loi des gaz parfaits est donnée par <span class="math inline">\(PV = nRT\)</span> où :</p>
+<ul>
+<li><p><span class="math inline">\(P\)</span> est la pression à l’intérieur du volume considéré en Pascal (Pa);</p></li>
+<li><p><span class="math inline">\(V\)</span> est le volume du gaz en m<span class="math inline">\(^3\)</span>;</p></li>
+<li><p><span class="math inline">\(n\)</span> est la quantité de matière en mole (mol);</p></li>
+<li><p><span class="math inline">\(R = 8.314\)</span> est la constante universelle des gaz parfaits en J.mol<span class="math inline">\(^{-1}\)</span>.K<span class="math inline">\(^{-1}\)</span>;</p></li>
+<li><p><span class="math inline">\(T\)</span> est la température à l’intérieur du volume considéré en Kelvin (K).</p></li>
+</ul>
+<p>On conduit une expérience consistant à chauffer une quantité <strong>fixe</strong> de gaz dans un récipient fermé de volume <strong>fixé</strong>. La température <span class="math inline">\(T\)</span> en Kelvin et la pression <span class="math inline">\(P\)</span> en kPa sont enregistrées. On trouve les résultats suivants :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>temperature <span class="ot">=</span> [</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dv">406</span>, <span class="dv">296</span>, <span class="dv">272</span>, <span class="dv">449</span>, <span class="dv">483</span>, <span class="dv">439</span>, <span class="dv">460</span>, <span class="dv">276</span>, <span class="dv">321</span>, <span class="dv">462</span>, <span class="dv">408</span>, <span class="dv">322</span>, <span class="dv">285</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">411</span>, <span class="dv">491</span>, <span class="dv">359</span>, <span class="dv">453</span>, <span class="dv">486</span>, <span class="dv">413</span>, <span class="dv">350</span>, <span class="dv">263</span>, <span class="dv">456</span>, <span class="dv">390</span>, <span class="dv">462</span>, <span class="dv">389</span>, <span class="dv">494</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">303</span>, <span class="dv">496</span>, <span class="dv">336</span>, <span class="dv">460</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>pression <span class="ot">=</span> [</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1365</span>, <span class="dv">982</span>, <span class="dv">898</span>, <span class="dv">1486</span>, <span class="dv">1596</span>, <span class="dv">1481</span>, <span class="dv">1506</span>, <span class="dv">906</span>, <span class="dv">1085</span>, <span class="dv">1542</span>, <span class="dv">1367</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1072</span>, <span class="dv">955</span>, <span class="dv">1379</span>, <span class="dv">1633</span>, <span class="dv">1186</span>, <span class="dv">1499</span>, <span class="dv">1606</span>, <span class="dv">1378</span>, <span class="dv">1156</span>, <span class="dv">867</span>, <span class="dv">1514</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1306</span>, <span class="dv">1525</span>, <span class="dv">1287</span>, <span class="dv">1665</span>, <span class="dv">1020</span>, <span class="dv">1635</span>, <span class="dv">1118</span>, <span class="dv">1529</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol type="1">
+<li><p>Tracer la pression en fonction de la température. Est-ce que le graphique est linéaire ?</p></li>
+<li><p>Construire la matrice <span class="math inline">\(X = (1 | \text{temperature})\)</span>. La première colonne de <span class="math inline">\(X\)</span> est une colonne de <span class="math inline">\(1\)</span> et la deuxième colonne de <span class="math inline">\(X\)</span> est le vecteur des températures.</p></li>
+<li><p>Calculer le vecteur <span class="math inline">\(\beta = (X^{\top} X)^{-1} X^{\top} Y\)</span> où <span class="math inline">\(Y\)</span> est le vecteur des pressions.</p></li>
+<li><p>Quelle est l’interprétation physique des éléments du vecteur <span class="math inline">\(\beta\)</span> ?</p></li>
+<li><p>À quelle valeur de <span class="math inline">\(\beta_0\)</span>, le premier coefficient de <span class="math inline">\(\beta\)</span>, devrait-on s’attendre dans le cadre d’un gaz parfait ? Est-ce le cas ici ? Pourquoi ?</p></li>
+<li><p>Supposons que le volume de gaz est de <span class="math inline">\(10\)</span>dm<span class="math inline">\(^3\)</span>. Estimer la quantité de matière <span class="math inline">\(n\)</span> en mole utilisé pour avoir les données.</p></li>
+</ol>
 
 
 </section>
