@@ -45,6 +45,7 @@ On cherche à modéliser les probabilités d'avoir des enfants d'un certain sexe
 
 4. On croise M. Gagnon dans la rue en train de se balader avec sa fille. On lui demande quel jour de la semaine elle est née. Elle nous répond: "Vendredi". Quelle est la probabilité que son deuxième enfant soit aussi une fille ?
 
+
 ## Exercice 3: La loi d'Ohm 
 
 On cherche à calculer la valeur d'un résistance. Pour cela, on lui envoie un courant électrique (intensité en ampères, A) et on mesure la différence de potentiel entre les bornes de la résistance (tension en volt, V). On trouve les valeurs suivantes :
