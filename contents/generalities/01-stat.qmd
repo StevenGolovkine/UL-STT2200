@@ -8,7 +8,7 @@ format:
       - \usepackage{mathtools} 
 ---
 
-Dans cette partie, on présente les différentes étapes d'un projet d'analyse de données. 
+On présente ici les différentes étapes d'un projet d'analyse de données. 
 
 
 ## Projet d'analyse données
@@ -26,53 +26,69 @@ Un projet d'analyse de données peut se découper en cinq grandes étapes:
 5. Suivi de la performance et amélioration 
 
 
-::: {.callout-tip icon=false}
-## Remarque
-
-Dans ce cours, on s'intéressera principalement à l'élaboration et à la validation de modèles.
-
-:::
-
-
 Lors de la planification d'un projet, il faut prendre en compte que chaque étape à une importance différente, mais aussi que chacune ne prend pas le même temps d'exécution. @pyleDataPreparationData1999 donne une estimation du temps de chaque étape, ainsi que de leur importance dans la réussite du projet (donné en pourcentage du total).
 
 | Étape | Temps | Importance |
 | :---- | :---: | :--------: |
-| Comprendre le problème | $10/%$ | $15/%$ |
-| Explorer la solution | $9/%$ | $14/%$ |
-| Implementer la solution | $1/%$ | $51/%$ |
-| Préparer les données | $60/%$ | $15/%$ |
-| Analyser les données | $15/%$ | $3/%$ |
-| Modéliser les données | $5/%$ | $2/%$ |
+| Comprendre le problème | $10\%$ | $15\%$ |
+| Explorer la solution | $9\%$ | $14\%$ |
+| Implementer la solution | $1\%$ | $51\%$ |
+| Préparer les données | $60\%$ | $15\%$ |
+| Analyser les données | $15\%$ | $3\%$ |
+| Modéliser les données | $5\%$ | $2\%$ |
 
 On remarque deux faits importants: ce n'est pas parce qu'une étape est très importante qu'elle va prendre beaucoup de temps. L'implémentation de la solution est très importante (sinon il n'y a pas de résultat), mais ne sera généralement pas très longue à faire (possiblement en quelques lignes de code). À l'inverse, la préparation des données est un étape d'importance moyenne (encore que c'est discutable), mais elle prend la majeur partie du temps du projet. En effet, il faut, par exemple, gérer les données manquantes, les données aberrantes, les éventuels accents pour des données en français, etc.
 
 
 
-### Définition des objectifs 
+## Définition des objectifs 
 
-Est-ce que l'on veut: visualiser les données ? explorer et émettre des hypothèses? tester? regrouper? comprendre? prédire?
+Est-ce que l'on veut: visualiser les données ? explorer et émettre des hypothèses ? tester ? regrouper ? comprendre ? prédire ?
 
 Comment fait-on en pratique ? On pose des questions ! Tout d'abord, il faut clarifier les termes. Qui va utiliser le modèle et comment ? Quelle est la population cible ?
 
+Pourquoi est-ce important d'avoir des objectifs clairs lors d'un projet d'analyse de données ? Cela permet de guider la collecte des données et leur mise en forme. Cela permet de définir un modèle adéquat (e.g. classification vs prédiction). Cela permet d'analyser les résultats à la lumière de l'objectif et donc de permettre à d'autres personnes de juger de la pertinence de ceux-ci. Il est important de définir les objectifs avant de s'intéresser aux données pour ne pas être biaisé par celles-ci.  
+
 ::: {.callout-note icon=false}
-## Examples
+## Exemple
 
-1. La Banque National du Canada veut lancer un nouveau produit d'épargne et souhaite mieux connaître ses clients pour prédire s'ils veulent l'acheter.
+La Banque National du Canada voudrait lancer un nouveau produit d'épargne et vous donne accès à sa base de données clients.
 
-2. L'équipe de hockey des Canadiens de Montréal souhaite mieux connaître ses adversaires pour développer des nouvelles tactiques de jeu. 
+*Mauvais objectif*: Analysez les données de la base clients.
 
-3. Pharmascience souhaite savoir si son nouveau médicament est efficace.
+*Meilleur objectif*: Pouvez-vous prédire quels clients vont acheter le nouveau produit d'épargne ?
+
+:::
+
+::: {.callout-note icon=false}
+## Exemple
+
+L'équipe du hockey des Canadiens de Montréal souhaite mieux connaître ses adversaires pour développer des nouvelles tactiques de jeu. 
+
+*Mauvais objectif*: Analysez les données des adversaires.
+
+*Meilleur objectif*: Pouvez-vous caractériser le style de jeu des adversaires dans l'optique d'y détecter des points faibles ?
+
 :::
 
 
-### Données 
+::: {.callout-note icon=false}
+## Exemple
 
-* Inventaire et qualité 
+Pharmascience souhaite savoir si son nouveau médicament est efficace.
 
-* Constitution de la base de données
+*Mauvais objectif*: Analysez les données du médicament.
 
-* Exploration et traitement préliminaire 
+*Meilleur objectif*: Pouvez-vous déterminer un protocole de tests (statistiques) permettant de déterminer si le médicament est efficace ?
+
+:::
+
+
+## Données 
+
+Les données sont le coeur du sujet. Pour être utile, les données doivent être disponibles et de bonnes qualités. Une fois les objectifs définis, on effectue une traitement préliminaire et une exploration basique des données pour ensuite aller vers des modèles plus développés.
+
+### Inventaire et qualité
 
 Qu'est-ce que l'on veut dire par qualité des données ?
 
@@ -81,6 +97,12 @@ Qu'est-ce que l'on veut dire par qualité des données ?
 * Est-ce que les données permetternt de tirer des conclusions de causalité ?
 
 * Est-ce que les données sont fiables ?
+
+### Constitution de la base de données
+
+
+### Exploration et traitement préliminaire 
+
 
 Source de données: 
 
@@ -92,3 +114,16 @@ Exploration des données: modalités rares, modalités trop nombreuses, asymétr
 
 Statistiques descriptives
 
+
+## Élaboration et validation des modèles 
+
+
+## Mise en oeuvre
+
+## Suivi de la performance et amélioration
+
+
+::: {.content-visible when-format="pdf"}
+## Références
+
+:::

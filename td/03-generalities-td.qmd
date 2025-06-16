@@ -1,0 +1,10 @@
+--- 
+title: "TD: Généralités"
+format:
+  html: default
+  pdf: 
+    number-sections: true
+    header-includes:
+      - \usepackage{mathtools} 
+---
+

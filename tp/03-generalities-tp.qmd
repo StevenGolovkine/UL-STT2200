@@ -1,0 +1,11 @@
+--- 
+title: "TP: Généralités"
+format:
+  html: default
+  pdf: 
+    number-sections: true
+    header-includes:
+      - \usepackage{mathtools} 
+---
+
+Vous pouvez faire les exercices dans le langage de votre choix.

@@ -7,11 +7,11 @@ format:
       - \usepackage{mathtools} 
 ---
 
-* Slides: [link](../slides/03-generalites-slides.qmd)
+* Slides: [link](../slides/03-generalities-slides.qmd)
 
-* TD: [link](../td/03-generalites-td.qmd)
+* TD: [link](../td/03-generalities-td.qmd)
 
-* TP: [link](../td/03-generalites-tp.qmd)
+* TP: [link](../td/03-generalities-tp.qmd)
 
 ## Sommaire
 

@@ -240,3 +240,8 @@ Notons $D = \{\text{diag}(\widehat{\Sigma})\}^{1/2}$, la matrice des écarts-typ
 $$\widehat{R} = D^{-1} \widehat{\Sigma} D^{-1}.$$
 
 
+
+::: {.content-visible when-format="pdf"}
+## Références
+
+:::

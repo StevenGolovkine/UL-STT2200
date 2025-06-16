@@ -47,3 +47,9 @@ Pour finir cette indroduction, voici un passage de *Statistical Rethinking* de R
 
 ![Machine learning ([xkcd:1838](https://xkcd.com/1838/)).](../include/machine_learning.png)
 
+
+
+::: {.content-visible when-format="pdf"}
+## Références
+
+:::

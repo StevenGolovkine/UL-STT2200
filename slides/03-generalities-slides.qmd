@@ -1,5 +1,5 @@
 --- 
-title: "Révisions"
+title: "Généralités"
 subtitle: "Data"
 author: "Steven Golovkine"
 lang: fr
