@@ -791,13 +791,13 @@ Exemple
 <p>Lorsque que l’on travaille pour une entreprise, on a généralement accès aux sources de données internes, e.g. base de données sur la production, les clients et les employés, les listes de transactions et de clients potentiels, des informations sur les visites web.</p>
 </section><section id="qualité" class="level3"><h3 class="anchored" data-anchor-id="qualité">Qualité</h3>
 <p>Il y a un dicton populaire en informatique, s’appliquant aussi en analyse de données: “Garbage in, garbage out”. En gros, cela veut dire que peut importe à quel point le modèle est sophistiqué, si les données en entrée sont de mauvaise qualité, biaisé, incomplète, … alors les résultats en sortie seront de mauvaise qualité. Ainsi, cela assure une certaine crédibilité, reproductibilité et utisabilité à nos conclusions.</p>
-<p>Mais qu’est-ce que l’on veut dire par qualité des données ?</p>
+<p>Mais qu’est-ce que l’on veut dire par qualité des données ? Pour nous assurer de la qualité des données, on pourra se poser les questions suivantes :</p>
 <ul>
 <li><p>Est-ce que les données sont représentatives de la population cible ?</p></li>
 <li><p>Est-ce que les données sont correctes et pertinentes ?</p></li>
 <li><p>Est-ce qu’il y a des données manquantes, redondantes, … ?</p></li>
 </ul></section><section id="constitution-de-la-base-de-données" class="level3"><h3 class="anchored" data-anchor-id="constitution-de-la-base-de-données">Constitution de la base de données</h3>
-<p>Une fois nos données récupérées, on doit les charger en mémoire pour ensuite pouvoir faire des analyses. En Python, la librairie <a href="https://pandas.pydata.org">pandas</a> permet de lire la plupart des formats de fichiers auxquels on aura affaire. En ce qui concerne R, il faut utiliser différentes libraries pour charger différents types de données (cf. <a href="#tbl-packages-R" class="quarto-xref">Table 2</a>).</p>
+<p>Une fois nos données récupérées, on doit les charger en mémoire pour ensuite pouvoir faire des analyses. En Python, la librairie <a href="https://pandas.pydata.org"><code>pandas</code></a> permet de lire la plupart des formats de fichiers auxquels on aura affaire. En ce qui concerne R, il faut utiliser différentes libraries pour charger différents types de données (cf. <a href="#tbl-packages-R" class="quarto-xref">Table 2</a>).</p>
 <div id="tbl-packages-R" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-packages-R-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table 2: Différentes libraries pour différents formats de fichiers.
@@ -839,14 +839,26 @@ Table 2: Différentes libraries pour différents formats de fichiers.
 </div>
 </figure>
 </div>
-<p>Depuis une dizaine d’année, le concept de “tidy data” a emergé (cf. <span class="citation" data-cites="wickhamTidyData2014">Wickham (<a href="#ref-wickhamTidyData2014" role="doc-biblioref">2014</a>)</span>).</p>
+<p>Depuis une dizaine d’année, le concept de “tidy data” a emergé (cf. <span class="citation" data-cites="wickhamTidyData2014">Wickham (<a href="#ref-wickhamTidyData2014" role="doc-biblioref">2014</a>)</span>). Chaque jeu de données “tidy” respecte trois principes:</p>
+<ol type="1">
+<li><p>Chaque variable est une colonne du tableau.</p></li>
+<li><p>Chaque observation est une ligne du tableau.</p></li>
+<li><p>Chaque cellule du tableau correspond à une unique mesure.</p></li>
+</ol>
+<p>Cela permet d’avoir une approche unifiée pour l’analyse de données. De manière général, on essaiera toujours de mettre son jeu de données sous format “tidy”. Le package <a href="https://tidyr.tidyverse.org/index.html"><code>tidyr</code></a> en R et la librairie <a href="https://pandas.pydata.org/docs/index.html"><code>pandas</code></a> en Python permettent de mettre en forme les données en format “tidy”.</p>
 </section><section id="exploration-et-traitement-préliminaire" class="level3"><h3 class="anchored" data-anchor-id="exploration-et-traitement-préliminaire">Exploration et traitement préliminaire</h3>
-<p>Nettoyage de données: cf R (importation, nettoyage, tidyverse, types de variables, retirer les doublons, uniformiser les modalités, vérifier le format des valeurs spéciales, pivot, opérateur pipe, jointure).</p>
-<p>Exploration des données: modalités rares, modalités trop nombreuses, asymétrie, débalancement des classes, valeurs extrêmes ou aberrantes, variables fortement corrélées, valeurs manquantes.</p>
-<p>Statistiques descriptives</p>
-</section></section><section id="élaboration-et-validation-des-modèles" class="level2"><h2 class="anchored" data-anchor-id="élaboration-et-validation-des-modèles">Élaboration et validation des modèles</h2>
+<p>Une fois les données chargées et sous le format “tidy”, on fait une première exploration des données avant de passer à l’étape d’élaboration du modèle en elle-même. Cette étape, bien que <strong>très importante</strong>, n’est pas le coeur de ce cours. Voici quelques trucs à faire concernant cette première exploration:</p>
+<ul>
+<li><p>Nettoyage de données: retirer les doublons, uniformiser les modalités, vérifier le format des valeurs spéciales, etc.</p></li>
+<li><p>Exploration des données: modalités rares, modalités trop nombreuses, asymétrie, débalancement des classes, valeurs extrêmes ou aberrantes, variables fortement corrélées, valeurs manquantes.</p></li>
+</ul></section></section><section id="élaboration-et-validation-des-modèles" class="level2"><h2 class="anchored" data-anchor-id="élaboration-et-validation-des-modèles">Élaboration et validation des modèles</h2>
 </section><section id="mise-en-oeuvre" class="level2"><h2 class="anchored" data-anchor-id="mise-en-oeuvre">Mise en oeuvre</h2>
-</section><section id="suivi-de-la-performance-et-amélioration" class="level2"></section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Suivi de la performance et amélioration</h2>
+</section><section id="suivi-de-la-performance-et-amélioration" class="level2"><h2 class="anchored" data-anchor-id="suivi-de-la-performance-et-amélioration">Suivi de la performance et amélioration</h2>
+<p>Coucou</p>
+
+
+
+</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Les références</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-pyleDataPreparationData1999" class="csl-entry" role="listitem">
 Pyle, Dorian. 1999. <em>Data <span>Preparation</span> for <span>Data Mining</span></em>. Morgan Kaufmann.
