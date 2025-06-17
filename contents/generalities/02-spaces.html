@@ -597,7 +597,8 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-<li><a href="#types-de-variables" id="toc-types-de-variables" class="nav-link active" data-scroll-target="#types-de-variables">Types de variables</a></li>
+<li><a href="#unit%C3%A9-statistique" id="toc-unité-statistique" class="nav-link active" data-scroll-target="#unité-statistique">Unité statistique</a></li>
+  <li><a href="#types-de-variables" id="toc-types-de-variables" class="nav-link" data-scroll-target="#types-de-variables">Types de variables</a></li>
   <li><a href="#espaces-associ%C3%A9s" id="toc-espaces-associés" class="nav-link" data-scroll-target="#espaces-associés">Espaces associés</a></li>
   </ul>
 <div class="toc-actions"><ul>
@@ -629,20 +630,58 @@ window.Quarto = {
   
 
 
-</header><p>Dans cette partie, on présente les différents types de données et les espaces associés permettant de faire des analyses.</p>
-<section id="types-de-variables" class="level2"><h2 class="anchored" data-anchor-id="types-de-variables">Types de variables</h2>
-<p>Avant de commencer la modélisation, il est important de bien comprendre le type des variables que l’on a. En effet, la nature des variables va influer sur l’espace dans lequel vivent nos données, et donc la distance que l’on va pouvoir utilisée pour comparer celles-ci, et par conséquent l’algorithme que l’on va implémenter. Les types de variables les plus courantes avec lesquelles on va travailler sont au nombre de quatre : les variables numériques, les variables ordinales, les variables nominales symétriques et les variables nominales asymétriques. On considère le type de variable pour la <strong>plus petite unité statistique</strong> de notre jeu de données.</p>
+</header><p>Avant de pouvoir modéliser ou analyser des données, il est fondamental de bien comprendre la nature des variables que l’on manipule. En effet, le <strong>type de variables</strong> détermine :</p>
+<ul>
+<li><p>l’espace mathématique dans lequel elle vit;</p></li>
+<li><p>les mesures de distance qu’on peut utiliser pour la comparer à d’autres;</p></li>
+<li><p>et les modèles pertinents à utiliser.</p></li>
+</ul>
+<p>Dans cette section, nous présentons les types de variables les plus courants, ainsi que les espaces associés.</p>
+<section id="unité-statistique" class="level2"><h2 class="anchored" data-anchor-id="unité-statistique">Unité statistique</h2>
+<p>Une <strong>unité statistique</strong> est l’élément de base sur lequel une observation est effectué. Moralement, c’est le “porteur” de l’information qui est utilisé pour déterminer le niveau d’agrégation de l’analyse. L’unité statistique est un <strong>choix</strong> du modélisateur.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exemples
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Dans le cas d’une enquête sur les revenus, on peut choisir l’individu comme unité.</p></li>
+<li><p>Dans le cas d’une étude sur les classes d’un lycée, on peut choisir la classe comme unité.</p></li>
+<li><p>Dans le cas d’une base de données d’imagerie médicale, on choisir l’image comme unité.</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Parfois, une même base de données peut être analysée à plusieurs niveaux.
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Une image est constituée de pixels, chacun pouvant être décrit par des variables numériques (e.g. valeurs RVB, opacité, …). On peut choisir d’analyser chaque pixel, et donc prendre le pixel pour unité, ou bien analyser chaque image comme un tout, et donc prendre l’image comme unité.</p>
+</div>
+</div>
+</section><section id="types-de-variables" class="level2"><h2 class="anchored" data-anchor-id="types-de-variables">Types de variables</h2>
+<p>On distingue généralement quatre types de variables, que l’on identifie au niveau de la plus petite unité statistique du jeu de données.</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Variable numérique
+Variable numérique (ou quantitative)
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Une variable numérique est une variable dont la valeur numérique mesure quelque chose de quantifiable et dont la différence entre les valeurs reflète la différence entre les objets.</p>
+<p>Une variable numérique (ou quantitative) est une variable dont les valeurs sont des nombres représentant une quantité mesurable.</p>
 <p>Exemples: revenu en dollars, masse, âge, …</p>
 </div>
 </div>
@@ -656,8 +695,8 @@ Variable ordinale
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Une variable ordinale est une variable qui ne donne pas une quantification précise d’un phénomène, mais dont les modalités peuvent être naturellement ordonnées.</p>
-<p>Exemples: revenu faible, moyen ou élevé, ou niveau d’accord entre “tout-à-fait en désaccord”, “en désaccord”, “pas d’avis”, “d’accord”, “tout-à-fait d’accord”, …</p>
+<p>Une variable ordinale est une variable qualitative (ou catégorielle) dont les modalités peuvent être ordonnées naturellement, sans que l’écart entre les modalités soit quantifiable.</p>
+<p>Exemples: niveau de revenu (faible, moyen ou élevé), niveau de satisfaction (“tout-à-fait en désaccord”, “en désaccord”, “pas d’avis”, “d’accord”, “tout-à-fait d’accord”), …</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
@@ -666,12 +705,12 @@ Variable ordinale
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Nominale symétrique
+Variable nominale symétrique
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Une variable nominale symétrique est une variable qualitative dont toutes les modalités sont aussi informatives l’une que l’autre.</p>
-<p>Exemples: Sexe, sections d’un cours, …</p>
+<p>Une variable nominale symétrique est une variable qualitative (ou catégorielle) dont toutes les modalités sont aussi informatives l’une que l’autre.</p>
+<p>Exemples: nationalité, filière de formation, …</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
@@ -680,15 +719,15 @@ Nominale symétrique
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Nominale asymétrique
+Variable nominale asymétrique
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Une variable nominale asymétrique est une variable qualitative dont les modalités ne contiennent pas toutes le même niveau d’information, habituellement lorsque l’une des modalités est très fréquente, un peu la modalité par defaut, mais que les autres ne le sont pas.</p>
-<p>Exemples: variable indiquant si un individu est daltonien ou non (deux individus daltoniens ont quelque chose en commun, mais deux individus non-daltoniens n’ont pas forcément quelque chose en commun), variable indiquant si une transaction est frauduleuse (généralement, elle ne va pas l’être), …</p>
+<p>Une variable nominale asymétrique est une variable qualitative (ou catégorielle) dont l’une des modalités a un statut particulier, souvent plus fréquente ou considérée comme la valeur “par défaut”. Ainsi, avoir deux observations avec la valeur “par défaut” de cette variable nominale asymétrique ne nous apprend pas grand chose sur celles-ci; alors que on peut retirer beaucoup plus d’information de deux observations qui n’ont pas la valeur “par défaut”.</p>
+<p>Exemples: présence ou absence d’un symptôme, transaction frauduleuse ou non, …</p>
 </div>
 </div>
-<p>Bien que ces types de variables soient les plus communs, on peut trouver beaucoup d’autres types de variables. Par exemple, on peut s’intéresser à de la comparaison de courbes, de mots, d’images, de graphs, etc. Dans ce cas, il est important de bien comprendre la notion d’<strong>unité statistique</strong>. Une unité statistique est l’unité dans laquel les mesures sont faites. Par exemple, si on s’intéresse à de l’analyse d’images, on pourrait se dire que nos images sont constitués de pixels, qui sont des variables numériques, et donc analyser nos images comme des variables numériques. Cependant, on peut faire le <strong>choix</strong> de considérer nos images comme notre unité statistique et donc de faire l’analyse au niveau image (et non variables numériques).</p>
+<p>Bien que ces types de variables soient les plus communs, on peut trouver beaucoup d’autres types de variables. Par exemple, on peut s’intéresser à de la comparaison de courbes, de textes, d’images, de réseaux, etc. Dans ces situations, le choix de la représentation dépend du niveau auquel on souhaite se placer, et donc de l’unité statistique.</p>
 </section><section id="espaces-associés" class="level2"><h2 class="anchored" data-anchor-id="espaces-associés">Espaces associés</h2>
 <p>Une fois que nos données ont été collectés, la première étape d’une analyse statistique consiste à choisir un espace mathématique dans lequel travailler. Cette espace, que l’on appelle parfois <strong>espace d’observation</strong> et que l’on note <span class="math inline">\(\mathcal{X}\)</span>, dépend du type de données observées. Il constitue le cadre formel dans lequel nos variables prennent leurs valeurs, et il guide les choix méthodologiques qui suivront.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
