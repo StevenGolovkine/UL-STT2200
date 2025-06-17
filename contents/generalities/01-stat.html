@@ -852,9 +852,18 @@ Table 2: Différentes libraries pour différents formats de fichiers.
 <li><p>Nettoyage de données: retirer les doublons, uniformiser les modalités, vérifier le format des valeurs spéciales, etc.</p></li>
 <li><p>Exploration des données: modalités rares, modalités trop nombreuses, asymétrie, débalancement des classes, valeurs extrêmes ou aberrantes, variables fortement corrélées, valeurs manquantes.</p></li>
 </ul></section></section><section id="élaboration-et-validation-des-modèles" class="level2"><h2 class="anchored" data-anchor-id="élaboration-et-validation-des-modèles">Élaboration et validation des modèles</h2>
+<p>Ce cours concerne l’élaboration et la validation de modèles. Pour l’instant, on peut retenir quatre composantes principales pour ceci:</p>
+<ol type="1">
+<li><p>un <strong>espace</strong> (mathématique) dans lequel travailler;</p></li>
+<li><p>une <strong>distance</strong> permettant de comparer des observations;</p></li>
+<li><p>un <strong>modèle</strong> (ou algorithme);</p></li>
+<li><p>une <strong>fonction</strong> permettant de mesurer la qualité du modèle.</p></li>
+</ol>
+<p>On verra en détail chacune de ses composantes dans les parties suivantes.</p>
 </section><section id="mise-en-oeuvre" class="level2"><h2 class="anchored" data-anchor-id="mise-en-oeuvre">Mise en oeuvre</h2>
+<p>Une fois que le modèle est choisi et valider, on peut vouloir le <strong>mettre en production</strong>. La mise en production est le fait de rendre le modèle disponible pour le plus grand nombre. Généralement, cela consiste à automatiser la collecte et le nettoyage des données, pour ensuite “nourir” le modèle créé et sortir des rapports d’analyse des résultats. Cette partie est ce qu’on appelle le <strong>data engineering</strong>. Un <strong>data engineer</strong> s’occupe donc de toute mise en place de la <em>pipeline</em> de traitement des données, de sa collecte à la sortie du modèle.</p>
 </section><section id="suivi-de-la-performance-et-amélioration" class="level2"><h2 class="anchored" data-anchor-id="suivi-de-la-performance-et-amélioration">Suivi de la performance et amélioration</h2>
-<p>Coucou</p>
+<p>Finalement, une fois que le modèle est mis en production, il faut assurer un suivi de la performance. En effet, lors de l’arrivée de nouvelles données, il peut arriver que le modèle que l’on a considéré ne soit plus très adapté (e.g. les hypothèses faites ne sont plus correctes). Pour prévenir ce phénomène, on fait un <strong>monitoring</strong> du modèle en vérifiant régulièrement ces performances. On peut aussi vouloir améliorer notre modèle; par exemple parce qu’on a des hypothèses plus précise sur celles-ci ou bien des données de meilleures qualité.</p>
 
 
 

@@ -1072,7 +1072,7 @@
     "href": "contents/generalities/01-stat.html#élaboration-et-validation-des-modèles",
     "title": "Projet d’analyse de données",
     "section": "Élaboration et validation des modèles",
-    "text": "Élaboration et validation des modèles",
+    "text": "Élaboration et validation des modèles\nCe cours concerne l’élaboration et la validation de modèles. Pour l’instant, on peut retenir quatre composantes principales pour ceci:\n\nun espace (mathématique) dans lequel travailler;\nune distance permettant de comparer des observations;\nun modèle (ou algorithme);\nune fonction permettant de mesurer la qualité du modèle.\n\nOn verra en détail chacune de ses composantes dans les parties suivantes.",
     "crumbs": [
       "Modules",
       "03 - Généralités",
@@ -1084,7 +1084,7 @@
     "href": "contents/generalities/01-stat.html#mise-en-oeuvre",
     "title": "Projet d’analyse de données",
     "section": "Mise en oeuvre",
-    "text": "Mise en oeuvre",
+    "text": "Mise en oeuvre\nUne fois que le modèle est choisi et valider, on peut vouloir le mettre en production. La mise en production est le fait de rendre le modèle disponible pour le plus grand nombre. Généralement, cela consiste à automatiser la collecte et le nettoyage des données, pour ensuite “nourir” le modèle créé et sortir des rapports d’analyse des résultats. Cette partie est ce qu’on appelle le data engineering. Un data engineer s’occupe donc de toute mise en place de la pipeline de traitement des données, de sa collecte à la sortie du modèle.",
     "crumbs": [
       "Modules",
       "03 - Généralités",
@@ -1096,7 +1096,7 @@
     "href": "contents/generalities/01-stat.html#suivi-de-la-performance-et-amélioration",
     "title": "Projet d’analyse de données",
     "section": "Suivi de la performance et amélioration",
-    "text": "Suivi de la performance et amélioration\nCoucou",
+    "text": "Suivi de la performance et amélioration\nFinalement, une fois que le modèle est mis en production, il faut assurer un suivi de la performance. En effet, lors de l’arrivée de nouvelles données, il peut arriver que le modèle que l’on a considéré ne soit plus très adapté (e.g. les hypothèses faites ne sont plus correctes). Pour prévenir ce phénomène, on fait un monitoring du modèle en vérifiant régulièrement ces performances. On peut aussi vouloir améliorer notre modèle; par exemple parce qu’on a des hypothèses plus précise sur celles-ci ou bien des données de meilleures qualité.",
     "crumbs": [
       "Modules",
       "03 - Généralités",
