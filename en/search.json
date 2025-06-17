@@ -128,6 +128,90 @@
     ]
   },
   {
+    "objectID": "contents/generalities/01-stat.html",
+    "href": "contents/generalities/01-stat.html",
+    "title": "Data analysis project",
+    "section": "",
+    "text": "Here we present the different stages of a data analysis project.",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités",
+      "Data analysis project"
+    ]
+  },
+  {
+    "objectID": "contents/generalities/01-stat.html#data-analysis-project",
+    "href": "contents/generalities/01-stat.html#data-analysis-project",
+    "title": "Data analysis project",
+    "section": "Data analysis project",
+    "text": "Data analysis project\nA data analysis project can be divided into five main stages:\n\nDefining objectives\nData\nDeveloping and validating models\nImplementation\nPerformance monitoring and improvement\n\nWhen planning a project, it is important to bear in mind that each stage has a different level of importance, but also that each stage takes a different amount of time to complete. Pyle (1999) provides an estimate of the time required for each stage, as well as their importance in the success of the project (given as a percentage of the total, see Table 1).\n\n\n\nTable 1: Breakdown of a data analysis project.\n\n\n\n\n\nStage\nTime\nImportance\n\n\n\n\nUnderstanding the problem\n\\(10\\%\\)\n\\(15\\%\\)\n\n\nExploring the solution\n\\(9\\%\\)\n\\(14\\%\\)\n\n\nImplementing the solution\n\\(1\\%\\)\n\\(51\\%\\)\n\n\nPrepare the data\n\\(60\\%\\)\n\\(15\\%\\)\n\n\nAnalyze the data\n\\(15\\%\\)\n\\(3\\%\\)\n\n\nModel the data\n\\(5\\%\\)\n\\(2\\%\\)\n\n\n\n\n\n\nTwo important facts stand out: just because a step is very important does not mean it will take a long time. Implementing the solution is very important (otherwise there will be no result), but it will not usually take very long to do (possibly just a few lines of code). Conversely, data preparation is a stage of medium importance (although this is debatable), but it takes up most of the project time. For example, it is necessary to manage missing data, outliers, possible accents for French data, etc.",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités",
+      "Data analysis project"
+    ]
+  },
+  {
+    "objectID": "contents/generalities/01-stat.html#setting-objectives",
+    "href": "contents/generalities/01-stat.html#setting-objectives",
+    "title": "Data analysis project",
+    "section": "Setting objectives",
+    "text": "Setting objectives\nDo we want to: visualize data? explore and make assumptions? test? group? understand? predict?\nHow do we do this in practice? We ask questions! First, we need to clarify the terms. Who will use the model and how? What is the target population?\nWhy is it important to have clear objectives when undertaking a data analysis project? It helps guide data collection and formatting. It helps define an appropriate model (e.g., classification vs. prediction). It allows you to analyze the results in light of the objective and thus allow others to judge their relevance. It is important to define the objectives before looking at the data so as not to be biased by it.\n\n\n\n\n\n\nExample\n\n\n\nThe National Bank of Canada would like to launch a new savings product and is giving you access to its customer database.\nBad objective: Analyze the customer database.\nBetter objective: Can you predict which customers will buy the new savings product?\n\n\n\n\n\n\n\n\nExample\n\n\n\nThe Montreal Canadiens hockey team wants to learn more about its opponents in order to develop new game tactics.\nBad objective: Analyze the opponents’ data.\nBetter objective: Can you characterize the opponents’ playing style in order to identify weaknesses?\n\n\n\n\n\n\n\n\nExample\n\n\n\nPharmascience wants to know if its new drug is effective.\nBad objective: Analyze the drug data.\nBetter objective: Can you determine a testing protocol (statistics) to determine if the drug is effective?",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités",
+      "Data analysis project"
+    ]
+  },
+  {
+    "objectID": "contents/generalities/01-stat.html#data",
+    "href": "contents/generalities/01-stat.html#data",
+    "title": "Data analysis project",
+    "section": "Data",
+    "text": "Data\nData is at the heart of the matter. To be useful, data must be available and of good quality. Once the objectives have been defined, preliminary processing and basic exploration of the data is carried out, followed by more developed models.\n\nWhere can data be found?\nThe simple answer is: on the Internet! Here is a non-exhaustive list of websites that collect data sets:\n\nGoogle datasets;\nKaggle;\nUC Irvine Machine Learning Repository;\nTime Series Machine Learning website;\nPhysionet Database.\n\nYou can also check out the official websites of data sources that can be found for most countries around the world:\n\nCanada: StatCan;\nFrance: data.gouv.fr;\nUSA: data.gov;\nEngland: data.gouv.uk;\netc.\n\nFor data on more specific topics, you can look at the different branches of government. For example, the Canadian Centre for Mapping and Earth Observation provides geospatial data for Canada (here).\nWhen working for a company, you generally have access to internal data sources, e.g. databases on production, customers and employees, lists of transactions and potential customers, information on website visits.\n\n\nQuality\nThere is a popular saying in computer science that also applies to data analysis: “Garbage in, garbage out.” Basically, this means that no matter how sophisticated the model is, if the input data is poor quality, biased, incomplete, etc., then the output results will be poor quality. This ensures a certain level of credibility, reproducibility, and usability for our conclusions.\nBut what do we mean by data quality? To ensure data quality, we can ask ourselves the following questions:\n\nIs the data representative of the target population?\nIs the data correct and relevant?\nIs there any missing or redundant data?\n\n\n\nBuilding the database\nOnce our data has been retrieved, we need to load it into memory so that we can then perform analyses. In Python, the pandas library can read most of the file formats we will be dealing with. In R, different libraries need to be used to load different types of data (see Table 2).\n\n\n\nTable 2: Different libraries for different file formats.\n\n\n\n\n\nFormat\nExtension\nLibrary\n\n\n\n\nText\n.txt; .csv\nreadr\n\n\nExcel\n.xlsx\nreadxl\n\n\nSAS\n.sas7bdat\nhaven\n\n\nSPSS\n.sav; .zsav\nhaven\n\n\nJSON\n.json\njsonlite\n\n\n\n\n\n\nOver the past decade, the concept of “tidy data” has emerged (see Wickham (2014)). Each “tidy” dataset follows three principles:\n\nEach variable is a column in the table.\nEach observation is a row in the table.\nEach cell in the table corresponds to a single measurement.\n\nThis allows for a unified approach to data analysis. In general, we will always try to put our dataset in “tidy” format. The tidyr package in R and the pandas library in Python allow you to format data in “tidy” format.\n\n\nExploration and preliminary processing\nOnce the data has been loaded and formatted in “tidy” format, we perform an initial exploration of the data before moving on to the model development stage itself. Although this stage is very important, it is not the focus of this course. Here are a few tips for this initial exploration:\n\nData cleaning: remove duplicates, standardize modalities, check the format of special values, etc.\nData exploration: rare modalities, too many modalities, asymmetry, class imbalance, extreme or outlier values, highly correlated variables, missing values.",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités",
+      "Data analysis project"
+    ]
+  },
+  {
+    "objectID": "contents/generalities/01-stat.html#model-development-and-validation",
+    "href": "contents/generalities/01-stat.html#model-development-and-validation",
+    "title": "Data analysis project",
+    "section": "Model development and validation",
+    "text": "Model development and validation\nThis course focuses on model development and validation. For now, we can identify four main components for this:\n\na (mathematical) space in which to work;\na distance for comparing observations;\na model (or algorithm);\na function for measuring the quality of the model.\n\nWe will look at each of these components in detail in the following sections.",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités",
+      "Data analysis project"
+    ]
+  },
+  {
+    "objectID": "contents/generalities/01-stat.html#implementation",
+    "href": "contents/generalities/01-stat.html#implementation",
+    "title": "Data analysis project",
+    "section": "Implementation",
+    "text": "Implementation\nOnce the model has been chosen and validated, we may want to put it into production. Putting a model into production means making it available to as many people as possible. Generally, this involves automating data collection and cleaning, then “feeding” the created model and producing analysis reports of the results. This part is called data engineering. A data engineer is therefore responsible for setting up the data processing pipeline, from data collection to model output.",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités",
+      "Data analysis project"
+    ]
+  },
+  {
+    "objectID": "contents/generalities/01-stat.html#performance-monitoring-and-improvement",
+    "href": "contents/generalities/01-stat.html#performance-monitoring-and-improvement",
+    "title": "Data analysis project",
+    "section": "Performance monitoring and improvement",
+    "text": "Performance monitoring and improvement\nFinally, once the model is in production, its performance must be monitored. When new data arrives, the model that was considered may no longer be very suitable (e.g., the assumptions made are no longer correct). To prevent this from happening, the model is monitored by regularly checking its performance. You may also want to improve your model, for example because you have more accurate assumptions or better quality data.",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités",
+      "Data analysis project"
+    ]
+  },
+  {
     "objectID": "contents/remainders/01-linear-algebra.html",
     "href": "contents/remainders/01-linear-algebra.html",
     "title": "Linear Algebra",

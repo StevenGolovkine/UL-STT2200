@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.32">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Statistics – STT-2200: Data Analysis</title>
+<title>Data analysis project – STT-2200: Data Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script><script src="../../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../../site_libs/quarto-search/fuse.min.js"></script><script src="../../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../../">
 <link href="../../contents/generalities/02-spaces.html" rel="next">
 <link href="../../contents/03-generalities.html" rel="prev">
@@ -84,7 +104,8 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script><meta property="og:title" content="Statistics – STT-2200: Data Analysis">
+</script><meta property="og:title" content="Data analysis project – STT-2200: Data Analysis">
+<meta property="og:description" content="Website for STT-2200">
 <meta property="og:site_name" content="STT-2200: Data Analysis">
 </head>
 <body class="nav-sidebar floating quarto-light">
@@ -258,7 +279,7 @@ window.Quarto = {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/03-generalities.html">03 - Généralités</a></li>
-<li class="breadcrumb-item"><a href="../../contents/generalities/01-stat.html">Statistics</a></li>
+<li class="breadcrumb-item"><a href="../../contents/generalities/01-stat.html">Data analysis project</a></li>
 </ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -393,7 +414,7 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/generalities/01-stat.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Statistics</span></a>
+ <span class="menu-text">Data analysis project</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -593,19 +614,40 @@ window.Quarto = {
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#data-analysis-project" id="toc-data-analysis-project" class="nav-link active" data-scroll-target="#data-analysis-project">Data analysis project</a></li>
+  <li><a href="#setting-objectives" id="toc-setting-objectives" class="nav-link" data-scroll-target="#setting-objectives">Setting objectives</a></li>
+  <li>
+<a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a>
+  <ul class="collapse">
+<li><a href="#where-can-data-be-found" id="toc-where-can-data-be-found" class="nav-link" data-scroll-target="#where-can-data-be-found">Where can data be found?</a></li>
+  <li><a href="#quality" id="toc-quality" class="nav-link" data-scroll-target="#quality">Quality</a></li>
+  <li><a href="#building-the-database" id="toc-building-the-database" class="nav-link" data-scroll-target="#building-the-database">Building the database</a></li>
+  <li><a href="#exploration-and-preliminary-processing" id="toc-exploration-and-preliminary-processing" class="nav-link" data-scroll-target="#exploration-and-preliminary-processing">Exploration and preliminary processing</a></li>
+  </ul>
+</li>
+  <li><a href="#model-development-and-validation" id="toc-model-development-and-validation" class="nav-link" data-scroll-target="#model-development-and-validation">Model development and validation</a></li>
+  <li><a href="#implementation" id="toc-implementation" class="nav-link" data-scroll-target="#implementation">Implementation</a></li>
+  <li><a href="#performance-monitoring-and-improvement" id="toc-performance-monitoring-and-improvement" class="nav-link" data-scroll-target="#performance-monitoring-and-improvement">Performance monitoring and improvement</a></li>
+  </ul>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/generalities/01-stat.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li>
+</ul></div>
+<div class="quarto-alternate-formats">
 <h2>Other Formats</h2>
 <ul><li><a href="01-stat.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
-</div>
+</div></nav>
 </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/03-generalities.html">03 - Généralités</a></li>
-<li class="breadcrumb-item"><a href="../../contents/generalities/01-stat.html">Statistics</a></li>
+<li class="breadcrumb-item"><a href="../../contents/generalities/01-stat.html">Data analysis project</a></li>
 </ol></nav><div class="quarto-title">
-<h1 class="title">Statistics</h1>
+<h1 class="title">Data analysis project</h1>
 </div>
 
 
@@ -619,7 +661,221 @@ window.Quarto = {
   
 
 
-</header></main><!-- /main --><script>
+</header><p>Here we present the different stages of a data analysis project.</p>
+<section id="data-analysis-project" class="level2"><h2 class="anchored" data-anchor-id="data-analysis-project">Data analysis project</h2>
+<p>A data analysis project can be divided into five main stages:</p>
+<ol type="1">
+<li><p>Defining objectives</p></li>
+<li><p>Data</p></li>
+<li><p>Developing and validating models</p></li>
+<li><p>Implementation</p></li>
+<li><p>Performance monitoring and improvement</p></li>
+</ol>
+<p>When planning a project, it is important to bear in mind that each stage has a different level of importance, but also that each stage takes a different amount of time to complete. <span class="citation" data-cites="pyleDataPreparationData1999">Pyle (<a href="#ref-pyleDataPreparationData1999" role="doc-biblioref">1999</a>)</span> provides an estimate of the time required for each stage, as well as their importance in the success of the project (given as a percentage of the total, see <a href="#tbl-breakdown" class="quarto-xref">Table 1</a>).</p>
+<div id="tbl-breakdown" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-breakdown-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table 1: Breakdown of a data analysis project.
+</figcaption><div aria-describedby="tbl-breakdown-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead><tr class="header">
+<th style="text-align: left;">Stage</th>
+<th style="text-align: center;">Time</th>
+<th style="text-align: center;">Importance</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Understanding the problem</td>
+<td style="text-align: center;"><span class="math inline">\(10\%\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(15\%\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Exploring the solution</td>
+<td style="text-align: center;"><span class="math inline">\(9\%\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(14\%\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Implementing the solution</td>
+<td style="text-align: center;"><span class="math inline">\(1\%\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(51\%\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Prepare the data</td>
+<td style="text-align: center;"><span class="math inline">\(60\%\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(15\%\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Analyze the data</td>
+<td style="text-align: center;"><span class="math inline">\(15\%\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3\%\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Model the data</td>
+<td style="text-align: center;"><span class="math inline">\(5\%\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2\%\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Two important facts stand out: just because a step is very important does not mean it will take a long time. Implementing the solution is very important (otherwise there will be no result), but it will not usually take very long to do (possibly just a few lines of code). Conversely, data preparation is a stage of medium importance (although this is debatable), but it takes up most of the project time. For example, it is necessary to manage missing data, outliers, possible accents for French data, etc.</p>
+</section><section id="setting-objectives" class="level2"><h2 class="anchored" data-anchor-id="setting-objectives">Setting objectives</h2>
+<p>Do we want to: visualize data? explore and make assumptions? test? group? understand? predict?</p>
+<p>How do we do this in practice? We ask questions! First, we need to clarify the terms. Who will use the model and how? What is the target population?</p>
+<p>Why is it important to have clear objectives when undertaking a data analysis project? It helps guide data collection and formatting. It helps define an appropriate model (e.g., classification vs. prediction). It allows you to analyze the results in light of the objective and thus allow others to judge their relevance. It is important to define the objectives before looking at the data so as not to be biased by it.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The National Bank of Canada would like to launch a new savings product and is giving you access to its customer database.</p>
+<p><em>Bad objective</em>: Analyze the customer database.</p>
+<p><em>Better objective</em>: Can you predict which customers will buy the new savings product?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Montreal Canadiens hockey team wants to learn more about its opponents in order to develop new game tactics.</p>
+<p><em>Bad objective</em>: Analyze the opponents’ data.</p>
+<p><em>Better objective</em>: Can you characterize the opponents’ playing style in order to identify weaknesses?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pharmascience wants to know if its new drug is effective.</p>
+<p><em>Bad objective</em>: Analyze the drug data.</p>
+<p><em>Better objective</em>: Can you determine a testing protocol (statistics) to determine if the drug is effective?</p>
+</div>
+</div>
+</section><section id="data" class="level2"><h2 class="anchored" data-anchor-id="data">Data</h2>
+<p>Data is at the heart of the matter. To be useful, data must be available and of good quality. Once the objectives have been defined, preliminary processing and basic exploration of the data is carried out, followed by more developed models.</p>
+<section id="where-can-data-be-found" class="level3"><h3 class="anchored" data-anchor-id="where-can-data-be-found">Where can data be found?</h3>
+<p>The simple answer is: on the Internet! Here is a non-exhaustive list of websites that collect data sets:</p>
+<ul>
+<li><p><a href="https://datasetsearch.research.google.com/">Google datasets</a>;</p></li>
+<li><p><a href="https://www.kaggle.com">Kaggle</a>;</p></li>
+<li><p><a href="https://archive-beta.ics.uci.edu">UC Irvine Machine Learning Repository</a>;</p></li>
+<li><p><a href="https://www.timeseriesclassification.com/index.php">Time Series Machine Learning website</a>;</p></li>
+<li><p><a href="https://physionet.org/about/database/">Physionet Database</a>.</p></li>
+</ul>
+<p>You can also check out the official websites of data sources that can be found for most countries around the world:</p>
+<ul>
+<li><p>Canada: <a href="https://www.statcan.gc.ca/fr/debut">StatCan</a>;</p></li>
+<li><p>France: <a href="https://www.data.gouv.fr/fr/">data.gouv.fr</a>;</p></li>
+<li><p>USA: <a href="https://data.gov">data.gov</a>;</p></li>
+<li><p>England: <a href="https://www.data.gov.uk">data.gouv.uk</a>;</p></li>
+<li><p>etc.</p></li>
+</ul>
+<p>For data on more specific topics, you can look at the different branches of government. For example, the Canadian Centre for Mapping and Earth Observation provides geospatial data for Canada (<a href="https://geo.ca/fr/accueil/?_gl=1*1hldmsu*_ga*ODI1NjQ1OTgxLjE3NDUyNDk2NDY.%20*_ga_C2N57Y7DX5*czE3NTAwOTQyMTckbzMkZzEkdDE3NTAwOTQyMjYkajUxJGwwJGgw">here</a>).</p>
+<p>When working for a company, you generally have access to internal data sources, e.g. databases on production, customers and employees, lists of transactions and potential customers, information on website visits.</p>
+</section><section id="quality" class="level3"><h3 class="anchored" data-anchor-id="quality">Quality</h3>
+<p>There is a popular saying in computer science that also applies to data analysis: “Garbage in, garbage out.” Basically, this means that no matter how sophisticated the model is, if the input data is poor quality, biased, incomplete, etc., then the output results will be poor quality. This ensures a certain level of credibility, reproducibility, and usability for our conclusions.</p>
+<p>But what do we mean by data quality? To ensure data quality, we can ask ourselves the following questions:</p>
+<ul>
+<li><p>Is the data representative of the target population?</p></li>
+<li><p>Is the data correct and relevant?</p></li>
+<li><p>Is there any missing or redundant data?</p></li>
+</ul></section><section id="building-the-database" class="level3"><h3 class="anchored" data-anchor-id="building-the-database">Building the database</h3>
+<p>Once our data has been retrieved, we need to load it into memory so that we can then perform analyses. In Python, the <a href="https://pandas.pydata.org"><code>pandas</code></a> library can read most of the file formats we will be dealing with. In R, different libraries need to be used to load different types of data (see <a href="#tbl-packages-R" class="quarto-xref">Table 2</a>).</p>
+<div id="tbl-packages-R" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-packages-R-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table 2: Different libraries for different file formats.
+</figcaption><div aria-describedby="tbl-packages-R-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead><tr class="header">
+<th>Format</th>
+<th style="text-align: left;">Extension</th>
+<th style="text-align: right;">Library</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Text</td>
+<td style="text-align: left;">.txt; .csv</td>
+<td style="text-align: right;"><code>readr</code></td>
+</tr>
+<tr class="even">
+<td>Excel</td>
+<td style="text-align: left;">.xlsx</td>
+<td style="text-align: right;"><code>readxl</code></td>
+</tr>
+<tr class="odd">
+<td>SAS</td>
+<td style="text-align: left;">.sas7bdat</td>
+<td style="text-align: right;"><code>haven</code></td>
+</tr>
+<tr class="even">
+<td>SPSS</td>
+<td style="text-align: left;">.sav; .zsav</td>
+<td style="text-align: right;"><code>haven</code></td>
+</tr>
+<tr class="odd">
+<td>JSON</td>
+<td style="text-align: left;">.json</td>
+<td style="text-align: right;"><code>jsonlite</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Over the past decade, the concept of “tidy data” has emerged (see <span class="citation" data-cites="wickhamTidyData2014">Wickham (<a href="#ref-wickhamTidyData2014" role="doc-biblioref">2014</a>)</span>). Each “tidy” dataset follows three principles:</p>
+<ol type="1">
+<li><p>Each variable is a column in the table.</p></li>
+<li><p>Each observation is a row in the table.</p></li>
+<li><p>Each cell in the table corresponds to a single measurement.</p></li>
+</ol>
+<p>This allows for a unified approach to data analysis. In general, we will always try to put our dataset in “tidy” format. The <a href="https://tidyr.tidyverse.org/index.html"><code>tidyr</code></a> package in R and the <a href="https://pandas.pydata.org/docs/index.html"><code>pandas</code></a> library in Python allow you to format data in “tidy” format.</p>
+</section><section id="exploration-and-preliminary-processing" class="level3"><h3 class="anchored" data-anchor-id="exploration-and-preliminary-processing">Exploration and preliminary processing</h3>
+<p>Once the data has been loaded and formatted in “tidy” format, we perform an initial exploration of the data before moving on to the model development stage itself. Although this stage is <strong>very important</strong>, it is not the focus of this course. Here are a few tips for this initial exploration:</p>
+<ul>
+<li><p>Data cleaning: remove duplicates, standardize modalities, check the format of special values, etc.</p></li>
+<li><p>Data exploration: rare modalities, too many modalities, asymmetry, class imbalance, extreme or outlier values, highly correlated variables, missing values.</p></li>
+</ul></section></section><section id="model-development-and-validation" class="level2"><h2 class="anchored" data-anchor-id="model-development-and-validation">Model development and validation</h2>
+<p>This course focuses on model development and validation. For now, we can identify four main components for this:</p>
+<ol type="1">
+<li><p>a (mathematical) <strong>space</strong> in which to work;</p></li>
+<li><p>a <strong>distance</strong> for comparing observations;</p></li>
+<li><p>a <strong>model</strong> (or algorithm);</p></li>
+<li><p>a <strong>function</strong> for measuring the quality of the model.</p></li>
+</ol>
+<p>We will look at each of these components in detail in the following sections.</p>
+</section><section id="implementation" class="level2"><h2 class="anchored" data-anchor-id="implementation">Implementation</h2>
+<p>Once the model has been chosen and validated, we may want to <strong>put it into production</strong>. Putting a model into production means making it available to as many people as possible. Generally, this involves automating data collection and cleaning, then “feeding” the created model and producing analysis reports of the results. This part is called <strong>data engineering</strong>. A <strong>data engineer</strong> is therefore responsible for setting up the data processing pipeline, from data collection to model output.</p>
+</section><section id="performance-monitoring-and-improvement" class="level2"><h2 class="anchored" data-anchor-id="performance-monitoring-and-improvement">Performance monitoring and improvement</h2>
+<p>Finally, once the model is in production, its performance must be monitored. When new data arrives, the model that was considered may no longer be very suitable (e.g., the assumptions made are no longer correct). To prevent this from happening, the model is <strong>monitored</strong> by regularly checking its performance. You may also want to improve your model, for example because you have more accurate assumptions or better quality data.</p>
+
+
+
+</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-pyleDataPreparationData1999" class="csl-entry" role="listitem">
+Pyle, Dorian. 1999. <em>Data <span>Preparation</span> for <span>Data Mining</span></em>. Morgan Kaufmann.
+</div>
+<div id="ref-wickhamTidyData2014" class="csl-entry" role="listitem">
+Wickham, Hadley. 2014. <span>“Tidy <span>Data</span>.”</span> <em>Journal of Statistical Software</em> 59 (September): 1–23. <a href="https://doi.org/10.18637/jss.v059.i10">https://doi.org/10.18637/jss.v059.i10</a>.
+</div>
+</div></section></div></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -1258,7 +1514,7 @@ window.onload = function() {
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions"><ul>
+<div class="toc-actions d-sm-block d-md-none"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/generalities/01-stat.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li>
 </ul></div>

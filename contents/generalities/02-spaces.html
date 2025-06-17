@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.32">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Espace – STT-2200: Analyse de données</title>
+<title>Espaces – STT-2200: Analyse de données</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -84,7 +84,8 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script><meta property="og:title" content="Espace – STT-2200: Analyse de données">
+</script><meta property="og:title" content="Espaces – STT-2200: Analyse de données">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
 <body class="nav-sidebar floating quarto-light">
@@ -258,7 +259,7 @@ window.Quarto = {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/03-generalities.html">03 - Généralités</a></li>
-<li class="breadcrumb-item"><a href="../../contents/generalities/02-spaces.html">Espace</a></li>
+<li class="breadcrumb-item"><a href="../../contents/generalities/02-spaces.html">Espaces</a></li>
 </ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
@@ -399,7 +400,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/generalities/02-spaces.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Espace</span></a>
+ <span class="menu-text">Espaces</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -612,9 +613,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/03-generalities.html">03 - Généralités</a></li>
-<li class="breadcrumb-item"><a href="../../contents/generalities/02-spaces.html">Espace</a></li>
+<li class="breadcrumb-item"><a href="../../contents/generalities/02-spaces.html">Espaces</a></li>
 </ol></nav><div class="quarto-title">
-<h1 class="title">Espace</h1>
+<h1 class="title">Espaces</h1>
 </div>
 
 
@@ -628,14 +629,96 @@ window.Quarto = {
   
 
 
-</header><section id="types-de-variables" class="level2"><h2 class="anchored" data-anchor-id="types-de-variables">Types de variables</h2>
-<ul>
-<li><p>Variable numérique: Variable dont la valeur numérique mesure quelque chose de quantifiable et dont la différence entre les valeurs reflète la différence entre les objets. Exemples: revenu en dollars, masse, âge, …</p></li>
-<li><p>Variable ordinale: Variable qui ne donne pas une quantification précise d’un phénomène, mais dont les modalités peuvent être naturellement ordonnées. Examples: revenu faible, moyen ou élevé, ou niveau d’accord entre “tout-à-fait en désaccord”, “en désaccord”, “pas d’avis”, “d’accord”, “tout-à-fait d’accord”.</p></li>
-<li><p>Nominales symétriques: Variable qualitative dont toutes les modalités sont aussi informatives l’une que l’autre. Examples: Sexe, sections d’un cours.</p></li>
-<li><p>Nominales asymétriques: Variable qualitative dont les modalités ne contiennent pas toutes le même niveau d’information, habituellement lorsque l’une des modalités est très fréquente, un peu la modalité par defaut, mais que les autres ne le sont pas. Exemples: variable indiquant si un individu est daltonien ou non (deux individus daltoniens ont quelque chose en commun, mais deux individus non-daltoniens n’ont pas forcément quelque chose en commun), variable indiquant si une transaction est frauduleuse.</p></li>
-<li><p>Il y a plein d’autre type de variables: fonctions, textes, images, graphs, …</p></li>
-</ul></section><section id="espaces-associés" class="level2"><h2 class="anchored" data-anchor-id="espaces-associés">Espaces associés</h2>
+</header><p>Dans cette partie, on présente les différents types de données et les espaces associés permettant de faire des analyses.</p>
+<section id="types-de-variables" class="level2"><h2 class="anchored" data-anchor-id="types-de-variables">Types de variables</h2>
+<p>Avant de commencer la modélisation, il est important de bien comprendre le type des variables que l’on a. En effet, la nature des variables va influer sur l’espace dans lequel vivent nos données, et donc la distance que l’on va pouvoir utilisée pour comparer celles-ci, et par conséquent l’algorithme que l’on va implémenter. Les types de variables les plus courantes avec lesquelles on va travailler sont au nombre de quatre : les variables numériques, les variables ordinales, les variables nominales symétriques et les variables nominales asymétriques. On considère le type de variable pour la <strong>plus petite unité statistique</strong> de notre jeu de données.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Variable numérique
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Une variable numérique est une variable dont la valeur numérique mesure quelque chose de quantifiable et dont la différence entre les valeurs reflète la différence entre les objets.</p>
+<p>Exemples: revenu en dollars, masse, âge, …</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Variable ordinale
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Une variable ordinale est une variable qui ne donne pas une quantification précise d’un phénomène, mais dont les modalités peuvent être naturellement ordonnées.</p>
+<p>Exemples: revenu faible, moyen ou élevé, ou niveau d’accord entre “tout-à-fait en désaccord”, “en désaccord”, “pas d’avis”, “d’accord”, “tout-à-fait d’accord”, …</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nominale symétrique
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Une variable nominale symétrique est une variable qualitative dont toutes les modalités sont aussi informatives l’une que l’autre.</p>
+<p>Exemples: Sexe, sections d’un cours, …</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nominale asymétrique
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Une variable nominale asymétrique est une variable qualitative dont les modalités ne contiennent pas toutes le même niveau d’information, habituellement lorsque l’une des modalités est très fréquente, un peu la modalité par defaut, mais que les autres ne le sont pas.</p>
+<p>Exemples: variable indiquant si un individu est daltonien ou non (deux individus daltoniens ont quelque chose en commun, mais deux individus non-daltoniens n’ont pas forcément quelque chose en commun), variable indiquant si une transaction est frauduleuse (généralement, elle ne va pas l’être), …</p>
+</div>
+</div>
+<p>Bien que ces types de variables soient les plus communs, on peut trouver beaucoup d’autres types de variables. Par exemple, on peut s’intéresser à de la comparaison de courbes, de mots, d’images, de graphs, etc. Dans ce cas, il est important de bien comprendre la notion d’<strong>unité statistique</strong>. Une unité statistique est l’unité dans laquel les mesures sont faites. Par exemple, si on s’intéresse à de l’analyse d’images, on pourrait se dire que nos images sont constitués de pixels, qui sont des variables numériques, et donc analyser nos images comme des variables numériques. Cependant, on peut faire le <strong>choix</strong> de considérer nos images comme notre unité statistique et donc de faire l’analyse au niveau image (et non variables numériques).</p>
+</section><section id="espaces-associés" class="level2"><h2 class="anchored" data-anchor-id="espaces-associés">Espaces associés</h2>
+<p>Une fois que nos données ont été collectés, la première étape d’une analyse statistique consiste à choisir un espace mathématique dans lequel travailler. Cette espace, que l’on appelle parfois <strong>espace d’observation</strong> et que l’on note <span class="math inline">\(\mathcal{X}\)</span>, dépend du type de données observées. Il constitue le cadre formel dans lequel nos variables prennent leurs valeurs, et il guide les choix méthodologiques qui suivront.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cas d’une variable numérique
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Lorsque l’on observe un variable numérique (e.g. la température d’un pays), l’espace naturel dans lequel travailler est l’ensemble des réels, <span class="math inline">\(\mathcal{X} = \mathbb{R}\)</span>. Dans certains cas, on peut restreindre cet espace à un intervalle spécifique. Par exemple, si on s’intéresse à la taille d’une personne, on peut prendre <span class="math inline">\(\mathcal{X} = [0, +\infty)\)</span> car la variable considérée ne peut pas être négative.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cas d’une variable nominale (ou qualitative, ou catégorielle)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour une variable nominal, l’espace est un ensemble fini de modalité, l’ensemble des modalités prises par la variable. Par exemple, si on étudie les résultats d’un lancer de dés, la variable peut prendre les valeurs <span class="math inline">\(1\)</span> à <span class="math inline">\(6\)</span>, et l’espace associé sera donc <span class="math inline">\(\mathcal{X} = \{ 1, 2, 3, 4, 5, 6 \}\)</span>.</p>
+</div>
+</div>
+<p>Lorsque les données sont plus conplexes, il faut choisir des espaces plus adaptés. Pour de l’analyse de courbes ou de signaux, on peut travailler dans un espace de fonctions. Par exemple, on peut considérer l’espace des fonctions continues sur un intervalle fermé <span class="math inline">\([a, b]\)</span>, noté <span class="math inline">\(\mathcal{X} = \mathcal{C}([a, b])\)</span>. Pour de l’analyse de texte (vu comme une séquence de caractères), l’espace de travail peut être un alphabet. Par exemple, on peut considérer <span class="math inline">\(\mathcal{X} = \{ \text{A}, \text{B}, \dots, \text{Z} \}\)</span>.</p>
+<p>Souvent, on observe plusieurs variables en même temps, e.g. la taille, le poids et le sexe d’un individus. Dans ce cas, l’espace d’observation sera le produit cartésien (aussi appelé ensemble produit) des espaces associés à chaque variable : <span class="math display">\[\mathcal{X} = \mathcal{X}_1 \times \mathcal{X}_2 \times \dots \mathcal{X}_p,\]</span> où <span class="math inline">\(p\)</span> est le nombre de variables. Dans le cas où on observe <span class="math inline">\(p\)</span> variables numérique, on notera plus simplement <span class="math inline">\(\mathcal{X} = \mathbb{R}^p\)</span></p>
 
 
 </section></main><!-- /main --><script>
