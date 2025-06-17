@@ -56,26 +56,4 @@ Bien que ces types de variables soient les plus communs, on peut trouver beaucou
 
 ## Espaces associés 
 
-Une fois que nos données ont été collectés, la première étape d'une analyse statistique consiste à choisir un espace mathématique dans lequel travailler. Cette espace, que l'on appelle parfois **espace d'observation** et que l'on note $\mathcal{X}$, dépend du type de données observées. Il constitue le cadre formel dans lequel nos variables prennent leurs valeurs, et il guide les choix méthodologiques qui suivront.
-
-::: {.callout-note icon=false}
-## Cas d'une variable numérique 
-
-Lorsque l'on observe un variable numérique (e.g. la température d'un pays), l'espace naturel dans lequel travailler est l'ensemble des réels, $\mathcal{X} = \mathbb{R}$. Dans certains cas, on peut restreindre cet espace à un intervalle spécifique. Par exemple, si on s'intéresse à la taille d'une personne, on peut prendre $\mathcal{X} = [0, +\infty)$ car la variable considérée ne peut pas être négative.
-
-:::
-
-::: {.callout-note icon=false}
-## Cas d'une variable nominale (ou qualitative, ou catégorielle)
-
-Pour une variable nominal, l'espace est un ensemble fini de modalité, l'ensemble des modalités prises par la variable. Par exemple, si on étudie les résultats d'un lancer de dés, la variable peut prendre les valeurs $1$ à $6$, et l'espace associé sera donc $\mathcal{X} = \{ 1, 2, 3, 4, 5, 6 \}$. 
-
-:::
-
-Lorsque les données sont plus conplexes, il faut choisir des espaces plus adaptés. Pour de l'analyse de courbes ou de signaux, on peut travailler dans un espace de fonctions. Par exemple, on peut considérer l'espace des fonctions continues sur un intervalle fermé $[a, b]$, noté $\mathcal{X} = \mathcal{C}([a, b])$. Pour de l'analyse de texte (vu comme une séquence de caractères), l'espace de travail peut être un alphabet. Par exemple, on peut considérer $\mathcal{X} = \{ \text{A}, \text{B}, \dots, \text{Z} \}$.
-
-
-Souvent, on observe plusieurs variables en même temps, e.g. la taille, le poids et le sexe d'un individus. Dans ce cas, l'espace d'observation sera le produit cartésien (aussi appelé ensemble produit) des espaces associés à chaque variable :
-$$\mathcal{X} = \mathcal{X}_1 \times \mathcal{X}_2 \times \dots \mathcal{X}_p,$$
-où $p$ est le nombre de variables. Dans le cas où on observe $p$ variables numérique, on notera plus simplement $\mathcal{X} = \mathbb{R}^p$
-
+  
