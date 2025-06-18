@@ -13,15 +13,15 @@ On présente ici les différentes étapes d'un projet d'analyse de données.
 
 ## Projet d'analyse données
 
-Un projet d'analyse de données peut se découper en cinq grandes étapes: 
+Un projet d'analyse de données se déroule généralement en plusieurs phases distintes. On en décompte cinq: 
 
 1. Définition des objectifs 
 
-2. Données 
+2. Collecte et préparation des données 
 
 3. Élaboration et validation des modèles
 
-4. Mise en oeuvre 
+4. Implémentation
 
 5. Suivi de la performance et amélioration 
 
@@ -39,37 +39,38 @@ Lors de la planification d'un projet, il faut prendre en compte que chaque étap
 
 : Découpage d'un projet d'analyse des données. {#tbl-decoupage}
 
-On remarque deux faits importants: ce n'est pas parce qu'une étape est très importante qu'elle va prendre beaucoup de temps. L'implémentation de la solution est très importante (sinon il n'y a pas de résultat), mais ne sera généralement pas très longue à faire (possiblement en quelques lignes de code). À l'inverse, la préparation des données est un étape d'importance moyenne (encore que c'est discutable), mais elle prend la majeur partie du temps du projet. En effet, il faut, par exemple, gérer les données manquantes, les données aberrantes, les éventuels accents pour des données en français, etc.
+On remarque deux faits importants: ce n'est pas parce qu'une étape est très importante qu'elle va prendre beaucoup de temps. L'implémentation de la solution est très importante (sinon il n'y a pas de résultat), mais ne sera généralement pas très longue à faire (possiblement en quelques lignes de code). À l'inverse, la préparation des données, souvent sous-estimée, mobilise une grande partie du temps du projet, notamment pour gérer les données manquantes, les données aberrantes, ou encore les éventuels accents pour des données en français.
 
 
 
 ## Définition des objectifs 
 
-Est-ce que l'on veut: visualiser les données ? explorer et émettre des hypothèses ? tester ? regrouper ? comprendre ? prédire ?
+Avant toute chose, il faut clarifier ce que l'on cherche à obtenir. Souhaite-t-on visualiser les données ? Tester une hypothèse ? Prédire un comportement ? Segmenter une population ? Une formulation précise des objectifs est donc nécessaire pour orienter le projet.
 
-Comment fait-on en pratique ? On pose des questions ! Tout d'abord, il faut clarifier les termes. Qui va utiliser le modèle et comment ? Quelle est la population cible ?
+Pourquoi cette étape est-elle cruciale ? Cela permet de guider la collecte et la structuration des données. Cela permet de définir un modèle adéquat (e.g. classification, régression, ...). Cela permet de faciliter l'interprétation et la communication des résultats. Cela permet d'éviter certains biais liés à une exploration aveugle des données.  
 
-Pourquoi est-ce important d'avoir des objectifs clairs lors d'un projet d'analyse de données ? Cela permet de guider la collecte des données et leur mise en forme. Cela permet de définir un modèle adéquat (e.g. classification vs prédiction). Cela permet d'analyser les résultats à la lumière de l'objectif et donc de permettre à d'autres personnes de juger de la pertinence de ceux-ci. Il est important de définir les objectifs avant de s'intéresser aux données pour ne pas être biaisé par celles-ci.  
+Comment fait-on en pratique pour formuler un bon objectif ? On pose des questions ! Tout d'abord, il faut clarifier les termes. Qui va utiliser le modèle et comment ? Quelle est la population cible ? Quelle décision sera influencée par les résultats ?
+
 
 ::: {.callout-note icon=false}
 ## Exemple
 
 La Banque National du Canada voudrait lancer un nouveau produit d'épargne et vous donne accès à sa base de données clients.
 
-*Mauvais objectif*: Analysez les données de la base clients.
+*Mauvais objectif*: Analyser les données de la base clients.
 
-*Meilleur objectif*: Pouvez-vous prédire quels clients vont acheter le nouveau produit d'épargne ?
+*Meilleur objectif*: Peut-on prédire quels clients sont susceptibles d'acheter ce nouveau produit d'épargne ?
 
 :::
 
 ::: {.callout-note icon=false}
 ## Exemple
 
-L'équipe du hockey des Canadiens de Montréal souhaite mieux connaître ses adversaires pour développer des nouvelles tactiques de jeu. 
+L'équipe de hockey des Canadiens de Montréal souhaite mieux connaître ses adversaires pour développer de nouvelles tactiques de jeu. 
 
-*Mauvais objectif*: Analysez les données des adversaires.
+*Mauvais objectif*: Analyser les données des adversaires.
 
-*Meilleur objectif*: Pouvez-vous caractériser le style de jeu des adversaires dans l'optique d'y détecter des points faibles ?
+*Meilleur objectif*: Peut-on caractériser le style de jeu des adversaires pour identifier leurs faiblesses ?
 
 :::
 
@@ -77,11 +78,11 @@ L'équipe du hockey des Canadiens de Montréal souhaite mieux connaître ses adv
 ::: {.callout-note icon=false}
 ## Exemple
 
-Pharmascience souhaite savoir si son nouveau médicament est efficace.
+Pharmascience souhaite évaluer l'efficacité d'un nouveau médicament.
 
-*Mauvais objectif*: Analysez les données du médicament.
+*Mauvais objectif*: Analyser les données du médicament.
 
-*Meilleur objectif*: Pouvez-vous déterminer un protocole de tests (statistiques) permettant de déterminer si le médicament est efficace ?
+*Meilleur objectif*: Peut-on concevoir un protocole statistique permettant de tester l'efficacité du médicament ?
 
 :::
 
@@ -116,28 +117,29 @@ On peut aussi regarder les sites officiels de sources de données que l'on peut 
 
 * etc.
 
-Pour des données sur des sujets plus spécifiques, vous pouvez regarder les différentes branches des gouvernements. Par exemple, le Centre Canadien de cartographie et d’observation de la terre fournit les données géospatiales du Canada ([ici](https://geo.ca/fr/accueil/?_gl=1*1hldmsu*_ga*ODI1NjQ1OTgxLjE3NDUyNDk2NDY.*_ga_C2N57Y7DX5*czE3NTAwOTQyMTckbzMkZzEkdDE3NTAwOTQyMjYkajUxJGwwJGgw)).
+Pour des données sur des sujets plus spécifiques, les agences gouvernementales sont souvent de bonnes ressources. Par exemple, le Centre Canadien de cartographie et d’observation de la terre fournit les données géospatiales du Canada ([ici](https://geo.ca/fr/accueil/?_gl=1*1hldmsu*_ga*ODI1NjQ1OTgxLjE3NDUyNDk2NDY.*_ga_C2N57Y7DX5*czE3NTAwOTQyMTckbzMkZzEkdDE3NTAwOTQyMjYkajUxJGwwJGgw)).
 
 Lorsque que l'on travaille pour une entreprise, on a généralement accès aux sources de données internes, e.g. base de données sur la production, les clients et les employés, les listes de transactions et de clients potentiels, des informations sur les visites web.
 
 
 ### Qualité
 
-Il y a un dicton populaire en informatique, s'appliquant aussi en analyse de données: "Garbage in, garbage out". En gros, cela veut dire que peut importe à quel point le modèle est sophistiqué, si les données en entrée sont de mauvaise qualité, biaisé, incomplète, ... alors les résultats en sortie seront de mauvaise qualité. Ainsi, cela assure une certaine crédibilité, reproductibilité et utisabilité à nos conclusions.
+Il y a un dicton populaire en informatique, s'appliquant aussi en analyse de données: "Garbage in, garbage out". Même le meilleur modèle ne peut compenser des données biaisées, incomplètes ou erronées.
 
-Mais qu'est-ce que l'on veut dire par qualité des données ? Pour nous assurer de la qualité des données, on pourra se poser les questions suivantes :
+Pour nous assurer de la qualité des données, on pourra se poser les questions suivantes :
 
-* Est-ce que les données sont représentatives de la population cible ?
+* Les données sont-elles représentatives de la population cible ?
 
-* Est-ce que les données sont correctes et pertinentes ?
+* Sont-elles exactes, complètes, pertinentes ?
 
-* Est-ce qu'il y a des données manquantes, redondantes, ... ?
+* Y a-t-il des valeurs manquantes, des doublons, des incohérences ?
 
 
 
 ### Constitution de la base de données
 
-Une fois nos données récupérées, on doit les charger en mémoire pour ensuite pouvoir faire des analyses. En Python, la librairie [`pandas`](https://pandas.pydata.org) permet de lire la plupart des formats de fichiers auxquels on aura affaire. En ce qui concerne R, il faut utiliser différentes libraries pour charger différents types de données (cf. @tbl-packages-R).
+Une fois nos données collectées, il faut les charger en mémoire pour ensuite pouvoir faire des analyses. En Python, la librairie [`pandas`](https://pandas.pydata.org) permet de lire la plupart des formats de fichiers auxquels on aura affaire. En ce qui concerne R, plusieurs packages sont utilisés selon le format (cf. @tbl-packages-R).
+
 
 | Format  | Extension    | Librarie   | 
 |---------|:------------ |-----------:|
@@ -155,44 +157,44 @@ Depuis une dizaine d'année, le concept de "tidy data" a emergé (cf. @wickhamTi
 
 2. Chaque observation est une ligne du tableau.
 
-3. Chaque cellule du tableau correspond à une unique mesure.
+3. Chaque cellule du tableau contient une valeur unique.
 
 Cela permet d'avoir une approche unifiée pour l'analyse de données. De manière général, on essaiera toujours de mettre son jeu de données sous format "tidy". Le package [`tidyr`](https://tidyr.tidyverse.org/index.html) en R et la librairie [`pandas`](https://pandas.pydata.org/docs/index.html) en Python permettent de mettre en forme les données en format "tidy".
 
 
 ### Exploration et traitement préliminaire 
 
-Une fois les données chargées et sous le format "tidy", on fait une première exploration des données avant de passer à l'étape d'élaboration du modèle en elle-même. Cette étape, bien que **très importante**, n'est pas le coeur de ce cours. Voici quelques trucs à faire concernant cette première exploration:
+Une fois les données chargées et mise sous le format "tidy", une phase d'exploration préliminaire est nécessaire avant l'étape de modélisation. Cette étape, bien que souvent négligée, est **très importante**, mais elle n'est pas le coeur de ce cours. Cette étape permet de détecter les problèmes potentiels, de mieux comprendre la structure des données et d'orienter les choix méthodologiques. Voici quelques trucs à faire concernant cette première exploration:
 
-* Nettoyage de données: retirer les doublons, uniformiser les modalités, vérifier le format des valeurs spéciales, etc. 
+* Nettoyage de données: supprimer les doublons, uniformiser les modalités, vérifier le format des valeurs spéciales, etc. 
 
-* Exploration des données: modalités rares, modalités trop nombreuses, asymétrie, débalancement des classes, valeurs extrêmes ou aberrantes, variables fortement corrélées, valeurs manquantes. 
+* Exploration des données: identification des modalités rares ou trop nombreuses, analyse des éventuelles asymétries, détection des classes déséquilibrées, identification des valeurs extrêmes ou aberrantes, recherche des corrélations fortes entre les variables, évaluation des valeurs manquantes. 
 
 
 ## Élaboration et validation des modèles 
 
-Ce cours concerne l'élaboration et la validation de modèles. Pour l'instant, on peut retenir quatre composantes principales pour ceci:
+Ce cours concerne l'élaboration et la validation de modèles. Pour l'instant, on peut retenir quatre composantes principales :
 
-1. un **espace** (mathématique) dans lequel travailler;
+1. Un **espace** (mathématique) de représentation: il s'agit du cadre mathématique dans lequel on travaille.
 
-2. une **distance** permettant de comparer des observations;
+2. Une **distance** (ou similarité): elle permet de comparer les observations entre elles.
 
-3. un **modèle** (ou algorithme);
+3. un **modèle** (ou algorithme): c'est la méthode utilisée pour apprendre à partir des données.
 
-4. une **fonction** permettant de mesurer la qualité du modèle.
+4. une **fonction de coût**: elle meusre la qualité du modèle.
 
-On verra en détail chacune de ses composantes dans les parties suivantes.
-
+Ces éléments seront étudiés en détails dans les sections suivantes du cours.
 
 ## Mise en oeuvre
 
-Une fois que le modèle est choisi et valider, on peut vouloir le **mettre en production**. La mise en production est le fait de rendre le modèle disponible pour le plus grand nombre. Généralement, cela consiste à automatiser la collecte et le nettoyage des données, pour ensuite "nourir" le modèle créé et sortir des rapports d'analyse des résultats. Cette partie est ce qu'on appelle le **data engineering**. Un **data engineer** s'occupe donc de toute mise en place de la *pipeline* de traitement des données, de sa collecte à la sortie du modèle.
+Une fois le modèle choisi et validé, il peut être déployé en **production**. La mise en production signifie le rendre opérationnel dans un environnement réel, souvent en automatisant l'ensemble du processus de traitement des données. Généralement, cela consiste à automatiser la collecte, le nettoyage et la transformation des données, à intégrer le modèle créé dans une application ou un système décisionnel, et à générer des rapports ou des prédictions en temps réel ou à interalles réguliers. Cette partie est le domaine du **data engineering**. Un **data engineer** conçoit et maintient la *pipeline* de traitement depuis la source des données jusqu'à la sortir du modèle.
 
 
 ## Suivi de la performance et amélioration
 
-Finalement, une fois que le modèle est mis en production, il faut assurer un suivi de la performance. En effet, lors de l'arrivée de nouvelles données, il peut arriver que le modèle que l'on a considéré ne soit plus très adapté (e.g. les hypothèses faites ne sont plus correctes). Pour prévenir ce phénomène, on fait un **monitoring** du modèle en vérifiant régulièrement ces performances. On peut aussi vouloir améliorer notre modèle; par exemple parce qu'on a des hypothèses plus précise sur celles-ci ou bien des données de meilleures qualité. 
+Finalement, une fois que le modèle est mis en production, il faut assurer un suivi de sa performance dans le temps. En effet, les données évoluent, de même que les comportements qu'elles décrivent. Ainsi, les distributions des données peuvent changer (un phénomène appelé *data drift*), les hypothèses initiales peuvent ne plus être valides ou encore de nouvelles données ou de nouvelles variables peuvent améliorer la performance. Pour surveiller la performance du modèle, on peut faire un **monitoring** régulier des performances. On peut aussi réentraîner le modèle avec des données récentes ou l'améliorer en intégrant de nouvelles hypothèses. 
 
+Un bon modèle n'est donc pas seulement performant à un instant donné, il est aussi robuste et adaptable dans le temps.
 
 ::: {.content-visible when-format="pdf"}
 ## Références
