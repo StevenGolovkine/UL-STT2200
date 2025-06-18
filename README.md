@@ -7,22 +7,23 @@ This repository contains the website used for the module STT-2200 given at Unive
 
 ## 🚧 TODO
 
-- [ ] Website 
+- [X] Website 
     * [X] Set-up 
     * [X] README
     * [X] Export to PDF
     * [X] Switch FR/ENG
     * [X] Colors
 
-- [ ] Modules 
-  * [ ] Remainders
-    - [ ] Linear algebra
-    - [ ] Probabilities
-    - [ ] Stat 
-    - [ ] Programming
+- [ ] Modules
+  * [X] Introduction
+  * [X] Remainders
+    - [X] Linear algebra
+    - [X] Probabilities and statistics
+    - [X] Programming
   * [ ] Data analysis generalities
+    - [X] Data analysis project
     - [ ] Distance
-    - [ ] Space 
+    - [X] Space 
     - [ ] Bias-variance tradeoff
     - [ ] Model evaluation
   * [ ] Dimension

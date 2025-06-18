@@ -7,62 +7,103 @@ format:
       - \usepackage{mathtools}
 --- 
 
-## Introduction
-
-On a besoin d'une notion de distance et de similarité.
-On a besoin d'une définition de ce que sont des observations similaires ou des observations différentes. On veut quantifier la similarité ou la distance entre deux observations. Le choix de la métrique est une étape essentielle dans le processus d'analyse de données.
+Dans tout projet d'analyse de données, il est nécessaire de pouvoir quantifier la ressemblance (ou la dissemblance) entre deux observations. Pour cela, on utilise la notion de **distance** (ou **similarité**) entre les observations. Le choix de cette distance influence directement les résultats des algorithmes d'apprentissage, de regroupement et de visualisations.
 
 
 ## Notion de distance 
 
+Une **distance** est une fonction mathématique mesurant à quel point deux objets sont éloigné l'un de l'autre dans un espace donnée. Plus la distance est grande, plus les observations somt éloigné.
+
 ::: {.callout-warning icon=false}
-## Définition de distance
+## Définition de mesure de distance
 
-Une mesure de distance $d$ doit satisfaire les propriétés suivantes pour tout $x, y, z \in A$, $A$ étant un ensemble quelconque: 
+Une fonction $d: \mathcal{X} \times \mathcal{X} \to \mathbb{R}$ est une distance sur un ensemble $\mathcal{X}$ si, pour tout $x, y, z \in \mathcal{X}$, les conditions suivantes sont vérifiées : 
 
-1. $d(x, y) \geq 0$;
+1. non-négativité: $d(x, y) \geq 0$;
 
-2. $d(x, x) = 0$;
+2. séparation: $d(x, y) = 0 \Leftrightarrow x = y$;
 
-3. $d(x, y) = d(y, x)$;
+3. symétrie: $d(x, y) = d(y, x)$;
 
-4. $d(x, y) \leq d(x, z) + d(y, z)$. 
+4. inégalité triangulaire: $d(x, y) \leq d(x, z) + d(y, z)$. 
 
 :::
 
-La distance euclidienne: 
+::: {.callout-note icon=false}
+## La distance euclidienne 
 
-Si les observations sont constituées de $p$ nombres réels de même ordre de grandeur, alors la distance euclidienne entre deux éléments de $\mathbb{R}^p$ est une mesure raisonnable.
+Lorsque les observations sont représentées par des vecteurs numériques dans $\mathbb{R}^p$ de même ordre de grandeur, la **distance euclidienne** est souvent un bon choix.
 
-Soit $x, y \in \mathbb{R}^n$, la distance euclidienne est données par : 
-$$d(x, y) = \left\| x - y \right\|_2 = \left( \sum_{i = 1}^{n} (x_i - y_i)^2 \right)^{1/2}.$$
+Soit $x, y \in \mathbb{R}^p$, la distance euclidienne est données par : 
+$$d(x, y) = \left\| x - y \right\|_2 = \left( \sum_{i = 1}^{p} (x_i - y_i)^2 \right)^{1/2}.$$
 
-Que fait-on dans d'autres cas ? Plusieurs mesures ont été développées pour leur application particulière. Voici les plus classiques.
+:::
 
-Une distance est peu plus générale que la distance euclidienne est la distance $L_p$. Soit $x, y \in \mathbb{R}^n$, la distance $L_p$ est donnée, pour $p > 0$, par : 
-$$d(x, y) = \left\| x - y \right\|_p = \left( \sum_{i = 1}^{n} |x_i - y_i|^p \right)^{1 /p} .$$
+::: {.callout-note icon=false}
+## La distance $L_q$ (ou de Minkowski) 
 
-La distance euclidienne correspond à la distance $L_p$ avec $p = 2$.
-Cas particulier avec $p = 1$, distance de Manhattan: 
+Soit $x, y \in \mathbb{R}^p$, la distance $L_q$ est donnée, pour $q > 0$, par : 
+$$d(x, y) = \left\| x - y \right\|_q = \left( \sum_{i = 1}^{p} |x_i - y_i|^q \right)^{1 / q}.$$
 
-$$d(x, y) = \left\| x - y \right\|_1 = \sum_{i = 1}^{n} | x_i - y_i |.$$
+Cas particuliers: 
+
+* Pour $q = 1$, on obtient la distance de Manhattan :
+$$d(x, y) = \left\| x - y \right\|_1 = \sum_{i = 1}^{p} |x_i - y_i|.$$
+
+* Pour $q = 2$, on obtient la distance euclidienne.
+
+:::
+
+::: {.callout-note icon=false}
+## Exemple
+
+Considérons le jeu de données suivant :
+
+| Nom | Taille | Poids |
+| :---: | ---: | ----: |
+| Alice | 162.1 | 66.8 |
+| Bob | 175.8 | 81.6 |
+
+: Taille et poids moyens au Canada (Source: Statistique Canada, Enquête sur la santé dans les collectivités canadiennes (2008)).
+
+La distance euclidienne entre Alice et Bob est 
+$$d(\text{Alice}, \text{Bob}) = \sqrt{(162.1 - 175.8)^2 + (66.8 - 81.6)^2} = 20.16.$$
+
+La distance de Manhattan entre Alice et Bob est
+$$d(\text{Alice}, \text{Bob}) = |162.1 - 175.8| + |66.8 - 81.6| = 28.5.$$
+
+:::
+
+
+La distance $L_q$ n'est pas invariante aux changements d'échelle. Par exemple, si on multiplie toutes les composantes d'un vecteur par un facteur $\lambda$, la distance entre deux vecteurs change du facteur $\lambda$.
+
+En practique, on préfère travailler avec des variables standardisées. Ainsi, en notant, $\mu_i$, la moyenne, et $\sigma_i$, l'écart-type de la variable $i$, la distance euclidienne avec des variables standardisées est donnée par :
+$$d(x, y) = \sum_{i = 1}^{p} \left\{ \frac{x_i - \mu_i}{\sigma_i} - \frac{y_i - \mu_i}{\sigma_i} \right\}^2 = \sum_{i = 1}^{p} \left( \frac{x_i - y_i}{\sigma_i} \right)^2.$$
 
 ::: {.callout-important icon=false}
-## Properties
+## Propriété
 
-La distance $L_p$ n'est pas invariante à un changement d'échelle, *i.e.*, $L_p(x, y) \neq L_p(\lambda x, \lambda y)$.
+La distance euclidienne avec des variables standardisées est invariante par changement d'échelle.
 
-::: 
+:::
 
-Standardisation
+::: {.callout-note icon=false collapse=true}
+## Preuve
 
+Soit $\lambda \neq 0$ et soit $X$ une variable aléatoire. On a $\mathbb{E}(\lambda X) = \lambda \mathbb{E}(X)$ et $\mathrm{Var}(\lambda X) = \lambda^2 \mathrm{Var}(X)$. Donc 
+
+$$d(\lambda x, \lambda y) = \sum_{i = 1}^{p} \left\{ \frac{\lambda x_i - \lambda \mu_i}{\lambda \sigma_i} - \frac{\lambda y_i - \lambda \mu_i}{\lambda \sigma_i} \right\}^2 = \sum_{i = 1}^{p} \left( \frac{x_i - y_i}{\sigma_i} \right)^2 = d(x, y).$$
+
+:::
 
 ## Notion de similarité
 
-::: {.callout-warning icon=false}
-## Définition d'un indice de similarité
+À l'opposé de la notion de distance, une **mesure de similarité** quantifie à quel point deux observations sont proches dans un espace donné. Ainsi, plus la similarité est grande, plus les observations sont proches.
 
-Un indice de similarité $s$ doit satisfaire les propriétés suivantes pour tout $x, y \in A$, $A$ étant un ensemble quelconque: 
+::: {.callout-warning icon=false}
+## Définition de mesure de similarité
+
+Une fonction $s: \mathcal{X} \times \mathcal{X} \to \mathbb{R}$ est une mesure de similarité sur un ensemble $\mathcal{X}$ si, pour tout $x, y \in \mathcal{X}$, les conditions suivantes sont vérifiées : 
 
 1. $s(x, y) \geq 0$;
 
@@ -72,4 +113,9 @@ Un indice de similarité $s$ doit satisfaire les propriétés suivantes pour tou
 
 :::
 
-Une distance peut se transformer en similarité en posant $s(x, y) = \frac{1}{1 + d(x, y)}$. L'inverse n'est pas vrai, dû à l'inégalité triangulaire. On peut aussi définir la dissemblance entre deux objects: $d^\star(x, y) = 1 - s(x, y)$.
+Une distance peut se transformer en similarité en posant
+$$s(x, y) = \frac{1}{1 + d(x, y)}.$$
+
+Cette transformation garantit que plus la distance est grande, plus la similarité est faible. Toutefois, l'inverse n'est pas toujours possible car une mesure de similarité ne respecte pas forcément l'inégalité triangulaire. On peut aussi définir la dissemblance entre deux objets:
+$$d^\star(x, y) = 1 - s(x, y).$$
+
