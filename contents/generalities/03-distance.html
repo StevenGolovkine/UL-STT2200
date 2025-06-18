@@ -599,6 +599,7 @@ window.Quarto = {
   <ul>
 <li><a href="#notion-de-distance" id="toc-notion-de-distance" class="nav-link active" data-scroll-target="#notion-de-distance">Notion de distance</a></li>
   <li><a href="#notion-de-similarit%C3%A9" id="toc-notion-de-similarité" class="nav-link" data-scroll-target="#notion-de-similarité">Notion de similarité</a></li>
+  <li><a href="#cas-dun-variable-qualitative" id="toc-cas-dun-variable-qualitative" class="nav-link" data-scroll-target="#cas-dun-variable-qualitative">Cas d’un variable qualitative</a></li>
   </ul>
 <div class="toc-actions"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
@@ -772,9 +773,52 @@ Définition de mesure de similarité
 </div>
 <p>Une distance peut se transformer en similarité en posant <span class="math display">\[s(x, y) = \frac{1}{1 + d(x, y)}.\]</span></p>
 <p>Cette transformation garantit que plus la distance est grande, plus la similarité est faible. Toutefois, l’inverse n’est pas toujours possible car une mesure de similarité ne respecte pas forcément l’inégalité triangulaire. On peut aussi définir la dissemblance entre deux objets: <span class="math display">\[d^\star(x, y) = 1 - s(x, y).\]</span></p>
-
-
-</section></main><!-- /main --><script>
+</section><section id="cas-dun-variable-qualitative" class="level2"><h2 class="anchored" data-anchor-id="cas-dun-variable-qualitative">Cas d’un variable qualitative</h2>
+<p>Pour une variable qualitative, les distances <span class="math inline">\(L_p\)</span> n’ont pas forcément de sens. En effet, si notre variable prend ses valeurs dans l’ensemble <span class="math inline">\(\{ \text{Rouge, Vert, Bleu} \}\)</span>, il n’y a pas de sens à calculer <span class="math inline">\(\text{Bleu} - \text{Rouge}\)</span>. Dans ce cas, on peut simplement définir la distance à <span class="math inline">\(0\)</span> si deux observations prennent la même modalité et <span class="math inline">\(1\)</span> sinon.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+La distance discrète
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soit <span class="math inline">\(\mathcal{X}\)</span> un ensemble discret et <span class="math inline">\(X\)</span> une variable aéatoire discrète à valeur dans <span class="math inline">\(\mathcal{X}\)</span>. Soit <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span> deux réalisations de <span class="math inline">\(X\)</span>, si <span class="math inline">\(x = y\)</span>, <span class="math inline">\(d(x, y) = 0\)</span>, sinon <span class="math inline">\(d(x, y) = 1\)</span>.</p>
+</div>
+</div>
+<p>Dans le cas de vecteurs, on compte simplement le nombre de désaccord entre les deux observations.</p>
+<p>Nombre d’accord entre <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span> : <span class="math inline">\(\sum_{i = 1}^{p} \mathbb{1}(x_i, y_i)\)</span></p>
+<table class="caption-top table">
+<caption>Caractéristiques de trois personnes.</caption>
+<thead><tr class="header">
+<th style="text-align: center;">Nom</th>
+<th style="text-align: right;">Couleur</th>
+<th style="text-align: right;">Yeux</th>
+<th style="text-align: right;">Cheveux</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Alice</td>
+<td style="text-align: right;">Rouge</td>
+<td style="text-align: right;">Bleu</td>
+<td style="text-align: right;">Blond</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Bob</td>
+<td style="text-align: right;">Vert</td>
+<td style="text-align: right;">Bleu</td>
+<td style="text-align: right;">Roux</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Chris</td>
+<td style="text-align: right;">Rouge</td>
+<td style="text-align: right;">Vert</td>
+<td style="text-align: right;">Blond</td>
+</tr>
+</tbody>
+</table></section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {

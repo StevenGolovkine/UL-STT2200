@@ -288,6 +288,18 @@
     ]
   },
   {
+    "objectID": "contents/generalities/03-distance.html#cas-dun-variable-qualitative",
+    "href": "contents/generalities/03-distance.html#cas-dun-variable-qualitative",
+    "title": "Distances",
+    "section": "Cas d’un variable qualitative",
+    "text": "Cas d’un variable qualitative\nPour une variable qualitative, les distances \\(L_p\\) n’ont pas forcément de sens. En effet, si notre variable prend ses valeurs dans l’ensemble \\(\\{ \\text{Rouge, Vert, Bleu} \\}\\), il n’y a pas de sens à calculer \\(\\text{Bleu} - \\text{Rouge}\\). Dans ce cas, on peut simplement définir la distance à \\(0\\) si deux observations prennent la même modalité et \\(1\\) sinon.\n\n\n\n\n\n\nLa distance discrète\n\n\n\nSoit \\(\\mathcal{X}\\) un ensemble discret et \\(X\\) une variable aéatoire discrète à valeur dans \\(\\mathcal{X}\\). Soit \\(x\\) et \\(y\\) deux réalisations de \\(X\\), si \\(x = y\\), \\(d(x, y) = 0\\), sinon \\(d(x, y) = 1\\).\n\n\nDans le cas de vecteurs, on compte simplement le nombre de désaccord entre les deux observations.\nNombre d’accord entre \\(x\\) et \\(y\\) : \\(\\sum_{i = 1}^{p} \\mathbb{1}(x_i, y_i)\\)\n\nCaractéristiques de trois personnes.\n\n\nNom\nCouleur\nYeux\nCheveux\n\n\n\n\nAlice\nRouge\nBleu\nBlond\n\n\nBob\nVert\nBleu\nRoux\n\n\nChris\nRouge\nVert\nBlond",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités",
+      "Distances"
+    ]
+  },
+  {
     "objectID": "contents/remainders/02-probabilities.html",
     "href": "contents/remainders/02-probabilities.html",
     "title": "Probabilités et Statistiques",
