@@ -597,8 +597,7 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#notion-de-distance" id="toc-notion-de-distance" class="nav-link" data-scroll-target="#notion-de-distance">Notion de distance</a></li>
+<li><a href="#notion-de-distance" id="toc-notion-de-distance" class="nav-link active" data-scroll-target="#notion-de-distance">Notion de distance</a></li>
   <li><a href="#notion-de-similarit%C3%A9" id="toc-notion-de-similarité" class="nav-link" data-scroll-target="#notion-de-similarité">Notion de similarité</a></li>
   </ul>
 <div class="toc-actions"><ul>
@@ -630,61 +629,140 @@ window.Quarto = {
   
 
 
-</header><section id="introduction" class="level2"><h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>On a besoin d’une notion de distance et de similarité. On a besoin d’une définition de ce que sont des observations similaires ou des observations différentes. On veut quantifier la similarité ou la distance entre deux observations. Le choix de la métrique est une étape essentielle dans le processus d’analyse de données.</p>
-</section><section id="notion-de-distance" class="level2"><h2 class="anchored" data-anchor-id="notion-de-distance">Notion de distance</h2>
+</header><p>Dans tout projet d’analyse de données, il est nécessaire de pouvoir quantifier la ressemblance (ou la dissemblance) entre deux observations. Pour cela, on utilise la notion de <strong>distance</strong> (ou <strong>similarité</strong>) entre les observations. Le choix de cette distance influence directement les résultats des algorithmes d’apprentissage, de regroupement et de visualisations.</p>
+<section id="notion-de-distance" class="level2"><h2 class="anchored" data-anchor-id="notion-de-distance">Notion de distance</h2>
+<p>Une <strong>distance</strong> est une fonction mathématique mesurant à quel point deux objets sont éloigné l’un de l’autre dans un espace donnée. Plus la distance est grande, plus les observations somt éloigné.</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Définition de distance
+Définition de mesure de distance
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Une mesure de distance <span class="math inline">\(d\)</span> doit satisfaire les propriétés suivantes pour tout <span class="math inline">\(x, y, z \in A\)</span>, <span class="math inline">\(A\)</span> étant un ensemble quelconque:</p>
+<p>Une fonction <span class="math inline">\(d: \mathcal{X} \times \mathcal{X} \to \mathbb{R}\)</span> est une distance sur un ensemble <span class="math inline">\(\mathcal{X}\)</span> si, pour tout <span class="math inline">\(x, y, z \in \mathcal{X}\)</span>, les conditions suivantes sont vérifiées :</p>
 <ol type="1">
-<li><p><span class="math inline">\(d(x, y) \geq 0\)</span>;</p></li>
-<li><p><span class="math inline">\(d(x, x) = 0\)</span>;</p></li>
-<li><p><span class="math inline">\(d(x, y) = d(y, x)\)</span>;</p></li>
-<li><p><span class="math inline">\(d(x, y) \leq d(x, z) + d(y, z)\)</span>.</p></li>
+<li><p>non-négativité: <span class="math inline">\(d(x, y) \geq 0\)</span>;</p></li>
+<li><p>séparation: <span class="math inline">\(d(x, y) = 0 \Leftrightarrow x = y\)</span>;</p></li>
+<li><p>symétrie: <span class="math inline">\(d(x, y) = d(y, x)\)</span>;</p></li>
+<li><p>inégalité triangulaire: <span class="math inline">\(d(x, y) \leq d(x, z) + d(y, z)\)</span>.</p></li>
 </ol>
 </div>
 </div>
-<p>La distance euclidienne:</p>
-<p>Si les observations sont constituées de <span class="math inline">\(p\)</span> nombres réels de même ordre de grandeur, alors la distance euclidienne entre deux éléments de <span class="math inline">\(\mathbb{R}^p\)</span> est une mesure raisonnable.</p>
-<p>Soit <span class="math inline">\(x, y \in \mathbb{R}^n\)</span>, la distance euclidienne est données par : <span class="math display">\[d(x, y) = \left\| x - y \right\|_2 = \left( \sum_{i = 1}^{n} (x_i - y_i)^2 \right)^{1/2}.\]</span></p>
-<p>Que fait-on dans d’autres cas ? Plusieurs mesures ont été développées pour leur application particulière. Voici les plus classiques.</p>
-<p>Une distance est peu plus générale que la distance euclidienne est la distance <span class="math inline">\(L_p\)</span>. Soit <span class="math inline">\(x, y \in \mathbb{R}^n\)</span>, la distance <span class="math inline">\(L_p\)</span> est donnée, pour <span class="math inline">\(p &gt; 0\)</span>, par : <span class="math display">\[d(x, y) = \left\| x - y \right\|_p = \left( \sum_{i = 1}^{n} |x_i - y_i|^p \right)^{1 /p} .\]</span></p>
-<p>La distance euclidienne correspond à la distance <span class="math inline">\(L_p\)</span> avec <span class="math inline">\(p = 2\)</span>. Cas particulier avec <span class="math inline">\(p = 1\)</span>, distance de Manhattan:</p>
-<p><span class="math display">\[d(x, y) = \left\| x - y \right\|_1 = \sum_{i = 1}^{n} | x_i - y_i |.\]</span></p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+La distance euclidienne
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Lorsque les observations sont représentées par des vecteurs numériques dans <span class="math inline">\(\mathbb{R}^p\)</span> de même ordre de grandeur, la <strong>distance euclidienne</strong> est souvent un bon choix.</p>
+<p>Soit <span class="math inline">\(x, y \in \mathbb{R}^p\)</span>, la distance euclidienne est données par : <span class="math display">\[d(x, y) = \left\| x - y \right\|_2 = \left( \sum_{i = 1}^{p} (x_i - y_i)^2 \right)^{1/2}.\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+La distance <span class="math inline">\(L_q\)</span> (ou de Minkowski)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soit <span class="math inline">\(x, y \in \mathbb{R}^p\)</span>, la distance <span class="math inline">\(L_q\)</span> est donnée, pour <span class="math inline">\(q &gt; 0\)</span>, par : <span class="math display">\[d(x, y) = \left\| x - y \right\|_q = \left( \sum_{i = 1}^{p} |x_i - y_i|^q \right)^{1 / q}.\]</span></p>
+<p>Cas particuliers:</p>
+<ul>
+<li><p>Pour <span class="math inline">\(q = 1\)</span>, on obtient la distance de Manhattan : <span class="math display">\[d(x, y) = \left\| x - y \right\|_1 = \sum_{i = 1}^{p} |x_i - y_i|.\]</span></p></li>
+<li><p>Pour <span class="math inline">\(q = 2\)</span>, on obtient la distance euclidienne.</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exemple
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Considérons le jeu de données suivant :</p>
+<table class="caption-top table">
+<caption>Taille et poids moyens au Canada (Source: Statistique Canada, Enquête sur la santé dans les collectivités canadiennes (2008)).</caption>
+<thead><tr class="header">
+<th style="text-align: center;">Nom</th>
+<th style="text-align: right;">Taille</th>
+<th style="text-align: right;">Poids</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Alice</td>
+<td style="text-align: right;">162.1</td>
+<td style="text-align: right;">66.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Bob</td>
+<td style="text-align: right;">175.8</td>
+<td style="text-align: right;">81.6</td>
+</tr>
+</tbody>
+</table>
+<p>La distance euclidienne entre Alice et Bob est <span class="math display">\[d(\text{Alice}, \text{Bob}) = \sqrt{(162.1 - 175.8)^2 + (66.8 - 81.6)^2} = 20.16.\]</span></p>
+<p>La distance de Manhattan entre Alice et Bob est <span class="math display">\[d(\text{Alice}, \text{Bob}) = |162.1 - 175.8| + |66.8 - 81.6| = 28.5.\]</span></p>
+</div>
+</div>
+<p>La distance <span class="math inline">\(L_q\)</span> n’est pas invariante aux changements d’échelle. Par exemple, si on multiplie toutes les composantes d’un vecteur par un facteur <span class="math inline">\(\lambda\)</span>, la distance entre deux vecteurs change du facteur <span class="math inline">\(\lambda\)</span>.</p>
+<p>En practique, on préfère travailler avec des variables standardisées. Ainsi, en notant, <span class="math inline">\(\mu_i\)</span>, la moyenne, et <span class="math inline">\(\sigma_i\)</span>, l’écart-type de la variable <span class="math inline">\(i\)</span>, la distance euclidienne avec des variables standardisées est donnée par : <span class="math display">\[d(x, y) = \sum_{i = 1}^{p} \left\{ \frac{x_i - \mu_i}{\sigma_i} - \frac{y_i - \mu_i}{\sigma_i} \right\}^2 = \sum_{i = 1}^{p} \left( \frac{x_i - y_i}{\sigma_i} \right)^2.\]</span></p>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Properties
+Propriété
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>La distance <span class="math inline">\(L_p\)</span> n’est pas invariante à un changement d’échelle, <em>i.e.</em>, <span class="math inline">\(L_p(x, y) \neq L_p(\lambda x, \lambda y)\)</span>.</p>
+<p>La distance euclidienne avec des variables standardisées est invariante par changement d’échelle.</p>
 </div>
 </div>
-<p>Standardisation</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Preuve
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Soit <span class="math inline">\(\lambda \neq 0\)</span> et soit <span class="math inline">\(X\)</span> une variable aléatoire. On a <span class="math inline">\(\mathbb{E}(\lambda X) = \lambda \mathbb{E}(X)\)</span> et <span class="math inline">\(\mathrm{Var}(\lambda X) = \lambda^2 \mathrm{Var}(X)\)</span>. Donc</p>
+<p><span class="math display">\[d(\lambda x, \lambda y) = \sum_{i = 1}^{p} \left\{ \frac{\lambda x_i - \lambda \mu_i}{\lambda \sigma_i} - \frac{\lambda y_i - \lambda \mu_i}{\lambda \sigma_i} \right\}^2 = \sum_{i = 1}^{p} \left( \frac{x_i - y_i}{\sigma_i} \right)^2 = d(x, y).\]</span></p>
+</div>
+</div>
+</div>
 </section><section id="notion-de-similarité" class="level2"><h2 class="anchored" data-anchor-id="notion-de-similarité">Notion de similarité</h2>
+<p>À l’opposé de la notion de distance, une <strong>mesure de similarité</strong> quantifie à quel point deux observations sont proches dans un espace donné. Ainsi, plus la similarité est grande, plus les observations sont proches.</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Définition d’un indice de similarité
+Définition de mesure de similarité
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Un indice de similarité <span class="math inline">\(s\)</span> doit satisfaire les propriétés suivantes pour tout <span class="math inline">\(x, y \in A\)</span>, <span class="math inline">\(A\)</span> étant un ensemble quelconque:</p>
+<p>Une fonction <span class="math inline">\(s: \mathcal{X} \times \mathcal{X} \to \mathbb{R}\)</span> est une mesure de similarité sur un ensemble <span class="math inline">\(\mathcal{X}\)</span> si, pour tout <span class="math inline">\(x, y \in \mathcal{X}\)</span>, les conditions suivantes sont vérifiées :</p>
 <ol type="1">
 <li><p><span class="math inline">\(s(x, y) \geq 0\)</span>;</p></li>
 <li><p><span class="math inline">\(s(x, y) = s(y, x)\)</span>;</p></li>
@@ -692,7 +770,8 @@ Définition d’un indice de similarité
 </ol>
 </div>
 </div>
-<p>Une distance peut se transformer en similarité en posant <span class="math inline">\(s(x, y) = \frac{1}{1 + d(x, y)}\)</span>. L’inverse n’est pas vrai, dû à l’inégalité triangulaire. On peut aussi définir la dissemblance entre deux objects: <span class="math inline">\(d^\star(x, y) = 1 - s(x, y)\)</span>.</p>
+<p>Une distance peut se transformer en similarité en posant <span class="math display">\[s(x, y) = \frac{1}{1 + d(x, y)}.\]</span></p>
+<p>Cette transformation garantit que plus la distance est grande, plus la similarité est faible. Toutefois, l’inverse n’est pas toujours possible car une mesure de similarité ne respecte pas forcément l’inégalité triangulaire. On peut aussi définir la dissemblance entre deux objets: <span class="math display">\[d^\star(x, y) = 1 - s(x, y).\]</span></p>
 
 
 </section></main><!-- /main --><script>
