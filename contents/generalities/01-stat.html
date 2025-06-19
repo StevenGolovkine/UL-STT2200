@@ -797,7 +797,7 @@ Exemple
 <li><p>Sont-elles exactes, complètes, pertinentes ?</p></li>
 <li><p>Y a-t-il des valeurs manquantes, des doublons, des incohérences ?</p></li>
 </ul></section><section id="constitution-de-la-base-de-données" class="level3"><h3 class="anchored" data-anchor-id="constitution-de-la-base-de-données">Constitution de la base de données</h3>
-<p>Une fois nos données collectées, il faut les charger en mémoire pour ensuite pouvoir faire des analyses. En Python, la librairie <a href="https://pandas.pydata.org"><code>pandas</code></a> permet de lire la plupart des formats de fichiers auxquels on aura affaire. En ce qui concerne R, plusieurs packages sont utilisés selon le format (cf. <a href="#tbl-packages-R" class="quarto-xref">Table 2</a>).</p>
+<p>Une fois nos données collectées, il faut les charger en mémoire pour ensuite pouvoir faire des analyses. En Python, les librairies <a href="https://pandas.pydata.org"><code>pandas</code></a> et <a href="https://pola.rs"><code>polars</code></a> permettent de lire la plupart des formats de fichiers auxquels on aura affaire. En ce qui concerne R, plusieurs packages sont utilisés selon le format (cf. <a href="#tbl-packages-R" class="quarto-xref">Table 2</a>).</p>
 <div id="tbl-packages-R" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-packages-R-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table 2: Différentes libraries pour différents formats de fichiers.
@@ -845,7 +845,7 @@ Table 2: Différentes libraries pour différents formats de fichiers.
 <li><p>Chaque observation est une ligne du tableau.</p></li>
 <li><p>Chaque cellule du tableau contient une valeur unique.</p></li>
 </ol>
-<p>Cela permet d’avoir une approche unifiée pour l’analyse de données. De manière général, on essaiera toujours de mettre son jeu de données sous format “tidy”. Le package <a href="https://tidyr.tidyverse.org/index.html"><code>tidyr</code></a> en R et la librairie <a href="https://pandas.pydata.org/docs/index.html"><code>pandas</code></a> en Python permettent de mettre en forme les données en format “tidy”.</p>
+<p>Cela permet d’avoir une approche unifiée pour l’analyse de données. De manière général, on essaiera toujours de mettre son jeu de données sous format “tidy”. Le package <a href="https://tidyr.tidyverse.org/index.html"><code>tidyr</code></a> en R et les librairies <a href="https://pandas.pydata.org/docs/index.html"><code>pandas</code></a> et <a href="https://pola.rs"><code>polars</code></a> en Python permettent de mettre en forme les données en format “tidy”.</p>
 </section><section id="exploration-et-traitement-préliminaire" class="level3"><h3 class="anchored" data-anchor-id="exploration-et-traitement-préliminaire">Exploration et traitement préliminaire</h3>
 <p>Une fois les données chargées et mise sous le format “tidy”, une phase d’exploration préliminaire est nécessaire avant l’étape de modélisation. Cette étape, bien que souvent négligée, est <strong>très importante</strong>, mais elle n’est pas le coeur de ce cours. Cette étape permet de détecter les problèmes potentiels, de mieux comprendre la structure des données et d’orienter les choix méthodologiques. Voici quelques trucs à faire concernant cette première exploration:</p>
 <ul>

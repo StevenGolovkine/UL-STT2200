@@ -599,7 +599,14 @@ window.Quarto = {
   <ul>
 <li><a href="#notion-de-distance" id="toc-notion-de-distance" class="nav-link active" data-scroll-target="#notion-de-distance">Notion de distance</a></li>
   <li><a href="#notion-de-similarit%C3%A9" id="toc-notion-de-similarité" class="nav-link" data-scroll-target="#notion-de-similarité">Notion de similarité</a></li>
-  <li><a href="#cas-dun-variable-qualitative" id="toc-cas-dun-variable-qualitative" class="nav-link" data-scroll-target="#cas-dun-variable-qualitative">Cas d’un variable qualitative</a></li>
+  <li>
+<a href="#cas-de-variables-qualitatives" id="toc-cas-de-variables-qualitatives" class="nav-link" data-scroll-target="#cas-de-variables-qualitatives">Cas de variables qualitatives</a>
+  <ul class="collapse">
+<li><a href="#encodage-1-parmi-k" id="toc-encodage-1-parmi-k" class="nav-link" data-scroll-target="#encodage-1-parmi-k">Encodage <span class="math inline">\(1\)</span> parmi <span class="math inline">\(K\)</span></a></li>
+  <li><a href="#d%C3%A9finir-une-distance-adapt%C3%A9e" id="toc-définir-une-distance-adaptée" class="nav-link" data-scroll-target="#définir-une-distance-adaptée">Définir une distance adaptée</a></li>
+  <li><a href="#distance-de-jaccard" id="toc-distance-de-jaccard" class="nav-link" data-scroll-target="#distance-de-jaccard">Distance de Jaccard</a></li>
+  </ul>
+</li>
   </ul>
 <div class="toc-actions"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
@@ -773,25 +780,48 @@ Définition de mesure de similarité
 </div>
 <p>Une distance peut se transformer en similarité en posant <span class="math display">\[s(x, y) = \frac{1}{1 + d(x, y)}.\]</span></p>
 <p>Cette transformation garantit que plus la distance est grande, plus la similarité est faible. Toutefois, l’inverse n’est pas toujours possible car une mesure de similarité ne respecte pas forcément l’inégalité triangulaire. On peut aussi définir la dissemblance entre deux objets: <span class="math display">\[d^\star(x, y) = 1 - s(x, y).\]</span></p>
-</section><section id="cas-dun-variable-qualitative" class="level2"><h2 class="anchored" data-anchor-id="cas-dun-variable-qualitative">Cas d’un variable qualitative</h2>
-<p>Pour une variable qualitative, les distances <span class="math inline">\(L_p\)</span> n’ont pas forcément de sens. En effet, si notre variable prend ses valeurs dans l’ensemble <span class="math inline">\(\{ \text{Rouge, Vert, Bleu} \}\)</span>, il n’y a pas de sens à calculer <span class="math inline">\(\text{Bleu} - \text{Rouge}\)</span>. Dans ce cas, on peut simplement définir la distance à <span class="math inline">\(0\)</span> si deux observations prennent la même modalité et <span class="math inline">\(1\)</span> sinon.</p>
+</section><section id="cas-de-variables-qualitatives" class="level2"><h2 class="anchored" data-anchor-id="cas-de-variables-qualitatives">Cas de variables qualitatives</h2>
+<p>Lorsque l’on travaille avec des variables qualitatives, les distances numériques habituelles (comme les distances <span class="math inline">\(L_p\)</span>) n’ont généralement pas de sens. Par exemple, si une variable prend ses valeurs dans l’ensemble <span class="math display">\[\mathcal{X} = \{ \text{Rouge}, \text{Vert}, \text{Bleu} \},\]</span> alors il n’y a pas de sens à calculer la différence entre <span class="math inline">\(\text{Bleu}\)</span> et <span class="math inline">\(\text{Rouge}\)</span>, car ces modalités ne portent aucune structure numérique intrinsèque et n’ont aucune notion d’ordre ou d’écart.</p>
+<p>Une mauvaise pratique consisterait à attribuer arbitrairement des valeurs numériques aux momdalités (e.g. <span class="math inline">\(\text{Rouge} = 1\)</span>, <span class="math inline">\(\text{Vert} = 2\)</span>, <span class="math inline">\(\text{Bleu} = 3\)</span>) ce qui introduirait un ordre artificiel entre elles. Cela risquerait de biaiser fortement les analyses.</p>
+<section id="encodage-1-parmi-k" class="level3"><h3 class="anchored" data-anchor-id="encodage-1-parmi-k">Encodage <span class="math inline">\(1\)</span> parmi <span class="math inline">\(K\)</span>
+</h3>
+<p>Lorsque l’on veut utiliser un modèle se basant sur une notion de distance entre les observations (i.e. la plupart des modèles), on doit utiliser un encodage adapté. L’<strong>encodage <span class="math inline">\(1\)</span> parmi <span class="math inline">\(K\)</span></strong> (<em>one-hot encoding</em>) consiste à encoder une variable qualitative à <span class="math inline">\(K\)</span> modalités sous la forme d’un vecteur binaire de dimension <span class="math inline">\(K\)</span>, dans lequel une seule entrée est à <span class="math inline">\(1\)</span>, les autres à <span class="math inline">\(0\)</span>. Ainsi, pour l’exemple de <span class="math inline">\(\mathcal{X} = \{ \text{Rouge, Vert, Bleu} \}\)</span>, on obtiendra l’encodage suivant: “Rouge” donne <span class="math inline">\((1, 0, 0)\)</span>, “Vert” donne <span class="math inline">\((0, 1, 0)\)</span> et “Bleu” donne <span class="math inline">\((0, 0, 1)\)</span>.</p>
+<p>Cette méthode d’encodage a l’avantage de ne pas introduire d’ordre artificiel entre les modalités. Si la variable a beaucoup de modalités, l’espace de représentation de grande dimension, ce qui peut nuire à l’efficacité de certaines méthodes d’analyse.</p>
+</section><section id="définir-une-distance-adaptée" class="level3"><h3 class="anchored" data-anchor-id="définir-une-distance-adaptée">Définir une distance adaptée</h3>
+<p>Une fois les modalités encodées, on peut définir une distance entre deux observations de variables qualitatives.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-La distance discrète
+La distance discrète (ou distance de Hamming)
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Soit <span class="math inline">\(\mathcal{X}\)</span> un ensemble discret et <span class="math inline">\(X\)</span> une variable aéatoire discrète à valeur dans <span class="math inline">\(\mathcal{X}\)</span>. Soit <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span> deux réalisations de <span class="math inline">\(X\)</span>, si <span class="math inline">\(x = y\)</span>, <span class="math inline">\(d(x, y) = 0\)</span>, sinon <span class="math inline">\(d(x, y) = 1\)</span>.</p>
+<p>Soit <span class="math inline">\(\mathcal{X}\)</span> un ensemble discret et soient <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span> deux observations de <span class="math inline">\(X\)</span>, la <strong>distance discrète</strong> est donnée par <span class="math display">\[d(x, y) = \begin{cases}
+  0, &amp; \text{si } x = y,\\
+  1, &amp; \text{si } x \neq y
+\end{cases}.\]</span></p>
 </div>
 </div>
-<p>Dans le cas de vecteurs, on compte simplement le nombre de désaccord entre les deux observations.</p>
-<p>Nombre d’accord entre <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span> : <span class="math inline">\(\sum_{i = 1}^{p} \mathbb{1}(x_i, y_i)\)</span></p>
+<p>Pour des vecteurs de variables qualitatives (e.g. la comparaison de plusieurs individus décrits par plusieurs caractéristiques), la distance discrète est la <strong>somme des désaccords</strong> entre les composantes : <span class="math display">\[d(x, y) = \sum_{i = 1}^{p} \mathbb{1}(x_i \neq y_i),\]</span> où <span class="math inline">\(p\)</span> est le nombre de variables.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exemple
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Prenons les caractéristiques de trois personnes.</p>
+<div id="tbl-carac" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-carac-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table 1: Caractéristiques de trois personnes.
+</figcaption><div aria-describedby="tbl-carac-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
-<caption>Caractéristiques de trois personnes.</caption>
 <thead><tr class="header">
 <th style="text-align: center;">Nom</th>
 <th style="text-align: right;">Couleur</th>
@@ -818,7 +848,103 @@ La distance discrète
 <td style="text-align: right;">Blond</td>
 </tr>
 </tbody>
-</table></section></main><!-- /main --><script>
+</table>
+</div>
+</figure>
+</div>
+<p>On calcule la distance entre deux personnes comme le nombre de caractéristiques différentes. Ainsi,</p>
+<p><span class="math display">\[d(\text{Alice}, \text{Bob}) = 1 + 0 + 1 = 2,\]</span></p>
+<p><span class="math display">\[d(\text{Alice}, \text{Chris}) = 0 + 1 + 0 = 1,\]</span></p>
+<p><span class="math display">\[d(\text{Bob}, \text{Chris}) = 1 + 1 + 1 = 3.\]</span></p>
+</div>
+</div>
+<p>Plutôt que de compter les différences, on peut aussi compter les accords et les normaliser :</p>
+<p><span class="math display">\[s(x, y) = \frac{1}{p}\sum_{i = 1}^{p} \mathbb{1}(x_i = y_i),\]</span></p>
+<p>ce qui donne une mesure de similarité comprise entre <span class="math inline">\(0\)</span> (aucun accord) et <span class="math inline">\(1\)</span> (identique).</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exemple
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En reprenant l’exemple précédent (cf. <a href="#tbl-carac" class="quarto-xref">Table 1</a>), on trouve les similarités suivantes :</p>
+<p><span class="math display">\[s(\text{Alice}, \text{Bob}) = \frac{0 + 1 + 0}{3} = \frac{1}{3},\]</span></p>
+<p><span class="math display">\[s(\text{Alice}, \text{Chris}) = \frac{1 + 0 + 1}{3} = \frac{2}{3},\]</span></p>
+<p><span class="math display">\[s(\text{Bob}, \text{Chris}) = \frac{0 + 0 + 0}{3} = 0.\]</span></p>
+</div>
+</div>
+</section><section id="distance-de-jaccard" class="level3"><h3 class="anchored" data-anchor-id="distance-de-jaccard">Distance de Jaccard</h3>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Définition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Considérons deux observations <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> de <span class="math inline">\(K\)</span> variables binaires. Chaques variables peut prendre les valeurs <span class="math inline">\(0\)</span> et <span class="math inline">\(1\)</span>.</p>
+<p>Définissons les quantités suivantes :</p>
+<ul>
+<li><p><span class="math inline">\(M_{11}\)</span>, le nombre de variables à <span class="math inline">\(1\)</span> pour <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span>;</p></li>
+<li><p><span class="math inline">\(M_{10}\)</span>, le nombre de variables à <span class="math inline">\(1\)</span> pour <span class="math inline">\(X\)</span> et <span class="math inline">\(0\)</span> pour <span class="math inline">\(Y\)</span>;</p></li>
+<li><p><span class="math inline">\(M_{01}\)</span>, le nombre de variables à <span class="math inline">\(0\)</span> pour <span class="math inline">\(X\)</span> et <span class="math inline">\(1\)</span> pour <span class="math inline">\(Y\)</span>;</p></li>
+<li><p><span class="math inline">\(M_{00}\)</span>, le nombre de variables à <span class="math inline">\(0\)</span> pour <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span>.</p></li>
+</ul>
+<p>Chaque variable binaire est forcément comptée, soit dans <span class="math inline">\(M_{11}\)</span>, soit dans <span class="math inline">\(M_{10}\)</span>, soit dans <span class="math inline">\(M_{01}\)</span>, soit dans <span class="math inline">\(M_{00}\)</span>. Donc <span class="math inline">\(K = M_{11} + M_{10} + M_{01} + M_{00}\)</span>.</p>
+<p>La <strong>distance de Jaccard</strong> est définie comme <span class="math display">\[d(x, y) = \frac{M_{11}}{M_{10} + M_{01} + M_{11}} = \frac{M_{11}}{K - M_{00}}.\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exemple
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Prenons un questionnaire de <span class="math inline">\(5\)</span> questions fermées. Supposons que la réponse “Oui” est encodée par <span class="math inline">\(1\)</span> et la réponse “Non” est encodée par <span class="math inline">\(0\)</span>.</p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th style="text-align: center;">Nom</th>
+<th style="text-align: right;">Q1</th>
+<th style="text-align: right;">Q2</th>
+<th style="text-align: right;">Q3</th>
+<th style="text-align: right;">Q4</th>
+<th style="text-align: right;">Q5</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Alice</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Bob</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p>Pour la distance entre Alice et Bob, on a <span class="math inline">\(M_{11} = 1\)</span>, <span class="math inline">\(M_{10} = 1\)</span>, <span class="math inline">\(M_{01} = 1\)</span> et <span class="math inline">\(M_{00} = 2\)</span>. Donc <span class="math inline">\(d(\text{Alice}, \text{Bob}) = \frac{1}{3}\)</span>.</p>
+</div>
+</div>
+
+
+</section></section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
