@@ -138,7 +138,7 @@ Pour nous assurer de la qualité des données, on pourra se poser les questions 
 
 ### Constitution de la base de données
 
-Une fois nos données collectées, il faut les charger en mémoire pour ensuite pouvoir faire des analyses. En Python, la librairie [`pandas`](https://pandas.pydata.org) permet de lire la plupart des formats de fichiers auxquels on aura affaire. En ce qui concerne R, plusieurs packages sont utilisés selon le format (cf. @tbl-packages-R).
+Une fois nos données collectées, il faut les charger en mémoire pour ensuite pouvoir faire des analyses. En Python, les librairies [`pandas`](https://pandas.pydata.org) et [`polars`](https://pola.rs) permettent de lire la plupart des formats de fichiers auxquels on aura affaire. En ce qui concerne R, plusieurs packages sont utilisés selon le format (cf. @tbl-packages-R).
 
 
 | Format  | Extension    | Librarie   | 
@@ -159,7 +159,7 @@ Depuis une dizaine d'année, le concept de "tidy data" a emergé (cf. @wickhamTi
 
 3. Chaque cellule du tableau contient une valeur unique.
 
-Cela permet d'avoir une approche unifiée pour l'analyse de données. De manière général, on essaiera toujours de mettre son jeu de données sous format "tidy". Le package [`tidyr`](https://tidyr.tidyverse.org/index.html) en R et la librairie [`pandas`](https://pandas.pydata.org/docs/index.html) en Python permettent de mettre en forme les données en format "tidy".
+Cela permet d'avoir une approche unifiée pour l'analyse de données. De manière général, on essaiera toujours de mettre son jeu de données sous format "tidy". Le package [`tidyr`](https://tidyr.tidyverse.org/index.html) en R et les librairies [`pandas`](https://pandas.pydata.org/docs/index.html) et [`polars`](https://pola.rs) en Python permettent de mettre en forme les données en format "tidy".
 
 
 ### Exploration et traitement préliminaire 
