@@ -122,35 +122,41 @@ $$d^\star(x, y) = 1 - s(x, y).$$
 
 ## Cas de variables qualitatives
 
-Pour une variable qualitative, les distances $L_p$ n'ont pas forcément de sens. En effet, si notre variable prend ses valeurs dans l'ensemble $\{ \text{Rouge, Vert, Bleu} \}$, il n'y a pas de sens à calculer $\text{Bleu} - \text{Rouge}$. Pour résoudre ce problème, on a besoin de convertir les modalités en nombre. Cependant, leur donner des valeurs artificielles (e.g. $\text{Rouge} = 1$, $\text{Vert} = 2$, $\text{Bleu} = 3$) introduirait un ordre artificiel, ce qui n'est généralement pas souhaitable. 
+Lorsque l'on travaille avec des variables qualitatives, les distances numériques habituelles (comme les distances $L_p$) n'ont généralement pas de sens. Par exemple, si une variable prend ses valeurs dans l'ensemble 
+$$\mathcal{X} = \{ \text{Rouge}, \text{Vert}, \text{Bleu} \},$$
+alors il n'y a pas de sens à calculer la différence entre $\text{Bleu}$ et $\text{Rouge}$, car ces modalités ne portent aucune structure numérique intrinsèque et n'ont aucune notion d'ordre ou d'écart.
 
-### Encodage 1 parmi n
+Une mauvaise pratique consisterait à attribuer arbitrairement des valeurs numériques aux momdalités (e.g. $\text{Rouge} = 1$, $\text{Vert} = 2$, $\text{Bleu} = 3$) ce qui introduirait un ordre artificiel entre elles. Cela risquerait de biaiser fortement les analyses. 
 
-L'**encodage 1 parmi n** (*one-hot encoding*) consiste à encoder une variable qualitative à $K$ modalités en $K$ variables binaires dont une seule prend la valeur $1$. Ainsi, en reprenant l'exemple de la variable qualitative $\{ \text{Rouge, Vert, Bleu} \}$, on obtiendra trois variables binaires, et on pourra encoder la modalité "Rouge" par le vecteur $(1, 0, 0)$, la modalité "Vert" par le vecteur $(0, 1, 0)$ et la modalité "Bleu" par le vecteur $(0, 0, 1)$.
+### Encodage $1$ parmi $K$
 
-Cette méthode d'encodage a l'avantage de ne pas introduire d'ordre artificiel entre les modalités, mais peut potentiellement introduire beaucoup de nouvelles variables si la variable qualitative a beaucoup de modalités.
+Lorsque l'on veut utiliser un modèle se basant sur une notion de distance entre les observations (i.e. la plupart des modèles), on doit utiliser un encodage adapté. L'**encodage $1$ parmi $K$** (*one-hot encoding*) consiste à encoder une variable qualitative à $K$ modalités sous la forme d'un vecteur binaire de dimension $K$, dans lequel une seule entrée est à $1$, les autres à $0$. Ainsi, pour l'exemple de $\mathcal{X} = \{ \text{Rouge, Vert, Bleu} \}$, on obtiendra l'encodage suivant: "Rouge" donne $(1, 0, 0)$, "Vert" donne $(0, 1, 0)$ et "Bleu" donne $(0, 0, 1)$.
 
-### La distance discrète
+Cette méthode d'encodage a l'avantage de ne pas introduire d'ordre artificiel entre les modalités. Si la variable a beaucoup de modalités, l'espace de représentation de grande dimension, ce qui peut nuire à l'efficacité de certaines méthodes d'analyse.
 
-Maintenant que l'on a un moyen d'encoder nos variables qualitatives, on peut définir une distance entre deux observations. 
+### Définir une distance adaptée
 
-Dans ce cas, on peut simplement définir la distance à $0$ si deux observations prennent la même modalité et $1$ sinon.
+Une fois les modalités encodées, on peut définir une distance entre deux observations de variables qualitatives. 
 
 ::: {.callout-note icon=false}
-## La distance discrète
+## La distance discrète (ou distance de Hamming)
 
-Soit $\mathcal{X}$ un ensemble discret et $X$ une variable aéatoire discrète à valeur dans $\mathcal{X}$. Soit $x$ et $y$ deux réalisations de $X$, si $x = y$, $d(x, y) = 0$, sinon $d(x, y) = 1$.
+Soit $\mathcal{X}$ un ensemble discret et soient $x$ et $y$ deux observations de $X$, la **distance discrète** est donnée par 
+$$d(x, y) = \begin{cases}
+  0, & \text{si } x = y,\\
+  1, & \text{si } x \neq y
+\end{cases}.$$
 
 :::
 
-Dans le cas de vecteurs, on compte simplement le nombre de désaccord entre les deux observations.
-
-Nombre d'accord entre $x$ et $y$ : $\sum_{i = 1}^{p} \mathbb{1}(x_i = y_i)$
+Pour des vecteurs de variables qualitatives (e.g. la comparaison de plusieurs individus décrits par plusieurs caractéristiques), la distance discrète est la **somme des désaccords** entre les composantes :
+$$d(x, y) = \sum_{i = 1}^{p} \mathbb{1}(x_i \neq y_i),$$
+où $p$ est le nombre de variables.
 
 ::: {.callout-note icon=false}
 ## Exemple
 
-Prenons en exemple les caractéristiques de trois personnes. 
+Prenons les caractéristiques de trois personnes. 
 
 | Nom | Couleur | Yeux | Cheveux |
 | :---: | ---: | ----: | ----: | 
@@ -160,22 +166,33 @@ Prenons en exemple les caractéristiques de trois personnes.
 
 : Caractéristiques de trois personnes. {#tbl-carac}
 
-Pour calculer la distance entre ces personnes, on compte simplement le nombre de désaccord entre les modalités de leurs variables. Ainsi,
+On calcule la distance entre deux personnes comme le nombre de caractéristiques différentes. Ainsi,
 
-$$d(\text{Alice}, \text{Bob}) = 1 + 0 + 1 = 2, \quad d(\text{Alice}, \text{Chris}) = 0 + 1 + 0 = 1, \quad d(\text{Bob}, \text{Chris}) = 1 + 1 + 1 = 3.$$
+$$d(\text{Alice}, \text{Bob}) = 1 + 0 + 1 = 2,$$
+
+$$d(\text{Alice}, \text{Chris}) = 0 + 1 + 0 = 1,$$
+
+$$d(\text{Bob}, \text{Chris}) = 1 + 1 + 1 = 3.$$
 
 :::
 
-Dans ce cas, il peut être plus pratique de travailler avec la similarité; au lieu de compter le nombre de désaccord, on compte le nombre d'accord que l'on normalise par le nombre de variables pour avoir une similarité égale à $1$ lorsque deux observations sont identiques. Ainsi,
+Plutôt que de compter les différences, on peut aussi compter les accords et les normaliser :
 
-$$s(x, y) = \frac{1}{p}\sum_{i = 1}^{p} \mathbb{1}(x_i = y_i).$$
+$$s(x, y) = \frac{1}{p}\sum_{i = 1}^{p} \mathbb{1}(x_i = y_i),$$
+
+ce qui donne une mesure de similarité comprise entre $0$ (aucun accord) et $1$ (identique).
+
 
 ::: {.callout-note icon=false}
 ## Exemple
 
 En reprenant l'exemple précédent (cf. @tbl-carac), on trouve les similarités suivantes :
 
-$$s(\text{Alice}, \text{Bob}) = \frac{0 + 1 + 0}{3} = \frac{1}{3}, \quad s(\text{Alice}, \text{Chris}) = \frac{1 + 0 + 1}{3} = \frac{2}{3}, \quad s(\text{Bob}, \text{Chris}) = \frac{0 + 0 + 0}{3} = 0.$$
+$$s(\text{Alice}, \text{Bob}) = \frac{0 + 1 + 0}{3} = \frac{1}{3},$$
+
+$$s(\text{Alice}, \text{Chris}) = \frac{1 + 0 + 1}{3} = \frac{2}{3},$$
+
+$$s(\text{Bob}, \text{Chris}) = \frac{0 + 0 + 0}{3} = 0.$$
 
 :::
 
