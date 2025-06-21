@@ -198,6 +198,8 @@ $$s(\text{Bob}, \text{Chris}) = \frac{0 + 0 + 0}{3} = 0.$$
 
 ### Distance de Jaccard 
 
+La distance de Jaccard est une mesure très utilisée dans le cas d'observations binaires. Elle prend mieux en compte ces cas par rapport à la distance discrète. 
+
 ::: {.callout-warning icon=false}
 ## Définition
 
