@@ -220,7 +220,6 @@ Chaque variable binaire est forcément comptée, soit dans $M_{11}$, soit dans $
 La **distance de Jaccard** est définie comme 
 $$d(x, y) = \frac{M_{11}}{M_{10} + M_{01} + M_{11}} = \frac{M_{11}}{K - M_{00}}.$$
 
-(Est-ce qu'elle est définie comme ça, ou bien c'est 1 - ça ?)
 :::
 
 ::: {.callout-note icon=false}
