@@ -132,7 +132,7 @@ Une mauvaise pratique consisterait à attribuer arbitrairement des valeurs numé
 
 Lorsque l'on veut utiliser un modèle se basant sur une notion de distance entre les observations (i.e. la plupart des modèles), on doit utiliser un encodage adapté. L'**encodage $1$ parmi $K$** (*one-hot encoding*) consiste à encoder une variable qualitative à $K$ modalités sous la forme d'un vecteur binaire de dimension $K$, dans lequel une seule entrée est à $1$, les autres à $0$. Ainsi, pour l'exemple de $\mathcal{X} = \{ \text{Rouge, Vert, Bleu} \}$, on obtiendra l'encodage suivant: "Rouge" donne $(1, 0, 0)$, "Vert" donne $(0, 1, 0)$ et "Bleu" donne $(0, 0, 1)$.
 
-Cette méthode d'encodage a l'avantage de ne pas introduire d'ordre artificiel entre les modalités. Si la variable a beaucoup de modalités, l'espace de représentation de grande dimension, ce qui peut nuire à l'efficacité de certaines méthodes d'analyse.
+Cette méthode d'encodage a l'avantage de ne pas introduire d'ordre artificiel entre les modalités. Cependant, si la variable a beaucoup de modalités, l'espace de représentation sera de grande dimension, ce qui peut nuire à l'efficacité de certaines méthodes d'analyse.
 
 ### Définir une distance adaptée
 
@@ -198,40 +198,74 @@ $$s(\text{Bob}, \text{Chris}) = \frac{0 + 0 + 0}{3} = 0.$$
 
 ### Distance de Jaccard 
 
-La distance de Jaccard est une mesure très utilisée dans le cas d'observations binaires. Elle prend mieux en compte ces cas par rapport à la distance discrète. 
+Lorsque le nombre de variables binaires est grand (e.g. dans le cas où un encodage $1$ parmi $K$ a été fait sur $p$ variables qualitatives), la distance discrète n'est pas forcément très adaptée car le nombre d'accords risque d’être petit par rapport au nombre total de variables ($K \times p$ dans l'exemple précédent), ce qui va donner de petites distances dans tous les cas. Une des solutions est de se concentrer uniquement sur les attributs qui valent $1$, car généralement, une variable binaire à $0$ n'apporte pas spécialement d'information (en tout cas, moins qu'une variable binaire à $1$). L'indice de Jaccard (*Intersection over Union*, IoU) a été introduit pour prendre cela en compte.
 
 ::: {.callout-warning icon=false}
-## Définition
+## Définition : Indice de Jaccard
 
-Considérons deux observations $X$ et $Y$ de $K$ variables binaires. Chaques variables peut prendre les valeurs $0$ et $1$. 
+Considérons deux observations $x$ et $y$ de $K$ variables binaires. Toutes les variables peuvent prendre les valeurs $0$ et $1$. 
 
 Définissons les quantités suivantes :
 
-* $M_{11}$, le nombre de variables à $1$ pour $X$ et $Y$;
+* $M_{11}$, le nombre de variables à $1$ pour $x$ et $y$;
 
-* $M_{10}$, le nombre de variables à $1$ pour $X$ et $0$ pour $Y$;
+* $M_{10}$, le nombre de variables à $1$ pour $x$ et $0$ pour $y$;
 
-* $M_{01}$, le nombre de variables à $0$ pour $X$ et $1$ pour $Y$;
+* $M_{01}$, le nombre de variables à $0$ pour $x$ et $1$ pour $y$;
 
-* $M_{00}$, le nombre de variables à $0$ pour $X$ et $Y$.
+* $M_{00}$, le nombre de variables à $0$ pour $x$ et $y$.
 
-Chaque variable binaire est forcément comptée, soit dans $M_{11}$, soit dans $M_{10}$, soit dans $M_{01}$, soit dans $M_{00}$. Donc $K = M_{11} + M_{10} + M_{01} + M_{00}$.
+Chaque variable binaire étant forcément comptée, soit dans $M_{11}$, soit dans $M_{10}$, soit dans $M_{01}$, soit dans $M_{00}$, leur somme est donc égale à $K$.
 
-La **distance de Jaccard** est définie comme 
-$$d(x, y) = \frac{M_{11}}{M_{10} + M_{01} + M_{11}} = \frac{M_{11}}{K - M_{00}}.$$
+L'**indice de Jaccard** est défini comme 
+$$J(x, y) = \frac{M_{11}}{M_{10} + M_{01} + M_{11}} = \frac{M_{11}}{K - M_{00}}.$$
+
+:::
+
+En faisant attention au cas où les deux observations ne sont constituées que de $0$ (on prend $J(x, y) = 1$ dans ce cas), l'indice de Jaccard est une mesure de similarité.
+
+::: {.callout-important icon=false}
+## Propriété : Distance de Jaccard
+
+Pour deux observations $x$ et $y$ de $K$ variables binaires, la **distance de Jaccard** est donnée par 
+$$d(x, y) = 1 - J(x, y).$$
+
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Preuve
+
+Pour montrer que la distance de Jaccard est bien une distance, on doit montrer les quatres propriétés des distances. Notons d'abord que la distance de Jaccard peut se réécrire comme 
+$$d(x, y) = \frac{M_{10} + M_{01}}{M_{01} + M_{10} + M_{11}}.$$
+
+1. Tous les termes au numérateur et au dénominateur sont positifs, donc $d(x, y) \geq 0$.
+
+2. Montrons que $d(x, y) = 0 \Leftrightarrow x = y$.
+
+Supposons que $d(x, y) = 0$. Alors $M_{01} + M_{10} = 0$. Donc, il n'y a pas de variables qui valent $0$ pour $x$ et $1$ pour $y$ et inversement. Comme $M_{01} + M_{10} + M_{11} > 0$, on a $x = y$.
+
+Maintenant, supposons que $x = y$. Alors $M_{01} = M_{10} = 0$. Donc $d(x, y) = 0$.
+
+3. On a que $d(x, y) = d(y, x)$ car l'indice de Jaccard est symétrique.
+
+4. La preuve de l'inégalité triangulaire sera faite en exercice (cf. [TD](../../td/02-revision-td.qmd)
 
 :::
 
 ::: {.callout-note icon=false}
 ## Exemple
 
-Prenons un questionnaire de $5$ questions fermées. Supposons que la réponse "Oui" est encodée par $1$ et la réponse "Non" est encodée par $0$. 
+Prenons un questionnaire de $5$ questions fermées. Supposons que la réponse "Oui" soit encodée par $1$ et la réponse "Non" soit encodée par $0$. 
 
 | Nom | Q1 | Q2 | Q3 | Q4 | Q5 |
 | :-: | --:| --:| --:| --:| --:|
 | Alice | 1 | 0 | 1 | 0 | 0 |
 | Bob   | 1 | 0 | 0 | 1 | 0 |
 
-Pour la distance entre Alice et Bob, on a $M_{11} = 1$, $M_{10} = 1$, $M_{01} = 1$ et $M_{00} = 2$. Donc $d(\text{Alice}, \text{Bob}) = \frac{1}{3}$.
+: Caractéristiques de deux personnes. {#tbl-carac2}
+
+Pour la distance entre Alice et Bob, on a $M_{11} = 1$, $M_{10} = 1$, $M_{01} = 1$ et $M_{00} = 2$. Donc, la similarité de Jaccard est donnée par $J(\text{Alice}, \text{Bob}) = \frac{1}{3}$. Ainsi, la distance de Jaccard est $d(\text{Alice}, \text{Bob}) = 1 - J(x, y) = \frac{2}{3}$.
 
 :::
+
+
