@@ -36,18 +36,6 @@
     "text": "This page is inspired by this document.\nLike R, Python is “just” a programming language, so it is possible to write Python code in a text editor and run it via a terminal. Although this is feasible, it is easier to use a code editor. While it is technically possible to use RStudio as an editor for Python, I would recommend using a specialized editor such as PyCharm. The notebook format is also very popular in Python. In this case, I would recommend the marimo library, which allows you to convert your .py files into notebooks.\nIn addition, it is best to make sure you are working with the latest stable version of Python that is compatible with the packages you are using (e.g., numpy, matplotlib, sklearn). Very often, there is a delay before the latest versions of packages are compatible with the latest version of Python. It is therefore important to share the version of the packages used with the analysis.\nRegarding documentation, the standard in Python is to follow the recommendations of PEP 257. The Sphinx library allows you to generate documentation from docstrings.\nA uniform syntax makes code much easier to read and understand. A style guide sets out standards for uniform syntax. The PEP 8 style guide is recommended in Python.\nLine breaks and indentation\nIndentation is part of Python, i.e. if...else and for blocks are defined using indentation. You can use either tabs or spaces. The choice is yours, but it is important to be consistent in your code.\nNaming convention\nThe use of single-character variable names should be avoided. Otherwise, variables, functions, methods, packages, and modules are named with lowercase letters, numbers, and the underscore _. Classes and exceptions should be named with uppercase letters to separate words (UneClasse). Constants are in uppercase.\nCode organization\nAs with R, when the code starts to get long, it is advantageous to split it into several files. For example, you can have one file per part of the analysis (one for data cleaning, one for analysis, one for visualization, etc.). You can also create several subfolders.\nSome things to do\n\nDo not make comparisons to True, False, or None.\n\n\nif attr:\n    print(\"True!\")\n\nif not attr:\n    print(\"False!\")\n\nif attr is None:\n    print(\"None!\")\n\n\nUse list comprehension when possible.\n\n\na = [3, 4, 5]\nb = [i for i in a if i &gt; 4]\n\n\nLoad a file with with. This ensures that the connection to the file is closed once it has been read.\n\n\nwith open(\"file.txt\") as f:\n    read(f)\n\n\nUse a maximum of 80 characters per line.\nUse parentheses to wrap long strings."
   },
   {
-    "objectID": "contents/generalities/03-distance.html",
-    "href": "contents/generalities/03-distance.html",
-    "title": "Distance",
-    "section": "",
-    "text": "Test",
-    "crumbs": [
-      "Modules",
-      "03 - Généralités",
-      "Distance"
-    ]
-  },
-  {
     "objectID": "contents/generalities/01-stat.html",
     "href": "contents/generalities/01-stat.html",
     "title": "Data analysis project",
