@@ -786,7 +786,7 @@ Définition de mesure de similarité
 <section id="encodage-1-parmi-k" class="level3"><h3 class="anchored" data-anchor-id="encodage-1-parmi-k">Encodage <span class="math inline">\(1\)</span> parmi <span class="math inline">\(K\)</span>
 </h3>
 <p>Lorsque l’on veut utiliser un modèle se basant sur une notion de distance entre les observations (i.e. la plupart des modèles), on doit utiliser un encodage adapté. L’<strong>encodage <span class="math inline">\(1\)</span> parmi <span class="math inline">\(K\)</span></strong> (<em>one-hot encoding</em>) consiste à encoder une variable qualitative à <span class="math inline">\(K\)</span> modalités sous la forme d’un vecteur binaire de dimension <span class="math inline">\(K\)</span>, dans lequel une seule entrée est à <span class="math inline">\(1\)</span>, les autres à <span class="math inline">\(0\)</span>. Ainsi, pour l’exemple de <span class="math inline">\(\mathcal{X} = \{ \text{Rouge, Vert, Bleu} \}\)</span>, on obtiendra l’encodage suivant: “Rouge” donne <span class="math inline">\((1, 0, 0)\)</span>, “Vert” donne <span class="math inline">\((0, 1, 0)\)</span> et “Bleu” donne <span class="math inline">\((0, 0, 1)\)</span>.</p>
-<p>Cette méthode d’encodage a l’avantage de ne pas introduire d’ordre artificiel entre les modalités. Si la variable a beaucoup de modalités, l’espace de représentation de grande dimension, ce qui peut nuire à l’efficacité de certaines méthodes d’analyse.</p>
+<p>Cette méthode d’encodage a l’avantage de ne pas introduire d’ordre artificiel entre les modalités. Cependant, si la variable a beaucoup de modalités, l’espace de représentation sera de grande dimension, ce qui peut nuire à l’efficacité de certaines méthodes d’analyse.</p>
 </section><section id="définir-une-distance-adaptée" class="level3"><h3 class="anchored" data-anchor-id="définir-une-distance-adaptée">Définir une distance adaptée</h3>
 <p>Une fois les modalités encodées, on peut définir une distance entre deux observations de variables qualitatives.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -878,27 +878,67 @@ Exemple
 </div>
 </div>
 </section><section id="distance-de-jaccard" class="level3"><h3 class="anchored" data-anchor-id="distance-de-jaccard">Distance de Jaccard</h3>
-<p>La distance de Jaccard est une mesure très utilisée dans le cas d’observations binaires. Elle prend mieux en compte ces cas par rapport à la distance discrète.</p>
+<p>Lorsque le nombre de variables binaires est grand (e.g. dans le cas où un encodage <span class="math inline">\(1\)</span> parmi <span class="math inline">\(K\)</span> a été fait sur <span class="math inline">\(p\)</span> variables qualitatives), la distance discrète n’est pas forcément très adaptée car le nombre d’accords risque d’être petit par rapport au nombre total de variables (<span class="math inline">\(K \times p\)</span> dans l’exemple précédent), ce qui va donner de petites distances dans tous les cas. Une des solutions est de se concentrer uniquement sur les attributs qui valent <span class="math inline">\(1\)</span>, car généralement, une variable binaire à <span class="math inline">\(0\)</span> n’apporte pas spécialement d’information (en tout cas, moins qu’une variable binaire à <span class="math inline">\(1\)</span>). L’indice de Jaccard (<em>Intersection over Union</em>, IoU) a été introduit pour prendre cela en compte.</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Définition
+Définition : Indice de Jaccard
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Considérons deux observations <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> de <span class="math inline">\(K\)</span> variables binaires. Chaques variables peut prendre les valeurs <span class="math inline">\(0\)</span> et <span class="math inline">\(1\)</span>.</p>
+<p>Considérons deux observations <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span> de <span class="math inline">\(K\)</span> variables binaires. Toutes les variables peuvent prendre les valeurs <span class="math inline">\(0\)</span> et <span class="math inline">\(1\)</span>.</p>
 <p>Définissons les quantités suivantes :</p>
 <ul>
-<li><p><span class="math inline">\(M_{11}\)</span>, le nombre de variables à <span class="math inline">\(1\)</span> pour <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span>;</p></li>
-<li><p><span class="math inline">\(M_{10}\)</span>, le nombre de variables à <span class="math inline">\(1\)</span> pour <span class="math inline">\(X\)</span> et <span class="math inline">\(0\)</span> pour <span class="math inline">\(Y\)</span>;</p></li>
-<li><p><span class="math inline">\(M_{01}\)</span>, le nombre de variables à <span class="math inline">\(0\)</span> pour <span class="math inline">\(X\)</span> et <span class="math inline">\(1\)</span> pour <span class="math inline">\(Y\)</span>;</p></li>
-<li><p><span class="math inline">\(M_{00}\)</span>, le nombre de variables à <span class="math inline">\(0\)</span> pour <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span>.</p></li>
+<li><p><span class="math inline">\(M_{11}\)</span>, le nombre de variables à <span class="math inline">\(1\)</span> pour <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span>;</p></li>
+<li><p><span class="math inline">\(M_{10}\)</span>, le nombre de variables à <span class="math inline">\(1\)</span> pour <span class="math inline">\(x\)</span> et <span class="math inline">\(0\)</span> pour <span class="math inline">\(y\)</span>;</p></li>
+<li><p><span class="math inline">\(M_{01}\)</span>, le nombre de variables à <span class="math inline">\(0\)</span> pour <span class="math inline">\(x\)</span> et <span class="math inline">\(1\)</span> pour <span class="math inline">\(y\)</span>;</p></li>
+<li><p><span class="math inline">\(M_{00}\)</span>, le nombre de variables à <span class="math inline">\(0\)</span> pour <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span>.</p></li>
 </ul>
-<p>Chaque variable binaire est forcément comptée, soit dans <span class="math inline">\(M_{11}\)</span>, soit dans <span class="math inline">\(M_{10}\)</span>, soit dans <span class="math inline">\(M_{01}\)</span>, soit dans <span class="math inline">\(M_{00}\)</span>. Donc <span class="math inline">\(K = M_{11} + M_{10} + M_{01} + M_{00}\)</span>.</p>
-<p>La <strong>distance de Jaccard</strong> est définie comme <span class="math display">\[d(x, y) = \frac{M_{11}}{M_{10} + M_{01} + M_{11}} = \frac{M_{11}}{K - M_{00}}.\]</span></p>
+<p>Chaque variable binaire étant forcément comptée, soit dans <span class="math inline">\(M_{11}\)</span>, soit dans <span class="math inline">\(M_{10}\)</span>, soit dans <span class="math inline">\(M_{01}\)</span>, soit dans <span class="math inline">\(M_{00}\)</span>, leur somme est donc égale à <span class="math inline">\(K\)</span>.</p>
+<p>L’<strong>indice de Jaccard</strong> est défini comme <span class="math display">\[J(x, y) = \frac{M_{11}}{M_{10} + M_{01} + M_{11}} = \frac{M_{11}}{K - M_{00}}.\]</span></p>
+</div>
+</div>
+<p>En faisant attention au cas où les deux observations ne sont constituées que de <span class="math inline">\(0\)</span> (on prend <span class="math inline">\(J(x, y) = 1\)</span> dans ce cas), l’indice de Jaccard est une mesure de similarité.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Propriété : Distance de Jaccard
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour deux observations <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span> de <span class="math inline">\(K\)</span> variables binaires, la <strong>distance de Jaccard</strong> est donnée par <span class="math display">\[d(x, y) = 1 - J(x, y).\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Preuve
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Pour montrer que la distance de Jaccard est bien une distance, on doit montrer les quatres propriétés des distances. Notons d’abord que la distance de Jaccard peut se réécrire comme <span class="math display">\[d(x, y) = \frac{M_{10} + M_{01}}{M_{01} + M_{10} + M_{11}}.\]</span></p>
+<ol type="1">
+<li><p>Tous les termes au numérateur et au dénominateur sont positifs, donc <span class="math inline">\(d(x, y) \geq 0\)</span>.</p></li>
+<li><p>Montrons que <span class="math inline">\(d(x, y) = 0 \Leftrightarrow x = y\)</span>.</p></li>
+</ol>
+<p>Supposons que <span class="math inline">\(d(x, y) = 0\)</span>. Alors <span class="math inline">\(M_{01} + M_{10} = 0\)</span>. Donc, il n’y a pas de variables qui valent <span class="math inline">\(0\)</span> pour <span class="math inline">\(x\)</span> et <span class="math inline">\(1\)</span> pour <span class="math inline">\(y\)</span> et inversement. Comme <span class="math inline">\(M_{01} + M_{10} + M_{11} &gt; 0\)</span>, on a <span class="math inline">\(x = y\)</span>.</p>
+<p>Maintenant, supposons que <span class="math inline">\(x = y\)</span>. Alors <span class="math inline">\(M_{01} = M_{10} = 0\)</span>. Donc <span class="math inline">\(d(x, y) = 0\)</span>.</p>
+<ol start="3" type="1">
+<li><p>On a que <span class="math inline">\(d(x, y) = d(y, x)\)</span> car l’indice de Jaccard est symétrique.</p></li>
+<li><p>La preuve de l’inégalité triangulaire sera faite en exercice (cf. <a href="../../td/02-revision-td.html">TD</a></p></li>
+</ol>
+</div>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -911,7 +951,11 @@ Exemple
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Prenons un questionnaire de <span class="math inline">\(5\)</span> questions fermées. Supposons que la réponse “Oui” est encodée par <span class="math inline">\(1\)</span> et la réponse “Non” est encodée par <span class="math inline">\(0\)</span>.</p>
+<p>Prenons un questionnaire de <span class="math inline">\(5\)</span> questions fermées. Supposons que la réponse “Oui” soit encodée par <span class="math inline">\(1\)</span> et la réponse “Non” soit encodée par <span class="math inline">\(0\)</span>.</p>
+<div id="tbl-carac2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-carac2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table 2: Caractéristiques de deux personnes.
+</figcaption><div aria-describedby="tbl-carac2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <thead><tr class="header">
 <th style="text-align: center;">Nom</th>
@@ -940,7 +984,10 @@ Exemple
 </tr>
 </tbody>
 </table>
-<p>Pour la distance entre Alice et Bob, on a <span class="math inline">\(M_{11} = 1\)</span>, <span class="math inline">\(M_{10} = 1\)</span>, <span class="math inline">\(M_{01} = 1\)</span> et <span class="math inline">\(M_{00} = 2\)</span>. Donc <span class="math inline">\(d(\text{Alice}, \text{Bob}) = \frac{1}{3}\)</span>.</p>
+</div>
+</figure>
+</div>
+<p>Pour la distance entre Alice et Bob, on a <span class="math inline">\(M_{11} = 1\)</span>, <span class="math inline">\(M_{10} = 1\)</span>, <span class="math inline">\(M_{01} = 1\)</span> et <span class="math inline">\(M_{00} = 2\)</span>. Donc, la similarité de Jaccard est donnée par <span class="math inline">\(J(\text{Alice}, \text{Bob}) = \frac{1}{3}\)</span>. Ainsi, la distance de Jaccard est <span class="math inline">\(d(\text{Alice}, \text{Bob}) = 1 - J(x, y) = \frac{2}{3}\)</span>.</p>
 </div>
 </div>
 
