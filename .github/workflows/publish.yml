@@ -26,6 +26,7 @@ jobs:
         with: 
           packages: |
             github::ropensci-review-tools/babelquarto
+            any::tidyverse
 
       - name: Install Python and Dependencies
         uses: actions/setup-python@v5
