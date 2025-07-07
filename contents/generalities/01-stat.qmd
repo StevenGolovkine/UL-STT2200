@@ -179,9 +179,9 @@ Ce cours concerne l'élaboration et la validation de modèles. Pour l'instant, o
 
 2. Une **distance** (ou similarité): elle permet de comparer les observations entre elles.
 
-3. un **modèle** (ou algorithme): c'est la méthode utilisée pour apprendre à partir des données.
+3. Un **modèle** (ou algorithme): c'est la méthode utilisée pour apprendre à partir des données.
 
-4. une **fonction de coût**: elle meusre la qualité du modèle.
+4. Une **fonction de coût**: elle meusre la qualité du modèle.
 
 Ces éléments seront étudiés en détails dans les sections suivantes du cours.
 
