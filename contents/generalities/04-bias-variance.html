@@ -476,7 +476,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/generalities/05-model-evaluation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Evaluation de modeles</span></a>
+ <span class="menu-text">Évaluation de modeles</span></a>
   </div>
 </li>
       </ul>
@@ -658,7 +658,6 @@ window.Quarto = {
 <li><a href="#que-souhaite-t-on-faire" id="toc-que-souhaite-t-on-faire" class="nav-link active" data-scroll-target="#que-souhaite-t-on-faire">Que souhaite-t-on faire ?</a></li>
   <li><a href="#mesurer-la-qualit%C3%A9-de-lajustement" id="toc-mesurer-la-qualité-de-lajustement" class="nav-link" data-scroll-target="#mesurer-la-qualité-de-lajustement">Mesurer la qualité de l’ajustement</a></li>
   <li><a href="#compromis-biaisvariance" id="toc-compromis-biaisvariance" class="nav-link" data-scroll-target="#compromis-biaisvariance">Compromis biais/variance</a></li>
-  <li><a href="#un-mot-sur-le-cas-de-variables-qualitatives" id="toc-un-mot-sur-le-cas-de-variables-qualitatives" class="nav-link" data-scroll-target="#un-mot-sur-le-cas-de-variables-qualitatives">Un mot sur le cas de variables qualitatives</a></li>
   </ul>
 <div class="toc-actions"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
@@ -691,7 +690,7 @@ window.Quarto = {
 
 </header><p>Cette section est basée sur <span class="citation" data-cites="jamesIntroductionStatisticalLearning2021">James et al. (<a href="#ref-jamesIntroductionStatisticalLearning2021" role="doc-biblioref">2021</a>)</span>, chapitre 2.</p>
 <section id="que-souhaite-t-on-faire" class="level2"><h2 class="anchored" data-anchor-id="que-souhaite-t-on-faire">Que souhaite-t-on faire ?</h2>
-<p>Supposons que l’on observe une variable réponse, notée <span class="math inline">\(Y\)</span>, pouvant être quantitative, qualitative ou autre et <span class="math inline">\(p\)</span> variables explicatives, notées <span class="math inline">\(X_{1}, \dots, X_{p}\)</span>, pouvant aussi être quantitatives, qualitatives ou autres. On suppose aussi qu’il existe une certaine relation entre <span class="math inline">\(Y\)</span> et <span class="math inline">\(X = (X_{1}, \dots, X_{p})\)</span>. Cette relation peut s’écrire de façon gérérale comme <span id="eq-model"><span class="math display">\[Y = f(X) + \epsilon. \tag{1}\]</span></span> Ici, <span class="math inline">\(f\)</span> est une fonction de <span class="math inline">\(X_{1}, \dots, X_{p}\)</span> que l’on souhaite estimer à l’aide des données et <span class="math inline">\(\epsilon\)</span> est un terme d’erreur. Dans le cadre de ce cours, on supposera que <span class="math inline">\(\epsilon\)</span> est indépendent de <span class="math inline">\(X\)</span> et sa moyenne est nulle. Le modèle <a href="#eq-model" class="quarto-xref">Équation 1</a> est un modèle général dans le sens où tout ce que l’on va faire peut s’écrire sous cette forme, bien que l’on ne soit pas toujours capable de donner une équation pour <span class="math inline">\(f\)</span>. La fonction <span class="math inline">\(f\)</span> représente l’information systématique que <span class="math inline">\(X\)</span> donne à propos de <span class="math inline">\(Y\)</span>.</p>
+<p>Supposons que l’on observe une variable réponse, notée <span class="math inline">\(Y\)</span>, pouvant être quantitative, qualitative ou autre et <span class="math inline">\(p\)</span> variables explicatives, notées <span class="math inline">\(X_{1}, \dots, X_{p}\)</span>, pouvant aussi être quantitatives, qualitatives ou autres. On suppose aussi qu’il existe une certaine relation entre <span class="math inline">\(Y\)</span> et <span class="math inline">\(X = (X_{1}, \dots, X_{p})\)</span>. Cette relation peut s’écrire de façon gérérale comme <span id="eq-model"><span class="math display">\[Y = f(X) + \epsilon. \tag{1}\]</span></span> Ici, <span class="math inline">\(f\)</span> est une fonction de <span class="math inline">\(X_{1}, \dots, X_{p}\)</span> que l’on souhaite estimer à l’aide des données et <span class="math inline">\(\varepsilon\)</span> est un terme d’erreur. Dans le cadre de ce cours, on supposera que la variable aléatoire <span class="math inline">\(\varepsilon\)</span> est indépendente de <span class="math inline">\(X\)</span> et que sa moyenne est nulle et sa variance <span class="math inline">\(\sigma^2\)</span>. Le modèle <a href="#eq-model" class="quarto-xref">Équation 1</a> est un modèle général dans le sens où tout ce que l’on va faire dans le cadre de ce cours peut s’écrire sous cette forme, bien que l’on ne soit pas toujours capable de donner une équation pour <span class="math inline">\(f\)</span>. La fonction <span class="math inline">\(f\)</span> représente l’information systématique que <span class="math inline">\(X\)</span> donne à propos de <span class="math inline">\(Y\)</span>. La <a href="#fig-model" class="quarto-xref">Figure 1</a> présente les différents éléments du modèle de façon visuel.</p>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required package</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
@@ -730,12 +729,12 @@ window.Quarto = {
 <img src="04-bias-variance_files/figure-html/fig-model-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 1: Différent éléments du modèle. Les points représentent les données observées <span class="math inline">\((X, Y)\)</span>. La courbe bleue représente la fonction <span class="math inline">\(f\)</span> et les lignes pointillées représentent l’erreur associée à chaque observation.
+Figure 1: Les différents éléments du modèle. Les points représentent les données observées <span class="math inline">\((X, Y)\)</span>. La courbe bleue représente la fonction <span class="math inline">\(f\)</span> et les lignes pointillées représentent l’erreur associée à chaque observation.
 </figcaption></figure>
 </div>
 </div>
 </div>
-<p>Dans la suite du cours, on verra quelques méthodes permettant d’estimer la fonction <span class="math inline">\(f\)</span>. Avant de voir comment estimer <span class="math inline">\(f\)</span>, on va supposer que l’on a déjà un estimateur, noté <span class="math inline">\(\widehat{f}\)</span>, estimé à partir de <span class="math inline">\(n\)</span> observations de <span class="math inline">\((X, Y)\)</span> et on va s’intéresser à la qualité de cet estimateur.</p>
+<p>Dans la suite du cours, on verra quelques méthodes permettant d’estimer la fonction <span class="math inline">\(f\)</span>. Cependant avant de voir comment estimer <span class="math inline">\(f\)</span>, on va supposer que l’on a déjà un estimateur, noté <span class="math inline">\(\widehat{f}\)</span>, estimé à partir de <span class="math inline">\(n\)</span> observations de <span class="math inline">\((X, Y)\)</span> et on va s’intéresser à la qualité de cet estimateur.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -759,11 +758,24 @@ Remarque : Compromis exactitude / interprétabilité
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Dépendent de l’objectif de l’étude, on peut devoir faire un choix entre l’exactitude de nos prédictions et l’interprétabilité de notre modèle. En effet, si on restreint notre modèle à être linéaire, nos paramètres seront interprétables et même visualisable, mais ce sera peut-être au détriment du pouvoir prédictif du modèle, e.g. si la vraie relation entre <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> n’est pas linéaire. Inversement, un modèle pouvant estimer des relations plus compliqué (et donc plus flexible) aura plus de paramètres et donc sera plus difficile à interpréter.</p>
+<p>Dépendent de l’objectif de l’étude, on peut devoir faire un choix entre l’exactitude de nos prédictions et l’interprétabilité de notre modèle. En effet, si on restreint notre modèle à être linéaire, nos paramètres seront interprétables et même visualisable, mais ce sera peut-être au détriment du pouvoir prédictif du modèle, e.g. si la “vraie” relation entre <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> n’est pas linéaire. Inversement, un modèle pouvant estimer des relations plus compliqué (et donc plus flexible) aura plus de paramètres et donc sera plus difficile à interpréter.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Remarque : <em>No free lunch in statistics</em>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On pourrait se demander pourquoi cette discussion sur différents estimateurs de <span class="math inline">\(f\)</span> et la mesure de leur qualité d’ajustement. En effet, pourquoi ne pas juste consider un unique “meilleur” modèle ? La réponse est simple : il n’existe pas de méthode qui domine toutes les autres sur tous les jeux de données. Ainsi, une méthode peut très bien fonctionner sur un certain jeu de données et pas du tout sur d’autre jeu de données. Et même en ne considérant qu’un jeu de données, en fonction de l’objectif de l’étude (explication, prédiction, classification, …), le meilleur modèle peut être différent.</p>
 </div>
 </div>
 </section><section id="mesurer-la-qualité-de-lajustement" class="level2"><h2 class="anchored" data-anchor-id="mesurer-la-qualité-de-lajustement">Mesurer la qualité de l’ajustement</h2>
-<p>Pour évaluer la qualité de notre estimateur <span class="math inline">\(\widehat{f}\)</span>, on a besoin d’une mesure nous indiquant à si nos prédictions, <span class="math inline">\(\widehat{y}\)</span>, sont proches des données observées. Dit autrement, on cherche à quantifier si la réponse prédite pour chaque observation est proche de la vraie réponse pour cette observation.</p>
+<p>Pour évaluer la qualité de notre estimateur <span class="math inline">\(\widehat{f}\)</span>, on a besoin d’une mesure nous indiquant si nos prédictions, <span class="math inline">\(\widehat{Y} = \widehat{f}(X)\)</span>, sont proches des données observées. Dit autrement, on cherche à quantifier si la réponse prédite pour chaque observation est proche de la vraie réponse pour cette observation.</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -774,10 +786,86 @@ Définition : Erreur quadratique moyenne
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Dans le cas où <span class="math inline">\(Y\)</span> est une variable quantitative, une mesure de la qualité de <span class="math inline">\(\widehat{f}\)</span> est l’<strong>erreur quadratique moyenne</strong> (<em>mean square error</em>, MSE). Celle-ci est défini comme <span class="math display">\[MSE(Y, \widehat{Y}) = \frac{1}{n} \sum_{i = 1}^{n} \left( y_i - \widehat{y}_i\right)^2 = \frac{1}{n} \sum_{i = 1}^{n} \left( y_i - \widehat{f}(x_i) \right)^2,\]</span> où <span class="math inline">\(\widehat{y}_i = \widehat{f}(x_i)\)</span> est la prédiction que <span class="math inline">\(\widehat{f}\)</span> donne pour l’observation <span class="math inline">\(i\)</span>.</p>
+<p>Dans le cas où <span class="math inline">\(Y\)</span> est une variable quantitative, une mesure de la qualité de l’estimateur <span class="math inline">\(\widehat{f}\)</span> est l’<strong>erreur quadratique moyenne</strong> (<em>mean square error</em>, MSE). Celle-ci est définie comme <span class="math display">\[MSE(Y, \widehat{Y}) = \frac{1}{n} \sum_{i = 1}^{n} \left( y_i - \widehat{y}_i\right)^2 = \frac{1}{n} \sum_{i = 1}^{n} \left( y_i - \widehat{f}(x_i) \right)^2,\]</span> où <span class="math inline">\(\widehat{y}_i = \widehat{f}(x_i)\)</span> est la prédiction que <span class="math inline">\(\widehat{f}\)</span> donne pour l’observation <span class="math inline">\(i\)</span>.</p>
 </div>
 </div>
 <p>L’idée est que la MSE sera petite si les réponses prédites sont proches des vraies réponses et grande si elles ne le sont pas. On peut aussi voir la MSE comme une mesure de la distance moyenne entre les vraies valeurs et les valeurs prédites. On cherche donc à avoir une distance moyenne petite.</p>
+<p>L’erreur quadratique moyenne est une bonne mesure dans le cas de variables quantitatives, cependant, elle n’est pas utilisable avec des variables qualitatives. Dans ce cas, une mesure populaire est le taux d’erreur.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Définition: Taux d’erreur
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Dans le cas où <span class="math inline">\(Y\)</span> est une variable qualitative, une mesure de la qualité de l’estimateur <span class="math inline">\(\widehat{f}\)</span> est le <strong>taux d’erreur</strong> (<em>error rate</em>, ER). Celle-ci est définie comme <span class="math display">\[ER(Y, \widehat{Y}) = \frac{1}{n} \sum_{i = 1}^{n} \mathbb{1}(y_i \neq \widehat{y}_i) = \frac{1}{n} \sum_{i = 1}^{n} \mathbb{1}(y_i \neq \widehat{f}(x_i)).\]</span> où <span class="math inline">\(\widehat{y}_i = \widehat{f}(x_i)\)</span> est la prédiction que <span class="math inline">\(\widehat{f}\)</span> donne pour l’observation <span class="math inline">\(i\)</span>.</p>
+</div>
+</div>
+<p>Dans la même idée que la MSE, l’ER est la proportion d’erreur qui sont faites par l’estimateur <span class="math inline">\(\widehat{f}\)</span>. C’est aussi une mesure de la distance moyenne entre les vraies valeurs et les valeurs prédites.</p>
+</section><section id="compromis-biaisvariance" class="level2"><h2 class="anchored" data-anchor-id="compromis-biaisvariance">Compromis biais/variance</h2>
+<p>Lorsque l’on cherche à minimiser l’erreur quadratique moyenne (ou le taux d’erreur), on cherche à le faire sur les données observées, mais aussi sur les éventuelles futures observations de même processus. Il se trouve que, après avoir choisi un estimateur <span class="math inline">\(\widehat{f}\)</span>, on peut décomposer l’espérance de l’erreur en trois quantités : un terme de biais de <span class="math inline">\(\widehat{f}\)</span> au carré, un terme de variance de <span class="math inline">\(\widehat{f}\)</span> et un terme correspondant à la variance de l’erreur <span class="math inline">\(\sigma^2\)</span>.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Compromis biais/variance
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ayant un estimateur <span class="math inline">\(\widehat{f}\)</span> de <span class="math inline">\(f\)</span>, l’espérance de l’erreur de l’estimateur peut se décomposer de la façon suivante :</p>
+<p><span class="math display">\[\mathbb{E}\left[ (Y - \widehat{Y})^2 \right] = \mathbb{E}\left[ (Y - \widehat{f}(X))^2 \right] = \mathrm{Var}(\widehat{f}(X)) + \mathrm{Biais}(\widehat{f}(X))^2 + \sigma^2.\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Preuve
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Tout d’abord, montrons que l’espérance de l’erreur de l’estimateur se décompose en une partie réductible et en une partie irréductible.</p>
+<p><span class="math display">\[\begin{align*}
+\mathbb{E}\left[ \left( Y - \widehat{Y} \right)^2 \right]
+&amp;= \mathbb{E}\left[ \left( Y - \widehat{f}(X) \right)^2 \right] \\
+&amp;= \mathbb{E}\left[ \left( f(X) + \varepsilon - \widehat{f}(X) \right)^2 \right] \\
+&amp;= \mathbb{E}\left[ \left( f(X) - \widehat{f}(X) \right)^2 \right] + 2\mathbb{E}\left[ \left( f(X) - \widehat{f}(X) \right)\varepsilon \right] + \mathbb{E}[\varepsilon^2] \\
+&amp;= \mathbb{E}\left[ \left( f(X) - \widehat{f}(X) \right)^2 \right] + 2\mathbb{E}\left[ \left( f(X) - \widehat{f}(X) \right) \right] \underbrace{\mathbb{E}\left[ \varepsilon \right]}_{= 0} + \sigma^2 \\
+&amp;= \underbrace{\mathbb{E}\left[ \left( f(X) - \widehat{f}(X) \right)^2 \right]}_{\text{réductible}} + \underbrace{\sigma^2}_{\text{irréductible}}.
+\end{align*}\]</span></p>
+<p>On utilise la linéarité de l’espérance et le fait que <span class="math inline">\(X\)</span> et <span class="math inline">\(\varepsilon\)</span> soient indépendants. On s’intéresse maintenant à la partie “réductible”. L’astuce est de faire apparaître <span class="math inline">\(\mathbb{E}\left[ \widehat{f}(X) \right]\)</span>.</p>
+<p><span class="math display">\[\begin{align*}
+\mathbb{E}\left[ \left( f(X) - \widehat{f}(X) \right)^2 \right]
+  &amp;= \mathbb{E}\left[ \left( f(X) - \mathbb{E}\left[ \widehat{f}(X) \right] + \mathbb{E}\left[ \widehat{f}(X) \right] - \widehat{f}(X) \right)^2 \right] \\
+  &amp;= \underbrace{\mathbb{E}\left[ \left( f(X) - \mathbb{E}\left[ \widehat{f}(X) \right] \right)^2 \right]}_{\text{A}} \\
+  &amp;\quad - 2 \underbrace{\mathbb{E}\left[ \left( f(X) - \mathbb{E}\left[ \widehat{f}(X) \right] \right) \left( \widehat{f}(X) - \mathbb{E}\left[ \widehat{f}(X) \right] \right) \right]}_{\text{B}} \\
+  &amp;\quad + \underbrace{\mathbb{E}\left[ \left( \widehat{f}(X) - \mathbb{E}\left[ \widehat{f}(X) \right] \right)^2 \right]}_{\text{C}}.
+\end{align*}\]</span></p>
+<p>A. La fonction <span class="math inline">\(f(X)\)</span> n’étant pas aléatoire, on a <span class="math inline">\(\mathbb{E}\left[ f(X) \right] = f(X)\)</span> et donc</p>
+<p><span class="math display">\[\begin{align*}
+\mathbb{E}\left[ \left( f(X) - \mathbb{E}\left[ \widehat{f}(X) \right] \right)^2 \right]
+  &amp;= \mathbb{E}\left[ \left( \mathbb{E}\left[ f(X) - \widehat{f}(X) \right] \right)^2 \right] \\
+  &amp;= \mathbb{E}\left[ f(X) - \widehat{f}(X) \right]^2 \\
+  &amp;= \text{Biais}(\widehat{f}(X))^2.
+\end{align*}\]</span></p>
+<p>B. En développant l’expression et en utilisant l’indépendance des variables, on trouve que <span class="math inline">\(B = 0\)</span>.</p>
+<p>C. En utilisant la définition de la variance,</p>
+<p><span class="math display">\[\mathbb{E}\left[ \left( \widehat{f}(X) - \mathbb{E}\left[ \widehat{f}(X) \right] \right)^2 \right] = \mathrm{Var}(\widehat{f}).\]</span></p>
+<p>Finalement, on a</p>
+<p><span class="math display">\[\mathbb{E}\left[ \left( f(X) - \widehat{f}(X) \right)^2 \right] = \text{Biais}(\widehat{f}(X))^2. + \mathrm{Var}(\widehat{f}(X)).\]</span></p>
+<p>D’où le résultat.</p>
+</div>
+</div>
+</div>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
@@ -907,60 +995,6 @@ Figure 3: Compromis biais/variance
 </div>
 </div>
 </div>
-</section><section id="compromis-biaisvariance" class="level2"><h2 class="anchored" data-anchor-id="compromis-biaisvariance">Compromis biais/variance</h2>
-<div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Compromis biais/variance
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><span class="math display">\[\mathbb{E}\left[ (Y - \widehat{Y})^2 \right] = \mathrm{Var}(\widehat{Y}) + \left( Y - \mathbb{E}(\widehat{Y}) \right)^2 + \sigma^2.\]</span></p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Preuve
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><span class="math display">\[\begin{align*}
-\mathbb{E}\left[ \left( Y - \widehat{Y} \right)^2 \right]
-&amp;= \mathbb{E}\left[ \left( Y - \widehat{f}(X) \right)^2 \right] \\
-&amp;= \mathbb{E}\left[ \left( f(X) + \varepsilon - \widehat{f}(X) \right)^2 \right] \\
-&amp;= \mathbb{E}\left[ \left( \underbrace{f(X) - \widehat{f}(X)}_{\text{erreur estimation}} + \varepsilon \right)^2 \right] \\
-&amp;= \mathbb{E}\left[ \left( f(X) - \widehat{f}(X) \right)^2 \right] \\
-  &amp;~+ 2\mathbb{E}\left[ \left( f(X) - \widehat{f}(X) \right)\varepsilon \right] \\
-  &amp;~+ \mathbb{E}[\varepsilon^2].
-\end{align*}\]</span></p>
-</div>
-</div>
-</div>
-<p>On peut mesurer deux fonctions qui vont nous aider:</p>
-<ul>
-<li><p>Fonction de perte (<span class="math inline">\(L\)</span>): c’est la mesure de l’écart par rapport à ce qu’on souhaite mesurer, par example: <span class="math display">\[L(Y, f(X)) = (Y - f(X))^2.\]</span></p></li>
-<li><p>Fonction de risque : c’est la quantité que l’on cherche à minimiser. Il s’agit de l’espérance de la fonction de perte.</p></li>
-</ul>
-<p>Comment trouver <span class="math inline">\(f\)</span>:</p>
-<p>Objectif: Trouver une fonction <span class="math inline">\(\widehat{f}\)</span> qui minimise le risque.</p>
-<p>Comment: Supposer une certaine forme pour <span class="math inline">\(f(X)\)</span> et minimiser la fonction de perte de faon analytique ou numérique.</p>
-<ul>
-<li><p>Paramétrique: On donne une forme explication à <span class="math inline">\(f(X)\)</span> qui dépend de paramètres. On cherche une méthode d’estimation des paramètres.</p></li>
-<li><p>Non-paramétrique: aucune forme forme particulière de <span class="math inline">\(f\)</span>, on estime une courbe ou fonction.</p></li>
-</ul></section><section id="un-mot-sur-le-cas-de-variables-qualitatives" class="level2"><h2 class="anchored" data-anchor-id="un-mot-sur-le-cas-de-variables-qualitatives">Un mot sur le cas de variables qualitatives</h2>
-<p>On cherche à prédire <span class="math inline">\(G\)</span> (un groupe ou facteur) à partir de <span class="math inline">\(X\)</span>. Supposons que nous avons <span class="math inline">\(\widehat{G}\)</span> qui prédise le classe des observations sachant <span class="math inline">\(X\)</span>, alors on peut définir la fonction de perte (0-1) comme le nombre d’erreur que l’on a effectué: <span class="math display">\[L(G, \widehat{G}) = \mathbb{1}_{G \neq \widehat{G}}.\]</span></p>
-<p>Avec cette fonction de perte 0-1, <span class="math inline">\(\widehat{G}(x)\)</span> est la classe <span class="math inline">\(g\)</span> qui maximise <span class="math inline">\(\mathbb{P}(g | X = x)\)</span>.</p>
-<p>On peut décomposer l’erreur quadratique moyenne (EQM): <span class="math display">\[\mathbb{E}\left( (Y - \widehat{f}(x_0))^2 \right) = \text{Biais}(\widehat{f}(x_{0}))^2 + \mathrm{Var}(\widehat{f}(x_{0}) + \sigma^2_{\epsilon}.\]</span></p>
-<p>Démontrer la décomposition de l’EQM en un compromis biais variance.</p>
 
 
 
@@ -1596,8 +1630,8 @@ window.onload = function() {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../contents/generalities/05-model-evaluation.html" class="pagination-link" aria-label="Evaluation de modeles">
-        <span class="nav-page-text">Evaluation de modeles</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../contents/generalities/05-model-evaluation.html" class="pagination-link" aria-label="Évaluation de modeles">
+        <span class="nav-page-text">Évaluation de modeles</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
