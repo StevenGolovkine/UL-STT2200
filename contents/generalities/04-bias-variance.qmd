@@ -164,11 +164,20 @@ $$\mathbb{E}\left[ \left( \widehat{f}(X) - \mathbb{E}\left[ \widehat{f}(X) \righ
 
 Finalement, on a
 
-$$\mathbb{E}\left[ \left( f(X) - \widehat{f}(X) \right)^2 \right] = \text{Biais}(\widehat{f}(X))^2. + \mathrm{Var}(\widehat{f}(X)).$$
+$$\mathbb{E}\left[ \left( f(X) - \widehat{f}(X) \right)^2 \right] = \text{Biais}(\widehat{f}(X))^2 + \mathrm{Var}(\widehat{f}(X)).$$
 
 D'où le résultat.
 
 :::
+
+::: {.callout-tip icon=false}
+## Remarque
+
+Comme les trois quantités dans lesquelles on a décomposer l'espérance de l'erreur de l'estimateur sont non-négative, celle-ci est minoré par l'erreur irréductible. Elle ne peut donc jamais être inféireure à $\sigma^2$. 
+
+:::
+
+Qu'implique le compromis biais/variance ? Comme on cherche à minimiser l'espérance de l'erreur de l'estimateur, on voudrait une méthode qui nous donne à la fois un faible biais et une faible variance. Le biais est l'erreur d'approximation faite lorsque l'on approche un problème compliqué par un modèle simple. Par exemple, estimer un modèle linéaire lorsque que la relation ne l'est pas. La variance est la quantité par laquelle l'estimateur va changer si on apprend l'estimateur sur un jeu de données différents. Dit d'une autre façon, comme on estime $f$ par $\widehat{f}$ à l'aide d'un jeu de données particulier et l'estimer avec un autre jeu de données implique un estimateur $\widehat{f}$ différents. Idéalement, l'estimateur $\widehat{f}$ ne devrait pas trop changé en changeant le jeu de données d'entraînement. La @fig-plot présente un jeu de données et différents estimateurs $\widehat{f}$. En faisant varier le paramètre $\lambda$, on obtient des modèles plus ou moins flexible. La @fig-bias-variance montre la valeur du biais, de la variance et de la MSE pour les modèles estimés pour la @fig-plot. On remarque que plus $\lambda$ est petit, plus la variance est grande, mais le biais est petit (le modèle est flexible). Inversement, plus $\lambda$ est grand, plus le biais est grand est la variance petite (le modèle est rigide). La courbe de MSE en fonction du paramètre est une courbe en U. Comme on cherche à minimiser la MSE, i.e. à faire un compromis entre le biais et la variance, on peut prendre $\lambda = 0.5$. 
 
 
 ```{r}
@@ -229,7 +238,7 @@ library(ggplot2)
 library(dplyr)
 library(tidyr)
 
-set.seed(123)
+set.seed(42)
 
 # Parameters
 n <- 100              # number of observations per dataset
@@ -295,3 +304,12 @@ ggplot(results_long, aes(x = span, y = value, color = component)) +
 
 ```
 
+De manière générale, plus le modèle est flexible, plus la variance va être grande et plus le biais va être faible et inversement. Le changement relatif entre le biais et la variance indique si l'espérance de l'erreur de l'estimateur augmente ou diminue. Lorsque l'on augmente la flexibilité de notre modèle, le biais va avoir tendence à diminuer plus vite que la variance augmente et donc la MSE diminue. À un moment, augmenter la flexibilité n'a plus d'impact sur le biais mais commence à impacter la variance de façon significative. Et par conséquent, le MSE augmente. 
+
+::: {.callout-tip icon=false}
+## Remarque : Pourquoi un compromis ?
+
+On l'appelle le compromis biais/variance parcequ'il est très facile d'avoir un modèle non biaisé (s'il passe par tous les points) ou avec une variance très faible (une ligne horizontale). 
+Le compromis est donc de trouver un modèle avec la fois un modèle avec un faible biais et une faible variance. 
+
+:::

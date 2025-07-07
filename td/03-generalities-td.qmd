@@ -8,3 +8,7 @@ format:
       - \usepackage{mathtools} 
 ---
 
+
+## Exercice 1 : Preuve de la distance 
+
+## Exercice 2 : Classifieur de Bayes
