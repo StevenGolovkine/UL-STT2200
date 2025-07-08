@@ -10,16 +10,18 @@ format:
 
 Cette section est basée sur @jamesIntroductionStatisticalLearning2021, chapitre 2.
 
-## Que souhaite-t-on faire ?
+## Quel est notre objectif ?
 
-Supposons que l'on observe une variable réponse, notée $Y$, pouvant être quantitative, qualitative ou autre et $p$ variables explicatives, notées $X_{1}, \dots, X_{p}$, pouvant aussi être quantitatives, qualitatives ou autres. On suppose aussi qu'il existe une certaine relation entre $Y$ et $X = (X_{1}, \dots, X_{p})$. Cette relation peut s'écrire de façon gérérale comme 
-$$Y = f(X) + \epsilon.$$ {#eq-model}
-Ici, $f$ est une fonction de $X_{1}, \dots, X_{p}$ que l'on souhaite estimer à l'aide des données et $\varepsilon$ est un terme d'erreur. Dans le cadre de ce cours, on supposera que la variable aléatoire $\varepsilon$ est indépendente de $X$ et que sa moyenne est nulle et sa variance $\sigma^2$. Le modèle @eq-model est un modèle général dans le sens où tout ce que l'on va faire dans le cadre de ce cours peut s'écrire sous cette forme, bien que l'on ne soit pas toujours capable de donner une équation pour $f$. La fonction $f$ représente l'information systématique que $X$ donne à propos de $Y$. La @fig-model présente les différents éléments du modèle de façon visuel.
+Nous souhaitons modéliser la relation entre une variable réponse $Y$, pouvant être quantitative, qualitative ou de nature différente, et un ensemble de $p$ variables explicatives $X = (X_{1}, \dots, X_{p})$, elles aussi de (potentiellement) différents types. L'idée centrale est qu'il existe un relation entre $Y$ et les variables explicatives $X$. De manière générales, nous modélisons cette relation par le modèle :
+
+$$Y = f(X) + \varepsilon.$$ {#eq-model}
+
+Ici, $f$ est une fonction déterministe (non-aléatoire) représentant l'information systématique que les variables explicatives $X_{1}, \dots, X_{p}$ apportent sur $Y$, et $\varepsilon$ est un terme d'erreur aléatoire, modélisant les variations de $Y$ non expliquées par $X$. Dans le cadre de ce cours, nous ferons les hypothèses suivantes : la variable aléatoire $\varepsilon$ est indépendente de des variables explicatives $X$, $\mathbb{E}[\varepsilon] = 0$ et $\mathrm{Var}(\varepsilon) = \sigma^2$. Le modèle @eq-model est général. Il sert de cadre pour l'ensemble des méthodes que nous allons étudier, même lorsque la forme explicite de $f$ n'est pas connue. La @fig-model illustre les différents éléments du modèle: les données observées $(X_i, Y_i)$, la fonction $f$ (en bleu) et les écarts aléatoires $\varepsilon_i$ représentés par des lignes pointillées.
 
 
 ```{r}
 #| label: fig-model
-#| fig-cap: "Les différents éléments du modèle. Les points représentent les données observées $(X, Y)$. La courbe bleue représente la fonction $f$ et les lignes pointillées représentent l'erreur associée à chaque observation."
+#| fig-cap: "Les différents éléments du modèle. Les points représentent les données observées $(X_i, Y_i)$. La courbe bleue représente la fonction $f$ et les lignes pointillées représentent l'erreur associée à chaque observation."
 #| warning: false
 #| eval: true
 
@@ -57,69 +59,78 @@ ggplot(data, aes(x, y)) +
 
 ```
 
-Dans la suite du cours, on verra quelques méthodes permettant d'estimer la fonction $f$. Cependant avant de voir comment estimer $f$, on va supposer que l'on a déjà un estimateur, noté $\widehat{f}$, estimé à partir de $n$ observations de $(X, Y)$ et on va s'intéresser à la qualité de cet estimateur. 
+Dans la suite du cours, nous verrons différentes méthodes permettant d'estimer la fonction $f$ à partir de données. Cependant avant d'étudier comment contruire un estimateur $\widehat{f}$ de $f$, nous allons nous interroger sur la qualité d'un tel estimateur : que signifie "bien estimer" $f$ ? Et comment évaluer la qualité de l'estimation ? 
 
 ::: {.callout-note icon=false}
-## Exemple : la régression linéaire simple 
+## Exemple : Régression linéaire simple 
 
-Dans le cadre de la régression linéaire simple, on fait l'hypothèse que la fonction $f$ est de la forme : $f(x) = a x + b$. Dans ce cas, l'estimation de la fonction $f$ se résume à l'estimation des coefficients $a$ et $b$.
+Dans ce cadre très simple, nous faisons l'hypothèse que la fonction $f$ est de la forme : $f(x) = a x + b$. Dans ce cas, l'estimation de la fonction $f$ se résume à l'estimation des coefficients $a$ et $b$.
 
 :::
 
 ::: {.callout-tip icon=false}
-## Remarque : Compromis exactitude / interprétabilité 
+## Remarque : Compromis entre exactitude et interprétabilité 
 
-Dépendent de l'objectif de l'étude, on peut devoir faire un choix entre l'exactitude de nos prédictions et l'interprétabilité de notre modèle. En effet, si on restreint notre modèle à être linéaire, nos paramètres seront interprétables et même visualisable, mais ce sera peut-être au détriment du pouvoir prédictif du modèle, e.g. si la "vraie" relation entre $X$ et $Y$ n'est pas linéaire. Inversement, un modèle pouvant estimer des relations plus compliqué (et donc plus flexible) aura plus de paramètres et donc sera plus difficile à interpréter. 
+Dépendant de l'objectif de l'étude, nous devons généralement faire un choix entre l'exactitude de nos prédictions et l'interprétabilité de notre modèle. Un modèle simple, comme la régression linéaire, sera facile à interpréter mais capturera mal des relations complexes. À l'inverse, un modèle plus flexible, comme une forêt aléatoire, aura de meilleur prédiction, mais sera plus difficilement interprétable. Le choix dépend donc de l'objectif de l'analyse : compréhension ou performance prédictive ?
 
 :::
 
 ::: {.callout-tip icon=false}
 ## Remarque : *No free lunch in statistics*
 
-On pourrait se demander pourquoi cette discussion sur différents estimateurs de $f$ et la mesure de leur qualité d'ajustement. En effet, pourquoi ne pas juste consider un unique "meilleur" modèle ? La réponse est simple : il n'existe pas de méthode qui domine toutes les autres sur tous les jeux de données. Ainsi, une méthode peut très bien fonctionner sur un certain jeu de données et pas du tout sur d'autre jeu de données. Et même en ne considérant qu'un jeu de données, en fonction de l'objectif de l'étude (explication, prédiction, classification, ...), le meilleur modèle peut être différent.
+Pourquoi ne pas simplement utiliser le modèle "ultime", celui qui serait toujours optimal quelque soit le jeu de données ? Parce qu'un tel modèle n'existe pas ! Il n'y a pas de méthode universellement meilleure pour tous les jeux de données et tous les objectifs. Une méthode performante dans un contexte donné peut échouer ailleurs. Il faut donc toujours adapter l'approche au problème (explication, prédiction, classification, ...).
 
 :::
 
-## Mesurer la qualité de l'ajustement
+## Comment mesurer la qualité d'un estimateur ? 
 
-Pour évaluer la qualité de notre estimateur $\widehat{f}$, on a besoin d'une mesure nous indiquant si nos prédictions, $\widehat{Y} = \widehat{f}(X)$, sont proches des données observées. Dit autrement, on cherche à quantifier si la réponse prédite pour chaque observation est proche de la vraie réponse pour cette observation.
+Une fois que nous disposons d'un estimateur $\widehat{f}$ de la fonction $f$, obtenu à partir de $n$ observations $(y_1, x_1), \dots, (y_n, x_n)$, nous cherchons à évaluer la précision des prédictions $\widehat{Y} = \widehat{f}(X)$. L'idée est de vérifier dans quelle mesure $\widehat{Y}$ est proche de la vraie valeur de $Y$.
+
 
 ::: {.callout-warning icon=false}
 ## Définition : Erreur quadratique moyenne 
 
-Dans le cas où $Y$ est une variable quantitative, une mesure de la qualité de l'estimateur $\widehat{f}$ est l'**erreur quadratique moyenne** (*mean square error*, MSE). Celle-ci est définie comme 
+Lorsque $Y$ est une variable quantitative, une mesure classique de la qualité de $\widehat{f}$ est l'**erreur quadratique moyenne** (*mean square error*, MSE) :
 $$MSE(Y, \widehat{Y}) = \frac{1}{n} \sum_{i = 1}^{n} \left( y_i - \widehat{y}_i\right)^2 = \frac{1}{n} \sum_{i = 1}^{n} \left( y_i - \widehat{f}(x_i) \right)^2,$$
-où $\widehat{y}_i = \widehat{f}(x_i)$ est la prédiction que $\widehat{f}$ donne pour l'observation $i$.
+où $\widehat{y}_i = \widehat{f}(x_i)$ est la prédiction que $\widehat{f}$ donne pour l'observation $x_i$.
 
 :::
 
-L'idée est que la MSE sera petite si les réponses prédites sont proches des vraies réponses et grande si elles ne le sont pas. On peut aussi voir la MSE comme une mesure de la distance moyenne entre les vraies valeurs et les valeurs prédites. On cherche donc à avoir une distance moyenne petite.  
+Une MSE faible indique que les prédictions sont proches des observations. Nous pouvons aussi l'interpréter comme la distance moyenne entre les valeurs observées et les valeurs prédites. Nous cherchons donc à avoir une distance moyenne faible.
 
-L'erreur quadratique moyenne est une bonne mesure dans le cas de variables quantitatives, cependant, elle n'est pas utilisable avec des variables qualitatives. Dans ce cas, une mesure populaire est le taux d'erreur.
+Dans le cas où $Y$ est une variable qualitative, e.g. une classe ou un label, on utilise une autre mesure : le taux d'erreur.
 
 ::: {.callout-warning icon=false}
 ## Définition: Taux d'erreur 
 
-Dans le cas où $Y$ est une variable qualitative, une mesure de la qualité de l'estimateur $\widehat{f}$ est le **taux d'erreur** (*error rate*, ER). Celle-ci est définie comme 
+Lorsque $Y$ est une variable qualitative, une mesure classique de la qualité de $\widehat{f}$ est le **taux d'erreur** (*error rate*, ER) :
 $$ER(Y, \widehat{Y}) = \frac{1}{n} \sum_{i = 1}^{n} \mathbb{1}(y_i \neq \widehat{y}_i) = \frac{1}{n} \sum_{i = 1}^{n} \mathbb{1}(y_i \neq \widehat{f}(x_i)).$$
-où $\widehat{y}_i = \widehat{f}(x_i)$ est la prédiction que $\widehat{f}$ donne pour l'observation $i$.
+où $\widehat{y}_i = \widehat{f}(x_i)$ est la prédiction que $\widehat{f}$ donne pour l'observation $x_i$.
 
 :::
 
-Dans la même idée que la MSE, l'ER est la proportion d'erreur qui sont faites par l'estimateur $\widehat{f}$. C'est aussi une mesure de la distance moyenne entre les vraies valeurs et les valeurs prédites.
+Le taux d'erreur mesure la proportion de mauvaises prédictions. Il s'agit, là encore, d'une mesure de la distance moyenne entre $Y$ et $\widehat{Y}$, adaptée aux variables qualititatives.
 
 
-## Compromis biais/variance
+## Le compromis biais/variance
 
-Lorsque l'on cherche à minimiser l'erreur quadratique moyenne (ou le taux d'erreur), on cherche à le faire sur les données observées, mais aussi sur les éventuelles futures observations de même processus. Il se trouve que, après avoir choisi un estimateur $\widehat{f}$, on peut décomposer l'espérance de l'erreur en trois quantités : un terme de biais de $\widehat{f}$ au carré, un terme de variance de $\widehat{f}$ et un terme correspondant à la variance de l'erreur $\sigma^2$.
+Notre objectif est souvent de minimiser l'erreur de prédiction, non seulement sur les données observées, mais surtout sur de nouvelles données (récupérée après avoir estimer le modèle). Pour cela, nous nous intéressons à l'erreur de prédiction :
+$$\mathbb{E}\left[ \left( Y - \widehat{Y} \right)^2 \right] = \mathbb{E}\left[ \left( Y - \widehat{f}(X) \right)^2 \right].$$
+
+Cette erreur peut se décomposer en trois composantes :
+
+* Le biais : l'erreur due à une approximation systématique, e.g. si on impose un modèle linéaire alors que la relation est non linéaire.
+
+* La variance : la sensibilité de l'estimateur aux fluctuations de l'échantillon d'apprentissage.
+
+* L'erreur irréductible : la variance intrinsèque du bruit $\varepsilon$, notée $\sigma^2$.
 
 
 ::: {.callout-important icon=false}
-## Compromis biais/variance 
+## Décomposition biais/variance 
 
-Ayant un estimateur $\widehat{f}$ de $f$, l'espérance de l'erreur de l'estimateur peut se décomposer de la façon suivante :
-
-$$\mathbb{E}\left[ (Y - \widehat{Y})^2 \right] = \mathbb{E}\left[ (Y - \widehat{f}(X))^2 \right] = \mathrm{Var}(\widehat{f}(X)) + \mathrm{Biais}(\widehat{f}(X))^2 + \sigma^2.$$
+On a :
+$$\mathbb{E}\left[ (Y - \widehat{Y})^2 \right] = \mathbb{E}\left[ (Y - \widehat{f}(X))^2 \right] = \mathrm{Biais}(\widehat{f}(X))^2 + \mathrm{Var}(\widehat{f}(X)) + \sigma^2.$$
 :::
 
 ::: {.callout-note icon=false collapse=true}
@@ -170,14 +181,14 @@ D'où le résultat.
 
 :::
 
-::: {.callout-tip icon=false}
-## Remarque
 
-Comme les trois quantités dans lesquelles on a décomposer l'espérance de l'erreur de l'estimateur sont non-négative, celle-ci est minoré par l'erreur irréductible. Elle ne peut donc jamais être inféireure à $\sigma^2$. 
+Cette décomposition met en avant un compromis fondamental en analyse de données :
 
-:::
+* Si on choisit un modèle peu flexible, le biais sera élevé, mais la variance sera faible. 
 
-Qu'implique le compromis biais/variance ? Comme on cherche à minimiser l'espérance de l'erreur de l'estimateur, on voudrait une méthode qui nous donne à la fois un faible biais et une faible variance. Le biais est l'erreur d'approximation faite lorsque l'on approche un problème compliqué par un modèle simple. Par exemple, estimer un modèle linéaire lorsque que la relation ne l'est pas. La variance est la quantité par laquelle l'estimateur va changer si on apprend l'estimateur sur un jeu de données différents. Dit d'une autre façon, comme on estime $f$ par $\widehat{f}$ à l'aide d'un jeu de données particulier et l'estimer avec un autre jeu de données implique un estimateur $\widehat{f}$ différents. Idéalement, l'estimateur $\widehat{f}$ ne devrait pas trop changé en changeant le jeu de données d'entraînement. La @fig-plot présente un jeu de données et différents estimateurs $\widehat{f}$. En faisant varier le paramètre $\lambda$, on obtient des modèles plus ou moins flexible. La @fig-bias-variance montre la valeur du biais, de la variance et de la MSE pour les modèles estimés pour la @fig-plot. On remarque que plus $\lambda$ est petit, plus la variance est grande, mais le biais est petit (le modèle est flexible). Inversement, plus $\lambda$ est grand, plus le biais est grand est la variance petite (le modèle est rigide). La courbe de MSE en fonction du paramètre est une courbe en U. Comme on cherche à minimiser la MSE, i.e. à faire un compromis entre le biais et la variance, on peut prendre $\lambda = 0.5$. 
+* Si on choisit un modèle flexible, le biais sera faible, mais la variance peut être très élevée.
+
+Notre objectif est donc de trouver un juste équilibre entre biais et variance, i.e. un modèle qui prédit correctement, tout en étant généralisable à de nouvelles données. La @fig-plot présente un jeu de données et différents estimateurs $\widehat{f}$. En faisant varier le paramètre $\lambda$, on obtient des modèles plus ou moins flexible (lorsque $\lambda = 0.15$, le modèle est flexible et lorsque $\lambda = 1$, le modèle est rigide). La @fig-bias-variance montre la valeur du biais, de la variance et de la MSE pour les modèles estimés pour la @fig-plot. On remarque que plus $\lambda$ est petit, plus la variance est grande, mais le biais est petit (le modèle est flexible). Inversement, plus $\lambda$ est grand, plus le biais est grand et la variance petite (le modèle est rigide). La courbe de MSE en fonction du paramètre est une courbe en U. Comme on cherche à minimiser la MSE, i.e. à faire un compromis entre le biais et la variance, on peut prendre $\lambda = 0.5$. 
 
 
 ```{r}
@@ -229,7 +240,7 @@ ggplot() +
 
 ```{r}
 #| label: fig-bias-variance
-#| fig-cap: "Compromis biais/variance"
+#| fig-cap: "Compromis biais/variance."
 #| warning: false
 #| eval: true
 
@@ -296,7 +307,7 @@ ggplot(results_long, aes(x = span, y = value, color = component)) +
     values = c("Biais2" = "#0D0887FF", "Variance" = "#9C179EFF", "MSE" = "#ED7953FF")
   ) +
   labs(
-    x = "Paramètre de lissage",
+    x = "Paramètre de lissage λ" ,
     y = "",
     color = ""
   ) +
@@ -304,12 +315,18 @@ ggplot(results_long, aes(x = span, y = value, color = component)) +
 
 ```
 
-De manière générale, plus le modèle est flexible, plus la variance va être grande et plus le biais va être faible et inversement. Le changement relatif entre le biais et la variance indique si l'espérance de l'erreur de l'estimateur augmente ou diminue. Lorsque l'on augmente la flexibilité de notre modèle, le biais va avoir tendence à diminuer plus vite que la variance augmente et donc la MSE diminue. À un moment, augmenter la flexibilité n'a plus d'impact sur le biais mais commence à impacter la variance de façon significative. Et par conséquent, le MSE augmente. 
+De manière générale, lorsque la flexibilité augmente, la diminution du biais est plus importante que l'augmentation de la variance, ce qui fait décroître l'erreur de prédiction. Cependant, à partir d'un certain niveau de flexibilité, le biais devient négligeable, et toute baisse supplémentaire est compensée par l'augmentation rapide de la variance. L'erreur de prédiction commence donc à croître. Il en résulte une courbe en U de l'erreur de prédiction en fonction de la flexibilité du modèle : un modèle trop rigide engendre un fort biais, tandis qu'un modèle trop flexible conduit à une trop grande variance.
+
 
 ::: {.callout-tip icon=false}
 ## Remarque : Pourquoi un compromis ?
 
-On l'appelle le compromis biais/variance parcequ'il est très facile d'avoir un modèle non biaisé (s'il passe par tous les points) ou avec une variance très faible (une ligne horizontale). 
-Le compromis est donc de trouver un modèle avec la fois un modèle avec un faible biais et une faible variance. 
+Il est toujours possible de construire un modèle très flexible avec un biais nul, e.g. un modèle qui passe par tous les points d'observations, mais qui aura une variance énorme. À l'opposé, un modèle trop rigide, e.g. une constante, aura un biais très important mais une variance presque nulle. Le compromis biais/variance consiste à choisir un modèle qui contrôle ces deux quantités. 
+
+:::
+
+
+::: {.content-visible when-format="pdf"}
+## Références
 
 :::
