@@ -663,13 +663,13 @@ window.Quarto = {
 
 </header><p>On présente ici les différentes étapes d’un projet d’analyse de données.</p>
 <section id="projet-danalyse-données" class="level2"><h2 class="anchored" data-anchor-id="projet-danalyse-données">Projet d’analyse données</h2>
-<p>Un projet d’analyse de données se déroule généralement en plusieurs phases distintes. On en décompte cinq:</p>
+<p>Un projet d’analyse de données suit généralement une structure bien définie en plusieurs étapes. Nous en dégagons ici cinq principales, chacune avec ses objectifs, ses enjeux et son importance relative dans le succès du projet :</p>
 <ol type="1">
 <li><p>Définition des objectifs</p></li>
 <li><p>Collecte et préparation des données</p></li>
 <li><p>Élaboration et validation des modèles</p></li>
-<li><p>Implémentation</p></li>
-<li><p>Suivi de la performance et amélioration</p></li>
+<li><p>Implémentation et mise en production</p></li>
+<li><p>Suivi de la performance et amélioration continue</p></li>
 </ol>
 <p>Lors de la planification d’un projet, il faut prendre en compte que chaque étape à une importance différente, mais aussi que chacune ne prend pas le même temps d’exécution. <span class="citation" data-cites="pyleDataPreparationData1999">Pyle (<a href="#ref-pyleDataPreparationData1999" role="doc-biblioref">1999</a>)</span> donne une estimation du temps de chaque étape, ainsi que de leur importance dans la réussite du projet (donné en pourcentage du total, cf. <a href="#tbl-decoupage" class="quarto-xref">Table 1</a>).</p>
 <div id="tbl-decoupage" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -718,11 +718,10 @@ Table 1: Découpage d’un projet d’analyse des données.
 </div>
 </figure>
 </div>
-<p>On remarque deux faits importants: ce n’est pas parce qu’une étape est très importante qu’elle va prendre beaucoup de temps. L’implémentation de la solution est très importante (sinon il n’y a pas de résultat), mais ne sera généralement pas très longue à faire (possiblement en quelques lignes de code). À l’inverse, la préparation des données, souvent sous-estimée, mobilise une grande partie du temps du projet, notamment pour gérer les données manquantes, les données aberrantes, ou encore les éventuels accents pour des données en français.</p>
+<p>On remarque deux faits importants. L’importance d’une étape n’est pas proportionnelle au temps passé dessus. Par exemple, l’implémentation de la solution est une étape essentielle (sinon il n’y a pas de résultat), mais peut n’exiger que peu de temps (parfois quelques lignes de code). À l’inverse, la préparation des données, souvent sous-estimée, est généralement chronophage, notamment pour gérer les données manquantes, les données aberrantes, ou encore les éventuels accents pour des données en français.</p>
 </section><section id="définition-des-objectifs" class="level2"><h2 class="anchored" data-anchor-id="définition-des-objectifs">Définition des objectifs</h2>
-<p>Avant toute chose, il faut clarifier ce que l’on cherche à obtenir. Souhaite-t-on visualiser les données ? Tester une hypothèse ? Prédire un comportement ? Segmenter une population ? Une formulation précise des objectifs est donc nécessaire pour orienter le projet.</p>
-<p>Pourquoi cette étape est-elle cruciale ? Cela permet de guider la collecte et la structuration des données. Cela permet de définir un modèle adéquat (e.g. classification, régression, …). Cela permet de faciliter l’interprétation et la communication des résultats. Cela permet d’éviter certains biais liés à une exploration aveugle des données.</p>
-<p>Comment fait-on en pratique pour formuler un bon objectif ? On pose des questions ! Tout d’abord, il faut clarifier les termes. Qui va utiliser le modèle et comment ? Quelle est la population cible ? Quelle décision sera influencée par les résultats ?</p>
+<p>Toute analyse commence par une question claire : que cherche-t-on à accomplir ? Visualiser des données ? Tester une hypothèse ? Prédire un comportement ? Segmenter une population ? Une définition précise des objectifs est essentielle pour orienter les étapes suivantes. Cela permet de guider la collecte et la structuration des données. Cela permet de définir un modèle adéquat (e.g. classification, régression, …). Cela permet de faciliter l’interprétation et la communication des résultats. Cette phase évite aussi les explorations aveugles et les interprétations biaisées.</p>
+<p>Comment fait-on en pratique pour formuler un bon objectif ? On pose des questions ! Tout d’abord, il faut clarifier les termes. Qui va utiliser le modèle et comment ? Quelle est la population cible ? Quelle décision dépendra résultats ?</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -788,7 +787,7 @@ Exemple
 <li><p>etc.</p></li>
 </ul>
 <p>Pour des données sur des sujets plus spécifiques, les agences gouvernementales sont souvent de bonnes ressources. Par exemple, le Centre Canadien de cartographie et d’observation de la terre fournit les données géospatiales du Canada (<a href="https://geo.ca/fr/accueil/?_gl=1*1hldmsu*_ga*ODI1NjQ1OTgxLjE3NDUyNDk2NDY.*_ga_C2N57Y7DX5*czE3NTAwOTQyMTckbzMkZzEkdDE3NTAwOTQyMjYkajUxJGwwJGgw">ici</a>).</p>
-<p>Lorsque que l’on travaille pour une entreprise, on a généralement accès aux sources de données internes, e.g. base de données sur la production, les clients et les employés, les listes de transactions et de clients potentiels, des informations sur les visites web.</p>
+<p>Lorsque que l’on travaille pour une entreprise, on a généralement accès aux sources de données internes, e.g. base de données sur la production, les clients et les employés, les listes de transactions et de clients potentiels, des informations sur les visites web, etc.</p>
 </section><section id="qualité" class="level3"><h3 class="anchored" data-anchor-id="qualité">Qualité</h3>
 <p>Il y a un dicton populaire en informatique, s’appliquant aussi en analyse de données: “Garbage in, garbage out”. Même le meilleur modèle ne peut compenser des données biaisées, incomplètes ou erronées.</p>
 <p>Pour nous assurer de la qualité des données, on pourra se poser les questions suivantes :</p>
@@ -797,7 +796,7 @@ Exemple
 <li><p>Sont-elles exactes, complètes, pertinentes ?</p></li>
 <li><p>Y a-t-il des valeurs manquantes, des doublons, des incohérences ?</p></li>
 </ul></section><section id="constitution-de-la-base-de-données" class="level3"><h3 class="anchored" data-anchor-id="constitution-de-la-base-de-données">Constitution de la base de données</h3>
-<p>Une fois nos données collectées, il faut les charger en mémoire pour ensuite pouvoir faire des analyses. En Python, les librairies <a href="https://pandas.pydata.org"><code>pandas</code></a> et <a href="https://pola.rs"><code>polars</code></a> permettent de lire la plupart des formats de fichiers auxquels on aura affaire. En ce qui concerne R, plusieurs packages sont utilisés selon le format (cf. <a href="#tbl-packages-R" class="quarto-xref">Table 2</a>).</p>
+<p>Une fois nos données collectées, il faut les charger en mémoire pour ensuite pouvoir faire des analyses. En Python, les librairies <a href="https://pandas.pydata.org"><code>pandas</code></a> et <a href="https://pola.rs"><code>polars</code></a> permettent de lire la plupart des formats de fichiers auxquels nous aurons affaire. En ce qui concerne R, plusieurs packages sont utilisés selon le format (cf. <a href="#tbl-packages-R" class="quarto-xref">Table 2</a>).</p>
 <div id="tbl-packages-R" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-packages-R-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table 2: Différentes libraries pour différents formats de fichiers.
@@ -857,11 +856,11 @@ Table 2: Différentes libraries pour différents formats de fichiers.
 <li><p>Un <strong>espace</strong> (mathématique) de représentation: il s’agit du cadre mathématique dans lequel on travaille.</p></li>
 <li><p>Une <strong>distance</strong> (ou similarité): elle permet de comparer les observations entre elles.</p></li>
 <li><p>Un <strong>modèle</strong> (ou algorithme): c’est la méthode utilisée pour apprendre à partir des données.</p></li>
-<li><p>Une <strong>fonction de coût</strong>: elle meusre la qualité du modèle.</p></li>
+<li><p>Une <strong>fonction de coût</strong>: elle mesure la qualité du modèle.</p></li>
 </ol>
 <p>Ces éléments seront étudiés en détails dans les sections suivantes du cours.</p>
 </section><section id="mise-en-oeuvre" class="level2"><h2 class="anchored" data-anchor-id="mise-en-oeuvre">Mise en oeuvre</h2>
-<p>Une fois le modèle choisi et validé, il peut être déployé en <strong>production</strong>. La mise en production signifie le rendre opérationnel dans un environnement réel, souvent en automatisant l’ensemble du processus de traitement des données. Généralement, cela consiste à automatiser la collecte, le nettoyage et la transformation des données, à intégrer le modèle créé dans une application ou un système décisionnel, et à générer des rapports ou des prédictions en temps réel ou à interalles réguliers. Cette partie est le domaine du <strong>data engineering</strong>. Un <strong>data engineer</strong> conçoit et maintient la <em>pipeline</em> de traitement depuis la source des données jusqu’à la sortir du modèle.</p>
+<p>Une fois le modèle choisi et validé, il peut être déployé en <strong>production</strong>. La mise en production signifie le rendre opérationnel dans un environnement réel, souvent en automatisant l’ensemble du processus de traitement des données. Généralement, cela consiste à automatiser la collecte, le nettoyage et la transformation des données, à intégrer le modèle créé dans une application ou un système décisionnel, et à générer des rapports ou des prédictions en temps réel ou à intervalles réguliers. Cette partie est le domaine du <strong>data engineering</strong>. Un <strong>data engineer</strong> conçoit et maintient la <em>pipeline</em> de traitement depuis la source des données jusqu’à la sortie du modèle.</p>
 </section><section id="suivi-de-la-performance-et-amélioration" class="level2"><h2 class="anchored" data-anchor-id="suivi-de-la-performance-et-amélioration">Suivi de la performance et amélioration</h2>
 <p>Finalement, une fois que le modèle est mis en production, il faut assurer un suivi de sa performance dans le temps. En effet, les données évoluent, de même que les comportements qu’elles décrivent. Ainsi, les distributions des données peuvent changer (un phénomène appelé <em>data drift</em>), les hypothèses initiales peuvent ne plus être valides ou encore de nouvelles données ou de nouvelles variables peuvent améliorer la performance. Pour surveiller la performance du modèle, on peut faire un <strong>monitoring</strong> régulier des performances. On peut aussi réentraîner le modèle avec des données récentes ou l’améliorer en intégrant de nouvelles hypothèses.</p>
 <p>Un bon modèle n’est donc pas seulement performant à un instant donné, il est aussi robuste et adaptable dans le temps.</p>
