@@ -13,7 +13,7 @@ On présente ici les différentes étapes d'un projet d'analyse de données.
 
 ## Projet d'analyse données
 
-Un projet d'analyse de données se déroule généralement en plusieurs phases distintes. On en décompte cinq: 
+Un projet d'analyse de données suit généralement une structure bien définie en plusieurs étapes. Nous en dégagons ici cinq principales, chacune avec ses objectifs, ses enjeux et son importance relative dans le succès du projet : 
 
 1. Définition des objectifs 
 
@@ -21,9 +21,9 @@ Un projet d'analyse de données se déroule généralement en plusieurs phases d
 
 3. Élaboration et validation des modèles
 
-4. Implémentation
+4. Implémentation et mise en production
 
-5. Suivi de la performance et amélioration 
+5. Suivi de la performance et amélioration continue 
 
 
 Lors de la planification d'un projet, il faut prendre en compte que chaque étape à une importance différente, mais aussi que chacune ne prend pas le même temps d'exécution. @pyleDataPreparationData1999 donne une estimation du temps de chaque étape, ainsi que de leur importance dans la réussite du projet (donné en pourcentage du total, cf. @tbl-decoupage).
@@ -39,17 +39,14 @@ Lors de la planification d'un projet, il faut prendre en compte que chaque étap
 
 : Découpage d'un projet d'analyse des données. {#tbl-decoupage}
 
-On remarque deux faits importants: ce n'est pas parce qu'une étape est très importante qu'elle va prendre beaucoup de temps. L'implémentation de la solution est très importante (sinon il n'y a pas de résultat), mais ne sera généralement pas très longue à faire (possiblement en quelques lignes de code). À l'inverse, la préparation des données, souvent sous-estimée, mobilise une grande partie du temps du projet, notamment pour gérer les données manquantes, les données aberrantes, ou encore les éventuels accents pour des données en français.
-
+On remarque deux faits importants. L'importance d'une étape n'est pas proportionnelle au temps passé dessus. Par exemple, l'implémentation de la solution est une étape essentielle (sinon il n'y a pas de résultat), mais peut n'exiger que peu de temps (parfois quelques lignes de code). À l'inverse, la préparation des données, souvent sous-estimée, est généralement chronophage, notamment pour gérer les données manquantes, les données aberrantes, ou encore les éventuels accents pour des données en français.
 
 
 ## Définition des objectifs 
 
-Avant toute chose, il faut clarifier ce que l'on cherche à obtenir. Souhaite-t-on visualiser les données ? Tester une hypothèse ? Prédire un comportement ? Segmenter une population ? Une formulation précise des objectifs est donc nécessaire pour orienter le projet.
+Toute analyse commence par une question claire : que cherche-t-on à accomplir ? Visualiser des données ? Tester une hypothèse ? Prédire un comportement ? Segmenter une population ? Une définition précise des objectifs est essentielle pour orienter les étapes suivantes. Cela permet de guider la collecte et la structuration des données. Cela permet de définir un modèle adéquat (e.g. classification, régression, ...). Cela permet de faciliter l'interprétation et la communication des résultats. Cette phase évite aussi les explorations aveugles et les interprétations biaisées.  
 
-Pourquoi cette étape est-elle cruciale ? Cela permet de guider la collecte et la structuration des données. Cela permet de définir un modèle adéquat (e.g. classification, régression, ...). Cela permet de faciliter l'interprétation et la communication des résultats. Cela permet d'éviter certains biais liés à une exploration aveugle des données.  
-
-Comment fait-on en pratique pour formuler un bon objectif ? On pose des questions ! Tout d'abord, il faut clarifier les termes. Qui va utiliser le modèle et comment ? Quelle est la population cible ? Quelle décision sera influencée par les résultats ?
+Comment fait-on en pratique pour formuler un bon objectif ? On pose des questions ! Tout d'abord, il faut clarifier les termes. Qui va utiliser le modèle et comment ? Quelle est la population cible ? Quelle décision dépendra résultats ?
 
 
 ::: {.callout-note icon=false}
@@ -119,7 +116,7 @@ On peut aussi regarder les sites officiels de sources de données que l'on peut 
 
 Pour des données sur des sujets plus spécifiques, les agences gouvernementales sont souvent de bonnes ressources. Par exemple, le Centre Canadien de cartographie et d’observation de la terre fournit les données géospatiales du Canada ([ici](https://geo.ca/fr/accueil/?_gl=1*1hldmsu*_ga*ODI1NjQ1OTgxLjE3NDUyNDk2NDY.*_ga_C2N57Y7DX5*czE3NTAwOTQyMTckbzMkZzEkdDE3NTAwOTQyMjYkajUxJGwwJGgw)).
 
-Lorsque que l'on travaille pour une entreprise, on a généralement accès aux sources de données internes, e.g. base de données sur la production, les clients et les employés, les listes de transactions et de clients potentiels, des informations sur les visites web.
+Lorsque que l'on travaille pour une entreprise, on a généralement accès aux sources de données internes, e.g. base de données sur la production, les clients et les employés, les listes de transactions et de clients potentiels, des informations sur les visites web, etc.
 
 
 ### Qualité
@@ -138,7 +135,7 @@ Pour nous assurer de la qualité des données, on pourra se poser les questions 
 
 ### Constitution de la base de données
 
-Une fois nos données collectées, il faut les charger en mémoire pour ensuite pouvoir faire des analyses. En Python, les librairies [`pandas`](https://pandas.pydata.org) et [`polars`](https://pola.rs) permettent de lire la plupart des formats de fichiers auxquels on aura affaire. En ce qui concerne R, plusieurs packages sont utilisés selon le format (cf. @tbl-packages-R).
+Une fois nos données collectées, il faut les charger en mémoire pour ensuite pouvoir faire des analyses. En Python, les librairies [`pandas`](https://pandas.pydata.org) et [`polars`](https://pola.rs) permettent de lire la plupart des formats de fichiers auxquels nous aurons affaire. En ce qui concerne R, plusieurs packages sont utilisés selon le format (cf. @tbl-packages-R).
 
 
 | Format  | Extension    | Librarie   | 
@@ -181,13 +178,13 @@ Ce cours concerne l'élaboration et la validation de modèles. Pour l'instant, o
 
 3. Un **modèle** (ou algorithme): c'est la méthode utilisée pour apprendre à partir des données.
 
-4. Une **fonction de coût**: elle meusre la qualité du modèle.
+4. Une **fonction de coût**: elle mesure la qualité du modèle.
 
 Ces éléments seront étudiés en détails dans les sections suivantes du cours.
 
 ## Mise en oeuvre
 
-Une fois le modèle choisi et validé, il peut être déployé en **production**. La mise en production signifie le rendre opérationnel dans un environnement réel, souvent en automatisant l'ensemble du processus de traitement des données. Généralement, cela consiste à automatiser la collecte, le nettoyage et la transformation des données, à intégrer le modèle créé dans une application ou un système décisionnel, et à générer des rapports ou des prédictions en temps réel ou à interalles réguliers. Cette partie est le domaine du **data engineering**. Un **data engineer** conçoit et maintient la *pipeline* de traitement depuis la source des données jusqu'à la sortir du modèle.
+Une fois le modèle choisi et validé, il peut être déployé en **production**. La mise en production signifie le rendre opérationnel dans un environnement réel, souvent en automatisant l'ensemble du processus de traitement des données. Généralement, cela consiste à automatiser la collecte, le nettoyage et la transformation des données, à intégrer le modèle créé dans une application ou un système décisionnel, et à générer des rapports ou des prédictions en temps réel ou à intervalles réguliers. Cette partie est le domaine du **data engineering**. Un **data engineer** conçoit et maintient la *pipeline* de traitement depuis la source des données jusqu'à la sortie du modèle.
 
 
 ## Suivi de la performance et amélioration
