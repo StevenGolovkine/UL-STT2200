@@ -655,9 +655,9 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-<li><a href="#que-souhaite-t-on-faire" id="toc-que-souhaite-t-on-faire" class="nav-link active" data-scroll-target="#que-souhaite-t-on-faire">Que souhaite-t-on faire ?</a></li>
-  <li><a href="#mesurer-la-qualit%C3%A9-de-lajustement" id="toc-mesurer-la-qualité-de-lajustement" class="nav-link" data-scroll-target="#mesurer-la-qualité-de-lajustement">Mesurer la qualité de l’ajustement</a></li>
-  <li><a href="#compromis-biaisvariance" id="toc-compromis-biaisvariance" class="nav-link" data-scroll-target="#compromis-biaisvariance">Compromis biais/variance</a></li>
+<li><a href="#quel-est-notre-objectif" id="toc-quel-est-notre-objectif" class="nav-link active" data-scroll-target="#quel-est-notre-objectif">Quel est notre objectif ?</a></li>
+  <li><a href="#comment-mesurer-la-qualit%C3%A9-dun-estimateur" id="toc-comment-mesurer-la-qualité-dun-estimateur" class="nav-link" data-scroll-target="#comment-mesurer-la-qualité-dun-estimateur">Comment mesurer la qualité d’un estimateur ?</a></li>
+  <li><a href="#le-compromis-biaisvariance" id="toc-le-compromis-biaisvariance" class="nav-link" data-scroll-target="#le-compromis-biaisvariance">Le compromis biais/variance</a></li>
   </ul>
 <div class="toc-actions"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
@@ -689,8 +689,10 @@ window.Quarto = {
 
 
 </header><p>Cette section est basée sur <span class="citation" data-cites="jamesIntroductionStatisticalLearning2021">James et al. (<a href="#ref-jamesIntroductionStatisticalLearning2021" role="doc-biblioref">2021</a>)</span>, chapitre 2.</p>
-<section id="que-souhaite-t-on-faire" class="level2"><h2 class="anchored" data-anchor-id="que-souhaite-t-on-faire">Que souhaite-t-on faire ?</h2>
-<p>Supposons que l’on observe une variable réponse, notée <span class="math inline">\(Y\)</span>, pouvant être quantitative, qualitative ou autre et <span class="math inline">\(p\)</span> variables explicatives, notées <span class="math inline">\(X_{1}, \dots, X_{p}\)</span>, pouvant aussi être quantitatives, qualitatives ou autres. On suppose aussi qu’il existe une certaine relation entre <span class="math inline">\(Y\)</span> et <span class="math inline">\(X = (X_{1}, \dots, X_{p})\)</span>. Cette relation peut s’écrire de façon gérérale comme <span id="eq-model"><span class="math display">\[Y = f(X) + \epsilon. \tag{1}\]</span></span> Ici, <span class="math inline">\(f\)</span> est une fonction de <span class="math inline">\(X_{1}, \dots, X_{p}\)</span> que l’on souhaite estimer à l’aide des données et <span class="math inline">\(\varepsilon\)</span> est un terme d’erreur. Dans le cadre de ce cours, on supposera que la variable aléatoire <span class="math inline">\(\varepsilon\)</span> est indépendente de <span class="math inline">\(X\)</span> et que sa moyenne est nulle et sa variance <span class="math inline">\(\sigma^2\)</span>. Le modèle <a href="#eq-model" class="quarto-xref">Équation 1</a> est un modèle général dans le sens où tout ce que l’on va faire dans le cadre de ce cours peut s’écrire sous cette forme, bien que l’on ne soit pas toujours capable de donner une équation pour <span class="math inline">\(f\)</span>. La fonction <span class="math inline">\(f\)</span> représente l’information systématique que <span class="math inline">\(X\)</span> donne à propos de <span class="math inline">\(Y\)</span>. La <a href="#fig-model" class="quarto-xref">Figure 1</a> présente les différents éléments du modèle de façon visuel.</p>
+<section id="quel-est-notre-objectif" class="level2"><h2 class="anchored" data-anchor-id="quel-est-notre-objectif">Quel est notre objectif ?</h2>
+<p>Nous souhaitons modéliser la relation entre une variable réponse <span class="math inline">\(Y\)</span>, pouvant être quantitative, qualitative ou de nature différente, et un ensemble de <span class="math inline">\(p\)</span> variables explicatives <span class="math inline">\(X = (X_{1}, \dots, X_{p})\)</span>, elles aussi de (potentiellement) différents types. L’idée centrale est qu’il existe un relation entre <span class="math inline">\(Y\)</span> et les variables explicatives <span class="math inline">\(X\)</span>. De manière générales, nous modélisons cette relation par le modèle :</p>
+<p><span id="eq-model"><span class="math display">\[Y = f(X) + \varepsilon. \tag{1}\]</span></span></p>
+<p>Ici, <span class="math inline">\(f\)</span> est une fonction déterministe (non-aléatoire) représentant l’information systématique que les variables explicatives <span class="math inline">\(X_{1}, \dots, X_{p}\)</span> apportent sur <span class="math inline">\(Y\)</span>, et <span class="math inline">\(\varepsilon\)</span> est un terme d’erreur aléatoire, modélisant les variations de <span class="math inline">\(Y\)</span> non expliquées par <span class="math inline">\(X\)</span>. Dans le cadre de ce cours, nous ferons les hypothèses suivantes : la variable aléatoire <span class="math inline">\(\varepsilon\)</span> est indépendente de des variables explicatives <span class="math inline">\(X\)</span>, <span class="math inline">\(\mathbb{E}[\varepsilon] = 0\)</span> et <span class="math inline">\(\mathrm{Var}(\varepsilon) = \sigma^2\)</span>. Le modèle <a href="#eq-model" class="quarto-xref">Équation 1</a> est général. Il sert de cadre pour l’ensemble des méthodes que nous allons étudier, même lorsque la forme explicite de <span class="math inline">\(f\)</span> n’est pas connue. La <a href="#fig-model" class="quarto-xref">Figure 1</a> illustre les différents éléments du modèle: les données observées <span class="math inline">\((X_i, Y_i)\)</span>, la fonction <span class="math inline">\(f\)</span> (en bleu) et les écarts aléatoires <span class="math inline">\(\varepsilon_i\)</span> représentés par des lignes pointillées.</p>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required package</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
@@ -729,23 +731,23 @@ window.Quarto = {
 <img src="04-bias-variance_files/figure-html/fig-model-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 1: Les différents éléments du modèle. Les points représentent les données observées <span class="math inline">\((X, Y)\)</span>. La courbe bleue représente la fonction <span class="math inline">\(f\)</span> et les lignes pointillées représentent l’erreur associée à chaque observation.
+Figure 1: Les différents éléments du modèle. Les points représentent les données observées <span class="math inline">\((X_i, Y_i)\)</span>. La courbe bleue représente la fonction <span class="math inline">\(f\)</span> et les lignes pointillées représentent l’erreur associée à chaque observation.
 </figcaption></figure>
 </div>
 </div>
 </div>
-<p>Dans la suite du cours, on verra quelques méthodes permettant d’estimer la fonction <span class="math inline">\(f\)</span>. Cependant avant de voir comment estimer <span class="math inline">\(f\)</span>, on va supposer que l’on a déjà un estimateur, noté <span class="math inline">\(\widehat{f}\)</span>, estimé à partir de <span class="math inline">\(n\)</span> observations de <span class="math inline">\((X, Y)\)</span> et on va s’intéresser à la qualité de cet estimateur.</p>
+<p>Dans la suite du cours, nous verrons différentes méthodes permettant d’estimer la fonction <span class="math inline">\(f\)</span> à partir de données. Cependant avant d’étudier comment contruire un estimateur <span class="math inline">\(\widehat{f}\)</span> de <span class="math inline">\(f\)</span>, nous allons nous interroger sur la qualité d’un tel estimateur : que signifie “bien estimer” <span class="math inline">\(f\)</span> ? Et comment évaluer la qualité de l’estimation ?</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exemple : la régression linéaire simple
+Exemple : Régression linéaire simple
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Dans le cadre de la régression linéaire simple, on fait l’hypothèse que la fonction <span class="math inline">\(f\)</span> est de la forme : <span class="math inline">\(f(x) = a x + b\)</span>. Dans ce cas, l’estimation de la fonction <span class="math inline">\(f\)</span> se résume à l’estimation des coefficients <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span>.</p>
+<p>Dans ce cadre très simple, nous faisons l’hypothèse que la fonction <span class="math inline">\(f\)</span> est de la forme : <span class="math inline">\(f(x) = a x + b\)</span>. Dans ce cas, l’estimation de la fonction <span class="math inline">\(f\)</span> se résume à l’estimation des coefficients <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span>.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
@@ -754,11 +756,11 @@ Exemple : la régression linéaire simple
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Remarque : Compromis exactitude / interprétabilité
+Remarque : Compromis entre exactitude et interprétabilité
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Dépendent de l’objectif de l’étude, on peut devoir faire un choix entre l’exactitude de nos prédictions et l’interprétabilité de notre modèle. En effet, si on restreint notre modèle à être linéaire, nos paramètres seront interprétables et même visualisable, mais ce sera peut-être au détriment du pouvoir prédictif du modèle, e.g. si la “vraie” relation entre <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> n’est pas linéaire. Inversement, un modèle pouvant estimer des relations plus compliqué (et donc plus flexible) aura plus de paramètres et donc sera plus difficile à interpréter.</p>
+<p>Dépendant de l’objectif de l’étude, nous devons généralement faire un choix entre l’exactitude de nos prédictions et l’interprétabilité de notre modèle. Un modèle simple, comme la régression linéaire, sera facile à interpréter mais capturera mal des relations complexes. À l’inverse, un modèle plus flexible, comme une forêt aléatoire, aura de meilleur prédiction, mais sera plus difficilement interprétable. Le choix dépend donc de l’objectif de l’analyse : compréhension ou performance prédictive ?</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
@@ -771,11 +773,11 @@ Remarque : <em>No free lunch in statistics</em>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>On pourrait se demander pourquoi cette discussion sur différents estimateurs de <span class="math inline">\(f\)</span> et la mesure de leur qualité d’ajustement. En effet, pourquoi ne pas juste consider un unique “meilleur” modèle ? La réponse est simple : il n’existe pas de méthode qui domine toutes les autres sur tous les jeux de données. Ainsi, une méthode peut très bien fonctionner sur un certain jeu de données et pas du tout sur d’autre jeu de données. Et même en ne considérant qu’un jeu de données, en fonction de l’objectif de l’étude (explication, prédiction, classification, …), le meilleur modèle peut être différent.</p>
+<p>Pourquoi ne pas simplement utiliser le modèle “ultime”, celui qui serait toujours optimal quelque soit le jeu de données ? Parce qu’un tel modèle n’existe pas ! Il n’y a pas de méthode universellement meilleure pour tous les jeux de données et tous les objectifs. Une méthode performante dans un contexte donné peut échouer ailleurs. Il faut donc toujours adapter l’approche au problème (explication, prédiction, classification, …).</p>
 </div>
 </div>
-</section><section id="mesurer-la-qualité-de-lajustement" class="level2"><h2 class="anchored" data-anchor-id="mesurer-la-qualité-de-lajustement">Mesurer la qualité de l’ajustement</h2>
-<p>Pour évaluer la qualité de notre estimateur <span class="math inline">\(\widehat{f}\)</span>, on a besoin d’une mesure nous indiquant si nos prédictions, <span class="math inline">\(\widehat{Y} = \widehat{f}(X)\)</span>, sont proches des données observées. Dit autrement, on cherche à quantifier si la réponse prédite pour chaque observation est proche de la vraie réponse pour cette observation.</p>
+</section><section id="comment-mesurer-la-qualité-dun-estimateur" class="level2"><h2 class="anchored" data-anchor-id="comment-mesurer-la-qualité-dun-estimateur">Comment mesurer la qualité d’un estimateur ?</h2>
+<p>Une fois que nous disposons d’un estimateur <span class="math inline">\(\widehat{f}\)</span> de la fonction <span class="math inline">\(f\)</span>, obtenu à partir de <span class="math inline">\(n\)</span> observations <span class="math inline">\((y_1, x_1), \dots, (y_n, x_n)\)</span>, nous cherchons à évaluer la précision des prédictions <span class="math inline">\(\widehat{Y} = \widehat{f}(X)\)</span>. L’idée est de vérifier dans quelle mesure <span class="math inline">\(\widehat{Y}\)</span> est proche de la vraie valeur de <span class="math inline">\(Y\)</span>.</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -786,11 +788,11 @@ Définition : Erreur quadratique moyenne
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Dans le cas où <span class="math inline">\(Y\)</span> est une variable quantitative, une mesure de la qualité de l’estimateur <span class="math inline">\(\widehat{f}\)</span> est l’<strong>erreur quadratique moyenne</strong> (<em>mean square error</em>, MSE). Celle-ci est définie comme <span class="math display">\[MSE(Y, \widehat{Y}) = \frac{1}{n} \sum_{i = 1}^{n} \left( y_i - \widehat{y}_i\right)^2 = \frac{1}{n} \sum_{i = 1}^{n} \left( y_i - \widehat{f}(x_i) \right)^2,\]</span> où <span class="math inline">\(\widehat{y}_i = \widehat{f}(x_i)\)</span> est la prédiction que <span class="math inline">\(\widehat{f}\)</span> donne pour l’observation <span class="math inline">\(i\)</span>.</p>
+<p>Lorsque <span class="math inline">\(Y\)</span> est une variable quantitative, une mesure classique de la qualité de <span class="math inline">\(\widehat{f}\)</span> est l’<strong>erreur quadratique moyenne</strong> (<em>mean square error</em>, MSE) : <span class="math display">\[MSE(Y, \widehat{Y}) = \frac{1}{n} \sum_{i = 1}^{n} \left( y_i - \widehat{y}_i\right)^2 = \frac{1}{n} \sum_{i = 1}^{n} \left( y_i - \widehat{f}(x_i) \right)^2,\]</span> où <span class="math inline">\(\widehat{y}_i = \widehat{f}(x_i)\)</span> est la prédiction que <span class="math inline">\(\widehat{f}\)</span> donne pour l’observation <span class="math inline">\(x_i\)</span>.</p>
 </div>
 </div>
-<p>L’idée est que la MSE sera petite si les réponses prédites sont proches des vraies réponses et grande si elles ne le sont pas. On peut aussi voir la MSE comme une mesure de la distance moyenne entre les vraies valeurs et les valeurs prédites. On cherche donc à avoir une distance moyenne petite.</p>
-<p>L’erreur quadratique moyenne est une bonne mesure dans le cas de variables quantitatives, cependant, elle n’est pas utilisable avec des variables qualitatives. Dans ce cas, une mesure populaire est le taux d’erreur.</p>
+<p>Une MSE faible indique que les prédictions sont proches des observations. Nous pouvons aussi l’interpréter comme la distance moyenne entre les valeurs observées et les valeurs prédites. Nous cherchons donc à avoir une distance moyenne faible.</p>
+<p>Dans le cas où <span class="math inline">\(Y\)</span> est une variable qualitative, e.g. une classe ou un label, on utilise une autre mesure : le taux d’erreur.</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -801,24 +803,29 @@ Définition: Taux d’erreur
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Dans le cas où <span class="math inline">\(Y\)</span> est une variable qualitative, une mesure de la qualité de l’estimateur <span class="math inline">\(\widehat{f}\)</span> est le <strong>taux d’erreur</strong> (<em>error rate</em>, ER). Celle-ci est définie comme <span class="math display">\[ER(Y, \widehat{Y}) = \frac{1}{n} \sum_{i = 1}^{n} \mathbb{1}(y_i \neq \widehat{y}_i) = \frac{1}{n} \sum_{i = 1}^{n} \mathbb{1}(y_i \neq \widehat{f}(x_i)).\]</span> où <span class="math inline">\(\widehat{y}_i = \widehat{f}(x_i)\)</span> est la prédiction que <span class="math inline">\(\widehat{f}\)</span> donne pour l’observation <span class="math inline">\(i\)</span>.</p>
+<p>Lorsque <span class="math inline">\(Y\)</span> est une variable qualitative, une mesure classique de la qualité de <span class="math inline">\(\widehat{f}\)</span> est le <strong>taux d’erreur</strong> (<em>error rate</em>, ER) : <span class="math display">\[ER(Y, \widehat{Y}) = \frac{1}{n} \sum_{i = 1}^{n} \mathbb{1}(y_i \neq \widehat{y}_i) = \frac{1}{n} \sum_{i = 1}^{n} \mathbb{1}(y_i \neq \widehat{f}(x_i)).\]</span> où <span class="math inline">\(\widehat{y}_i = \widehat{f}(x_i)\)</span> est la prédiction que <span class="math inline">\(\widehat{f}\)</span> donne pour l’observation <span class="math inline">\(x_i\)</span>.</p>
 </div>
 </div>
-<p>Dans la même idée que la MSE, l’ER est la proportion d’erreur qui sont faites par l’estimateur <span class="math inline">\(\widehat{f}\)</span>. C’est aussi une mesure de la distance moyenne entre les vraies valeurs et les valeurs prédites.</p>
-</section><section id="compromis-biaisvariance" class="level2"><h2 class="anchored" data-anchor-id="compromis-biaisvariance">Compromis biais/variance</h2>
-<p>Lorsque l’on cherche à minimiser l’erreur quadratique moyenne (ou le taux d’erreur), on cherche à le faire sur les données observées, mais aussi sur les éventuelles futures observations de même processus. Il se trouve que, après avoir choisi un estimateur <span class="math inline">\(\widehat{f}\)</span>, on peut décomposer l’espérance de l’erreur en trois quantités : un terme de biais de <span class="math inline">\(\widehat{f}\)</span> au carré, un terme de variance de <span class="math inline">\(\widehat{f}\)</span> et un terme correspondant à la variance de l’erreur <span class="math inline">\(\sigma^2\)</span>.</p>
+<p>Le taux d’erreur mesure la proportion de mauvaises prédictions. Il s’agit, là encore, d’une mesure de la distance moyenne entre <span class="math inline">\(Y\)</span> et <span class="math inline">\(\widehat{Y}\)</span>, adaptée aux variables qualititatives.</p>
+</section><section id="le-compromis-biaisvariance" class="level2"><h2 class="anchored" data-anchor-id="le-compromis-biaisvariance">Le compromis biais/variance</h2>
+<p>Notre objectif est souvent de minimiser l’erreur de prédiction, non seulement sur les données observées, mais surtout sur de nouvelles données (récupérée après avoir estimer le modèle). Pour cela, nous nous intéressons à l’erreur de prédiction : <span class="math display">\[\mathbb{E}\left[ \left( Y - \widehat{Y} \right)^2 \right] = \mathbb{E}\left[ \left( Y - \widehat{f}(X) \right)^2 \right].\]</span></p>
+<p>Cette erreur peut se décomposer en trois composantes :</p>
+<ul>
+<li><p>Le biais : l’erreur due à une approximation systématique, e.g. si on impose un modèle linéaire alors que la relation est non linéaire.</p></li>
+<li><p>La variance : la sensibilité de l’estimateur aux fluctuations de l’échantillon d’apprentissage.</p></li>
+<li><p>L’erreur irréductible : la variance intrinsèque du bruit <span class="math inline">\(\varepsilon\)</span>, notée <span class="math inline">\(\sigma^2\)</span>.</p></li>
+</ul>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Compromis biais/variance
+Décomposition biais/variance
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Ayant un estimateur <span class="math inline">\(\widehat{f}\)</span> de <span class="math inline">\(f\)</span>, l’espérance de l’erreur de l’estimateur peut se décomposer de la façon suivante :</p>
-<p><span class="math display">\[\mathbb{E}\left[ (Y - \widehat{Y})^2 \right] = \mathbb{E}\left[ (Y - \widehat{f}(X))^2 \right] = \mathrm{Var}(\widehat{f}(X)) + \mathrm{Biais}(\widehat{f}(X))^2 + \sigma^2.\]</span></p>
+<p>On a : <span class="math display">\[\mathbb{E}\left[ (Y - \widehat{Y})^2 \right] = \mathbb{E}\left[ (Y - \widehat{f}(X))^2 \right] = \mathrm{Biais}(\widehat{f}(X))^2 + \mathrm{Var}(\widehat{f}(X)) + \sigma^2.\]</span></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -866,20 +873,12 @@ Preuve
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Remarque
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Comme les trois quantités dans lesquelles on a décomposer l’espérance de l’erreur de l’estimateur sont non-négative, celle-ci est minoré par l’erreur irréductible. Elle ne peut donc jamais être inféireure à <span class="math inline">\(\sigma^2\)</span>.</p>
-</div>
-</div>
-<p>Qu’implique le compromis biais/variance ? Comme on cherche à minimiser l’espérance de l’erreur de l’estimateur, on voudrait une méthode qui nous donne à la fois un faible biais et une faible variance. Le biais est l’erreur d’approximation faite lorsque l’on approche un problème compliqué par un modèle simple. Par exemple, estimer un modèle linéaire lorsque que la relation ne l’est pas. La variance est la quantité par laquelle l’estimateur va changer si on apprend l’estimateur sur un jeu de données différents. Dit d’une autre façon, comme on estime <span class="math inline">\(f\)</span> par <span class="math inline">\(\widehat{f}\)</span> à l’aide d’un jeu de données particulier et l’estimer avec un autre jeu de données implique un estimateur <span class="math inline">\(\widehat{f}\)</span> différents. Idéalement, l’estimateur <span class="math inline">\(\widehat{f}\)</span> ne devrait pas trop changé en changeant le jeu de données d’entraînement. La <a href="#fig-plot" class="quarto-xref">Figure 2</a> présente un jeu de données et différents estimateurs <span class="math inline">\(\widehat{f}\)</span>. En faisant varier le paramètre <span class="math inline">\(\lambda\)</span>, on obtient des modèles plus ou moins flexible. La <a href="#fig-bias-variance" class="quarto-xref">Figure 3</a> montre la valeur du biais, de la variance et de la MSE pour les modèles estimés pour la <a href="#fig-plot" class="quarto-xref">Figure 2</a>. On remarque que plus <span class="math inline">\(\lambda\)</span> est petit, plus la variance est grande, mais le biais est petit (le modèle est flexible). Inversement, plus <span class="math inline">\(\lambda\)</span> est grand, plus le biais est grand est la variance petite (le modèle est rigide). La courbe de MSE en fonction du paramètre est une courbe en U. Comme on cherche à minimiser la MSE, i.e. à faire un compromis entre le biais et la variance, on peut prendre <span class="math inline">\(\lambda = 0.5\)</span>.</p>
+<p>Cette décomposition met en avant un compromis fondamental en analyse de données :</p>
+<ul>
+<li><p>Si on choisit un modèle peu flexible, le biais sera élevé, mais la variance sera faible.</p></li>
+<li><p>Si on choisit un modèle flexible, le biais sera faible, mais la variance peut être très élevée.</p></li>
+</ul>
+<p>Notre objectif est donc de trouver un juste équilibre entre biais et variance, i.e. un modèle qui prédit correctement, tout en étant généralisable à de nouvelles données. La <a href="#fig-plot" class="quarto-xref">Figure 2</a> présente un jeu de données et différents estimateurs <span class="math inline">\(\widehat{f}\)</span>. En faisant varier le paramètre <span class="math inline">\(\lambda\)</span>, on obtient des modèles plus ou moins flexible (lorsque <span class="math inline">\(\lambda = 0.15\)</span>, le modèle est flexible et lorsque <span class="math inline">\(\lambda = 1\)</span>, le modèle est rigide). La <a href="#fig-bias-variance" class="quarto-xref">Figure 3</a> montre la valeur du biais, de la variance et de la MSE pour les modèles estimés pour la <a href="#fig-plot" class="quarto-xref">Figure 2</a>. On remarque que plus <span class="math inline">\(\lambda\)</span> est petit, plus la variance est grande, mais le biais est petit (le modèle est flexible). Inversement, plus <span class="math inline">\(\lambda\)</span> est grand, plus le biais est grand et la variance petite (le modèle est rigide). La courbe de MSE en fonction du paramètre est une courbe en U. Comme on cherche à minimiser la MSE, i.e. à faire un compromis entre le biais et la variance, on peut prendre <span class="math inline">\(\lambda = 0.5\)</span>.</p>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
@@ -993,7 +992,7 @@ Figure 2: Différents estimateurs de la fonction <span class="math inline">\(f\
 <span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Biais2"</span> <span class="ot">=</span> <span class="st">"#0D0887FF"</span>, <span class="st">"Variance"</span> <span class="ot">=</span> <span class="st">"#9C179EFF"</span>, <span class="st">"MSE"</span> <span class="ot">=</span> <span class="st">"#ED7953FF"</span>)</span>
 <span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Paramètre de lissage"</span>,</span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Paramètre de lissage λ"</span> ,</span>
 <span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">""</span>,</span>
 <span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">""</span></span>
 <span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
@@ -1004,12 +1003,12 @@ Figure 2: Différents estimateurs de la fonction <span class="math inline">\(f\
 <img src="04-bias-variance_files/figure-html/fig-bias-variance-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bias-variance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 3: Compromis biais/variance
+Figure 3: Compromis biais/variance.
 </figcaption></figure>
 </div>
 </div>
 </div>
-<p>De manière générale, plus le modèle est flexible, plus la variance va être grande et plus le biais va être faible et inversement. Le changement relatif entre le biais et la variance indique si l’espérance de l’erreur de l’estimateur augmente ou diminue. Lorsque l’on augmente la flexibilité de notre modèle, le biais va avoir tendence à diminuer plus vite que la variance augmente et donc la MSE diminue. À un moment, augmenter la flexibilité n’a plus d’impact sur le biais mais commence à impacter la variance de façon significative. Et par conséquent, le MSE augmente.</p>
+<p>De manière générale, lorsque la flexibilité augmente, la diminution du biais est plus importante que l’augmentation de la variance, ce qui fait décroître l’erreur de prédiction. Cependant, à partir d’un certain niveau de flexibilité, le biais devient négligeable, et toute baisse supplémentaire est compensée par l’augmentation rapide de la variance. L’erreur de prédiction commence donc à croître. Il en résulte une courbe en U de l’erreur de prédiction en fonction de la flexibilité du modèle : un modèle trop rigide engendre un fort biais, tandis qu’un modèle trop flexible conduit à une trop grande variance.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1020,7 +1019,7 @@ Remarque : Pourquoi un compromis ?
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>On l’appelle le compromis biais/variance parcequ’il est très facile d’avoir un modèle non biaisé (s’il passe par tous les points) ou avec une variance très faible (une ligne horizontale). Le compromis est donc de trouver un modèle avec la fois un modèle avec un faible biais et une faible variance.</p>
+<p>Il est toujours possible de construire un modèle très flexible avec un biais nul, e.g. un modèle qui passe par tous les points d’observations, mais qui aura une variance énorme. À l’opposé, un modèle trop rigide, e.g. une constante, aura un biais très important mais une variance presque nulle. Le compromis biais/variance consiste à choisir un modèle qui contrôle ces deux quantités.</p>
 </div>
 </div>
 
