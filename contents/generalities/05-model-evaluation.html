@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script><script src="../../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../../site_libs/quarto-search/fuse.min.js"></script><script src="../../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../../">
 <link href="../../contents/04-dimension.html" rel="next">
 <link href="../../contents/generalities/04-bias-variance.html" rel="prev">
@@ -597,16 +617,8 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-<li><a href="#validation-crois%C3%A9e" id="toc-validation-croisée" class="nav-link active" data-scroll-target="#validation-croisée">Validation croisée</a></li>
-  <li>
-<a href="#cas-dun-r%C3%A9ponse-binaire" id="toc-cas-dun-réponse-binaire" class="nav-link" data-scroll-target="#cas-dun-réponse-binaire">Cas d’un réponse binaire</a>
-  <ul class="collapse">
-<li><a href="#mesure-triviale" id="toc-mesure-triviale" class="nav-link" data-scroll-target="#mesure-triviale">Mesure triviale</a></li>
-  <li><a href="#sensibilit%C3%A9-et-sp%C3%A9cifit%C3%A9" id="toc-sensibilité-et-spécifité" class="nav-link" data-scroll-target="#sensibilité-et-spécifité">Sensibilité et spécifité</a></li>
-  <li><a href="#la-courbe-roc" id="toc-la-courbe-roc" class="nav-link" data-scroll-target="#la-courbe-roc">La courbe ROC</a></li>
-  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
-  </ul>
-</li>
+<li><a href="#jeu-de-donn%C3%A9es-de-validation" id="toc-jeu-de-données-de-validation" class="nav-link active" data-scroll-target="#jeu-de-données-de-validation">Jeu de données de validation</a></li>
+  <li><a href="#validation-crois%C3%A9e" id="toc-validation-croisée" class="nav-link" data-scroll-target="#validation-croisée">Validation croisée</a></li>
   </ul>
 <div class="toc-actions"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
@@ -637,89 +649,69 @@ window.Quarto = {
   
 
 
-</header><p>Pourquoi mesurer l’erreur d’un modèle ?</p>
-<ul>
-<li><p>Choisir le meilleur modèle.</p></li>
-<li><p>Avoir une idée de la confiance qu’on peut accorder à notre modèle.</p></li>
-</ul>
-<section id="validation-croisée" class="level2"><h2 class="anchored" data-anchor-id="validation-croisée">Validation croisée</h2>
+</header><p>Cette section est basée sur <span class="citation" data-cites="jamesIntroductionStatisticalLearning2021">James et al. (<a href="#ref-jamesIntroductionStatisticalLearning2021" role="doc-biblioref">2021</a>)</span>, chapitre 5.</p>
+<p>Nous avons vu dans la section précédente comment mesurer la qualité d’un estimateur : en utilisant l’erreur quadratique moyenne pour une variable quantitative et le taux d’erreur pour une variable qualitative. Cependant, si on calcule l’erreur en utilisant que les données observées, on risque de sous-estimer les vraies erreurs car la fonction <span class="math inline">\(\widehat{f}\)</span> a été apprise à l’aide des données observées et donc s’adapte à celles-ci. En effet, on pourrait donc juste prendre un modèle plus flexible qui s’ajustera mieux aux données observées et donc avoir une plus petite valeur de l’erreur. Mais si le modèle s’adapte trop aux données observées, il risque de ne pas être aussi bon si on l’applique sur de nouvelles données. En pratique, on souhaiterait un jeu de données d’<strong>entraînement</strong> sur lequel on apprend le modèle et un jeu de données de <strong>test</strong> sur lequel on calcule l’erreur de prédiction pour ajuster le modèle.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Remarque: Sur-ajustement et sous-ajustement
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si on choisit à l’aide du jeu de données d’entraînement un modèle trop flexible qui s’ajuste à la partie aléatoire des données de sorte que l’erreur sur un autre jeu de données est plus grande qu’elle ne l’aurait été avec un modèle moins flexible, on parle de <strong>sur-ajustement</strong> (<em>overfitting</em>). Dans le cas inverse, si on choisit un modèle rigide, i.e. de sorte que les prédictions soient les mêmes peu importe les données, on parle de <strong>sous-ajustement</strong> (<em>underfitting</em>).</p>
+</div>
+</div>
+<p>Généralement, nous n’avons pas accès à un jeu de données de test pour estimer l’erreur de prédiction sur celui-ci. Dans cette section, on va voir deux méthodes permettant d’estimer l’erreur de prédiction de test en découpant le jeu de données d’entraînement en sous-ensemble et en estimant <span class="math inline">\(f\)</span> sur ces sous-ensemble.</p>
+<section id="jeu-de-données-de-validation" class="level2"><h2 class="anchored" data-anchor-id="jeu-de-données-de-validation">Jeu de données de validation</h2>
+<p>L’idée du jeu de données de validation est très simple. On divise aléatoirement le jeu de données d’entraînement en deux parties : une partie qui va effectivement servir à entrainer le modèle et l’autre partie qui va servir à estimer l’erreur de prédiction.</p>
+<p>Add schema!</p>
+<p>Add exemple!</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Comment choisir comment découper le jeu de données ?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La réponse simple : avec de la pratique et une connaissance du domaine. S’il y a beaucoup de données, on peut faire 50-50. Sinon, on peut partir un 70-30.</p>
+</div>
+</div>
+<p>Désavantage de la méthode :</p>
 <ol type="1">
-<li><p>On sépare l’échantillon en <span class="math inline">\(K\)</span> plus de faon aléatoire.</p></li>
-<li><p>Pour <span class="math inline">\(k\)</span> allant de <span class="math inline">\(1\)</span> à <span class="math inline">\(K\)</span>:</p></li>
-</ol>
-<ol type="i">
-<li><p>On estime <span class="math inline">\(\widehat{f}(k)\)</span> en utilisant uniquement les observations qui ne sont pas dans <span class="math inline">\(k\)</span>.</p></li>
-<li><p>On prédit <span class="math inline">\(\widehat{Y}(k) = \widehat{f}(k)(X(k))\)</span>.</p></li>
-<li><p>On calcule <span class="math inline">\(CV(k) = \frac{1}{N_k} \sum_{i = 1}^{N_k} L(Y(k), \widehat{Y}(k))\)</span>.</p></li>
-</ol>
-<ol start="3" type="1">
-<li><p>On calcule la moyenne <span class="math inline">\(CV = \frac{1}{K} \sum_{k = 1}^{K} CV(k)\)</span>.</p></li>
-<li><p>On répète 1 à 3 pour tous les modèles et on choisit le modèle ont la valeur de CV est la plus basse.</p></li>
-</ol></section><section id="cas-dun-réponse-binaire" class="level2"><h2 class="anchored" data-anchor-id="cas-dun-réponse-binaire">Cas d’un réponse binaire</h2>
-<p>Dams le cas où il n’existe que deux groupes dans la population, la matrice de confusion est de la forme suivante:</p>
-<table class="caption-top table">
-<thead><tr class="header">
-<th></th>
-<th>Positif</th>
-<th>Négatif</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td>Positif</td>
-<td>Vrais positifs (VP)</td>
-<td>Faux négatif (FN)</td>
-</tr>
-<tr class="even">
-<td>Négatif</td>
-<td>Faux positifs (FP)</td>
-<td>Vrais négatif (VN)</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>Sensibilité (sensitivity, rappel, recall, hit rate)</li>
-</ul>
-<p>Probailité qu’un individu qui appartient au groupe positif soit classé dans le groupe positifs: <span class="math display">\[\frac{VP}{VP + FN}.\]</span></p>
-<ul>
-<li>Spécifité (specificity)</li>
-</ul>
-<p>Probailité qu’un individu qui appartient au groupe négatif soit classé dans le groupe négatif: <span class="math display">\[\frac{VN}{VN + FP}.\]</span></p>
-<ul>
-<li><p>Précision <span class="math display">\[\frac{VP}{VP + FP}.\]</span></p></li>
-<li><p>Accuracy <span class="math display">\[\frac{VP + VN}{VP + VN + FP + FN}.\]</span></p></li>
-<li><p>Score <span class="math inline">\(F_{1}\)</span>: moyenne harmonique de précision et de sensibilité <span class="math display">\[F_{1} = 2 \times \frac{précision \times sensibilité}{précision + sensibilité} = \frac{2 VP}{VP + FP + FN}.\]</span></p></li>
-</ul>
-<p>En practique, la situation typique va comme suit:</p>
-<ul>
-<li><p>On a partagé notre jeu de données en eju d’entrainment et en jeu de validation.</p></li>
-<li><p>On a appliqué <span class="math inline">\(M\)</span> méthodes de classification au jeu d’entrainement.</p></li>
-<li><p>On aimerait utiliser les données de validation pour choisir la meilleure des <span class="math inline">\(M\)</span> méthodes.</p></li>
-</ul>
-<p>On cherche donc à se doter d’outils qui permettent de mesurer la performance de méthodes de classification.</p>
-<section id="mesure-triviale" class="level3"><h3 class="anchored" data-anchor-id="mesure-triviale">Mesure triviale</h3>
-<p>La première étape consiste à comparer le taux de bonnes classification (accuracy) des données de validation obtenu avec chacune des méthodes. On peut faire la même chose avec le score <span class="math inline">\(F_{1}\)</span>.</p>
-</section><section id="sensibilité-et-spécifité" class="level3"><h3 class="anchored" data-anchor-id="sensibilité-et-spécifité">Sensibilité et spécifité</h3>
-<p>Supposons une classe que nous voulons plus particulièrement identifier, que nous appelons des obbservations positives et on traite toues les autres observations comme si elles étaient dans la même classe, soit les observations négatives.</p>
-<p>La sensibilité est le ratio entre le nombre de vrais positifs classé positifs et le nombre de vrais positifs. La spécifité est le ratio entre le nombre de vrais négatifs classé négatifs et le nombre de vrais négatifs.</p>
-<p>Notons que si on est prêt à vivre avec une spécifité de <span class="math inline">\(0\%\)</span>, on peut toujours avoir une sensibilité de <span class="math inline">\(100\%\)</span> et si on est prêt à vivre avec une sensibilité de <span class="math inline">\(0\%\)</span>, on peut toujours avoir une spécifité de <span class="math inline">\(100\%\)</span>. Si la proportion de négatifs est très élevé, par exemple <span class="math inline">\(99.9\%\)</span>, alors une méthode qui classifie <span class="math inline">\(100\%\)</span> des observations dans la classe négative aura un taux de bonnes classifications de <span class="math inline">\(99.9\%\)</span>. Mais clairement, cette méthode ne nous sera pas très utile si notre but est d’identifier les cas positifs.</p>
-<p>On peut exploiter l’estimation d’une probabilité. Les méthodes de classification donnent souvent la probabilité qu’une observation appartienne à une classe, pas uniquement une prévision de la classe elle-même. Une meilleure mesure de la performance de la méthode serait de voir si ces probabilité sont réalistes.</p>
-</section><section id="la-courbe-roc" class="level3"><h3 class="anchored" data-anchor-id="la-courbe-roc">La courbe ROC</h3>
-<p>La courbe ROC (Receiver Operating Characteristic) peut être vue comme une variation de la courbe de gain.</p>
-<ol type="1">
-<li><p>Soit <span class="math inline">\(p^{(2)}_i\)</span>, la probabilité que l’observation <span class="math inline">\(i\)</span> appartienne à la classe <span class="math inline">\(2\)</span> selon notre modèle.</p></li>
-<li><p>On choisit une valeur de <span class="math inline">\(u \in [0, 1]\)</span> et on prédit que l’observation <span class="math inline">\(i\)</span> appartient à la classe <span class="math inline">\(2\)</span> si <span class="math inline">\(p^{(2)}_i \geq u\)</span> et à la classe <span class="math inline">\(1\)</span> sinon.</p></li>
-<li><p>On répète l’étape <span class="math inline">\(2\)</span> pour <span class="math inline">\(i = 1, \dots, n\)</span> et on calcule la sensibilité <span class="math inline">\(SEN(u)\)</span> et la spécifité <span class="math inline">\(SPE(U)\)</span> ainsi obtenu.</p></li>
-<li><p>On répète les étapes <span class="math inline">\(2\)</span> et <span class="math inline">\(3\)</span> pour tous les <span class="math inline">\(u \in [0, 1]\)</span>, on place les paires <span class="math inline">\((1 - SPE(u), SEN(u))\)</span> sur un graphique et on lie les points part des segments.</p></li>
-</ol>
-<p>Interprétation:</p>
-<ol type="1">
-<li><p>Elle part du point <span class="math inline">\((0, 0)\)</span> et finit au point <span class="math inline">\((1, 1)\)</span>.</p></li>
-<li><p>Si on classifie les points au hasard, on obtiendra une ligne droite à <span class="math inline">\(45\)</span> degrés.</p></li>
-<li><p>Une mesure unique du pouvoir prédictif est l’aire sous la courbe ROC (AUC, Area Under the Curve). Une AUC de 0.5 est ce que l’on espère en classifiant au hasard, et plus on s’approche de <span class="math inline">\(1\)</span>, meilleure est la méthode.</p></li>
-</ol></section><section id="example" class="level3"><h3 class="anchored" data-anchor-id="example">Example</h3>
+<li><p>L’erreur de prédiction calculée sur le jeu de données de validation peut être très variable. En effet, elle dépend du nombre d’observations dans le jeu de validation et de quelles sont ses données.</p></li>
+<li><p>On a moins de données pour apprendre le modèle. Comme les modèles ont tendance à moins bien apprendre avec moins de données, l’estimation de l’erreur sur le jeu de validation a tendance à surestimer l’erreur que l’on aurait avec un jeu de test et un modèle appris sur le jeu de données complet.</p></li>
+</ol></section><section id="validation-croisée" class="level2"><h2 class="anchored" data-anchor-id="validation-croisée">Validation croisée</h2>
+<p>Comme l’approche par jeu de données de validation, la validation croisée consiste à faire des sous-ensembles du jeu de données. L’approche consiste à découper de façon aléatoire l’ensemble des observations en <span class="math inline">\(K\)</span> groupes de taille équivalanetes. Le premier sous-ensemble est utilisé comme jeu de données de validation et le modèle est appris sur les <span class="math inline">\(K - 1\)</span> autres sous-ensembles. L’erreur de prédiction est calculé sur le premier sous-ensemble. Cette procédure est faite <span class="math inline">\(K\)</span> fois; à chaque un différent sous-ensemble est utilisé comme jeu de données de validation. À la fin, on a donc <span class="math inline">\(K\)</span> valeurs pour l’erreur de prédiction. On calcule enfin la moyenne des <span class="math inline">\(K\)</span> valeurs de prédiction.</p>
+<p>Add schema!</p>
+<p>Add exemple!</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Comment choisir le nombre de sous-ensemble ?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En pratique, on utilise <span class="math inline">\(K = 5\)</span> ou <span class="math inline">\(K = 10\)</span>. Cela a un avantage computationnel car le modèle doit être appris <span class="math inline">\(K\)</span> fois.</p>
+</div>
+</div>
 
 
-</section></section></main><!-- /main --><script>
+
+</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Les références</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-jamesIntroductionStatisticalLearning2021" class="csl-entry" role="listitem">
+James, Gareth, Daniela Witten, Trevor Hastie, et Robert Tibshirani. 2021. <em>An <span>Introduction</span> to <span>Statistical Learning</span>: With <span>Applications</span> in <span>R</span></em>. Springer <span>Texts</span> in <span>Statistics</span>. New York, NY: Springer US. <a href="https://doi.org/10.1007/978-1-0716-1418-1">https://doi.org/10.1007/978-1-0716-1418-1</a>.
+</div>
+</div></section></div></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
