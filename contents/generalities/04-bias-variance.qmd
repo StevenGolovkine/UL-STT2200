@@ -17,10 +17,12 @@ Nous souhaitons modéliser la relation entre une variable réponse $Y$, pouvant 
 $$Y = f(X) + \varepsilon.$$ {#eq-model}
 
 Ici, $f$ est une fonction déterministe (non-aléatoire) représentant l'information systématique que les variables explicatives $X_{1}, \dots, X_{p}$ apportent sur $Y$, et $\varepsilon$ est un terme d'erreur aléatoire, modélisant les variations de $Y$ non expliquées par $X$. Dans le cadre de ce cours, nous ferons les hypothèses suivantes : la variable aléatoire $\varepsilon$ est indépendente de des variables explicatives $X$, $\mathbb{E}[\varepsilon] = 0$ et $\mathrm{Var}(\varepsilon) = \sigma^2$. Le modèle @eq-model est général. Il sert de cadre pour l'ensemble des méthodes que nous allons étudier, même lorsque la forme explicite de $f$ n'est pas connue.
+
 ::: {.content-visible when-format="pdf"}
 La @fig-model-pdf illustre les différents éléments du modèle: les données observées $(X_i, Y_i)$, la fonction $f$ (en bleu) et les écarts aléatoires $\varepsilon_i$ représentés par des lignes pointillées.
 :::
-::: {.content-visible when-format="pdf"}
+
+::: {.content-visible when-format="html"}
 La @fig-model-html illustre les différents éléments du modèle: les données observées $(X_i, Y_i)$, la fonction $f$ (en bleu) et les écarts aléatoires $\varepsilon_i$ représentés par des lignes pointillées.
 :::
 
@@ -40,9 +42,9 @@ set.seed(42)
 
 # 1. Generate data
 n <- 100
-x <- sort(runif(n, 0, 2 * pi))
+x <- sort(runif(n, 0.1, 1))
 f_x <- 4 * x * (1 - x) * log(x) + 2
-epsilon <- rnorm(n, mean = 0, sd = 0.3)
+epsilon <- rnorm(n, mean = 0, sd = 0.1)
 y <- f_x + epsilon
 
 # 2. Create data frame
@@ -110,6 +112,7 @@ write.csv(df, './data.csv')
 //| fig-cap: "Les différents éléments du modèle. Les points représentent les données observées $(X_i, Y_i)$. La courbe bleue représente la fonction $f$ et les lignes pointillées représentent l'erreur associée à chaque observation."
 //| warning: false
 //| eval: true
+//| echo: false
 
 data = FileAttachment("../../include/data/data.csv").csv({ typed: true })
 
