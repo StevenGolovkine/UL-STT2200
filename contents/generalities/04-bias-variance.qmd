@@ -589,7 +589,7 @@ Plot.plot({
   },
   x: {
     domain: [0, 1],
-    label: "X",
+    label: "λ",
   },
   y: {
     domain: [0, 0.04],

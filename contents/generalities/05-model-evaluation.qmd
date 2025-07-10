@@ -26,8 +26,7 @@ Généralement, nous n'avons pas accès à un jeu de données de test pour estim
 
 L'idée du jeu de données de validation est très simple. On divise aléatoirement le jeu de données d'entraînement en deux parties : une partie qui va effectivement servir à entrainer le modèle et l'autre partie qui va servir à estimer l'erreur de prédiction.
 
-Add schema!
-
+![Schéma de l'approche par jeu de données de validation.](../../include/validation-set.png)
 Add exemple!
 
 
@@ -49,8 +48,7 @@ Désavantage de la méthode :
 
 Comme l'approche par jeu de données de validation, la validation croisée consiste à faire des sous-ensembles du jeu de données. L'approche consiste à découper de façon aléatoire l'ensemble des observations en $K$ groupes de taille équivalanetes. Le premier sous-ensemble est utilisé comme jeu de données de validation et le modèle est appris sur les $K - 1$ autres sous-ensembles. L'erreur de prédiction est calculé sur le premier sous-ensemble. Cette procédure est faite $K$ fois; à chaque un différent sous-ensemble est utilisé comme jeu de données de validation. À la fin, on a donc $K$ valeurs pour l'erreur de prédiction. On calcule enfin la moyenne des $K$ valeurs de prédiction.
 
-
-Add schema!
+![Schéma de l'approche par validation croisée](../../include/cross-validation.png)
 
 Add exemple!
 
