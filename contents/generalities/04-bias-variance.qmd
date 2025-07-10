@@ -309,6 +309,7 @@ Notre objectif est donc de trouver un juste équilibre entre biais et variance, 
 #| fig-cap: "Différents estimateurs de la fonction $f$."
 #| warning: false
 #| eval: true
+#| echo: false
 
 # Load packages
 library(ggplot2)
@@ -332,7 +333,7 @@ spans_to_plot <- c(0.15, 0.3, 0.5, 0.75, 1.0)
 fits <- lapply(spans_to_plot, function(s) {
   loess_model <- loess(y ~ x, data = df, span = s)
   y_hat <- predict(loess_model, newdata = data.frame(x = x_grid))
-  data.frame(x = x_grid, y_hat = y_hat, span = paste0("λ = ", s))
+  data.frame(x = x_grid, y_hat = y_hat, span = paste0("$\\lambda = ", s, "$"))
 })
 
 fit_df <- bind_rows(fits)
@@ -356,6 +357,7 @@ ggplot() +
 #| fig-cap: "Compromis biais/variance."
 #| warning: false
 #| eval: true
+#| echo: false
 
 # Load packages
 library(ggplot2)
@@ -420,7 +422,7 @@ ggplot(results_long, aes(x = span, y = value, color = component)) +
     values = c("Biais2" = "#0D0887FF", "Variance" = "#9C179EFF", "MSE" = "#ED7953FF")
   ) +
   labs(
-    x = "Paramètre de lissage λ" ,
+    x = "Paramètre de lissage $\\lambda$" ,
     y = "",
     color = ""
   ) +
@@ -523,8 +525,8 @@ write.csv(results_long, './data_mse.csv')
 //| eval: true
 //| echo: false
 
-data_fit = FileAttachment("./data_fit.csv").csv({ typed: true })
-data_mse = FileAttachment("./data_mse.csv").csv({ typed: true })
+data_fit = FileAttachment("../../include/data/data_fit.csv").csv({ typed: true })
+data_mse = FileAttachment("../../include/data/data_mse.csv").csv({ typed: true })
 
 viewof span = Inputs.range(
   [0.1, 1], 
