@@ -523,7 +523,7 @@ write.csv(results_long, './data_mse.csv')
 //| eval: true
 //| echo: false
 
-data = FileAttachment("./data_fit.csv").csv({ typed: true })
+data_fit = FileAttachment("./data_fit.csv").csv({ typed: true })
 data_mse = FileAttachment("./data_mse.csv").csv({ typed: true })
 
 viewof span = Inputs.range(
@@ -531,28 +531,17 @@ viewof span = Inputs.range(
   {value: 0.5, step: 0.1, label: tex`\lambda`}
 )
 
-filtered = data.filter(function(df) {
+filtered_fit = data_fit.filter(function(df) {
   return df.span == span;
 })
 
-points = data.filter(function(df) {
+points = data_fit.filter(function(df) {
   return df.span == 0;
 })
 
 current_mse = data_mse.filter(function(df) {
   return df.span == span;
 })
-
-mse = data_mse.filter(function(df) {
-  return df.component == 'MSE';
-})
-bias = data_mse.filter(function(df) {
-  return df.component == 'Biais2';
-})
-variance = data_mse.filter(function(df) {
-  return df.component == 'Variance';
-})
-
 ```
 
 ```{ojs}
@@ -581,7 +570,7 @@ Plot.plot({
       {x: "x", y: "y", fill: "#444444", r: 3}
     ),
     Plot.line(
-      filtered, 
+      filtered_fit, 
       {x: "x", y: "y", stroke: "#B0E1FA", strokeWidth: 5}
     ),
 
