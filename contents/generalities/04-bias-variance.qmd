@@ -559,7 +559,7 @@ variance = data_mse.filter(function(df) {
 //| label: fig-plot-html
 //| fig-cap: Illustration du compromis biais/variance. Le paramètre $\lambda$ contrôle la flexibilité du modèle, plus $\lambda$ est petit, plus le modèle est flexible.
 //| fig-subcap:
-//|   - "Différents estimateurs $\widehat{f}$."
+//|   - "Différents estimateurs $\\widehat{f}$."
 //|   - "Différentes parties de l'erreur."
 //| warning: false
 //| eval: true
