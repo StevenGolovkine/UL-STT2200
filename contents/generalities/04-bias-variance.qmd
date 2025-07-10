@@ -333,7 +333,7 @@ spans_to_plot <- c(0.15, 0.3, 0.5, 0.75, 1.0)
 fits <- lapply(spans_to_plot, function(s) {
   loess_model <- loess(y ~ x, data = df, span = s)
   y_hat <- predict(loess_model, newdata = data.frame(x = x_grid))
-  data.frame(x = x_grid, y_hat = y_hat, span = paste0("$\\lambda = ", s, "$"))
+  data.frame(x = x_grid, y_hat = y_hat, span = paste0(TeX(r"($\lambda$ = )"), s))
 })
 
 fit_df <- bind_rows(fits)
@@ -363,6 +363,7 @@ ggplot() +
 library(ggplot2)
 library(dplyr)
 library(tidyr)
+library(latex2exp)
 
 set.seed(42)
 
@@ -422,7 +423,7 @@ ggplot(results_long, aes(x = span, y = value, color = component)) +
     values = c("Biais2" = "#0D0887FF", "Variance" = "#9C179EFF", "MSE" = "#ED7953FF")
   ) +
   labs(
-    x = "Paramètre de lissage $\\lambda$" ,
+    x = TeX(r"(Paramètre de lissage $\lambda$)"),
     y = "",
     color = ""
   ) +
