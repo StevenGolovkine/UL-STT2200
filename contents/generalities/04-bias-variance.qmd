@@ -33,6 +33,7 @@ La @fig-model-html illustre les différents éléments du modèle: les données 
 #| fig-cap: "Les différents éléments du modèle. Les points représentent les données observées $(X_i, Y_i)$. La courbe bleue représente la fonction $f$ et les lignes pointillées représentent l'erreur associée à chaque observation."
 #| warning: false
 #| eval: true
+#| echo: false
 
 # Load required package
 library(ggplot2)
@@ -315,6 +316,7 @@ Notre objectif est donc de trouver un juste équilibre entre biais et variance, 
 library(ggplot2)
 library(dplyr)
 library(tidyr)
+library(latex2exp)
 
 set.seed(42)
 
@@ -339,14 +341,14 @@ fits <- lapply(spans_to_plot, function(s) {
 fit_df <- bind_rows(fits)
 
 # 4. Plot
-ggplot() +
+ggplot(data = fit_df, aes(x, y_hat, color = as.factor(span))) +
   geom_point(data = df, aes(x, y), color = "black", alpha = 0.5, size = 2) +
-  geom_line(data = fit_df, aes(x, y_hat, color = span), size = 1.1) +
-  scale_color_viridis_d(option = "C") +
+  geom_line(size = 1.1) +
   labs(
     x = "X", y = "Y",
     color = "Paramètre"
   ) +
+  scale_color_discrete(labels = lapply(sprintf(r'($\lambda = %g$)', spans_to_plot), TeX)) +
   theme_minimal(base_size = 14)
 ```
 
