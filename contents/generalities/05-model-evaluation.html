@@ -106,7 +106,11 @@ window.Quarto = {
 };
 </script><meta property="og:title" content="Évaluation de modeles – STT-2200: Analyse de données">
 <meta property="og:description" content="">
+<meta property="og:image" content="https://stt2200.netlify.app/include/validation-set.png">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
+<meta property="og:image:alt" content="Schéma de l’approche par jeu de données de validation.">
+<meta property="og:image:height" content="587">
+<meta property="og:image:width" content="2922">
 </head>
 <body class="nav-sidebar floating quarto-light">
 <script id="quarto-html-before-body" type="application/javascript">
@@ -667,8 +671,7 @@ Remarque: Sur-ajustement et sous-ajustement
 <p>Généralement, nous n’avons pas accès à un jeu de données de test pour estimer l’erreur de prédiction sur celui-ci. Dans cette section, on va voir deux méthodes permettant d’estimer l’erreur de prédiction de test en découpant le jeu de données d’entraînement en sous-ensemble et en estimant <span class="math inline">\(f\)</span> sur ces sous-ensemble.</p>
 <section id="jeu-de-données-de-validation" class="level2"><h2 class="anchored" data-anchor-id="jeu-de-données-de-validation">Jeu de données de validation</h2>
 <p>L’idée du jeu de données de validation est très simple. On divise aléatoirement le jeu de données d’entraînement en deux parties : une partie qui va effectivement servir à entrainer le modèle et l’autre partie qui va servir à estimer l’erreur de prédiction.</p>
-<p>Add schema!</p>
-<p>Add exemple!</p>
+<p><img src="../../include/validation-set.png" class="img-fluid" alt="Schéma de l’approche par jeu de données de validation."> Add exemple!</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -688,7 +691,10 @@ Comment choisir comment découper le jeu de données ?
 <li><p>On a moins de données pour apprendre le modèle. Comme les modèles ont tendance à moins bien apprendre avec moins de données, l’estimation de l’erreur sur le jeu de validation a tendance à surestimer l’erreur que l’on aurait avec un jeu de test et un modèle appris sur le jeu de données complet.</p></li>
 </ol></section><section id="validation-croisée" class="level2"><h2 class="anchored" data-anchor-id="validation-croisée">Validation croisée</h2>
 <p>Comme l’approche par jeu de données de validation, la validation croisée consiste à faire des sous-ensembles du jeu de données. L’approche consiste à découper de façon aléatoire l’ensemble des observations en <span class="math inline">\(K\)</span> groupes de taille équivalanetes. Le premier sous-ensemble est utilisé comme jeu de données de validation et le modèle est appris sur les <span class="math inline">\(K - 1\)</span> autres sous-ensembles. L’erreur de prédiction est calculé sur le premier sous-ensemble. Cette procédure est faite <span class="math inline">\(K\)</span> fois; à chaque un différent sous-ensemble est utilisé comme jeu de données de validation. À la fin, on a donc <span class="math inline">\(K\)</span> valeurs pour l’erreur de prédiction. On calcule enfin la moyenne des <span class="math inline">\(K\)</span> valeurs de prédiction.</p>
-<p>Add schema!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="../../include/cross-validation.png" class="img-fluid figure-img"></p>
+<figcaption>Schéma de l’approche par validation croisée</figcaption></figure>
+</div>
 <p>Add exemple!</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
