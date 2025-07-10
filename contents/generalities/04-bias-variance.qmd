@@ -298,11 +298,14 @@ Cette décomposition met en avant un compromis fondamental en analyse de donnée
 
 * Si on choisit un modèle flexible, le biais sera faible, mais la variance peut être très élevée.
 
-Notre objectif est donc de trouver un juste équilibre entre biais et variance, i.e. un modèle qui prédit correctement, tout en étant généralisable à de nouvelles données. La @fig-plot présente un jeu de données et différents estimateurs $\widehat{f}$. En faisant varier le paramètre $\lambda$, on obtient des modèles plus ou moins flexible (lorsque $\lambda = 0.15$, le modèle est flexible et lorsque $\lambda = 1$, le modèle est rigide). La @fig-bias-variance montre la valeur du biais, de la variance et de la MSE pour les modèles estimés pour la @fig-plot. On remarque que plus $\lambda$ est petit, plus la variance est grande, mais le biais est petit (le modèle est flexible). Inversement, plus $\lambda$ est grand, plus le biais est grand et la variance petite (le modèle est rigide). La courbe de MSE en fonction du paramètre est une courbe en U. Comme on cherche à minimiser la MSE, i.e. à faire un compromis entre le biais et la variance, on peut prendre $\lambda = 0.5$. 
+
+
+::: {.content-visible when-format="pdf"}
+Notre objectif est donc de trouver un juste équilibre entre biais et variance, i.e. un modèle qui prédit correctement, tout en étant généralisable à de nouvelles données. La @fig-plot-pdf présente un jeu de données et différents estimateurs $\widehat{f}$. En faisant varier le paramètre $\lambda$, on obtient des modèles plus ou moins flexible (lorsque $\lambda = 0.15$, le modèle est flexible et lorsque $\lambda = 1$, le modèle est rigide). La @fig-bias-variance-pdf montre la valeur du biais, de la variance et de la MSE pour les modèles estimés pour la @fig-plot-pdf. On remarque que plus $\lambda$ est petit, plus la variance est grande, mais le biais est petit (le modèle est flexible). Inversement, plus $\lambda$ est grand, plus le biais est grand et la variance petite (le modèle est rigide). La courbe de MSE en fonction du paramètre est une courbe en U. Comme on cherche à minimiser la MSE, i.e. à faire un compromis entre le biais et la variance, on peut prendre $\lambda = 0.5$. 
 
 
 ```{r}
-#| label: fig-plot
+#| label: fig-plot-pdf
 #| fig-cap: "Différents estimateurs de la fonction $f$."
 #| warning: false
 #| eval: true
@@ -349,7 +352,7 @@ ggplot() +
 
 
 ```{r}
-#| label: fig-bias-variance
+#| label: fig-bias-variance-pdf
 #| fig-cap: "Compromis biais/variance."
 #| warning: false
 #| eval: true
@@ -424,6 +427,195 @@ ggplot(results_long, aes(x = span, y = value, color = component)) +
   theme_minimal(base_size = 14)
 
 ```
+:::
+
+
+::: {.content-visible when-format="html"}
+
+Notre objectif est donc de trouver un juste équilibre entre biais et variance, i.e. un modèle qui prédit correctement, tout en étant généralisable à de nouvelles données. La @fig-plot-html-1 présente un jeu de données et différents estimateurs $\widehat{f}$. En faisant varier le paramètre $\lambda$, on obtient des modèles plus ou moins flexible (lorsque $\lambda = 0.15$, le modèle est flexible et lorsque $\lambda = 1$, le modèle est rigide). La @fig-plot-html-2 montre la valeur du biais, de la variance et de la MSE pour les modèles estimés pour la @fig-plot-html-1. On remarque que plus $\lambda$ est petit, plus la variance est grande, mais le biais est petit (le modèle est flexible). Inversement, plus $\lambda$ est grand, plus le biais est grand et la variance petite (le modèle est rigide). La courbe de MSE en fonction du paramètre est une courbe en U. Comme on cherche à minimiser la MSE, i.e. à faire un compromis entre le biais et la variance, on peut prendre $\lambda = 0.5$. 
+
+```{r}
+#| eval: false
+
+# Load packages
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+
+set.seed(42)
+
+# 1. Simulate a single dataset
+n <- 100
+sigma2 <- 0.1
+x <- sort(runif(n, 0.05, 1))
+y <- 4 * x * (1 - x) * log(x) + 2 + rnorm(n, 0, sqrt(sigma2))
+df <- data.frame(x = x, y = y, span = 0)
+
+# 2. Define grid and spans to compare
+x_grid <- seq(0.05, 1, length.out = 300)
+spans_to_plot <- seq(0.1, 1, by = 0.1)
+
+# 3. Compute loess fits for each span
+fits <- lapply(spans_to_plot, function(s) {
+  loess_model <- loess(y ~ x, data = df, span = s)
+  y_hat <- predict(loess_model, newdata = data.frame(x = x_grid))
+  data.frame(x = x_grid, y = y_hat, span = s)
+})
+
+fit_df <- bind_rows(fits)
+fit_df <- fit_df |> add_row(df)  # Add data points
+ 
+write.csv(fit_df, './data_fit.csv')
+
+
+# Parameters
+n_sim <- 100          # number of simulated datasets
+spans <- seq(0.1, 1, by = 0.05)  # LOESS smoothing parameters
+x_grid <- seq(0.1, 1, length.out = 200)
+f_true <- 4 * x_grid * (1 - x_grid) * log(x_grid) + 2
+
+# Storage for predictions
+results <- list()
+
+for (s in spans) {
+  pred_matrix <- matrix(NA, nrow = length(x_grid), ncol = n_sim)
+  
+  for (sim in 1:n_sim) {
+    x <- sort(runif(n, 0.01, 1.1))
+    y <- 4 * x * (1 - x) * log(x) + 2 + rnorm(n, 0, sqrt(sigma2))
+    df <- data.frame(x = x, y = y)
+    
+    # Fit loess model with span = s
+    model <- loess(y ~ x, data = df, span = s, degree = 2)
+    pred <- predict(model, newdata = data.frame(x = x_grid), )
+    
+    pred_matrix[, sim] <- pred
+  }
+  
+  # For each point in x_grid, compute bias², variance, MSE
+  mean_pred <- rowMeans(pred_matrix, na.rm = TRUE)
+  bias2 <- (mean_pred - f_true)^2
+  var_pred <- apply(pred_matrix, 1, var, na.rm = TRUE)
+  mse <- bias2 + var_pred
+  
+  results[[as.character(s)]] <- data.frame(
+    span = s,
+    Biais2 = mean(bias2),
+    Variance = mean(var_pred),
+    MSE = mean(mse)
+  )
+}
+
+# Combine and reshape results
+results_df <- bind_rows(results)
+results_long <- pivot_longer(
+  results_df,
+  cols = c("Biais2", "Variance", "MSE"),
+  names_to = "component", values_to = "value"
+)
+
+write.csv(results_long, './data_mse.csv')
+```
+
+
+```{ojs}
+//| warning: false
+//| eval: true
+//| echo: false
+
+data = FileAttachment("./data_fit.csv").csv({ typed: true })
+data_mse = FileAttachment("./data_mse.csv").csv({ typed: true })
+
+viewof span = Inputs.range(
+  [0.1, 1], 
+  {value: 0.5, step: 0.1, label: tex`\lambda`}
+)
+
+filtered = data.filter(function(df) {
+  return df.span == span;
+})
+
+points = data.filter(function(df) {
+  return df.span == 0;
+})
+
+current_mse = data_mse.filter(function(df) {
+  return df.span == span;
+})
+
+mse = data_mse.filter(function(df) {
+  return df.component == 'MSE';
+})
+bias = data_mse.filter(function(df) {
+  return df.component == 'Biais2';
+})
+variance = data_mse.filter(function(df) {
+  return df.component == 'Variance';
+})
+
+```
+
+```{ojs}
+//| label: fig-plot-html
+//| fig-cap: Illustration du compromis biais/variance. Le paramètre $\lambda$ contrôle la flexibilité du modèle, plus $\lambda$ est petit, plus le modèle est flexible.
+//| fig-subcap:
+//|   - "Différents estimateurs $\widehat{f}$."
+//|   - "Différentes parties de l'erreur."
+//| warning: false
+//| eval: true
+//| echo: false
+
+Plot.plot({
+  grid: true,
+  x: {
+    domain: [0, 1],
+    label: "X",
+  },
+  y: {
+    domain: [0, 3],
+    label: "Y",
+  },
+  marks: [
+    Plot.dot(
+      points,
+      {x: "x", y: "y", fill: "#444444", r: 3}
+    ),
+    Plot.line(
+      filtered, 
+      {x: "x", y: "y", stroke: "#B0E1FA", strokeWidth: 5}
+    ),
+
+  ]
+})
+
+Plot.plot({
+  grid: true,
+  color: {
+    legend: true,
+  },
+  x: {
+    domain: [0, 1],
+    label: "X",
+  },
+  y: {
+    domain: [0, 0.04],
+    label: "Y",
+  },
+  marks: [
+    Plot.line(
+      data_mse, 
+      {x: "span", y: "value", stroke: "component", strokeWidth: 5}
+    ),
+    Plot.dot(
+      current_mse,
+      {x: "span", y: "value", fill: "component", r: 10}
+    ),
+  ]
+})
+```
+
+:::
+
 
 De manière générale, lorsque la flexibilité augmente, la diminution du biais est plus importante que l'augmentation de la variance, ce qui fait décroître l'erreur de prédiction. Cependant, à partir d'un certain niveau de flexibilité, le biais devient négligeable, et toute baisse supplémentaire est compensée par l'augmentation rapide de la variance. L'erreur de prédiction commence donc à croître. Il en résulte une courbe en U de l'erreur de prédiction en fonction de la flexibilité du modèle : un modèle trop rigide engendre un fort biais, tandis qu'un modèle trop flexible conduit à une trop grande variance.
 
