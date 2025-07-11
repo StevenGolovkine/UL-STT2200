@@ -108,7 +108,6 @@ window.Quarto = {
 <meta property="og:description" content="">
 <meta property="og:image" content="https://stt2200.netlify.app/include/validation-set.png">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
-<meta property="og:image:alt" content="Schéma de l’approche par jeu de données de validation.">
 <meta property="og:image:height" content="587">
 <meta property="og:image:width" content="2922">
 </head>
@@ -621,7 +620,8 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-<li><a href="#jeu-de-donn%C3%A9es-de-validation" id="toc-jeu-de-données-de-validation" class="nav-link active" data-scroll-target="#jeu-de-données-de-validation">Jeu de données de validation</a></li>
+<li><a href="#%C3%A9valuer-la-performance-dun-mod%C3%A8le-pr%C3%A9dictif" id="toc-évaluer-la-performance-dun-modèle-prédictif" class="nav-link active" data-scroll-target="#évaluer-la-performance-dun-modèle-prédictif">Évaluer la performance d’un modèle prédictif</a></li>
+  <li><a href="#jeu-de-donn%C3%A9es-de-validation" id="toc-jeu-de-données-de-validation" class="nav-link" data-scroll-target="#jeu-de-données-de-validation">Jeu de données de validation</a></li>
   <li><a href="#validation-crois%C3%A9e" id="toc-validation-croisée" class="nav-link" data-scroll-target="#validation-croisée">Validation croisée</a></li>
   </ul>
 <div class="toc-actions"><ul>
@@ -654,7 +654,8 @@ window.Quarto = {
 
 
 </header><p>Cette section est basée sur <span class="citation" data-cites="jamesIntroductionStatisticalLearning2021">James et al. (<a href="#ref-jamesIntroductionStatisticalLearning2021" role="doc-biblioref">2021</a>)</span>, chapitre 5.</p>
-<p>Nous avons vu dans la section précédente comment mesurer la qualité d’un estimateur : en utilisant l’erreur quadratique moyenne pour une variable quantitative et le taux d’erreur pour une variable qualitative. Cependant, si on calcule l’erreur en utilisant que les données observées, on risque de sous-estimer les vraies erreurs car la fonction <span class="math inline">\(\widehat{f}\)</span> a été apprise à l’aide des données observées et donc s’adapte à celles-ci. En effet, on pourrait donc juste prendre un modèle plus flexible qui s’ajustera mieux aux données observées et donc avoir une plus petite valeur de l’erreur. Mais si le modèle s’adapte trop aux données observées, il risque de ne pas être aussi bon si on l’applique sur de nouvelles données. En pratique, on souhaiterait un jeu de données d’<strong>entraînement</strong> sur lequel on apprend le modèle et un jeu de données de <strong>test</strong> sur lequel on calcule l’erreur de prédiction pour ajuster le modèle.</p>
+<section id="évaluer-la-performance-dun-modèle-prédictif" class="level2"><h2 class="anchored" data-anchor-id="évaluer-la-performance-dun-modèle-prédictif">Évaluer la performance d’un modèle prédictif</h2>
+<p>Dans la section précédente, nous avons introduit des outils pour mesurer la qualité d’un estimateur : l’erreur quadratique moyenne (MSE) pour les variables quantitatives et le taux d’erreur (ER) pour les variables qualitatives. Ces mesures comparent les valeurs prédites <span class="math inline">\(\widehat{Y} = \widehat{f}(X)\)</span> aux valeurs observées <span class="math inline">\(Y\)</span>. Cependant, si l’on calcule ces erreurs uniquement à partir des données qui ont servi à entraîner le modèle, on risque de <strong>sous-estimer</strong> la véritable erreur de prédiction. Pourquoi ? Parce que l’estimateur <span class="math inline">\(\widehat{f}\)</span> a été ajusté pour minimiser l’erreur sur ces mêmes données. Il s’y adapte donc bien, et généralement, trop bien ! Cela peut conduire à l’illlusion que notre modèle est performant. En effet, un modèle très flexible peut avoir une erreur faible sur les données d’entraînement simplement parce qu’il capture le bruit plutôt que le signal. Mais si le modèle s’adapte trop aux données d’entraînement, il risque de mal généraliser à de nouvelles données, i.e. des données qu’il n’a jamais vues. Ce phénomène s’appelle le <strong>sur-ajustement</strong> (<em>overfitting</em>).</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -665,13 +666,22 @@ Remarque: Sur-ajustement et sous-ajustement
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Si on choisit à l’aide du jeu de données d’entraînement un modèle trop flexible qui s’ajuste à la partie aléatoire des données de sorte que l’erreur sur un autre jeu de données est plus grande qu’elle ne l’aurait été avec un modèle moins flexible, on parle de <strong>sur-ajustement</strong> (<em>overfitting</em>). Dans le cas inverse, si on choisit un modèle rigide, i.e. de sorte que les prédictions soient les mêmes peu importe les données, on parle de <strong>sous-ajustement</strong> (<em>underfitting</em>).</p>
+<p>Un modèle trop flexible peut s’adapter parfaitement aux données d’entraînement, y compris au bruit aléatoire. Il aura une erreur faible sur ces données mais une erreur élevée sur de nouvelles observations. On dira qu’il y a <strong>sur-ajustement</strong> (<em>overfitting</em>) du modèle. À l’inverse, un modèle trop rigide (par exemple, une droite constante) ne pourra pas capturer la structure des données, même sur l’ensemble d’entraînement. On dira qu’il y a <strong>sous-ajustement</strong> (<em>underfitting</em>) du modèle.</p>
+<p>L’objectif est de trouver le bon compromis entre flexibilité et capacité de généralisation.</p>
 </div>
 </div>
-<p>Généralement, nous n’avons pas accès à un jeu de données de test pour estimer l’erreur de prédiction sur celui-ci. Dans cette section, on va voir deux méthodes permettant d’estimer l’erreur de prédiction de test en découpant le jeu de données d’entraînement en sous-ensemble et en estimant <span class="math inline">\(f\)</span> sur ces sous-ensemble.</p>
-<section id="jeu-de-données-de-validation" class="level2"><h2 class="anchored" data-anchor-id="jeu-de-données-de-validation">Jeu de données de validation</h2>
-<p>L’idée du jeu de données de validation est très simple. On divise aléatoirement le jeu de données d’entraînement en deux parties : une partie qui va effectivement servir à entrainer le modèle et l’autre partie qui va servir à estimer l’erreur de prédiction.</p>
-<p><img src="../../include/validation-set.png" class="img-fluid" alt="Schéma de l’approche par jeu de données de validation."> Add exemple!</p>
+<p>Pour évaluer objectivement un modèle, l’idéal serait de le tester sur des données complètement indépendantes de celles utilisé pour l’apprentissage. On distingue donc deux ensembles : un <strong>jeu d’entraînement</strong>, utilisé pour ajuster le modèle et un <strong>jeu de test</strong>, utilisé pour évaluer la performance prédictive du modèle. En practique, nous n’avons généralement pas accès à un jeu de test pour faire cette évaluation. Dans cette section, nous allons deux approches permettant de contourner ce problème.</p>
+</section><section id="jeu-de-données-de-validation" class="level2"><h2 class="anchored" data-anchor-id="jeu-de-données-de-validation">Jeu de données de validation</h2>
+<p>Quand on ne dispose que d’un seul jeu de données, une solution simple consiste à le diviser <strong>aléatoirement</strong> en deux sous-ensembles : un <strong>jeu d’entraînement</strong> pour ajuster le modèle et un <strong>jeu de validation</strong> pour estimer l’erreur de prédiction. On parle alors d’approche par jeu de validation. La <a href="#fig-schema-val" class="quarto-xref">Figure 1</a> présente un schéma de cette approche.</p>
+<div id="fig-schema-val" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-schema-val-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../include/validation-set.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-schema-val-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 1: Schéma de l’approche par jeu de validation.
+</figcaption></figure>
+</div>
+<p>Add exemple!</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
