@@ -10,23 +10,28 @@ format:
 
 Cette section est basée sur @jamesIntroductionStatisticalLearning2021, chapitre 5.
 
-Nous avons vu dans la section précédente comment mesurer la qualité d'un estimateur : en utilisant l'erreur quadratique moyenne pour une variable quantitative et le taux d'erreur pour une variable qualitative. Cependant, si on calcule l'erreur en utilisant que les données observées, on risque de sous-estimer les vraies erreurs car la fonction $\widehat{f}$ a été apprise à l'aide des données observées et donc s'adapte à celles-ci. En effet, on pourrait donc juste prendre un modèle plus flexible qui s'ajustera mieux aux données observées et donc avoir une plus petite valeur de l'erreur. Mais si le modèle s'adapte trop aux données observées, il risque de ne pas être aussi bon si on l'applique sur de nouvelles données. En pratique, on souhaiterait un jeu de données d'**entraînement** sur lequel on apprend le modèle et un jeu de données de **test** sur lequel on calcule l'erreur de prédiction pour ajuster le modèle.
+## Évaluer la performance d'un modèle prédictif
+
+Dans la section précédente, nous avons introduit des outils pour mesurer la qualité d'un estimateur : l'erreur quadratique moyenne (MSE) pour les variables quantitatives et le taux d'erreur (ER) pour les variables qualitatives. Ces mesures comparent les valeurs prédites $\widehat{Y} = \widehat{f}(X)$ aux valeurs observées $Y$.  Cependant, si l'on calcule ces erreurs uniquement à partir des données qui ont servi à entraîner le modèle, on risque de **sous-estimer** la véritable erreur de prédiction. Pourquoi ? Parce que l'estimateur $\widehat{f}$ a été ajusté pour minimiser l'erreur sur ces mêmes données. Il s'y adapte donc bien, et généralement, trop bien ! Cela peut conduire à l'illlusion que notre modèle est performant. En effet, un modèle très flexible peut avoir une erreur faible sur les données d'entraînement simplement parce qu'il capture le bruit plutôt que le signal. Mais si le modèle s'adapte trop aux données d'entraînement, il risque de mal généraliser à de nouvelles données, i.e. des données qu'il n'a jamais vues. Ce phénomène s'appelle le **sur-ajustement** (*overfitting*).
 
 ::: {.callout-tip icon=false}
 ## Remarque: Sur-ajustement et sous-ajustement
 
-Si on choisit à l'aide du jeu de données d'entraînement un modèle trop flexible qui s'ajuste à la partie aléatoire des données de sorte que l'erreur sur un autre jeu de données est plus grande qu'elle ne l'aurait été avec un modèle moins flexible, on parle de **sur-ajustement** (*overfitting*). Dans le cas inverse, si on choisit un modèle rigide, i.e. de sorte que les prédictions soient les mêmes peu importe les données, on parle de **sous-ajustement** (*underfitting*).
+Un modèle trop flexible peut s'adapter parfaitement aux données d'entraînement, y compris au bruit aléatoire. Il aura une erreur faible sur ces données mais une erreur élevée sur de nouvelles observations. On dira qu'il y a **sur-ajustement** (*overfitting*) du modèle. À l'inverse, un modèle trop rigide (par exemple, une droite constante) ne pourra pas capturer la structure des données, même sur l'ensemble d'entraînement. On dira qu'il y a **sous-ajustement** (*underfitting*) du modèle.
+
+L'objectif est de trouver le bon compromis entre flexibilité et capacité de généralisation.
 
 :::
 
-Généralement, nous n'avons pas accès à un jeu de données de test pour estimer l'erreur de prédiction sur celui-ci. Dans cette section, on va voir deux méthodes permettant d'estimer l'erreur de prédiction de test en découpant le jeu de données d'entraînement en sous-ensemble et en estimant $f$ sur ces sous-ensemble.
+Pour évaluer objectivement un modèle, l'idéal serait de le tester sur des données complètement indépendantes de celles utilisé pour l'apprentissage. On distingue donc deux ensembles : un **jeu d'entraînement**, utilisé pour ajuster le modèle et un **jeu de test**, utilisé pour évaluer la performance prédictive du modèle. En practique, nous n'avons généralement pas accès à un jeu de test pour faire cette évaluation. Dans cette section, nous allons deux approches permettant de contourner ce problème.
 
 
 ## Jeu de données de validation
 
-L'idée du jeu de données de validation est très simple. On divise aléatoirement le jeu de données d'entraînement en deux parties : une partie qui va effectivement servir à entrainer le modèle et l'autre partie qui va servir à estimer l'erreur de prédiction.
+Quand on ne dispose que d'un seul jeu de données,  une solution simple consiste à le diviser **aléatoirement** en deux sous-ensembles : un **jeu d'entraînement** pour ajuster le modèle et un **jeu de validation** pour estimer l'erreur de prédiction. On parle alors d'approche par jeu de validation. La @fig-schema-val présente un schéma de cette approche.
 
-![Schéma de l'approche par jeu de données de validation.](../../include/validation-set.png)
+![Schéma de l'approche par jeu de validation.](../../include/validation-set.png){#fig-schema-val}
+
 Add exemple!
 
 
