@@ -49,9 +49,9 @@ div.csl-indent {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script><link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-b54d1a97b725d9b3e1ee35399f4c97a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-8ecd070b1a2e8726838e34f714ce655b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-b54d1a97b725d9b3e1ee35399f4c97a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6cf3bad875a05834ffc272251951d8c2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-2ef1ce349761a6642275175dd1fb880f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-6cf3bad875a05834ffc272251951d8c2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -703,10 +703,14 @@ Comment choisir la taille des sous-ensembles ?
 <p>La méthode a cependant deux inconvénients. Le premier est que l’estimation de l’erreur est instable. En effet, la valeur de l’erreur de prédiction dépend des observations qui sont dans le jeu de validation. Un autre jeu de validation peut donner un résultat différent. Le deuxième est qu’il y a moins de données pour ajuster le modèle. Comme une partie des données est réservée à la validation, le modèle est appris sur un ensemble plus petit, et cela peut donc surestimer son erreur réelle par rapport à s’il avait été appris sur l’ensemble de données complet.</p>
 </section><section id="validation-croisée" class="level2"><h2 class="anchored" data-anchor-id="validation-croisée">Validation croisée</h2>
 <p>Pour contourner les limites de l’approche précédente, on utilise souvent la <strong>validation croisée</strong> (<em>cross-validation</em>). Cette méthode est plus robuste et plus stable. Le principe est de répéter l’approche par jeu de validation plusieurs sur différents sous-ensembles du jeu de données.</p>
-<p>L’approche consiste à découper aléatoirement l’ensemble des observations en <span class="math inline">\(K\)</span> sous-ensembles de taille équivalentes (appelés <em>folds</em>). Le premier <em>fold</em> est utilisé comme jeu de données de validation et le modèle est ajusté sur les <span class="math inline">\(K - 1\)</span> <em>folds</em> restant. L’erreur de prédiction est calculé sur le premier <em>fold</em>. Cette procédure est répèté <span class="math inline">\(K\)</span> fois; à chaque fois, un différent <em>fold</em> est utilisé comme jeu de données de validation. À la fin, on a donc <span class="math inline">\(K\)</span> valeurs pour l’erreur de prédiction. On calcule enfin la moyenne des <span class="math inline">\(K\)</span> valeurs de prédiction.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="../../include/cross-validation.png" class="img-fluid figure-img"></p>
-<figcaption>Schéma de l’approche par validation croisée</figcaption></figure>
+<p>L’approche consiste à découper aléatoirement l’ensemble des observations en <span class="math inline">\(K\)</span> sous-ensembles de taille équivalentes (appelés <em>folds</em>). Le premier <em>fold</em> est utilisé comme jeu de données de validation et le modèle est ajusté sur les <span class="math inline">\(K - 1\)</span> <em>folds</em> restant. L’erreur de prédiction est calculé sur le premier <em>fold</em>. Cette procédure est répèté <span class="math inline">\(K\)</span> fois; à chaque fois, un différent <em>fold</em> est utilisé comme jeu de données de validation. À la fin, on a donc <span class="math inline">\(K\)</span> valeurs pour l’erreur de prédiction. On calcule enfin la moyenne des <span class="math inline">\(K\)</span> valeurs de prédiction. La <a href="#fig-schema-cv" class="quarto-xref">Figure 2</a> présente un schéma de cette approche.</p>
+<div id="fig-schema-cv" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-schema-cv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../include/cross-validation.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-schema-cv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 2: Schéma de l’approche par validation croisée
+</figcaption></figure>
 </div>
 <p>Add exemple!</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
