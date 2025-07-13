@@ -597,49 +597,49 @@
   {
     "objectID": "contents/generalities/05-model-evaluation.html",
     "href": "contents/generalities/05-model-evaluation.html",
-    "title": "Évaluation de modeles",
+    "title": "Évaluation de modèles",
     "section": "",
     "text": "Cette section est basée sur James et al. (2021), chapitre 5.",
     "crumbs": [
       "Modules",
       "03 - Généralités",
-      "Évaluation de modeles"
+      "Évaluation de modèles"
     ]
   },
   {
     "objectID": "contents/generalities/05-model-evaluation.html#évaluer-la-performance-dun-modèle-prédictif",
     "href": "contents/generalities/05-model-evaluation.html#évaluer-la-performance-dun-modèle-prédictif",
-    "title": "Évaluation de modeles",
+    "title": "Évaluation de modèles",
     "section": "Évaluer la performance d’un modèle prédictif",
     "text": "Évaluer la performance d’un modèle prédictif\nDans la section précédente, nous avons introduit des outils pour mesurer la qualité d’un estimateur : l’erreur quadratique moyenne (MSE) pour les variables quantitatives et le taux d’erreur (ER) pour les variables qualitatives. Ces mesures comparent les valeurs prédites \\(\\widehat{Y} = \\widehat{f}(X)\\) aux valeurs observées \\(Y\\). Cependant, si l’on calcule ces erreurs uniquement à partir des données qui ont servi à entraîner le modèle, on risque de sous-estimer la véritable erreur de prédiction. Pourquoi ? Parce que l’estimateur \\(\\widehat{f}\\) a été ajusté pour minimiser l’erreur sur ces mêmes données. Il s’y adapte donc bien, et généralement, trop bien ! Cela peut conduire à l’illlusion que notre modèle est performant. En effet, un modèle très flexible peut avoir une erreur faible sur les données d’entraînement simplement parce qu’il capture le bruit plutôt que le signal. Mais si le modèle s’adapte trop aux données d’entraînement, il risque de mal généraliser à de nouvelles données, i.e. des données qu’il n’a jamais vues. Ce phénomène s’appelle le sur-ajustement (overfitting).\n\n\n\n\n\n\nRemarque: Sur-ajustement et sous-ajustement\n\n\n\nUn modèle trop flexible peut s’adapter parfaitement aux données d’entraînement, y compris au bruit aléatoire. Il aura une erreur faible sur ces données mais une erreur élevée sur de nouvelles observations. On dira qu’il y a sur-ajustement (overfitting) du modèle. À l’inverse, un modèle trop rigide (par exemple, une droite constante) ne pourra pas capturer la structure des données, même sur l’ensemble d’entraînement. On dira qu’il y a sous-ajustement (underfitting) du modèle.\nL’objectif est de trouver le bon compromis entre flexibilité et capacité de généralisation.\n\n\nPour évaluer objectivement un modèle, l’idéal serait de le tester sur des données complètement indépendantes de celles utilisé pour l’apprentissage. On distingue donc deux ensembles : un jeu d’entraînement, utilisé pour ajuster le modèle et un jeu de test, utilisé pour évaluer la performance prédictive du modèle. En practique, nous n’avons généralement pas accès à un jeu de test pour faire cette évaluation. Dans cette section, nous allons deux approches permettant de contourner ce problème.",
     "crumbs": [
       "Modules",
       "03 - Généralités",
-      "Évaluation de modeles"
+      "Évaluation de modèles"
     ]
   },
   {
     "objectID": "contents/generalities/05-model-evaluation.html#jeu-de-données-de-validation",
     "href": "contents/generalities/05-model-evaluation.html#jeu-de-données-de-validation",
-    "title": "Évaluation de modeles",
+    "title": "Évaluation de modèles",
     "section": "Jeu de données de validation",
     "text": "Jeu de données de validation\nQuand on ne dispose que d’un seul jeu de données, une solution simple consiste à le diviser aléatoirement en deux sous-ensembles : un jeu d’entraînement pour ajuster le modèle et un jeu de validation pour estimer l’erreur de prédiction. On parle alors d’approche par jeu de validation. La Figure 1 présente un schéma de cette approche.\n\n\n\n\n\n\nFigure 1: Schéma de l’approche par jeu de validation.\n\n\n\nAdd exemple!\n\n\n\n\n\n\nComment choisir la taille des sous-ensembles ?\n\n\n\nEn général :\n\nSi l’on dispose d’un grand nombre d’observations (disons plusieurs milliers), on peut faire une division \\(50-50\\).\nSi l’on dispose de moins d’observations, on préférera garder plus d’observations pour l’entraînement. On peut, par exemple, faire une division \\(70-30\\) ou \\(80-20\\).\n\nCependant, il n’existe pas de règle universelle. Le bon choix dépend du contexte, de la complexité du modèle et de la quantité de données disponibles.\n\n\nLa méthode a cependant deux inconvénients. Le premier est que l’estimation de l’erreur est instable. En effet, la valeur de l’erreur de prédiction dépend des observations qui sont dans le jeu de validation. Un autre jeu de validation peut donner un résultat différent. Le deuxième est qu’il y a moins de données pour ajuster le modèle. Comme une partie des données est réservée à la validation, le modèle est appris sur un ensemble plus petit, et cela peut donc surestimer son erreur réelle par rapport à s’il avait été appris sur l’ensemble de données complet.",
     "crumbs": [
       "Modules",
       "03 - Généralités",
-      "Évaluation de modeles"
+      "Évaluation de modèles"
     ]
   },
   {
     "objectID": "contents/generalities/05-model-evaluation.html#validation-croisée",
     "href": "contents/generalities/05-model-evaluation.html#validation-croisée",
-    "title": "Évaluation de modeles",
+    "title": "Évaluation de modèles",
     "section": "Validation croisée",
     "text": "Validation croisée\nPour contourner les limites de l’approche précédente, on utilise souvent la validation croisée (cross-validation). Cette méthode est plus robuste et plus stable. Le principe est de répéter l’approche par jeu de validation plusieurs sur différents sous-ensembles du jeu de données.\nL’approche consiste à découper aléatoirement l’ensemble des observations en \\(K\\) sous-ensembles de taille équivalentes (appelés folds). Le premier fold est utilisé comme jeu de données de validation et le modèle est ajusté sur les \\(K - 1\\) folds restant. L’erreur de prédiction est calculé sur le premier fold. Cette procédure est répèté \\(K\\) fois; à chaque fois, un différent fold est utilisé comme jeu de données de validation. À la fin, on a donc \\(K\\) valeurs pour l’erreur de prédiction. On calcule enfin la moyenne des \\(K\\) valeurs de prédiction. La Figure 2 présente un schéma de cette approche.\n\n\n\n\n\n\nFigure 2: Schéma de l’approche par validation croisée\n\n\n\nAdd exemple!\n\n\n\n\n\n\nComment choisir le nombre de sous-ensembles \\(K\\) ?\n\n\n\nEn pratique, on utilise souvent \\(K = 5\\) ou \\(K = 10\\). L’avantage de limiter \\(K\\) est de limiter le coût computationnel car le modèle doit être ajusté \\(K\\) fois. Dans le cas limite où \\(K = n\\), i.e. \\(K\\) est égal au nombre d’observations dans le jeu de données, on parle de validation croisée leave-one-out (LOOCV). Dans ce cas, chaque observation sert une fois de validation.",
     "crumbs": [
       "Modules",
       "03 - Généralités",
-      "Évaluation de modeles"
+      "Évaluation de modèles"
     ]
   },
   {
