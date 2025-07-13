@@ -1,5 +1,5 @@
 --- 
-title: "Évaluation de modeles"
+title: "Évaluation de modèles"
 format: 
   html: default
   pdf:
