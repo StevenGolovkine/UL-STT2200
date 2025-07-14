@@ -1,7 +1,8 @@
 --- 
 title: "Évaluation de modèles"
 format: 
-  html: default
+  html:
+    code-fold: true
   pdf:
     header-includes: 
       - \usepackage{mathtools}
@@ -33,8 +34,148 @@ Quand on ne dispose que d'un seul jeu de données,  une solution simple consiste
 ![Schéma de l'approche par jeu de validation.](../../include/validation-set.png){#fig-schema-val}
 
 
-::: {.content-visible when-format="html"}
+::: {.content-visible when-format="pdf"}
 
+
+```{r}
+#| label: fig-trainval-1-pdf
+#| fig-cap: "Exemple de jeu d'entraînement et de validation."
+#| warning: false
+#| eval: true
+#| echo: false
+
+# Load packages
+library(tidyverse)
+library(dplyr)
+
+# Set seed for reproducibility
+set.seed(42)
+
+# Function definition
+f <- function(x) {
+  4 * x * (1 - x) * log(x) + 2
+}
+
+generate_splits <- function(data, train_prop = 0.7, K = 10) {
+  rows <- list()
+  
+  for (k in 1:K) {
+    idx_train <- sample(nrow(data), size = floor(train_prop * nrow(data)))
+    train <- data[idx_train, ]
+    validation <- data[-idx_train, ]
+    
+    train_tbl <- tibble(
+      split = k,
+      set = "train",
+      x = train$x,
+      y = train$y
+    )
+    
+    validation_tbl <- tibble(
+      split = k,
+      set = "validation",
+      x = validation$x,
+      y = validation$y
+    )
+    
+    rows[[k]] <- bind_rows(train_tbl, validation_tbl)
+  }
+  
+  bind_rows(rows)
+}
+
+# Generate N data points in the interval (0, 1]
+N <- 200
+spans <- seq(0.1, 1, by = 0.05)  # LOESS smoothing parameters
+x_all <- runif(N, min = 0.01, max = 1)  # avoid 0 due to log(x)
+y_all <- f(x_all) + rnorm(N, mean = 0, sd = 0.1)  # add Gaussian noise
+
+# Put everything in a data.frame
+data <- data.frame(x = x_all, y = y_all)
+
+
+# Generate 10 training/validation splits
+splits <- generate_splits(data, train_prop = 0.7, K = 10)
+
+splits |>
+    dplyr::filter(split == 5) |> 
+ggplot(aes(x, y, color = set)) +
+  geom_point(alpha = 0.8, size = 2) +
+  labs(
+    x = "X", y = "Y",
+  ) +
+  scale_color_manual(values = c("#f7a941", "#e30513")) +
+  theme_minimal(base_size = 14) +
+  theme(
+    legend.title = element_blank(),
+    legend.position = 'inside',
+    legend.position.inside = c(0.85, 0.15)
+  )
+```
+
+
+```{r}
+#| label: fig-trainval-2-pdf
+#| fig-cap: "MSE pour le jeu d'entraînement / validation précédent (en rouge). Les courbes grises sont les MSE pour d'autres découpages."
+#| warning: false
+#| eval: true
+#| echo: false
+
+# Fit a model with different smoothing parameters on each split
+splits_number <- unique(splits$split)
+
+results <- list()
+for (n_split in splits_number) {
+  
+  df_split <- splits |> dplyr::filter(split == n_split)
+  train <- df_split |> 
+    dplyr::filter(set == 'train') |> 
+    dplyr::select(x, y)
+  validation <- df_split |> 
+    dplyr::filter(set == 'validation') |> 
+    dplyr::select(x, y)
+  
+  results_splits <- list()
+  for (s in spans) {
+
+    # Fit loess model with span = s on train and predict on validation
+    model <- loess(y ~ x, data = train, span = s, degree = 2)
+    pred <- predict(model, newdata = validation$x)
+      
+    # For each point in x_grid, compute bias², variance, MSE
+    bias2 <- mean((pred - validation$y)^2, na.rm = TRUE)
+    var_pred <- var(pred, na.rm = TRUE)
+    mse <- bias2 + var_pred
+    
+    results_splits[[as.character(s)]] <- data.frame(
+      split = n_split,
+      span = s,
+      MSE = mse
+    )
+  }
+  results_splits_df <- bind_rows(results_splits)
+  results[[as.character(n_split)]] <- results_splits_df
+}
+
+results <- results |> bind_rows()
+
+ggplot() +
+  geom_line(
+    results,
+    mapping = aes(x = span, y = MSE, group = split)
+  ) +
+  geom_line(
+    dplyr::filter(results, split == 5),
+    mapping = aes(x = span, y = MSE),
+    color = "#e30513", linewidth = 3
+  ) +
+  theme_minimal(base_size = 14)
+
+```
+
+:::
+
+::: {.content-visible when-format="html"}
 
 ```{r}
 #| eval: false
@@ -155,8 +296,6 @@ filtered = data.filter(function(df) {
 current_mse = data_mse.filter(function(df) {
   return df.split == split;
 })
-
-
 ```
 
 ```{ojs}
