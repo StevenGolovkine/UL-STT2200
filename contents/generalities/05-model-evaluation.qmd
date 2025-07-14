@@ -395,3 +395,10 @@ Add exemple!
 En pratique, on utilise souvent $K = 5$ ou $K = 10$. L'avantage de limiter $K$ est de limiter le coût computationnel car le modèle doit être ajusté $K$ fois. Dans le cas limite où $K = n$, i.e. $K$ est égal au nombre d'observations dans le jeu de données, on parle de validation croisée *leave-one-out* (LOOCV). Dans ce cas, chaque observation sert une fois de validation. 
 
 :::
+
+
+
+::: {.content-visible when-format="pdf"}
+## Références
+
+:::
