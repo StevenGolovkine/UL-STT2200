@@ -32,7 +32,195 @@ Quand on ne dispose que d'un seul jeu de données,  une solution simple consiste
 
 ![Schéma de l'approche par jeu de validation.](../../include/validation-set.png){#fig-schema-val}
 
-Add exemple!
+
+::: {.content-visible when-format="html"}
+
+
+```{r}
+#| eval: false
+
+# Load packages
+library(tidyverse)
+library(dplyr)
+
+# Set seed for reproducibility
+set.seed(42)
+
+# Function definition
+f <- function(x) {
+  4 * x * (1 - x) * log(x) + 2
+}
+
+generate_splits <- function(data, train_prop = 0.7, K = 10) {
+  rows <- list()
+  
+  for (k in 1:K) {
+    idx_train <- sample(nrow(data), size = floor(train_prop * nrow(data)))
+    train <- data[idx_train, ]
+    validation <- data[-idx_train, ]
+    
+    train_tbl <- tibble(
+      split = k,
+      set = "train",
+      x = train$x,
+      y = train$y
+    )
+    
+    validation_tbl <- tibble(
+      split = k,
+      set = "validation",
+      x = validation$x,
+      y = validation$y
+    )
+    
+    rows[[k]] <- bind_rows(train_tbl, validation_tbl)
+  }
+  
+  bind_rows(rows)
+}
+
+# Generate N data points in the interval (0, 1]
+N <- 200
+spans <- seq(0.1, 1, by = 0.05)  # LOESS smoothing parameters
+x_all <- runif(N, min = 0.01, max = 1)  # avoid 0 due to log(x)
+y_all <- f(x_all) + rnorm(N, mean = 0, sd = 0.1)  # add Gaussian noise
+
+# Put everything in a data.frame
+data <- data.frame(x = x_all, y = y_all)
+
+# Generate 10 training/validation splits
+splits <- generate_splits(data, train_prop = 0.7, K = 10)
+write.csv(splits, './splits.csv')
+
+
+# Fit a model with different smoothing parameters on each split
+splits_number <- unique(splits$split)
+
+results <- list()
+for (n_split in splits_number) {
+  
+  df_split <- splits |> dplyr::filter(split == n_split)
+  train <- df_split |> 
+    dplyr::filter(set == 'train') |> 
+    dplyr::select(x, y)
+  validation <- df_split |> 
+    dplyr::filter(set == 'validation') |> 
+    dplyr::select(x, y)
+  
+  results_splits <- list()
+  for (s in spans) {
+
+    # Fit loess model with span = s on train and predict on validation
+    model <- loess(y ~ x, data = train, span = s, degree = 2)
+    pred <- predict(model, newdata = validation$x)
+      
+    # For each point in x_grid, compute bias², variance, MSE
+    bias2 <- mean((pred - validation$y)^2, na.rm = TRUE)
+    var_pred <- var(pred, na.rm = TRUE)
+    mse <- bias2 + var_pred
+    
+    results_splits[[as.character(s)]] <- data.frame(
+      split = n_split,
+      span = s,
+      MSE = mse
+    )
+  }
+  results_splits_df <- bind_rows(results_splits)
+  results[[as.character(n_split)]] <- results_splits_df
+}
+
+results <- results |> bind_rows()
+write.csv(results, './splits_mse.csv')
+
+```
+
+
+```{ojs}
+//| warning: false
+//| eval: true
+//| echo: false
+
+data = FileAttachment("../../include/data/model-evaluation/splits.csv").csv({ typed: true })
+data_mse = FileAttachment("../../include/data/model-evaluation/splits_mse.csv").csv({ typed: true })
+
+viewof split = Inputs.range(
+  [1, 10], 
+  {value: 1, step: 1, label: "Autre jeu de validation"}
+)
+
+filtered = data.filter(function(df) {
+  return df.split == split;
+})
+
+current_mse = data_mse.filter(function(df) {
+  return df.split == split;
+})
+
+
+```
+
+```{ojs}
+//| label: fig-trainval-html
+//| fig-cap: Illustration de l'approche par jeu de données de validation.
+//| fig-subcap:
+//|   - "Différents jeux d'entraînement et validation."
+//|   - "MSE pour différents jeux de validation."
+//| warning: false
+//| eval: true
+//| echo: false
+
+Plot.plot({
+  grid: true,
+  x: {
+    domain: [0, 1],
+    label: "X",
+  },
+  y: {
+    domain: [0, 3],
+    label: "Y",
+  },
+  color: {
+    domain: ["train", "validation"],
+    range: ["#f7a941", "#e30513"],
+    legend: true
+  },
+  marks: [
+    Plot.dot(
+      filtered,
+      {x: "x", y: "y", fill: "set", r: 5}
+    ),
+  ]
+})
+
+Plot.plot({
+  grid: true,
+  color: {
+    legend: true,
+  },
+  x: {
+    domain: [0, 1],
+    label: "λ",
+  },
+  y: {
+    domain: [0.1, 0.2],
+    label: "Y",
+  },
+  marks: [
+    Plot.line(
+      data_mse, 
+      {
+        x: "span", y: "MSE", z: "split",
+        stroke: "#AAAAAA", strokeWidth: 2
+      }
+    ),
+    Plot.line(
+      current_mse,
+      {x: "span", y: "MSE", stroke: "#e30513", strokeWidth: 5}
+    ),
+  ]
+})
+```
+:::
 
 
 ::: {.callout-tip icon=false}

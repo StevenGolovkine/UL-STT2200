@@ -113,7 +113,7 @@ write.csv(df, './data.csv')
 //| eval: true
 //| echo: false
 
-data = FileAttachment("../../include/data/data.csv").csv({ typed: true })
+data = FileAttachment("../../include/data/bias-variance/data.csv").csv({ typed: true })
 
 viewof noise = Inputs.range(
   [0.01, 0.5], 
@@ -528,8 +528,8 @@ write.csv(results_long, './data_mse.csv')
 //| eval: true
 //| echo: false
 
-data_fit = FileAttachment("../../include/data/data_fit.csv").csv({ typed: true })
-data_mse = FileAttachment("../../include/data/data_mse.csv").csv({ typed: true })
+data_fit = FileAttachment("../../include/data/bias-variance/data_fit.csv").csv({ typed: true })
+data_mse = FileAttachment("../../include/data/bias-variance/data_mse.csv").csv({ typed: true })
 
 viewof span = Inputs.range(
   [0.1, 1], 
