@@ -29,7 +29,7 @@ Pour évaluer objectivement un modèle, l'idéal serait de le tester sur des don
 
 ## Jeu de données de validation
 
-Quand on ne dispose que d'un seul jeu de données,  une solution simple consiste à le diviser **aléatoirement** en deux sous-ensembles : un **jeu d'entraînement** pour ajuster le modèle et un **jeu de validation** pour estimer l'erreur de prédiction. On parle alors d'approche par jeu de validation. La @fig-schema-val présente un schéma de cette approche.
+Quand on ne dispose que d'un seul jeu de données,  une solution simple consiste à le diviser **aléatoirement** en deux sous-ensembles : un **jeu d'entraînement** pour ajuster le modèle et un **jeu de validation** pour estimer l'erreur de prédiction. On parle alors d'approche par jeu de validation. La @fig-schema-val présente un schéma de cette approche et [la @fig-trainval-1-pdf et la @fig-trainval-2-pdf présentent un exemple de jeu d'entraînement et de validation, ainsi que la MSE associée.]{.content-visible when-format="pdf"} [la @fig-trainval-html présente plusieurs combinaisons de jeux de données d'entraînement et de validation, ainsi que les MSE associées.]{.content-visible when-format="html"} 
 
 ![Schéma de l'approche par jeu de validation.](../../include/validation-set.png){#fig-schema-val}
 
@@ -381,22 +381,27 @@ La méthode a cependant deux inconvénients. Le premier est que l'estimation de 
 
 ## Validation croisée 
 
-Pour contourner les limites de l'approche précédente, on utilise souvent la **validation croisée** (*cross-validation*). Cette méthode est plus robuste et plus stable. Le principe est de répéter l'approche par jeu de validation plusieurs sur différents sous-ensembles du jeu de données.
+Pour contourner les limites de l'approche précédente, on utilise souvent la **validation croisée** (*cross-validation*). Cette méthode est plus robuste et plus stable. Le principe est de répéter l'approche par jeu de validation plusieurs fois sur différents sous-ensembles du jeu de données.
 
 L'approche consiste à découper aléatoirement l'ensemble des observations en $K$ sous-ensembles de taille équivalentes (appelés *folds*). Le premier *fold* est utilisé comme jeu de données de validation et le modèle est ajusté sur les $K - 1$ *folds* restant. L'erreur de prédiction est calculé sur le premier *fold*. Cette procédure est répèté $K$ fois; à chaque fois, un différent *fold* est utilisé comme jeu de données de validation. À la fin, on a donc $K$ valeurs pour l'erreur de prédiction. On calcule enfin la moyenne des $K$ valeurs de prédiction. La @fig-schema-cv présente un schéma de cette approche.
 
 ![Schéma de l'approche par validation croisée](../../include/cross-validation.png){#fig-schema-cv}
 
-Add exemple!
 
 ::: {.callout-tip icon=false}
 ## Comment choisir le nombre de sous-ensembles $K$ ? 
 
-En pratique, on utilise souvent $K = 5$ ou $K = 10$. L'avantage de limiter $K$ est de limiter le coût computationnel car le modèle doit être ajusté $K$ fois. Dans le cas limite où $K = n$, i.e. $K$ est égal au nombre d'observations dans le jeu de données, on parle de validation croisée *leave-one-out* (LOOCV). Dans ce cas, chaque observation sert une fois de validation. 
+Le choix du nombre de sous-ensembles $K$ a un impact sur la qualité de l'estimation de l'erreur de prédiction, ainsi que sur le coût computationnel de la procédure. En pratique, on utilise souvent $K = 5$ ou $K = 10$. Ce choix repose sur un compromis entre la précision de l'estimation de l'erreur et le temps de calcul nécessaire. En effet, pour chaque valeur de $K$, le modèle est ajusté $K$ fois. Par conséquent, plus $K$ est grand, plus le coût computationnel augmente. 
+
+Dans le cas limite où $K = n$, i.e. $K$ est égal au nombre d'observations dans le jeu de données, on parle de validation croisée *leave-one-out* (LOOCV). Dans ce cas, chaque observation sert une fois de validation et le modèle est entraîner sur les $n - 1$ autres observations.
+
+Ce choix de $K = n$ minimise le biais dans l'estimation de l'erreur de prédiction, car à chaque itération, le modèle est ajusté sur presque toutes les observations du jeu de données. Cependant, cela se fait au prix d'une forte variance. En effet, comme les ensembles d'entraînement sont presque identiques, les erreurs de prédiction sont très corrélées entre elles, ce qui rend l'estimation globale de l'erreur instable.
+
+Inversement, des valeurs plus faibles de $K$ introduisent un léger biais dans l'estimation de l'erreur (car les modèles sont ajustés sur des ensembles contenant moins d'observations), mais réduisent la variance de cette estimation. Ce compromis biais/variance, couplé à une réduction significative du temps de calcul, explique pourquo $K = 5$ ou $K = 10$ sont des choix standards en pratique. 
 
 :::
 
-
+Pour finir, la validation croisée est une méthode générale qui peut être appliquée avec la plupart des modèles.
 
 ::: {.content-visible when-format="pdf"}
 ## Références

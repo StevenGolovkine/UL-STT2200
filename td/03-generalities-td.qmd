@@ -12,3 +12,7 @@ format:
 ## Exercice 1 : Preuve de la distance 
 
 ## Exercice 2 : Classifieur de Bayes
+
+## Exercice 3 : Validation croisée *leave-one-out*
+
+Preuve de la formule (5.2) de ISLR
