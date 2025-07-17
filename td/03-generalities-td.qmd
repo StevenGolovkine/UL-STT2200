@@ -9,10 +9,43 @@ format:
 ---
 
 
-## Exercice 1 : Preuve de la distance 
+## Exercice 1 : Preuve de la distance de Jaccard
 
-## Exercice 2 : Classifieur de Bayes
+Dans cette exercice, on se propose de finir la preuve que la distance de Jaccard est bien une distance. On s'intéresse en particulier à la preuve de l'inégalité triangulaire. Pour cela, l'idée est de réécrire la distance de Jaccard comme une distance entre des ensembles.
+
+Considérons deux observations $x$ et $y$ de $K$ variables binaires. Notons $X = \{ i \in \{ 1, \dots, K \} \mid x_i = 1 \}$ et $Y = \{ i \in \{ 1, \dots, K \} \mid y_i = 1 \}$. 
+
+1. Faire un dessin montrant $M_{11}$, $M_{10}$ et $M_{01}$ à l'aide des ensembles $X$ et $Y$.
+
+2. Écrire l'indice de Jaccard entre $x$ et $y$ à l'aide des ensembles $X$ et $Y$. En déduire la distance de Jaccard en fonction des ensembles $X$ et $Y$. On pourra noter $X \Delta Y = (X \ Y) \cup (B \ A)$.
+
+3. Soit $A = \{ 1, 2 \}$, $B = \{ 2, 3 \}$ et $C = \{ 3, 4 \}$. Calculer les distances de Jaccard entre $A$ et $B$, $B$ et $C$ et $A$ et $C$ en utilisant la définition ensembliste de cette distance.
+
+4. Soit une troisième observation $z$, notons $Z = \{ i \in \{ 1, \dots, K \} \mid z_i = 1 \}$. Réécrire l'inégalité triangulaire pour la distance de Jaccard en utilisant la définition ensembliste.
+
+5. Montrer que $X \Delta Y \subseteq (X \Delta Z) \cup (Y \Delta Z$.
+
+6. Montrer que $X \cup Y \subseteq (X \cup Z) \cup (Y \cup Z)$.
+
+7. Conclure sur l'inégalité triangulaire. On pourra supposer que, pour tous nombres positifs $a_{1}, a_{2}, b_{1}, b_{2}$, on a $\frac{a_{1} + a_{2}}{b_{1} + b_{2}} \leq \frac{a_{1}}{b_{1}} + \frac{a_{2}}{b_{2}}$.
+
+
+## Exercice 2 : Différent scénarios
+
+Pour chacun des scénarios suivants, dire si c'est un problème de classification ou de régression et si c'est un problème d'inférence ou de prédiction, donner le nombre d'observations et l'ensemble mathématique dans lequel ces observations vivent, donner une distance possible pour comparer les observations.
+
+1. On voudrait savoir si une personne hospitalisée au Québec à une chance de développer une complication respiratoire. Pour cela, on se rend dans 5 hôpitaux de la province et on demande à 100 patients dans chacun des hôpitaux s'ils ont eu une complication respiratoire, ainsi que leur âge, leur IMC et leur statut vaccinal. 
+
+2. On cherche à modéliser le prix de vente des maisons à Québec en fonction de leur surface, du nombres de chambres et de la présence d'un garage. Il y a $2000$ ventes dans la base de données.
+
+3. On s'intéresse à la concentration quotidienne de particules fines (PM2.5) dans l'air à Québec sur une année. De plus, on mesure la température, le vent et l'humidité.
+
+4. Un sondage est mené auprès de $2000$ résidents canadiens pour évaluer leur niveau de satisfaction vis-à-vis des services publics (santé, éducation, transport, etc.). On recueille les réponses sur une échelle de 1 (très insatisfait) à 5 (très satisfait), ainsi que des informations démographiques comme l’âge, la province de résidence, le revenu et le niveau d’éducation.
+
+5. On veut identifier l'espèce d'un animal à partir de mesures morphologiques (longeur des pattes, poids, longueur du museau) collectées dans les parcs nationaux. On observe des castors, des ours noirs, des cerfs et des wapitis. En tout, on observe $1000$ animaux.
+
 
 ## Exercice 3 : Validation croisée *leave-one-out*
+
 
 Preuve de la formule (5.2) de ISLR

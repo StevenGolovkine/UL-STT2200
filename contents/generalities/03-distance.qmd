@@ -248,7 +248,7 @@ Maintenant, supposons que $x = y$. Alors $M_{01} = M_{10} = 0$. Donc $d(x, y) = 
 
 3. On a que $d(x, y) = d(y, x)$ car l'indice de Jaccard est symétrique.
 
-4. La preuve de l'inégalité triangulaire sera faite en exercice (cf. [TD](../../td/02-revision-td.qmd)))
+4. La preuve de l'inégalité triangulaire sera faite en exercice (cf. [TD](../../td/03-generalities-td.qmd))).
 
 :::
 
