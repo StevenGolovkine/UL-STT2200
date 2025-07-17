@@ -622,8 +622,8 @@ window.Quarto = {
     <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#exercice-1-preuve-de-la-distance" id="toc-exercice-1-preuve-de-la-distance" class="nav-link active" data-scroll-target="#exercice-1-preuve-de-la-distance">Exercice 1 : Preuve de la distance</a></li>
-  <li><a href="#exercice-2-classifieur-de-bayes" id="toc-exercice-2-classifieur-de-bayes" class="nav-link" data-scroll-target="#exercice-2-classifieur-de-bayes">Exercice 2 : Classifieur de Bayes</a></li>
+  <li><a href="#exercice-1-preuve-de-la-distance-de-jaccard" id="toc-exercice-1-preuve-de-la-distance-de-jaccard" class="nav-link active" data-scroll-target="#exercice-1-preuve-de-la-distance-de-jaccard">Exercice 1 : Preuve de la distance de Jaccard</a></li>
+  <li><a href="#exercice-2-différent-scénarios" id="toc-exercice-2-différent-scénarios" class="nav-link" data-scroll-target="#exercice-2-différent-scénarios">Exercice 2 : Différent scénarios</a></li>
   <li><a href="#exercice-3-validation-croisée-leave-one-out" id="toc-exercice-3-validation-croisée-leave-one-out" class="nav-link" data-scroll-target="#exercice-3-validation-croisée-leave-one-out">Exercice 3 : Validation croisée <em>leave-one-out</em></a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/td/03-generalities-td.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="03-generalities-td.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -651,11 +651,30 @@ window.Quarto = {
 </header>
 
 
-<section id="exercice-1-preuve-de-la-distance" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-1-preuve-de-la-distance">Exercice 1 : Preuve de la distance</h2>
+<section id="exercice-1-preuve-de-la-distance-de-jaccard" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-1-preuve-de-la-distance-de-jaccard">Exercice 1 : Preuve de la distance de Jaccard</h2>
+<p>Dans cette exercice, on se propose de finir la preuve que la distance de Jaccard est bien une distance. On s’intéresse en particulier à la preuve de l’inégalité triangulaire. Pour cela, l’idée est de réécrire la distance de Jaccard comme une distance entre des ensembles.</p>
+<p>Considérons deux observations <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span> de <span class="math inline">\(K\)</span> variables binaires. Notons <span class="math inline">\(X = \{ i \in \{ 1, \dots, K \} \mid x_i = 1 \}\)</span> et <span class="math inline">\(Y = \{ i \in \{ 1, \dots, K \} \mid y_i = 1 \}\)</span>.</p>
+<ol type="1">
+<li><p>Faire un dessin montrant <span class="math inline">\(M_{11}\)</span>, <span class="math inline">\(M_{10}\)</span> et <span class="math inline">\(M_{01}\)</span> à l’aide des ensembles <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span>.</p></li>
+<li><p>Écrire l’indice de Jaccard entre <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span> à l’aide des ensembles <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span>. En déduire la distance de Jaccard en fonction des ensembles <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span>. On pourra noter <span class="math inline">\(X \Delta Y = (X \ Y) \cup (B \ A)\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(A = \{ 1, 2 \}\)</span>, <span class="math inline">\(B = \{ 2, 3 \}\)</span> et <span class="math inline">\(C = \{ 3, 4 \}\)</span>. Calculer les distances de Jaccard entre <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span>, <span class="math inline">\(B\)</span> et <span class="math inline">\(C\)</span> et <span class="math inline">\(A\)</span> et <span class="math inline">\(C\)</span> en utilisant la définition ensembliste de cette distance.</p></li>
+<li><p>Soit une troisième observation <span class="math inline">\(z\)</span>, notons <span class="math inline">\(Z = \{ i \in \{ 1, \dots, K \} \mid z_i = 1 \}\)</span>. Réécrire l’inégalité triangulaire pour la distance de Jaccard en utilisant la définition ensembliste.</p></li>
+<li><p>Montrer que <span class="math inline">\(X \Delta Y \subseteq (X \Delta Z) \cup (Y \Delta Z\)</span>.</p></li>
+<li><p>Montrer que <span class="math inline">\(X \cup Y \subseteq (X \cup Z) \cup (Y \cup Z)\)</span>.</p></li>
+<li><p>Conclure sur l’inégalité triangulaire. On pourra supposer que, pour tous nombres positifs <span class="math inline">\(a_{1}, a_{2}, b_{1}, b_{2}\)</span>, on a <span class="math inline">\(\frac{a_{1} + a_{2}}{b_{1} + b_{2}} \leq \frac{a_{1}}{b_{1}} + \frac{a_{2}}{b_{2}}\)</span>.</p></li>
+</ol>
 </section>
-<section id="exercice-2-classifieur-de-bayes" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-2-classifieur-de-bayes">Exercice 2 : Classifieur de Bayes</h2>
+<section id="exercice-2-différent-scénarios" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-2-différent-scénarios">Exercice 2 : Différent scénarios</h2>
+<p>Pour chacun des scénarios suivants, dire si c’est un problème de classification ou de régression et si c’est un problème d’inférence ou de prédiction, donner le nombre d’observations et l’ensemble mathématique dans lequel ces observations vivent, donner une distance possible pour comparer les observations.</p>
+<ol type="1">
+<li><p>On voudrait savoir si une personne hospitalisée au Québec à une chance de développer une complication respiratoire. Pour cela, on se rend dans 5 hôpitaux de la province et on demande à 100 patients dans chacun des hôpitaux s’ils ont eu une complication respiratoire, ainsi que leur âge, leur IMC et leur statut vaccinal.</p></li>
+<li><p>On cherche à modéliser le prix de vente des maisons à Québec en fonction de leur surface, du nombres de chambres et de la présence d’un garage. Il y a <span class="math inline">\(2000\)</span> ventes dans la base de données.</p></li>
+<li><p>On s’intéresse à la concentration quotidienne de particules fines (PM2.5) dans l’air à Québec sur une année. De plus, on mesure la température, le vent et l’humidité.</p></li>
+<li><p>Un sondage est mené auprès de <span class="math inline">\(2000\)</span> résidents canadiens pour évaluer leur niveau de satisfaction vis-à-vis des services publics (santé, éducation, transport, etc.). On recueille les réponses sur une échelle de 1 (très insatisfait) à 5 (très satisfait), ainsi que des informations démographiques comme l’âge, la province de résidence, le revenu et le niveau d’éducation.</p></li>
+<li><p>On veut identifier l’espèce d’un animal à partir de mesures morphologiques (longeur des pattes, poids, longueur du museau) collectées dans les parcs nationaux. On observe des castors, des ours noirs, des cerfs et des wapitis. En tout, on observe <span class="math inline">\(1000\)</span> animaux.</p></li>
+</ol>
 </section>
 <section id="exercice-3-validation-croisée-leave-one-out" class="level2">
 <h2 class="anchored" data-anchor-id="exercice-3-validation-croisée-leave-one-out">Exercice 3 : Validation croisée <em>leave-one-out</em></h2>
