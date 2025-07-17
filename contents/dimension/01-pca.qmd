@@ -1,5 +1,5 @@
 --- 
-title: "ACP"
+title: "Analyse en composantes principales"
 format: 
   html: default
   pdf:
@@ -9,56 +9,82 @@ format:
 
 
 
-## Changer de dimension - pourquoi faire ?
+## Pourquoi changer de dimension ?
 
-Il y a plusieurs raisons de vouloir changer le dimension des données. Il est possible que la dimension des données soit trop importante pour avoir une visualisation intéressante, que la dimension actuelle ne permette pas une bonne séparation des classes dans les données, etc.
+Travailler avec un grand nombre de variables peut poser plusieurs problèmes pratiques et théorique :
+
+* Visualisation compliquée : il est impossible de représenter visuellement des données au-delà de 3 dimensions.
+
+* Séparation des classes difficile : dans des problèmes de classification, la séparation entre les groupes peut être cachée dans une combinaison de variables plutôt que dans les variables prises individuellement.
+
+* Coût computationnel élévé : des modèles complexes peuvent devenir difficiles à ajuster lorsque le nombre de variables est grand.
+
+* Corrélations fortes : des variables redondantes rendent les modèles instables ou difficiles à interpréter.
+
+La question naturelle à se poser est donc : peut-on réduire la dimension du jeu de données sans perdre trop d'information ?
+
+Réduire la dimension, ce n'est pas simplement la suppression de variables. En effet, cela risquerait de faire disparaître de l'information pouvant être utile au modèle. Une meilleure approche consiste à construire de nouvelles variables, obtenues comme combinaisons linéaires des variables initiales, qui résument l'information essentielle du jeu de données. Une méthode possible pour cela est l'**Analyse en Composantes Principales** (ACP).
+
 
 ## Analyse en composantes principales
 
-L'analyse en composantes principales (ACP) est une méthode permettant de réduire la dimension d'un jeu de données tout en conservant le plus d'information possible. Cette méthode est utilisée lorsque l'on a $n$ observations de $p$ variables continues avec $p$ trop "grand" pour nos besoins.
+L'ACP est une méthode non-supervisée (sans variables à expliquer) permettant de réduire la dimension d'un jeu de données tout en conservant le plus d'information possible. Cette méthode est utilisée lorsque l'on dispose de $n$ observations de $p$ variables numériques continues avec $p$ trop "grand" pour permettre une modélisation ou une visualisation efficace. 
+La méthode a été introduite par H. Hotelling dans @hotellingAnalysisComplexStatistical1933.
 
-Pourquoi l'ACP est-elle utilisée ?
+::: {.callout-tip icon=false}
+## Applications courantes 
 
-* Visualisation d'un jeu de données;
+1. Visualisation d'un jeu de données multidimensionnelles.
 
-* Réduction du nombre de variables de $p$ à $p^{\prime} \ll p$ pour faciliter la construction de modèle. Exemples: analyse de texte, analyse de données génétique;
+2. Réduction du nombre de variables de $p$ à $p^{\prime} \ll p$ pour faciliter la construction de modèle.
 
-* Effectuer une rotation d'axes pour simplifier la structure de corrélation;
+3. Compression d'images ou de signaux.
 
-* Compression de données.
+4. Exploration de données biologiques, textuelles ou environnementales.
 
-La méthode a été introduite par H. Hotelling dans [@hotellingAnalysisComplexStatistical1933].
+:::
 
-Visualiser, comprendre, modéliser, classifier des données sont toutes des tâches beacoup simples à accomplir si le nomnre de variables dans un jeu de données est faible. Si un jeu de données comprend un grand nombre de variables, une première question que l'on peut se poser est: "Est-il possible de réduire la dimension du problème sans trop perdre d'information ?". En omettant tout simplement des variables, on risque de perdre beaucoup d'information utile. Une meilleure solution consiste à trouver des combinaisons linéaires des variables en vue de conserver le maximum d'information sur le jeu de données.
 
 ::: {.callout-note icon=false}
-## Example
+## Exemples
 
 1. Comparer des équipes de hockey sur la base de six statistiques de fin de saison.
 
-2. Comparer la criminalité entre états sur la base des taux de sept types de crimes différents.
+2. Résumer la criminalité entre les provinces canadiennes sur la base des taux de sept types de crimes différents.
 
-3. Compresser des images formées de $1084 \times 1084$ pixels.
+3. Compresser des images formées de $1084 \times 1084$ pixels en quelques variables. 
 
 4. Identifier le nombre de variantes d'un type de tumeur à partir du degré d'expression de millions de gènes.
 
 :::
 
-### Les maths 
+### Formulation mathématique 
 
-Soit un vecteur aléatoire composé de $p$ variables $X = \left( X_{1}, \dots, X_p \right)$ ayant comme matrice de variance $\Sigma$. On aimerait définir une première composante principale,
+Soit un vecteur aléatoire composé de $p$ variables $X = \left( X_{1}, \dots, X_p \right)^{\top}$, centré et ayant comme matrice de variance-covariance $\Sigma$. Notons $\alpha_{1} = \left( \alpha_{11}, \dots, \alpha_{1p} \right)^{\top}$, un vecteur de coefficients. On cherche une combinaison linéaire 
+
 $$Y_{1} = \alpha_{1}^{\top} X = \sum_{i = 1}^{p} \alpha_{1i}X_i,$$
-de sorte que la variance de $Y_{1}$ soit maximale. 
-L'idée est simple: on désire combiner $p$ variables en une seule, mais en "capturant" la plus grande partie possible de la variabilité. 
 
-Il faut d'abord ajouter une contrainte sur $\alpha_{1}$, puisque sinon on n'aurait qu'à prendre $\alpha_{1i} = \pm \infty$ et on aurait $\mathrm{Var}(Y_{1}) = +\infty$ ce qui est définitivement maximal ! On verra qu'il est pratique de contraindre $\alpha_{1}$ de sorte qu'il ait une norme égale à $1$.
+telle que la variance de $Y_{1}$ soit maximale. L'idée est simple: on désire combiner $p$ variables en une seule, mais en "capturant" la plus grande partie possible de la variabilité. 
 
-* Calcul de la première composante:
+Il faut d'abord ajouter une contrainte sur $\alpha_{1}$, puisque sinon on n'aurait qu'à prendre $\alpha_{1i} = \pm \infty$ et on aurait $\mathrm{Var}(Y_{1}) = +\infty$ ce qui est définitivement maximal ! On contraint donc $\alpha_{1}$ de sorte qu'il ait une norme égale à $1$.
 
-$$\mathrm{Var}(Y_1) = \alpha_1^\top \Sigma \alpha_{1} $$
+Cela revient à calculer :
+$$\max_{\alpha_1^\top \alpha_1 = 1} \mathrm{Var}(Y_1) = \max_{\alpha_1^\top \alpha_1 = 1} \alpha_1^\top \Sigma \alpha_{1}.$$
+
+Ce problème se résout par les multiplicateurs de Lagrange. Il conduit à l'équation 
+$$\Sigma \alpha_1 = \lambda_{1} \alpha_{1},$$
+où $\lambda_{1}$ est la plus grande valeur propre de $\Sigma$ et $\alpha_{1}$ le vecteur propre associé.
+
+On définit ainsi la première composante principale. On construit les suivantes en imposant des conditions d'orthogonalité (indépendance linéaire) avec les précédentes, ce qui revient à chercher les vecteurs propres suivants :
+$$\Sigma \alpha_k = \lambda_k \alpha_k, \quad \text{avec}\quad \lambda_{1} \geq \lambda_2 \geq \dots \lambda_p.$$
+Les composantes principales sont donc données par 
+$$Y_k = \alpha_k^\top X, \quad\text{avec } \alpha_k \text{ vecteur propre associé à } \lambda_k.$$
+
+::: {.callout-note icon=false collapse=true}
+## Preuve
 
 Le problème est donc de maximiser
-$$F(\alpha_{1} = \alpha_{1}^\top \Sigma \alpha_1, \quad\text{s.c.}\quad \alpha_1^\top \alpha_1 = 1.$$
+$$F(\alpha_{1}) = \alpha_{1}^\top \Sigma \alpha_1, \quad\text{s.c.}\quad \alpha_1^\top \alpha_1 = 1.$$
 
 On peut récrire ce problème à l'aide des multiplicateurs de Lagrange, soit maximiser
 $$F(\alpha_1, \lambda) = \alpha_1^\top \Sigma \alpha_1 - \lambda (\alpha_1^\top \alpha_1 -1 ),$$
@@ -146,17 +172,11 @@ On peut généraliser ce résultat en utilisant des maximisations successives. O
 $$Y_k = \alpha_k^\top X,$$
 où $\alpha_k$ est le vecteur propre normé associé à $\lambda_k$, la $k$e plus grande valeur propre de $\Sigma$.
 
-* Notation matricielle:
+:::
 
-Pour définir simultanément et de facon plus compacte les composantes principales, on pose 
-$$Y = AX,$$
-où
-$$A = \left( \alpha_{1}, \dots, \alpha_{p} \right) = \begin{pmatrix}
-  \alpha_{1, 1} & \alpha_{2, 1} & \cdots & \alpha_{p, 1} \\
-  \alpha_{1, 1} & \alpha_{2, 2} & \cdots & \alpha_{p, 1} \\
-  \vdots & \vdots & \ddots & \vdots \\
-  \alpha_{1, p} & \alpha_{2, p} & \cdots & \alpha_{p, p}
-\end{pmatrix}.$$
+Il est possible d'avoir une représentation plus compacte de l'ACP à l'aide de matrices. Soit $A = \left( \alpha_{1}, \dots, \alpha_p \right) \in \mathbb{R}^{p \times p}$, la matrice dont les collones sont les vecteurs propres. On a $Y = AX$ et la covariance des composantes principales s'écrit 
+$$\mathrm{Var}(Y) = A^\top \Sigma A.$$
+
 
 ::: {.callout-important icon=false}
 ## Propriétés de $A$
@@ -173,6 +193,19 @@ $$A = \left( \alpha_{1}, \dots, \alpha_{p} \right) = \begin{pmatrix}
 
 :::
 
+::: {.callout-note icon=false collapse=true}
+## Preuves
+
+1. 
+
+2. 
+
+3. 
+
+4.
+
+:::
+
 Une mesure globale de la variation presente dans les données est donnée par la trace de la matrice $\Sigma$:
 $$\text{tr}(\Sigma) = \text{tr}(\Lambda) = \sum_{i = 1}^{p} \lambda_i.$$
 
@@ -183,5 +216,10 @@ Similairement, les $m$ première composantes expliquent
 $$\frac{\sum_{i = 1}^{m} \lambda_i}{\sum_{i = 1}^{p} \lambda_i} \times 100\%.$$
 de la variabilité dans les variables.
 
-### Pratique de l'ACP 
+## Pratique de l'ACP 
 
+
+::: {.content-visible when-format="pdf"}
+## Références
+
+:::
