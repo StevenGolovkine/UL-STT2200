@@ -1,1 +1,1 @@
-Sitemap: https://stt2200.netlify.app/sitemap.xml
+Sitemap: https://stt2200.netlify.app/en/sitemap.xml

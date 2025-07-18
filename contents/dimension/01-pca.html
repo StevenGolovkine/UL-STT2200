@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.32">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>ACP – STT-2200: Analyse de données</title>
+<title>Analyse en composantes principales – STT-2200: Analyse de données</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -104,7 +104,7 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script><meta property="og:title" content="ACP – STT-2200: Analyse de données">
+</script><meta property="og:title" content="Analyse en composantes principales – STT-2200: Analyse de données">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
@@ -279,7 +279,7 @@ window.Quarto = {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/04-dimension.html">04 - Dimension</a></li>
-<li class="breadcrumb-item"><a href="../../contents/dimension/01-pca.html">ACP</a></li>
+<li class="breadcrumb-item"><a href="../../contents/dimension/01-pca.html">Analyse en composantes principales</a></li>
 </ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
@@ -455,7 +455,7 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/dimension/01-pca.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">ACP</span></a>
+ <span class="menu-text">Analyse en composantes principales</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -617,14 +617,14 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-<li><a href="#changer-de-dimension---pourquoi-faire" id="toc-changer-de-dimension---pourquoi-faire" class="nav-link active" data-scroll-target="#changer-de-dimension---pourquoi-faire">Changer de dimension - pourquoi faire ?</a></li>
+<li><a href="#pourquoi-changer-de-dimension" id="toc-pourquoi-changer-de-dimension" class="nav-link active" data-scroll-target="#pourquoi-changer-de-dimension">Pourquoi changer de dimension ?</a></li>
   <li>
 <a href="#analyse-en-composantes-principales" id="toc-analyse-en-composantes-principales" class="nav-link" data-scroll-target="#analyse-en-composantes-principales">Analyse en composantes principales</a>
   <ul class="collapse">
-<li><a href="#les-maths" id="toc-les-maths" class="nav-link" data-scroll-target="#les-maths">Les maths</a></li>
-  <li><a href="#pratique-de-lacp" id="toc-pratique-de-lacp" class="nav-link" data-scroll-target="#pratique-de-lacp">Pratique de l’ACP</a></li>
+<li><a href="#formulation-math%C3%A9matique" id="toc-formulation-mathématique" class="nav-link" data-scroll-target="#formulation-mathématique">Formulation mathématique</a></li>
   </ul>
 </li>
+  <li><a href="#pratique-de-lacp" id="toc-pratique-de-lacp" class="nav-link" data-scroll-target="#pratique-de-lacp">Pratique de l’ACP</a></li>
   </ul>
 <div class="toc-actions"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
@@ -639,9 +639,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/04-dimension.html">04 - Dimension</a></li>
-<li class="breadcrumb-item"><a href="../../contents/dimension/01-pca.html">ACP</a></li>
+<li class="breadcrumb-item"><a href="../../contents/dimension/01-pca.html">Analyse en composantes principales</a></li>
 </ol></nav><div class="quarto-title">
-<h1 class="title">ACP</h1>
+<h1 class="title">Analyse en composantes principales</h1>
 </div>
 
 
@@ -655,45 +655,75 @@ window.Quarto = {
   
 
 
-</header><section id="changer-de-dimension---pourquoi-faire" class="level2"><h2 class="anchored" data-anchor-id="changer-de-dimension---pourquoi-faire">Changer de dimension - pourquoi faire ?</h2>
-<p>Il y a plusieurs raisons de vouloir changer le dimension des données. Il est possible que la dimension des données soit trop importante pour avoir une visualisation intéressante, que la dimension actuelle ne permette pas une bonne séparation des classes dans les données, etc.</p>
-</section><section id="analyse-en-composantes-principales" class="level2"><h2 class="anchored" data-anchor-id="analyse-en-composantes-principales">Analyse en composantes principales</h2>
-<p>L’analyse en composantes principales (ACP) est une méthode permettant de réduire la dimension d’un jeu de données tout en conservant le plus d’information possible. Cette méthode est utilisée lorsque l’on a <span class="math inline">\(n\)</span> observations de <span class="math inline">\(p\)</span> variables continues avec <span class="math inline">\(p\)</span> trop “grand” pour nos besoins.</p>
-<p>Pourquoi l’ACP est-elle utilisée ?</p>
+</header><section id="pourquoi-changer-de-dimension" class="level2"><h2 class="anchored" data-anchor-id="pourquoi-changer-de-dimension">Pourquoi changer de dimension ?</h2>
+<p>Travailler avec un grand nombre de variables peut poser plusieurs problèmes pratiques et théorique :</p>
 <ul>
-<li><p>Visualisation d’un jeu de données;</p></li>
-<li><p>Réduction du nombre de variables de <span class="math inline">\(p\)</span> à <span class="math inline">\(p^{\prime} \ll p\)</span> pour faciliter la construction de modèle. Exemples: analyse de texte, analyse de données génétique;</p></li>
-<li><p>Effectuer une rotation d’axes pour simplifier la structure de corrélation;</p></li>
-<li><p>Compression de données.</p></li>
+<li><p>Visualisation compliquée : il est impossible de représenter visuellement des données au-delà de 3 dimensions.</p></li>
+<li><p>Séparation des classes difficile : dans des problèmes de classification, la séparation entre les groupes peut être cachée dans une combinaison de variables plutôt que dans les variables prises individuellement.</p></li>
+<li><p>Coût computationnel élévé : des modèles complexes peuvent devenir difficiles à ajuster lorsque le nombre de variables est grand.</p></li>
+<li><p>Corrélations fortes : des variables redondantes rendent les modèles instables ou difficiles à interpréter.</p></li>
 </ul>
-<p>La méthode a été introduite par H. Hotelling dans <span class="citation" data-cites="hotellingAnalysisComplexStatistical1933">(<a href="#ref-hotellingAnalysisComplexStatistical1933" role="doc-biblioref">Hotelling 1933</a>)</span>.</p>
-<p>Visualiser, comprendre, modéliser, classifier des données sont toutes des tâches beacoup simples à accomplir si le nomnre de variables dans un jeu de données est faible. Si un jeu de données comprend un grand nombre de variables, une première question que l’on peut se poser est: “Est-il possible de réduire la dimension du problème sans trop perdre d’information ?”. En omettant tout simplement des variables, on risque de perdre beaucoup d’information utile. Une meilleure solution consiste à trouver des combinaisons linéaires des variables en vue de conserver le maximum d’information sur le jeu de données.</p>
+<p>La question naturelle à se poser est donc : peut-on réduire la dimension du jeu de données sans perdre trop d’information ?</p>
+<p>Réduire la dimension, ce n’est pas simplement la suppression de variables. En effet, cela risquerait de faire disparaître de l’information pouvant être utile au modèle. Une meilleure approche consiste à construire de nouvelles variables, obtenues comme combinaisons linéaires des variables initiales, qui résument l’information essentielle du jeu de données. Une méthode possible pour cela est l’<strong>Analyse en Composantes Principales</strong> (ACP).</p>
+</section><section id="analyse-en-composantes-principales" class="level2"><h2 class="anchored" data-anchor-id="analyse-en-composantes-principales">Analyse en composantes principales</h2>
+<p>L’ACP est une méthode non-supervisée (sans variables à expliquer) permettant de réduire la dimension d’un jeu de données tout en conservant le plus d’information possible. Cette méthode est utilisée lorsque l’on dispose de <span class="math inline">\(n\)</span> observations de <span class="math inline">\(p\)</span> variables numériques continues avec <span class="math inline">\(p\)</span> trop “grand” pour permettre une modélisation ou une visualisation efficace. La méthode a été introduite par H. Hotelling dans <span class="citation" data-cites="hotellingAnalysisComplexStatistical1933">Hotelling (<a href="#ref-hotellingAnalysisComplexStatistical1933" role="doc-biblioref">1933</a>)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Applications courantes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Visualisation d’un jeu de données multidimensionnelles.</p></li>
+<li><p>Réduction du nombre de variables de <span class="math inline">\(p\)</span> à <span class="math inline">\(p^{\prime} \ll p\)</span> pour faciliter la construction de modèle.</p></li>
+<li><p>Compression d’images ou de signaux.</p></li>
+<li><p>Exploration de données biologiques, textuelles ou environnementales.</p></li>
+</ol>
+</div>
+</div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Example
+Exemples
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
 <li><p>Comparer des équipes de hockey sur la base de six statistiques de fin de saison.</p></li>
-<li><p>Comparer la criminalité entre états sur la base des taux de sept types de crimes différents.</p></li>
-<li><p>Compresser des images formées de <span class="math inline">\(1084 \times 1084\)</span> pixels.</p></li>
+<li><p>Résumer la criminalité entre les provinces canadiennes sur la base des taux de sept types de crimes différents.</p></li>
+<li><p>Compresser des images formées de <span class="math inline">\(1084 \times 1084\)</span> pixels en quelques variables.</p></li>
 <li><p>Identifier le nombre de variantes d’un type de tumeur à partir du degré d’expression de millions de gènes.</p></li>
 </ol>
 </div>
 </div>
-<section id="les-maths" class="level3"><h3 class="anchored" data-anchor-id="les-maths">Les maths</h3>
-<p>Soit un vecteur aléatoire composé de <span class="math inline">\(p\)</span> variables <span class="math inline">\(X = \left( X_{1}, \dots, X_p \right)\)</span> ayant comme matrice de variance <span class="math inline">\(\Sigma\)</span>. On aimerait définir une première composante principale, <span class="math display">\[Y_{1} = \alpha_{1}^{\top} X = \sum_{i = 1}^{p} \alpha_{1i}X_i,\]</span> de sorte que la variance de <span class="math inline">\(Y_{1}\)</span> soit maximale. L’idée est simple: on désire combiner <span class="math inline">\(p\)</span> variables en une seule, mais en “capturant” la plus grande partie possible de la variabilité.</p>
-<p>Il faut d’abord ajouter une contrainte sur <span class="math inline">\(\alpha_{1}\)</span>, puisque sinon on n’aurait qu’à prendre <span class="math inline">\(\alpha_{1i} = \pm \infty\)</span> et on aurait <span class="math inline">\(\mathrm{Var}(Y_{1}) = +\infty\)</span> ce qui est définitivement maximal ! On verra qu’il est pratique de contraindre <span class="math inline">\(\alpha_{1}\)</span> de sorte qu’il ait une norme égale à <span class="math inline">\(1\)</span>.</p>
-<ul>
-<li>Calcul de la première composante:</li>
-</ul>
-<p><span class="math display">\[\mathrm{Var}(Y_1) = \alpha_1^\top \Sigma \alpha_{1} \]</span></p>
-<p>Le problème est donc de maximiser <span class="math display">\[F(\alpha_{1} = \alpha_{1}^\top \Sigma \alpha_1, \quad\text{s.c.}\quad \alpha_1^\top \alpha_1 = 1.\]</span></p>
+<section id="formulation-mathématique" class="level3"><h3 class="anchored" data-anchor-id="formulation-mathématique">Formulation mathématique</h3>
+<p>Soit un vecteur aléatoire composé de <span class="math inline">\(p\)</span> variables <span class="math inline">\(X = \left( X_{1}, \dots, X_p \right)^{\top}\)</span>, centré et ayant comme matrice de variance-covariance <span class="math inline">\(\Sigma\)</span>. Notons <span class="math inline">\(\alpha_{1} = \left( \alpha_{11}, \dots, \alpha_{1p} \right)^{\top}\)</span>, un vecteur de coefficients. On cherche une combinaison linéaire</p>
+<p><span class="math display">\[Y_{1} = \alpha_{1}^{\top} X = \sum_{i = 1}^{p} \alpha_{1i}X_i,\]</span></p>
+<p>telle que la variance de <span class="math inline">\(Y_{1}\)</span> soit maximale. L’idée est simple: on désire combiner <span class="math inline">\(p\)</span> variables en une seule, mais en “capturant” la plus grande partie possible de la variabilité.</p>
+<p>Il faut d’abord ajouter une contrainte sur <span class="math inline">\(\alpha_{1}\)</span>, puisque sinon on n’aurait qu’à prendre <span class="math inline">\(\alpha_{1i} = \pm \infty\)</span> et on aurait <span class="math inline">\(\mathrm{Var}(Y_{1}) = +\infty\)</span> ce qui est définitivement maximal ! On contraint donc <span class="math inline">\(\alpha_{1}\)</span> de sorte qu’il ait une norme égale à <span class="math inline">\(1\)</span>.</p>
+<p>Cela revient à calculer : <span class="math display">\[\max_{\alpha_1^\top \alpha_1 = 1} \mathrm{Var}(Y_1) = \max_{\alpha_1^\top \alpha_1 = 1} \alpha_1^\top \Sigma \alpha_{1}.\]</span></p>
+<p>Ce problème se résout par les multiplicateurs de Lagrange. Il conduit à l’équation <span class="math display">\[\Sigma \alpha_1 = \lambda_{1} \alpha_{1},\]</span> où <span class="math inline">\(\lambda_{1}\)</span> est la plus grande valeur propre de <span class="math inline">\(\Sigma\)</span> et <span class="math inline">\(\alpha_{1}\)</span> le vecteur propre associé.</p>
+<p>On définit ainsi la première composante principale. On construit les suivantes en imposant des conditions d’orthogonalité (indépendance linéaire) avec les précédentes, ce qui revient à chercher les vecteurs propres suivants : <span class="math display">\[\Sigma \alpha_k = \lambda_k \alpha_k, \quad \text{avec}\quad \lambda_{1} \geq \lambda_2 \geq \dots \lambda_p.\]</span> Les composantes principales sont donc données par <span class="math display">\[Y_k = \alpha_k^\top X, \quad\text{avec } \alpha_k \text{ vecteur propre associé à } \lambda_k.\]</span></p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Preuve
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Le problème est donc de maximiser <span class="math display">\[F(\alpha_{1}) = \alpha_{1}^\top \Sigma \alpha_1, \quad\text{s.c.}\quad \alpha_1^\top \alpha_1 = 1.\]</span></p>
 <p>On peut récrire ce problème à l’aide des multiplicateurs de Lagrange, soit maximiser <span class="math display">\[F(\alpha_1, \lambda) = \alpha_1^\top \Sigma \alpha_1 - \lambda (\alpha_1^\top \alpha_1 -1 ),\]</span> où <span class="math inline">\(\lambda\)</span> est un multiplicateur de Lagrange.</p>
 <p>Pour solutionner ce problème, on dérive <span class="math inline">\(F\)</span> par rapport à <span class="math inline">\(\alpha_{1}\)</span> et à <span class="math inline">\(\lambda\)</span>.</p>
 <p><span class="math display">\[\begin{cases}
@@ -746,15 +776,10 @@ Example
 <p>En substituant ce résulat, on obtient <span class="math display">\[\Sigma \alpha_{2} = \lambda \alpha_{2}.\]</span></p>
 <p>et donc <span class="math inline">\(\lambda\)</span> est une autre valeur propre de <span class="math inline">\(\Sigma\)</span>. Puisque <span class="math display">\[\mathrm{Var}(Y_{2} = \alpha_{2}^\top \Sigma \alpha_{2} = \alpha_{2}^\top \lambda \alpha_{2} = \lambda,\]</span> on a que cette variance est maximale si <span class="math inline">\(\lambda = \lambda_{2}\)</span>, la deuxième plus grande valeur propre de <span class="math inline">\(\Sigma\)</span>, et conséquemment <span class="math inline">\(\alpha_{2}\)</span> est le vecteur propre normé correspondant.</p>
 <p>On peut généraliser ce résultat en utilisant des maximisations successives. On en conclut que <span class="math display">\[Y_k = \alpha_k^\top X,\]</span> où <span class="math inline">\(\alpha_k\)</span> est le vecteur propre normé associé à <span class="math inline">\(\lambda_k\)</span>, la <span class="math inline">\(k\)</span>e plus grande valeur propre de <span class="math inline">\(\Sigma\)</span>.</p>
-<ul>
-<li>Notation matricielle:</li>
-</ul>
-<p>Pour définir simultanément et de facon plus compacte les composantes principales, on pose <span class="math display">\[Y = AX,\]</span> où <span class="math display">\[A = \left( \alpha_{1}, \dots, \alpha_{p} \right) = \begin{pmatrix}
-  \alpha_{1, 1} &amp; \alpha_{2, 1} &amp; \cdots &amp; \alpha_{p, 1} \\
-  \alpha_{1, 1} &amp; \alpha_{2, 2} &amp; \cdots &amp; \alpha_{p, 1} \\
-  \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-  \alpha_{1, p} &amp; \alpha_{2, p} &amp; \cdots &amp; \alpha_{p, p}
-\end{pmatrix}.\]</span></p>
+</div>
+</div>
+</div>
+<p>Il est possible d’avoir une représentation plus compacte de l’ACP à l’aide de matrices. Soit <span class="math inline">\(A = \left( \alpha_{1}, \dots, \alpha_p \right) \in \mathbb{R}^{p \times p}\)</span>, la matrice dont les collones sont les vecteurs propres. On a <span class="math inline">\(Y = AX\)</span> et la covariance des composantes principales s’écrit <span class="math display">\[\mathrm{Var}(Y) = A^\top \Sigma A.\]</span></p>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -774,10 +799,31 @@ Propriétés de <span class="math inline">\(A\)</span>
 </ol>
 </div>
 </div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Preuves
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>
+<li>
+<li>
+<li>
+</ol>
+</div>
+</div>
+</div>
 <p>Une mesure globale de la variation presente dans les données est donnée par la trace de la matrice <span class="math inline">\(\Sigma\)</span>: <span class="math display">\[\text{tr}(\Sigma) = \text{tr}(\Lambda) = \sum_{i = 1}^{p} \lambda_i.\]</span></p>
 <p>La proportion de variation expliquée par la composante principale <span class="math inline">\(Y_i\)</span> est <span class="math display">\[\frac{\lambda_i}{\lambda_{1} + \cdots + \lambda_p}.\]</span></p>
 <p>Similairement, les <span class="math inline">\(m\)</span> première composantes expliquent <span class="math display">\[\frac{\sum_{i = 1}^{m} \lambda_i}{\sum_{i = 1}^{p} \lambda_i} \times 100\%.\]</span> de la variabilité dans les variables.</p>
-</section><section id="pratique-de-lacp" class="level3"></section></section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Pratique de l’ACP</h2>
+</section></section><section id="pratique-de-lacp" class="level2"></section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Pratique de l’ACP</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-hotellingAnalysisComplexStatistical1933" class="csl-entry" role="listitem">
 Hotelling, H. 1933. <span>« Analysis of a Complex of Statistical Variables into Principal Components »</span>. <em>Journal of Educational Psychology</em> 24 (6): 417‑41. <a href="https://doi.org/10.1037/h0071325">https://doi.org/10.1037/h0071325</a>.
