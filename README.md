@@ -20,12 +20,12 @@ This repository contains the website used for the module STT-2200 given at Unive
     - [X] Linear algebra
     - [X] Probabilities and statistics
     - [X] Programming
-  * [ ] Data analysis generalities
+  * [X] Data analysis generalities
     - [X] Data analysis project
-    - [ ] Distance
+    - [X] Distance
     - [X] Space 
-    - [ ] Bias-variance tradeoff
-    - [ ] Model evaluation
+    - [X] Bias-variance tradeoff
+    - [X] Model evaluation
   * [ ] Dimension
     - [ ] PCA 
     - [ ] MCA
@@ -38,14 +38,14 @@ This repository contains the website used for the module STT-2200 given at Unive
     - [ ] k-means
     - [ ] Hierarchical clustering
     - [ ] Gaussian mixtures
-  * [ ] Further topics
-    - [ ] FDA
-    - [ ] Spatial data 
-    - [ ] Time series 
-    - [ ] Network
-    - [ ] Text
+  * [ ] Ethics 
 
-- [ ] TP/TD 
+- [ ] TP/TD
+  * [ ] Remainders
+  * [ ] Generalities
+  * [ ] Dimension
+  * [ ] Supervised 
+  * [ ] Unsupervised
 
 - [ ] Exams
     * [ ] Mid-term
