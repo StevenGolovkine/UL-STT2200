@@ -224,44 +224,63 @@ de la variabilité dans les variables.
 
 ## Pratique de l'ACP 
 
-### Estimation de la matrice de variance/covariance
+### Estimation de la matrice de variance-covariance
 
-En pratique, la matrice $\Sigma$ est inconnue. On doit donc l'estimer ! Pour cela, on a besoin d'un échantillon aléatoire $X_{1}, \dots, X_n$ de réalisation de $X$. Un estimateur (sans biais) de $\Sigma$ est donnée par 
+En pratique, la matrice de variance-covariance $\Sigma$ est inconnue. Pour faire une ACP, il est nécessaire d'estimer $\Sigma$ à partir d'un échantillon aléatoire $X_{1}, \dots, X_n$ de réalisation indépendante de $X$. Un estimateur (sans biais) de $\Sigma$ est donné par 
 $$\widehat{\Sigma} = \frac{1}{n - 1} \sum_{i = 1}^{n} \left( X_i - \overline{X} \right)\left( X_i - \widehat{X} \right)^{\top},$$
-où $\overline{X}$ est un estimateur de la moyenne de $X$. 
+où $\overline{X}$ est la moyenne empirique de l'échantillon. 
 
-La matrice $\widehat{\Sigma}$ est symétrique à coefficients réels et donc elle est diagonalisable. Elle admet ainsi la représentation 
+La matrice $\widehat{\Sigma}$ ainsi obtenue est symétrique à coefficients réels donc diagonalisable. Elle admet une décomposition spectrale de la forme
 $$\widehat{\Sigma} = \widehat{A} \widehat{\Lambda} \widehat{A}^{\top},$$
-où $\widehat{A}$ est la matrice des estimateurs des vecteurs propres de $\Sigma$ et $\widehat{\Lambda}$ est la matrice des estimateurs des valeurs propres de $\Sigma$.
+où $\widehat{A}$ est une matrice orthogonale dont les colonnes sont les estimateurs des vecteurs propres de $\Sigma$ et $\widehat{\Lambda}$ est une matrice diagonale contenant les estimateurs des valeurs propres de $\Sigma$, supposées ordonnées de façon décroissante.
+
+Les composantes principales sont obtenues en projetant les observations $X_i$ dans la base des vecteurs propres :
+$$Y_i = \widehat{A}^{\top} X_i.$$
 
 ### Quelques remarques 
 
 ::: {.callout-tip icon=false}
 ## Sensibilité à l'échelle de $X_1, \dots, X_p$
 
-Puisque l'on cherche une combinaison linéaire de $X_{1}, \dots, X_p$ qui maximise la variance, une variable $X_k$ ayant une grande variance aura un poids démesuré dans les composantes principales. On peut, par exemple, penser à la mesure de distance. En effet, exprimer une distance entre mètres plutôt qu'en kilomètres multiplierait la variance de cette variable par $1$ million ($(10^3)^2$). Cette variable aurait donc un poids majeur dans toutes les composantes.
+Puisque l'on cherche une combinaison linéaire de $X_{1}, \dots, X_p$ qui maximise la variance, une variable $X_k$ ayant une grande variance aura un poids démesuré dans les composantes principales, ce qui peut fausser l'interprétation. On peut, par exemple, penser à la mesure de distance. En effet, exprimer une distance entre mètres plutôt qu'en kilomètres multiplierait la variance de cette variable par $1$ million ($(10^3)^2$). Cette variable aurait donc un poids majeur dans toutes les composantes.
 
-Ainsi, à moins que les variables aient des variances similaires, il est recommandé de standardiser les variables avant d'effectuer une ACP. Cela revient à effectuer une ACP sur la matrice des corrélations.
+Ainsi, si les variables sont exprimées dans des unités différentes ou présentent des ordres de grandeurs très variés, il est recommandé de standardiser les variables avant d'effectuer une ACP. Cela revient à effectuer une ACP sur la matrice des corrélations.
 
 :::
 
 ::: {.callout-tip icon=false}
 ## Première étape dans une analyse prédictive 
 
-Il arrive que l'ACP soit effectuée parce que l'on veut prédire la valeur de variable $Z$ à partir des valeurs de variables $X_{1}, \dots, X_p$ mais que $p$ est simplement trop grand. Dans ce cas, on applique l'ACP pour obtenir les $k \ll p$ premières composantes principales $Y_1, \dots, Y_k$ et on les utilise pour prédire $Z$.
+Il arrive que l'ACP soit effectuée parce que l'on veuille prédire la valeur de variable $Z$ à partir des valeurs de variables $X_{1}, \dots, X_p$ mais que $p$ soit simplement trop grand. Dans ce cas, on applique l'ACP pour obtenir les $k \ll p$ premières composantes principales $Y_1, \dots, Y_k$ et on les utilise pour prédire $Z$.
 
 Puisque les composantes principales retiennent la majeure partie de l'information contenue dans les variables originales, c'est généralement une façon raisonnable de faire. 
 
 :::
 
 ::: {.callout-tip icon=false}
-## Rotation des axes 
+## Rotation des axes et qualité de représentation 
 
-Puisque la matrice $A$ est orthogonale, le produit matriciel $Y = A^{\top}X$ représente une rotation d'axes. Les nouveaux axes correspondent aux directions orthogonales de variation maximale successives, en supposant que $\lambda_{1} > \dots > \lambda_p$. Ainsi, $Y_i = A^{\top} X_i$ donne les coordonnées de l'observation $X_i$ dans le nouveau système d'axes. On appelle $Y_{ik}$ le score de l'observation $X_i$ sur l'axe principal $k$ et se calcule comme 
+Puisque la matrice $A$ est orthogonale, le produit matriciel $Y = A^{\top}X$ représente une rotation de l'espace des variables. Les nouveaux axes correspondent aux directions orthogonales de variation maximale successives, en supposant que $\lambda_{1} > \dots > \lambda_p$. Ainsi, $Y_i = A^{\top} X_i$ donne les coordonnées de l'observation $X_i$ dans le nouveau système d'axes. On appelle $Y_{ik}$ le score de l'observation $X_i$ sur l'axe principal $k$ et se calcule comme 
 $$Y_{ik} = \alpha_k^\top X_i = \sum_{l = 1}^{p} \alpha_{kl}X_{il}.$$
 
+La qualité de la représentation de l'observation $i$ sur l'axe $k$ est donnée par 
+$$Q_{ik} = \frac{Y_{ik}^2}{d^2(0, Y_i)} = \frac{Y_{ik}^2}{\sqrt{Y_{i1}^2 + \dots + Y_{i p}^2}}.$$
 
 :::
+
+### Choix du nombre de composantes
+
+Un enjeu central en ACP est de choisir combien de composantes principales retenir. En conserver trop ne réduit pas la dimension et en conserver trop peu peut faire perdre de l'information pertinente. Voici les principales règles empiriques utilisées :
+
+1. **Règle des $80\%$** : Retenir le nombre minimal de composantes nécessaires pour expliquer au moins $80\%$ de la variance totale. Ce seuil est arbitraire, mais il donne souvent une bonne intuition.
+
+2. **Règle de Kaiser** : Si l'ACP est faite à partir de la matrice des corrélations, alors la moyenne des valeurs propres vaut $1$. On recommande de ne garder que les composantes ayant une valeur propre supérieure à la moyenne des valeurs propres, soit $1$.
+
+3. **Règle de Joliffe** : Variante plus stricte de la règle de Kaiser, qui suggère de conserver les composantes avec une valeur propre supérieure à $0.7$ pour une ACP faite avec la matrice des corrélations.
+
+4. **Règle de Cattell (ou du coude)** : On trace les valeurs propres $\lambda_k$ en fonction de leur rang $k$ et on cherche un point de rupture dans la décroissance. Au-delà de ce point, les composantes supplémentaires expliquent peu de variance supplémentaire.
+
+Ces règles sont des outils d'aide à la décision, mais le choix du nombre de composantes dépend aussi du contexte, des objectifs de l'analyse, et de la facilité d’interprétation.
 
 ::: {.content-visible when-format="pdf"}
 ## Références
