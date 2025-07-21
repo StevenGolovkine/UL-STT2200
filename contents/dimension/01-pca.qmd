@@ -29,14 +29,14 @@ Réduire la dimension, ce n'est pas simplement la suppression de variables. En e
 ## Analyse en composantes principales
 
 L'ACP est une méthode non-supervisée (sans variables à expliquer) permettant de réduire la dimension d'un jeu de données tout en conservant le plus d'information possible. Cette méthode est utilisée lorsque l'on dispose de $n$ observations de $p$ variables numériques continues avec $p$ trop "grand" pour permettre une modélisation ou une visualisation efficace. 
-La méthode a été introduite par H. Hotelling dans @hotellingAnalysisComplexStatistical1933.
+La méthode a été introduite par dans @hotellingAnalysisComplexStatistical1933.
 
 ::: {.callout-tip icon=false}
 ## Applications courantes 
 
 1. Visualisation d'un jeu de données multidimensionnelles.
 
-2. Réduction du nombre de variables de $p$ à $p^{\prime} \ll p$ pour faciliter la construction de modèle.
+2. Réduction du nombre de variables de $p$ à $k \ll p$ pour faciliter la construction de modèle.
 
 3. Compression d'images ou de signaux.
 
@@ -62,11 +62,11 @@ La méthode a été introduite par H. Hotelling dans @hotellingAnalysisComplexSt
 
 Soit un vecteur aléatoire composé de $p$ variables $X = \left( X_{1}, \dots, X_p \right)^{\top}$, centré et ayant comme matrice de variance-covariance $\Sigma$. Notons $\alpha_{1} = \left( \alpha_{11}, \dots, \alpha_{1p} \right)^{\top}$, un vecteur de coefficients. On cherche une combinaison linéaire 
 
-$$Y_{1} = \alpha_{1}^{\top} X = \sum_{i = 1}^{p} \alpha_{1i}X_i,$$
+$$Y_{1} = \alpha_{1}^{\top} X = \sum_{k = 1}^{p} \alpha_{1k}X_k,$$
 
 telle que la variance de $Y_{1}$ soit maximale. L'idée est simple: on désire combiner $p$ variables en une seule, mais en "capturant" la plus grande partie possible de la variabilité. 
 
-Il faut d'abord ajouter une contrainte sur $\alpha_{1}$, puisque sinon on n'aurait qu'à prendre $\alpha_{1i} = \pm \infty$ et on aurait $\mathrm{Var}(Y_{1}) = +\infty$ ce qui est définitivement maximal ! On contraint donc $\alpha_{1}$ de sorte qu'il ait une norme égale à $1$.
+Il faut d'abord ajouter une contrainte sur $\alpha_{1}$, puisque sinon on n'aurait qu'à prendre $\alpha_{1k} = \pm \infty$ et on aurait $\mathrm{Var}(Y_{1}) = +\infty$ ce qui est définitivement maximal ! On contraint donc $\alpha_{1}$ de sorte qu'il ait une norme égale à $1$.
 
 Cela revient à calculer :
 $$\max_{\alpha_1^\top \alpha_1 = 1} \mathrm{Var}(Y_1) = \max_{\alpha_1^\top \alpha_1 = 1} \alpha_1^\top \Sigma \alpha_{1}.$$
@@ -80,8 +80,18 @@ $$\Sigma \alpha_k = \lambda_k \alpha_k, \quad \text{avec}\quad \lambda_{1} \geq 
 Les composantes principales sont donc données par 
 $$Y_k = \alpha_k^\top X, \quad\text{avec } \alpha_k \text{ vecteur propre associé à } \lambda_k.$$
 
+::: {.callout-tip icon=false}
+## Remarque 
+
+Si $\lambda_{1} > \dots > \lambda_{p}$, alors les composantes principales sont uniques, à un signe près.
+
+:::
+
 ::: {.callout-note icon=false collapse=true}
 ## Preuve
+
+On cherche à calculer 
+$$\max_{\alpha_1^\top \alpha_1 = 1} \mathrm{Var}(Y_1) = \max_{\alpha_1^\top \alpha_1 = 1} \alpha_1^\top \Sigma \alpha_{1}.$$
 
 Le problème est donc de maximiser
 $$F(\alpha_{1}) = \alpha_{1}^\top \Sigma \alpha_1, \quad\text{s.c.}\quad \alpha_1^\top \alpha_1 = 1.$$
@@ -93,10 +103,10 @@ où $\lambda$ est un multiplicateur de Lagrange.
 Pour solutionner ce problème, on dérive $F$ par rapport à $\alpha_{1}$ et à $\lambda$.
 
 $$\begin{cases}
-\frac{\partial F(\alpha_{1}, \lambda)}{\partial \alpha_{1}} = 2 \Sigma \alpha_{1} - 2 \lambda \alpha_{1} \\
-\frac{\partial F(\alpha_{1}, \lambda)}{\partial \lambda} = 1 - \alpha_{1}^\top \alpha_{1}
+\frac{\partial F(\alpha_{1}, \lambda)}{\partial \alpha_{1}} = 2 \Sigma \alpha_{1} - 2 \lambda \alpha_{1},\\
+\frac{\partial F(\alpha_{1}, \lambda)}{\partial \lambda} = 1 - \alpha_{1}^\top \alpha_{1}.
 \end{cases}
-.$$
+$$
 
 Ensuite, on égalise à $0$, ce qui donne:
 $$\begin{cases}
@@ -118,13 +128,11 @@ Puisque l'on veut maximiser cette quantité, on conclut que:
 
 2. $\alpha_{1}$, le vecteur propre normé correspondant.
 
-* Calcul de la deuxième composante:
-
-On poursuit simultanément deux objectifs:
+On continue ensuite avec le calcul de la deuxième composante. Ici, on poursuit simultanément deux objectifs:
 
 1. Conserver le maximum de variation présente dans $X$;
 
-2. Simplifier la structure de dépendancce pour faciliter l'interprétation et assurer la stabilité numérique d'éventuelles méthodes qui utiliseront les composantes principales obtenues.
+2. Simplifier la structure de dépendance pour faciliter l'interprétation et assurer la stabilité numérique d'éventuelles méthodes qui utiliseront les composantes principales obtenues.
 
 Étant donné $Y_{1}$, la deuxième composante principale $Y_{2} = \alpha_{2}^\top X$ est définie telle que 
 
@@ -134,7 +142,7 @@ On poursuit simultanément deux objectifs:
 
 3. $\mathrm{Cov}(Y_{1}, Y_{2}) = 0$.
 
-On a que
+Or, on a que
 $$\mathrm{Cov}(Y_{1}, Y_{2}) = \mathrm{Cov}(\alpha_{1}^\top X, \alpha_{2}^\top X) = \alpha_{1}^\top \Sigma \alpha_{2} = \alpha_{2}^\top \Sigma \alpha_{1} = \lambda_{1} \alpha_{2}^\top \alpha_{1}.$$
 
 On cherche donc le vecteur $\alpha_{2}$ qui maximise:
@@ -157,7 +165,7 @@ En multipliant cette équation à gauche et à droite par $\alpha_{1}^\top$, on 
 
 $$2 \alpha_{1}^\top \Sigma \alpha_{2} - 2 \alpha_{1}^\top \lambda \alpha_{2} - \kappa \alpha_{1}^\top \alpha_{1} = 0.$$
 
-Or $\alpha_{1}^\top \Sigma = \lambda_{1} \alpha_{1}^\top$, et $\lambda_{1}^\top \alpha_{1} = 1$,
+Or $\alpha_{1}^\top \Sigma = \lambda_{1} \alpha_{1}^\top$, et $\alpha_{1}^\top \alpha_{1} = 1$,
 donc
 $$2 \alpha_{1}^\top \lambda \alpha_{2} - 2 \alpha_{1}^\top \lambda \alpha_{2} - \kappa \alpha_{1}^\top \alpha_{1} = 0 \implies - \kappa = 0.$$
 
@@ -165,7 +173,7 @@ En substituant ce résulat, on obtient
 $$\Sigma \alpha_{2} = \lambda \alpha_{2}.$$
 
 et donc $\lambda$ est une autre valeur propre de $\Sigma$. Puisque 
-$$\mathrm{Var}(Y_{2} = \alpha_{2}^\top \Sigma \alpha_{2} = \alpha_{2}^\top \lambda \alpha_{2} = \lambda,$$
+$$\mathrm{Var}(Y_{2}) = \alpha_{2}^\top \Sigma \alpha_{2} = \alpha_{2}^\top \lambda \alpha_{2} = \lambda,$$
 on a que cette variance est maximale si $\lambda = \lambda_{2}$, la deuxième plus grande valeur propre de $\Sigma$, et conséquemment $\alpha_{2}$ est le vecteur propre normé correspondant.
 
 On peut généraliser ce résultat en utilisant des maximisations successives. On en conclut que
@@ -174,50 +182,86 @@ où $\alpha_k$ est le vecteur propre normé associé à $\lambda_k$, la $k$e plu
 
 :::
 
-Il est possible d'avoir une représentation plus compacte de l'ACP à l'aide de matrices. Soit $A = \left( \alpha_{1}, \dots, \alpha_p \right) \in \mathbb{R}^{p \times p}$, la matrice dont les collones sont les vecteurs propres. On a $Y = AX$ et la covariance des composantes principales s'écrit 
+Il est possible d'avoir une représentation plus compacte de l'ACP à l'aide de matrices. Soit $A = \left( \alpha_{1}, \dots, \alpha_p \right) \in \mathbb{R}^{p \times p}$, la matrice dont les colonnes sont les vecteurs propres. On a $Y = AX$ et la covariance des composantes principales s'écrit 
 $$\mathrm{Var}(Y) = A^\top \Sigma A.$$
 
 
 ::: {.callout-important icon=false}
 ## Propriétés de $A$
 
-1. Les colonnes de la matrice $A$ sont les vecteurs propres de $\Sigma$;
+1. $A^{\top} A = A A^{\top} = I_p$;
 
-2. $A^{\top} A = A A^{\top} = I_p$;
+2. $A^{\top} = A^{-1}$;
 
-3. $A^{\top} = A^{-1}$;
+3. $\Sigma A = A \Lambda$, où $\Lambda = \text{diag}(\lambda_{1}, \dots, \lambda_p)$;
 
-4. $\Sigma A = A \Lambda$, où $\Lambda = \text{diag}(\lambda_{1}, \dots, \lambda_p)$;
-
-5. $\mathrm{Var}(Y) = A^{\top} \Sigma A = \Lambda \implies \mathrm{Cov}(Y_i, Y_j) = 0$ si $i \neq j$ et $\mathrm{Var}(Y_i) = \lambda_i \geq \mathrm{Var}(Y_j) = \lambda_j$ si et seulement si $i \leq j$.
+4. $\mathrm{Var}(Y) = A^{\top} \Sigma A = \Lambda \implies \mathrm{Cov}(Y_k, Y_l) = 0$ si $k \neq l$ et $\mathrm{Var}(Y_k) = \lambda_k \geq \mathrm{Var}(Y_l) = \lambda_l$ si et seulement si $k \geq l$.
 
 :::
 
 ::: {.callout-note icon=false collapse=true}
 ## Preuves
 
-1. 
+1. Par construction, les colonnes de $A$ sont orthogonaux deux à deux et de norme $1$ (cf. contraintes sur les vecteurs propres). La matrice $A$ est donc une matrice orthogonale. Et donc  $A^{\top} A = A A^{\top} = I_p$.
 
-2. 
+2. De même, comme $A$ est orthogonal, on a $A^{\top} = A^{-1}$.
 
-3. 
+3. Le résultat est immédiat en faisant le produit de matrices. 
 
-4.
+4. On a $\mathrm{Var}(Y) = A^{\top} \Sigma A = A^{\top} A \Lambda = \Lambda$. Comme $\Lambda$ est une matrice diagonale, $\mathrm{Cov}(Y_k, Y_l) = 0$ si $k \neq l$ (car pas sur la diagonale) et comme $\lambda_{1} \geq \dots \geq \lambda_p$, on a $\mathrm{Var}(Y_1) \geq \dots \geq \mathrm{Var}(Y_p)$.
 
 :::
 
 Une mesure globale de la variation presente dans les données est donnée par la trace de la matrice $\Sigma$:
-$$\text{tr}(\Sigma) = \text{tr}(\Lambda) = \sum_{i = 1}^{p} \lambda_i.$$
+$$\text{tr}(\Sigma) = \text{tr}(\Lambda) = \sum_{i = 1}^{p} \lambda_i = \sum_{k = 1}^{p} \mathrm{Var}(Y_k).$$
 
-La proportion de variation expliquée par la composante principale $Y_i$ est 
-$$\frac{\lambda_i}{\lambda_{1} + \cdots + \lambda_p}.$$
+La proportion de variation expliquée par la composante principale $Y_k$ est donc donnée par le ratio entre la valeur propre $k$ et la somme des valeurs propres : 
+$$\frac{\lambda_k}{\lambda_{1} + \cdots + \lambda_p} = \frac{\mathrm{Var}(Y_k)}{\text{tr}(\Sigma)}.$$
 
-Similairement, les $m$ première composantes expliquent 
-$$\frac{\sum_{i = 1}^{m} \lambda_i}{\sum_{i = 1}^{p} \lambda_i} \times 100\%.$$
+De façon similaire, les $m$ premières composantes expliquent 
+$$100\% \times \frac{\sum_{k = 1}^{m} \lambda_k}{\sum_{k = 1}^{p} \lambda_k} = 100\% \times \frac{\sum_{k = 1}^{m} \mathrm{Var}(Y_k)}{\sum_{k = 1}^{p} \mathrm{Var}(Y_k)}$$
 de la variabilité dans les variables.
 
 ## Pratique de l'ACP 
 
+### Estimation de la matrice de variance/covariance
+
+En pratique, la matrice $\Sigma$ est inconnue. On doit donc l'estimer ! Pour cela, on a besoin d'un échantillon aléatoire $X_{1}, \dots, X_n$ de réalisation de $X$. Un estimateur (sans biais) de $\Sigma$ est donnée par 
+$$\widehat{\Sigma} = \frac{1}{n - 1} \sum_{i = 1}^{n} \left( X_i - \overline{X} \right)\left( X_i - \widehat{X} \right)^{\top},$$
+où $\overline{X}$ est un estimateur de la moyenne de $X$. 
+
+La matrice $\widehat{\Sigma}$ est symétrique à coefficients réels et donc elle est diagonalisable. Elle admet ainsi la représentation 
+$$\widehat{\Sigma} = \widehat{A} \widehat{\Lambda} \widehat{A}^{\top},$$
+où $\widehat{A}$ est la matrice des estimateurs des vecteurs propres de $\Sigma$ et $\widehat{\Lambda}$ est la matrice des estimateurs des valeurs propres de $\Sigma$.
+
+### Quelques remarques 
+
+::: {.callout-tip icon=false}
+## Sensibilité à l'échelle de $X_1, \dots, X_p$
+
+Puisque l'on cherche une combinaison linéaire de $X_{1}, \dots, X_p$ qui maximise la variance, une variable $X_k$ ayant une grande variance aura un poids démesuré dans les composantes principales. On peut, par exemple, penser à la mesure de distance. En effet, exprimer une distance entre mètres plutôt qu'en kilomètres multiplierait la variance de cette variable par $1$ million ($(10^3)^2$). Cette variable aurait donc un poids majeur dans toutes les composantes.
+
+Ainsi, à moins que les variables aient des variances similaires, il est recommandé de standardiser les variables avant d'effectuer une ACP. Cela revient à effectuer une ACP sur la matrice des corrélations.
+
+:::
+
+::: {.callout-tip icon=false}
+## Première étape dans une analyse prédictive 
+
+Il arrive que l'ACP soit effectuée parce que l'on veut prédire la valeur de variable $Z$ à partir des valeurs de variables $X_{1}, \dots, X_p$ mais que $p$ est simplement trop grand. Dans ce cas, on applique l'ACP pour obtenir les $k \ll p$ premières composantes principales $Y_1, \dots, Y_k$ et on les utilise pour prédire $Z$.
+
+Puisque les composantes principales retiennent la majeure partie de l'information contenue dans les variables originales, c'est généralement une façon raisonnable de faire. 
+
+:::
+
+::: {.callout-tip icon=false}
+## Rotation des axes 
+
+Puisque la matrice $A$ est orthogonale, le produit matriciel $Y = A^{\top}X$ représente une rotation d'axes. Les nouveaux axes correspondent aux directions orthogonales de variation maximale successives, en supposant que $\lambda_{1} > \dots > \lambda_p$. Ainsi, $Y_i = A^{\top} X_i$ donne les coordonnées de l'observation $X_i$ dans le nouveau système d'axes. On appelle $Y_{ik}$ le score de l'observation $X_i$ sur l'axe principal $k$ et se calcule comme 
+$$Y_{ik} = \alpha_k^\top X_i = \sum_{l = 1}^{p} \alpha_{kl}X_{il}.$$
+
+
+:::
 
 ::: {.content-visible when-format="pdf"}
 ## Références
