@@ -2,10 +2,33 @@
 title: "Supervisée"
 format:
   html: default
-  pdf:
-    header-includes:
+  pdf: 
+    header-includes: 
       - \usepackage{mathtools}
----
+--- 
+
+* Slides: [link](../slides/05-supervised-slides.qmd)
+
+* TD: [link](../td/05-supervised-td.qmd)
+
+* TP: [link](../td/05-supervised-tp.qmd)
+
+## Sommaire
+
+1. [Régression](./supervised/01-regression.qmd)
+
+2. [Analyse discriminante](./supervised/02-discriminant.qmd)
+
+3. [Arbres](./supervised/03-tree.qmd)
+
+4. [Modèles hiérarchiques](./supervised/04-hierarchy.qmd)
+
+5. [Modèles ensemblistes](./supervised/05-ensemble.qmd)
+
+
+
+![Extrapolating ([xkcd:605](https://xkcd.com/605/)).](../include/extrapolating.png)
+
 
 On considère une population comportant $q$ groupes. On observe $p$ variables $X_{1}, \dots, X_{p}$ pour chaque individu/objet de la population.
 On cherche à obtenir un modèle/algortihme pour classer de nouveaux individus/objets dans les bons groupes, c'est-à-dire de prédire $Y$ à partir de $X_{1}, \dots, X_{p}$.

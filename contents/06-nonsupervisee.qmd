@@ -1,11 +1,28 @@
---- 
+---
 title: "Non-supervisée"
-format: 
+format:
   html: default
-  pdf:
+  pdf: 
     header-includes: 
       - \usepackage{mathtools}
 --- 
+
+* Slides: [link](../slides/04-unsupervised-slides.qmd)
+
+* TD: [link](../td/06-unsupervised-td.qmd)
+
+* TP: [link](../td/06-unsupervised-tp.qmd)
+
+## Sommaire
+
+1. [$k$-moyennes](./unsupervised/01-kmeans.qmd)
+
+2. [Méthodes hiérarchiques](./unsupervised/02-hierarchy.qmd)
+
+3. [Mélanges de gaussiennes](./unsupervised/03-gaussian-mixtures.qmd)
+
+
+![$k$-means ([xkcd:2731](https://xkcd.com/2731/)).](../include/k_means_clustering.png)
 
 
 On veut partitionner $n$ observations en $K$ groupes avec comme objectifs:

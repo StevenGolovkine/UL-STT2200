@@ -78,7 +78,6 @@ website:
               - contents/dimension/01-pca.qmd 
               - contents/dimension/02-mca.qmd 
               - contents/dimension/03-kernel.qmd 
-              - contents/dimension/04-others.qmd
           - href: contents/05-supervisee.qmd 
             text: 05 - Supervisée
             contents: 
@@ -87,14 +86,12 @@ website:
               - contents/supervised/03-tree.qmd
               - contents/supervised/04-hierarchy.qmd 
               - contents/supervised/05-ensemble.qmd
-              - contents/supervised/06-others.qmd
           - href: contents/06-nonsupervisee.qmd 
             text: 06 - Non-supervisée
             contents:
               - contents/unsupervised/01-kmeans.qmd 
               - contents/unsupervised/02-hierarchy.qmd
               - contents/unsupervised/03-gaussian-mixtures.qmd
-              - contents/unsupervised/04-others.qmd
           - href: contents/07-further.qmd 
             text: 07 - Éthique 
           - href: contents/08-conclusion.qmd 

@@ -1,8 +1,10 @@
 --- 
-title: "Others"
-format: 
+title: "TD: Dimension"
+format:
   html: default
-  pdf:
+  pdf: 
+    number-sections: true
     header-includes:
       - \usepackage{mathtools} 
---- 
+---
+

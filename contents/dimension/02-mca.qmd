@@ -1,5 +1,5 @@
 --- 
-title: "ACM"
+title: "Analyse des correspondances multiples"
 format: 
   html: default
   pdf:
@@ -7,67 +7,70 @@ format:
       - \usepackage{mathtools} 
 ---
 
-## Introduction
+## Que faire avec des données catégorielles ? 
 
-L'analyse en composantes principales concerne des données **continues**. Que faire lorsque les variables sont rapportées dans des tableaux de contingences où alors comme réponses à des questionnaires à choix multiples ? Que faire lorsque les variables sont catégorielles ? Il est possible de faire la même chose que pour l'ACP pour des variables catégorielles, cette méthode s'appelle l'analyse des correspondances (AC). Cette méthode permet de représenter graphiquement des tableaux de fréquence. Pour des tableaux de fréquences croisant deux variables, on parlera d'analyse des correspondances bianires (ACB) ou alors d'analyse factorielle des correspondances (AFC). Pour des tableaux de fréquences croisant troix variables ou plus, on parlera d'analyse des correspondances multiples (ACM).
+L'analyse en composantes principales (ACP) est utilisée pour des données **continues**. Mais que faire lorsque les variables sont catégorielles, comme c'est le cas dans les tableaux de contingences, dans les questionnaires à choix multiples ou pour des variables qualitatives comme la couleur des yeux, la profession, ou la région d'origine ? 
+
+Il est possible de faire la même chose que pour l'ACP pour des variables catégorielles, cette méthode s'appelle l'analyse des correspondances (AC). Elle permet une représentation géométrique des relations entre les modalités d'une ou plusieurs variables qualitatives. Lorsque l'on s'intéresse à la relation entre deux variables qualitatives, on parlera d'analyse des correspondances binaires (ACB) ou alors d'analyse factorielle des correspondances (AFC). Lorsque l'on étudie simultanément plus de deux variables qualitatives, on parlera d'analyse des correspondances multiples (ACM).
 
 ::: {.callout-note icon=false}
-## Examples
+## Exemples
 
-La boussole électorale de Radio-Canada.
-Étude sur les clients d'une compagnie de télécom.
-Relation entre la couleur des yeux et des cheveux.
+* La boussole électorale de Radio-Canada (questionnaire politique).
+
+* Étude de segmentation de clientèle pour un opérateur télécom.
+
+* Relation entre la couleur des yeux et des cheveux d'individus.
+  
 :::
 
 ## Notation 
 
-Notation: Soit $K = (k_{ij})$, où $k_{ij}$ est le nombre d'individus appartenant à la classe $i \in \{ 1, \dots, n \}$ et à la catégorie $j \in \{ 1, \dots, p \}$.
-
-Tableau des fréquences relatives: Comme les fréquences sont proportionnelles à la taille d'échantillon $n$, le tableau des fréquences relatives contient plus d'information : $F = (f_{ij})$, dans lequel
+On considère un tableau de contingence $K = (k_{ij})$, où $k_{ij}$ est le nombre d'individus appartenant à la classe $i \in \{ 1, \dots, n \}$ et à la catégorie $j \in \{ 1, \dots, p \}$.
+On travaille ensuite avec le tableau des fréquences relatives. Comme les fréquences sont proportionnelles à la taille d'échantillon $n$, le tableau des fréquences relatives contient plus d'information. Notons $F = (f_{ij})$, dans lequel
 $$f_{ij} = \frac{k_{ij}}{k_{\bullet\bullet}} = \frac{k_{ij}}{\sum_{l = 1}^{n} \sum_{m = 1}^{p} k_{lm}}.$$
 
-Les marges du tableau correspondent à la somme des colonnes pour chaque ligne et de la somme des lignes pour chaque colonne:
+Les marges ligne (resp. colonne) du tableau correspondent à la somme des colonnes pour chaque ligne (resp. à la somme des lignes pour chaque colonne):
 \begin{align}
 f_{i \bullet} &= \sum_{j = 1}^{p} f_{ij} = \frac{k_{i \bullet}}{k_{\bullet\bullet}}, \quad 1 \leq i \leq n; \\
 f_{\bullet j} &= \sum_{i = 1}^{n} f_{ij} = \frac{k_{\bullet j}}{k_{\bullet\bullet}}, \quad 1 \leq j \leq p.
 \end{align}
 
+### Indépendance statistique 
+
 Les fréquences relatives estiment des probabilités. Dans le cas d'un tableau de fréquences croisant deux variables, sous l'hypothèse d'indépendance, les fréquences relatives devraient être telles qu'on ne s'éloigne pas trop de la relation 
-$$f_{ij} = f_{i \bullet} f_{\bullet j}, \quad i \in \{ 1, \dots, n \}, j \in \{ 1, \dots, p \}.$$
+$$f_{ij} = f_{i \bullet} f_{\bullet j}, \quad i \in \{ 1, \dots, n \},~ j \in \{ 1, \dots, p \}.$$
 
-Statistique du $\chi^{2}$: on peut tester si les différences entre $f_{ij}$ et $f_{i \bullet} f_{\bullet j}$ sont significatives à l'aide du test du $\chi^2$:
+On peut tester si les différences entre $f_{ij}$ et $f_{i \bullet} f_{\bullet j}$ sont significatives à l'aide du test du $\chi^2$:
 $$T = \sum_{i = 1}^{n} \sum_{j = 1}^{p} \frac{\left( k_{ij} - \mathbb{E}(k_{ij}) \right)^2}{\mathbb{E}(k_{ij})} = \sum_{i = 1}^{n} \sum_{j = 1}^{p} \frac{\left( k_{ij} - \frac{k_{i \bullet}k_{\bullet j}}{k_{\bullet\bullet}} \right)^2}{\left( \frac{k_{i \bullet} k_{\bullet j}}{k_{\bullet\bullet}} \right)}.$$
+Si les variables sont indépendantes, la statistique $T$ doit être proche de $0$.
 
-Si les variables sont indépendantes, la statistique $T$ dit être proche de $0$.
 
-On peut aussi s'intéresser à la contribution de chaque cellule à la valeur globale de la statistique $T$. Cela permet d'obtenir le profil de chaque ligne $i$ et de chaque colonne $j$.
-\begin{align}
-L_i &= \left( \frac{k_{i 1}}{k_{i \bullet}}, \dots, \frac{k_{i p}}{k_{i \bullet}} \right) &= \left( \frac{f_{i 1}}{f_{i \bullet}}, \dots, \frac{f_{i p}}{f_{i \bullet}} \right) \\
-C_j &= \left( \frac{k_{1 j}}{k_{\bullet j}}, \dots, \frac{k_{n j}}{k_{\bullet j}} \right) &= \left( \frac{f_{1 j}}{f_{\bullet j}}, \dots, \frac{f_{n j}}{f_{\bullet j}} \right)
-.
-\end{align}
+### Profils-lignes et profils-colonnes
+
+Chaque ligne du tableau peut être vue comme un profil-ligne
+$$L_i = \left( \frac{k_{i 1}}{k_{i \bullet}}, \dots, \frac{k_{i p}}{k_{i \bullet}} \right) = \left( \frac{f_{i 1}}{f_{i \bullet}}, \dots, \frac{f_{i p}}{f_{i \bullet}} \right)$$
+et chaque colonne du tableau peut être vue comme un profil-colonne
+$$C_j = \left( \frac{k_{1 j}}{k_{\bullet j}}, \dots, \frac{k_{n j}}{k_{\bullet j}} \right) = \left( \frac{f_{1 j}}{f_{\bullet j}}, \dots, \frac{f_{n j}}{f_{\bullet j}} \right)
+.$$
 
 Le profil-ligne moyen est donné par 
-$$\left( \sum_{i = 1}^{n} f_{i \bullet} \frac{f_{i 1}}{f_{i \bullet}}, \dots, \sum_{i = 1}^{n} f_{i \bullet} \frac{f_{i p}}{f_{i \bullet}} \right) = \left( f_{\bullet 1}, \dots, f_{\bullet p} \right).$$
-Le profil-colonne moyen est donné par 
+$$\left( \sum_{i = 1}^{n} f_{i \bullet} \frac{f_{i 1}}{f_{i \bullet}}, \dots, \sum_{i = 1}^{n} f_{i \bullet} \frac{f_{i p}}{f_{i \bullet}} \right) = \left( f_{\bullet 1}, \dots, f_{\bullet p} \right),$$
+et le profil-colonne moyen est donné par 
 $$\left( \sum_{j = 1}^{p} f_{{\bullet j}} \frac{f_{1 j}}{f_{\bullet j}}, \dots, \sum_{j = 1}^{p} f_{\bullet j} \frac{f_{n j}}{f_{\bullet j}} \right) = \left( f_{{1 \bullet}}, \dots, f_{n \bullet} \right).$$
 
-En cas d'indépendance, on a, pour tout $i \in \{ 1, \dots, n \}$ et $j \in \{ 1, \dots, p \}$, 
+En cas d'indépendance entre les variables, tous les profils sont égaux à leurs moyennes respectives, i.e pour tout $i \in \{ 1, \dots, n \}$ et $j \in \{ 1, \dots, p \}$, 
 $$\left( \frac{f_{i 1}}{f_{i \bullet}}, \dots, \frac{f_{i p}}{f_{i \bullet}} \right) = \left( f_{\bullet 1}, \dots, f_{\bullet p} \right) \quad\text{et}\quad
 \left( \frac{f_{1 j}}{f_{\bullet j}}, \dots, \frac{f_{n j}}{f_{\bullet j}} \right) = \left( f_{{1 \bullet}}, \dots, f_{n \bullet} \right).$$
 
-La dépendance entre les variables est fonction de la ressemblance entre les profils des lignes et les profils des colonnes. On peut mesurer et visualiser cette de diverses manières.
-
-On peut mesurer la distance entre deux profils-lignes avec la distance du $\chi^2$, qui tient compte de l'importance de chaque colonne:
+La dépendance entre les variables est fonction de la similarité entre les profils-lignes et les profils-colonnes. On peut mesurer la distance entre deux profils-lignes avec la distance du $\chi^2$, en tenant compte de l'importance de chaque colonne:
 $$d^2(i, i^\prime) = \sum_{j = 1}^{p} \frac{1}{f_{\bullet j}} \left( \frac{f_{ij}}{f_{i \bullet}} - \frac{f_{i^\prime j}}{f_{i^\prime j}} \right)^2.$$
 
-On peut écrire cela sous forme matricielle. Notons $D_n = \text{diag}(f_{i \bullet}$ et $D_p = \text{diag}(f_{\bullet j}$. On a que la matrice $D_n^{-1}F$ a pour lignes les profils-lignes et la matrice $D_p^{-1}F^{\top}$ a pour lignes les profils-colonnes.
-
-En utilisant ces matrices, la distance du $\chi^2$ au carré est de la forme $x^{\top}D_p^{-1}x$ pour un point-ligne $x \in \mathbb{R}^p$ et de la forme $x^{\top}D_n^{-1}x$ pour un point-colonne $x \in \mathbb{R}^n$.
+On peut écrire cela sous forme matricielle en notant $D_n = \text{diag}(f_{i \bullet})$ et $D_p = \text{diag}(f_{\bullet j})$. La matrice $D_n^{-1}F$ a pour lignes les profils-lignes et la matrice $D_p^{-1}F^{\top}$ a pour lignes les profils-colonnes. En utilisant ces matrices, la distance du $\chi^2$ au carré est de la forme $x^{\top}D_p^{-1}x$ pour un point-ligne $x \in \mathbb{R}^p$ et de la forme $x^{\top}D_n^{-1}x$ pour un point-colonne $x \in \mathbb{R}^n$.
 
 ## Analyse factorielle des correspondances
 
-L'analyse factorielle des correspondances est une approche graphique permettant de représenter simultanément les profils-lignes appartenant à $\mathbb{R}^p$ et les profils-colonnes appartenant à $\mathbb{R}^n$ d'un tableau de fréquences. On cherche donc un espace en deux dimensions où projeter les profils lignes et colonnes de sorte que les points dans cet espace soient le plus près possible des points originaux au sens de la distance du $\chi^2$. L'analyse des correspondances est très similaire à une double ACP.
+L'analyse factorielle des correspondances (AFC) est une approche graphique permettant de représenter simultanément les profils-lignes appartenant à $\mathbb{R}^p$ et les profils-colonnes appartenant à $\mathbb{R}^n$ d'un tableau de fréquences. On cherche donc un espace en deux dimensions où projeter les profils lignes et colonnes de sorte que les points dans cet espace soient le plus près possible des points originaux au sens de la distance du $\chi^2$. L'analyse des correspondances est très similaire à une double ACP.
 
 Analyse directe (sur les lignes): les lignes de la matrice $D_n^{-1}F \in \mathbb{R}^p$. On cherche à les représenter dans cet espace muni de la distance $x^{\top} D_p^{-1} x$.
 
@@ -151,8 +154,6 @@ Interprétation:
 4. Une interprétation semblable existe pour les points-lignes.
 
 
-## Example 
-
 
 ## Analyse des correspondances multiples
 
@@ -218,4 +219,3 @@ D'un point de vue mathématique, l'ACM est une AFC effectuée sur la matrice log
 On peut créé un graphique comme l'AFC. Cependant, en ACM, la distance entre les points de même couleur et la géométrie globale du graphique ne peuvent pas s'interpréter comme en AFC. En fait, on s'intéresse aux points qui sont dans une même direction par rapport à l'origine.
 :::
 
-## Example
