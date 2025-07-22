@@ -96,13 +96,7 @@ website:
               - contents/unsupervised/03-gaussian-mixtures.qmd
               - contents/unsupervised/04-others.qmd
           - href: contents/07-further.qmd 
-            text: 07 - Autres
-            contents:
-              - contents/further_topics/01-fda.qmd 
-              - contents/further_topics/02-spatial.qmd
-              - contents/further_topics/03-timeseries.qmd 
-              - contents/further_topics/04-network.qmd 
-              - contents/further_topics/05-text.qmd
+            text: 07 - Éthique 
           - href: contents/08-conclusion.qmd 
             text: 08 - Conclusion
 
