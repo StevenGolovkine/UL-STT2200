@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.32">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>ACM – STT-2200: Analyse de données</title>
+<title>Analyse des correspondances multiples – STT-2200: Analyse de données</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -84,7 +84,7 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script><meta property="og:title" content="ACM – STT-2200: Analyse de données">
+</script><meta property="og:title" content="Analyse des correspondances multiples – STT-2200: Analyse de données">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
@@ -259,7 +259,7 @@ window.Quarto = {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/04-dimension.html">04 - Dimension</a></li>
-<li class="breadcrumb-item"><a href="../../contents/dimension/02-mca.html">ACM</a></li>
+<li class="breadcrumb-item"><a href="../../contents/dimension/02-mca.html">Analyse des correspondances multiples</a></li>
 </ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
@@ -441,19 +441,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/dimension/02-mca.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">ACM</span></a>
+ <span class="menu-text">Analyse des correspondances multiples</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/dimension/03-kernel.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Noyau</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../contents/dimension/04-others.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Divers</span></a>
   </div>
 </li>
       </ul>
@@ -497,12 +491,6 @@ window.Quarto = {
  <span class="menu-text">Ensemble</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../contents/supervised/06-others.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Autres</span></a>
-  </div>
-</li>
       </ul>
 </li>
           <li class="sidebar-item sidebar-item-section">
@@ -532,12 +520,6 @@ window.Quarto = {
  <span class="menu-text">Mélange de gaussiennes</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../contents/unsupervised/04-others.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Autres</span></a>
-  </div>
-</li>
       </ul>
 </li>
           <li class="sidebar-item">
@@ -562,13 +544,17 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#notation" id="toc-notation" class="nav-link" data-scroll-target="#notation">Notation</a></li>
+<li><a href="#que-faire-avec-des-donn%C3%A9es-cat%C3%A9gorielles" id="toc-que-faire-avec-des-données-catégorielles" class="nav-link active" data-scroll-target="#que-faire-avec-des-données-catégorielles">Que faire avec des données catégorielles ?</a></li>
+  <li>
+<a href="#notation" id="toc-notation" class="nav-link" data-scroll-target="#notation">Notation</a>
+  <ul class="collapse">
+<li><a href="#ind%C3%A9pendance-statistique" id="toc-indépendance-statistique" class="nav-link" data-scroll-target="#indépendance-statistique">Indépendance statistique</a></li>
+  <li><a href="#profils-lignes-et-profils-colonnes" id="toc-profils-lignes-et-profils-colonnes" class="nav-link" data-scroll-target="#profils-lignes-et-profils-colonnes">Profils-lignes et profils-colonnes</a></li>
+  </ul>
+</li>
   <li><a href="#analyse-factorielle-des-correspondances" id="toc-analyse-factorielle-des-correspondances" class="nav-link" data-scroll-target="#analyse-factorielle-des-correspondances">Analyse factorielle des correspondances</a></li>
   <li><a href="#centre-de-gravit%C3%A9-et-inertie" id="toc-centre-de-gravité-et-inertie" class="nav-link" data-scroll-target="#centre-de-gravité-et-inertie">Centre de gravité et inertie</a></li>
-  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
   <li><a href="#analyse-des-correspondances-multiples" id="toc-analyse-des-correspondances-multiples" class="nav-link" data-scroll-target="#analyse-des-correspondances-multiples">Analyse des correspondances multiples</a></li>
-  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example</a></li>
   </ul>
 <div class="toc-actions"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
@@ -583,9 +569,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/04-dimension.html">04 - Dimension</a></li>
-<li class="breadcrumb-item"><a href="../../contents/dimension/02-mca.html">ACM</a></li>
+<li class="breadcrumb-item"><a href="../../contents/dimension/02-mca.html">Analyse des correspondances multiples</a></li>
 </ol></nav><div class="quarto-title">
-<h1 class="title">ACM</h1>
+<h1 class="title">Analyse des correspondances multiples</h1>
 </div>
 
 
@@ -599,45 +585,45 @@ window.Quarto = {
   
 
 
-</header><section id="introduction" class="level2"><h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>L’analyse en composantes principales concerne des données <strong>continues</strong>. Que faire lorsque les variables sont rapportées dans des tableaux de contingences où alors comme réponses à des questionnaires à choix multiples ? Que faire lorsque les variables sont catégorielles ? Il est possible de faire la même chose que pour l’ACP pour des variables catégorielles, cette méthode s’appelle l’analyse des correspondances (AC). Cette méthode permet de représenter graphiquement des tableaux de fréquence. Pour des tableaux de fréquences croisant deux variables, on parlera d’analyse des correspondances bianires (ACB) ou alors d’analyse factorielle des correspondances (AFC). Pour des tableaux de fréquences croisant troix variables ou plus, on parlera d’analyse des correspondances multiples (ACM).</p>
+</header><section id="que-faire-avec-des-données-catégorielles" class="level2"><h2 class="anchored" data-anchor-id="que-faire-avec-des-données-catégorielles">Que faire avec des données catégorielles ?</h2>
+<p>L’analyse en composantes principales (ACP) est utilisée pour des données <strong>continues</strong>. Mais que faire lorsque les variables sont catégorielles, comme c’est le cas dans les tableaux de contingences, dans les questionnaires à choix multiples ou pour des variables qualitatives comme la couleur des yeux, la profession, ou la région d’origine ?</p>
+<p>Il est possible de faire la même chose que pour l’ACP pour des variables catégorielles, cette méthode s’appelle l’analyse des correspondances (AC). Elle permet une représentation géométrique des relations entre les modalités d’une ou plusieurs variables qualitatives. Lorsque l’on s’intéresse à la relation entre deux variables qualitatives, on parlera d’analyse des correspondances binaires (ACB) ou alors d’analyse factorielle des correspondances (AFC). Lorsque l’on étudie simultanément plus de deux variables qualitatives, on parlera d’analyse des correspondances multiples (ACM).</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Examples
+Exemples
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>La boussole électorale de Radio-Canada. Étude sur les clients d’une compagnie de télécom. Relation entre la couleur des yeux et des cheveux.</p>
+<ul>
+<li><p>La boussole électorale de Radio-Canada (questionnaire politique).</p></li>
+<li><p>Étude de segmentation de clientèle pour un opérateur télécom.</p></li>
+<li><p>Relation entre la couleur des yeux et des cheveux d’individus.</p></li>
+</ul>
 </div>
 </div>
 </section><section id="notation" class="level2"><h2 class="anchored" data-anchor-id="notation">Notation</h2>
-<p>Notation: Soit <span class="math inline">\(K = (k_{ij})\)</span>, où <span class="math inline">\(k_{ij}\)</span> est le nombre d’individus appartenant à la classe <span class="math inline">\(i \in \{ 1, \dots, n \}\)</span> et à la catégorie <span class="math inline">\(j \in \{ 1, \dots, p \}\)</span>.</p>
-<p>Tableau des fréquences relatives: Comme les fréquences sont proportionnelles à la taille d’échantillon <span class="math inline">\(n\)</span>, le tableau des fréquences relatives contient plus d’information : <span class="math inline">\(F = (f_{ij})\)</span>, dans lequel <span class="math display">\[f_{ij} = \frac{k_{ij}}{k_{\bullet\bullet}} = \frac{k_{ij}}{\sum_{l = 1}^{n} \sum_{m = 1}^{p} k_{lm}}.\]</span></p>
-<p>Les marges du tableau correspondent à la somme des colonnes pour chaque ligne et de la somme des lignes pour chaque colonne: <span class="math display">\[\begin{align}
+<p>On considère un tableau de contingence <span class="math inline">\(K = (k_{ij})\)</span>, où <span class="math inline">\(k_{ij}\)</span> est le nombre d’individus appartenant à la classe <span class="math inline">\(i \in \{ 1, \dots, n \}\)</span> et à la catégorie <span class="math inline">\(j \in \{ 1, \dots, p \}\)</span>. On travaille ensuite avec le tableau des fréquences relatives. Comme les fréquences sont proportionnelles à la taille d’échantillon <span class="math inline">\(n\)</span>, le tableau des fréquences relatives contient plus d’information. Notons <span class="math inline">\(F = (f_{ij})\)</span>, dans lequel <span class="math display">\[f_{ij} = \frac{k_{ij}}{k_{\bullet\bullet}} = \frac{k_{ij}}{\sum_{l = 1}^{n} \sum_{m = 1}^{p} k_{lm}}.\]</span></p>
+<p>Les marges ligne (resp. colonne) du tableau correspondent à la somme des colonnes pour chaque ligne (resp. à la somme des lignes pour chaque colonne): <span class="math display">\[\begin{align}
 f_{i \bullet} &amp;= \sum_{j = 1}^{p} f_{ij} = \frac{k_{i \bullet}}{k_{\bullet\bullet}}, \quad 1 \leq i \leq n; \\
 f_{\bullet j} &amp;= \sum_{i = 1}^{n} f_{ij} = \frac{k_{\bullet j}}{k_{\bullet\bullet}}, \quad 1 \leq j \leq p.
 \end{align}\]</span></p>
-<p>Les fréquences relatives estiment des probabilités. Dans le cas d’un tableau de fréquences croisant deux variables, sous l’hypothèse d’indépendance, les fréquences relatives devraient être telles qu’on ne s’éloigne pas trop de la relation <span class="math display">\[f_{ij} = f_{i \bullet} f_{\bullet j}, \quad i \in \{ 1, \dots, n \}, j \in \{ 1, \dots, p \}.\]</span></p>
-<p>Statistique du <span class="math inline">\(\chi^{2}\)</span>: on peut tester si les différences entre <span class="math inline">\(f_{ij}\)</span> et <span class="math inline">\(f_{i \bullet} f_{\bullet j}\)</span> sont significatives à l’aide du test du <span class="math inline">\(\chi^2\)</span>: <span class="math display">\[T = \sum_{i = 1}^{n} \sum_{j = 1}^{p} \frac{\left( k_{ij} - \mathbb{E}(k_{ij}) \right)^2}{\mathbb{E}(k_{ij})} = \sum_{i = 1}^{n} \sum_{j = 1}^{p} \frac{\left( k_{ij} - \frac{k_{i \bullet}k_{\bullet j}}{k_{\bullet\bullet}} \right)^2}{\left( \frac{k_{i \bullet} k_{\bullet j}}{k_{\bullet\bullet}} \right)}.\]</span></p>
-<p>Si les variables sont indépendantes, la statistique <span class="math inline">\(T\)</span> dit être proche de <span class="math inline">\(0\)</span>.</p>
-<p>On peut aussi s’intéresser à la contribution de chaque cellule à la valeur globale de la statistique <span class="math inline">\(T\)</span>. Cela permet d’obtenir le profil de chaque ligne <span class="math inline">\(i\)</span> et de chaque colonne <span class="math inline">\(j\)</span>. <span class="math display">\[\begin{align}
-L_i &amp;= \left( \frac{k_{i 1}}{k_{i \bullet}}, \dots, \frac{k_{i p}}{k_{i \bullet}} \right) &amp;= \left( \frac{f_{i 1}}{f_{i \bullet}}, \dots, \frac{f_{i p}}{f_{i \bullet}} \right) \\
-C_j &amp;= \left( \frac{k_{1 j}}{k_{\bullet j}}, \dots, \frac{k_{n j}}{k_{\bullet j}} \right) &amp;= \left( \frac{f_{1 j}}{f_{\bullet j}}, \dots, \frac{f_{n j}}{f_{\bullet j}} \right)
-.
-\end{align}\]</span></p>
-<p>Le profil-ligne moyen est donné par <span class="math display">\[\left( \sum_{i = 1}^{n} f_{i \bullet} \frac{f_{i 1}}{f_{i \bullet}}, \dots, \sum_{i = 1}^{n} f_{i \bullet} \frac{f_{i p}}{f_{i \bullet}} \right) = \left( f_{\bullet 1}, \dots, f_{\bullet p} \right).\]</span> Le profil-colonne moyen est donné par <span class="math display">\[\left( \sum_{j = 1}^{p} f_{{\bullet j}} \frac{f_{1 j}}{f_{\bullet j}}, \dots, \sum_{j = 1}^{p} f_{\bullet j} \frac{f_{n j}}{f_{\bullet j}} \right) = \left( f_{{1 \bullet}}, \dots, f_{n \bullet} \right).\]</span></p>
-<p>En cas d’indépendance, on a, pour tout <span class="math inline">\(i \in \{ 1, \dots, n \}\)</span> et <span class="math inline">\(j \in \{ 1, \dots, p \}\)</span>, <span class="math display">\[\left( \frac{f_{i 1}}{f_{i \bullet}}, \dots, \frac{f_{i p}}{f_{i \bullet}} \right) = \left( f_{\bullet 1}, \dots, f_{\bullet p} \right) \quad\text{et}\quad
+<section id="indépendance-statistique" class="level3"><h3 class="anchored" data-anchor-id="indépendance-statistique">Indépendance statistique</h3>
+<p>Les fréquences relatives estiment des probabilités. Dans le cas d’un tableau de fréquences croisant deux variables, sous l’hypothèse d’indépendance, les fréquences relatives devraient être telles qu’on ne s’éloigne pas trop de la relation <span class="math display">\[f_{ij} = f_{i \bullet} f_{\bullet j}, \quad i \in \{ 1, \dots, n \},~ j \in \{ 1, \dots, p \}.\]</span></p>
+<p>On peut tester si les différences entre <span class="math inline">\(f_{ij}\)</span> et <span class="math inline">\(f_{i \bullet} f_{\bullet j}\)</span> sont significatives à l’aide du test du <span class="math inline">\(\chi^2\)</span>: <span class="math display">\[T = \sum_{i = 1}^{n} \sum_{j = 1}^{p} \frac{\left( k_{ij} - \mathbb{E}(k_{ij}) \right)^2}{\mathbb{E}(k_{ij})} = \sum_{i = 1}^{n} \sum_{j = 1}^{p} \frac{\left( k_{ij} - \frac{k_{i \bullet}k_{\bullet j}}{k_{\bullet\bullet}} \right)^2}{\left( \frac{k_{i \bullet} k_{\bullet j}}{k_{\bullet\bullet}} \right)}.\]</span> Si les variables sont indépendantes, la statistique <span class="math inline">\(T\)</span> doit être proche de <span class="math inline">\(0\)</span>.</p>
+</section><section id="profils-lignes-et-profils-colonnes" class="level3"><h3 class="anchored" data-anchor-id="profils-lignes-et-profils-colonnes">Profils-lignes et profils-colonnes</h3>
+<p>Chaque ligne du tableau peut être vue comme un profil-ligne <span class="math display">\[L_i = \left( \frac{k_{i 1}}{k_{i \bullet}}, \dots, \frac{k_{i p}}{k_{i \bullet}} \right) = \left( \frac{f_{i 1}}{f_{i \bullet}}, \dots, \frac{f_{i p}}{f_{i \bullet}} \right)\]</span> et chaque colonne du tableau peut être vue comme un profil-colonne <span class="math display">\[C_j = \left( \frac{k_{1 j}}{k_{\bullet j}}, \dots, \frac{k_{n j}}{k_{\bullet j}} \right) = \left( \frac{f_{1 j}}{f_{\bullet j}}, \dots, \frac{f_{n j}}{f_{\bullet j}} \right)
+.\]</span></p>
+<p>Le profil-ligne moyen est donné par <span class="math display">\[\left( \sum_{i = 1}^{n} f_{i \bullet} \frac{f_{i 1}}{f_{i \bullet}}, \dots, \sum_{i = 1}^{n} f_{i \bullet} \frac{f_{i p}}{f_{i \bullet}} \right) = \left( f_{\bullet 1}, \dots, f_{\bullet p} \right),\]</span> et le profil-colonne moyen est donné par <span class="math display">\[\left( \sum_{j = 1}^{p} f_{{\bullet j}} \frac{f_{1 j}}{f_{\bullet j}}, \dots, \sum_{j = 1}^{p} f_{\bullet j} \frac{f_{n j}}{f_{\bullet j}} \right) = \left( f_{{1 \bullet}}, \dots, f_{n \bullet} \right).\]</span></p>
+<p>En cas d’indépendance entre les variables, tous les profils sont égaux à leurs moyennes respectives, i.e pour tout <span class="math inline">\(i \in \{ 1, \dots, n \}\)</span> et <span class="math inline">\(j \in \{ 1, \dots, p \}\)</span>, <span class="math display">\[\left( \frac{f_{i 1}}{f_{i \bullet}}, \dots, \frac{f_{i p}}{f_{i \bullet}} \right) = \left( f_{\bullet 1}, \dots, f_{\bullet p} \right) \quad\text{et}\quad
 \left( \frac{f_{1 j}}{f_{\bullet j}}, \dots, \frac{f_{n j}}{f_{\bullet j}} \right) = \left( f_{{1 \bullet}}, \dots, f_{n \bullet} \right).\]</span></p>
-<p>La dépendance entre les variables est fonction de la ressemblance entre les profils des lignes et les profils des colonnes. On peut mesurer et visualiser cette de diverses manières.</p>
-<p>On peut mesurer la distance entre deux profils-lignes avec la distance du <span class="math inline">\(\chi^2\)</span>, qui tient compte de l’importance de chaque colonne: <span class="math display">\[d^2(i, i^\prime) = \sum_{j = 1}^{p} \frac{1}{f_{\bullet j}} \left( \frac{f_{ij}}{f_{i \bullet}} - \frac{f_{i^\prime j}}{f_{i^\prime j}} \right)^2.\]</span></p>
-<p>On peut écrire cela sous forme matricielle. Notons <span class="math inline">\(D_n = \text{diag}(f_{i \bullet}\)</span> et <span class="math inline">\(D_p = \text{diag}(f_{\bullet j}\)</span>. On a que la matrice <span class="math inline">\(D_n^{-1}F\)</span> a pour lignes les profils-lignes et la matrice <span class="math inline">\(D_p^{-1}F^{\top}\)</span> a pour lignes les profils-colonnes.</p>
-<p>En utilisant ces matrices, la distance du <span class="math inline">\(\chi^2\)</span> au carré est de la forme <span class="math inline">\(x^{\top}D_p^{-1}x\)</span> pour un point-ligne <span class="math inline">\(x \in \mathbb{R}^p\)</span> et de la forme <span class="math inline">\(x^{\top}D_n^{-1}x\)</span> pour un point-colonne <span class="math inline">\(x \in \mathbb{R}^n\)</span>.</p>
-</section><section id="analyse-factorielle-des-correspondances" class="level2"><h2 class="anchored" data-anchor-id="analyse-factorielle-des-correspondances">Analyse factorielle des correspondances</h2>
-<p>L’analyse factorielle des correspondances est une approche graphique permettant de représenter simultanément les profils-lignes appartenant à <span class="math inline">\(\mathbb{R}^p\)</span> et les profils-colonnes appartenant à <span class="math inline">\(\mathbb{R}^n\)</span> d’un tableau de fréquences. On cherche donc un espace en deux dimensions où projeter les profils lignes et colonnes de sorte que les points dans cet espace soient le plus près possible des points originaux au sens de la distance du <span class="math inline">\(\chi^2\)</span>. L’analyse des correspondances est très similaire à une double ACP.</p>
+<p>La dépendance entre les variables est fonction de la similarité entre les profils-lignes et les profils-colonnes. On peut mesurer la distance entre deux profils-lignes avec la distance du <span class="math inline">\(\chi^2\)</span>, en tenant compte de l’importance de chaque colonne: <span class="math display">\[d^2(i, i^\prime) = \sum_{j = 1}^{p} \frac{1}{f_{\bullet j}} \left( \frac{f_{ij}}{f_{i \bullet}} - \frac{f_{i^\prime j}}{f_{i^\prime j}} \right)^2.\]</span></p>
+<p>On peut écrire cela sous forme matricielle en notant <span class="math inline">\(D_n = \text{diag}(f_{i \bullet})\)</span> et <span class="math inline">\(D_p = \text{diag}(f_{\bullet j})\)</span>. La matrice <span class="math inline">\(D_n^{-1}F\)</span> a pour lignes les profils-lignes et la matrice <span class="math inline">\(D_p^{-1}F^{\top}\)</span> a pour lignes les profils-colonnes. En utilisant ces matrices, la distance du <span class="math inline">\(\chi^2\)</span> au carré est de la forme <span class="math inline">\(x^{\top}D_p^{-1}x\)</span> pour un point-ligne <span class="math inline">\(x \in \mathbb{R}^p\)</span> et de la forme <span class="math inline">\(x^{\top}D_n^{-1}x\)</span> pour un point-colonne <span class="math inline">\(x \in \mathbb{R}^n\)</span>.</p>
+</section></section><section id="analyse-factorielle-des-correspondances" class="level2"><h2 class="anchored" data-anchor-id="analyse-factorielle-des-correspondances">Analyse factorielle des correspondances</h2>
+<p>L’analyse factorielle des correspondances (AFC) est une approche graphique permettant de représenter simultanément les profils-lignes appartenant à <span class="math inline">\(\mathbb{R}^p\)</span> et les profils-colonnes appartenant à <span class="math inline">\(\mathbb{R}^n\)</span> d’un tableau de fréquences. On cherche donc un espace en deux dimensions où projeter les profils lignes et colonnes de sorte que les points dans cet espace soient le plus près possible des points originaux au sens de la distance du <span class="math inline">\(\chi^2\)</span>. L’analyse des correspondances est très similaire à une double ACP.</p>
 <p>Analyse directe (sur les lignes): les lignes de la matrice <span class="math inline">\(D_n^{-1}F \in \mathbb{R}^p\)</span>. On cherche à les représenter dans cet espace muni de la distance <span class="math inline">\(x^{\top} D_p^{-1} x\)</span>.</p>
 <p>Analyse duale (sur les colonnes): les colonnes de la matrice <span class="math inline">\(D_p^{-1}F^{\top} \in R^n\)</span>. On cherche à les représenter dans cet espace muni de la distance <span class="math inline">\(x^{\top} D_n^{-1} x\)</span>.</p>
 <p>Premier axe factoriel de l’analyse directe: on cherche le vecteur <span class="math inline">\(u \in \mathbb{R}^p\)</span> tel que <span class="math display">\[\left( u^{\top} D_p^{-1} F^{\top} D_n^{-1} \right) D_n \left( D_n^{-1} F D_p^{-1} u \right).\]</span> soit maximal, sachant que <span class="math inline">\(u^{\top} D_p^{-1} u = 1\)</span>. La solution est donnée par le vecteur propre principal de <span class="math display">\[D_p \left( D_p^{-1} F^{\top} D_n^{-1} F D_p^{-1} \right) = F^{\top} D_n^{-1} F D_p^{-1} \equiv S.\]</span></p>
@@ -666,8 +652,7 @@ C_j &amp;= \left( \frac{k_{1 j}}{k_{\bullet j}}, \dots, \frac{k_{n j}}{k_{\bulle
 <li><p>Ceci ne signifie pas pour autant que les points sont près du centre du graphique.</p></li>
 <li><p>Les points éloignés du centre de gravité se distinguent du centre de gravité.</p></li>
 <li><p>Une interprétation semblable existe pour les points-lignes.</p></li>
-</ol></section><section id="example" class="level2"><h2 class="anchored" data-anchor-id="example">Example</h2>
-</section><section id="analyse-des-correspondances-multiples" class="level2"><h2 class="anchored" data-anchor-id="analyse-des-correspondances-multiples">Analyse des correspondances multiples</h2>
+</ol></section><section id="analyse-des-correspondances-multiples" class="level2"><h2 class="anchored" data-anchor-id="analyse-des-correspondances-multiples">Analyse des correspondances multiples</h2>
 <p>L’analyse des correspondances multiples est une généralisation de l’analyse des correspondances binaires. Elle permet la representation graphique de tableaux de fréquences contnant plus de deux variables. Un exemple classique d’un tableau de fréquences avec plus de deux variables est le tableau présentant les réponses d’individus à un questionnaire contenant <span class="math inline">\(Q\)</span> questions à choix multiples.</p>
 <p>Très utile pour visualiser les résultats d’une étude par questionnaire.</p>
 <p>L’ACM peut aussi être vue comme une version de l’ACP quand les variables sont catégorielles:</p>
@@ -727,7 +712,6 @@ Note
 <p>On peut créé un graphique comme l’AFC. Cependant, en ACM, la distance entre les points de même couleur et la géométrie globale du graphique ne peuvent pas s’interpréter comme en AFC. En fait, on s’intéresse aux points qui sont dans une même direction par rapport à l’origine.</p>
 </div>
 </div>
-</section><section id="example-1" class="level2"><h2 class="anchored" data-anchor-id="example-1">Example</h2>
 
 
 </section></main><!-- /main --><script>

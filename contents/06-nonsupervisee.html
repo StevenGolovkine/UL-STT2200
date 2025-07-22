@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 </style>
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script><script src="../site_libs/clipboard/clipboard.min.js"></script><script src="../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../site_libs/quarto-search/fuse.min.js"></script><script src="../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../">
 <link href="../contents/unsupervised/01-kmeans.html" rel="next">
-<link href="../contents/supervised/06-others.html" rel="prev">
+<link href="../contents/supervised/05-ensemble.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script><script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../site_libs/quarto-html/popper.min.js"></script><script src="../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../site_libs/quarto-html/anchor.min.js"></script><link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
@@ -86,7 +86,10 @@ window.Quarto = {
 };
 </script><meta property="og:title" content="Non-supervisée – STT-2200: Analyse de données">
 <meta property="og:description" content="">
+<meta property="og:image" content="https://stt2200.netlify.app/include/k_means_clustering.png">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
+<meta property="og:image:height" content="385">
+<meta property="og:image:width" content="320">
 </head>
 <body class="nav-sidebar floating quarto-light">
 <script id="quarto-html-before-body" type="application/javascript">
@@ -440,19 +443,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/dimension/02-mca.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ACM</span></a>
+ <span class="menu-text">Analyse des correspondances multiples</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/dimension/03-kernel.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Noyau</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/dimension/04-others.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Divers</span></a>
   </div>
 </li>
       </ul>
@@ -496,12 +493,6 @@ window.Quarto = {
  <span class="menu-text">Ensemble</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/supervised/06-others.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Autres</span></a>
-  </div>
-</li>
       </ul>
 </li>
           <li class="sidebar-item sidebar-item-section">
@@ -531,12 +522,6 @@ window.Quarto = {
  <span class="menu-text">Mélange de gaussiennes</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/unsupervised/04-others.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Autres</span></a>
-  </div>
-</li>
       </ul>
 </li>
           <li class="sidebar-item">
@@ -558,11 +543,19 @@ window.Quarto = {
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+<li><a href="#sommaire" id="toc-sommaire" class="nav-link active" data-scroll-target="#sommaire">Sommaire</a></li>
+  </ul>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/06-nonsupervisee.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
+</ul></div>
+<div class="quarto-alternate-formats">
 <h2>Autres formats</h2>
 <ul><li><a href="06-nonsupervisee.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
-</div>
+</div></nav>
 </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
@@ -583,7 +576,22 @@ window.Quarto = {
   
 
 
-</header><p>On veut partitionner <span class="math inline">\(n\)</span> observations en <span class="math inline">\(K\)</span> groupes avec comme objectifs:</p>
+</header><ul>
+<li><p>Slides: <a href="../slides/04-unsupervised-slides.qmd">link</a></p></li>
+<li><p>TD: <a href="../td/06-unsupervised-td.html">link</a></p></li>
+<li><p>TP: <a href="../td/06-unsupervised-tp.qmd">link</a></p></li>
+</ul>
+<section id="sommaire" class="level2"><h2 class="anchored" data-anchor-id="sommaire">Sommaire</h2>
+<ol type="1">
+<li><p><a href="../contents/unsupervised/01-kmeans.html"><span class="math inline">\(k\)</span>-moyennes</a></p></li>
+<li><p><a href="../contents/unsupervised/02-hierarchy.html">Méthodes hiérarchiques</a></p></li>
+<li><p><a href="../contents/unsupervised/03-gaussian-mixtures.html">Mélanges de gaussiennes</a></p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="../include/k_means_clustering.png" class="img-fluid figure-img"></p>
+<figcaption><span class="math inline">\(k\)</span>-means (<a href="https://xkcd.com/2731/">xkcd:2731</a>).</figcaption></figure>
+</div>
+<p>On veut partitionner <span class="math inline">\(n\)</span> observations en <span class="math inline">\(K\)</span> groupes avec comme objectifs:</p>
 <ol type="1">
 <li><p>que les observations dans une même classe soient le plus similaire possible;</p></li>
 <li><p>que les observations dans des classes différentes soient les moins similaires possibles.</p></li>
@@ -601,7 +609,7 @@ i &amp;\mapsto C(i)
 <ol type="1">
 <li><p><span class="math inline">\(p\)</span> variables sont numériques/ordinales (et habituellement standardisées).</p></li>
 <li><p>La valeur de <span class="math inline">\(K\)</span> est fixé.</p></li>
-</ol></main><!-- /main --><script>
+</ol></section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -1223,8 +1231,8 @@ window.onload = function() {
     }
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../contents/supervised/06-others.html" class="pagination-link" aria-label="Autres">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Autres</span>
+      <a href="../contents/supervised/05-ensemble.html" class="pagination-link" aria-label="Ensemble">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Ensemble</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -1240,7 +1248,7 @@ window.onload = function() {
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions"><ul>
+<div class="toc-actions d-sm-block d-md-none"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/06-nonsupervisee.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
 </ul></div>

@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 </style>
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script><script src="../site_libs/clipboard/clipboard.min.js"></script><script src="../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../site_libs/quarto-search/fuse.min.js"></script><script src="../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../">
 <link href="../contents/supervised/01-regression.html" rel="next">
-<link href="../contents/dimension/04-others.html" rel="prev">
+<link href="../contents/dimension/03-kernel.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script><script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../site_libs/quarto-html/popper.min.js"></script><script src="../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../site_libs/quarto-html/anchor.min.js"></script><link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
@@ -86,7 +86,10 @@ window.Quarto = {
 };
 </script><meta property="og:title" content="Supervisée – STT-2200: Analyse de données">
 <meta property="og:description" content="">
+<meta property="og:image" content="https://stt2200.netlify.app/include/extrapolating.png">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
+<meta property="og:image:height" content="295">
+<meta property="og:image:width" content="461">
 </head>
 <body class="nav-sidebar floating quarto-light">
 <script id="quarto-html-before-body" type="application/javascript">
@@ -440,19 +443,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/dimension/02-mca.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ACM</span></a>
+ <span class="menu-text">Analyse des correspondances multiples</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../contents/dimension/03-kernel.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Noyau</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/dimension/04-others.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Divers</span></a>
   </div>
 </li>
       </ul>
@@ -496,12 +493,6 @@ window.Quarto = {
  <span class="menu-text">Ensemble</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/supervised/06-others.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Autres</span></a>
-  </div>
-</li>
       </ul>
 </li>
           <li class="sidebar-item sidebar-item-section">
@@ -531,12 +522,6 @@ window.Quarto = {
  <span class="menu-text">Mélange de gaussiennes</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contents/unsupervised/04-others.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Autres</span></a>
-  </div>
-</li>
       </ul>
 </li>
           <li class="sidebar-item">
@@ -558,11 +543,19 @@ window.Quarto = {
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+<li><a href="#sommaire" id="toc-sommaire" class="nav-link active" data-scroll-target="#sommaire">Sommaire</a></li>
+  </ul>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/05-supervisee.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
+</ul></div>
+<div class="quarto-alternate-formats">
 <h2>Autres formats</h2>
 <ul><li><a href="05-supervisee.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
-</div>
+</div></nav>
 </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
@@ -583,7 +576,24 @@ window.Quarto = {
   
 
 
-</header><p>On considère une population comportant <span class="math inline">\(q\)</span> groupes. On observe <span class="math inline">\(p\)</span> variables <span class="math inline">\(X_{1}, \dots, X_{p}\)</span> pour chaque individu/objet de la population. On cherche à obtenir un modèle/algortihme pour classer de nouveaux individus/objets dans les bons groupes, c’est-à-dire de prédire <span class="math inline">\(Y\)</span> à partir de <span class="math inline">\(X_{1}, \dots, X_{p}\)</span>.</p>
+</header><ul>
+<li><p>Slides: <a href="../slides/05-supervised-slides.html">link</a></p></li>
+<li><p>TD: <a href="../td/05-supervised-td.html">link</a></p></li>
+<li><p>TP: <a href="../td/05-supervised-tp.qmd">link</a></p></li>
+</ul>
+<section id="sommaire" class="level2"><h2 class="anchored" data-anchor-id="sommaire">Sommaire</h2>
+<ol type="1">
+<li><p><a href="../contents/supervised/01-regression.html">Régression</a></p></li>
+<li><p><a href="../contents/supervised/02-discriminant.html">Analyse discriminante</a></p></li>
+<li><p><a href="../contents/supervised/03-tree.html">Arbres</a></p></li>
+<li><p><a href="../contents/supervised/04-hierarchy.html">Modèles hiérarchiques</a></p></li>
+<li><p><a href="../contents/supervised/05-ensemble.html">Modèles ensemblistes</a></p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="../include/extrapolating.png" class="img-fluid figure-img"></p>
+<figcaption>Extrapolating (<a href="https://xkcd.com/605/">xkcd:605</a>).</figcaption></figure>
+</div>
+<p>On considère une population comportant <span class="math inline">\(q\)</span> groupes. On observe <span class="math inline">\(p\)</span> variables <span class="math inline">\(X_{1}, \dots, X_{p}\)</span> pour chaque individu/objet de la population. On cherche à obtenir un modèle/algortihme pour classer de nouveaux individus/objets dans les bons groupes, c’est-à-dire de prédire <span class="math inline">\(Y\)</span> à partir de <span class="math inline">\(X_{1}, \dots, X_{p}\)</span>.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -632,8 +642,7 @@ Example
 <p>La principale difficulté vient habituellement de la dimension du problème : le nombre de modèles/méthodes possibles pour un problème donné est énorme et croît rapidement avec le nombre de variables disponibles. Parfois, réduire la dimension du problème (ACP, ACB/ACM, classification non-supervisée) peut aider : on applique ces techniques à un sous-ensemble des variables, et on utilise ensuite les scores produits comme prédicteurs dans les algos de classifications Il n’y a pas de recette générale pour savoir quel sous-ensemble choisir … Allez voir sur des sites de concours d’analyse de données (p.ex. Kaggle, KD Nuggets, etc.) et regardez les approches utilisées par les gagnants des concours pour lesquels le problème à résoudre s’apparente un peu au vôtre.</p>
 
 
-
-</main><!-- /main --><script>
+</section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -1255,8 +1264,8 @@ window.onload = function() {
     }
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../contents/dimension/04-others.html" class="pagination-link" aria-label="Divers">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Divers</span>
+      <a href="../contents/dimension/03-kernel.html" class="pagination-link" aria-label="Noyau">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Noyau</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -1272,7 +1281,7 @@ window.onload = function() {
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions"><ul>
+<div class="toc-actions d-sm-block d-md-none"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/05-supervisee.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
 </ul></div>
