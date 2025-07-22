@@ -560,46 +560,11 @@ window.Quarto = {
 </li>
       </ul>
 </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../contents/07-further.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">07 - Autres</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="" class="collapse list-unstyled sidebar-section depth2 ">
-<li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../contents/further_topics/01-fda.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">FDA</span></a>
-  </div>
-</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/further_topics/02-spatial.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Spatial</span></a>
+  <a href="../../contents/07-further.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">07 - Éthique</span></a>
   </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../contents/further_topics/03-timeseries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Série temporelle</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../contents/further_topics/04-network.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Réseaux</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../contents/further_topics/05-text.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Texte</span></a>
-  </div>
-</li>
-      </ul>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
@@ -627,8 +592,9 @@ window.Quarto = {
   <li>
 <a href="#pratique-de-lacp" id="toc-pratique-de-lacp" class="nav-link" data-scroll-target="#pratique-de-lacp">Pratique de l’ACP</a>
   <ul class="collapse">
-<li><a href="#estimation-de-la-matrice-de-variancecovariance" id="toc-estimation-de-la-matrice-de-variancecovariance" class="nav-link" data-scroll-target="#estimation-de-la-matrice-de-variancecovariance">Estimation de la matrice de variance/covariance</a></li>
+<li><a href="#estimation-de-la-matrice-de-variance-covariance" id="toc-estimation-de-la-matrice-de-variance-covariance" class="nav-link" data-scroll-target="#estimation-de-la-matrice-de-variance-covariance">Estimation de la matrice de variance-covariance</a></li>
   <li><a href="#quelques-remarques" id="toc-quelques-remarques" class="nav-link" data-scroll-target="#quelques-remarques">Quelques remarques</a></li>
+  <li><a href="#choix-du-nombre-de-composantes" id="toc-choix-du-nombre-de-composantes" class="nav-link" data-scroll-target="#choix-du-nombre-de-composantes">Choix du nombre de composantes</a></li>
   </ul>
 </li>
   </ul>
@@ -840,9 +806,10 @@ Preuves
 <p>La proportion de variation expliquée par la composante principale <span class="math inline">\(Y_k\)</span> est donc donnée par le ratio entre la valeur propre <span class="math inline">\(k\)</span> et la somme des valeurs propres : <span class="math display">\[\frac{\lambda_k}{\lambda_{1} + \cdots + \lambda_p} = \frac{\mathrm{Var}(Y_k)}{\text{tr}(\Sigma)}.\]</span></p>
 <p>De façon similaire, les <span class="math inline">\(m\)</span> premières composantes expliquent <span class="math display">\[100\% \times \frac{\sum_{k = 1}^{m} \lambda_k}{\sum_{k = 1}^{p} \lambda_k} = 100\% \times \frac{\sum_{k = 1}^{m} \mathrm{Var}(Y_k)}{\sum_{k = 1}^{p} \mathrm{Var}(Y_k)}\]</span> de la variabilité dans les variables.</p>
 </section></section><section id="pratique-de-lacp" class="level2"><h2 class="anchored" data-anchor-id="pratique-de-lacp">Pratique de l’ACP</h2>
-<section id="estimation-de-la-matrice-de-variancecovariance" class="level3"><h3 class="anchored" data-anchor-id="estimation-de-la-matrice-de-variancecovariance">Estimation de la matrice de variance/covariance</h3>
-<p>En pratique, la matrice <span class="math inline">\(\Sigma\)</span> est inconnue. On doit donc l’estimer ! Pour cela, on a besoin d’un échantillon aléatoire <span class="math inline">\(X_{1}, \dots, X_n\)</span> de réalisation de <span class="math inline">\(X\)</span>. Un estimateur (sans biais) de <span class="math inline">\(\Sigma\)</span> est donnée par <span class="math display">\[\widehat{\Sigma} = \frac{1}{n - 1} \sum_{i = 1}^{n} \left( X_i - \overline{X} \right)\left( X_i - \widehat{X} \right)^{\top},\]</span> où <span class="math inline">\(\overline{X}\)</span> est un estimateur de la moyenne de <span class="math inline">\(X\)</span>.</p>
-<p>La matrice <span class="math inline">\(\widehat{\Sigma}\)</span> est symétrique à coefficients réels et donc elle est diagonalisable. Elle admet ainsi la représentation <span class="math display">\[\widehat{\Sigma} = \widehat{A} \widehat{\Lambda} \widehat{A}^{\top},\]</span> où <span class="math inline">\(\widehat{A}\)</span> est la matrice des estimateurs des vecteurs propres de <span class="math inline">\(\Sigma\)</span> et <span class="math inline">\(\widehat{\Lambda}\)</span> est la matrice des estimateurs des valeurs propres de <span class="math inline">\(\Sigma\)</span>.</p>
+<section id="estimation-de-la-matrice-de-variance-covariance" class="level3"><h3 class="anchored" data-anchor-id="estimation-de-la-matrice-de-variance-covariance">Estimation de la matrice de variance-covariance</h3>
+<p>En pratique, la matrice de variance-covariance <span class="math inline">\(\Sigma\)</span> est inconnue. Pour faire une ACP, il est nécessaire d’estimer <span class="math inline">\(\Sigma\)</span> à partir d’un échantillon aléatoire <span class="math inline">\(X_{1}, \dots, X_n\)</span> de réalisation indépendante de <span class="math inline">\(X\)</span>. Un estimateur (sans biais) de <span class="math inline">\(\Sigma\)</span> est donné par <span class="math display">\[\widehat{\Sigma} = \frac{1}{n - 1} \sum_{i = 1}^{n} \left( X_i - \overline{X} \right)\left( X_i - \widehat{X} \right)^{\top},\]</span> où <span class="math inline">\(\overline{X}\)</span> est la moyenne empirique de l’échantillon.</p>
+<p>La matrice <span class="math inline">\(\widehat{\Sigma}\)</span> ainsi obtenue est symétrique à coefficients réels donc diagonalisable. Elle admet une décomposition spectrale de la forme <span class="math display">\[\widehat{\Sigma} = \widehat{A} \widehat{\Lambda} \widehat{A}^{\top},\]</span> où <span class="math inline">\(\widehat{A}\)</span> est une matrice orthogonale dont les colonnes sont les estimateurs des vecteurs propres de <span class="math inline">\(\Sigma\)</span> et <span class="math inline">\(\widehat{\Lambda}\)</span> est une matrice diagonale contenant les estimateurs des valeurs propres de <span class="math inline">\(\Sigma\)</span>, supposées ordonnées de façon décroissante.</p>
+<p>Les composantes principales sont obtenues en projetant les observations <span class="math inline">\(X_i\)</span> dans la base des vecteurs propres : <span class="math display">\[Y_i = \widehat{A}^{\top} X_i.\]</span></p>
 </section><section id="quelques-remarques" class="level3"><h3 class="anchored" data-anchor-id="quelques-remarques">Quelques remarques</h3>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -854,8 +821,8 @@ Sensibilité à l’échelle de <span class="math inline">\(X_1, \dots, X_p\)</s
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Puisque l’on cherche une combinaison linéaire de <span class="math inline">\(X_{1}, \dots, X_p\)</span> qui maximise la variance, une variable <span class="math inline">\(X_k\)</span> ayant une grande variance aura un poids démesuré dans les composantes principales. On peut, par exemple, penser à la mesure de distance. En effet, exprimer une distance entre mètres plutôt qu’en kilomètres multiplierait la variance de cette variable par <span class="math inline">\(1\)</span> million (<span class="math inline">\((10^3)^2\)</span>). Cette variable aurait donc un poids majeur dans toutes les composantes.</p>
-<p>Ainsi, à moins que les variables aient des variances similaires, il est recommandé de standardiser les variables avant d’effectuer une ACP. Cela revient à effectuer une ACP sur la matrice des corrélations.</p>
+<p>Puisque l’on cherche une combinaison linéaire de <span class="math inline">\(X_{1}, \dots, X_p\)</span> qui maximise la variance, une variable <span class="math inline">\(X_k\)</span> ayant une grande variance aura un poids démesuré dans les composantes principales, ce qui peut fausser l’interprétation. On peut, par exemple, penser à la mesure de distance. En effet, exprimer une distance entre mètres plutôt qu’en kilomètres multiplierait la variance de cette variable par <span class="math inline">\(1\)</span> million (<span class="math inline">\((10^3)^2\)</span>). Cette variable aurait donc un poids majeur dans toutes les composantes.</p>
+<p>Ainsi, si les variables sont exprimées dans des unités différentes ou présentent des ordres de grandeurs très variés, il est recommandé de standardiser les variables avant d’effectuer une ACP. Cela revient à effectuer une ACP sur la matrice des corrélations.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
@@ -868,7 +835,7 @@ Première étape dans une analyse prédictive
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Il arrive que l’ACP soit effectuée parce que l’on veut prédire la valeur de variable <span class="math inline">\(Z\)</span> à partir des valeurs de variables <span class="math inline">\(X_{1}, \dots, X_p\)</span> mais que <span class="math inline">\(p\)</span> est simplement trop grand. Dans ce cas, on applique l’ACP pour obtenir les <span class="math inline">\(k \ll p\)</span> premières composantes principales <span class="math inline">\(Y_1, \dots, Y_k\)</span> et on les utilise pour prédire <span class="math inline">\(Z\)</span>.</p>
+<p>Il arrive que l’ACP soit effectuée parce que l’on veuille prédire la valeur de variable <span class="math inline">\(Z\)</span> à partir des valeurs de variables <span class="math inline">\(X_{1}, \dots, X_p\)</span> mais que <span class="math inline">\(p\)</span> soit simplement trop grand. Dans ce cas, on applique l’ACP pour obtenir les <span class="math inline">\(k \ll p\)</span> premières composantes principales <span class="math inline">\(Y_1, \dots, Y_k\)</span> et on les utilise pour prédire <span class="math inline">\(Z\)</span>.</p>
 <p>Puisque les composantes principales retiennent la majeure partie de l’information contenue dans les variables originales, c’est généralement une façon raisonnable de faire.</p>
 </div>
 </div>
@@ -878,13 +845,23 @@ Première étape dans une analyse prédictive
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Rotation des axes
+Rotation des axes et qualité de représentation
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Puisque la matrice <span class="math inline">\(A\)</span> est orthogonale, le produit matriciel <span class="math inline">\(Y = A^{\top}X\)</span> représente une rotation d’axes. Les nouveaux axes correspondent aux directions orthogonales de variation maximale successives, en supposant que <span class="math inline">\(\lambda_{1} &gt; \dots &gt; \lambda_p\)</span>. Ainsi, <span class="math inline">\(Y_i = A^{\top} X_i\)</span> donne les coordonnées de l’observation <span class="math inline">\(X_i\)</span> dans le nouveau système d’axes. On appelle <span class="math inline">\(Y_{ik}\)</span> le score de l’observation <span class="math inline">\(X_i\)</span> sur l’axe principal <span class="math inline">\(k\)</span> et se calcule comme <span class="math display">\[Y_{ik} = \alpha_k^\top X_i = \sum_{l = 1}^{p} \alpha_{kl}X_{il}.\]</span></p>
+<p>Puisque la matrice <span class="math inline">\(A\)</span> est orthogonale, le produit matriciel <span class="math inline">\(Y = A^{\top}X\)</span> représente une rotation de l’espace des variables. Les nouveaux axes correspondent aux directions orthogonales de variation maximale successives, en supposant que <span class="math inline">\(\lambda_{1} &gt; \dots &gt; \lambda_p\)</span>. Ainsi, <span class="math inline">\(Y_i = A^{\top} X_i\)</span> donne les coordonnées de l’observation <span class="math inline">\(X_i\)</span> dans le nouveau système d’axes. On appelle <span class="math inline">\(Y_{ik}\)</span> le score de l’observation <span class="math inline">\(X_i\)</span> sur l’axe principal <span class="math inline">\(k\)</span> et se calcule comme <span class="math display">\[Y_{ik} = \alpha_k^\top X_i = \sum_{l = 1}^{p} \alpha_{kl}X_{il}.\]</span></p>
+<p>La qualité de la représentation de l’observation <span class="math inline">\(i\)</span> sur l’axe <span class="math inline">\(k\)</span> est donnée par <span class="math display">\[Q_{ik} = \frac{Y_{ik}^2}{d^2(0, Y_i)} = \frac{Y_{ik}^2}{\sqrt{Y_{i1}^2 + \dots + Y_{i p}^2}}.\]</span></p>
 </div>
 </div>
+</section><section id="choix-du-nombre-de-composantes" class="level3"><h3 class="anchored" data-anchor-id="choix-du-nombre-de-composantes">Choix du nombre de composantes</h3>
+<p>Un enjeu central en ACP est de choisir combien de composantes principales retenir. En conserver trop ne réduit pas la dimension et en conserver trop peu peut faire perdre de l’information pertinente. Voici les principales règles empiriques utilisées :</p>
+<ol type="1">
+<li><p><strong>Règle des <span class="math inline">\(80\%\)</span></strong> : Retenir le nombre minimal de composantes nécessaires pour expliquer au moins <span class="math inline">\(80\%\)</span> de la variance totale. Ce seuil est arbitraire, mais il donne souvent une bonne intuition.</p></li>
+<li><p><strong>Règle de Kaiser</strong> : Si l’ACP est faite à partir de la matrice des corrélations, alors la moyenne des valeurs propres vaut <span class="math inline">\(1\)</span>. On recommande de ne garder que les composantes ayant une valeur propre supérieure à la moyenne des valeurs propres, soit <span class="math inline">\(1\)</span>.</p></li>
+<li><p><strong>Règle de Joliffe</strong> : Variante plus stricte de la règle de Kaiser, qui suggère de conserver les composantes avec une valeur propre supérieure à <span class="math inline">\(0.7\)</span> pour une ACP faite avec la matrice des corrélations.</p></li>
+<li><p><strong>Règle de Cattell (ou du coude)</strong> : On trace les valeurs propres <span class="math inline">\(\lambda_k\)</span> en fonction de leur rang <span class="math inline">\(k\)</span> et on cherche un point de rupture dans la décroissance. Au-delà de ce point, les composantes supplémentaires expliquent peu de variance supplémentaire.</p></li>
+</ol>
+<p>Ces règles sont des outils d’aide à la décision, mais le choix du nombre de composantes dépend aussi du contexte, des objectifs de l’analyse, et de la facilité d’interprétation.</p>
 
 
 

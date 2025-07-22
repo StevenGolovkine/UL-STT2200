@@ -569,46 +569,11 @@ window.Quarto = {
 </li>
       </ul>
 </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../contents/07-further.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">07 - Autres</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="" class="collapse list-unstyled sidebar-section depth2 ">
-<li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../contents/further_topics/01-fda.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">FDA</span></a>
-  </div>
-</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/further_topics/02-spatial.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Spatial</span></a>
+  <a href="../../contents/07-further.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">07 - Éthique</span></a>
   </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../contents/further_topics/03-timeseries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Série temporelle</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../contents/further_topics/04-network.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Réseaux</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../contents/further_topics/05-text.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Texte</span></a>
-  </div>
-</li>
-      </ul>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
@@ -660,7 +625,7 @@ window.Quarto = {
 <ol type="1">
 <li>Ne pas faire de comparaison à <code>True</code>, <code>False</code> or <code>None</code>.</li>
 </ol>
-<div id="caa6e326" class="cell" data-execution_count="1">
+<div id="bd2e8ed6" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> attr:</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"True!"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -673,14 +638,14 @@ window.Quarto = {
 <ol start="2" type="1">
 <li>Utiliser la compréhension de liste lorsque cela est possible.</li>
 </ol>
-<div id="9bd48c43" class="cell" data-execution_count="2">
+<div id="7c86c544" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> [i <span class="cf">for</span> i <span class="kw">in</span> a <span class="cf">if</span> i <span class="op">&gt;</span> <span class="dv">4</span>]</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
 <li>Charger un fichier avec <code>with</code>. Cela permet d’être sur que la connexion avec le fichier est fermé une fois qu’il a été lu.</li>
 </ol>
-<div id="b41ba176" class="cell" data-execution_count="3">
+<div id="70349144" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"file.txt"</span>) <span class="im">as</span> f:</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    read(f)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
