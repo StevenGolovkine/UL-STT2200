@@ -85,7 +85,6 @@ window.Quarto = {
   typesetMath
 };
 </script><meta property="og:title" content="Non-supervisée – STT-2200: Analyse de données">
-<meta property="og:description" content="">
 <meta property="og:image" content="https://stt2200.netlify.app/include/k_means_clustering.png">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 <meta property="og:image:height" content="385">
@@ -591,25 +590,9 @@ window.Quarto = {
 <figure class="figure"><p><img src="../include/k_means_clustering.png" class="img-fluid figure-img"></p>
 <figcaption><span class="math inline">\(k\)</span>-means (<a href="https://xkcd.com/2731/">xkcd:2731</a>).</figcaption></figure>
 </div>
-<p>On veut partitionner <span class="math inline">\(n\)</span> observations en <span class="math inline">\(K\)</span> groupes avec comme objectifs:</p>
-<ol type="1">
-<li><p>que les observations dans une même classe soient le plus similaire possible;</p></li>
-<li><p>que les observations dans des classes différentes soient les moins similaires possibles.</p></li>
-</ol>
-<p>On veut donc définir une fonction, que l’on appelle classifieur, qui prend un numéro d’observation <span class="math inline">\(i\)</span> en entrée et qui donne son numéro de groupe en sortie qui va remplir ces deux objectifs.</p>
-<p><span class="math display">\[\begin{align}
-C: \{ 1, \dots, n \} &amp;\rightarrow \{ 1, \dots, K\} \\
-i &amp;\mapsto C(i)
-\end{align}\]</span></p>
-<p>La fonction objectif est <span class="math display">\[W(C) = \sum_{k = 1}^{K} \sum_{i: C(i) = k} \sum_{j: C(j) = k} d(x_i, x_j),\]</span></p>
-<p>ou <span class="math inline">\(d(x_i, x_j)\)</span></p>
-<p>Problème de grande taille!</p>
-<p>Comme on ne peut pas explorer l’espace de toutes les possibilités, nous utiliserons des algorithmes gloutons (greedy algorithm), c’est-à-dire qu’ils vont nous donner une règle <span class="math inline">\(C\)</span> qui minimise <span class="math inline">\(W(C)\)</span> sur un espace restreint et qui ne garantissent pas nous ayons trouvé un minimum global.</p>
-<p>Dans notre contexte:</p>
-<ol type="1">
-<li><p><span class="math inline">\(p\)</span> variables sont numériques/ordinales (et habituellement standardisées).</p></li>
-<li><p>La valeur de <span class="math inline">\(K\)</span> est fixé.</p></li>
-</ol></section></main><!-- /main --><script>
+
+
+</section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {

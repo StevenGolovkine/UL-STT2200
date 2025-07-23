@@ -544,7 +544,9 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-<li><a href="#k-m%C3%A9doides" id="toc-k-médoides" class="nav-link active" data-scroll-target="#k-médoides"><span class="math inline">\(k\)</span>-médoides</a></li>
+<li><a href="#objectif-de-la-classication-non-supervis%C3%A9e" id="toc-objectif-de-la-classication-non-supervisée" class="nav-link active" data-scroll-target="#objectif-de-la-classication-non-supervisée">Objectif de la classication non-supervisée</a></li>
+  <li><a href="#algorithme-k-moyennes" id="toc-algorithme-k-moyennes" class="nav-link" data-scroll-target="#algorithme-k-moyennes">Algorithme <span class="math inline">\(k\)</span>-moyennes</a></li>
+  <li><a href="#algorithme-k-m%C3%A9doides" id="toc-algorithme-k-médoides" class="nav-link" data-scroll-target="#algorithme-k-médoides">Algorithme <span class="math inline">\(k\)</span>-médoides</a></li>
   </ul>
 <div class="toc-actions"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
@@ -576,41 +578,81 @@ window.Quarto = {
   
 
 
-</header><p>Algorithme des <span class="math inline">\(k\)</span>-moyennes:</p>
+</header><section id="objectif-de-la-classication-non-supervisée" class="level2"><h2 class="anchored" data-anchor-id="objectif-de-la-classication-non-supervisée">Objectif de la classication non-supervisée</h2>
+<p>On dispose de <span class="math inline">\(n\)</span> observations <span class="math inline">\(X_{1}, \dots, X_n\)</span> décrites par <span class="math inline">\(p\)</span> variables numériques. Les variables sont généralement standardisées pour éviter qu’une variable domine les autres à cause de son échelle. Notre objectif est de regrouper ces <span class="math inline">\(n\)</span> observations en <span class="math inline">\(K\)</span> groupes (ou classes), de sorte que :</p>
 <ol type="1">
-<li><p>On choisit le nombre de groupes <span class="math inline">\(K\)</span>.</p></li>
-<li><p>On partionne aléatoirement les <span class="math inline">\(n\)</span> observations en <span class="math inline">\(K\)</span> groupes.</p></li>
-<li><p>On calcule le vecteur-moyenne pour chacun des <span class="math inline">\(K\)</span> groupes, soit</p></li>
+<li><p>Les observations au sein d’un même groupe soient les plus similaires possible (dans un certain sens).</p></li>
+<li><p>Les observations appartenant à des groupes différents soient les moins similaires possible.</p></li>
 </ol>
-<p><span class="math display">\[\mu_{k} = \frac{1}{N_k} \sum_{i: C(i) = k} x_i, \quad k = 1, \dots, K,\]</span></p>
-<p>où <span class="math inline">\(N_{k}\)</span> est le nombre d’observations dans le group <span class="math inline">\(k\)</span>.</p>
+<p>Autrement dit, nous cherchons une fonction de classication : <span class="math display">\[C: \{ 1, \dots, n \} \to \{ 1, \dots, K \}\]</span> qui, à chaque observation <span class="math inline">\(i \in \{ 1, \dots, n \}\)</span> associe une étiquette de groupe <span class="math inline">\(C(i) \in \{ 1, \dots, K \}\)</span>.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Définition : fonction de coût
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La qualité d’une partition <span class="math inline">\(C\)</span> est mesurée à l’aide d’une <strong>fonction de coût</strong> <span class="math inline">\(W\)</span>, qui évalue la somme des distances intra-groupes : <span class="math display">\[W(C) = \sum_{k = 1}^{K} \sum_{i : C(i) = k} \sum_{j : C(j) = k} d(X_i, X_j),\]</span> où <span class="math inline">\(d(X_i, X_j)\)</span> est une mesure de la dissimilarité entre les observations <span class="math inline">\(X_i\)</span> et <span class="math inline">\(X_j\)</span>. Par exemple, on peut utiliser la distance euclidienne.</p>
+</div>
+</div>
+<p>Plus <span class="math inline">\(W(C)\)</span> est faible, meilleure est la qualité de la partition au sens de la cohésion intra-groupe. Le problème de la classication non-supervisée est donc un problème d’optimisation combinatoire. Il s’agit de trouver la fonction <span class="math inline">\(C\)</span> qui minimise <span class="math inline">\(W(C)\)</span>.</p>
+<p>Cependant, ce problème est très difficile (voir impossible) à résourdre exactement. En effet, il existe <span class="math inline">\(K^n\)</span> combinaisons possibles (chaque observation pouvant appartenir à un des <span class="math inline">\(K\)</span> groupes). Il est donc compliqué d’explorer toutes les solutions possibles même pour de petites valeurs de <span class="math inline">\(n\)</span> et de <span class="math inline">\(K\)</span>.</p>
+<p>Pour résoudre ce problème, on utilise des <strong>algorithmes gloutons</strong> (<em>greedy algorithm</em>) qui procèdent de manière itérative. L’idée est de, premièrement, explorer un sous-ensemble restreint de l’espace des partitions. Ensuite, l’algorithme améliore progressivement la solution de manière itérative. Ceux-ci ne garantissent pas d’atteindre le minimum global, mais plutôt un minimum local qui est souvent une bonne solution en pratique.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hypothèses
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Les <span class="math inline">\(p\)</span> variables sont numériques, catégorielles ou ordinales, souvent centées-réduites.</p></li>
+<li><p>Le nombre de groueps <span class="math inline">\(K\)</span> est fixé avant de lancer l’algorithme (choisi par l’utilisateur).</p></li>
+</ol>
+</div>
+</div>
+</section><section id="algorithme-k-moyennes" class="level2"><h2 class="anchored" data-anchor-id="algorithme-k-moyennes">Algorithme <span class="math inline">\(k\)</span>-moyennes</h2>
+<p>L’<strong>algorithme des <span class="math inline">\(k\)</span>-moyennes</strong> (<span class="math inline">\(k\)</span>-means) est une méthode classique de classication non-supervisée. L’objectif est de regrouper <span class="math inline">\(n\)</span> observations en <span class="math inline">\(K\)</span> groupes homogènes, i.e. tels que les observations au sein d’un même groupe soient aussi proches que possible, tandis que celles appartenant à des groupes différents soient aussi éloignées que possible. Cette méthode repose sur une mesure de dissimilarité, généralement la distance euclienne pour des données quantitatives.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Algorithme
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Voici les principales étapes de l’algorithme des <span class="math inline">\(k\)</span>-moyennes.</p>
+<ol type="1">
+<li><p>Choix du nombre de groupes <span class="math inline">\(K\)</span> : Le nombre de classes doit être choisi à l’avance.</p></li>
+<li><p>Initialisation : On partitionne aléatoirement les <span class="math inline">\(n\)</span> observations en <span class="math inline">\(K\)</span> groupes (ou on choisit aléatoirement <span class="math inline">\(K\)</span> observations comme centres initiaux).</p></li>
+<li><p>Calcul des centroïdes : Pour chaque groupe <span class="math inline">\(k\)</span>, on calcule leur centre de gravité</p></li>
+</ol>
+<p><span class="math display">\[\mu_k = \frac{1}{N_k} \sum_{i: C(i) = k} X_i, \quad \text{pour}\quad k = 1, \dots, K\]</span> où <span class="math inline">\(N_k\)</span> est le nombre d’observations dans le groupe <span class="math inline">\(k\)</span>.</p>
 <ol start="4" type="1">
-<li><p>On calcule la distance entre chaque observation et chacun des <span class="math inline">\(K\)</span> vecteurs-moyennes.</p></li>
-<li><p>On assigne chacune des <span class="math inline">\(n\)</span> observations au groupe dont le vecteur-moyenne est le plus près.</p></li>
-<li><p>On repète les étapes 3 à 5 jusqu’à ce qu’aucune observation ne soit réassignée à un nouveau groupe.</p></li>
+<li><p>Réaffectation : Chaque observation est affectée au centre le plus proche, i.e. au groupe dont le centroïde minimise la distance à l’observation.</p></li>
+<li><p>Itération : On répète les étapes 3 et 4 jusqu’’à la statibilisation des groupes, i.e. jusqu’à ce qu’aucune observation ne change de groupe.</p></li>
 </ol>
-<p>Example</p>
-<p>Inconvénients des <span class="math inline">\(k\)</span>-means:</p>
-<ul>
-<li><p>Sensible au choix des centroïdes initiaux (à l’initialisation).</p></li>
-<li><p>Il faut connaître le nombre de groupes.</p></li>
-<li><p>Nécessite une mesure de distance recalculée à chaque itération.</p></li>
-<li><p>Assez sensible aux valeurs extrêmes.</p></li>
-</ul>
-<p>Expliciter chaque nconvénients et de potentielles solutions.</p>
-<section id="k-médoides" class="level2"><h2 class="anchored" data-anchor-id="k-médoides">
-<span class="math inline">\(k\)</span>-médoides</h2>
-<p>On n’utilise plus le centre, mais l’observation qui minimise les distances dans chaque groupe. La médiane plutôt que la moyenne.</p>
-<p>Avantages:</p>
-<ul>
-<li><p>Permet d’intégrer des variables ordinales</p></li>
-<li><p>Robuste</p></li>
-<li><p>Permet de bien spécifier la matrix de distance</p></li>
-</ul>
-<p>Inconvénients:</p>
-<ul>
-<li>Il faut connaître le nombre de groupes.</li>
-</ul></section></main><!-- /main --><script>
+</div>
+</div>
+<p>La convergence de l’algorithme est garantie en un nombre fini d’itérations, car chaque étape réduit l’inertie intra-groupe, i.e. la somme des distances des observations à leur centroïdes respectif. En revanche, rien ne garantit que l’algorithme atteigne un minimum global de <span class="math inline">\(W\)</span>, il peut converger vers un minimum locale.</p>
+<p>Exemple avec une petite visualisation.</p>
+<p>Cette algorithme présente plusieurs limites. Tout d’abord, il est sensible à l’initialisation des groupes. Les résultats peuvent varier d’un essai à l’autre en fonction du choix initial des centroïdes. Ce problème peut être résolu en utilisant l’algorithme <code>kmean++</code> (cf. <a href="https://theory.stanford.edu/~sergei/papers/kMeansPP-soda.pdf">link</a>). Deuxièmement, l’algorithme nécessite de connaître à l’avance le nombre de groupes <span class="math inline">\(K\)</span>, ce qui n’est pas toujours évident. Il existe plusieurs critères pour guider ce choix, tels que le coefficient de silhouette, la méthode du coude (<strong>elbow method</strong>) ou encore des critères d’information comme le BIC ou l’AIC dans un cadre probabiliste. Troisièmement, à chaque itération, l’algorithme requiert le recalcul de toutes les distances entre les observations et les centroïdes. Cela peut devenir coûteux en temps de calcul lorsque le nombre d’observations <span class="math inline">\(n\)</span> ou le nombre de variables <span class="math inline">\(p\)</span> est élevé. Enfin, l’algorithme est assez sensible aux valeurs extrêmes. La moyenne est en effet influencée par les observations atypiques, ce qui peut fausser le calcul des centroïdes et engendrer des regroupements incohérents.</p>
+</section><section id="algorithme-k-médoides" class="level2"><h2 class="anchored" data-anchor-id="algorithme-k-médoides">Algorithme <span class="math inline">\(k\)</span>-médoides</h2>
+<p>Pour remédier à certaines des limites des <span class="math inline">\(k\)</span>-moyennes, on peut utiliser une variante plus robuste : l’algorithme des <span class="math inline">\(k\)</span>-médoïdes. Contrairement aux <span class="math inline">\(k\)</span>-moyennes, les <span class="math inline">\(k\)</span>-médoïdes utilisent des observations réelles comme représentants. Plus précisément, dans chaque groupe, le médoïde est l’observation qui minimise la somme des distances aux autres observations du même groupe.</p>
+<p>Cette méthode présente plusieurs avantages par rapport aux <span class="math inline">\(k\)</span>-moyennes. D’abord, elle est plus robuste aux valeurs extrêmes, car les médoïdes sont moins influencés par les observations atypiques que les moyennes. Ensuite, elle est compatible avec des variables ordinales ou catégorielles, à condition d’utiliser une mesure de dissimilarité appropriée. On peut aussi spécifier une matrice de dissimilarité sur mesure, adaptée à la nature des données.</p>
+<p>En revanche, l’algorithme des <span class="math inline">\(k\)</span>-médoïdes partage certains inconvénients avec celui des <span class="math inline">\(k\)</span>-moyennes. Il faut aussi spécifier à l’avance le nombre de groupes <span class="math inline">\(K\)</span>. De plus, son coût computationnel est plus élevé, en particulier si l’on utilise des distances non euclidiennes ou si l’on travaille avec un grand nombre d’observations.</p>
+<p>Exemple avec une comparison avec le <span class="math inline">\(k\)</span>-means.</p>
+
+
+</section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
