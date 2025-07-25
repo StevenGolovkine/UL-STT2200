@@ -3,168 +3,116 @@ title: "Hierarchique"
 format: 
   html: default
   pdf:
+    number-sections: true
     header-includes:
       - \usepackage{mathtools} 
 --- 
 
-Certains problèmes de l'algorithme $k$-means peuvent être résolu avec des algorithmes de classification hiérarchique. Par exemple, lorque l'on a à dispostion qu'une matrice de similiarité/distance entre les observations. 
+L'algorithme $k$-means présente plusieurs limitations. Par exemple, celles-ci peuvent être problématique lorsque l'on ne dispose que d'une matrice de similiarité ou de distance entre les observations et que l'on n'a pas accès aux données originales. Dans un tel contexte, les méthodes de classification hiérarchique sont pertinentes.
 
-La classification hiérarchique permet d'obtenir des partitions toutes imbriquées les unes dans les autres. Il existe deux types d'algortihmes pour effectuer de la classification hiérarchique:
+La classification hiérarchique permet d'obtenir une série de partitions imbriquées, allant de la partition la plus fine (chaque observation dans son propre groupe) à la plus grossière (toutes les observations dans un seul groupe). Cette approche ne fournit donc pas une seule parition, mais une hiérarchie de partitions. Cette hiérarchie peut être représenté à l'aide d'un **dendogramme**, un arbre résumant comment ces partitions sont imbriquées. Il existe deux types d'algorithmes pour effectuer une classification hiérarchique:
 
-1. les algorithmes ascendants;
+1. les algorithmes ascendants, qui partent des observations individuelles et procèdent par fusions successives;
 
-2. les algortihmes descendants.
+2. les algorithmes descendants, qui partent d'un groupe contenant toutes les observations et procèdent par divisions successives.
+
 
 Dans les deux cas, on obtient $n$ partitions hiérarchiques constituées de $1$ à $n$ groupes.
 
-## Algorithme descendant
+## Algorithmes
 
-Un algorithme descendant fonctionne ainsi:
+### Algorithmes descendants
 
-* Au départ, toutes les observations sont dans un seul et même groupe de $n$ observations;
+Les algorithmes descendants commencent avec l'ensemble des $n$ observations réunis dans un seul groupe. À chaque étape, le groupe jugé le moins homogéne est divisé en deux sous-groupes, en cherchant à maximiser la dissimilarité entre les deux sous-groupes. On continue ainsi jusqu'à ce que chaque observation soit isolé dans son propre groupe.
 
-* À chaque étape, on divise le groupe le moins homogéne en deux groupes.
+Ce type d'algorithme est coûteux en temps de calcul, car il faut évaluer, à chaque étape, toutes les manières possibles de diviser un groupe en deux. On l'utilise donc rarement en pratique. 
+ 
 
-* À la fin, après $n$ étapes, chaque observation à son propre groupe, c'est-à-dire qu'on obtient $n$ groupes contenant une seule observation. 
+### Algorithme ascendant
 
-L'exécution de cet algorithme ne donne pas une seule parition, mais $n$ partitions, que l'on peut résumer à l'aide d'un graphique en forme d'arbre appelé dendogramme.
-Certains critères peuvent aider à choisir l'une parmi les $n$ partitions proposées par l'algorithme. Ils demandent beaucoup de temps de calcul.
-
-## Algorithme ascendant
-
-Un algorithme ascendant fonctionne ainsi:
+À l'inverse, les algorithmes ascendants débutent avec $n$ groupes distincts, chacun contenant une seule observation. À chaque étape, on fusionne les deux groupes les plus similaires, i.e. ceux dont la dissimilarité est la plus faible selon un critère choisi. L'algorithme continue jusqu'à ce qu'il ne reste plus qu'un seul groupe contenant toutes les observations.
 
 
-* Au départ, chaque observation est son propre groupe, c'est-à-dire uq'on démarre avec $n$ groupes content chacun une seule observation. 
-
-* À chaque étape, on fusionne les deux groupes les plus similaires.
-
-* À la fin, après $n$ étapes, on obtient un seul groupe contenant toutes les $n$ observations.
-
-Différences entre les algorithmes: 
-
-* caractère ascendant ou descendant;
-
-* leur fa\c{c}on de mesurer les distances / similiarité entre deux observations;
-
-* leur fa\c{c}on de mesurer les distances / similiarité entre deux groupes.
 
 ## Distance entre groupes
 
-Pour mettre en oeuvre les algorithmes précédent, on doit définir la distance entre deux groupes d'observations $A$ et $B$, $d(A, B)$. 
+Pour mettre en oeuvre les algorithmes précédent, on doit définir la distance entre deux groupes d'observations $A$ et $B$, notée $d(A, B)$. Si l'on sait généralement mesurer distance entre deux individus, on doit définir une distance entre deux groupes contenant un nombre différents d'éléments. Il existe plusieurs façon de calculer une telle distance entre deux groupes.
 
-Example: On sait comment mesurer la distance entre les trois paires possibles de $\{ 1 \}$, $\{  2 \}$ et $\{ 3 \}$, mais comment mesurer la distance entre $\{ 1, 2 \}$ et $\{ 3 \}$ ?
+### Méthode du plus proche voisin (*single linkage*)
 
-Il existe plusieurs fa\c{c}ons de calculer une telle distance entre deux groupes.
-
-* Méthode du plus proche voisin (single linkage)
+Dans cette approche, la distance entre deux groupes est définie comme la plus petite distance entre un individu de $A$ et un individu de $B$ :
 
 $$d(A, B) = \min \{ d_{i j}: i \in A, j \in B \}.$$
 
-$$s(A, B) = \max \{ s_{i j}: i \in A, j \in B \}.$$
+Dit autrement, deux groupes $A$ et $B$ sont considérés comme proche si un élément de $A$ est proche d'un élément de $B$. Cette méthode présente plusieurs avantages. Elle donne de bons résultats lorsque les variables sont de nature différente (e.g., quantitatives et qualitatives) et permet de construire des groupes aux formes irrégulière. De plus, elle est relativement robuste aux données aberrantes. Enfin, ses propriétés mathématiques théoriques sont intéressantes.
 
-La distance/similiarité entre deux groupes d'observations est tout simplement la distance/similiarité entre les points de chaque groupe qui sont les plus rapprochés/similaires
+Cependant, cette méthode tend à créer des groupes déséquilibrés : un grand groupe central entouré de plusieurs petits groupes satellites. Elle est moins performante lorsque les groupes naturels sont de forme régulière. Bien qu'elle est de bonnes propriétés mathématiques, celles-ci ne se vérifie pas toujours empiriquement.
 
-Avantages:
-* Donne de bons résultats lorsque les variables sont de types différents
-* Possède d'excellentes propriétés théoriques
-* Permet de créer des groupes dont la forme est très irrégulière
-* Est robuste aux données aberrantes
 
-Désavantages:
-* Tend à former un grand groupe avec plusieurs petits groupes satellites
-* Perd de l'efficacité si les vrais groupes sont de forme réegulière
-* Possède des propriétés théoriques ne semblant pas se réaliser en pratique dans certaines études
+### Méthode du voisin le plus distant (*complete linkage*)
 
-* Méthode du voisin le plus distant (complete linkage)
+À l'inverse de la méthode précédente, la distance entre deux groupes est définie comme la plus grande distance entre un individu de $A$ et un individu de $B$ :
 
 $$d(A, B) = \max \{ d_{i j}: i \in A, j \in B \}.$$
 
-$$s(A, B) = \min \{ s_{i j}: i \in A, j \in B \}.$$
-
-La distance/similiarité entre deux groupes d'observations est tout simplement la distance/similiarité entre les points de chaque groupe qui sont les plus éloignés/dissimilaires.
-
-Avantages:
-* Donne de bons résultats lorsque les variables sont de types différents
-* Tend à former des groupes de taille égale
-
-Désavantages:
-* Est extrêmement sensible aux données aberrantes
-* Tend à former des groupes de taille égale
-* Est très peu utilisée en pratique
+Dit autrement, deux groupes sont considérés proches si tous les éléments de $A$ sont proches de tous les éléments de $B$. Cette méthode a tendence à produire des groupes réguliers de taille homogène. Comme la méthode du plus proche voisin, elle est bien adaptée aux variables de différents types. Cependant, elle est **extrêmement** sensible aux données aberrantes. En effet, un seul individu peut augmenter artificiellement la distance entre deux groupes. De plus, elle a tendance à forcer la formation de groupes de même taille, ce qui n'est pas toujours justifié en pratique. 
 
 
-* Méthode de la moyenne (average linkage)
+### Méthode de la moyenne (*average linkage*)
 
-$$d(A, B) = \frac{1}{n_{A}n_{B}} \sum_{i \in A} \sum_{j \in B} d(x_{i}, x_{j}).$$
-où $n_{A}$ est le nombre d'observations dans le groupe $A$ et $n_{B}$ est le nonmbre d'observations dans le group $B$.
+Ici, la distance entre deux groupes est définie comme la moyenne des distances entre toutes les paires d'individus, issu de $A$ et de $B$ :
 
-On doit calculer les $n_{A} \times n_{B}$ distances/similiarités possibles entre les points des deux groupes, ensuite on prend la moyenne de ces distances/similiarités comme étant celle qui sépare les groupes. 
+$$d(A, B) = \frac{1}{n_{A}n_{B}} \sum_{i \in A} \sum_{j \in B} d(X_{i}, X_{j}).$$
+où $n_{A}$ est le nombre d'observations dans le groupe $A$ et $n_{B}$ est le nombre d'observations dans le groupe $B$.
 
-Avantages:
-* Tend à former des groupes de faible variance
-
-Désavantages:
-* Tend à former des groupes de même variance
+Cette méthode consiste à considérer toutes les interactions possibles entre les éléments des deux groupes, puis à en faire la moyenne. Elle tend à produire des groupes dont la variance interne est faible, i.e. relativement homogène. Toutefois, cette méthode privilégie la formation de groupes de variance similaire, ce qui n'est pas toujours justifié en pratique.
 
 
-* Méthode du centroïde (centroid method)
+### Méthode du centroïde (*centroid method*)
 
-$$d(A, B) = d(\overline{x}_{A}, \overline{x}_{B}).$$
+Pour cette méthode, la distance entre deux groupes est définie comme la distance entre leurs centroïdes, i.e. les moyennes des observations de chaque groupe :
+
+$$d(A, B) = d(\overline{X}_{A}, \overline{X}_{B}).$$
 où 
-$$\overline{x}_{A} = \frac{1}{n_{A}} \sum_{i \in A} x_i, \quad\text{et}\quad \overline{x}_B = \frac{1}{n_{B}} \sum_{j \in B} x_j$$
+$$\overline{X}_{A} = \frac{1}{n_{A}} \sum_{i \in A} X_i, \quad\text{et}\quad \overline{X}_B = \frac{1}{n_{B}} \sum_{j \in B} X_j$$
 
-La moyenne $\overline{x}_{AB}$ du nouveau groupe résultant de la fusion des groupes $A$ et $B$ se calcule comme suit:
+Après la fusion de $A$ et de $B$, le nouveau centroïde $\overline{X}_{AB}$ est donné par la moyenne pondérée : 
 $$\overline{x}_{AB} = \frac{n_{A} \overline{x}_{A} + n_{B} \overline{x}_{B}}{n_{A} + n_{B}}.$$
 
-Avantages:
-* Est très robuste aux données aberrantes
+Cette approche est assez robuste aux données aberrantes, mais elle est généralement peu performante lorsqu'il n'y en a pas.
 
-Désavantages:
-* Est peu efficace en l'absence de données aberrantes
+### Méthode de la médiane (*median method*)
 
-* Méthode de la médiane (median method)
-
-À une étape donnée, nous avons toujours à notre disposition la distance entre les groupes déjà formés. On fusionne les deux groupes les moins distants/les plus similaires, disons $A$ et $B$ pour obtenir un groupe $AB$. On met à jour la matrice des distances: la distance entre le nouveau groupe $AB$ et tout autre groupe $C$ est donnée par
+La méthode de la médiane repose sur une mise à jour des distances de façon récursive. Lorsqu'on fusionne deux groupes $A$ et $B$, on définit la distance entre le nouveau groupe $AB$ et autre groupe $C$ par la formule :
 $$d(AB, C) = \frac{d(A, C) + d(B, C)}{2} - \frac{d(A, B)}{4}.$$
 
-Avantages:
-* Est encore plus robuste en présence de données aberrantes
+Cette méthode est particulièrement robuste aux données aberrantes (davantage que la méthode du centroïde). Elle est cependant très peu efficace lorsque de telles valeurs extrêmes sont absentes.
 
-Désavantages:
-* Est très peu efficace en l'absence de données aberrante
+### Méthode de Ward (*Ward's method*)
 
-* Méthode de Ward (Ward's method)
+La méthode de Ward est une variante de la méthode du centroïde. Elle est optimale dans le cas où les observations suivent des lois normales multivariées, de même matrice de variance-covariance mais de moyennes différentes. Elle est basée sur une mesure de l'inertie intra-groupe. Pour chaque groupe $A$, groupe $B$ et groupe $A \cup B$, noté $AB$, on définit 
 
-Variante de la méthode du centroïde pour tenir compte de la taille des groupes. Elle a été con\c{c}ue pour être optimale si les $n$ vecteurs $x_{1}, \dots, x_{n}$ suivent des lois normales multivariées de $K$ moyennes différentes mais toutes de même matrice de variance-covariance. 
+$$SC_A = \sum_{i \in A} (X_i - \overline{X}_A)^\top (X_i - \overline{X}_A),$$
 
-Basée sur les sommes des carrées 
-$$SC_A = \sum_{i \in A} (x_i - \overline{x}_A)^\top (x_i - \overline{x}_A).$$
+$$SC_B = \sum_{j \in B} (X_j - \overline{X}_B)^\top (X_j - \overline{X}_B),$$
 
-$$SC_B = \sum_{j \in B} (x_j - \overline{x}_B)^\top (x_j - \overline{x}_B).$$
+$$SC_AB = \sum_{k \in A \cup B} (X_k - \overline{X}_{AB})^\top (X_k - \overline{X}_{AB}).$$
 
-$$SC_AB = \sum_{k \in A \cup B} (x_k - \overline{x}_{AB})^\top (x_k - \overline{x}_{AB}).$$
+où $\overline{X}_A$, $\overline{X}_B$ et $\overline{X}_{AB}$ sont calculées comme dans la méthode du centroïde.
+On regroupe les groupes $A$ et $B$ qui minimisent l'augmentation de l'inertie : 
+$$I_{AB} = SC_{AB} - SC_A - SC_B = \frac{d^2(\overline{X}_A, \overline{X}_B)}{\frac{1}{n_{A}} + \frac{1}{n_{B}}}.$$
 
-où $\overline{x}_A$, $\overline{x}_B$ et $\overline{x}_{AB}$ sont calculées comme dans la méthode du centroïde.
-On regroupe les classes $A$ et $B$ pour lesquelles 
-$$I_{AB} = SC_{AB} - SC_A - SC_B = \frac{d^2(\overline{x}_A, \overline{x}_B)}{\frac{1}{n_{A} + \frac{1}{n_{B}}}}$$
-est minimale.
+Cette méthode est très efficace lorsque les groupes sont homogènes, de taille comparable et que les hypothèses gaussiennes sont raisonnablement satisfaites. En revanche, elle est sensible aux données aberrantes et tend à former des regroupements de même taille.
 
-Avantages:
-* Est optimale si les observations sont approximativement distribuées selon une loi normale multidimensionnelle de même matrice de variances-covariances
+### Méthode flexible (*flexible clustering*)
 
-Désavantages:
-* Est sensible aux données aberrantes
-* Tend à former des groupes de petite taille
-* Tend à former des groupes de même taille
+La méthode flexible repose sur une formule générale permettant de représenter plusieurs méthodes de mise à jour des distances. Si l'on fusionne deux groupes $A$ et $B$ pour former $AB$, et que l'on souhaite calculer la distance entre $AB$ et autre groupe $C$, on peut utiliser la relation 
+$$d(C, AB) = \alpha_A d(C, A) + \alpha_B d(C, B) + \beta d(A, B) + \gamma \left| d(C, A) - d(C, B) \right|.$$
 
-* Méthode flexible
-
-Les auteurs de cette méthode ont remarqué que pour plusieurs méthodes connues, on a les relations suivantes:
-$$d(C, AB) = \alpha_A d(C, A) + \beta d(C, B) + \beta d(A, B) + \gamma \left| d(C, A) - d(C, B) \right|.$$
+Selon les valeurs choisies pour les coefficients $\alpha_A$, $\alpha_B$, $\beta$ et $\gamma$, on peut retrouver les formules de mise à jour correspondant aux différentes méthodes précédentes. Le @tbl-coefs présente les valeurs des différents coefficients à choisir pour retrouver les différentes méthodes.
 
 | Méthode | $\alpha_A$ | $\alpha_B$ | $\beta$ | $\gamma$ |
-| ------- | ---------- | ---------- | ------- | -------- |
+| ------- | :----------: | :----------: | :-------: | :--------: |
 | Plus proche  | $1/2$ | $1/2$ | $0$    | $-1/2$ |
 | Plus distant | $1/2$ | $1/2$ | $0$    | $1/2$  |
 | Médiane      | $1/2$ | $1/2$ | $-1/4$ | $0$    |
@@ -172,12 +120,13 @@ $$d(C, AB) = \alpha_A d(C, A) + \beta d(C, B) + \beta d(A, B) + \gamma \left| d(
 | Centroïde    | $\frac{n_A}{n_A+n_B}$ | $\frac{n_B}{n_A+n_B}$ | $-\frac{n_An_B}{n_A + n_B}$  | $0$ |
 | Ward         | $\frac{n_A+n_C}{n_A+n_B+n_C}$ | $\frac{n_B+n_C}{n_A+n_B+n_C}$ | $-\frac{n_C}{n_A+n_B+n_C}$ | $0$  |
 
-Avec la méthode flexible, on impose arbitrairement les contraintes suivantes:
+: Coefficients pour retrouver les méthodes précédentes. {#tbl-coefs}
+
+Pour la méthode flexible, on impose arbitrairement les contraintes suivantes:
 $$\alpha_A + \alpha_B + \beta = 1, \quad \alpha_A = \alpha_B, \quad \gamma = 0.$$
 
-Ainsi, 
-$$\alpha_A = \alpha_B = \frac{1 - \beta}{2}.$$
-Et il ne reste qu'à choisir $\beta$. Les autheurs suggèrent de poser $\beta = -0.25$ sauf quand on soup\c{c}onne la présence de données aberrantes où l'on suggère $\beta = -0.5$.
+Ainsi, on a $\alpha_A = \alpha_B = \frac{1 - \beta}{2}$. Il ne reste qu'un seul paramètre à fixer. Généralement, on choisit $\beta = -0.25$. Si l'on soupçonne la présence de données aberrantes, on peut opter pour $\beta = -0.5$ afin d'accroître la robustesse de l'algortihme.
+
 
 ## Pratique 
 

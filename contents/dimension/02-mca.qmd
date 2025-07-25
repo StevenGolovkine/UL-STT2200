@@ -3,6 +3,7 @@ title: "Analyse des correspondances multiples"
 format: 
   html: default
   pdf:
+    number-sections: true
     header-includes:
       - \usepackage{mathtools} 
 ---

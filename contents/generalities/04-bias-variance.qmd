@@ -4,6 +4,7 @@ format:
   html:
     code-fold: true
   pdf:
+    number-sections: true
     header-includes: 
       - \usepackage{mathtools}
 ---

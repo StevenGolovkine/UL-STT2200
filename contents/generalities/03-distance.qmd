@@ -3,6 +3,7 @@ title: "Distances"
 format: 
   html: default
   pdf:
+    number-sections: true
     header-includes: 
       - \usepackage{mathtools}
 --- 

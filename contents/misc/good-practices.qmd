@@ -3,6 +3,7 @@ title: "Bonnes pratiques de programmation"
 format: 
   html: default
   pdf:
+    number-sections: true
     header-includes:
       - \usepackage{mathtools} 
 --- 

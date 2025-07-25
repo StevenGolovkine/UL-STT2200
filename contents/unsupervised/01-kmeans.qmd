@@ -15,7 +15,7 @@ On dispose de $n$ observations $X_{1}, \dots, X_n$ décrites par $p$ variables n
 
 2. Les observations appartenant à des groupes différents soient les moins similaires possible.
 
-Autrement dit, nous cherchons une fonction de classication :
+Autrement dit, nous cherchons une fonction de classification :
 $$C: \{ 1, \dots, n \} \to \{ 1, \dots, K \}$$
 qui, à chaque observation $i \in \{ 1, \dots, n \}$ associe une étiquette de groupe $C(i) \in \{ 1, \dots, K \}$.
 
