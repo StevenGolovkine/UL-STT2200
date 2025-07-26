@@ -563,7 +563,13 @@ window.Quarto = {
   <li><a href="#m%C3%A9thode-flexible-flexible-clustering" id="toc-méthode-flexible-flexible-clustering" class="nav-link" data-scroll-target="#méthode-flexible-flexible-clustering">Méthode flexible (<em>flexible clustering</em>)</a></li>
   </ul>
 </li>
-  <li><a href="#pratique" id="toc-pratique" class="nav-link" data-scroll-target="#pratique">Pratique</a></li>
+  <li>
+<a href="#quelle-partition-choisir" id="toc-quelle-partition-choisir" class="nav-link" data-scroll-target="#quelle-partition-choisir">Quelle partition choisir ?</a>
+  <ul class="collapse">
+<li><a href="#crit%C3%A8res-bas%C3%A9s-sur-linertie" id="toc-critères-basés-sur-linertie" class="nav-link" data-scroll-target="#critères-basés-sur-linertie">Critères basés sur l’inertie</a></li>
+  <li><a href="#crit%C3%A8res-bas%C3%A9s-sur-la-distance" id="toc-critères-basés-sur-la-distance" class="nav-link" data-scroll-target="#critères-basés-sur-la-distance">Critères basés sur la distance</a></li>
+  </ul>
+</li>
   </ul>
 <div class="toc-actions"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
@@ -709,52 +715,30 @@ Table 1: Coefficients pour retrouver les méthodes précédentes.
 </div>
 <p>Pour la méthode flexible, on impose arbitrairement les contraintes suivantes: <span class="math display">\[\alpha_A + \alpha_B + \beta = 1, \quad \alpha_A = \alpha_B, \quad \gamma = 0.\]</span></p>
 <p>Ainsi, on a <span class="math inline">\(\alpha_A = \alpha_B = \frac{1 - \beta}{2}\)</span>. Il ne reste qu’un seul paramètre à fixer. Généralement, on choisit <span class="math inline">\(\beta = -0.25\)</span>. Si l’on soupçonne la présence de données aberrantes, on peut opter pour <span class="math inline">\(\beta = -0.5\)</span> afin d’accroître la robustesse de l’algortihme.</p>
-</section></section><section id="pratique" class="level2"><h2 class="anchored" data-anchor-id="pratique">Pratique</h2>
-<p>L’exécution d’un algorithme nous donne une séquence de <span class="math inline">\(n\)</span> partitions ayant de <span class="math inline">\(n\)</span> à <span class="math inline">\(1\)</span> groupes.</p>
-<p>Quelle partition de cette séquence devrions-nous choisir?</p>
-<p>L’une des <span class="math inline">\(n\)</span> partitions est-elle particulièrement interprétable? L’une des <span class="math inline">\(n\)</span> partitions a-t-elle a un sens pratique? Visions-nous séparer la population en un nombre <span class="math inline">\(K\)</span> de groupes?</p>
-<p>S’il n’y a pas de réponse claire à ces questions, des critères peuvent nous guider …</p>
-<p>Il y a plusieurs indications pour nous aider dans le choix du nombre de classe (surtout si les variables sont continues). La librairie <strong>NbClust</strong> en contient une trentaine: https://www.rdocumentation.org/packages/NbClust/versions/3.0.1/topics/NbClust</p>
+</section></section><section id="quelle-partition-choisir" class="level2"><h2 class="anchored" data-anchor-id="quelle-partition-choisir">Quelle partition choisir ?</h2>
+<p>Un algorithme de classification hierarchique, ascendant ou descendant, produit une séquence de <span class="math inline">\(n\)</span> partitions imbriquées, allant de <span class="math inline">\(n\)</span> groupes (où chaque observation est isolée) à un seul groupe contenant toutes les observations. En pratique, on se pose donc la question suivante : quelle partition faut-il considérer ?</p>
+<p>Plusieurs pistes peuvent guider ce choix :</p>
 <ul>
-<li>Les indicateurs basées sur l’inertie</li>
+<li><p>Une des partitions est-elle particulièrement interprétable d’un point de vue scientifique ou métier ?</p></li>
+<li><p>Une des partitions est-elle pertinente sur le plan opérationnel, par exemple pour orienter des décisions ?</p></li>
+<li><p>Cherche-t-on explicitement à segmenter la population en un nombre de groupes <span class="math inline">\(K\)</span>, déterminé à l’avance ?</p></li>
 </ul>
-<p><span class="math display">\[I_{tot} = I_{intra-groupe}+ I_{inter-groupe}\]</span> Ces indicateurs sont plus pertinents avec des variables continues. Prendre garde au poids des variables et à la standardisation.</p>
-<ul>
-<li>Pseudo- <span class="math inline">\(R^2\)</span>
-</li>
-</ul>
-<p><span class="math display">\[Pseudo-R^2 =\frac{I_{inter-groupe}}{I_{tot}}\]</span></p>
-<ul>
-<li>Statistique de Caliliski-Harabasz (CH):</li>
-</ul>
-<p><span class="math display">\[CH = \frac{I_{inter-groupe}/(k-1)}{I_{intra-groupe}/(n-k)}\]</span></p>
-<ul>
-<li>Indice de Dunn: On maxime l’indice suivant:</li>
-</ul>
-<p><span class="math display">\[D= \frac{\text{Distance minimale entre 2 groupes}}{\text{Distance maximale dans un groupe}}\]</span></p>
-<p>L’indice de Dunn cherche donc à créer des groupes denses et bien séparés.</p>
-<ul>
-<li>Indice de silhouette</li>
-</ul>
-<p>La silhouette de l’observation <span class="math inline">\(i\)</span> mesure la confiance dans le choix du groupe pour l’observation <span class="math inline">\(i\)</span>: <span class="math display">\[S(i) = \frac{b_i-a_i}{max(b_i,a_i)}\]</span> où <span class="math inline">\(a_i\)</span> est la distance moyenne entre l’observation <span class="math inline">\(i\)</span> et les autres observations de son groupe et <span class="math inline">\(b_i\)</span> est la distance moyenne entre l’observation <span class="math inline">\(i\)</span> et les observations du groupe le plus proche de <span class="math inline">\(i\)</span>. On souhaite maximiser la silhouette moyenne des observations.</p>
-<ul>
-<li>Critère de classification cubique (CCC)</li>
-</ul>
-<p>On fait un graphique avec le CCC en ordonnée et le nombre de groupes en abscisse. Pour le nombre de groupes, on ne considère que les partitions de <span class="math inline">\(K=1\)</span> à <span class="math inline">\(K=n/10\)</span>. Si <span class="math inline">\(CCC&gt;2\)</span>, on est en présence d’une classification de bonne qualité. Si <span class="math inline">\(0&lt;CCC&lt;2\)</span>, on est en présence d’une classification de qualité moyenne. Si <span class="math inline">\(CCC&lt;0\)</span>, on est en présence d’une classification de mauvaise qualité. Pour choisir le nombre de classes à retenir, on peut considérer les nombres de classes associés aux fortes hausses du critère CCC entre deux nombres de classes subséquents. On considère les pics, atteignant des valeurs du critère supérieures à 2 ou à 3 comme étant de fortes hausses de ce critère.</p>
-<p>Il ne faut pas utiliser le critère CCC avec la méthode du plus proche voisin, ou lorsque l’on suspecte que les groupes sont de forme très allongée ou irrégulière. Le critères ne fonctionne pas bien quand le nombre d’observations dans certains groupes est inférieur à 10.</p>
-<ul>
-<li>Statistique pseudo-<span class="math inline">\(F\)</span>
-</li>
-</ul>
-<p>Statistique presque distribuée selon une loi <span class="math inline">\(F\)</span> lorsque la loi des données pas trop loin de la normale multivariée avec variances égales dans toutes les classes. Même si on est loin de la normalité, en pratique cette statistique peut quand-même être informative. On cherche des nombres de classes pour lesquels la statistique du pseudo-<span class="math inline">\(F\)</span> se démarque par une grande valeur. Sur un graphique de la statistique du pseudo-<span class="math inline">\(F\)</span> en fonction du nombre de classes, ceci se traduit par la recherche de pics. Il ne faut pas utiliser la statistique du pseudo-<span class="math inline">\(F\)</span> avec la méthode du plus proche voisin.</p>
-<ul>
-<li>Statistique du pseudo-<span class="math inline">\(t^2\)</span>
-</li>
-</ul>
-<p>Statistique presque distribuée selon une loi <span class="math inline">\(t\)</span> lorsque loi des données pas trop loin de la normale multivariée avec des variances égales dans toutes les classes. En pratique, on regarde le graphique de la statistique du pseudo-<span class="math inline">\(t^2\)</span> en fonction du nombre de classes de droite à gauche, on essaie de trouver des valeurs de la statistique qui sont beaucoup plus élevées que la valeur précédente. Supposons que la forte hausse se produit entre <span class="math inline">\(k\)</span> et <span class="math inline">\(k-1\)</span> classes. On choisit <span class="math inline">\(k\)</span> classes dans le partitionnement de nos observations. Il ne faut pas utiliser la statistique du pseudo-<span class="math inline">\(t^2\)</span> avec la méthode du plus proche voisin.</p>
+<p>Lorsque ces considérations pratiques ne suffisent pas à trancher, on peut s’appuyer sur des critères statistiques pour évaluer la qualité des partitions et suggérer un nombre “optimal” de groupes. Ces critères sont surtout adaptés lorsque les variables sont continues.</p>
+<p>La librairie R <a href="https://www.rdocumentation.org/packages/NbClust/versions/3.0.1/topics/NbClust"><code>NbClust</code></a> en propose une trentaine et la librairie Python <a href="https://scikit-learn.org/stable/modules/clustering.html#clustering-performance-evaluation"><code>sklearn</code></a> une dizaine. On présente ensuite les critères les plus fréquemment utilisés.</p>
+<section id="critères-basés-sur-linertie" class="level3"><h3 class="anchored" data-anchor-id="critères-basés-sur-linertie">Critères basés sur l’inertie</h3>
+<p>L’inertie mesure la dispersion des observations appartenant à un groupe par rapport à son centroïde.</p>
+<p>L’inertie totale <span class="math inline">\(I_{tot}\)</span> se décompose en une inertie <strong>intra-groupe</strong> et une inertie <strong>inter-groupe</strong> : <span class="math display">\[I_{\text{tot}} = I_{\text{intra-groupe}} + I_{\text{inter-groupe}}.\]</span></p>
+<p>Plus les groupes sont compacts, plus l’inertie intra-groupe est failble, ce qui signifie que l’inertie inter-groupe est élevé. Une partition de bonne qualité maximise donc l’inertie inter-groupe. Ces critères supposent généralement que les variables sont continues et ont été standardisées pour éviter qu’une variable à grande échelle ne domine les autres. Parmi les critères se basant sur l’inertie, on peut citer : le pseudo-<span class="math inline">\(R^2\)</span> et la statistique de Calinski-Harabasz (CH).</p>
+<p>Le pseudo-<span class="math inline">\(R^2\)</span> mesure la proportion d’inertie expliquée par la partition :</p>
+<p><span class="math display">\[\text{pseudo-}R^2 =\frac{I_{\text{inter-groupe}}}{I_{\text{tot}}}.\]</span></p>
+<p>Un pseudo-<span class="math inline">\(R^2\)</span> élevé indique que la parition capture une grande part de la structure des données. La statistique CH est une variation du pseudo-<span class="math inline">\(R^2\)</span> normalisé par le nombre de groupes : <span class="math display">\[\text{CH} = \frac{I_{\text{inter-groupe}} / (K - 1)}{I_{\text{intra-groupe}} / (n - K)}.\]</span> Un score élevé de la statistique CH suggère un bon équilibre entre groupes compactes et groupes séparés.</p>
+</section><section id="critères-basés-sur-la-distance" class="level3"><h3 class="anchored" data-anchor-id="critères-basés-sur-la-distance">Critères basés sur la distance</h3>
+<p>On peut aussi utiliser des critères se basant sur la distance entre les observations pour mesurer la qualité d’une partition. Parmi les critères se basant sur la distance, on peut citer : l’indice de Dunn et l’indice de silhouette.</p>
+<p>L’indice de Dunn cherche à maximiser la distance minimale entre deux groupes, tout en minimisant la distance maximale entre les observations à l’intérieur d’un groupe : <span class="math display">\[D= \frac{\text{Distance minimale entre 2 groupes}}{\text{Distance maximale dans un groupe}}.\]</span> Ce critère favorise des groupes denses et bien séparés. En ce qui concerne le critère de silhouette, il mesure la qualité d’affection d’une observation <span class="math inline">\(X_i\)</span> à son groupe : <span class="math display">\[S(X_i) = \frac{b_i - a_i}{max(b_i, a_i)}\]</span> où <span class="math inline">\(a_i\)</span> est la distance moyenne entre l’observation <span class="math inline">\(X_i\)</span> et les autres observations de son groupe et <span class="math inline">\(b_i\)</span> est la distance moyenne entre l’observation <span class="math inline">\(X_i\)</span> et les observations du groupe le plus proche de <span class="math inline">\(X_i\)</span>. On souhaite maximiser la silhouette moyenne des observations. La silhouette moyenne sur toutes les observations est donc un bon indicateur de la cohérence globale de la partition.</p>
+<p>En résumé, plusieurs critères peuvent nous guider dans le choix du nombre de groupes, mais aucun n’est parfait. Il est souvent recommendé de croiser connaissance métier, visualisation des partitions et indicateurs statistiques pour prendre une décision éclairée.</p>
 
 
-</section></main><!-- /main --><script>
+</section></section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
