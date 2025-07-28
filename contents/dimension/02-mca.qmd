@@ -10,28 +10,33 @@ format:
 
 ## Que faire avec des données catégorielles ? 
 
-L'analyse en composantes principales (ACP) est utilisée pour des données **continues**. Mais que faire lorsque les variables sont catégorielles, comme c'est le cas dans les tableaux de contingences, dans les questionnaires à choix multiples ou pour des variables qualitatives comme la couleur des yeux, la profession, ou la région d'origine ? 
+L'analyse en composantes principales (ACP) est bien adaptée pour des données **continues**. Mais que faire lorsque les variables sont catégorielles ? C'est la cas dans de nombreux contextes : enquêtes avec des questions à choix multiples, tableaux croisant des variables comme la profession, la région d'origine, la couleur des yeux, etc. 
 
-Il est possible de faire la même chose que pour l'ACP pour des variables catégorielles, cette méthode s'appelle l'analyse des correspondances (AC). Elle permet une représentation géométrique des relations entre les modalités d'une ou plusieurs variables qualitatives. Lorsque l'on s'intéresse à la relation entre deux variables qualitatives, on parlera d'analyse des correspondances binaires (ACB) ou alors d'analyse factorielle des correspondances (AFC). Lorsque l'on étudie simultanément plus de deux variables qualitatives, on parlera d'analyse des correspondances multiples (ACM).
+Dans ces situations, on peut recourir à une méthode analogue à l'ACP, spécifiquement conçue pour les variables qualitatives : l'analyse des correspondances (AC). Cette méthode permet une représentation géométrique des relations entre les modalités de variables qualitatives. On distingue plusieurs variantes : 
+
+* l'analyse factorielle des correspondances (AFC) qui est utilisée pour étudier la relation entre deux variables qualitatives (souvent sous forme d'un tableau de contingence).
+
+* l'analyse des correspondances multiples (ACM) qui est une généralisation de l'AFC à plus de deux variables qualitatives, notamment dans le cas de questionnaires avec plusieurs questions à réponses catégorielles.
+
 
 ::: {.callout-note icon=false}
 ## Exemples
 
-* La boussole électorale de Radio-Canada (questionnaire politique).
+* La boussole électorale de Radio-Canada : visualisation des profiles politiques à partir de réponses à un questionnaire.
 
-* Étude de segmentation de clientèle pour un opérateur télécom.
+* Étude de segmentation de clientèle pour un opérateur télécom, à partir des caractéristiques déclarées par les clients.
 
-* Relation entre la couleur des yeux et des cheveux d'individus.
+* Association entre couleur des yeux et couleur des cheveux dans une enquête démographique.
   
 :::
 
 ## Notation 
 
 On considère un tableau de contingence $K = (k_{ij})$, où $k_{ij}$ est le nombre d'individus appartenant à la classe $i \in \{ 1, \dots, n \}$ et à la catégorie $j \in \{ 1, \dots, p \}$.
-On travaille ensuite avec le tableau des fréquences relatives. Comme les fréquences sont proportionnelles à la taille d'échantillon $n$, le tableau des fréquences relatives contient plus d'information. Notons $F = (f_{ij})$, dans lequel
+On travaille ensuite avec le tableau des fréquences relatives en normalisant ce tableau. Comme les fréquences sont proportionnelles à la taille d'échantillon $n$, le tableau des fréquences relatives contient plus d'information. Notons $F = (f_{ij})$, dans lequel
 $$f_{ij} = \frac{k_{ij}}{k_{\bullet\bullet}} = \frac{k_{ij}}{\sum_{l = 1}^{n} \sum_{m = 1}^{p} k_{lm}}.$$
 
-Les marges ligne (resp. colonne) du tableau correspondent à la somme des colonnes pour chaque ligne (resp. à la somme des lignes pour chaque colonne):
+Les marges lignes (resp. colonnes) du tableau correspondent à la somme des colonnes pour chaque ligne (resp. à la somme des lignes pour chaque colonne):
 \begin{align}
 f_{i \bullet} &= \sum_{j = 1}^{p} f_{ij} = \frac{k_{i \bullet}}{k_{\bullet\bullet}}, \quad 1 \leq i \leq n; \\
 f_{\bullet j} &= \sum_{i = 1}^{n} f_{ij} = \frac{k_{\bullet j}}{k_{\bullet\bullet}}, \quad 1 \leq j \leq p.
@@ -39,73 +44,102 @@ f_{\bullet j} &= \sum_{i = 1}^{n} f_{ij} = \frac{k_{\bullet j}}{k_{\bullet\bulle
 
 ### Indépendance statistique 
 
-Les fréquences relatives estiment des probabilités. Dans le cas d'un tableau de fréquences croisant deux variables, sous l'hypothèse d'indépendance, les fréquences relatives devraient être telles qu'on ne s'éloigne pas trop de la relation 
-$$f_{ij} = f_{i \bullet} f_{\bullet j}, \quad i \in \{ 1, \dots, n \},~ j \in \{ 1, \dots, p \}.$$
+Le tableau des fréquences relatives $F = (f_{ij})$ peut être interprété comme une estimation des probabilités conjointes des modalités des deux variables qualitatives. Si les deux variables sont statistiquement indépendantes, on s'attend à ce que la probabilité conjointe s'approche du produit des probabilités marginales :
+$$f_{ij} \approx f_{i \bullet} f_{\bullet j}, \quad i \in \{ 1, \dots, n \},~ j \in \{ 1, \dots, p \}.$$
 
-On peut tester si les différences entre $f_{ij}$ et $f_{i \bullet} f_{\bullet j}$ sont significatives à l'aide du test du $\chi^2$:
+Pour tester si les écarts observés entre $f_{ij}$ et $f_{i \bullet} f_{\bullet j}$ sont significatifs, on utilise le test du $\chi^2$ d'indépendance :
 $$T = \sum_{i = 1}^{n} \sum_{j = 1}^{p} \frac{\left( k_{ij} - \mathbb{E}(k_{ij}) \right)^2}{\mathbb{E}(k_{ij})} = \sum_{i = 1}^{n} \sum_{j = 1}^{p} \frac{\left( k_{ij} - \frac{k_{i \bullet}k_{\bullet j}}{k_{\bullet\bullet}} \right)^2}{\left( \frac{k_{i \bullet} k_{\bullet j}}{k_{\bullet\bullet}} \right)}.$$
-Si les variables sont indépendantes, la statistique $T$ doit être proche de $0$.
+Sous l'hypothèse d'indépendance, cette statistique suit approximativement une loi du $\chi^2$. Si les variables sont indépendantes, la statistique $T$ doit être proche de $0$.
 
 
 ### Profils-lignes et profils-colonnes
 
-Chaque ligne du tableau peut être vue comme un profil-ligne
-$$L_i = \left( \frac{k_{i 1}}{k_{i \bullet}}, \dots, \frac{k_{i p}}{k_{i \bullet}} \right) = \left( \frac{f_{i 1}}{f_{i \bullet}}, \dots, \frac{f_{i p}}{f_{i \bullet}} \right)$$
-et chaque colonne du tableau peut être vue comme un profil-colonne
+Pour analyser les structures dans le tableau de contingence, on introduit la notion de profil. Chaque ligne du tableau peut être vue comme un profil-ligne
+$$L_i = \left( \frac{k_{i 1}}{k_{i \bullet}}, \dots, \frac{k_{i p}}{k_{i \bullet}} \right) = \left( \frac{f_{i 1}}{f_{i \bullet}}, \dots, \frac{f_{i p}}{f_{i \bullet}} \right).$$
+Le profil-ligne représente la répartition des modalités $i$ de la première variable parmi les modalités de la seconde.
+
+De même, chaque colonne du tableau peut être vue comme un profil-colonne
 $$C_j = \left( \frac{k_{1 j}}{k_{\bullet j}}, \dots, \frac{k_{n j}}{k_{\bullet j}} \right) = \left( \frac{f_{1 j}}{f_{\bullet j}}, \dots, \frac{f_{n j}}{f_{\bullet j}} \right)
 .$$
+Le profil-colonne représente la répartition des modalités $j$ de la deuxième variable parmi les modalités de la première.
 
-Le profil-ligne moyen est donné par 
+On peut ensuite s'intéresser au profil-ligne moyen (resp. profil-colonne moyen) obtenus comme la moyenne pondérée des profils-lignes (resp. profils-colonnes). Autrement dit, ils correspond aux fréquences marginales colonnes (resp. fréquences marginales lignes). Le profil-ligne moyen est donné par 
 $$\left( \sum_{i = 1}^{n} f_{i \bullet} \frac{f_{i 1}}{f_{i \bullet}}, \dots, \sum_{i = 1}^{n} f_{i \bullet} \frac{f_{i p}}{f_{i \bullet}} \right) = \left( f_{\bullet 1}, \dots, f_{\bullet p} \right),$$
 et le profil-colonne moyen est donné par 
 $$\left( \sum_{j = 1}^{p} f_{{\bullet j}} \frac{f_{1 j}}{f_{\bullet j}}, \dots, \sum_{j = 1}^{p} f_{\bullet j} \frac{f_{n j}}{f_{\bullet j}} \right) = \left( f_{{1 \bullet}}, \dots, f_{n \bullet} \right).$$
 
-En cas d'indépendance entre les variables, tous les profils sont égaux à leurs moyennes respectives, i.e pour tout $i \in \{ 1, \dots, n \}$ et $j \in \{ 1, \dots, p \}$, 
+Si les variables sont indépendantes, tous les profiles sont égaux à leur profils moyens respectifs. Autrement dit, pour tout $i \in \{ 1, \dots, n \}$ et $j \in \{ 1, \dots, p \}$, 
 $$\left( \frac{f_{i 1}}{f_{i \bullet}}, \dots, \frac{f_{i p}}{f_{i \bullet}} \right) = \left( f_{\bullet 1}, \dots, f_{\bullet p} \right) \quad\text{et}\quad
 \left( \frac{f_{1 j}}{f_{\bullet j}}, \dots, \frac{f_{n j}}{f_{\bullet j}} \right) = \left( f_{{1 \bullet}}, \dots, f_{n \bullet} \right).$$
+Ainsi, plus les profils s'éloignent de leurs moyennes, plus les variables montrent une dépendance.
 
-La dépendance entre les variables est fonction de la similarité entre les profils-lignes et les profils-colonnes. On peut mesurer la distance entre deux profils-lignes avec la distance du $\chi^2$, en tenant compte de l'importance de chaque colonne:
-$$d^2(i, i^\prime) = \sum_{j = 1}^{p} \frac{1}{f_{\bullet j}} \left( \frac{f_{ij}}{f_{i \bullet}} - \frac{f_{i^\prime j}}{f_{i^\prime j}} \right)^2.$$
+Pour mesurer la différence entre deux profils-lignes, on utilise la distance du $\chi^2$ pondérée par les fréquences marginales :
+$$d^2(L_i, L_{i^\prime}) = \sum_{j = 1}^{p} \frac{1}{f_{\bullet j}} \left( \frac{f_{ij}}{f_{i \bullet}} - \frac{f_{i^\prime j}}{f_{i^\prime \bullet}} \right)^2.$$
+On peut faire de même pour la différence entre deux profils-colonnes :
+$$d^2(C_j, C_{j^\prime}) = \sum_{i = 1}^{n} \frac{1}{f_{i \bullet}} \left( \frac{f_{ij}}{f_{\bullet j}} - \frac{f_{i j^\prime}}{f_{\bullet j^\prime}} \right)^2.$$
 
-On peut écrire cela sous forme matricielle en notant $D_n = \text{diag}(f_{i \bullet})$ et $D_p = \text{diag}(f_{\bullet j})$. La matrice $D_n^{-1}F$ a pour lignes les profils-lignes et la matrice $D_p^{-1}F^{\top}$ a pour lignes les profils-colonnes. En utilisant ces matrices, la distance du $\chi^2$ au carré est de la forme $x^{\top}D_p^{-1}x$ pour un point-ligne $x \in \mathbb{R}^p$ et de la forme $x^{\top}D_n^{-1}x$ pour un point-colonne $x \in \mathbb{R}^n$.
+
+On peut écrire cela sous forme matricielle. Notons $D_n = \text{diag}(f_{i \bullet})$ la matrice diagonale des poids des lignes et $D_p = \text{diag}(f_{\bullet j})$ la matrice diagonale des poids des colonnes. La matrice $D_n^{-1}F$ a pour lignes les profils-lignes et la matrice $D_p^{-1}F^{\top}$ a pour lignes les profils-colonnes. la distance du $\chi^2$ entre deux profils-lignes $L_i$ et $L_{i^\prime}$ s'écrit alors 
+$$d^2(L_i, L_{i^\prime}) = (L_i - L_{i^\prime})^\top D_p^{-1} (L_i - L_{i^\prime}),$$
+et de manière analogue pour deux profils-colonnes $C_j$ et $C_{j^\prime}$
+$$d^2(C_j, C_{j^\prime}) = (C_j - C_{j^\prime})^\top D_n^{-1} (C_j - C_{j^\prime}).$$
+
+Ces distances sont à la base de la représentation géométrique dans l'analyse des correspondances, où l'on cherche une projection des profils dans un espace de faible dimension qui conserve au mieux ces distances.
 
 ## Analyse factorielle des correspondances
 
-L'analyse factorielle des correspondances (AFC) est une approche graphique permettant de représenter simultanément les profils-lignes appartenant à $\mathbb{R}^p$ et les profils-colonnes appartenant à $\mathbb{R}^n$ d'un tableau de fréquences. On cherche donc un espace en deux dimensions où projeter les profils lignes et colonnes de sorte que les points dans cet espace soient le plus près possible des points originaux au sens de la distance du $\chi^2$. L'analyse des correspondances est très similaire à une double ACP.
+L'analyse factorielle des correspondances (AFC) est une méthode d'analyse exploratoire qui vise à représenter graphiquement les relations entre les modalités de deux variables qualitatives. Elle permet de représenter simultanément les profils-lignes (dans $\mathbb{R}^p$) et les profils-colonnes (dans $\mathbb{R}^n$) d'un tableau de contingences, dans un espace de faible dimension, tout en préservant au mieux la distance du $\psi^2$. L'objectif de l'AFC est de trouver une représentation bidimensionnelle (voir tridimensionnelle) dans laquelle les proximités géométriques entre points reflètent au mieux les similarités entre les modalités.
 
-Analyse directe (sur les lignes): les lignes de la matrice $D_n^{-1}F \in \mathbb{R}^p$. On cherche à les représenter dans cet espace muni de la distance $x^{\top} D_p^{-1} x$.
+::: {.callout-tip icon=false}
+## Remarque
 
-Analyse duale (sur les colonnes): les colonnes de la matrice $D_p^{-1}F^{\top} \in R^n$. On cherche à les représenter dans cet espace muni de la distance $x^{\top} D_n^{-1} x$.
+L'AFC peut être vue comme une double ACP : une ACP pondérée appliquée aux profils-lignes et aux profils-colonnes, dans leur espaces respectifs avec une métrique adaptée.
 
-Premier axe factoriel de l'analyse directe: on cherche le vecteur $u \in \mathbb{R}^p$ tel que 
-$$\left( u^{\top} D_p^{-1} F^{\top} D_n^{-1} \right) D_n \left( D_n^{-1} F D_p^{-1} u \right).$$
-soit maximal, sachant que $u^{\top} D_p^{-1} u = 1$. La solution est donnée par le vecteur propre principal de 
-$$D_p \left( D_p^{-1} F^{\top} D_n^{-1} F D_p^{-1} \right) = F^{\top} D_n^{-1} F D_p^{-1} \equiv S.$$
+:::
 
-Les formules des coordonnées dans le système d'axes sont plutôt complexes et pas très parlantes... mais à remarquer:
+L'analyse des profils-lignes s'appelle l'analyse directe. On considère les profils-lignes contenus dans la matrice $D_n^{-1}F \in \mathbb{R}^{n \times p}$. On projette les profils-lignes dans un espace muni de la métrique du $\chi^2$ sur les colonnes, définie par 
+$$\left\langle x, y \right\rangle = x^{\top} D_p^{-1} y.$$
 
-1. $S$ et $T$ ont les mêmes $p$ premières valeurs propres.
+L'analyse des profils-colonnes s'appelle l'analyse duale. On considère les profils-colonnes contenus dans la matrice $D_p^{-1} F^{\top} \in \mathbb{R}^{p \times n}$. On projette les profils-colonnes dans un espace muni de la métrique du $\chi^2$ sur les lignes, définie par 
+$$\left\langle x, y \right\rangle = x^{\top} D_n^{-1} y.$$
 
-2. En centrant les profils lignes et colonnes, on peut illustrer le résultat des deux graphiques sur les mêmes axes.
+Pour l'analyse directe, on cherche le premier axe factoriel, i.e. la direction $u \in R^p$ qui maximise la variance projetée des profils-lignes, sous contrainte que $u$ soit normé. On cherche donc
+$$\max_{u} = u^{\top} D_p^{-1} F^{\top} D_n^{-1} F D_p^{-1} u, \quad\text{s.c.}\quad u^{\top} D_p^{-1} u = 1.$$
+Ce problème d'optimisation revient à chercher le premier vecteur propre de la matrice
+$$S = F^{\top} D_n^{-1} F D_p^{-1}.$$
+La matrice $S$ joue un rôle analogue à la matrice de covariance dans l'ACP. L'analyse duale se fait de façon similaire. On cherche le premier vecteur propre de la matrice 
+$$T = F D_p^{-1} F^{\top} D_n^{-1}.$$
+Les vecteurs propres de la matrice $T$ donnent les axes factoriels dans l'espace des lignes.
+
+::: {.callout-tip icon=false}
+## Remarques
+
+1. Les matrices $S$ et $T$ sont les mêmes $r = \min(n - 1, p - 1)$ premières valeurs propres positives. Cela garantit une représentation cohérente des lignes et des colonnes dans le mêmes espace réduit.
+
+2. En centrant les profils, on peut projeter les profils-lignes et les profils-colonnes dans un même repère, facilitant ainsi l'interprétation géométrique conjointe.
+
+3. Les coordonnées factorielles des modalités sont obtenues à partir des vecteurs propres et des valeurs propres, mais leurs formules sont souvent complexes. Ce sont surtout les distances et les angles dans le plan factoriel qui importent pour l'analyse.
+
+:::
+
 
 ## Centre de gravité et inertie 
 
-Les logiciels produisent généralement un graphique centré en $(0, 0)$. Il s'agit d'une analyse relative aux centres de gravité des lignes et des colonnes. Cette pratique est à la fois commune et commode. En fait, la masse de la $i$e ligne est $f_{i \bullet}$, soit la proportion des observations qui tombent sur cette ligne. De fa\c{c}on similaire, la masse de la $j$e colonne est $f_{\bullet j}$. Le centre de gravité des lignes est la moyenne des profils-lignes, mais pondérée par la masse de chaque ligne, et similairement pour les profils-colonnes. 
+Dans les sorties des logiciels de statistique, le nuage des points issus d'une AFC est généralement centré en $(0, 0)$. Cette convention reflète une analysis relative aux centres de gravité des profils-lignes et des profils-colonnes. Ce centrage est à la fois pratique et interprétable. En effet, il fait apparaître les distances entre les modalités par rapport à leur moyenne poindérée, i.e. par rapport au comportement moyen dans la population. 
 
-Le centre de gravité des lignes est défini par $G_L = \left( g_{1}, \dots, g_{p} \right)^top$, où 
-$$g_j = \sum_{i = 1}^{n} f_{i \bullet} \frac{f_{i j}}{f_{i \bullet}} = \sum_{i = 1}^{n} f_{i j} = f_{\bullet j}, \quad 1 \leq j \leq p.$$
+Chaque modalité (ligne ou colonne) est associée à un poids, correspondant à sa fréquence marginale : le poids de la $i$e ligne est $f_{i \bullet}$ et le poids de la $j$e colonne est $f_{\bullet j}$. Le centre de gravité des lignes est la moyenne pondérée des profils-lignes : 
 
-De même, le centre de gravité des colonnes est défini par
-$$G_C = \left( f_{1 \bullet}, \dots, f_{n \bullet} \right)^top.$$
+$$G_L = \left( g_{1}, \dots, g_{p} \right)^{top}, \quad \text{où}\quad g_j = \sum_{i = 1}^{n} f_{i \bullet} \frac{f_{i j}}{f_{i \bullet}} = \sum_{i = 1}^{n} f_{i j} = f_{\bullet j}, j \in \{ 1, \dots, p \}.$$ 
 
-Centrage des lignes:
+De même, le centre de gravité des colonnes est 
+$$G_C = \left( f_{1 \bullet}, \dots, f_{n \bullet} \right)^{top}.$$
+
+Pour recentrer les profils autour du centre de gravité, on soustrait leur valeur moyenne :
 $$\frac{f_{i j}}{f_{i \bullet}} - g_{j} = \frac{f_{i j}}{f_{i \bullet}} - f_{\bullet j} = \frac{f_{i j} - f_{i \bullet} f_{\bullet j}}{f_{i \bullet}}.$$
-de sorte que, pour tout $i \in \{ 1, \dots, n \}$, 
+Ce centrage garantit que chaque profil-ligne $i \in \{ 1, \dots, n \}$ est moyenné à zéro :
 $$\sum_{j = 1}^{p} \frac{f_{i j} - f_{i \bullet}f_{\bullet j}}{f_{i \bullet}} = 0.$$
 
-L'analyse ne se fait plus sur
-$$S = F^{\top} D_n^{-1} F D_p^{-1},$$
-mais plutôt sur $S^\star = (s_{j j^\prime}^\star),$ où 
+L'AFC ne se fait donc plus sur $S$ mais plutôt sur une matrice centrée $S^\star = (s_{j j^\prime}^\star),$ où 
 $$s_{j j^\prime}^\star = \sum_{i = 1}^{n} \frac{\left( f_{i j} - f_{i \bullet} f_{\bullet j} \right) \left( f_{i j^\prime} - f_{i \bullet} f_{\bullet j^\prime} \right)}{f_{i \bullet} f_{\bullet j^\prime}}.$$
 
 Par définition, 

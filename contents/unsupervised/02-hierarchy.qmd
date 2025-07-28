@@ -1,5 +1,5 @@
 --- 
-title: "Méthode Hiérarchique"
+title: "Méthodes hiérarchiques"
 format: 
   html: default
   pdf:
