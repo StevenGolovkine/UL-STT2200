@@ -189,6 +189,24 @@ La propriété précédente entraine que les matrices $S$ et $S^\star$ one les m
 
 ### Coordonnées factorielles et inertie
 
+On a que, pour tout $k = 1, \dots, r$, 
+$$\Phi_k = D_n^{-1} F D_p^{-1} u_k \quad \text{et} \quad \Psi_k = D_p^{-1} F^{\top} D_n^{-1} v_k.$$
+Or, on a aussi vu les relations entre les vecteurs propres $u_k$ et $v_k$,
+$$u_k = \frac{1}{\sqrt{\lambda_k}} F^{\top} D_n^{-1} v_k \quad \text{et} \quad v_k = \frac{1}{\sqrt{\lambda_k}} F D_p^{-1} u_k.$$
+On en déduit donc les relations entre les coordonnées factorielles des profils-lignes et celles des profils-colonnes :
+$$\Phi_k = \frac{1}{\sqrt{\lambda_k}} D_n^{-1} F \Psi_k \quad \text{et} \quad \Psi_k = \frac{1}{\sqrt{\lambda_k}} D_p^{-1} F^{\top} \Phi_k.$$
+
+On peut maintenant examiner ces relations sur chacune des composantes :
+$$\left[ \Phi_k \right]_i = \frac{1}{\sqrt{\lambda_k}} \sum_{j = 1}^{p} \frac{f_{ij}}{f_{i \bullet}} \left[ \Psi_k \right]_j \quad \text{et} \quad \left[ \Psi_k \right]_j = \frac{1}{\sqrt{\lambda_k}} \sum_{i = 1}^{n} \frac{f_{ij}}{f_{\bullet j}} \left[ \Phi_k \right]_i,$$
+où $\left[ \Phi_k \right]_i$ désigne la coordonnée du profil-ligne $L_i$ sur le $k$e axe factoriel et $\left[ \Psi_k \right]_j$ désigne la coordonnée du profil-colonne $C_j$ sur le même axe factoriel. Ces relations expriment, à un facteur $1 / \sqrt{\lambda_k}$ près, que chaque profil-ligne est au barycentre des projections des profils-colonnes affectés du poids de la colonne $j$ dans la ligne $i$ et que chaque profil-colonne est au barycentre des projections des profils-lignes affectés du poids de la ligne $i$ dans la colonne $j$.
+
+::: {.callout-tip icon=false}
+## Remarque 
+
+Ainsi, en AFC, nous avons une double représentation barycentrique. Sur les axes factoriels, chaque point d'un nuage est au barycentre des points de l'autre nuage.
+
+:::
+
 Coordonnées des points-lignes. La projection du $i$e point-ligne sur l'axe $j$ est donnée par 
 $$\left( D_n^{-1} F \phi_j \right)_i = \frac{1}{f_{i \bullet}} \sum_{j^\prime = 1}^{p} f_{i j^\prime} \phi_{j j^\prime} = \sqrt{\lambda_j} \Psi_{j i} \equiv \widehat{\Psi}_{j i}.$$
 De plus,
