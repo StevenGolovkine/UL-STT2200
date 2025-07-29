@@ -30,7 +30,19 @@ Dans ces situations, on peut recourir à une méthode analogue à l'ACP, spécif
   
 :::
 
-## Notation 
+
+## Analyse factorielle des correspondances
+
+L'analyse factorielle des correspondances (AFC) est une méthode d'analyse exploratoire qui vise à représenter graphiquement les relations entre les modalités de deux variables qualitatives. Elle permet de représenter simultanément les **profils-lignes** (dans $\mathbb{R}^p$) et les **profils-colonnes** (dans $\mathbb{R}^n$) d'un tableau de contingences, dans un espace de faible dimension, tout en préservant au mieux la distance du $\chi^2$. L'objectif de l'AFC est de trouver une représentation bidimensionnelle (voir tridimensionnelle) dans laquelle les proximités géométriques entre points reflètent au mieux les similarités entre les modalités.
+
+::: {.callout-tip icon=false}
+## Remarque
+
+L'AFC peut être vue comme une double ACP : une ACP pondérée appliquée aux profils-lignes et aux profils-colonnes, dans leur espaces respectifs avec une métrique adaptée.
+
+:::
+
+### Notation 
 
 On considère un tableau de contingence $K = (k_{ij})$, où $k_{ij}$ est le nombre d'individus appartenant à la classe $i \in \{ 1, \dots, n \}$ et à la catégorie $j \in \{ 1, \dots, p \}$.
 On travaille ensuite avec le tableau des fréquences relatives en normalisant ce tableau. Comme les fréquences sont proportionnelles à la taille d'échantillon $n$, le tableau des fréquences relatives contient plus d'information. Notons $F = (f_{ij})$, dans lequel
@@ -86,16 +98,7 @@ $$d^2(C_j, C_{j^\prime}) = (C_j - C_{j^\prime})^\top D_n^{-1} (C_j - C_{j^\prime
 
 Ces distances sont à la base de la représentation géométrique dans l'analyse des correspondances, où l'on cherche une projection des profils dans un espace de faible dimension qui conserve au mieux ces distances.
 
-## Analyse factorielle des correspondances
-
-L'analyse factorielle des correspondances (AFC) est une méthode d'analyse exploratoire qui vise à représenter graphiquement les relations entre les modalités de deux variables qualitatives. Elle permet de représenter simultanément les profils-lignes (dans $\mathbb{R}^p$) et les profils-colonnes (dans $\mathbb{R}^n$) d'un tableau de contingences, dans un espace de faible dimension, tout en préservant au mieux la distance du $\psi^2$. L'objectif de l'AFC est de trouver une représentation bidimensionnelle (voir tridimensionnelle) dans laquelle les proximités géométriques entre points reflètent au mieux les similarités entre les modalités.
-
-::: {.callout-tip icon=false}
-## Remarque
-
-L'AFC peut être vue comme une double ACP : une ACP pondérée appliquée aux profils-lignes et aux profils-colonnes, dans leur espaces respectifs avec une métrique adaptée.
-
-:::
+## Estimation des éléments propres 
 
 L'analyse des profils-lignes s'appelle l'analyse directe. On considère les profils-lignes contenus dans la matrice $D_n^{-1}F \in \mathbb{R}^{n \times p}$. On projette les profils-lignes dans un espace muni de la métrique du $\chi^2$ sur les colonnes, définie par 
 $$\left\langle x, y \right\rangle = x^{\top} D_p^{-1} y.$$
@@ -137,6 +140,7 @@ $$T v_{1} = F D_p^{-1} F^{\top} D_n^{-1} v_1 = \mu_1 v_1,$$
 en multipliant à gauche par $F^{\top} D_n^{-1}$, on obtient :
 $$F^{\top} D_n^{-1} F D_p^{-1} F^{\top} D_n^{-1} v_1 = \mu_1 F^{\top} D_n^{-1} v_1.$$
 Ainsi le vecteur $F^{\top} D_n^{-1} v_1$ est un vecteur propre de la matrice $F^{\top} D_n^{-1} F D_p^{-1}$ associée à la valeur propre $\mu_1$. Comme $\lambda_1$ est la plus grande valeur propre de $F^{\top} D_n^{-1} F D_p^{-1}$, on en déduit que $\mu_1 \leq \lambda_{1}$. En procédant de la même manière, en partant de $S u_1 = \lambda_{1} u_{1}$, on déduit que $\lambda_{1} \leq \mu_{1}$. Donc $\lambda_{1} = \mu_{1}$. On peut ensuite faire de même pour les $r$ premières valeurs propres. On en déduit aussi les relations entre les valeurs propres. 
+
 
 :::
 
@@ -211,20 +215,31 @@ Ainsi, en AFC, nous avons une double représentation barycentrique. Sur les axes
 
 ## Analyse des correspondances multiples
 
-L'analyse des correspondances multiples est une généralisation de l'analyse des correspondances binaires.
-Elle permet la representation graphique de tableaux de fréquences contnant plus de deux variables.
-Un exemple classique d'un tableau de fréquences avec plus de deux variables est le tableau présentant les réponses d'individus à un questionnaire contenant $Q$ questions à choix multiples.
+L'analyse des correspondances multiples (ACM) peut être présentée comme un prolongement de l'AFC. Elle permet la representation graphique de tableaux de fréquences contnant plus de deux variables. Un exemple classique d'un tableau de fréquences avec plus de deux variables qualitatives est un tableau présentant les réponses d'individus à un questionnaire contenant $Q$ questions à choix multiples. L'ACM est donc très utile pour visualiser les résultats d'une étude par questionnaire. 
 
-Très utile pour visualiser les résultats d'une étude par questionnaire.
+L'ACM peut aussi être vue comme une version de l'ACP quand les variables sont mixtes, i.e. comprenant à la fois des variables quantitatives et des variables qualitatives. Le traitement conjoint de ces deux types de données repose sur leur transformation préalable appelée **codage disjonctif complet**.
 
-L'ACM peut aussi être vue comme une version de l'ACP quand les variables sont catégorielles:
+### Notation 
 
-  * l'analyse duale permet de voir les individus ayant des profils de réponses similaires
+Notons $n$ le nombre d'individus (ou d'observations) et $Q$ le nombre de variables (ou de questions dans le cas d'un questionnaire). Chaque variable possède $J_q$ modalités et le nombre total de modalités est égal à $J$.
 
-  * on peut obtenir des scores continus pour les individus qui capturent une grande partie de l'information
+::: {.callout-warning icon=false}
+## Définition
 
-  * donc aussi utile pour scorer les résultats d'une étude par questionnaire dans un but éventuel de partitionnement, par exemple
+Le tableau binaire, i.e. ne contenant que des $0$ et des $1$, à $n$ lignes et $J$ colonnes est appelé **tableau de codage disjonctif complet**. On le note $Z$.
 
+:::
+
+Exemple de transformation de tableau
+
+
+::: {.callout-tip icon=false}
+## Remarque
+
+Lorsque l'on veut transformer des variables quantitatives en tableau de codage disjonctif complet, on perd de l'information. En effet, on doit découper les variables qualitatives en classes, chaque observation de ces variables appartenant à une unique classe.
+
+
+:::
 
 En général, pour un questionnaire contenant $Q$ questions, on a un tableau de la forme suivante:
 $$Z = \left[ Z_1 \mid \cdots \mid Z_{Q} \right].$$
