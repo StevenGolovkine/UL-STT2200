@@ -107,7 +107,11 @@ Pour l'analyse directe, on cherche le premier axe factoriel, i.e. la direction $
 $$\max_{u} = u^{\top} D_p^{-1} F^{\top} D_n^{-1} F D_p^{-1} u, \quad\text{s.c.}\quad u^{\top} D_p^{-1} u = 1.$$
 Ce problème d'optimisation revient à chercher le premier vecteur propre de la matrice
 $$S = F^{\top} D_n^{-1} F D_p^{-1}.$$
-La matrice $S$ joue un rôle analogue à la matrice de covariance dans l'ACP. L'analyse duale se fait de façon similaire. On cherche le premier vecteur propre de la matrice 
+La matrice $S$ joue un rôle analogue à la matrice de covariance dans l'ACP. Le premier vecteur propre $u_1$ vérifie donc la relation
+$$S u_{1} = F^{\top} D_n^{-1} F D_p^{-1} u_1 = \lambda_{1} u_1,$$
+avec $\lambda_1$ la valeur propre associée à $u_1$. Les coordonnées des profils-lignes sur le premier axe factoriel sont obtenues par la relation 
+
+L'analyse duale se fait de façon similaire. On cherche le premier vecteur propre de la matrice 
 $$T = F D_p^{-1} F^{\top} D_n^{-1}.$$
 Les vecteurs propres de la matrice $T$ donnent les axes factoriels dans l'espace des lignes.
 
@@ -123,35 +127,46 @@ Les vecteurs propres de la matrice $T$ donnent les axes factoriels dans l'espace
 :::
 
 
-## Centre de gravité et inertie 
+### Centre de gravité et inertie 
 
 Dans les sorties des logiciels de statistique, le nuage des points issus d'une AFC est généralement centré en $(0, 0)$. Cette convention reflète une analysis relative aux centres de gravité des profils-lignes et des profils-colonnes. Ce centrage est à la fois pratique et interprétable. En effet, il fait apparaître les distances entre les modalités par rapport à leur moyenne poindérée, i.e. par rapport au comportement moyen dans la population. 
 
 Chaque modalité (ligne ou colonne) est associée à un poids, correspondant à sa fréquence marginale : le poids de la $i$e ligne est $f_{i \bullet}$ et le poids de la $j$e colonne est $f_{\bullet j}$. Le centre de gravité des lignes est la moyenne pondérée des profils-lignes : 
 
-$$G_L = \left( g_{1}, \dots, g_{p} \right)^{top}, \quad \text{où}\quad g_j = \sum_{i = 1}^{n} f_{i \bullet} \frac{f_{i j}}{f_{i \bullet}} = \sum_{i = 1}^{n} f_{i j} = f_{\bullet j}, j \in \{ 1, \dots, p \}.$$ 
+$$G_L = \left( g_{1}, \dots, g_{p} \right)^{\top}, \quad \text{où}\quad g_j = \sum_{i = 1}^{n} f_{i \bullet} \frac{f_{i j}}{f_{i \bullet}} = \sum_{i = 1}^{n} f_{i j} = f_{\bullet j}, j \in \{ 1, \dots, p \}.$$ 
 
 De même, le centre de gravité des colonnes est 
-$$G_C = \left( f_{1 \bullet}, \dots, f_{n \bullet} \right)^{top}.$$
+$$G_C = \left( f_{1 \bullet}, \dots, f_{n \bullet} \right)^{\top}.$$
 
 Pour recentrer les profils autour du centre de gravité, on soustrait leur valeur moyenne :
 $$\frac{f_{i j}}{f_{i \bullet}} - g_{j} = \frac{f_{i j}}{f_{i \bullet}} - f_{\bullet j} = \frac{f_{i j} - f_{i \bullet} f_{\bullet j}}{f_{i \bullet}}.$$
 Ce centrage garantit que chaque profil-ligne $i \in \{ 1, \dots, n \}$ est moyenné à zéro :
 $$\sum_{j = 1}^{p} \frac{f_{i j} - f_{i \bullet}f_{\bullet j}}{f_{i \bullet}} = 0.$$
 
-L'AFC ne se fait donc plus sur $S$ mais plutôt sur une matrice centrée $S^\star = (s_{j j^\prime}^\star),$ où 
+L'AFC ne se fait donc plus sur la matrice $S$ mais plutôt sur une matrice centrée $S^\star = (s_{j j^\prime}^\star),$ où 
 $$s_{j j^\prime}^\star = \sum_{i = 1}^{n} \frac{\left( f_{i j} - f_{i \bullet} f_{\bullet j} \right) \left( f_{i j^\prime} - f_{i \bullet} f_{\bullet j^\prime} \right)}{f_{i \bullet} f_{\bullet j^\prime}}.$$
 
-Par définition, 
+Par définition, la trace de la matrice $S^\star$ donne l'inertie totale : 
 $$\text{tr}(S^\star) = \sum_{j = 1}^{p} \sum_{i = 1}^{n} \frac{\left( f_{i j} - f_{i \bullet}f_{\bullet j} \right)^2}{f_{i \bullet} f_{\bullet j}}.$$
+Celle-ci correspond à la statistique du $\chi^2$ normalisée que l'on utilise pour tester l'indépendance entre les variables.
 
-On retrouve l'expression de la statistique du $\chi^2$ servant à tester l'indépendance entre deux variables.
+::: {.callout-important icon=false}
+## Propriété
 
-
-On peut prouver que $s_{j j^\prime}^\star = s_{j j^\prime} - f_{\bullet j},$ où 
+On a que, pour tout $j, j^\prime \in \{ 1, \dots, p \}$, $s_{j j^\prime}^\star = s_{j j^\prime} - f_{\bullet j},$ où 
 $$s_{j j^\prime} = \sum_{i = 1}^{n} \frac{f_{i j}f_{i j^\prime}}{f_{i \bullet} f_{\bullet j^\prime}}.$$
-Ceci entraîne que ces deux matrices ont les mêmes $p$ premiers vecteurs propres normalisés.
 
+:::
+
+::: {.callout-tip icon=false collapse=true}
+## Preuve  
+
+
+:::
+
+La propriété précédente entraine que les matrices $S$ et $S^\star$ one les mêmes vecteurs propres pour les $p$ premières dimensions, ce qui permet d'effectuer l'analyse factorielle sur la version centrée.
+
+### Coordonnées factorielles et inertie
 
 Coordonnées des points-lignes. La projection du $i$e point-ligne sur l'axe $j$ est donnée par 
 $$\left( D_n^{-1} F \phi_j \right)_i = \frac{1}{f_{i \bullet}} \sum_{j^\prime = 1}^{p} f_{i j^\prime} \phi_{j j^\prime} = \sqrt{\lambda_j} \Psi_{j i} \equiv \widehat{\Psi}_{j i}.$$
