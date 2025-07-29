@@ -150,7 +150,7 @@ En centrant les profils, on peut projeter les profils-lignes et les profils-colo
 
 ### Centre de gravité et inertie 
 
-Dans les sorties des logiciels de statistique, le nuage des points issus d'une AFC est généralement centré en $(0, 0)$. Cette convention reflète une analysis relative aux centres de gravité des profils-lignes et des profils-colonnes. Ce centrage est à la fois pratique et interprétable. En effet, il fait apparaître les distances entre les modalités par rapport à leur moyenne poindérée, i.e. par rapport au comportement moyen dans la population. 
+Dans les sorties des logiciels de statistique, le nuage des points issus d'une AFC est généralement centré en $(0, 0)$. Cette convention reflète une analyse relative aux centres de gravité des profils-lignes et des profils-colonnes. Ce centrage est à la fois pratique et interprétable. En effet, il fait apparaître les distances entre les modalités par rapport à leur moyenne poindérée, i.e. par rapport au comportement moyen dans la population. 
 
 Chaque modalité (ligne ou colonne) est associée à un poids, correspondant à sa fréquence marginale : le poids de la $i$e ligne est $f_{i \bullet}$ et le poids de la $j$e colonne est $f_{\bullet j}$. Le centre de gravité des lignes est la moyenne pondérée des profils-lignes : 
 
@@ -187,7 +187,7 @@ $$s_{j j^\prime} = \sum_{i = 1}^{n} \frac{f_{i j}f_{i j^\prime}}{f_{i \bullet} f
 
 La propriété précédente entraine que les matrices $S$ et $S^\star$ one les mêmes vecteurs propres pour les $p$ premières dimensions, ce qui permet d'effectuer l'analyse factorielle sur la version centrée.
 
-### Coordonnées factorielles et inertie
+### Coordonnées factorielles
 
 On a que, pour tout $k = 1, \dots, r$, 
 $$\Phi_k = D_n^{-1} F D_p^{-1} u_k \quad \text{et} \quad \Psi_k = D_p^{-1} F^{\top} D_n^{-1} v_k.$$
@@ -206,41 +206,6 @@ où $\left[ \Phi_k \right]_i$ désigne la coordonnée du profil-ligne $L_i$ sur 
 Ainsi, en AFC, nous avons une double représentation barycentrique. Sur les axes factoriels, chaque point d'un nuage est au barycentre des points de l'autre nuage.
 
 :::
-
-Coordonnées des points-lignes. La projection du $i$e point-ligne sur l'axe $j$ est donnée par 
-$$\left( D_n^{-1} F \phi_j \right)_i = \frac{1}{f_{i \bullet}} \sum_{j^\prime = 1}^{p} f_{i j^\prime} \phi_{j j^\prime} = \sqrt{\lambda_j} \Psi_{j i} \equiv \widehat{\Psi}_{j i}.$$
-De plus,
-$$\sum_{i = 1}^{n} f_{i \bullet} \widehat{\Psi}^2_{j i} = \sum_{i = 1}^{n} f_{i \bullet} \left( \sqrt{\lambda_j} \Psi_{j i} \right)^2 = \lambda_j.$$
-
-
-Coordonnées des point-colonne. La projection du $k$e point-ligne sur l'axe $j$ est donnée par 
-$$\left( D_p^{-1} F^{\top} \psi_j \right)_k = \frac{1}{f_{\bullet k}} \sum_{i = 1}^{n} f_{i k} \psi_{j i} = \sqrt{\lambda_j} \Phi_{j k} \equiv \widehat{\Phi}_{j k}.$$
-De plus,
-$$\sum_{k = 1}^{p} f_{\bullet k} \widehat{\Phi}^2_{j k} = \sum_{k = 1}^{p} f_{\bullet k} \left( \sqrt{\lambda_j} \Phi_{j k} \right)^2 = \lambda_j.$$
-
-
-L'inertie absolue du $i$e point-ligne sur l'axe $j$ est $f_{i \bullet}\widehat{\Psi}_{j i}^2$. L'inertie relative du $i$e point-ligne sur l'axe $j$ est 
-$$\frac{f_{i \bullet} \widehat{\Psi}_{j i}^2}{\lambda_j}.$$
-
-
-L'inertie absolue du $k$e point-colonne sur l'axe $j$ est $f_{\bullet k}\widehat{\Phi}_{j k}^2$. L'inertie relative du $k$e point-colonne sur l'axe $j$ est 
-$$\frac{f_{\bullet k} \widehat{\Phi}_{j k}^2}{\lambda_j}.$$
-
-L'inertie totale est $I = T / k_{\bullet\bullet}$.
-
-la qualité de la représentation du $k$e point-colonne dans l'axe $j$ est donnée par
-$$\frac{d_j^2(k, G_C)}{d^2(k, G_c)} = \cos^2(\theta_{k j}),$$
-où $\theta_{k j}$ est l'angle entre le point $k$ et sa projection sur l'axe $j$.
-
-Interprétation: 
-
-1. Plus les $\cos^2(\theta_{k j})$ sont élevés, mieux les points sont représentés sur l'axe $j$.
-
-2. Ceci ne signifie pas pour autant que les points sont près du centre du graphique.
-
-3. Les points éloignés du centre de gravité se distinguent du centre de gravité.
-
-4. Une interprétation semblable existe pour les points-lignes.
 
 
 
