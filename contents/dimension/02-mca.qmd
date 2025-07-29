@@ -98,7 +98,7 @@ $$d^2(C_j, C_{j^\prime}) = (C_j - C_{j^\prime})^\top D_n^{-1} (C_j - C_{j^\prime
 
 Ces distances sont à la base de la représentation géométrique dans l'analyse des correspondances, où l'on cherche une projection des profils dans un espace de faible dimension qui conserve au mieux ces distances.
 
-## Estimation des éléments propres 
+### Estimation des éléments propres 
 
 L'analyse des profils-lignes s'appelle l'analyse directe. On considère les profils-lignes contenus dans la matrice $D_n^{-1}F \in \mathbb{R}^{n \times p}$. On projette les profils-lignes dans un espace muni de la métrique du $\chi^2$ sur les colonnes, définie par 
 $$\left\langle x, y \right\rangle = x^{\top} D_p^{-1} y.$$
