@@ -447,7 +447,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/dimension/03-kernel.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Noyau</span></a>
+ <span class="menu-text">Méthodes à noyaux</span></a>
   </div>
 </li>
       </ul>
@@ -551,12 +551,8 @@ window.Quarto = {
 <li><a href="#notation" id="toc-notation" class="nav-link" data-scroll-target="#notation">Notation</a></li>
   <li><a href="#ind%C3%A9pendance-statistique" id="toc-indépendance-statistique" class="nav-link" data-scroll-target="#indépendance-statistique">Indépendance statistique</a></li>
   <li><a href="#profils-lignes-et-profils-colonnes" id="toc-profils-lignes-et-profils-colonnes" class="nav-link" data-scroll-target="#profils-lignes-et-profils-colonnes">Profils-lignes et profils-colonnes</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#estimation-des-%C3%A9l%C3%A9ments-propres" id="toc-estimation-des-éléments-propres" class="nav-link" data-scroll-target="#estimation-des-éléments-propres">Estimation des éléments propres</a>
-  <ul class="collapse">
-<li><a href="#centre-de-gravit%C3%A9-et-inertie" id="toc-centre-de-gravité-et-inertie" class="nav-link" data-scroll-target="#centre-de-gravité-et-inertie">Centre de gravité et inertie</a></li>
+  <li><a href="#estimation-des-%C3%A9l%C3%A9ments-propres" id="toc-estimation-des-éléments-propres" class="nav-link" data-scroll-target="#estimation-des-éléments-propres">Estimation des éléments propres</a></li>
+  <li><a href="#centre-de-gravit%C3%A9-et-inertie" id="toc-centre-de-gravité-et-inertie" class="nav-link" data-scroll-target="#centre-de-gravité-et-inertie">Centre de gravité et inertie</a></li>
   <li><a href="#coordonn%C3%A9es-factorielles" id="toc-coordonnées-factorielles" class="nav-link" data-scroll-target="#coordonnées-factorielles">Coordonnées factorielles</a></li>
   </ul>
 </li>
@@ -654,7 +650,7 @@ f_{\bullet j} &amp;= \sum_{i = 1}^{n} f_{ij} = \frac{k_{\bullet j}}{k_{\bullet\b
 <p>Pour mesurer la différence entre deux profils-lignes, on utilise la distance du <span class="math inline">\(\chi^2\)</span> pondérée par les fréquences marginales : <span class="math display">\[d^2(L_i, L_{i^\prime}) = \sum_{j = 1}^{p} \frac{1}{f_{\bullet j}} \left( \frac{f_{ij}}{f_{i \bullet}} - \frac{f_{i^\prime j}}{f_{i^\prime \bullet}} \right)^2.\]</span> On peut faire de même pour la différence entre deux profils-colonnes : <span class="math display">\[d^2(C_j, C_{j^\prime}) = \sum_{i = 1}^{n} \frac{1}{f_{i \bullet}} \left( \frac{f_{ij}}{f_{\bullet j}} - \frac{f_{i j^\prime}}{f_{\bullet j^\prime}} \right)^2.\]</span></p>
 <p>On peut écrire cela sous forme matricielle. Notons <span class="math inline">\(D_n = \text{diag}(f_{i \bullet})\)</span> la matrice diagonale des poids des lignes et <span class="math inline">\(D_p = \text{diag}(f_{\bullet j})\)</span> la matrice diagonale des poids des colonnes. La matrice <span class="math inline">\(D_n^{-1}F\)</span> a pour lignes les profils-lignes et la matrice <span class="math inline">\(D_p^{-1}F^{\top}\)</span> a pour lignes les profils-colonnes. la distance du <span class="math inline">\(\chi^2\)</span> entre deux profils-lignes <span class="math inline">\(L_i\)</span> et <span class="math inline">\(L_{i^\prime}\)</span> s’écrit alors <span class="math display">\[d^2(L_i, L_{i^\prime}) = (L_i - L_{i^\prime})^\top D_p^{-1} (L_i - L_{i^\prime}),\]</span> et de manière analogue pour deux profils-colonnes <span class="math inline">\(C_j\)</span> et <span class="math inline">\(C_{j^\prime}\)</span> <span class="math display">\[d^2(C_j, C_{j^\prime}) = (C_j - C_{j^\prime})^\top D_n^{-1} (C_j - C_{j^\prime}).\]</span></p>
 <p>Ces distances sont à la base de la représentation géométrique dans l’analyse des correspondances, où l’on cherche une projection des profils dans un espace de faible dimension qui conserve au mieux ces distances.</p>
-</section></section><section id="estimation-des-éléments-propres" class="level2"><h2 class="anchored" data-anchor-id="estimation-des-éléments-propres">Estimation des éléments propres</h2>
+</section><section id="estimation-des-éléments-propres" class="level3"><h3 class="anchored" data-anchor-id="estimation-des-éléments-propres">Estimation des éléments propres</h3>
 <p>L’analyse des profils-lignes s’appelle l’analyse directe. On considère les profils-lignes contenus dans la matrice <span class="math inline">\(D_n^{-1}F \in \mathbb{R}^{n \times p}\)</span>. On projette les profils-lignes dans un espace muni de la métrique du <span class="math inline">\(\chi^2\)</span> sur les colonnes, définie par <span class="math display">\[\left\langle x, y \right\rangle = x^{\top} D_p^{-1} y.\]</span></p>
 <p>L’analyse des profils-colonnes s’appelle l’analyse duale. On considère les profils-colonnes contenus dans la matrice <span class="math inline">\(D_p^{-1} F^{\top} \in \mathbb{R}^{p \times n}\)</span>. On projette les profils-colonnes dans un espace muni de la métrique du <span class="math inline">\(\chi^2\)</span> sur les lignes, définie par <span class="math display">\[\left\langle x, y \right\rangle = x^{\top} D_n^{-1} y.\]</span></p>
 <p>Pour l’analyse directe, on cherche le premier axe factoriel, i.e. la direction <span class="math inline">\(u \in R^p\)</span> qui maximise la variance projetée des profils-lignes, sous contrainte que <span class="math inline">\(u\)</span> soit normé. On cherche donc <span class="math display">\[\max_{u} = u^{\top} D_p^{-1} F^{\top} D_n^{-1} F D_p^{-1} u, \quad\text{s.c.}\quad u^{\top} D_p^{-1} u = 1.\]</span> Ce problème d’optimisation revient à chercher le premier vecteur propre de la matrice <span class="math display">\[S = F^{\top} D_n^{-1} F D_p^{-1}.\]</span> La matrice <span class="math inline">\(S\)</span> joue un rôle analogue à la matrice de covariance dans l’ACP. Le premier vecteur propre <span class="math inline">\(u_1\)</span> vérifie donc la relation <span class="math display">\[S u_{1} = F^{\top} D_n^{-1} F D_p^{-1} u_1 = \lambda_{1} u_1,\]</span> avec <span class="math inline">\(\lambda_1\)</span> la valeur propre associée à <span class="math inline">\(u_1\)</span>. Les vecteurs propres de la matrice <span class="math inline">\(S\)</span> donnent les axes factoriels dans l’espace des colonnes. Les coordonnées des profils-lignes sur le premier axe factoriel sont obtenues par la relation <span class="math display">\[\Phi_1 = D_n^{-1} F D_p^{-1} u_1.\]</span> On obtient les autres couples de valeurs propres et vecteurs propres, ainsi que les coordonnées des profils-lignes sur les axes factoriels associés de manière similaire.</p>
@@ -701,7 +697,7 @@ Remarque
 <p>En centrant les profils, on peut projeter les profils-lignes et les profils-colonnes dans un même repère, facilitant ainsi l’interprétation géométrique conjointe.</p>
 </div>
 </div>
-<section id="centre-de-gravité-et-inertie" class="level3"><h3 class="anchored" data-anchor-id="centre-de-gravité-et-inertie">Centre de gravité et inertie</h3>
+</section><section id="centre-de-gravité-et-inertie" class="level3"><h3 class="anchored" data-anchor-id="centre-de-gravité-et-inertie">Centre de gravité et inertie</h3>
 <p>Dans les sorties des logiciels de statistique, le nuage des points issus d’une AFC est généralement centré en <span class="math inline">\((0, 0)\)</span>. Cette convention reflète une analyse relative aux centres de gravité des profils-lignes et des profils-colonnes. Ce centrage est à la fois pratique et interprétable. En effet, il fait apparaître les distances entre les modalités par rapport à leur moyenne poindérée, i.e. par rapport au comportement moyen dans la population.</p>
 <p>Chaque modalité (ligne ou colonne) est associée à un poids, correspondant à sa fréquence marginale : le poids de la <span class="math inline">\(i\)</span>e ligne est <span class="math inline">\(f_{i \bullet}\)</span> et le poids de la <span class="math inline">\(j\)</span>e colonne est <span class="math inline">\(f_{\bullet j}\)</span>. Le centre de gravité des lignes est la moyenne pondérée des profils-lignes :</p>
 <p><span class="math display">\[G_L = \left( g_{1}, \dots, g_{p} \right)^{\top}, \quad \text{où}\quad g_j = \sum_{i = 1}^{n} f_{i \bullet} \frac{f_{i j}}{f_{i \bullet}} = \sum_{i = 1}^{n} f_{i j} = f_{\bullet j}, j \in \{ 1, \dots, p \}.\]</span></p>
@@ -1467,8 +1463,8 @@ window.onload = function() {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../contents/dimension/03-kernel.html" class="pagination-link" aria-label="Noyau">
-        <span class="nav-page-text">Noyau</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../contents/dimension/03-kernel.html" class="pagination-link" aria-label="Méthodes à noyaux">
+        <span class="nav-page-text">Méthodes à noyaux</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
