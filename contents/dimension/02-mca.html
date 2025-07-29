@@ -546,20 +546,26 @@ window.Quarto = {
   <ul>
 <li><a href="#que-faire-avec-des-donn%C3%A9es-cat%C3%A9gorielles" id="toc-que-faire-avec-des-données-catégorielles" class="nav-link active" data-scroll-target="#que-faire-avec-des-données-catégorielles">Que faire avec des données catégorielles ?</a></li>
   <li>
-<a href="#notation" id="toc-notation" class="nav-link" data-scroll-target="#notation">Notation</a>
+<a href="#analyse-factorielle-des-correspondances" id="toc-analyse-factorielle-des-correspondances" class="nav-link" data-scroll-target="#analyse-factorielle-des-correspondances">Analyse factorielle des correspondances</a>
   <ul class="collapse">
-<li><a href="#ind%C3%A9pendance-statistique" id="toc-indépendance-statistique" class="nav-link" data-scroll-target="#indépendance-statistique">Indépendance statistique</a></li>
+<li><a href="#notation" id="toc-notation" class="nav-link" data-scroll-target="#notation">Notation</a></li>
+  <li><a href="#ind%C3%A9pendance-statistique" id="toc-indépendance-statistique" class="nav-link" data-scroll-target="#indépendance-statistique">Indépendance statistique</a></li>
   <li><a href="#profils-lignes-et-profils-colonnes" id="toc-profils-lignes-et-profils-colonnes" class="nav-link" data-scroll-target="#profils-lignes-et-profils-colonnes">Profils-lignes et profils-colonnes</a></li>
   </ul>
 </li>
   <li>
-<a href="#analyse-factorielle-des-correspondances" id="toc-analyse-factorielle-des-correspondances" class="nav-link" data-scroll-target="#analyse-factorielle-des-correspondances">Analyse factorielle des correspondances</a>
+<a href="#estimation-des-%C3%A9l%C3%A9ments-propres" id="toc-estimation-des-éléments-propres" class="nav-link" data-scroll-target="#estimation-des-éléments-propres">Estimation des éléments propres</a>
   <ul class="collapse">
 <li><a href="#centre-de-gravit%C3%A9-et-inertie" id="toc-centre-de-gravité-et-inertie" class="nav-link" data-scroll-target="#centre-de-gravité-et-inertie">Centre de gravité et inertie</a></li>
   <li><a href="#coordonn%C3%A9es-factorielles" id="toc-coordonnées-factorielles" class="nav-link" data-scroll-target="#coordonnées-factorielles">Coordonnées factorielles</a></li>
   </ul>
 </li>
-  <li><a href="#analyse-des-correspondances-multiples" id="toc-analyse-des-correspondances-multiples" class="nav-link" data-scroll-target="#analyse-des-correspondances-multiples">Analyse des correspondances multiples</a></li>
+  <li>
+<a href="#analyse-des-correspondances-multiples" id="toc-analyse-des-correspondances-multiples" class="nav-link" data-scroll-target="#analyse-des-correspondances-multiples">Analyse des correspondances multiples</a>
+  <ul class="collapse">
+<li><a href="#notation-1" id="toc-notation-1" class="nav-link" data-scroll-target="#notation-1">Notation</a></li>
+  </ul>
+</li>
   </ul>
 <div class="toc-actions"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
@@ -614,27 +620,8 @@ Exemples
 </ul>
 </div>
 </div>
-</section><section id="notation" class="level2"><h2 class="anchored" data-anchor-id="notation">Notation</h2>
-<p>On considère un tableau de contingence <span class="math inline">\(K = (k_{ij})\)</span>, où <span class="math inline">\(k_{ij}\)</span> est le nombre d’individus appartenant à la classe <span class="math inline">\(i \in \{ 1, \dots, n \}\)</span> et à la catégorie <span class="math inline">\(j \in \{ 1, \dots, p \}\)</span>. On travaille ensuite avec le tableau des fréquences relatives en normalisant ce tableau. Comme les fréquences sont proportionnelles à la taille d’échantillon <span class="math inline">\(n\)</span>, le tableau des fréquences relatives contient plus d’information. Notons <span class="math inline">\(F = (f_{ij})\)</span>, dans lequel <span class="math display">\[f_{ij} = \frac{k_{ij}}{k_{\bullet\bullet}} = \frac{k_{ij}}{\sum_{l = 1}^{n} \sum_{m = 1}^{p} k_{lm}}.\]</span></p>
-<p>Les marges lignes (resp. colonnes) du tableau correspondent à la somme des colonnes pour chaque ligne (resp. à la somme des lignes pour chaque colonne): <span class="math display">\[\begin{align}
-f_{i \bullet} &amp;= \sum_{j = 1}^{p} f_{ij} = \frac{k_{i \bullet}}{k_{\bullet\bullet}}, \quad 1 \leq i \leq n; \\
-f_{\bullet j} &amp;= \sum_{i = 1}^{n} f_{ij} = \frac{k_{\bullet j}}{k_{\bullet\bullet}}, \quad 1 \leq j \leq p.
-\end{align}\]</span></p>
-<section id="indépendance-statistique" class="level3"><h3 class="anchored" data-anchor-id="indépendance-statistique">Indépendance statistique</h3>
-<p>Le tableau des fréquences relatives <span class="math inline">\(F = (f_{ij})\)</span> peut être interprété comme une estimation des probabilités conjointes des modalités des deux variables qualitatives. Si les deux variables sont statistiquement indépendantes, on s’attend à ce que la probabilité conjointe s’approche du produit des probabilités marginales : <span class="math display">\[f_{ij} \approx f_{i \bullet} f_{\bullet j}, \quad i \in \{ 1, \dots, n \},~ j \in \{ 1, \dots, p \}.\]</span></p>
-<p>Pour tester si les écarts observés entre <span class="math inline">\(f_{ij}\)</span> et <span class="math inline">\(f_{i \bullet} f_{\bullet j}\)</span> sont significatifs, on utilise le test du <span class="math inline">\(\chi^2\)</span> d’indépendance : <span class="math display">\[T = \sum_{i = 1}^{n} \sum_{j = 1}^{p} \frac{\left( k_{ij} - \mathbb{E}(k_{ij}) \right)^2}{\mathbb{E}(k_{ij})} = \sum_{i = 1}^{n} \sum_{j = 1}^{p} \frac{\left( k_{ij} - \frac{k_{i \bullet}k_{\bullet j}}{k_{\bullet\bullet}} \right)^2}{\left( \frac{k_{i \bullet} k_{\bullet j}}{k_{\bullet\bullet}} \right)}.\]</span> Sous l’hypothèse d’indépendance, cette statistique suit approximativement une loi du <span class="math inline">\(\chi^2\)</span>. Si les variables sont indépendantes, la statistique <span class="math inline">\(T\)</span> doit être proche de <span class="math inline">\(0\)</span>.</p>
-</section><section id="profils-lignes-et-profils-colonnes" class="level3"><h3 class="anchored" data-anchor-id="profils-lignes-et-profils-colonnes">Profils-lignes et profils-colonnes</h3>
-<p>Pour analyser les structures dans le tableau de contingence, on introduit la notion de profil. Chaque ligne du tableau peut être vue comme un profil-ligne <span class="math display">\[L_i = \left( \frac{k_{i 1}}{k_{i \bullet}}, \dots, \frac{k_{i p}}{k_{i \bullet}} \right) = \left( \frac{f_{i 1}}{f_{i \bullet}}, \dots, \frac{f_{i p}}{f_{i \bullet}} \right).\]</span> Le profil-ligne représente la répartition des modalités <span class="math inline">\(i\)</span> de la première variable parmi les modalités de la seconde.</p>
-<p>De même, chaque colonne du tableau peut être vue comme un profil-colonne <span class="math display">\[C_j = \left( \frac{k_{1 j}}{k_{\bullet j}}, \dots, \frac{k_{n j}}{k_{\bullet j}} \right) = \left( \frac{f_{1 j}}{f_{\bullet j}}, \dots, \frac{f_{n j}}{f_{\bullet j}} \right)
-.\]</span> Le profil-colonne représente la répartition des modalités <span class="math inline">\(j\)</span> de la deuxième variable parmi les modalités de la première.</p>
-<p>On peut ensuite s’intéresser au profil-ligne moyen (resp. profil-colonne moyen) obtenus comme la moyenne pondérée des profils-lignes (resp. profils-colonnes). Autrement dit, ils correspond aux fréquences marginales colonnes (resp. fréquences marginales lignes). Le profil-ligne moyen est donné par <span class="math display">\[\left( \sum_{i = 1}^{n} f_{i \bullet} \frac{f_{i 1}}{f_{i \bullet}}, \dots, \sum_{i = 1}^{n} f_{i \bullet} \frac{f_{i p}}{f_{i \bullet}} \right) = \left( f_{\bullet 1}, \dots, f_{\bullet p} \right),\]</span> et le profil-colonne moyen est donné par <span class="math display">\[\left( \sum_{j = 1}^{p} f_{{\bullet j}} \frac{f_{1 j}}{f_{\bullet j}}, \dots, \sum_{j = 1}^{p} f_{\bullet j} \frac{f_{n j}}{f_{\bullet j}} \right) = \left( f_{{1 \bullet}}, \dots, f_{n \bullet} \right).\]</span></p>
-<p>Si les variables sont indépendantes, tous les profiles sont égaux à leur profils moyens respectifs. Autrement dit, pour tout <span class="math inline">\(i \in \{ 1, \dots, n \}\)</span> et <span class="math inline">\(j \in \{ 1, \dots, p \}\)</span>, <span class="math display">\[\left( \frac{f_{i 1}}{f_{i \bullet}}, \dots, \frac{f_{i p}}{f_{i \bullet}} \right) = \left( f_{\bullet 1}, \dots, f_{\bullet p} \right) \quad\text{et}\quad
-\left( \frac{f_{1 j}}{f_{\bullet j}}, \dots, \frac{f_{n j}}{f_{\bullet j}} \right) = \left( f_{{1 \bullet}}, \dots, f_{n \bullet} \right).\]</span> Ainsi, plus les profils s’éloignent de leurs moyennes, plus les variables montrent une dépendance.</p>
-<p>Pour mesurer la différence entre deux profils-lignes, on utilise la distance du <span class="math inline">\(\chi^2\)</span> pondérée par les fréquences marginales : <span class="math display">\[d^2(L_i, L_{i^\prime}) = \sum_{j = 1}^{p} \frac{1}{f_{\bullet j}} \left( \frac{f_{ij}}{f_{i \bullet}} - \frac{f_{i^\prime j}}{f_{i^\prime \bullet}} \right)^2.\]</span> On peut faire de même pour la différence entre deux profils-colonnes : <span class="math display">\[d^2(C_j, C_{j^\prime}) = \sum_{i = 1}^{n} \frac{1}{f_{i \bullet}} \left( \frac{f_{ij}}{f_{\bullet j}} - \frac{f_{i j^\prime}}{f_{\bullet j^\prime}} \right)^2.\]</span></p>
-<p>On peut écrire cela sous forme matricielle. Notons <span class="math inline">\(D_n = \text{diag}(f_{i \bullet})\)</span> la matrice diagonale des poids des lignes et <span class="math inline">\(D_p = \text{diag}(f_{\bullet j})\)</span> la matrice diagonale des poids des colonnes. La matrice <span class="math inline">\(D_n^{-1}F\)</span> a pour lignes les profils-lignes et la matrice <span class="math inline">\(D_p^{-1}F^{\top}\)</span> a pour lignes les profils-colonnes. la distance du <span class="math inline">\(\chi^2\)</span> entre deux profils-lignes <span class="math inline">\(L_i\)</span> et <span class="math inline">\(L_{i^\prime}\)</span> s’écrit alors <span class="math display">\[d^2(L_i, L_{i^\prime}) = (L_i - L_{i^\prime})^\top D_p^{-1} (L_i - L_{i^\prime}),\]</span> et de manière analogue pour deux profils-colonnes <span class="math inline">\(C_j\)</span> et <span class="math inline">\(C_{j^\prime}\)</span> <span class="math display">\[d^2(C_j, C_{j^\prime}) = (C_j - C_{j^\prime})^\top D_n^{-1} (C_j - C_{j^\prime}).\]</span></p>
-<p>Ces distances sont à la base de la représentation géométrique dans l’analyse des correspondances, où l’on cherche une projection des profils dans un espace de faible dimension qui conserve au mieux ces distances.</p>
-</section></section><section id="analyse-factorielle-des-correspondances" class="level2"><h2 class="anchored" data-anchor-id="analyse-factorielle-des-correspondances">Analyse factorielle des correspondances</h2>
-<p>L’analyse factorielle des correspondances (AFC) est une méthode d’analyse exploratoire qui vise à représenter graphiquement les relations entre les modalités de deux variables qualitatives. Elle permet de représenter simultanément les profils-lignes (dans <span class="math inline">\(\mathbb{R}^p\)</span>) et les profils-colonnes (dans <span class="math inline">\(\mathbb{R}^n\)</span>) d’un tableau de contingences, dans un espace de faible dimension, tout en préservant au mieux la distance du <span class="math inline">\(\psi^2\)</span>. L’objectif de l’AFC est de trouver une représentation bidimensionnelle (voir tridimensionnelle) dans laquelle les proximités géométriques entre points reflètent au mieux les similarités entre les modalités.</p>
+</section><section id="analyse-factorielle-des-correspondances" class="level2"><h2 class="anchored" data-anchor-id="analyse-factorielle-des-correspondances">Analyse factorielle des correspondances</h2>
+<p>L’analyse factorielle des correspondances (AFC) est une méthode d’analyse exploratoire qui vise à représenter graphiquement les relations entre les modalités de deux variables qualitatives. Elle permet de représenter simultanément les <strong>profils-lignes</strong> (dans <span class="math inline">\(\mathbb{R}^p\)</span>) et les <strong>profils-colonnes</strong> (dans <span class="math inline">\(\mathbb{R}^n\)</span>) d’un tableau de contingences, dans un espace de faible dimension, tout en préservant au mieux la distance du <span class="math inline">\(\chi^2\)</span>. L’objectif de l’AFC est de trouver une représentation bidimensionnelle (voir tridimensionnelle) dans laquelle les proximités géométriques entre points reflètent au mieux les similarités entre les modalités.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -648,6 +635,26 @@ Remarque
 <p>L’AFC peut être vue comme une double ACP : une ACP pondérée appliquée aux profils-lignes et aux profils-colonnes, dans leur espaces respectifs avec une métrique adaptée.</p>
 </div>
 </div>
+<section id="notation" class="level3"><h3 class="anchored" data-anchor-id="notation">Notation</h3>
+<p>On considère un tableau de contingence <span class="math inline">\(K = (k_{ij})\)</span>, où <span class="math inline">\(k_{ij}\)</span> est le nombre d’individus appartenant à la classe <span class="math inline">\(i \in \{ 1, \dots, n \}\)</span> et à la catégorie <span class="math inline">\(j \in \{ 1, \dots, p \}\)</span>. On travaille ensuite avec le tableau des fréquences relatives en normalisant ce tableau. Comme les fréquences sont proportionnelles à la taille d’échantillon <span class="math inline">\(n\)</span>, le tableau des fréquences relatives contient plus d’information. Notons <span class="math inline">\(F = (f_{ij})\)</span>, dans lequel <span class="math display">\[f_{ij} = \frac{k_{ij}}{k_{\bullet\bullet}} = \frac{k_{ij}}{\sum_{l = 1}^{n} \sum_{m = 1}^{p} k_{lm}}.\]</span></p>
+<p>Les marges lignes (resp. colonnes) du tableau correspondent à la somme des colonnes pour chaque ligne (resp. à la somme des lignes pour chaque colonne): <span class="math display">\[\begin{align}
+f_{i \bullet} &amp;= \sum_{j = 1}^{p} f_{ij} = \frac{k_{i \bullet}}{k_{\bullet\bullet}}, \quad 1 \leq i \leq n; \\
+f_{\bullet j} &amp;= \sum_{i = 1}^{n} f_{ij} = \frac{k_{\bullet j}}{k_{\bullet\bullet}}, \quad 1 \leq j \leq p.
+\end{align}\]</span></p>
+</section><section id="indépendance-statistique" class="level3"><h3 class="anchored" data-anchor-id="indépendance-statistique">Indépendance statistique</h3>
+<p>Le tableau des fréquences relatives <span class="math inline">\(F = (f_{ij})\)</span> peut être interprété comme une estimation des probabilités conjointes des modalités des deux variables qualitatives. Si les deux variables sont statistiquement indépendantes, on s’attend à ce que la probabilité conjointe s’approche du produit des probabilités marginales : <span class="math display">\[f_{ij} \approx f_{i \bullet} f_{\bullet j}, \quad i \in \{ 1, \dots, n \},~ j \in \{ 1, \dots, p \}.\]</span></p>
+<p>Pour tester si les écarts observés entre <span class="math inline">\(f_{ij}\)</span> et <span class="math inline">\(f_{i \bullet} f_{\bullet j}\)</span> sont significatifs, on utilise le test du <span class="math inline">\(\chi^2\)</span> d’indépendance : <span class="math display">\[T = \sum_{i = 1}^{n} \sum_{j = 1}^{p} \frac{\left( k_{ij} - \mathbb{E}(k_{ij}) \right)^2}{\mathbb{E}(k_{ij})} = \sum_{i = 1}^{n} \sum_{j = 1}^{p} \frac{\left( k_{ij} - \frac{k_{i \bullet}k_{\bullet j}}{k_{\bullet\bullet}} \right)^2}{\left( \frac{k_{i \bullet} k_{\bullet j}}{k_{\bullet\bullet}} \right)}.\]</span> Sous l’hypothèse d’indépendance, cette statistique suit approximativement une loi du <span class="math inline">\(\chi^2\)</span>. Si les variables sont indépendantes, la statistique <span class="math inline">\(T\)</span> doit être proche de <span class="math inline">\(0\)</span>.</p>
+</section><section id="profils-lignes-et-profils-colonnes" class="level3"><h3 class="anchored" data-anchor-id="profils-lignes-et-profils-colonnes">Profils-lignes et profils-colonnes</h3>
+<p>Pour analyser les structures dans le tableau de contingence, on introduit la notion de profil. Chaque ligne du tableau peut être vue comme un profil-ligne <span class="math display">\[L_i = \left( \frac{k_{i 1}}{k_{i \bullet}}, \dots, \frac{k_{i p}}{k_{i \bullet}} \right) = \left( \frac{f_{i 1}}{f_{i \bullet}}, \dots, \frac{f_{i p}}{f_{i \bullet}} \right).\]</span> Le profil-ligne représente la répartition des modalités <span class="math inline">\(i\)</span> de la première variable parmi les modalités de la seconde.</p>
+<p>De même, chaque colonne du tableau peut être vue comme un profil-colonne <span class="math display">\[C_j = \left( \frac{k_{1 j}}{k_{\bullet j}}, \dots, \frac{k_{n j}}{k_{\bullet j}} \right) = \left( \frac{f_{1 j}}{f_{\bullet j}}, \dots, \frac{f_{n j}}{f_{\bullet j}} \right)
+.\]</span> Le profil-colonne représente la répartition des modalités <span class="math inline">\(j\)</span> de la deuxième variable parmi les modalités de la première.</p>
+<p>On peut ensuite s’intéresser au profil-ligne moyen (resp. profil-colonne moyen) obtenus comme la moyenne pondérée des profils-lignes (resp. profils-colonnes). Autrement dit, ils correspond aux fréquences marginales colonnes (resp. fréquences marginales lignes). Le profil-ligne moyen est donné par <span class="math display">\[\left( \sum_{i = 1}^{n} f_{i \bullet} \frac{f_{i 1}}{f_{i \bullet}}, \dots, \sum_{i = 1}^{n} f_{i \bullet} \frac{f_{i p}}{f_{i \bullet}} \right) = \left( f_{\bullet 1}, \dots, f_{\bullet p} \right),\]</span> et le profil-colonne moyen est donné par <span class="math display">\[\left( \sum_{j = 1}^{p} f_{{\bullet j}} \frac{f_{1 j}}{f_{\bullet j}}, \dots, \sum_{j = 1}^{p} f_{\bullet j} \frac{f_{n j}}{f_{\bullet j}} \right) = \left( f_{{1 \bullet}}, \dots, f_{n \bullet} \right).\]</span></p>
+<p>Si les variables sont indépendantes, tous les profiles sont égaux à leur profils moyens respectifs. Autrement dit, pour tout <span class="math inline">\(i \in \{ 1, \dots, n \}\)</span> et <span class="math inline">\(j \in \{ 1, \dots, p \}\)</span>, <span class="math display">\[\left( \frac{f_{i 1}}{f_{i \bullet}}, \dots, \frac{f_{i p}}{f_{i \bullet}} \right) = \left( f_{\bullet 1}, \dots, f_{\bullet p} \right) \quad\text{et}\quad
+\left( \frac{f_{1 j}}{f_{\bullet j}}, \dots, \frac{f_{n j}}{f_{\bullet j}} \right) = \left( f_{{1 \bullet}}, \dots, f_{n \bullet} \right).\]</span> Ainsi, plus les profils s’éloignent de leurs moyennes, plus les variables montrent une dépendance.</p>
+<p>Pour mesurer la différence entre deux profils-lignes, on utilise la distance du <span class="math inline">\(\chi^2\)</span> pondérée par les fréquences marginales : <span class="math display">\[d^2(L_i, L_{i^\prime}) = \sum_{j = 1}^{p} \frac{1}{f_{\bullet j}} \left( \frac{f_{ij}}{f_{i \bullet}} - \frac{f_{i^\prime j}}{f_{i^\prime \bullet}} \right)^2.\]</span> On peut faire de même pour la différence entre deux profils-colonnes : <span class="math display">\[d^2(C_j, C_{j^\prime}) = \sum_{i = 1}^{n} \frac{1}{f_{i \bullet}} \left( \frac{f_{ij}}{f_{\bullet j}} - \frac{f_{i j^\prime}}{f_{\bullet j^\prime}} \right)^2.\]</span></p>
+<p>On peut écrire cela sous forme matricielle. Notons <span class="math inline">\(D_n = \text{diag}(f_{i \bullet})\)</span> la matrice diagonale des poids des lignes et <span class="math inline">\(D_p = \text{diag}(f_{\bullet j})\)</span> la matrice diagonale des poids des colonnes. La matrice <span class="math inline">\(D_n^{-1}F\)</span> a pour lignes les profils-lignes et la matrice <span class="math inline">\(D_p^{-1}F^{\top}\)</span> a pour lignes les profils-colonnes. la distance du <span class="math inline">\(\chi^2\)</span> entre deux profils-lignes <span class="math inline">\(L_i\)</span> et <span class="math inline">\(L_{i^\prime}\)</span> s’écrit alors <span class="math display">\[d^2(L_i, L_{i^\prime}) = (L_i - L_{i^\prime})^\top D_p^{-1} (L_i - L_{i^\prime}),\]</span> et de manière analogue pour deux profils-colonnes <span class="math inline">\(C_j\)</span> et <span class="math inline">\(C_{j^\prime}\)</span> <span class="math display">\[d^2(C_j, C_{j^\prime}) = (C_j - C_{j^\prime})^\top D_n^{-1} (C_j - C_{j^\prime}).\]</span></p>
+<p>Ces distances sont à la base de la représentation géométrique dans l’analyse des correspondances, où l’on cherche une projection des profils dans un espace de faible dimension qui conserve au mieux ces distances.</p>
+</section></section><section id="estimation-des-éléments-propres" class="level2"><h2 class="anchored" data-anchor-id="estimation-des-éléments-propres">Estimation des éléments propres</h2>
 <p>L’analyse des profils-lignes s’appelle l’analyse directe. On considère les profils-lignes contenus dans la matrice <span class="math inline">\(D_n^{-1}F \in \mathbb{R}^{n \times p}\)</span>. On projette les profils-lignes dans un espace muni de la métrique du <span class="math inline">\(\chi^2\)</span> sur les colonnes, définie par <span class="math display">\[\left\langle x, y \right\rangle = x^{\top} D_p^{-1} y.\]</span></p>
 <p>L’analyse des profils-colonnes s’appelle l’analyse duale. On considère les profils-colonnes contenus dans la matrice <span class="math inline">\(D_p^{-1} F^{\top} \in \mathbb{R}^{p \times n}\)</span>. On projette les profils-colonnes dans un espace muni de la métrique du <span class="math inline">\(\chi^2\)</span> sur les lignes, définie par <span class="math display">\[\left\langle x, y \right\rangle = x^{\top} D_n^{-1} y.\]</span></p>
 <p>Pour l’analyse directe, on cherche le premier axe factoriel, i.e. la direction <span class="math inline">\(u \in R^p\)</span> qui maximise la variance projetée des profils-lignes, sous contrainte que <span class="math inline">\(u\)</span> soit normé. On cherche donc <span class="math display">\[\max_{u} = u^{\top} D_p^{-1} F^{\top} D_n^{-1} F D_p^{-1} u, \quad\text{s.c.}\quad u^{\top} D_p^{-1} u = 1.\]</span> Ce problème d’optimisation revient à chercher le premier vecteur propre de la matrice <span class="math display">\[S = F^{\top} D_n^{-1} F D_p^{-1}.\]</span> La matrice <span class="math inline">\(S\)</span> joue un rôle analogue à la matrice de covariance dans l’ACP. Le premier vecteur propre <span class="math inline">\(u_1\)</span> vérifie donc la relation <span class="math display">\[S u_{1} = F^{\top} D_n^{-1} F D_p^{-1} u_1 = \lambda_{1} u_1,\]</span> avec <span class="math inline">\(\lambda_1\)</span> la valeur propre associée à <span class="math inline">\(u_1\)</span>. Les vecteurs propres de la matrice <span class="math inline">\(S\)</span> donnent les axes factoriels dans l’espace des colonnes. Les coordonnées des profils-lignes sur le premier axe factoriel sont obtenues par la relation <span class="math display">\[\Phi_1 = D_n^{-1} F D_p^{-1} u_1.\]</span> On obtient les autres couples de valeurs propres et vecteurs propres, ainsi que les coordonnées des profils-lignes sur les axes factoriels associés de manière similaire.</p>
@@ -749,14 +756,37 @@ Remarque
 </div>
 </div>
 </section></section><section id="analyse-des-correspondances-multiples" class="level2"><h2 class="anchored" data-anchor-id="analyse-des-correspondances-multiples">Analyse des correspondances multiples</h2>
-<p>L’analyse des correspondances multiples est une généralisation de l’analyse des correspondances binaires. Elle permet la representation graphique de tableaux de fréquences contnant plus de deux variables. Un exemple classique d’un tableau de fréquences avec plus de deux variables est le tableau présentant les réponses d’individus à un questionnaire contenant <span class="math inline">\(Q\)</span> questions à choix multiples.</p>
-<p>Très utile pour visualiser les résultats d’une étude par questionnaire.</p>
-<p>L’ACM peut aussi être vue comme une version de l’ACP quand les variables sont catégorielles:</p>
-<ul>
-<li><p>l’analyse duale permet de voir les individus ayant des profils de réponses similaires</p></li>
-<li><p>on peut obtenir des scores continus pour les individus qui capturent une grande partie de l’information</p></li>
-<li><p>donc aussi utile pour scorer les résultats d’une étude par questionnaire dans un but éventuel de partitionnement, par exemple</p></li>
-</ul>
+<p>L’analyse des correspondances multiples (ACM) peut être présentée comme un prolongement de l’AFC. Elle permet la representation graphique de tableaux de fréquences contnant plus de deux variables. Un exemple classique d’un tableau de fréquences avec plus de deux variables qualitatives est un tableau présentant les réponses d’individus à un questionnaire contenant <span class="math inline">\(Q\)</span> questions à choix multiples. L’ACM est donc très utile pour visualiser les résultats d’une étude par questionnaire.</p>
+<p>L’ACM peut aussi être vue comme une version de l’ACP quand les variables sont mixtes, i.e. comprenant à la fois des variables quantitatives et des variables qualitatives. Le traitement conjoint de ces deux types de données repose sur leur transformation préalable appelée <strong>codage disjonctif complet</strong>.</p>
+<section id="notation-1" class="level3"><h3 class="anchored" data-anchor-id="notation-1">Notation</h3>
+<p>Notons <span class="math inline">\(n\)</span> le nombre d’individus (ou d’observations) et <span class="math inline">\(Q\)</span> le nombre de variables (ou de questions dans le cas d’un questionnaire). Chaque variable possède <span class="math inline">\(J_q\)</span> modalités et le nombre total de modalités est égal à <span class="math inline">\(J\)</span>.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Définition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Le tableau binaire, i.e. ne contenant que des <span class="math inline">\(0\)</span> et des <span class="math inline">\(1\)</span>, à <span class="math inline">\(n\)</span> lignes et <span class="math inline">\(J\)</span> colonnes est appelé <strong>tableau de codage disjonctif complet</strong>. On le note <span class="math inline">\(Z\)</span>.</p>
+</div>
+</div>
+<p>Exemple de transformation de tableau</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Remarque
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Lorsque l’on veut transformer des variables quantitatives en tableau de codage disjonctif complet, on perd de l’information. En effet, on doit découper les variables qualitatives en classes, chaque observation de ces variables appartenant à une unique classe.</p>
+</div>
+</div>
 <p>En général, pour un questionnaire contenant <span class="math inline">\(Q\)</span> questions, on a un tableau de la forme suivante: <span class="math display">\[Z = \left[ Z_1 \mid \cdots \mid Z_{Q} \right].\]</span></p>
 <p>Notation:</p>
 <ul>
@@ -810,7 +840,7 @@ Note
 </div>
 
 
-</section></main><!-- /main --><script>
+</section></section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
