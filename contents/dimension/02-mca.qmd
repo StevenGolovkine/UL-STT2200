@@ -109,20 +109,41 @@ Ce problème d'optimisation revient à chercher le premier vecteur propre de la 
 $$S = F^{\top} D_n^{-1} F D_p^{-1}.$$
 La matrice $S$ joue un rôle analogue à la matrice de covariance dans l'ACP. Le premier vecteur propre $u_1$ vérifie donc la relation
 $$S u_{1} = F^{\top} D_n^{-1} F D_p^{-1} u_1 = \lambda_{1} u_1,$$
-avec $\lambda_1$ la valeur propre associée à $u_1$. Les coordonnées des profils-lignes sur le premier axe factoriel sont obtenues par la relation 
+avec $\lambda_1$ la valeur propre associée à $u_1$. Les vecteurs propres de la matrice $S$ donnent les axes factoriels dans l'espace des colonnes. Les coordonnées des profils-lignes sur le premier axe factoriel sont obtenues par la relation 
+$$\Phi_1 = D_n^{-1} F D_p^{-1} u_1.$$
+On obtient les autres couples de valeurs propres et vecteurs propres, ainsi que les coordonnées des profils-lignes sur les axes factoriels associés de manière similaire.
 
 L'analyse duale se fait de façon similaire. On cherche le premier vecteur propre de la matrice 
 $$T = F D_p^{-1} F^{\top} D_n^{-1}.$$
-Les vecteurs propres de la matrice $T$ donnent les axes factoriels dans l'espace des lignes.
+Le premier vecteur propre $v_1$ vérifie donc la relation 
+$$T v_{1} = F D_p^{-1} F^{\top} D_n^{-1} v_1 = \mu_1 v_1,$$
+avec $\mu_{1}$ la valeur propre associée à $v_{1}$. Les vecteurs propres de la matrice $T$ donnent les axes factoriels dans l'espace des lignes. Les coordonnées des profils-colonnes sur le premier axe factoriel sont obtenues par la relation 
+$$\Psi_1 = D_p^{-1} F^{\top} D_n^{-1} v_1 .$$
+On obtient les autres couples de valeurs propres et vecteurs propres, ainsi que les coordonnées des profils-colonnes sur les axes factoriels associés de manière similaire.
+
+::: {.callout-important icon=false}
+## Propriété
+
+Les matrices $S$ et $T$ ont les mêmes $r = \min(n - 1, p - 1)$ premières valeurs propres positives. Cela garantit une représentation cohérente des lignes et des colonnes dans le mêmes espace réduit. Pour $k = 1, \dots, r$, les relations entre les vecteurs propres $u_k$ et $v_k$ sont 
+$$u_k = \frac{1}{\sqrt{\lambda_k}} F^{\top} D_n^{-1} v_k \quad \text{et} \quad v_k = \frac{1}{\sqrt{\lambda_k}} F D_p^{-1} u_k.$$
+
+:::
+
+::: {.callout-tip icon=false collapse=true}
+## Preuve
+
+En partant de l'équation 
+$$T v_{1} = F D_p^{-1} F^{\top} D_n^{-1} v_1 = \mu_1 v_1,$$
+en multipliant à gauche par $F^{\top} D_n^{-1}$, on obtient :
+$$F^{\top} D_n^{-1} F D_p^{-1} F^{\top} D_n^{-1} v_1 = \mu_1 F^{\top} D_n^{-1} v_1.$$
+Ainsi le vecteur $F^{\top} D_n^{-1} v_1$ est un vecteur propre de la matrice $F^{\top} D_n^{-1} F D_p^{-1}$ associée à la valeur propre $\mu_1$. Comme $\lambda_1$ est la plus grande valeur propre de $F^{\top} D_n^{-1} F D_p^{-1}$, on en déduit que $\mu_1 \leq \lambda_{1}$. En procédant de la même manière, en partant de $S u_1 = \lambda_{1} u_{1}$, on déduit que $\lambda_{1} \leq \mu_{1}$. Donc $\lambda_{1} = \mu_{1}$. On peut ensuite faire de même pour les $r$ premières valeurs propres. On en déduit aussi les relations entre les valeurs propres. 
+
+:::
 
 ::: {.callout-tip icon=false}
-## Remarques
+## Remarque
 
-1. Les matrices $S$ et $T$ sont les mêmes $r = \min(n - 1, p - 1)$ premières valeurs propres positives. Cela garantit une représentation cohérente des lignes et des colonnes dans le mêmes espace réduit.
-
-2. En centrant les profils, on peut projeter les profils-lignes et les profils-colonnes dans un même repère, facilitant ainsi l'interprétation géométrique conjointe.
-
-3. Les coordonnées factorielles des modalités sont obtenues à partir des vecteurs propres et des valeurs propres, mais leurs formules sont souvent complexes. Ce sont surtout les distances et les angles dans le plan factoriel qui importent pour l'analyse.
+En centrant les profils, on peut projeter les profils-lignes et les profils-colonnes dans un même repère, facilitant ainsi l'interprétation géométrique conjointe.
 
 :::
 
