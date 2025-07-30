@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
 <head>
-<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/contents/dimension/03-kernel.html" />
-<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/contents/dimension/03-kernel.en.html" />
+<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/contents/dimension/02-ca.html" />
+<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/contents/dimension/02-ca.en.html" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.32">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Kernel – STT-2200: Data Analysis</title>
+<title>Analyse factorielle des correspondances – STT-2200: Analyse de données</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,8 +22,8 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script><script src="../../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../../site_libs/quarto-search/fuse.min.js"></script><script src="../../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../../">
-<link href="../../contents/05-supervisee.html" rel="next">
-<link href="../../contents/dimension/02-mca.html" rel="prev">
+<link href="../../contents/dimension/03-mca.html" rel="next">
+<link href="../../contents/dimension/01-pca.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script><script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../../site_libs/quarto-html/popper.min.js"></script><script src="../../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../../site_libs/quarto-html/anchor.min.js"></script><link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
@@ -46,17 +46,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script><style>html{ scroll-behavior: smooth; }</style>
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
@@ -84,8 +84,9 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script><meta property="og:title" content="Kernel – STT-2200: Data Analysis">
-<meta property="og:site_name" content="STT-2200: Data Analysis">
+</script><meta property="og:title" content="Analyse factorielle des correspondances – STT-2200: Analyse de données">
+<meta property="og:description" content="">
+<meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
 <body class="nav-sidebar floating quarto-light">
 <script id="quarto-html-before-body" type="application/javascript">
@@ -252,16 +253,16 @@ window.Quarto = {
     }
   </script><div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/04-dimension.html">04 - Dimension</a></li>
-<li class="breadcrumb-item"><a href="../../contents/dimension/03-kernel.html">Kernel</a></li>
-</ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+<li class="breadcrumb-item"><a href="../../contents/dimension/02-ca.html">Analyse factorielle des correspondances</a></li>
+</ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -272,16 +273,16 @@ window.Quarto = {
       <img src="../.././include/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
       <div class="sidebar-tools-main">
     <a href="https://github.com/StevenGolovkine/UL-STT2200" title="Github organization" class="quarto-navigation-tool px-1" aria-label="Github organization"><i class="bi bi-github"></i></a>
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Basculer le mode sombre"><i class="bi"></i></a>
 </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="Recherche"></div>
         </div>
         </div>
     <div class="dropdown" id="languages-links-parent">
-<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> English</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="https://stt2200.netlify.app/contents/dimension/03-kernel.html" id="language-link-fr">Français</a></li></ul>
+<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Français</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="https://stt2200.netlify.app/en/contents/dimension/02-ca.html" id="language-link-en">English</a></li></ul>
 </div>
 <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
@@ -289,7 +290,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">Informations</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -316,7 +317,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../informations/evaluations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Évaluations</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -324,7 +325,7 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../informations/mcq.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">MCQ</span></a>
+ <span class="menu-text">QCM</span></a>
   </div>
 </li>
       </ul>
@@ -341,7 +342,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Modules</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -356,7 +357,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../contents/02-revisions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">02 - Révisions</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -364,19 +365,19 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/remainders/01-linear-algebra.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Linear Algebra</span></a>
+ <span class="menu-text">Algèbre linéaire</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/remainders/02-probabilities.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Probabilities and Statistics</span></a>
+ <span class="menu-text">Probabilités et Statistiques</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/remainders/03-programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Programming</span></a>
+ <span class="menu-text">Programmation</span></a>
   </div>
 </li>
       </ul>
@@ -385,7 +386,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../contents/03-generalities.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">03 - Généralités</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -393,31 +394,31 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/generalities/01-stat.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data analysis project</span></a>
+ <span class="menu-text">Projet d’analyse de données</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/generalities/02-spaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Space</span></a>
+ <span class="menu-text">Espaces</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/generalities/03-distance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Distance</span></a>
+ <span class="menu-text">Distances</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/generalities/04-bias-variance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bias-variance</span></a>
+ <span class="menu-text">Biais/Variance</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/generalities/05-model-evaluation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Model evaluation</span></a>
+ <span class="menu-text">Évaluation de modèles</span></a>
   </div>
 </li>
       </ul>
@@ -426,7 +427,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../contents/04-dimension.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">04 - Dimension</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -434,19 +435,25 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/dimension/01-pca.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PCA</span></a>
+ <span class="menu-text">Analyse en composantes principales</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/dimension/02-mca.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">MCA</span></a>
+  <a href="../../contents/dimension/02-ca.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Analyse factorielle des correspondances</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/dimension/03-kernel.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Kernel</span></a>
+  <a href="../../contents/dimension/03-mca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analyse des correspondances multiples</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/dimension/04-kernel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Méthodes à noyaux</span></a>
   </div>
 </li>
       </ul>
@@ -455,7 +462,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../contents/05-supervisee.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">05 - Supervisée</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -475,13 +482,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/supervised/03-tree.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tree</span></a>
+ <span class="menu-text">Arbres</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/supervised/04-hierarchy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Hierarchical</span></a>
+ <span class="menu-text">Hierarchique</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -496,7 +503,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../contents/06-nonsupervisee.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">06 - Non-supervisée</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -510,13 +517,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/unsupervised/02-hierarchy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Hierarchical</span></a>
+ <span class="menu-text">Méthodes hiérarchiques</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/unsupervised/03-gaussian-mixtures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Gaussian mixtures</span></a>
+ <span class="menu-text">Mélange de gaussiennes</span></a>
   </div>
 </li>
       </ul>
@@ -540,19 +547,32 @@ window.Quarto = {
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats">
-<h2>Other Formats</h2>
-<ul><li><a href="03-kernel.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
-</div>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+<li><a href="#notation" id="toc-notation" class="nav-link active" data-scroll-target="#notation">Notation</a></li>
+  <li><a href="#ind%C3%A9pendance-statistique" id="toc-indépendance-statistique" class="nav-link" data-scroll-target="#indépendance-statistique">Indépendance statistique</a></li>
+  <li><a href="#profils-lignes-et-profils-colonnes" id="toc-profils-lignes-et-profils-colonnes" class="nav-link" data-scroll-target="#profils-lignes-et-profils-colonnes">Profils-lignes et profils-colonnes</a></li>
+  <li><a href="#estimation-des-%C3%A9l%C3%A9ments-propres" id="toc-estimation-des-éléments-propres" class="nav-link" data-scroll-target="#estimation-des-éléments-propres">Estimation des éléments propres</a></li>
+  <li><a href="#centre-de-gravit%C3%A9-et-inertie" id="toc-centre-de-gravité-et-inertie" class="nav-link" data-scroll-target="#centre-de-gravité-et-inertie">Centre de gravité et inertie</a></li>
+  <li><a href="#coordonn%C3%A9es-factorielles" id="toc-coordonnées-factorielles" class="nav-link" data-scroll-target="#coordonnées-factorielles">Coordonnées factorielles</a></li>
+  </ul>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/dimension/02-ca.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
+</ul></div>
+<div class="quarto-alternate-formats">
+<h2>Autres formats</h2>
+<ul><li><a href="02-ca.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
+</div></nav>
 </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/04-dimension.html">04 - Dimension</a></li>
-<li class="breadcrumb-item"><a href="../../contents/dimension/03-kernel.html">Kernel</a></li>
+<li class="breadcrumb-item"><a href="../../contents/dimension/02-ca.html">Analyse factorielle des correspondances</a></li>
 </ol></nav><div class="quarto-title">
-<h1 class="title">Kernel</h1>
+<h1 class="title">Analyse factorielle des correspondances</h1>
 </div>
 
 
@@ -566,7 +586,289 @@ window.Quarto = {
   
 
 
-</header></main><!-- /main --><script>
+</header><p>L’analyse factorielle des correspondances (AFC) est une méthode d’analyse exploratoire qui vise à représenter graphiquement les relations entre les modalités de deux variables qualitatives. Elle permet de représenter simultanément les <strong>profils-lignes</strong> (dans <span class="math inline">\(\mathbb{R}^p\)</span>) et les <strong>profils-colonnes</strong> (dans <span class="math inline">\(\mathbb{R}^n\)</span>) d’un tableau de contingences, dans un espace de faible dimension, tout en préservant au mieux la distance du <span class="math inline">\(\chi^2\)</span>. L’objectif de l’AFC est de trouver une représentation bidimensionnelle (voir tridimensionnelle) dans laquelle les proximités géométriques entre points reflètent au mieux les similarités entre les modalités.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Remarque
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>L’AFC peut être vue comme une double ACP : une ACP pondérée appliquée aux profils-lignes et aux profils-colonnes, dans leur espaces respectifs avec une métrique adaptée.</p>
+</div>
+</div>
+<section id="notation" class="level2"><h2 class="anchored" data-anchor-id="notation">Notation</h2>
+<p>On considère un tableau de contingence <span class="math inline">\(K = (k_{ij})\)</span>, où <span class="math inline">\(k_{ij}\)</span> est le nombre d’individus appartenant à la classe <span class="math inline">\(i \in \{ 1, \dots, n \}\)</span> et à la catégorie <span class="math inline">\(j \in \{ 1, \dots, p \}\)</span>. On travaille ensuite avec le tableau des fréquences relatives en normalisant ce tableau. Comme les fréquences sont proportionnelles à la taille d’échantillon <span class="math inline">\(n\)</span>, le tableau des fréquences relatives contient plus d’information. Notons <span class="math inline">\(F = (f_{ij})\)</span>, dans lequel <span class="math display">\[f_{ij} = \frac{k_{ij}}{k_{\bullet\bullet}} = \frac{k_{ij}}{\sum_{l = 1}^{n} \sum_{m = 1}^{p} k_{lm}}.\]</span></p>
+<p>Les marges lignes (resp. colonnes) du tableau correspondent à la somme des colonnes pour chaque ligne (resp. à la somme des lignes pour chaque colonne): <span class="math display">\[\begin{align}
+f_{i \bullet} &amp;= \sum_{j = 1}^{p} f_{ij} = \frac{k_{i \bullet}}{k_{\bullet\bullet}}, \quad 1 \leq i \leq n; \\
+f_{\bullet j} &amp;= \sum_{i = 1}^{n} f_{ij} = \frac{k_{\bullet j}}{k_{\bullet\bullet}}, \quad 1 \leq j \leq p.
+\end{align}\]</span></p>
+<p>On a <span class="math inline">\(f_{\bullet \bullet} = \sum_{i = 1}^{n} f_{i \bullet} = \sum_{j = 1}^{p} f_{\bullet j} = 1\)</span>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exemple
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Comme exemple, on va considérer la majeure et le type d’admission des étudiants inscrit au cours STT-2200 à l’automne 2025.</p>
+<table class="caption-top table">
+<caption>Tableau de contingence des étudiants inscrit pour le cours STT-2200 (Automne 2025) croisant leur majeure et leur type d’admission.</caption>
+<thead><tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: right;">Collège</th>
+<th style="text-align: right;">Université Laval</th>
+<th style="text-align: right;">Autre université</th>
+<th style="text-align: right;">Hors Québec</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Actuariat</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Statistique</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Bio-info</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Finance</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Maths</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Info</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+<p>Ici, on trouve <span class="math inline">\(k_{\bullet \bullet} = 25\)</span>. C’est tout simplement le nombre d’étudiants inscrit au cours. On trouve donc le tableau de fréquences suivant :</p>
+<table class="caption-top table">
+<caption>Tableau de fréquences associé au tableau de contingence précédent.</caption>
+<colgroup>
+<col style="width: 28%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: right;">Collège</th>
+<th style="text-align: right;">Université Laval</th>
+<th style="text-align: right;">Autre université</th>
+<th style="text-align: right;">Hors Québec</th>
+<th style="text-align: right;"><span class="math inline">\(f_{i \bullet}\)</span></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Actuariat</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.12</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Statistique</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.28</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Bio-info</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.32</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Finance</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.08</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Maths</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Info</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(f_{\bullet j}\)</span></td>
+<td style="text-align: right;">0.52</td>
+<td style="text-align: right;">0.28</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section><section id="indépendance-statistique" class="level2"><h2 class="anchored" data-anchor-id="indépendance-statistique">Indépendance statistique</h2>
+<p>Le tableau des fréquences relatives <span class="math inline">\(F = (f_{ij})\)</span> peut être interprété comme une estimation des probabilités conjointes des modalités des deux variables qualitatives. Si les deux variables sont statistiquement indépendantes, on s’attend à ce que la probabilité conjointe s’approche du produit des probabilités marginales : <span class="math display">\[f_{ij} \approx f_{i \bullet} f_{\bullet j}, \quad i \in \{ 1, \dots, n \},~ j \in \{ 1, \dots, p \}.\]</span></p>
+<p>Pour tester si les écarts observés entre <span class="math inline">\(f_{ij}\)</span> et <span class="math inline">\(f_{i \bullet} f_{\bullet j}\)</span> sont significatifs, on utilise le test du <span class="math inline">\(\chi^2\)</span> d’indépendance : <span class="math display">\[T = \sum_{i = 1}^{n} \sum_{j = 1}^{p} \frac{\left( k_{ij} - \mathbb{E}(k_{ij}) \right)^2}{\mathbb{E}(k_{ij})} = \sum_{i = 1}^{n} \sum_{j = 1}^{p} \frac{\left( k_{ij} - \frac{k_{i \bullet}k_{\bullet j}}{k_{\bullet\bullet}} \right)^2}{\left( \frac{k_{i \bullet} k_{\bullet j}}{k_{\bullet\bullet}} \right)}.\]</span> Sous l’hypothèse d’indépendance, cette statistique suit approximativement une loi du <span class="math inline">\(\chi^2\)</span>. Si les variables sont indépendantes, la statistique <span class="math inline">\(T\)</span> doit être proche de <span class="math inline">\(0\)</span>.</p>
+</section><section id="profils-lignes-et-profils-colonnes" class="level2"><h2 class="anchored" data-anchor-id="profils-lignes-et-profils-colonnes">Profils-lignes et profils-colonnes</h2>
+<p>Pour analyser les structures dans le tableau de contingence, on introduit la notion de profil. Chaque ligne du tableau peut être vue comme un profil-ligne <span class="math display">\[L_i = \left( \frac{k_{i 1}}{k_{i \bullet}}, \dots, \frac{k_{i p}}{k_{i \bullet}} \right) = \left( \frac{f_{i 1}}{f_{i \bullet}}, \dots, \frac{f_{i p}}{f_{i \bullet}} \right).\]</span> Le profil-ligne représente la répartition des modalités <span class="math inline">\(i\)</span> de la première variable parmi les modalités de la seconde.</p>
+<p>De même, chaque colonne du tableau peut être vue comme un profil-colonne <span class="math display">\[C_j = \left( \frac{k_{1 j}}{k_{\bullet j}}, \dots, \frac{k_{n j}}{k_{\bullet j}} \right) = \left( \frac{f_{1 j}}{f_{\bullet j}}, \dots, \frac{f_{n j}}{f_{\bullet j}} \right)
+.\]</span> Le profil-colonne représente la répartition des modalités <span class="math inline">\(j\)</span> de la deuxième variable parmi les modalités de la première.</p>
+<p>On peut ensuite s’intéresser au profil-ligne moyen (resp. profil-colonne moyen) obtenus comme la moyenne pondérée des profils-lignes (resp. profils-colonnes). Autrement dit, ils correspond aux fréquences marginales colonnes (resp. fréquences marginales lignes). Le profil-ligne moyen est donné par <span class="math display">\[\left( \sum_{i = 1}^{n} f_{i \bullet} \frac{f_{i 1}}{f_{i \bullet}}, \dots, \sum_{i = 1}^{n} f_{i \bullet} \frac{f_{i p}}{f_{i \bullet}} \right) = \left( f_{\bullet 1}, \dots, f_{\bullet p} \right),\]</span> et le profil-colonne moyen est donné par <span class="math display">\[\left( \sum_{j = 1}^{p} f_{{\bullet j}} \frac{f_{1 j}}{f_{\bullet j}}, \dots, \sum_{j = 1}^{p} f_{\bullet j} \frac{f_{n j}}{f_{\bullet j}} \right) = \left( f_{{1 \bullet}}, \dots, f_{n \bullet} \right).\]</span></p>
+<p>Si les variables sont indépendantes, tous les profiles sont égaux à leur profils moyens respectifs. Autrement dit, pour tout <span class="math inline">\(i \in \{ 1, \dots, n \}\)</span> et <span class="math inline">\(j \in \{ 1, \dots, p \}\)</span>, <span class="math display">\[\left( \frac{f_{i 1}}{f_{i \bullet}}, \dots, \frac{f_{i p}}{f_{i \bullet}} \right) = \left( f_{\bullet 1}, \dots, f_{\bullet p} \right) \quad\text{et}\quad
+\left( \frac{f_{1 j}}{f_{\bullet j}}, \dots, \frac{f_{n j}}{f_{\bullet j}} \right) = \left( f_{{1 \bullet}}, \dots, f_{n \bullet} \right).\]</span> Ainsi, plus les profils s’éloignent de leurs moyennes, plus les variables montrent une dépendance.</p>
+<p>Pour mesurer la différence entre deux profils-lignes, on utilise la distance du <span class="math inline">\(\chi^2\)</span> pondérée par les fréquences marginales : <span class="math display">\[d^2(L_i, L_{i^\prime}) = \sum_{j = 1}^{p} \frac{1}{f_{\bullet j}} \left( \frac{f_{ij}}{f_{i \bullet}} - \frac{f_{i^\prime j}}{f_{i^\prime \bullet}} \right)^2.\]</span> On peut faire de même pour la différence entre deux profils-colonnes : <span class="math display">\[d^2(C_j, C_{j^\prime}) = \sum_{i = 1}^{n} \frac{1}{f_{i \bullet}} \left( \frac{f_{ij}}{f_{\bullet j}} - \frac{f_{i j^\prime}}{f_{\bullet j^\prime}} \right)^2.\]</span></p>
+<p>On peut écrire cela sous forme matricielle. Notons <span class="math inline">\(D_n = \text{diag}(f_{i \bullet})\)</span> la matrice diagonale des poids des lignes et <span class="math inline">\(D_p = \text{diag}(f_{\bullet j})\)</span> la matrice diagonale des poids des colonnes. La matrice <span class="math inline">\(D_n^{-1}F\)</span> a pour lignes les profils-lignes et la matrice <span class="math inline">\(D_p^{-1}F^{\top}\)</span> a pour lignes les profils-colonnes. la distance du <span class="math inline">\(\chi^2\)</span> entre deux profils-lignes <span class="math inline">\(L_i\)</span> et <span class="math inline">\(L_{i^\prime}\)</span> s’écrit alors <span class="math display">\[d^2(L_i, L_{i^\prime}) = (L_i - L_{i^\prime})^\top D_p^{-1} (L_i - L_{i^\prime}),\]</span> et de manière analogue pour deux profils-colonnes <span class="math inline">\(C_j\)</span> et <span class="math inline">\(C_{j^\prime}\)</span> <span class="math display">\[d^2(C_j, C_{j^\prime}) = (C_j - C_{j^\prime})^\top D_n^{-1} (C_j - C_{j^\prime}).\]</span></p>
+<p>Ces distances sont à la base de la représentation géométrique dans l’analyse des correspondances, où l’on cherche une projection des profils dans un espace de faible dimension qui conserve au mieux ces distances.</p>
+</section><section id="estimation-des-éléments-propres" class="level2"><h2 class="anchored" data-anchor-id="estimation-des-éléments-propres">Estimation des éléments propres</h2>
+<p>L’analyse des profils-lignes s’appelle l’analyse directe. On considère les profils-lignes contenus dans la matrice <span class="math inline">\(D_n^{-1}F \in \mathbb{R}^{n \times p}\)</span>. On projette les profils-lignes dans un espace muni de la métrique du <span class="math inline">\(\chi^2\)</span> sur les colonnes, définie par <span class="math display">\[\left\langle x, y \right\rangle = x^{\top} D_p^{-1} y.\]</span></p>
+<p>L’analyse des profils-colonnes s’appelle l’analyse duale. On considère les profils-colonnes contenus dans la matrice <span class="math inline">\(D_p^{-1} F^{\top} \in \mathbb{R}^{p \times n}\)</span>. On projette les profils-colonnes dans un espace muni de la métrique du <span class="math inline">\(\chi^2\)</span> sur les lignes, définie par <span class="math display">\[\left\langle x, y \right\rangle = x^{\top} D_n^{-1} y.\]</span></p>
+<p>Pour l’analyse directe, on cherche le premier axe factoriel, i.e. la direction <span class="math inline">\(u \in R^p\)</span> qui maximise la variance projetée des profils-lignes, sous contrainte que <span class="math inline">\(u\)</span> soit normé. On cherche donc <span class="math display">\[\max_{u} = u^{\top} D_p^{-1} F^{\top} D_n^{-1} F D_p^{-1} u, \quad\text{s.c.}\quad u^{\top} D_p^{-1} u = 1.\]</span> Ce problème d’optimisation revient à chercher le premier vecteur propre de la matrice <span class="math display">\[S = F^{\top} D_n^{-1} F D_p^{-1}.\]</span> La matrice <span class="math inline">\(S\)</span> joue un rôle analogue à la matrice de covariance dans l’ACP. Le premier vecteur propre <span class="math inline">\(u_1\)</span> vérifie donc la relation <span class="math display">\[S u_{1} = F^{\top} D_n^{-1} F D_p^{-1} u_1 = \lambda_{1} u_1,\]</span> avec <span class="math inline">\(\lambda_1\)</span> la valeur propre associée à <span class="math inline">\(u_1\)</span>. Les vecteurs propres de la matrice <span class="math inline">\(S\)</span> donnent les axes factoriels dans l’espace des colonnes. Les coordonnées des profils-lignes sur le premier axe factoriel sont obtenues par la relation <span class="math display">\[\Phi_1 = D_n^{-1} F D_p^{-1} u_1.\]</span> On obtient les autres couples de valeurs propres et vecteurs propres, ainsi que les coordonnées des profils-lignes sur les axes factoriels associés de manière similaire.</p>
+<p>L’analyse duale se fait de façon similaire. On cherche le premier vecteur propre de la matrice <span class="math display">\[T = F D_p^{-1} F^{\top} D_n^{-1}.\]</span> Le premier vecteur propre <span class="math inline">\(v_1\)</span> vérifie donc la relation <span class="math display">\[T v_{1} = F D_p^{-1} F^{\top} D_n^{-1} v_1 = \mu_1 v_1,\]</span> avec <span class="math inline">\(\mu_{1}\)</span> la valeur propre associée à <span class="math inline">\(v_{1}\)</span>. Les vecteurs propres de la matrice <span class="math inline">\(T\)</span> donnent les axes factoriels dans l’espace des lignes. Les coordonnées des profils-colonnes sur le premier axe factoriel sont obtenues par la relation <span class="math display">\[\Psi_1 = D_p^{-1} F^{\top} D_n^{-1} v_1 .\]</span> On obtient les autres couples de valeurs propres et vecteurs propres, ainsi que les coordonnées des profils-colonnes sur les axes factoriels associés de manière similaire.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Propriété
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Les matrices <span class="math inline">\(S\)</span> et <span class="math inline">\(T\)</span> ont les mêmes <span class="math inline">\(r = \min(n - 1, p - 1)\)</span> premières valeurs propres positives. Cela garantit une représentation cohérente des lignes et des colonnes dans le mêmes espace réduit. Pour <span class="math inline">\(k = 1, \dots, r\)</span>, les relations entre les vecteurs propres <span class="math inline">\(u_k\)</span> et <span class="math inline">\(v_k\)</span> sont <span class="math display">\[u_k = \frac{1}{\sqrt{\lambda_k}} F^{\top} D_n^{-1} v_k \quad \text{et} \quad v_k = \frac{1}{\sqrt{\lambda_k}} F D_p^{-1} u_k.\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Preuve
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>En partant de l’équation <span class="math display">\[T v_{1} = F D_p^{-1} F^{\top} D_n^{-1} v_1 = \mu_1 v_1,\]</span> en multipliant à gauche par <span class="math inline">\(F^{\top} D_n^{-1}\)</span>, on obtient : <span class="math display">\[F^{\top} D_n^{-1} F D_p^{-1} F^{\top} D_n^{-1} v_1 = \mu_1 F^{\top} D_n^{-1} v_1.\]</span> Ainsi le vecteur <span class="math inline">\(F^{\top} D_n^{-1} v_1\)</span> est un vecteur propre de la matrice <span class="math inline">\(F^{\top} D_n^{-1} F D_p^{-1}\)</span> associée à la valeur propre <span class="math inline">\(\mu_1\)</span>. Comme <span class="math inline">\(\lambda_1\)</span> est la plus grande valeur propre de <span class="math inline">\(F^{\top} D_n^{-1} F D_p^{-1}\)</span>, on en déduit que <span class="math inline">\(\mu_1 \leq \lambda_{1}\)</span>. En procédant de la même manière, en partant de <span class="math inline">\(S u_1 = \lambda_{1} u_{1}\)</span>, on déduit que <span class="math inline">\(\lambda_{1} \leq \mu_{1}\)</span>. Donc <span class="math inline">\(\lambda_{1} = \mu_{1}\)</span>. On peut ensuite faire de même pour les <span class="math inline">\(r\)</span> premières valeurs propres. On en déduit aussi les relations entre les valeurs propres.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Remarque
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En centrant les profils, on peut projeter les profils-lignes et les profils-colonnes dans un même repère, facilitant ainsi l’interprétation géométrique conjointe.</p>
+</div>
+</div>
+</section><section id="centre-de-gravité-et-inertie" class="level2"><h2 class="anchored" data-anchor-id="centre-de-gravité-et-inertie">Centre de gravité et inertie</h2>
+<p>Dans les sorties des logiciels de statistique, le nuage des points issus d’une AFC est généralement centré en <span class="math inline">\((0, 0)\)</span>. Cette convention reflète une analyse relative aux centres de gravité des profils-lignes et des profils-colonnes. Ce centrage est à la fois pratique et interprétable. En effet, il fait apparaître les distances entre les modalités par rapport à leur moyenne poindérée, i.e. par rapport au comportement moyen dans la population.</p>
+<p>Chaque modalité (ligne ou colonne) est associée à un poids, correspondant à sa fréquence marginale : le poids de la <span class="math inline">\(i\)</span>e ligne est <span class="math inline">\(f_{i \bullet}\)</span> et le poids de la <span class="math inline">\(j\)</span>e colonne est <span class="math inline">\(f_{\bullet j}\)</span>. Le centre de gravité des lignes est la moyenne pondérée des profils-lignes :</p>
+<p><span class="math display">\[G_L = \left( g_{1}, \dots, g_{p} \right)^{\top}, \quad \text{où}\quad g_j = \sum_{i = 1}^{n} f_{i \bullet} \frac{f_{i j}}{f_{i \bullet}} = \sum_{i = 1}^{n} f_{i j} = f_{\bullet j}, j \in \{ 1, \dots, p \}.\]</span></p>
+<p>De même, le centre de gravité des colonnes est <span class="math display">\[G_C = \left( f_{1 \bullet}, \dots, f_{n \bullet} \right)^{\top}.\]</span></p>
+<p>Pour recentrer les profils autour du centre de gravité, on soustrait leur valeur moyenne : <span class="math display">\[\frac{f_{i j}}{f_{i \bullet}} - g_{j} = \frac{f_{i j}}{f_{i \bullet}} - f_{\bullet j} = \frac{f_{i j} - f_{i \bullet} f_{\bullet j}}{f_{i \bullet}}.\]</span> Ce centrage garantit que chaque profil-ligne <span class="math inline">\(i \in \{ 1, \dots, n \}\)</span> est moyenné à zéro : <span class="math display">\[\sum_{j = 1}^{p} \frac{f_{i j} - f_{i \bullet}f_{\bullet j}}{f_{i \bullet}} = 0.\]</span></p>
+<p>L’AFC ne se fait donc plus sur la matrice <span class="math inline">\(S\)</span> mais plutôt sur une matrice centrée <span class="math inline">\(S^\star = (s_{j j^\prime}^\star),\)</span> où <span class="math display">\[s_{j j^\prime}^\star = \sum_{i = 1}^{n} \frac{\left( f_{i j} - f_{i \bullet} f_{\bullet j} \right) \left( f_{i j^\prime} - f_{i \bullet} f_{\bullet j^\prime} \right)}{f_{i \bullet} f_{\bullet j^\prime}}.\]</span></p>
+<p>Par définition, la trace de la matrice <span class="math inline">\(S^\star\)</span> donne l’inertie totale : <span class="math display">\[\text{tr}(S^\star) = \sum_{j = 1}^{p} \sum_{i = 1}^{n} \frac{\left( f_{i j} - f_{i \bullet}f_{\bullet j} \right)^2}{f_{i \bullet} f_{\bullet j}}.\]</span> Celle-ci correspond à la statistique du <span class="math inline">\(\chi^2\)</span> normalisée que l’on utilise pour tester l’indépendance entre les variables.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Propriété
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On a que, pour tout <span class="math inline">\(j, j^\prime \in \{ 1, \dots, p \}\)</span>, <span class="math inline">\(s_{j j^\prime}^\star = s_{j j^\prime} - f_{\bullet j},\)</span> où <span class="math display">\[s_{j j^\prime} = \sum_{i = 1}^{n} \frac{f_{i j}f_{i j^\prime}}{f_{i \bullet} f_{\bullet j^\prime}}.\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Preuve
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<p>La propriété précédente entraine que les matrices <span class="math inline">\(S\)</span> et <span class="math inline">\(S^\star\)</span> one les mêmes vecteurs propres pour les <span class="math inline">\(p\)</span> premières dimensions, ce qui permet d’effectuer l’analyse factorielle sur la version centrée.</p>
+</section><section id="coordonnées-factorielles" class="level2"><h2 class="anchored" data-anchor-id="coordonnées-factorielles">Coordonnées factorielles</h2>
+<p>On a que, pour tout <span class="math inline">\(k = 1, \dots, r\)</span>, <span class="math display">\[\Phi_k = D_n^{-1} F D_p^{-1} u_k \quad \text{et} \quad \Psi_k = D_p^{-1} F^{\top} D_n^{-1} v_k.\]</span> Or, on a aussi vu les relations entre les vecteurs propres <span class="math inline">\(u_k\)</span> et <span class="math inline">\(v_k\)</span>, <span class="math display">\[u_k = \frac{1}{\sqrt{\lambda_k}} F^{\top} D_n^{-1} v_k \quad \text{et} \quad v_k = \frac{1}{\sqrt{\lambda_k}} F D_p^{-1} u_k.\]</span> On en déduit donc les relations entre les coordonnées factorielles des profils-lignes et celles des profils-colonnes : <span class="math display">\[\Phi_k = \frac{1}{\sqrt{\lambda_k}} D_n^{-1} F \Psi_k \quad \text{et} \quad \Psi_k = \frac{1}{\sqrt{\lambda_k}} D_p^{-1} F^{\top} \Phi_k.\]</span></p>
+<p>On peut maintenant examiner ces relations sur chacune des composantes : <span class="math display">\[\left[ \Phi_k \right]_i = \frac{1}{\sqrt{\lambda_k}} \sum_{j = 1}^{p} \frac{f_{ij}}{f_{i \bullet}} \left[ \Psi_k \right]_j \quad \text{et} \quad \left[ \Psi_k \right]_j = \frac{1}{\sqrt{\lambda_k}} \sum_{i = 1}^{n} \frac{f_{ij}}{f_{\bullet j}} \left[ \Phi_k \right]_i,\]</span> où <span class="math inline">\(\left[ \Phi_k \right]_i\)</span> désigne la coordonnée du profil-ligne <span class="math inline">\(L_i\)</span> sur le <span class="math inline">\(k\)</span>e axe factoriel et <span class="math inline">\(\left[ \Psi_k \right]_j\)</span> désigne la coordonnée du profil-colonne <span class="math inline">\(C_j\)</span> sur le même axe factoriel. Ces relations expriment, à un facteur <span class="math inline">\(1 / \sqrt{\lambda_k}\)</span> près, que chaque profil-ligne est au barycentre des projections des profils-colonnes affectés du poids de la colonne <span class="math inline">\(j\)</span> dans la ligne <span class="math inline">\(i\)</span> et que chaque profil-colonne est au barycentre des projections des profils-lignes affectés du poids de la ligne <span class="math inline">\(i\)</span> dans la colonne <span class="math inline">\(j\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Remarque
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ainsi, en AFC, nous avons une double représentation barycentrique. Sur les axes factoriels, chaque point d’un nuage est au barycentre des points de l’autre nuage.</p>
+</div>
+</div>
+
+
+</section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -809,12 +1111,12 @@ window.onload = function() {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
@@ -856,7 +1158,7 @@ window.onload = function() {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/stt2200\.netlify\.app\/en");
+        var filterRegex = new RegExp("https:\/\/stt2200\.netlify\.app");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1188,13 +1490,13 @@ window.onload = function() {
     }
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../../contents/dimension/02-mca.html" class="pagination-link" aria-label="MCA">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">MCA</span>
+      <a href="../../contents/dimension/01-pca.html" class="pagination-link" aria-label="Analyse en composantes principales">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Analyse en composantes principales</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../contents/05-supervisee.html" class="pagination-link" aria-label="05 - Supervisée">
-        <span class="nav-page-text">05 - Supervisée</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../contents/dimension/03-mca.html" class="pagination-link" aria-label="Analyse des correspondances multiples">
+        <span class="nav-page-text">Analyse des correspondances multiples</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1205,9 +1507,9 @@ window.onload = function() {
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions"><ul>
-<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li>
-<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/dimension/03-kernel.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li>
+<div class="toc-actions d-sm-block d-md-none"><ul>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/dimension/02-ca.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
 </ul></div>
 </div>
     <div class="nav-footer-right">
