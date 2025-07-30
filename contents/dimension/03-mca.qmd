@@ -120,8 +120,34 @@ $$B = Z^{\top} Z.$$
 
 D'un point de vue mathématique, l'ACM est une AFC effectuée sur la matrice logique $Z$ ou sur le tableau de Burt $B$. On peut démontrer que l'on obtient les mêmes facteurs, et ce, peu importe la matrice utilisé pour l'analyse.
 
-## AFC du tableau $Z$
+## Éléments propres du tableau $Z$
+
+On peut calculer les éléments propres du tableau $Z$ en utilisant la même méthode que pour l'AFC. Par analogie avec l'AFC, on cherche donc les vecteurs propres de la matrice 
+$$S = \frac{1}{Q} Z^{\top} Z D_J^{-1},$$
+où $D_J$ est la matrice diagonale de terme $n_j, j = 1, \dots, J$. On peut calculer de la même façon les coordonnées des profils-lignes sur les axes factoriels :
+$$\Phi_k = n Z D_J^{-1} u_k,$$
+où $u_k$ est le $k$e vecteur propre associé à la valeur propre $\lambda_k$ de la matrice $S$.
+
+On peut aussi s'intéresser à l'analyse duale du tableau $Z$. Toujours par analogie avec l'AFC, on cherche les vecteurs propres de la matrice 
+$$T = \frac{1}{Q} Z D_J^{-1} Z^{\top}.$$
+De même, on peut calculer les coordonnées des profils-colonnes sur les axes factoriels :
+$$\Psi_k = n D_J^{-1} Z^{\top} v_k.$$
+
+## Éléments propres du tableau de Burt $B$
+
+Le tableau de Burt étant symétrique, l'analyse direct et l'analyse duale coïcident. On peut aussi l'analyse en analogie avec l'AFC. La somme des éléments d'une même ligne (ou d'une même colonne) de $B$ vaut $Q n_j$ et la somme des éléments de $B$ est $n Q^2$. On cherche les vecteurs propres de la matrice 
+$$S^\prime = \frac{1}{Q^2} B^{\top} D_J^{-1} B D_J^{-1}.$$
+
+On remarque alors que cette matrice $S^\prime$ a les mêmes vecteurs propres que la matrice $S$. En effet, 
+$$S^\prime = \frac{1}{Q^2} B^{\top} D_J^{-1} B D_J^{-1} = \frac{1}{Q^2} Z^{\top} Z D_J^{-1} Z^{\top} Z D_J^{-1}.$$
+Et soit $u$ et $\lambda$ vérifiant $Z^{\top} Z D_J^{-1} = \lambda u$, alors 
+$$ Z^{\top} Z D_J^{-1} Z^{\top} Z D_J^{-1} u = Z^{\top} Z D_J^{-1} \lambda u = \lambda^2 u.$$
+
+Finalement, l'analyse de $Z$ ou de $B$ fournit les mêmes vecteurs propres et pour tout $k = 1, \dots, Q$, la $k$e valeur propre de $B$ est la carré de la $k$e valeur propre de $Z$.
 
 
+## L'encodage des variables 
 
+L'encodage des variables, et en particulier le choix des bornes des classes, est primordiale en ACM. Pour les variables continues, les bornes devraient être pertinentes au regard du problème étudié. Par exemple, on ne va pas définir une classe $> 1000\$$ dans l'exemple précédent. Pour obtenir des bornes pertinentes, on peut regarder les distributions des variables, e.g. avec un histogramme. Dans certains cas particuliers, il est possible de découper la variable en modalités d'effectifs égaux. Cependant, cette approche peut conduire à des modalités peu pertinentes. 
 
+Dans le cas de variables qualitatives, le choix des classes ne se pose pas; il est donné par la variable. Cependant, les modalités "naturelles" peuvent conduire à des effectifs (très) déséquilibrés. Dans ce cas, on doit généralement procéder à des regroupements. Ici encore, une bonne connaissance du domaine étudiée est nécessaire. En tout cas, on préferera faire des regroupements de modalités, plutôt que répartir de manière aléatoire les modalités à effectif faible dans les autres modalités (ce qui est parfois proposé dans les logiciels).

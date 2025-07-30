@@ -119,7 +119,7 @@ L'analyse des profils-colonnes s'appelle l'analyse duale. On considère les prof
 $$\left\langle x, y \right\rangle = x^{\top} D_n^{-1} y.$$
 
 Pour l'analyse directe, on cherche le premier axe factoriel, i.e. la direction $u \in R^p$ qui maximise la variance projetée des profils-lignes, sous contrainte que $u$ soit normé. On cherche donc
-$$\max_{u} = u^{\top} D_p^{-1} F^{\top} D_n^{-1} F D_p^{-1} u, \quad\text{s.c.}\quad u^{\top} D_p^{-1} u = 1.$$
+$$\max_{u} u^{\top} D_p^{-1} F^{\top} D_n^{-1} F D_p^{-1} u, \quad\text{s.c.}\quad u^{\top} D_p^{-1} u = 1.$$
 Ce problème d'optimisation revient à chercher le premier vecteur propre de la matrice
 $$S = F^{\top} D_n^{-1} F D_p^{-1}.$$
 La matrice $S$ joue un rôle analogue à la matrice de covariance dans l'ACP. Le premier vecteur propre $u_1$ vérifie donc la relation
