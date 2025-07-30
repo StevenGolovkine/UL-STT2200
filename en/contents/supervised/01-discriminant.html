@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/contents/supervised/03-tree.html" />
-<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/contents/supervised/03-tree.en.html" />
+<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/contents/supervised/01-discriminant.html" />
+<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/contents/supervised/01-discriminant.en.html" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.32">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Arbres – STT-2200: Analyse de données</title>
+<title>Discriminant – STT-2200: Data Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,8 +22,6 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script><script src="../../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../../site_libs/quarto-search/fuse.min.js"></script><script src="../../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../../">
-<link href="../../contents/supervised/04-hierarchy.html" rel="next">
-<link href="../../contents/supervised/02-discriminant.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script><script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../../site_libs/quarto-html/popper.min.js"></script><script src="../../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../../site_libs/quarto-html/anchor.min.js"></script><link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
@@ -46,17 +44,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Pas de résultats",
-    "search-matching-documents-text": "documents trouvés",
-    "search-copy-link-title": "Copier le lien vers la recherche",
-    "search-hide-matches-text": "Cacher les correspondances additionnelles",
-    "search-more-match-text": "correspondance de plus dans ce document",
-    "search-more-matches-text": "correspondances de plus dans ce document",
-    "search-clear-button-title": "Effacer",
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Annuler",
-    "search-submit-button-title": "Envoyer",
-    "search-label": "Recherche"
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script><style>html{ scroll-behavior: smooth; }</style>
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
@@ -84,9 +82,8 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script><meta property="og:title" content="Arbres – STT-2200: Analyse de données">
-<meta property="og:description" content="">
-<meta property="og:site_name" content="STT-2200: Analyse de données">
+</script><meta property="og:title" content="Discriminant – STT-2200: Data Analysis">
+<meta property="og:site_name" content="STT-2200: Data Analysis">
 </head>
 <body class="nav-sidebar floating quarto-light">
 <script id="quarto-html-before-body" type="application/javascript">
@@ -253,16 +250,12 @@ window.Quarto = {
     }
   </script><div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
-<li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
-<li class="breadcrumb-item"><a href="../../contents/05-supervisee.html">05 - Supervisée</a></li>
-<li class="breadcrumb-item"><a href="../../contents/supervised/03-tree.html">Arbres</a></li>
-</ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Discriminant</li></ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -273,16 +266,16 @@ window.Quarto = {
       <img src="../.././include/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
       <div class="sidebar-tools-main">
     <a href="https://github.com/StevenGolovkine/UL-STT2200" title="Github organization" class="quarto-navigation-tool px-1" aria-label="Github organization"><i class="bi bi-github"></i></a>
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Basculer le mode sombre"><i class="bi"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Recherche"></div>
+        <div id="quarto-search" class="" title="Search"></div>
         </div>
         </div>
     <div class="dropdown" id="languages-links-parent">
-<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Français</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="https://stt2200.netlify.app/en/contents/supervised/03-tree.html" id="language-link-en">English</a></li></ul>
+<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> English</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="https://stt2200.netlify.app/contents/supervised/01-discriminant.html" id="language-link-fr">Français</a></li></ul>
 </div>
 <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
@@ -290,7 +283,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">Informations</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -317,7 +310,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../informations/evaluations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Évaluations</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -325,7 +318,7 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../informations/mcq.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">QCM</span></a>
+ <span class="menu-text">MCQ</span></a>
   </div>
 </li>
       </ul>
@@ -340,13 +333,13 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
  <span class="menu-text">Modules</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/01-introduction.html" class="sidebar-item-text sidebar-link">
@@ -357,7 +350,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../contents/02-revisions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">02 - Révisions</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -365,19 +358,19 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/remainders/01-linear-algebra.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Algèbre linéaire</span></a>
+ <span class="menu-text">Linear Algebra</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/remainders/02-probabilities.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Probabilités et Statistiques</span></a>
+ <span class="menu-text">Probabilities and Statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/remainders/03-programming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Programmation</span></a>
+ <span class="menu-text">Programming</span></a>
   </div>
 </li>
       </ul>
@@ -386,7 +379,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../contents/03-generalities.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">03 - Généralités</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -394,31 +387,31 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/generalities/01-stat.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Projet d’analyse de données</span></a>
+ <span class="menu-text">Data analysis project</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/generalities/02-spaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Espaces</span></a>
+ <span class="menu-text">Space</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/generalities/03-distance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Distances</span></a>
+ <span class="menu-text">Distance</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/generalities/04-bias-variance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Biais/Variance</span></a>
+ <span class="menu-text">Bias-variance</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/generalities/05-model-evaluation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Évaluation de modèles</span></a>
+ <span class="menu-text">Model evaluation</span></a>
   </div>
 </li>
       </ul>
@@ -427,7 +420,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../contents/04-dimension.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">04 - Dimension</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -435,25 +428,25 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/dimension/01-pca.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Analyse en composantes principales</span></a>
+ <span class="menu-text">PCA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/dimension/02-ca.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Analyse factorielle des correspondances</span></a>
+ <span class="menu-text">MCA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/dimension/03-mca.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Analyse des correspondances multiples</span></a>
+ <span class="menu-text">MCA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/dimension/04-kernel.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Méthodes à noyaux</span></a>
+ <span class="menu-text">Kernel</span></a>
   </div>
 </li>
       </ul>
@@ -462,48 +455,33 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../contents/05-supervisee.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">05 - Supervisée</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="" class="collapse list-unstyled sidebar-section depth2 show">
+      <ul id="" class="collapse list-unstyled sidebar-section depth2 ">
 <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../contents/supervised/01-regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Regression</span></a>
-  </div>
-</li>
+ <span class="menu-text">contents/supervised/01-regression.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../contents/supervised/02-discriminant.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Discriminant</span></a>
-  </div>
-</li>
+ <span class="menu-text">contents/supervised/02-discriminant.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../contents/supervised/03-tree.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Arbres</span></a>
-  </div>
-</li>
+ <span class="menu-text">contents/supervised/03-tree.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../contents/supervised/04-hierarchy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Hierarchique</span></a>
-  </div>
-</li>
+ <span class="menu-text">contents/supervised/04-hierarchy.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../contents/supervised/05-ensemble.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Ensemble</span></a>
-  </div>
-</li>
+ <span class="menu-text">contents/supervised/05-ensemble.qmd</span>
+  </li>
       </ul>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../contents/06-nonsupervisee.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">06 - Non-supervisée</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -517,13 +495,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/unsupervised/02-hierarchy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Méthodes hiérarchiques</span></a>
+ <span class="menu-text">Hierarchical</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/unsupervised/03-gaussian-mixtures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mélange de gaussiennes</span></a>
+ <span class="menu-text">Gaussian mixtures</span></a>
   </div>
 </li>
       </ul>
@@ -547,32 +525,15 @@ window.Quarto = {
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
-   
-  <ul>
-<li><a href="#algortihme" id="toc-algortihme" class="nav-link active" data-scroll-target="#algortihme">Algortihme</a></li>
-  <li><a href="#crit%C3%A8res" id="toc-critères" class="nav-link" data-scroll-target="#critères">Critères</a></li>
-  <li><a href="#choix-du-nombre-de-divisionsfeuilles" id="toc-choix-du-nombre-de-divisionsfeuilles" class="nav-link" data-scroll-target="#choix-du-nombre-de-divisionsfeuilles">Choix du nombre de divisions/feuilles</a></li>
-  <li><a href="#avantages" id="toc-avantages" class="nav-link" data-scroll-target="#avantages">Avantages</a></li>
-  <li><a href="#points-faibles" id="toc-points-faibles" class="nav-link" data-scroll-target="#points-faibles">Points faibles</a></li>
-  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
-  </ul>
-<div class="toc-actions"><ul>
-<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
-<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/supervised/03-tree.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
-</ul></div>
-<div class="quarto-alternate-formats">
-<h2>Autres formats</h2>
-<ul><li><a href="03-tree.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
-</div></nav>
+        
+    <div class="quarto-alternate-formats">
+<h2>Other Formats</h2>
+<ul><li><a href="01-discriminant.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
+</div>
 </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
-<li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
-<li class="breadcrumb-item"><a href="../../contents/05-supervisee.html">05 - Supervisée</a></li>
-<li class="breadcrumb-item"><a href="../../contents/supervised/03-tree.html">Arbres</a></li>
-</ol></nav><div class="quarto-title">
-<h1 class="title">Arbres</h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">Discriminant</h1>
 </div>
 
 
@@ -586,64 +547,7 @@ window.Quarto = {
   
 
 
-</header><p>Les arbres de régression et de classification (Classification And Regression Trres, CART) font partie des méthodes d’apprentissage supervisée. On dispose d’observations qui appartiennent à <span class="math inline">\(\mathbb{R}^p\)</span>, soit <span class="math inline">\(X_{1}, \dots, X_p\)</span>. Un arbre de classification cherche à assigner une observation à l’un des <span class="math inline">\(K\)</span> groupes sur la base de <span class="math inline">\(X_{1}, \dots, X_p\)</span>. Un arbre de régression cherche à prédire la valeur d’une valeur numérique continue <span class="math inline">\(Y\)</span> à partir de <span class="math inline">\(X_{1}, \dots, X_p\)</span>.</p>
-<p>La construction d’arbres, on partitionne l’ensemble <span class="math inline">\(R^p\)</span> en hyper-rectangles en effectuant des divisions binaires successives en fonction de la valeur d’une des <span class="math inline">\(p\)</span> variables (algorithme de dédoublements binaires successifs).</p>
-<ol type="1">
-<li><p>On effectue des divisions binaires successives de l’ensemble <span class="math inline">\(R^p\)</span> en fonction de la valeur d’une variable. Le choix de la variable et le choix de la limite pour la division binaire sont déterminés par un certain critère.</p></li>
-<li><p>On cesse d’effectuer des divisions lorsqu’un critère d’arrêt est rencontré (nombre minimal d’observations par feuille atteint, nombre de feuilles désirées atteint, etc.)</p></li>
-<li><p>Chaque sous-division finale de l’ensemble <span class="math inline">\(\mathbb{R}^p\)</span>est appelée “feuille” ou “noeud terminal”. On prédit une catégorie à chaque observation selon la feuille à laquelle elle appartient.</p></li>
-</ol>
-<p>Toutes les observations dans une même “feuille” reoivent la même prédiction, soit la classe la plus fréquente parmi les données du jeu d’entrainement qui aboutissent dans cette feuille.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Remarque
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>L’algorithme de partitions binaires successives est un algortihme glouton qui ne nous garantit pas l’arbre optimal…</p>
-<p>Supposons que nous désirions partionner <span class="math inline">\(\mathbb{R}^p\)</span> en J hyper-rectangles (donc un arbre à <span class="math inline">\(J\)</span> feuilles) et soit <span class="math inline">\(c_j\)</span> un critère de “coût” pour les observations qui sont mal classées dans la région <span class="math inline">\(j\)</span>. On aimerait pouvoir trouver les hyper-rectangles <span class="math inline">\(R_1, \dots, R_J\)</span> tels que <span class="math inline">\(\sum_{j = 1}^{J} c_j\)</span> soit minimal, mais il n’est pas computationnellement possible de le faire !</p>
-</div>
-</div>
-<section id="algortihme" class="level3"><h3 class="anchored" data-anchor-id="algortihme">Algortihme</h3>
-<p>Pour chaque noeud de l’arbre, on doit décider si on le découpe en deux et si oui, en utilisant quelle valeur de quelle variable :</p>
-<ol type="1">
-<li><p>Pour chacune des <span class="math inline">\(p\)</span> variables et pour chaque point de coupure possible pour cette variable, calculer l’amélioration du critère de qualité et choisir la variable et le point de coupure résultant en la meilleur amélioration du critère.</p></li>
-<li><p>Créer une division binaire de l’arbre à l’aide de la variable et du point de coupure choisis en 1.</p></li>
-<li><p>Répéter 1 et 2 jusqu’à ce que l’arbre ait le nombre de feuilles désiré ou que le nombre minimal d’observations soit atteint dans chaque feuille.</p></li>
-</ol></section><section id="critères" class="level3"><h3 class="anchored" data-anchor-id="critères">Critères</h3>
-<p>Soit <span class="math inline">\(\widehat{p}_{jk}\)</span>, la proporiton d’observations de la <span class="math inline">\(j\)</span>e région de l’ensemble <span class="math inline">\(\mathbb{R}^p\)</span> qui appartiennent à la <span class="math inline">\(k\)</span>e classe.</p>
-<p>Trois critères sont habituellement utilisés pour déterminer les divisions optimales à chaque étape de la construction de l’arbre:</p>
-<ol type="1">
-<li><p>Taux d’erreurs de classification <span class="math display">\[E_j = 1 - \max_k \widehat{p}_{jk}.\]</span> Pas assez sensible pour construire l’arbre.</p></li>
-<li><p>Indice de Gini <span class="math display">\[G_j = \sum_{k = 1}^{K} \widehat{p}_{jk} (1 - \widehat{p}_{i j}).\]</span> Plus c’est faible, mieux c’est.</p></li>
-<li><p>Entropie croisée <span class="math display">\[D_j = - \sum_{k = 1}^{K}  \widehat{p}_{jk} \log(\widehat{p}_{m k}).\]</span> Plus c’est faible, mieux c’est.</p></li>
-</ol>
-<p>Le gain d’information est ce que l’on cherche à maximiser lorque l’on choisit comment scinder en deux un noeud donné. Par example, avec l’indice de Gini, le gain d’information est donné par <span class="math display">\[\text{indice de Gini avant la division} - \sum_{j = 1}^{2} \frac{n_j}{n_{1} + n_{2}} G_j,\]</span> où <span class="math inline">\(j = 1, 2\)</span> dénote les deux morceaux créés par la division, <span class="math inline">\(n_j\)</span> est le nombre d’observations qui tombent dans le morceau <span class="math inline">\(j\)</span> et <span class="math inline">\(G_j\)</span> est l’indice de Gini pour le morceau <span class="math inline">\(j\)</span>.</p>
-</section><section id="choix-du-nombre-de-divisionsfeuilles" class="level3"><h3 class="anchored" data-anchor-id="choix-du-nombre-de-divisionsfeuilles">Choix du nombre de divisions/feuilles</h3>
-<p>L’algorithme va faire croître l’arbre tant qu’on n’aura pas atteint un nombre de feuilles fixé ou tant que le nombre de d’observations dans chaque feuille ne sera pas trop petit. Mais, pas assez de feuilles veut dire manque d’ajustement car classification trop simpliste et inadéquate. Et trop de feuilles n’est pas mieux, car on fait du sur-ajustement et l’arbre n’aura pas une bonne performance sur un jeu de validation.</p>
-<p>Élage des arbres de classification (pruning): la stratégie commune en pratique est de laisser croître l’arbre et ensuite de l’élaguer de faon à atteindre un compromis entre ajustement aux données d’entrainement et taille de l’arbre (élagage coût-complexité). Si <span class="math inline">\(| T |\)</span> est la taille (nombre de feuilles) de l’arbre <span class="math inline">\(T\)</span>, on veut <span class="math display">\[\min \sum_{j = 1}^{|T|} c_j + \alpha | T |,\]</span> où <span class="math inline">\(\alpha \geq 0\)</span> est un hyper-paramètre qui contrôle le compromis et que l’on chosit par validation croisée.</p>
-</section><section id="avantages" class="level3"><h3 class="anchored" data-anchor-id="avantages">Avantages</h3>
-<ul>
-<li><p>Fonctionnent aussi bien avec des variables continues que catégorielles.</p></li>
-<li><p>Aucune hypothèse a priori n’est faite sur la distribution des données.</p></li>
-<li><p>Robuste aux données extrêmes.</p></li>
-<li><p>Faciles à interpréter.</p></li>
-<li><p>Tiennent implicitement compte des interactions possibles entre les variables.</p></li>
-<li><p>Sélectionnent implicitement les variables importantes.</p></li>
-<li><p>Permettent d’obtenir un modèle non linéaire.</p></li>
-</ul></section><section id="points-faibles" class="level3"><h3 class="anchored" data-anchor-id="points-faibles">Points faibles</h3>
-<ul>
-<li><p>Nécessitent un grand nombre de données.</p></li>
-<li><p>Peuvent être instables dans les résultats qu’elle produit.</p></li>
-<li><p>Ne fonctionnent pas très bien lorsque certaines des <span class="math inline">\(q\)</span> classes sont rares ou que certaines des modalités de <span class="math inline">\(X_j\)</span> catégorielles sont rares.</p></li>
-</ul></section><section id="example" class="level3"><h3 class="anchored" data-anchor-id="example">Example</h3>
-
-
-</section></main><!-- /main --><script>
+</header></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -886,12 +790,12 @@ window.onload = function() {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copié");
+      button.setAttribute("title", "Copied!");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copié");
+        button.setAttribute("data-bs-title", "Copied!");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
@@ -933,7 +837,7 @@ window.onload = function() {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/stt2200\.netlify\.app");
+        var filterRegex = new RegExp("https:\/\/stt2200\.netlify\.app\/en");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1264,17 +1168,7 @@ window.onload = function() {
       }
     }
   });
-  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../../contents/supervised/02-discriminant.html" class="pagination-link" aria-label="Discriminant">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Discriminant</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../contents/supervised/04-hierarchy.html" class="pagination-link" aria-label="Hierarchique">
-        <span class="nav-page-text">Hierarchique</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
+  </script>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
@@ -1282,9 +1176,9 @@ window.onload = function() {
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions d-sm-block d-md-none"><ul>
-<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
-<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/supervised/03-tree.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/supervised/01-discriminant.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li>
 </ul></div>
 </div>
     <div class="nav-footer-right">
