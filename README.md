@@ -27,16 +27,18 @@ This repository contains the website used for the module STT-2200 given at Unive
     - [X] Bias-variance tradeoff
     - [X] Model evaluation
   * [ ] Dimension
-    - [ ] PCA 
+    - [X] PCA
+    - [X] CA
     - [ ] MCA
     - [ ] Kernel tricks
   * [ ] Supervised
-    - [ ] Regression
+    - [ ] Discriminant analysis
     - [ ] Tree 
     - [ ] Hierarchy
+    - [ ] Ensemble models 
   * [ ] Unsupervised
-    - [ ] k-means
-    - [ ] Hierarchical clustering
+    - [X] k-means
+    - [X] Hierarchical clustering
     - [ ] Gaussian mixtures
   * [ ] Ethics 
 

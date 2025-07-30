@@ -15,15 +15,13 @@ format:
 
 ## Sommaire
 
-1. [Régression](./supervised/01-regression.qmd)
+1. [Analyse discriminante](./supervised/01-discriminant.qmd)
 
-2. [Analyse discriminante](./supervised/02-discriminant.qmd)
+2. [Arbres](./supervised/02-tree.qmd)
 
-3. [Arbres](./supervised/03-tree.qmd)
+3. [Modèles hiérarchiques](./supervised/03-hierarchy.qmd)
 
-4. [Modèles hiérarchiques](./supervised/04-hierarchy.qmd)
-
-5. [Modèles ensemblistes](./supervised/05-ensemble.qmd)
+4. [Modèles ensemblistes](./supervised/04-ensemble.qmd)
 
 
 
