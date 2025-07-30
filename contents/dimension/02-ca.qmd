@@ -59,7 +59,7 @@ Ici, on trouve $k_{\bullet \bullet} = 25$. C'est tout simplement le nombre d'ét
 | Finance | 0.08 | 0 | 0 | 0 | 0.08 |
 | Maths | 0.04 | 0 | 0 | 0 | 0.04 |
 | Info | 0.08 | 0.04 | 0 | 0.04 | 0.16 |
-| $f_{\bulllet j}$ | 0.52 | 0.28 | 0.04 | 0.16 | 1 |
+| $f_{\bullet j}$ | 0.52 | 0.28 | 0.04 | 0.16 | 1 |
 
 : Tableau de fréquences associé au tableau de contingence précédent.
 

@@ -8,29 +8,6 @@ format:
       - \usepackage{mathtools} 
 ---
 
-## Que faire avec des données catégorielles ? 
-
-L'analyse en composantes principales (ACP) est bien adaptée pour des données **continues**. Mais que faire lorsque les variables sont catégorielles ? C'est la cas dans de nombreux contextes : enquêtes avec des questions à choix multiples, tableaux croisant des variables comme la profession, la région d'origine, la couleur des yeux, etc. 
-
-Dans ces situations, on peut recourir à une méthode analogue à l'ACP, spécifiquement conçue pour les variables qualitatives : l'analyse des correspondances (AC). Cette méthode permet une représentation géométrique des relations entre les modalités de variables qualitatives. On distingue plusieurs variantes : 
-
-* l'analyse factorielle des correspondances (AFC) qui est utilisée pour étudier la relation entre deux variables qualitatives (souvent sous forme d'un tableau de contingence).
-
-* l'analyse des correspondances multiples (ACM) qui est une généralisation de l'AFC à plus de deux variables qualitatives, notamment dans le cas de questionnaires avec plusieurs questions à réponses catégorielles.
-
-
-::: {.callout-note icon=false}
-## Exemples
-
-* La boussole électorale de Radio-Canada : visualisation des profiles politiques à partir de réponses à un questionnaire.
-
-* Étude de segmentation de clientèle pour un opérateur télécom, à partir des caractéristiques déclarées par les clients.
-
-* Association entre couleur des yeux et couleur des cheveux dans une enquête démographique.
-  
-:::
-
-## Analyse des correspondances multiples
 
 L'analyse des correspondances multiples (ACM) peut être présentée comme un prolongement de l'AFC. Elle permet la representation graphique de tableaux de fréquences contnant plus de deux variables. Un exemple classique d'un tableau de fréquences avec plus de deux variables qualitatives est un tableau présentant les réponses d'individus à un questionnaire contenant $Q$ questions à choix multiples. L'ACM est donc très utile pour visualiser les résultats d'une étude par questionnaire. 
 
@@ -47,13 +24,15 @@ Le tableau binaire, i.e. ne contenant que des $0$ et des $1$, à $n$ lignes et $
 
 :::
 
+Ainsi, une variable n'est pas traitée telle quelle mais à travers ses modalités. Elle est découpée en modalités et tout individus est alors codé $1$ pour la modalité qu'il possède et $0$ dans les autres (i.e. qu'il ne possède pas, les modalités étant exclusives). Ce codage est immédiat pour des variables qualitatives. Cependant, pour une variable qualitative, on procède en découpant au préalable la variable en classes. Ainsi, chaque individu n'appartient qu'à une seule classe. Ce processus de transformation de l'information est appelé **codage disjonctif complet**. Il s'agit bien d'un codage, car l'information initiale est transformée, disjonctif, car tout individu possède au plus une modalité, et complet, car tout individu a au moins une modalité.
+
 Exemple de transformation de tableau
 
 
 ::: {.callout-tip icon=false}
 ## Remarque
 
-Lorsque l'on veut transformer des variables quantitatives en tableau de codage disjonctif complet, on perd de l'information. En effet, on doit découper les variables qualitatives en classes, chaque observation de ces variables appartenant à une unique classe.
+Lorsque l'on veut transformer des variables quantitatives en tableau de codage disjonctif complet, on perd de l'information. En effet, comme on doit découper les variables qualitatives en classes, l'appartenance à une classe est moins informatif qu'une valeur précise d'une variable.
 
 
 :::
