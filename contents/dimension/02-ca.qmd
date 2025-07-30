@@ -1,5 +1,5 @@
 --- 
-title: "Analyse des correspondances multiples"
+title: "Analyse factorielle des correspondances"
 format: 
   html: default
   pdf:
@@ -8,30 +8,6 @@ format:
       - \usepackage{mathtools} 
 ---
 
-## Que faire avec des données catégorielles ? 
-
-L'analyse en composantes principales (ACP) est bien adaptée pour des données **continues**. Mais que faire lorsque les variables sont catégorielles ? C'est la cas dans de nombreux contextes : enquêtes avec des questions à choix multiples, tableaux croisant des variables comme la profession, la région d'origine, la couleur des yeux, etc. 
-
-Dans ces situations, on peut recourir à une méthode analogue à l'ACP, spécifiquement conçue pour les variables qualitatives : l'analyse des correspondances (AC). Cette méthode permet une représentation géométrique des relations entre les modalités de variables qualitatives. On distingue plusieurs variantes : 
-
-* l'analyse factorielle des correspondances (AFC) qui est utilisée pour étudier la relation entre deux variables qualitatives (souvent sous forme d'un tableau de contingence).
-
-* l'analyse des correspondances multiples (ACM) qui est une généralisation de l'AFC à plus de deux variables qualitatives, notamment dans le cas de questionnaires avec plusieurs questions à réponses catégorielles.
-
-
-::: {.callout-note icon=false}
-## Exemples
-
-* La boussole électorale de Radio-Canada : visualisation des profiles politiques à partir de réponses à un questionnaire.
-
-* Étude de segmentation de clientèle pour un opérateur télécom, à partir des caractéristiques déclarées par les clients.
-
-* Association entre couleur des yeux et couleur des cheveux dans une enquête démographique.
-  
-:::
-
-
-## Analyse factorielle des correspondances
 
 L'analyse factorielle des correspondances (AFC) est une méthode d'analyse exploratoire qui vise à représenter graphiquement les relations entre les modalités de deux variables qualitatives. Elle permet de représenter simultanément les **profils-lignes** (dans $\mathbb{R}^p$) et les **profils-colonnes** (dans $\mathbb{R}^n$) d'un tableau de contingences, dans un espace de faible dimension, tout en préservant au mieux la distance du $\chi^2$. L'objectif de l'AFC est de trouver une représentation bidimensionnelle (voir tridimensionnelle) dans laquelle les proximités géométriques entre points reflètent au mieux les similarités entre les modalités.
 
@@ -42,7 +18,7 @@ L'AFC peut être vue comme une double ACP : une ACP pondérée appliquée aux pr
 
 :::
 
-### Notation 
+## Notation 
 
 On considère un tableau de contingence $K = (k_{ij})$, où $k_{ij}$ est le nombre d'individus appartenant à la classe $i \in \{ 1, \dots, n \}$ et à la catégorie $j \in \{ 1, \dots, p \}$.
 On travaille ensuite avec le tableau des fréquences relatives en normalisant ce tableau. Comme les fréquences sont proportionnelles à la taille d'échantillon $n$, le tableau des fréquences relatives contient plus d'information. Notons $F = (f_{ij})$, dans lequel
@@ -54,7 +30,43 @@ f_{i \bullet} &= \sum_{j = 1}^{p} f_{ij} = \frac{k_{i \bullet}}{k_{\bullet\bulle
 f_{\bullet j} &= \sum_{i = 1}^{n} f_{ij} = \frac{k_{\bullet j}}{k_{\bullet\bullet}}, \quad 1 \leq j \leq p.
 \end{align}
 
-### Indépendance statistique 
+On a $f_{\bullet \bullet} = \sum_{i = 1}^{n} f_{i \bullet} = \sum_{j = 1}^{p} f_{\bullet j} = 1$.
+
+::: {.callout-note icon=false}
+## Exemple 
+
+Comme exemple, on va considérer la majeure et le type d'admission des étudiants inscrit au cours STT-2200 à l'automne 2025. 
+
+|    | Collège | Université Laval | Autre université | Hors Québec |
+|:--:| -: | -: | -: | -: |
+| Actuariat | 2 | 0 | 0 | 1 |
+| Statistique | 2 | 4 | 1 | 0 |
+| Bio-info | 4 | 2 | 0 | 2 |
+| Finance | 2 | 0 | 0 | 0 |
+| Maths | 1 | 0 | 0 | 0 |
+| Info | 2 | 1 | 0 | 1 |
+
+: Tableau de contingence des étudiants inscrit pour le cours STT-2200 (Automne 2025) croisant leur majeure et leur type d'admission.
+
+Ici, on trouve $k_{\bullet \bullet} = 25$. C'est tout simplement le nombre d'étudiants inscrit au cours. On trouve donc le tableau de fréquences suivant :
+
+
+|    | Collège | Université Laval | Autre université | Hors Québec | $f_{i \bullet}$
+|:--:| -: | -: | -: | -: | -: |
+| Actuariat | 0.08 | 0 | 0 | 0.04 | 0.12 |
+| Statistique | 0.08 | 0.16 | 0.04 | 0 | 0.28 |
+| Bio-info | 0.16 | 0.08 | 0 | 0.08 | 0.32 |
+| Finance | 0.08 | 0 | 0 | 0 | 0.08 |
+| Maths | 0.04 | 0 | 0 | 0 | 0.04 |
+| Info | 0.08 | 0.04 | 0 | 0.04 | 0.16 |
+| $f_{\bulllet j}$ | 0.52 | 0.28 | 0.04 | 0.16 | 1 |
+
+: Tableau de fréquences associé au tableau de contingence précédent.
+
+:::
+
+
+## Indépendance statistique 
 
 Le tableau des fréquences relatives $F = (f_{ij})$ peut être interprété comme une estimation des probabilités conjointes des modalités des deux variables qualitatives. Si les deux variables sont statistiquement indépendantes, on s'attend à ce que la probabilité conjointe s'approche du produit des probabilités marginales :
 $$f_{ij} \approx f_{i \bullet} f_{\bullet j}, \quad i \in \{ 1, \dots, n \},~ j \in \{ 1, \dots, p \}.$$
@@ -64,7 +76,7 @@ $$T = \sum_{i = 1}^{n} \sum_{j = 1}^{p} \frac{\left( k_{ij} - \mathbb{E}(k_{ij})
 Sous l'hypothèse d'indépendance, cette statistique suit approximativement une loi du $\chi^2$. Si les variables sont indépendantes, la statistique $T$ doit être proche de $0$.
 
 
-### Profils-lignes et profils-colonnes
+## Profils-lignes et profils-colonnes
 
 Pour analyser les structures dans le tableau de contingence, on introduit la notion de profil. Chaque ligne du tableau peut être vue comme un profil-ligne
 $$L_i = \left( \frac{k_{i 1}}{k_{i \bullet}}, \dots, \frac{k_{i p}}{k_{i \bullet}} \right) = \left( \frac{f_{i 1}}{f_{i \bullet}}, \dots, \frac{f_{i p}}{f_{i \bullet}} \right).$$
@@ -98,7 +110,7 @@ $$d^2(C_j, C_{j^\prime}) = (C_j - C_{j^\prime})^\top D_n^{-1} (C_j - C_{j^\prime
 
 Ces distances sont à la base de la représentation géométrique dans l'analyse des correspondances, où l'on cherche une projection des profils dans un espace de faible dimension qui conserve au mieux ces distances.
 
-### Estimation des éléments propres 
+## Estimation des éléments propres 
 
 L'analyse des profils-lignes s'appelle l'analyse directe. On considère les profils-lignes contenus dans la matrice $D_n^{-1}F \in \mathbb{R}^{n \times p}$. On projette les profils-lignes dans un espace muni de la métrique du $\chi^2$ sur les colonnes, définie par 
 $$\left\langle x, y \right\rangle = x^{\top} D_p^{-1} y.$$
@@ -152,7 +164,7 @@ En centrant les profils, on peut projeter les profils-lignes et les profils-colo
 :::
 
 
-### Centre de gravité et inertie 
+## Centre de gravité et inertie 
 
 Dans les sorties des logiciels de statistique, le nuage des points issus d'une AFC est généralement centré en $(0, 0)$. Cette convention reflète une analyse relative aux centres de gravité des profils-lignes et des profils-colonnes. Ce centrage est à la fois pratique et interprétable. En effet, il fait apparaître les distances entre les modalités par rapport à leur moyenne poindérée, i.e. par rapport au comportement moyen dans la population. 
 
@@ -191,7 +203,7 @@ $$s_{j j^\prime} = \sum_{i = 1}^{n} \frac{f_{i j}f_{i j^\prime}}{f_{i \bullet} f
 
 La propriété précédente entraine que les matrices $S$ et $S^\star$ one les mêmes vecteurs propres pour les $p$ premières dimensions, ce qui permet d'effectuer l'analyse factorielle sur la version centrée.
 
-### Coordonnées factorielles
+## Coordonnées factorielles
 
 On a que, pour tout $k = 1, \dots, r$, 
 $$\Phi_k = D_n^{-1} F D_p^{-1} u_k \quad \text{et} \quad \Psi_k = D_p^{-1} F^{\top} D_n^{-1} v_k.$$
@@ -211,80 +223,4 @@ Ainsi, en AFC, nous avons une double représentation barycentrique. Sur les axes
 
 :::
 
-
-
-## Analyse des correspondances multiples
-
-L'analyse des correspondances multiples (ACM) peut être présentée comme un prolongement de l'AFC. Elle permet la representation graphique de tableaux de fréquences contnant plus de deux variables. Un exemple classique d'un tableau de fréquences avec plus de deux variables qualitatives est un tableau présentant les réponses d'individus à un questionnaire contenant $Q$ questions à choix multiples. L'ACM est donc très utile pour visualiser les résultats d'une étude par questionnaire. 
-
-L'ACM peut aussi être vue comme une version de l'ACP quand les variables sont mixtes, i.e. comprenant à la fois des variables quantitatives et des variables qualitatives. Le traitement conjoint de ces deux types de données repose sur leur transformation préalable appelée **codage disjonctif complet**.
-
-### Notation 
-
-Notons $n$ le nombre d'individus (ou d'observations) et $Q$ le nombre de variables (ou de questions dans le cas d'un questionnaire). Chaque variable possède $J_q$ modalités et le nombre total de modalités est égal à $J$.
-
-::: {.callout-warning icon=false}
-## Définition
-
-Le tableau binaire, i.e. ne contenant que des $0$ et des $1$, à $n$ lignes et $J$ colonnes est appelé **tableau de codage disjonctif complet**. On le note $Z$.
-
-:::
-
-Exemple de transformation de tableau
-
-
-::: {.callout-tip icon=false}
-## Remarque
-
-Lorsque l'on veut transformer des variables quantitatives en tableau de codage disjonctif complet, on perd de l'information. En effet, on doit découper les variables qualitatives en classes, chaque observation de ces variables appartenant à une unique classe.
-
-
-:::
-
-En général, pour un questionnaire contenant $Q$ questions, on a un tableau de la forme suivante:
-$$Z = \left[ Z_1 \mid \cdots \mid Z_{Q} \right].$$
-
-Notation: 
-
-* $Q$: nombre de questions
-* $n$: nombre d'individus répondant au questionnaire
-* $p_q$: nombre de modalités (choix de réponses) de la question $q$.
-* $p = p_{1} + p_{Q}$
-
-Potentiel problème: plus le nombre de questions est grand, plus il y aura de cellules vides. C'est aussi le cas si le nombre de réponses aux questions est important.
-La proportion de cellules non vides est 
-$$\frac{nQ}{np} = \frac{Q}{p}.$$.
-
-Si toutes les questions ont le même nombre de choix de réponses, alors $p_{1} = \dots = p_{Q} = \frac{p}{Q}$, de sorte que
-$$\frac{Q}{p} = \frac{1}{p_{1}} \longrightarrow 0, \quad\text{quand}~ p_{1} \rightarrow \infty.$$
-
-Le tableau résumé est un tableau de taille $n \times Q$. Il contient le numéro de la modalité associée à la réponse de chaque individu pour chacune des questions.
-
-La tableau de Burt est une autre fa\c{c}on de présenter un tableau de fréquences contenant plus de deux variables. Étant donné un tableau logique $Z = \left[ Z_{1} \mid \cdots \mid Z_{Q} \right]$, le tableau de Burt associé est la matrice carrée $p \times p$ définie comme étant 
-$$ B = \begin{pmatrix}
-  Z_1^\top Z_1 & \cdots & Z_1^\top Z_Q \\
-  \vdots & \ddots & \vdots \\
-  Z_Q^\top Z_1 & \cdots & Z_Q^\top Z_Q
-\end{pmatrix}.$$
-
-::: {.callout-important icon=false}
-## Propriétés de $Z_q^\top Z_q$
-
-1. $Z_{q}^\top Z_q$ est une matrice diagonale $p_q \times p_q$ présentant les réponses à la $q$e question.
-
-2. L'élément $(j, j)$ de la matrice $Z_q^\top Z_q$ est égal au nombre d'individus $d_{jj}$ qui appartiennent à la $j$e catégorie de la $q$e question.
-
-3. $Z_{q}^\top Z_{r}$ est le tableau de fréquences présentant les répones au x $q$e et $r$e questions.
-
-4. L'élément $(j, k)$ de la matrice $Z_q^\top Z_r$ est égal au nombre d'individus $d_{jk}$ qui appartiennent à la $j$e catégorie de la $q$e question et à la $k$e catégorie de la $r$e question.
-
-:::
-
-D'un point de vue mathématique, l'ACM est une AFC effectuée sur la matrice logique $Z$ ou sur le tableau de Burt $B$. On peut démontrer que l'on obtient les mêmes facteurs, et ce, peu importe la matrice utilisé pour l'analyse.
-
-::: {.callout-note icon=false}
-## Note
-
-On peut créé un graphique comme l'AFC. Cependant, en ACM, la distance entre les points de même couleur et la géométrie globale du graphique ne peuvent pas s'interpréter comme en AFC. En fait, on s'intéresse aux points qui sont dans une même direction par rapport à l'origine.
-:::
 

@@ -1,0 +1,107 @@
+--- 
+title: "Analyse des correspondances multiples"
+format: 
+  html: default
+  pdf:
+    number-sections: true
+    header-includes:
+      - \usepackage{mathtools} 
+---
+
+## Que faire avec des données catégorielles ? 
+
+L'analyse en composantes principales (ACP) est bien adaptée pour des données **continues**. Mais que faire lorsque les variables sont catégorielles ? C'est la cas dans de nombreux contextes : enquêtes avec des questions à choix multiples, tableaux croisant des variables comme la profession, la région d'origine, la couleur des yeux, etc. 
+
+Dans ces situations, on peut recourir à une méthode analogue à l'ACP, spécifiquement conçue pour les variables qualitatives : l'analyse des correspondances (AC). Cette méthode permet une représentation géométrique des relations entre les modalités de variables qualitatives. On distingue plusieurs variantes : 
+
+* l'analyse factorielle des correspondances (AFC) qui est utilisée pour étudier la relation entre deux variables qualitatives (souvent sous forme d'un tableau de contingence).
+
+* l'analyse des correspondances multiples (ACM) qui est une généralisation de l'AFC à plus de deux variables qualitatives, notamment dans le cas de questionnaires avec plusieurs questions à réponses catégorielles.
+
+
+::: {.callout-note icon=false}
+## Exemples
+
+* La boussole électorale de Radio-Canada : visualisation des profiles politiques à partir de réponses à un questionnaire.
+
+* Étude de segmentation de clientèle pour un opérateur télécom, à partir des caractéristiques déclarées par les clients.
+
+* Association entre couleur des yeux et couleur des cheveux dans une enquête démographique.
+  
+:::
+
+## Analyse des correspondances multiples
+
+L'analyse des correspondances multiples (ACM) peut être présentée comme un prolongement de l'AFC. Elle permet la representation graphique de tableaux de fréquences contnant plus de deux variables. Un exemple classique d'un tableau de fréquences avec plus de deux variables qualitatives est un tableau présentant les réponses d'individus à un questionnaire contenant $Q$ questions à choix multiples. L'ACM est donc très utile pour visualiser les résultats d'une étude par questionnaire. 
+
+L'ACM peut aussi être vue comme une version de l'ACP quand les variables sont mixtes, i.e. comprenant à la fois des variables quantitatives et des variables qualitatives. Le traitement conjoint de ces deux types de données repose sur leur transformation préalable appelée **codage disjonctif complet**.
+
+### Notation 
+
+Notons $n$ le nombre d'individus (ou d'observations) et $Q$ le nombre de variables (ou de questions dans le cas d'un questionnaire). Chaque variable possède $J_q$ modalités et le nombre total de modalités est égal à $J$.
+
+::: {.callout-warning icon=false}
+## Définition
+
+Le tableau binaire, i.e. ne contenant que des $0$ et des $1$, à $n$ lignes et $J$ colonnes est appelé **tableau de codage disjonctif complet**. On le note $Z$.
+
+:::
+
+Exemple de transformation de tableau
+
+
+::: {.callout-tip icon=false}
+## Remarque
+
+Lorsque l'on veut transformer des variables quantitatives en tableau de codage disjonctif complet, on perd de l'information. En effet, on doit découper les variables qualitatives en classes, chaque observation de ces variables appartenant à une unique classe.
+
+
+:::
+
+En général, pour un questionnaire contenant $Q$ questions, on a un tableau de la forme suivante:
+$$Z = \left[ Z_1 \mid \cdots \mid Z_{Q} \right].$$
+
+Notation: 
+
+* $Q$: nombre de questions
+* $n$: nombre d'individus répondant au questionnaire
+* $p_q$: nombre de modalités (choix de réponses) de la question $q$.
+* $p = p_{1} + p_{Q}$
+
+Potentiel problème: plus le nombre de questions est grand, plus il y aura de cellules vides. C'est aussi le cas si le nombre de réponses aux questions est important.
+La proportion de cellules non vides est 
+$$\frac{nQ}{np} = \frac{Q}{p}.$$.
+
+Si toutes les questions ont le même nombre de choix de réponses, alors $p_{1} = \dots = p_{Q} = \frac{p}{Q}$, de sorte que
+$$\frac{Q}{p} = \frac{1}{p_{1}} \longrightarrow 0, \quad\text{quand}~ p_{1} \rightarrow \infty.$$
+
+Le tableau résumé est un tableau de taille $n \times Q$. Il contient le numéro de la modalité associée à la réponse de chaque individu pour chacune des questions.
+
+La tableau de Burt est une autre fa\c{c}on de présenter un tableau de fréquences contenant plus de deux variables. Étant donné un tableau logique $Z = \left[ Z_{1} \mid \cdots \mid Z_{Q} \right]$, le tableau de Burt associé est la matrice carrée $p \times p$ définie comme étant 
+$$ B = \begin{pmatrix}
+  Z_1^\top Z_1 & \cdots & Z_1^\top Z_Q \\
+  \vdots & \ddots & \vdots \\
+  Z_Q^\top Z_1 & \cdots & Z_Q^\top Z_Q
+\end{pmatrix}.$$
+
+::: {.callout-important icon=false}
+## Propriétés de $Z_q^\top Z_q$
+
+1. $Z_{q}^\top Z_q$ est une matrice diagonale $p_q \times p_q$ présentant les réponses à la $q$e question.
+
+2. L'élément $(j, j)$ de la matrice $Z_q^\top Z_q$ est égal au nombre d'individus $d_{jj}$ qui appartiennent à la $j$e catégorie de la $q$e question.
+
+3. $Z_{q}^\top Z_{r}$ est le tableau de fréquences présentant les répones au x $q$e et $r$e questions.
+
+4. L'élément $(j, k)$ de la matrice $Z_q^\top Z_r$ est égal au nombre d'individus $d_{jk}$ qui appartiennent à la $j$e catégorie de la $q$e question et à la $k$e catégorie de la $r$e question.
+
+:::
+
+D'un point de vue mathématique, l'ACM est une AFC effectuée sur la matrice logique $Z$ ou sur le tableau de Burt $B$. On peut démontrer que l'on obtient les mêmes facteurs, et ce, peu importe la matrice utilisé pour l'analyse.
+
+::: {.callout-note icon=false}
+## Note
+
+On peut créé un graphique comme l'AFC. Cependant, en ACM, la distance entre les points de même couleur et la géométrie globale du graphique ne peuvent pas s'interpréter comme en AFC. En fait, on s'intéresse aux points qui sont dans une même direction par rapport à l'origine.
+:::
+

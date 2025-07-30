@@ -17,9 +17,11 @@ format:
 
 1. [Analyse en composantes principales](./dimension/01-pca.qmd)
 
-2. [Analyse des correspondances multiples](./dimension/02-mca.qmd)
+2. [Analyse factorielle des correspondances](./dimension/02-ca.qmd)
 
-3. [Méthodes à noyaux](./dimension/03-kernel.qmd)
+3. [Analyse des correspondances multiples](./dimension/03-mca.qmd)
+
+4. [Méthodes à noyaux](./dimension/04-kernel.qmd)
 
 
 ![Flatland ([xkcd:721](https://xkcd.com/721/)).](../include/flatland.png)
