@@ -13,7 +13,7 @@ L'analyse des correspondances multiples (ACM) peut être présentée comme un pr
 
 L'ACM peut aussi être vue comme une version de l'ACP quand les variables sont mixtes, i.e. comprenant à la fois des variables quantitatives et des variables qualitatives. Le traitement conjoint de ces deux types de données repose sur leur transformation préalable appelée **codage disjonctif complet**.
 
-### Notation 
+## Notation 
 
 Notons $n$ le nombre d'individus (ou d'observations) et $Q$ le nombre de variables (ou de questions dans le cas d'un questionnaire). Chaque variable possède $J_q$ modalités et le nombre total de modalités est égal à $J$.
 
@@ -26,61 +26,102 @@ Le tableau binaire, i.e. ne contenant que des $0$ et des $1$, à $n$ lignes et $
 
 Ainsi, une variable n'est pas traitée telle quelle mais à travers ses modalités. Elle est découpée en modalités et tout individus est alors codé $1$ pour la modalité qu'il possède et $0$ dans les autres (i.e. qu'il ne possède pas, les modalités étant exclusives). Ce codage est immédiat pour des variables qualitatives. Cependant, pour une variable qualitative, on procède en découpant au préalable la variable en classes. Ainsi, chaque individu n'appartient qu'à une seule classe. Ce processus de transformation de l'information est appelé **codage disjonctif complet**. Il s'agit bien d'un codage, car l'information initiale est transformée, disjonctif, car tout individu possède au plus une modalité, et complet, car tout individu a au moins une modalité.
 
-Exemple de transformation de tableau
+::: {.callout-note icon=false}
+## Exemple
+
+Prenons par exemple un ensemble de produits avec différents types (Hoodie, Joggers et Sneakers) et différents prix. On a $7$ observations ($7$ produits). La variable `Type` est une variable qualitative et la variable `Prix` est une variable quantitative. 
+
+| Produit | Type | Prix (\$)|
+|----------------:|------------:|:--------------:|
+|Nike Tech Fleece |Hoodie       |         256.72|
+|Puma Joggers     |Joggers      |         221.26|
+|Off-White Hoodie |Hoodie       |         198.45|
+|Supreme Hoodie   |Hoodie       |         235.50|
+|Jordan 1 High    |Sneakers     |         298.22|
+|Nike Dunk Low    |Sneakers     |         273.00|
+|Nike Tech Fleece |Hoodie       |         162.38|
+
+: Jeu de données de produits.
+
+Pour coder l'information en tableau de codage disjonctif complet, on définit trois classes de prix (prix inférieur à $200\$$, prix compris entre $200\$$ et $250\$$ et prix supérieur à $250\$$). Ainsi, on peut encoder la variable `Prix` grâce aux classes précédentes. Ainsi, le tableau disjonctif complet est donné par la tableau suivant.
 
 
-::: {.callout-tip icon=false}
-## Remarque
+| Produit | Hoodie | Joggers | Sneakers | $<200\$$ | entre $200\$$ et $250\$$ | $>250\$$ |
+|--------:|:------:|:-------:|:--------:|:------:|:-:|:-:|
+|Nike Tech Fleece |1 | 0 | 0 | 0 | 0 | 1 |
+|Puma Joggers     |0 | 1 | 0 | 0 | 1 | 1 |
+|Off-White Hoodie |1 | 0 | 0 | 1 | 0 | 0 |
+|Supreme Hoodie   |1 | 0 | 0 | 0 | 1 | 0 |
+|Jordan 1 High    |0 | 0 | 1 | 0 | 0 | 1 |
+|Nike Dunk Low    |0 | 0 | 1 | 0 | 0 | 1 |
+|Nike Tech Fleece |1 | 0 | 0 | 1 | 0 | 0 |
 
-Lorsque l'on veut transformer des variables quantitatives en tableau de codage disjonctif complet, on perd de l'information. En effet, comme on doit découper les variables qualitatives en classes, l'appartenance à une classe est moins informatif qu'une valeur précise d'une variable.
+: Jeu de données de produits en codage disjonctif complet.
 
 
 :::
 
-En général, pour un questionnaire contenant $Q$ questions, on a un tableau de la forme suivante:
-$$Z = \left[ Z_1 \mid \cdots \mid Z_{Q} \right].$$
+::: {.callout-tip icon=false}
+## Remarque
 
-Notation: 
+Lorsque l'on veut transformer des variables quantitatives en tableau de codage disjonctif complet, on perd de l'information. En effet, comme on doit découper les variables qualitatives en classes, l'appartenance à une classe est moins informatif qu'une valeur précise d'une variable. Dans l'exemple précédent, on perd de l'information sur le prix.
 
-* $Q$: nombre de questions
-* $n$: nombre d'individus répondant au questionnaire
-* $p_q$: nombre de modalités (choix de réponses) de la question $q$.
-* $p = p_{1} + p_{Q}$
 
-Potentiel problème: plus le nombre de questions est grand, plus il y aura de cellules vides. C'est aussi le cas si le nombre de réponses aux questions est important.
-La proportion de cellules non vides est 
-$$\frac{nQ}{np} = \frac{Q}{p}.$$.
-
-Si toutes les questions ont le même nombre de choix de réponses, alors $p_{1} = \dots = p_{Q} = \frac{p}{Q}$, de sorte que
-$$\frac{Q}{p} = \frac{1}{p_{1}} \longrightarrow 0, \quad\text{quand}~ p_{1} \rightarrow \infty.$$
-
-Le tableau résumé est un tableau de taille $n \times Q$. Il contient le numéro de la modalité associée à la réponse de chaque individu pour chacune des questions.
-
-La tableau de Burt est une autre fa\c{c}on de présenter un tableau de fréquences contenant plus de deux variables. Étant donné un tableau logique $Z = \left[ Z_{1} \mid \cdots \mid Z_{Q} \right]$, le tableau de Burt associé est la matrice carrée $p \times p$ définie comme étant 
-$$ B = \begin{pmatrix}
-  Z_1^\top Z_1 & \cdots & Z_1^\top Z_Q \\
-  \vdots & \ddots & \vdots \\
-  Z_Q^\top Z_1 & \cdots & Z_Q^\top Z_Q
-\end{pmatrix}.$$
+:::
 
 ::: {.callout-important icon=false}
-## Propriétés de $Z_q^\top Z_q$
+## Propriétés 
 
-1. $Z_{q}^\top Z_q$ est une matrice diagonale $p_q \times p_q$ présentant les réponses à la $q$e question.
+1. La somme des éléments d'une même ligne est constante et vaut $Q$.
 
-2. L'élément $(j, j)$ de la matrice $Z_q^\top Z_q$ est égal au nombre d'individus $d_{jj}$ qui appartiennent à la $j$e catégorie de la $q$e question.
+2. La somme de tous les éléments du tableau est égale à $nQ$.
 
-3. $Z_{q}^\top Z_{r}$ est le tableau de fréquences présentant les répones au x $q$e et $r$e questions.
+3. La somme des éléments d'une même colonne est égale à l'effectif $n_j$ possédant la modalité $j$ de la variable $q$.
 
-4. L'élément $(j, k)$ de la matrice $Z_q^\top Z_r$ est égal au nombre d'individus $d_{jk}$ qui appartiennent à la $j$e catégorie de la $q$e question et à la $k$e catégorie de la $r$e question.
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Preuve
+
+Comme $Z$ est un tableau disjonctif complet, on a 
+$$\sum_{j = 1}^{J_q} z_{ij} = 1.$$
+Donc, on trouve que 
+$$z_{i \bullet} = \sum_{j = 1}^{J} z_{ij} = \sum_{q = 1}^{Q} \sum_{j = 1}^{J_q} z_{ij} = Q, $$
+
+$$z_{\bullet j} = \sum_{i = 1}^{n} z_{ij} = n_j,$$
+
+$$z_{\bullet \bullet} = \sum_{i = 1}^{n} \sum_{j = 1}^{J} z_{ij} = nQ.$$
+
+:::
+
+## Tableau de Burt 
+
+::: {.callout-warning icon=false}
+## Définition
+
+Le **tableau de Burt**, noté $B$, est le produit de la transposé de $Z$ par $Z$ :
+$$B = Z^{\top} Z.$$
+
+:::
+
+
+::: {.callout-important icon=false}
+## Propriétés de $B$
+
+1. Le tableau de Burt est carré et sa taille est égale au nombre total de modalités $J$ possédées par les $Q$ variables.
+
+2. Les blocs diagonaux de $B$ sont eux-mêmes des matrices diagonales. Ils sont donnés par $B_qq = Z^{\top}_q Z_q$ et leurs éléments diagonaux correspondent à l'effectif de chaque modalité pour la variable $q$.
+
+3. Les blocs non-diagonaux de $B$ sont donnés par $B_{q q^\prime} = Z^{\top}_q Z_{q^\prime}, q \neq q^\prime$. Ils correspondent aux tableaux de contingence croisant les variables $q$ et $q^\prime$.
+
+4. Le tableau de Burt est symétrique car $B_{q^\prime q} = Z^{\top}_{q^\prime} Z_{q}$ est la transposé de $B_{q q^\prime} = Z^{\top}_q Z_{q^\prime}$.
 
 :::
 
 D'un point de vue mathématique, l'ACM est une AFC effectuée sur la matrice logique $Z$ ou sur le tableau de Burt $B$. On peut démontrer que l'on obtient les mêmes facteurs, et ce, peu importe la matrice utilisé pour l'analyse.
 
-::: {.callout-note icon=false}
-## Note
+## AFC du tableau $Z$
 
-On peut créé un graphique comme l'AFC. Cependant, en ACM, la distance entre les points de même couleur et la géométrie globale du graphique ne peuvent pas s'interpréter comme en AFC. En fait, on s'intéresse aux points qui sont dans une même direction par rapport à l'origine.
-:::
+
+
 
