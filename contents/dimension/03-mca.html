@@ -551,6 +551,8 @@ window.Quarto = {
    
   <ul>
 <li><a href="#notation" id="toc-notation" class="nav-link active" data-scroll-target="#notation">Notation</a></li>
+  <li><a href="#tableau-de-burt" id="toc-tableau-de-burt" class="nav-link" data-scroll-target="#tableau-de-burt">Tableau de Burt</a></li>
+  <li><a href="#afc-du-tableau-z" id="toc-afc-du-tableau-z" class="nav-link" data-scroll-target="#afc-du-tableau-z">AFC du tableau <span class="math inline">\(Z\)</span></a></li>
   </ul>
 <div class="toc-actions"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
@@ -583,7 +585,7 @@ window.Quarto = {
 
 </header><p>L’analyse des correspondances multiples (ACM) peut être présentée comme un prolongement de l’AFC. Elle permet la representation graphique de tableaux de fréquences contnant plus de deux variables. Un exemple classique d’un tableau de fréquences avec plus de deux variables qualitatives est un tableau présentant les réponses d’individus à un questionnaire contenant <span class="math inline">\(Q\)</span> questions à choix multiples. L’ACM est donc très utile pour visualiser les résultats d’une étude par questionnaire.</p>
 <p>L’ACM peut aussi être vue comme une version de l’ACP quand les variables sont mixtes, i.e. comprenant à la fois des variables quantitatives et des variables qualitatives. Le traitement conjoint de ces deux types de données repose sur leur transformation préalable appelée <strong>codage disjonctif complet</strong>.</p>
-<section id="notation" class="level3"><h3 class="anchored" data-anchor-id="notation">Notation</h3>
+<section id="notation" class="level2"><h2 class="anchored" data-anchor-id="notation">Notation</h2>
 <p>Notons <span class="math inline">\(n\)</span> le nombre d’individus (ou d’observations) et <span class="math inline">\(Q\)</span> le nombre de variables (ou de questions dans le cas d’un questionnaire). Chaque variable possède <span class="math inline">\(J_q\)</span> modalités et le nombre total de modalités est égal à <span class="math inline">\(J\)</span>.</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -599,7 +601,152 @@ Définition
 </div>
 </div>
 <p>Ainsi, une variable n’est pas traitée telle quelle mais à travers ses modalités. Elle est découpée en modalités et tout individus est alors codé <span class="math inline">\(1\)</span> pour la modalité qu’il possède et <span class="math inline">\(0\)</span> dans les autres (i.e. qu’il ne possède pas, les modalités étant exclusives). Ce codage est immédiat pour des variables qualitatives. Cependant, pour une variable qualitative, on procède en découpant au préalable la variable en classes. Ainsi, chaque individu n’appartient qu’à une seule classe. Ce processus de transformation de l’information est appelé <strong>codage disjonctif complet</strong>. Il s’agit bien d’un codage, car l’information initiale est transformée, disjonctif, car tout individu possède au plus une modalité, et complet, car tout individu a au moins une modalité.</p>
-<p>Exemple de transformation de tableau</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exemple
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Prenons par exemple un ensemble de produits avec différents types (Hoodie, Joggers et Sneakers) et différents prix. On a <span class="math inline">\(7\)</span> observations (<span class="math inline">\(7\)</span> produits). La variable <code>Type</code> est une variable qualitative et la variable <code>Prix</code> est une variable quantitative.</p>
+<table class="caption-top table">
+<caption>Jeu de données de produits.</caption>
+<thead><tr class="header">
+<th style="text-align: right;">Produit</th>
+<th style="text-align: right;">Type</th>
+<th style="text-align: center;">Prix ($)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">Nike Tech Fleece</td>
+<td style="text-align: right;">Hoodie</td>
+<td style="text-align: center;">256.72</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Puma Joggers</td>
+<td style="text-align: right;">Joggers</td>
+<td style="text-align: center;">221.26</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">Off-White Hoodie</td>
+<td style="text-align: right;">Hoodie</td>
+<td style="text-align: center;">198.45</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Supreme Hoodie</td>
+<td style="text-align: right;">Hoodie</td>
+<td style="text-align: center;">235.50</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">Jordan 1 High</td>
+<td style="text-align: right;">Sneakers</td>
+<td style="text-align: center;">298.22</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Nike Dunk Low</td>
+<td style="text-align: right;">Sneakers</td>
+<td style="text-align: center;">273.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">Nike Tech Fleece</td>
+<td style="text-align: right;">Hoodie</td>
+<td style="text-align: center;">162.38</td>
+</tr>
+</tbody>
+</table>
+<p>Pour coder l’information en tableau de codage disjonctif complet, on définit trois classes de prix (prix inférieur à <span class="math inline">\(200\$\)</span>, prix compris entre <span class="math inline">\(200\$\)</span> et <span class="math inline">\(250\$\)</span> et prix supérieur à <span class="math inline">\(250\$\)</span>). Ainsi, on peut encoder la variable <code>Prix</code> grâce aux classes précédentes. Ainsi, le tableau disjonctif complet est donné par la tableau suivant.</p>
+<table class="caption-top table">
+<caption>Jeu de données de produits en codage disjonctif complet.</caption>
+<colgroup>
+<col style="width: 18%">
+<col style="width: 16%">
+<col style="width: 18%">
+<col style="width: 20%">
+<col style="width: 16%">
+<col style="width: 6%">
+<col style="width: 6%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: right;">Produit</th>
+<th style="text-align: center;">Hoodie</th>
+<th style="text-align: center;">Joggers</th>
+<th style="text-align: center;">Sneakers</th>
+<th style="text-align: center;"><span class="math inline">\(&lt;200\$\)</span></th>
+<th style="text-align: center;">entre <span class="math inline">\(200\$\)</span> et <span class="math inline">\(250\$\)</span>
+</th>
+<th style="text-align: center;"><span class="math inline">\(&gt;250\$\)</span></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">Nike Tech Fleece</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Puma Joggers</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">Off-White Hoodie</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Supreme Hoodie</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">Jordan 1 High</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Nike Dunk Low</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">Nike Tech Fleece</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -610,60 +757,79 @@ Remarque
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Lorsque l’on veut transformer des variables quantitatives en tableau de codage disjonctif complet, on perd de l’information. En effet, comme on doit découper les variables qualitatives en classes, l’appartenance à une classe est moins informatif qu’une valeur précise d’une variable.</p>
+<p>Lorsque l’on veut transformer des variables quantitatives en tableau de codage disjonctif complet, on perd de l’information. En effet, comme on doit découper les variables qualitatives en classes, l’appartenance à une classe est moins informatif qu’une valeur précise d’une variable. Dans l’exemple précédent, on perd de l’information sur le prix.</p>
 </div>
 </div>
-<p>En général, pour un questionnaire contenant <span class="math inline">\(Q\)</span> questions, on a un tableau de la forme suivante: <span class="math display">\[Z = \left[ Z_1 \mid \cdots \mid Z_{Q} \right].\]</span></p>
-<p>Notation:</p>
-<ul>
-<li>
-<span class="math inline">\(Q\)</span>: nombre de questions</li>
-<li>
-<span class="math inline">\(n\)</span>: nombre d’individus répondant au questionnaire</li>
-<li>
-<span class="math inline">\(p_q\)</span>: nombre de modalités (choix de réponses) de la question <span class="math inline">\(q\)</span>.</li>
-<li><span class="math inline">\(p = p_{1} + p_{Q}\)</span></li>
-</ul>
-<p>Potentiel problème: plus le nombre de questions est grand, plus il y aura de cellules vides. C’est aussi le cas si le nombre de réponses aux questions est important. La proportion de cellules non vides est <span class="math display">\[\frac{nQ}{np} = \frac{Q}{p}.\]</span>.</p>
-<p>Si toutes les questions ont le même nombre de choix de réponses, alors <span class="math inline">\(p_{1} = \dots = p_{Q} = \frac{p}{Q}\)</span>, de sorte que <span class="math display">\[\frac{Q}{p} = \frac{1}{p_{1}} \longrightarrow 0, \quad\text{quand}~ p_{1} \rightarrow \infty.\]</span></p>
-<p>Le tableau résumé est un tableau de taille <span class="math inline">\(n \times Q\)</span>. Il contient le numéro de la modalité associée à la réponse de chaque individu pour chacune des questions.</p>
-<p>La tableau de Burt est une autre faon de présenter un tableau de fréquences contenant plus de deux variables. Étant donné un tableau logique <span class="math inline">\(Z = \left[ Z_{1} \mid \cdots \mid Z_{Q} \right]\)</span>, le tableau de Burt associé est la matrice carrée <span class="math inline">\(p \times p\)</span> définie comme étant <span class="math display">\[ B = \begin{pmatrix}
-  Z_1^\top Z_1 &amp; \cdots &amp; Z_1^\top Z_Q \\
-  \vdots &amp; \ddots &amp; \vdots \\
-  Z_Q^\top Z_1 &amp; \cdots &amp; Z_Q^\top Z_Q
-\end{pmatrix}.\]</span></p>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Propriétés de <span class="math inline">\(Z_q^\top Z_q\)</span>
+Propriétés
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li><p><span class="math inline">\(Z_{q}^\top Z_q\)</span> est une matrice diagonale <span class="math inline">\(p_q \times p_q\)</span> présentant les réponses à la <span class="math inline">\(q\)</span>e question.</p></li>
-<li><p>L’élément <span class="math inline">\((j, j)\)</span> de la matrice <span class="math inline">\(Z_q^\top Z_q\)</span> est égal au nombre d’individus <span class="math inline">\(d_{jj}\)</span> qui appartiennent à la <span class="math inline">\(j\)</span>e catégorie de la <span class="math inline">\(q\)</span>e question.</p></li>
-<li><p><span class="math inline">\(Z_{q}^\top Z_{r}\)</span> est le tableau de fréquences présentant les répones au x <span class="math inline">\(q\)</span>e et <span class="math inline">\(r\)</span>e questions.</p></li>
-<li><p>L’élément <span class="math inline">\((j, k)\)</span> de la matrice <span class="math inline">\(Z_q^\top Z_r\)</span> est égal au nombre d’individus <span class="math inline">\(d_{jk}\)</span> qui appartiennent à la <span class="math inline">\(j\)</span>e catégorie de la <span class="math inline">\(q\)</span>e question et à la <span class="math inline">\(k\)</span>e catégorie de la <span class="math inline">\(r\)</span>e question.</p></li>
+<li><p>La somme des éléments d’une même ligne est constante et vaut <span class="math inline">\(Q\)</span>.</p></li>
+<li><p>La somme de tous les éléments du tableau est égale à <span class="math inline">\(nQ\)</span>.</p></li>
+<li><p>La somme des éléments d’une même colonne est égale à l’effectif <span class="math inline">\(n_j\)</span> possédant la modalité <span class="math inline">\(j\)</span> de la variable <span class="math inline">\(q\)</span>.</p></li>
 </ol>
 </div>
 </div>
-<p>D’un point de vue mathématique, l’ACM est une AFC effectuée sur la matrice logique <span class="math inline">\(Z\)</span> ou sur le tableau de Burt <span class="math inline">\(B\)</span>. On peut démontrer que l’on obtient les mêmes facteurs, et ce, peu importe la matrice utilisé pour l’analyse.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Preuve
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Comme <span class="math inline">\(Z\)</span> est un tableau disjonctif complet, on a <span class="math display">\[\sum_{j = 1}^{J_q} z_{ij} = 1.\]</span> Donc, on trouve que <span class="math display">\[z_{i \bullet} = \sum_{j = 1}^{J} z_{ij} = \sum_{q = 1}^{Q} \sum_{j = 1}^{J_q} z_{ij} = Q, \]</span></p>
+<p><span class="math display">\[z_{\bullet j} = \sum_{i = 1}^{n} z_{ij} = n_j,\]</span></p>
+<p><span class="math display">\[z_{\bullet \bullet} = \sum_{i = 1}^{n} \sum_{j = 1}^{J} z_{ij} = nQ.\]</span></p>
+</div>
+</div>
+</div>
+</section><section id="tableau-de-burt" class="level2"><h2 class="anchored" data-anchor-id="tableau-de-burt">Tableau de Burt</h2>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Définition
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>On peut créé un graphique comme l’AFC. Cependant, en ACM, la distance entre les points de même couleur et la géométrie globale du graphique ne peuvent pas s’interpréter comme en AFC. En fait, on s’intéresse aux points qui sont dans une même direction par rapport à l’origine.</p>
+<p>Le <strong>tableau de Burt</strong>, noté <span class="math inline">\(B\)</span>, est le produit de la transposé de <span class="math inline">\(Z\)</span> par <span class="math inline">\(Z\)</span> : <span class="math display">\[B = Z^{\top} Z.\]</span></p>
 </div>
 </div>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Propriétés de <span class="math inline">\(B\)</span>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Le tableau de Burt est carré et sa taille est égale au nombre total de modalités <span class="math inline">\(J\)</span> possédées par les <span class="math inline">\(Q\)</span> variables.</p></li>
+<li><p>Les blocs diagonaux de <span class="math inline">\(B\)</span> sont eux-mêmes des matrices diagonales. Ils sont donnés par <span class="math inline">\(B_qq = Z^{\top}_q Z_q\)</span> et leurs éléments diagonaux correspondent à l’effectif de chaque modalité pour la variable <span class="math inline">\(q\)</span>.</p></li>
+<li><p>Les blocs non-diagonaux de <span class="math inline">\(B\)</span> sont donnés par <span class="math inline">\(B_{q q^\prime} = Z^{\top}_q Z_{q^\prime}, q \neq q^\prime\)</span>. Ils correspondent aux tableaux de contingence croisant les variables <span class="math inline">\(q\)</span> et <span class="math inline">\(q^\prime\)</span>.</p></li>
+<li><p>Le tableau de Burt est symétrique car <span class="math inline">\(B_{q^\prime q} = Z^{\top}_{q^\prime} Z_{q}\)</span> est la transposé de <span class="math inline">\(B_{q q^\prime} = Z^{\top}_q Z_{q^\prime}\)</span>.</p></li>
+</ol>
+</div>
+</div>
+<p>D’un point de vue mathématique, l’ACM est une AFC effectuée sur la matrice logique <span class="math inline">\(Z\)</span> ou sur le tableau de Burt <span class="math inline">\(B\)</span>. On peut démontrer que l’on obtient les mêmes facteurs, et ce, peu importe la matrice utilisé pour l’analyse.</p>
+</section><section id="afc-du-tableau-z" class="level2"><h2 class="anchored" data-anchor-id="afc-du-tableau-z">AFC du tableau <span class="math inline">\(Z\)</span>
+</h2>
 
 
 </section></main><!-- /main --><script>
