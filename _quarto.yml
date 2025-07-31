@@ -78,7 +78,6 @@ website:
               - contents/dimension/01-pca.qmd 
               - contents/dimension/02-ca.qmd 
               - contents/dimension/03-mca.qmd 
-              - contents/dimension/04-kernel.qmd
           - href: contents/05-supervisee.qmd 
             text: 05 - Supervisée
             contents: 

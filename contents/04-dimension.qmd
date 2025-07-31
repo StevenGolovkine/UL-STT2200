@@ -21,8 +21,6 @@ format:
 
 3. [Analyse des correspondances multiples](./dimension/03-mca.qmd)
 
-4. [Méthodes à noyaux](./dimension/04-kernel.qmd)
-
 
 ![Flatland ([xkcd:721](https://xkcd.com/721/)).](../include/flatland.png)
 

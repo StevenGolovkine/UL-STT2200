@@ -26,11 +26,10 @@ This repository contains the website used for the module STT-2200 given at Unive
     - [X] Space 
     - [X] Bias-variance tradeoff
     - [X] Model evaluation
-  * [ ] Dimension
+  * [X] Dimension
     - [X] PCA
     - [X] CA
-    - [ ] MCA
-    - [ ] Kernel tricks
+    - [X] MCA
   * [ ] Supervised
     - [ ] Discriminant analysis
     - [ ] Tree 
