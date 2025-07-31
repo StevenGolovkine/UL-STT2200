@@ -3,6 +3,7 @@ title: "$k$-means"
 format: 
   html: default
   pdf:
+    number-sections: true
     header-includes:
       - \usepackage{mathtools} 
 --- 

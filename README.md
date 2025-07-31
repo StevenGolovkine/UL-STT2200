@@ -42,7 +42,7 @@ This repository contains the website used for the module STT-2200 given at Unive
   * [ ] Ethics 
 
 - [ ] TP/TD
-  * [ ] Remainders
+  * [X] Remainders
   * [ ] Generalities
   * [ ] Dimension
   * [ ] Supervised 

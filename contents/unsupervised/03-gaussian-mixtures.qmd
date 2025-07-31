@@ -3,6 +3,7 @@ title: "Mélange de gaussiennes"
 format: 
   html: default
   pdf:
+    number-sections: true
     header-includes:
       - \usepackage{mathtools} 
 --- 

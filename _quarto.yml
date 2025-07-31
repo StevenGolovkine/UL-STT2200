@@ -81,11 +81,10 @@ website:
           - href: contents/05-supervisee.qmd 
             text: 05 - Supervisée
             contents: 
-              - contents/supervised/01-regression.qmd 
-              - contents/supervised/02-discriminant.qmd
-              - contents/supervised/03-tree.qmd
-              - contents/supervised/04-hierarchy.qmd 
-              - contents/supervised/05-ensemble.qmd
+              - contents/supervised/01-discriminant.qmd
+              - contents/supervised/02-tree.qmd
+              - contents/supervised/03-hierarchy.qmd 
+              - contents/supervised/04-ensemble.qmd
           - href: contents/06-nonsupervisee.qmd 
             text: 06 - Non-supervisée
             contents:
