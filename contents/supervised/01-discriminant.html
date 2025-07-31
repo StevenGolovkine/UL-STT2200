@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.32">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Discriminant – STT-2200: Analyse de données</title>
+<title>Analyse discriminante – STT-2200: Analyse de données</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -84,7 +84,7 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script><meta property="og:title" content="Discriminant – STT-2200: Analyse de données">
+</script><meta property="og:title" content="Analyse discriminante – STT-2200: Analyse de données">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
@@ -259,7 +259,7 @@ window.Quarto = {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/05-supervisee.html">05 - Supervisée</a></li>
-<li class="breadcrumb-item"><a href="../../contents/supervised/01-discriminant.html">Discriminant</a></li>
+<li class="breadcrumb-item"><a href="../../contents/supervised/01-discriminant.html">Analyse discriminante</a></li>
 </ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
@@ -464,7 +464,7 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/supervised/01-discriminant.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Discriminant</span></a>
+ <span class="menu-text">Analyse discriminante</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -538,8 +538,16 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-<li><a href="#r%C3%A8gle-de-classification" id="toc-règle-de-classification" class="nav-link active" data-scroll-target="#règle-de-classification">Règle de classification</a></li>
+<li><a href="#notation" id="toc-notation" class="nav-link active" data-scroll-target="#notation">Notation</a></li>
+  <li><a href="#objectif" id="toc-objectif" class="nav-link" data-scroll-target="#objectif">Objectif</a></li>
+  <li><a href="#crit%C3%A8re-de-fisher" id="toc-critère-de-fisher" class="nav-link" data-scroll-target="#critère-de-fisher">Critère de Fisher</a></li>
+  <li>
+<a href="#fonction-discriminante" id="toc-fonction-discriminante" class="nav-link" data-scroll-target="#fonction-discriminante">Fonction discriminante</a>
+  <ul class="collapse">
+<li><a href="#r%C3%A8gle-de-classification" id="toc-règle-de-classification" class="nav-link" data-scroll-target="#règle-de-classification">Règle de classification</a></li>
   <li><a href="#cas-particulier-de-la-classification-binaire" id="toc-cas-particulier-de-la-classification-binaire" class="nav-link" data-scroll-target="#cas-particulier-de-la-classification-binaire">Cas particulier de la classification binaire</a></li>
+  </ul>
+</li>
   <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
   </ul>
 <div class="toc-actions"><ul>
@@ -555,9 +563,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/05-supervisee.html">05 - Supervisée</a></li>
-<li class="breadcrumb-item"><a href="../../contents/supervised/01-discriminant.html">Discriminant</a></li>
+<li class="breadcrumb-item"><a href="../../contents/supervised/01-discriminant.html">Analyse discriminante</a></li>
 </ol></nav><div class="quarto-title">
-<h1 class="title">Discriminant</h1>
+<h1 class="title">Analyse discriminante</h1>
 </div>
 
 
@@ -571,18 +579,12 @@ window.Quarto = {
   
 
 
-</header><p>La méthode a été introduite en 1936 par R. A. Fisher. Il s’intéressait à la taxonimie végétale, c’est-à-dire déterminer l’espèce de fleurs à partir de diverses mesures.</p>
-<p>Notation:</p>
-<p>Soit <span class="math inline">\(X = (X_{i j})\)</span>, qui est une matrice de dimension <span class="math inline">\(n \times p\)</span>, où <span class="math inline">\(n\)</span> est le nombre d’individus dans l’échantillon, <span class="math inline">\(p\)</span> est le nombre de variables et <span class="math inline">\(X_{i j}\)</span> est la valeur de la <span class="math inline">\(j\)</span>e variable pour le <span class="math inline">\(i\)</span>e individus.</p>
-<p>Identification des groupes:</p>
-<ul>
-<li><p>$I_k = $ ensemble des individus du groupe <span class="math inline">\(k\)</span></p></li>
-<li><p>$n_k = |I_k| = $ cardinalité de <span class="math inline">\(I_k\)</span>.</p></li>
-<li><p><span class="math inline">\(n_{1} + \dots + n_q = n\)</span>, où <span class="math inline">\(q\)</span> est le nombre de groupes.</p></li>
-</ul>
-<p>Score de l’analyse discriminante: on a des observations dans <span class="math inline">\(R^p\)</span>. Pour faire de la classification à partir de <span class="math inline">\(X_{1}, \dots, X_p\)</span>, on doit partionner <span class="math inline">\(R^p\)</span> en <span class="math inline">\(q\)</span> sous-ensembles de sorte que chacun des <span class="math inline">\(q\)</span> sous-ensembles est associé à un des <span class="math inline">\(q\)</span> groupes.</p>
-<p>On va chercher à passer de la dimension <span class="math inline">\(p\)</span> à la dimension <span class="math inline">\(1\)</span> en calculant un score <span class="math inline">\(f(x_{1}, \dots, x_p) \in \mathbb{R}\)</span> pour chaque observation et ensuite utiliser ce score pour déterminer le groupe d’appartenance (et donc partionner <span class="math inline">\(R\)</span>). Le score proposé par Fisher est une combinaison linéaire des variables, c’est-à-dire <span class="math display">\[f(X_{1}, \dots, X_p) = a^{\top} X + b = a_{1} X_{1} + \cdots + a_p X_p + b.\]</span></p>
-<p>On en déduira <span class="math inline">\(q\)</span> intervalles de décision <span class="math inline">\(S_{1}, \dots, S_q\)</span> associés aux groupes.</p>
+</header><p>L’analyse discriminante vise à classer des individus dans différents groupes à partir de variables explicatives continues. C’est une méthode supervisée : les groupes sont connus dans les données d’apprentissage et l’objectif est d’apprendre une règle de classification optimale.</p>
+<section id="notation" class="level2"><h2 class="anchored" data-anchor-id="notation">Notation</h2>
+<p>Soit <span class="math inline">\(X = (X_{i j}) \in \mathbb{R}^{n \times p}\)</span> un matrice de données, où <span class="math inline">\(n\)</span> est le nombre d’individus dans l’échantillon, <span class="math inline">\(p\)</span> est le nombre de variables et <span class="math inline">\(X_{i j}\)</span> est la valeur de la <span class="math inline">\(j\)</span>e variable pour le <span class="math inline">\(i\)</span>e individus.</p>
+<p>On suppose que chaque individu appartient à l’un des <span class="math inline">\(K\)</span> groupes. Pour <span class="math inline">\(k \in \{ 1, \dots, K \}\)</span>, on note <span class="math inline">\(I_k\)</span> l’ensemble des individus du groupe <span class="math inline">\(k\)</span>, <span class="math inline">\(n_k\)</span> le nombre d’observations dans <span class="math inline">\(I_k\)</span>. On a donc <span class="math inline">\(\sum_{k = 1}^{K} n_k = n\)</span>.</p>
+</section><section id="objectif" class="level2"><h2 class="anchored" data-anchor-id="objectif">Objectif</h2>
+<p>Nos observations sont dans <span class="math inline">\(R^p\)</span>. Pour faire de la classification à partir de <span class="math inline">\(X_{1}, \dots, X_p\)</span>, on doit partionner <span class="math inline">\(R^p\)</span> en <span class="math inline">\(K\)</span> sous-ensembles de sorte que chacun des <span class="math inline">\(K\)</span> sous-ensembles soit associé à l’un des <span class="math inline">\(K\)</span> groupes. L’idée est de passer de <span class="math inline">\(\mathbb{R}^p\)</span> à <span class="math inline">\(\mathbb{R}\)</span> en calculant, pour chaque observation, un score <span class="math inline">\(f(X_{1}, \dots, X_p) \in \mathbb{R}\)</span> et ensuite utiliser ce score pour déterminer le groupe d’appartenance (et donc de partionner <span class="math inline">\(R\)</span>). Le score proposé par Fisher est une combinaison linéaire des variables, i.e. <span class="math display">\[f(X_{1}, \dots, X_p) = a^{\top} X + b = a_{1} X_{1} + \cdots + a_p X_p + b.\]</span> Cette fonction de score nous permet de regrouper les individus d’un même groupe dans des zones proches du score et de séparer autant que possible les différents groupes selon ce score. On en déduira <span class="math inline">\(K\)</span> intervalles de décision <span class="math inline">\(S_{1}, \dots, S_K\)</span> associés aux groupes.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -597,9 +599,38 @@ Remarque
 <p>Il ne reste plus qu’à choisir le vecteur <span class="math inline">\(a = (a_{1}, \dots, a_p)\)</span>.</p>
 </div>
 </div>
-<p>On voudrait choisir le vecteur <span class="math inline">\(a\)</span> de sorte que les scores soient, à la fois, très différents entre les groupes et très similaires à l’intérieur d’un groupe. On s’intéresse donc à la variabilité des scores à l’intérieur des groupes et entre les groupes.</p>
-<p>Étant donné <span class="math inline">\(a \in R^p\)</span>, on a: <span class="math display">\[\mathrm{Var}(f(X_{1}, \dots, X_p)) = \mathrm{Var}(a^{\top} X) = a^{\top} \mathrm{Var}(X) a,\]</span> que nous estimons à partir des <span class="math inline">\(n\)</span> observations par <span class="math display">\[\widehat{\mathrm{Var}}(f(X_{1}, \dots, X_p)) = \frac{1}{n} a^{\top} S a.\]</span></p>
-<p>La base de l’analyse discriminante repose sur le fait que <span class="math display">\[S = W + B,\]</span> où <span class="math inline">\(W\)</span> est la matrice de variance intragroupe et <span class="math inline">\(B\)</span> est la matrice de variance intergroupe.</p>
+</section><section id="critère-de-fisher" class="level2"><h2 class="anchored" data-anchor-id="critère-de-fisher">Critère de Fisher</h2>
+<p>L’idée centrale de Fisher est d’optimiser le rapport entre la variabilité inter-groupes et la variabilité intra-groupe en fonction de <span class="math inline">\(a\)</span>. Dit autrement, on voudrait choisir le vecteur <span class="math inline">\(a\)</span> de sorte que les scores soient, à la fois, très différents entre les groupes et très similaires à l’intérieur d’un groupe. On s’intéresse donc à la variabilité des scores à l’intérieur des groupes et entre les groupes.</p>
+<p>Notons</p>
+<ul>
+<li>
+<span class="math inline">\(S\)</span> la matrice de variance-covariance totale donnée par</li>
+</ul>
+<p><span class="math display">\[S = \sum_{i = 1}^{n} (X_i - \overline{X})(X_i - \overline{X})^{\top} \quad \text{où}\quad \overline{X} = \frac{1}{n} \sum_{i = 1}^{n} X_i;\]</span></p>
+<ul>
+<li>
+<span class="math inline">\(W\)</span> la matrice de variance-covariance intra-groupe donnée par</li>
+</ul>
+<p><span class="math display">\[W = \sum_{k = 1}^{K} \sum_{i \in I_k} (X_i - \overline{X}_k)(X_i - \overline{X}_k)^{\top} \quad \text{où} \quad \overline{X}_k = \frac{1}{n_k} \sum_{i \in I_k} X_i;\]</span></p>
+<ul>
+<li>
+<span class="math inline">\(B\)</span> la matrice de variance-covariance inter-groupe donnée par</li>
+</ul>
+<p><span class="math display">\[B = \sum_{k = 1}^{K} n_k (\overline{X}_k - \overline{X})(\overline{X}_k - \overline{X})^{\top}.\]</span></p>
+<p>Étant donné que <span class="math inline">\(a \in \mathbb{R}^p\)</span>, on a: <span class="math display">\[\mathrm{Var}(f(X_{1}, \dots, X_p)) = \mathrm{Var}(a^{\top} X) = a^{\top} \mathrm{Var}(X) a.\]</span> Nous pouvons estimer cette variance par <span class="math display">\[\widehat{\mathrm{Var}}(f(X_{1}, \dots, X_p)) = \frac{1}{n} a^{\top} S a.\]</span></p>
+<p>La base de l’analyse discriminante repose sur le fait que <span class="math display">\[S = W + B.\]</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Preuve
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>On peut prouver ce résultat en considérant la définition des matrices <span class="math inline">\(S, W\)</span> et <span class="math inline">\(B\)</span>. La moyenne de la variable <span class="math inline">\(j\)</span> pour tous les individus de l’échantillon est <span class="math display">\[\overline{X}_j = \frac{1}{n}\sum_{i = 1}^{n} X_{i j}.\]</span></p>
 <p>La moyenne de la variable <span class="math inline">\(j\)</span> pour les individus du groupe <span class="math inline">\(k\)</span> est <span class="math display">\[\overline{X}_{k j} = \frac{1}{n_{k}} \sum_{i \in I_k} X_{i j}.\]</span></p>
 <p>La somme des carrés totale est <span class="math display">\[s_{j j^\prime} \sum_{i = 1}^{n} (X_{i j} - \overline{X}_j)(X_{i j^\prime} - \overline{X}_{j^\prime}).\]</span></p>
@@ -612,21 +643,35 @@ Remarque
 <li><p>Remplacer <span class="math inline">\(\sum_{i = 1}^{n}\)</span> par <span class="math inline">\(\sum_{k = 1}^{q} \sum_{i \in I_k}\)</span>.</p></li>
 <li><p>Faire les simplications appropriées.</p></li>
 </ol>
-<p>On obtient <span class="math display">\[\widehat{\mathrm{Var}}(a^{\top} X) = \frac{1}{n} a^{\top} S a = \frac{1}{n} \left( a^{\top} W a + a^{\top} B a \right).\]</span></p>
-<p>On se rappelle que l’on veut choisir le vecteur <span class="math inline">\(a\)</span> pour que les scores puissent facilement séparer les groupes. En d’autres mots, on veut des scores les plus similaires possible à l’intérieur d’un groupe et des scores les plus différents possible entre les groupes.</p>
-<p>On propose de choisir le vecteur <span class="math inline">\(a in \mathbb{R}^p\)</span> pour maximiser <span class="math display">\[\frac{a^{\top} B a}{a^{\top} W a} \quad\text{où}\quad \frac{a^{\top} B a}{a^{\top} S a}.\]</span> ce vecteur est unique à une constante près.</p>
-<p>Ce problème peut être reformuler des faons suivantes:</p>
-<ul>
-<li><p>Maximiser <span class="math inline">\(a^{\top} B a / a^{\top} S a\)</span> sous la contrainte que <span class="math inline">\(a^{\top} a = 1\)</span>.</p></li>
+</div>
+</div>
+</div>
+<p>Ainsi, en remplaçant <span class="math inline">\(S\)</span> par <span class="math inline">\(W + B\)</span>, on obtient <span class="math display">\[\widehat{\mathrm{Var}}(a^{\top} X) = \frac{1}{n} a^{\top} S a = \frac{1}{n} \left( a^{\top} W a + a^{\top} B a \right).\]</span> Le critère de Fisher s’écrit donc, pour <span class="math inline">\(a \in \mathbb{R}^p\)</span>, <span class="math display">\[J(a) = \frac{a^{\top} B a}{a^{\top} W a}.\]</span> Le critère de Fisher peut se réécrire de façon équivalente comme <span class="math display">\[J(a) = \frac{a^{\top} B a}{a^{\top} S a}.\]</span> On cherche à maximiser <span class="math inline">\(J(a)\)</span>. Ce problème peut être reformuler des façons suivantes:</p>
+<ol type="1">
+<li><p>Maximiser <span class="math inline">\(J(a)\)</span> sous la contrainte que <span class="math inline">\(a^{\top} a = 1\)</span>.</p></li>
 <li><p>Maximiser <span class="math inline">\(a^{\top} B a\)</span> sous la contrainte que <span class="math inline">\(a^{\top} S a = 1\)</span>.</p></li>
 <li><p>Maximiser <span class="math inline">\(c^{\top} S^{-1/2} B S^{-1/2} c\)</span> sous la contrainte que <span class="math inline">\(c^{\top} c = 1\)</span>, où <span class="math inline">\(c = S^{1/2} a\)</span>.</p></li>
-</ul>
-<p>En écrivant la troisième formulation <span class="math display">\[c^{\top} \left( S^{-1/2} B S^{-1/2} \right) c \quad\text{s.c.} c^{\top} c = 1,\]</span> on peut prendre <span class="math inline">\(a = S^{-1/2} c\)</span>, où <span class="math inline">\(c\)</span> est un vecteur propre normé associé à <span class="math inline">\(\lambda_{1}\)</span> la première valeur propre de <span class="math inline">\(S^{-1/2} B S^{-1/2}\)</span>. De faon équivalente, de la deuxième formulation, on peut prendre <span class="math inline">\(a\)</span>, un vecteur propre normé associé à <span class="math inline">\(\lambda_{1}\)</span> la première valeur propre de <span class="math inline">\(S^{-1} B\)</span>. Notons que comme <span class="math display">\[S^{-1/2} B S^{-1/2} c = \lambda c \quad\text{et}\quad a = S^{-1/2} c,\]</span> alors <span class="math display">\[S^{-1/2} B a = \lambda S^{1/2} a \Rightarrow S^{-1} B a = \lambda a.\]</span> Les valeurs propres de <span class="math inline">\(S^{-1} B\)</span> et de <span class="math inline">\(S^{-1/2} B S^{-1/2}\)</span> sont donc les mêmes.</p>
-<p>La fonction discriminante de Fisher est donc <span class="math display">\[f(x) = a^{\top} (x - \overline{X}),\]</span> où <span class="math inline">\(a\)</span> est le vecteur propre normé associé à la plus grande valeur propre de <span class="math inline">\(S^{-1} B\)</span>. Les scores <span class="math inline">\(U_i = a^{\top} (X_{i} - \overline{X})\)</span> sont les scores linéaires en <span class="math inline">\(X_i\)</span> qui ont le rapport (variance inter) / (variance intra) le plus élevé. On peut aussi prendre <span class="math inline">\(U_i = a^{\top} X_i\)</span>, car ajouter la même constante à toutes les observations <span class="math inline">\(i = 1, \dots, n\)</span> ne change rien.</p>
+</ol>
+<p>En réécrivant la troisième formulation <span class="math display">\[c^{\top} \left( S^{-1/2} B S^{-1/2} \right) c \quad\text{s.c.}\quad c^{\top} c = 1,\]</span> on peut prendre <span class="math inline">\(a = S^{-1/2} c\)</span>, où <span class="math inline">\(c\)</span> est un vecteur propre normé associé à <span class="math inline">\(\lambda_{1}\)</span> la première valeur propre de <span class="math inline">\(S^{-1/2} B S^{-1/2}\)</span>. De façon équivalente, de la deuxième formulation, on peut prendre <span class="math inline">\(a\)</span>, un vecteur propre normé associé à <span class="math inline">\(\lambda_{1}\)</span> la première valeur propre de <span class="math inline">\(S^{-1} B\)</span>. Notons que comme <span class="math display">\[S^{-1/2} B S^{-1/2} c = \lambda c \quad\text{et}\quad a = S^{-1/2} c,\]</span> alors <span class="math display">\[S^{-1/2} B a = \lambda S^{1/2} a \Rightarrow S^{-1} B a = \lambda a.\]</span> Les valeurs propres de <span class="math inline">\(S^{-1} B\)</span> et de <span class="math inline">\(S^{-1/2} B S^{-1/2}\)</span> sont donc les mêmes et on peut facilement passer des vecteurs propres de <span class="math inline">\(S^{-1} B\)</span> à ceux de <span class="math inline">\(S^{-1/2} B S^{-1/2}\)</span>.</p>
+</section><section id="fonction-discriminante" class="level2"><h2 class="anchored" data-anchor-id="fonction-discriminante">Fonction discriminante</h2>
+<p>La fonction discriminante de Fisher est donc <span class="math display">\[f(x) = a^{\top} (x - \overline{X}),\]</span> où <span class="math inline">\(a\)</span> est le vecteur propre normé associé à la plus grande valeur propre de <span class="math inline">\(S^{-1} B\)</span>. Les scores, i.e. la représentation des observations dans <span class="math inline">\(R\)</span>, sont données par <span class="math inline">\(U_i = a^{\top} (X_{i} - \overline{X})\)</span>. Ces scores sont des combinaisons linéaires des variables et ils maximisent le rapport variance intra-groupe. sur variance inter-groupes.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Remarque
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On peut aussi prendre <span class="math inline">\(U_i = a^{\top} X_i\)</span>, car ajouter la même constante à toutes les observations <span class="math inline">\(i = 1, \dots, n\)</span> ne fait que décaler la représentation dans <span class="math inline">\(R\)</span>.</p>
+</div>
+</div>
 <ul>
 <li>Pouvoir discriminant</li>
 </ul>
-<p>Puisque la matrice <span class="math inline">\(S^{-1/2} B S^{-1/2}\)</span> est symétrique et définie positive, ses valeurs propres sont toutes réelles et positives. De plus, on a que <span class="math inline">\(S^{-1} B a - \lambda_{1} a\)</span>. Ainsi, <span class="math display">\[B a = \lambda_{1} S a \Rightarrow a^{\top} B a = \lambda_{1} a^{\top} S a \Rightarrow \lambda_{1} = \frac{a^{\top} B a}{a^{\top} S a}.\]</span></p>
+<p>Puisque la matrice <span class="math inline">\(S^{-1/2} B S^{-1/2}\)</span> est symétrique et définie positive, ses valeurs propres sont toutes réelles et positives. De plus, on a que <span class="math inline">\(S^{-1} B a = \lambda_{1} a\)</span>. Ainsi, <span class="math display">\[B a = \lambda_{1} S a \Rightarrow a^{\top} B a = \lambda_{1} a^{\top} S a \Rightarrow \lambda_{1} = \frac{a^{\top} B a}{a^{\top} S a}.\]</span></p>
 <p>On a donc <span class="math inline">\(0 \leq \lambda_{1} \leq 1\)</span>. La valeur propre <span class="math inline">\(\lambda_{1}\)</span> peut donc être vue comme le pouvoir discriminant de <span class="math inline">\(f\)</span>:</p>
 <ul>
 <li><p><span class="math inline">\(\lambda_{1} = 1 \Rightarrow a^{\top} B a = a^{\top} S a\)</span>, donc <span class="math inline">\(100\%\)</span> de la variabilité entre les groupes et <span class="math inline">\(0\)</span> variabilité à l’intérieur des groupes.</p></li>
@@ -642,7 +687,7 @@ Remarque
 <p>On peut montrer que le vectuer propre de l’analyse discriminante dans la cas où il n’y que deux populations peut être défini ainsi: <span class="math display">\[a = S^{-1} C = \sqrt{\frac{n_{1} n_{2}}{n}} S^{-1} (\widetilde{X}_1 - \widetilde{X}_2),\]</span> où <span class="math display">\[C = \sqrt{\frac{n_{1} n_{2}}{n}} (\widetilde{x}_1 - \widetilde{x}_2) \quad\text{et}\quad B = C C^{\top}.\]</span> et <span class="math inline">\(\widetilde{x}_i, i = 1, 2\)</span> sont les moyennes des caractériques <span class="math inline">\(x\)</span> dans chaque groupe.</p>
 <p>Supposons que <span class="math display">\[ m_{1} = a^{\top} \widetilde{x}_1 &gt; a^{\top} \widetilde{x}_2 = m_{2}.\]</span> Alors, on classe un individu dans le premier groupe si <span class="math display">\[a^{\top} x &gt; \overline{m} = \frac{m_{1} + m_{2}}{2} = a^{\top} \left( \frac{\widetilde{x}_1 + \widetilde{x}_2}{2} \right).\]</span></p>
 <p>Ceci est équivalent à <span class="math display">\[(\widetilde{x}_1 - \widetilde{x}_2)^\top S^{-1} x &gt; (\widetilde{x}_1 - \widetilde{x}_2)^\top S^{-1} \left( \frac{\widetilde{x}_1 + \widetilde{x}_2}{2} \right).\]</span></p>
-</section><section id="example" class="level2"><h2 class="anchored" data-anchor-id="example">Example</h2>
+</section></section><section id="example" class="level2"><h2 class="anchored" data-anchor-id="example">Example</h2>
 
 
 </section></main><!-- /main --><script>
