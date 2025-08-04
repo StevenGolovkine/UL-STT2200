@@ -19,9 +19,7 @@ format:
 
 2. [Arbres](./supervised/02-tree.qmd)
 
-3. [Modèles hiérarchiques](./supervised/03-hierarchy.qmd)
-
-4. [Modèles ensemblistes](./supervised/04-ensemble.qmd)
+3. [Modèles ensemblistes](./supervised/03-ensemble.qmd)
 
 
 

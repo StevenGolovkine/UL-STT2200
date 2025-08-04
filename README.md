@@ -31,9 +31,8 @@ This repository contains the website used for the module STT-2200 given at Unive
     - [X] CA
     - [X] MCA
   * [ ] Supervised
-    - [ ] Discriminant analysis
-    - [ ] Tree 
-    - [ ] Hierarchy
+    - [X] Discriminant analysis
+    - [X] Tree 
     - [ ] Ensemble models 
   * [ ] Unsupervised
     - [X] k-means

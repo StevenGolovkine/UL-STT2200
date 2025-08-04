@@ -83,8 +83,7 @@ website:
             contents: 
               - contents/supervised/01-discriminant.qmd
               - contents/supervised/02-tree.qmd
-              - contents/supervised/03-hierarchy.qmd 
-              - contents/supervised/04-ensemble.qmd
+              - contents/supervised/03-ensemble.qmd
           - href: contents/06-nonsupervisee.qmd 
             text: 06 - Non-supervisée
             contents:
