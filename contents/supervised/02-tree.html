@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script><script src="../../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../../site_libs/quarto-search/fuse.min.js"></script><script src="../../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../../">
-<link href="../../contents/supervised/03-hierarchy.html" rel="next">
+<link href="../../contents/supervised/03-ensemble.html" rel="next">
 <link href="../../contents/supervised/01-discriminant.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script><script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../../site_libs/quarto-html/popper.min.js"></script><script src="../../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../../site_libs/quarto-html/anchor.min.js"></script><link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
@@ -475,14 +475,8 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/supervised/03-hierarchy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Hierarchique</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../contents/supervised/04-ensemble.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Ensemble</span></a>
+  <a href="../../contents/supervised/03-ensemble.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Méthodes ensemblistes</span></a>
   </div>
 </li>
       </ul>
@@ -538,12 +532,11 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-<li><a href="#algortihme" id="toc-algortihme" class="nav-link active" data-scroll-target="#algortihme">Algortihme</a></li>
-  <li><a href="#crit%C3%A8res" id="toc-critères" class="nav-link" data-scroll-target="#critères">Critères</a></li>
-  <li><a href="#choix-du-nombre-de-divisionsfeuilles" id="toc-choix-du-nombre-de-divisionsfeuilles" class="nav-link" data-scroll-target="#choix-du-nombre-de-divisionsfeuilles">Choix du nombre de divisions/feuilles</a></li>
-  <li><a href="#avantages" id="toc-avantages" class="nav-link" data-scroll-target="#avantages">Avantages</a></li>
-  <li><a href="#points-faibles" id="toc-points-faibles" class="nav-link" data-scroll-target="#points-faibles">Points faibles</a></li>
-  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+<li><a href="#objectif" id="toc-objectif" class="nav-link active" data-scroll-target="#objectif">Objectif</a></li>
+  <li><a href="#algorithme" id="toc-algorithme" class="nav-link" data-scroll-target="#algorithme">Algorithme</a></li>
+  <li><a href="#crit%C3%A8res-dhomog%C3%A9n%C3%A9it%C3%A9-pour-la-classification" id="toc-critères-dhomogénéité-pour-la-classification" class="nav-link" data-scroll-target="#critères-dhomogénéité-pour-la-classification">Critères d’homogénéité pour la classification</a></li>
+  <li><a href="#choix-de-la-complexit%C3%A9-%C3%A9lagage-de-larbre" id="toc-choix-de-la-complexité-élagage-de-larbre" class="nav-link" data-scroll-target="#choix-de-la-complexité-élagage-de-larbre">Choix de la complexité : élagage de l’arbre</a></li>
+  <li><a href="#quelques-commentaires" id="toc-quelques-commentaires" class="nav-link" data-scroll-target="#quelques-commentaires">Quelques commentaires</a></li>
   </ul>
 <div class="toc-actions"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
@@ -574,14 +567,16 @@ window.Quarto = {
   
 
 
-</header><p>Les arbres de régression et de classification (Classification And Regression Trres, CART) font partie des méthodes d’apprentissage supervisée. On dispose d’observations qui appartiennent à <span class="math inline">\(\mathbb{R}^p\)</span>, soit <span class="math inline">\(X_{1}, \dots, X_p\)</span>. Un arbre de classification cherche à assigner une observation à l’un des <span class="math inline">\(K\)</span> groupes sur la base de <span class="math inline">\(X_{1}, \dots, X_p\)</span>. Un arbre de régression cherche à prédire la valeur d’une valeur numérique continue <span class="math inline">\(Y\)</span> à partir de <span class="math inline">\(X_{1}, \dots, X_p\)</span>.</p>
-<p>La construction d’arbres, on partitionne l’ensemble <span class="math inline">\(R^p\)</span> en hyper-rectangles en effectuant des divisions binaires successives en fonction de la valeur d’une des <span class="math inline">\(p\)</span> variables (algorithme de dédoublements binaires successifs).</p>
+</header><p>Les arbres de classification et de régression (<em>Classification And Regression Trees</em>, CART) font parties des méthodes d’apprentissage supervisée. Ils permettent de prédire une variable réponse à partir de plusieurs variables explicatives <span class="math inline">\(X_1, \dots, X_p\)</span>. On dispose donc de <span class="math inline">\(n\)</span> observations appartenant à <span class="math inline">\(\mathbb{R}^p\)</span>. Un arbre de classification cherche à assigner une observation <span class="math inline">\(i\)</span> à l’un des <span class="math inline">\(K\)</span> groupes sur la base de <span class="math inline">\(X_{i1}, \dots, X_{ip}\)</span>, les valeurs des variables pour cette observation <span class="math inline">\(i\)</span>. Tandis qu’un arbre de régression cherche à prédire la valeur d’une variable numérique continue <span class="math inline">\(Y\)</span> à partir des observations de <span class="math inline">\(X_{1}, \dots, X_p\)</span>.</p>
+<section id="objectif" class="level2"><h2 class="anchored" data-anchor-id="objectif">Objectif</h2>
+<p>L’objectif de l’algorithme CART est de partionner l’espace des observations, i.e. <span class="math inline">\(\mathbb{R}^p\)</span>, en sous-ensembles homogènes à l’aide de découpages successifs. Chaque sous-ensemble est représenté par une <strong>feuille</strong> de l’arbre, à laquelle est associée une prédiction.</p>
+<p>De façon plus précise, l’algorithme CART est un algorithme récursif de découpage binaire. Il procède de la façon suivante :</p>
 <ol type="1">
-<li><p>On effectue des divisions binaires successives de l’ensemble <span class="math inline">\(R^p\)</span> en fonction de la valeur d’une variable. Le choix de la variable et le choix de la limite pour la division binaire sont déterminés par un certain critère.</p></li>
-<li><p>On cesse d’effectuer des divisions lorsqu’un critère d’arrêt est rencontré (nombre minimal d’observations par feuille atteint, nombre de feuilles désirées atteint, etc.)</p></li>
-<li><p>Chaque sous-division finale de l’ensemble <span class="math inline">\(\mathbb{R}^p\)</span>est appelée “feuille” ou “noeud terminal”. On prédit une catégorie à chaque observation selon la feuille à laquelle elle appartient.</p></li>
+<li><p>Le découpage de l’espace <span class="math inline">\(\mathbb{R}^p\)</span> en sous-régions rectangulaires (que l’on appelle hyper-rectangles), en coupant selon une variable <span class="math inline">\(X_j, j = 1, \dots, p\)</span> à une certaine valeur seuil <span class="math inline">\(s\)</span>.</p></li>
+<li><p>À chaque étape, on choisit la variable <span class="math inline">\(X_j, j = 1, \dots, p\)</span> et la valeur seuil <span class="math inline">\(s\)</span> qui offrent la meilleure amélioration d’un <strong>critère d’homogénéité</strong> (cf. la section “Critères d’homogénéité”).</p></li>
+<li><p>On répète ce découpage tant qu’un <strong>critère d’arrêt</strong> n’est pas atteint (cf. la section “Choix de la complexité”).</p></li>
+<li><p>Chaque feuille contient des observations similaires et fournit une prédiction unique : la classe majoritaire pour la classification et la moyenne des <span class="math inline">\(Y\)</span> pour la régression. Ainsi, toutes les observations dans une même feuille reçoivent la même prédiction.</p></li>
 </ol>
-<p>Toutes les observations dans une même “feuille” reoivent la même prédiction, soit la classe la plus fréquente parmi les données du jeu d’entrainement qui aboutissent dans cette feuille.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -592,43 +587,34 @@ Remarque
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>L’algorithme de partitions binaires successives est un algortihme glouton qui ne nous garantit pas l’arbre optimal…</p>
-<p>Supposons que nous désirions partionner <span class="math inline">\(\mathbb{R}^p\)</span> en J hyper-rectangles (donc un arbre à <span class="math inline">\(J\)</span> feuilles) et soit <span class="math inline">\(c_j\)</span> un critère de “coût” pour les observations qui sont mal classées dans la région <span class="math inline">\(j\)</span>. On aimerait pouvoir trouver les hyper-rectangles <span class="math inline">\(R_1, \dots, R_J\)</span> tels que <span class="math inline">\(\sum_{j = 1}^{J} c_j\)</span> soit minimal, mais il n’est pas computationnellement possible de le faire !</p>
+<p>L’algorithme CART est un algortihme glouton : à chaque étape, cette algorithme choisit localement la meilleure coupure. Mais cela ne garantit pas l’optimum global !</p>
+<p>Il serait théoriquement préférable de chercher l’arbre à <span class="math inline">\(K\)</span> feuilles qui minimise une fonction de coût globale : <span class="math display">\[\min_{R_1, \dots, R_K} \sum_{k = 1}^{K} c_k,\]</span> où <span class="math inline">\(c_k\)</span> mesure l’erreur dans le région <span class="math inline">\(R_k\)</span>. Cependant, il y aurait trop de combinaisons possibles pour résoudre ce problème. C’est un problème intraitable (<em>intractable</em>).</p>
 </div>
 </div>
-<section id="algortihme" class="level3"><h3 class="anchored" data-anchor-id="algortihme">Algortihme</h3>
-<p>Pour chaque noeud de l’arbre, on doit décider si on le découpe en deux et si oui, en utilisant quelle valeur de quelle variable :</p>
+</section><section id="algorithme" class="level2"><h2 class="anchored" data-anchor-id="algorithme">Algorithme</h2>
+<p>L’algorithme se déroule comme suit, pour chaque noeud :</p>
 <ol type="1">
-<li><p>Pour chacune des <span class="math inline">\(p\)</span> variables et pour chaque point de coupure possible pour cette variable, calculer l’amélioration du critère de qualité et choisir la variable et le point de coupure résultant en la meilleur amélioration du critère.</p></li>
-<li><p>Créer une division binaire de l’arbre à l’aide de la variable et du point de coupure choisis en 1.</p></li>
-<li><p>Répéter 1 et 2 jusqu’à ce que l’arbre ait le nombre de feuilles désiré ou que le nombre minimal d’observations soit atteint dans chaque feuille.</p></li>
-</ol></section><section id="critères" class="level3"><h3 class="anchored" data-anchor-id="critères">Critères</h3>
-<p>Soit <span class="math inline">\(\widehat{p}_{jk}\)</span>, la proporiton d’observations de la <span class="math inline">\(j\)</span>e région de l’ensemble <span class="math inline">\(\mathbb{R}^p\)</span> qui appartiennent à la <span class="math inline">\(k\)</span>e classe.</p>
-<p>Trois critères sont habituellement utilisés pour déterminer les divisions optimales à chaque étape de la construction de l’arbre:</p>
-<ol type="1">
-<li><p>Taux d’erreurs de classification <span class="math display">\[E_j = 1 - \max_k \widehat{p}_{jk}.\]</span> Pas assez sensible pour construire l’arbre.</p></li>
-<li><p>Indice de Gini <span class="math display">\[G_j = \sum_{k = 1}^{K} \widehat{p}_{jk} (1 - \widehat{p}_{i j}).\]</span> Plus c’est faible, mieux c’est.</p></li>
-<li><p>Entropie croisée <span class="math display">\[D_j = - \sum_{k = 1}^{K}  \widehat{p}_{jk} \log(\widehat{p}_{m k}).\]</span> Plus c’est faible, mieux c’est.</p></li>
+<li><p>Pour chaque variable <span class="math inline">\(X_j, j = 1, \dots, p\)</span> et chaque seuil (valeur de coupure) possible <span class="math inline">\(s\)</span>, on calcule la réduction du critère d’homogénéité entre les deux sous-ensembles.</p></li>
+<li><p>On sélectionne le couple <span class="math inline">\((X_j, s)\)</span> qui maximise la réduction du critère d’homogénéité, i.e. qui offre le gain maximal.</p></li>
+<li><p>On divise le noeud en deux sous-noeuds (sous-ensembles) selon la règle <span class="math inline">\(X_j \leq s\)</span> vs. <span class="math inline">\(X_j &gt; s\)</span>.</p></li>
+<li><p>On répète ce processus jusqu’à ce qu’un nombre maximal de feuilles soit atteint ou bien que le nombre d’observations dans chaque feuille soit suffisant.</p></li>
 </ol>
-<p>Le gain d’information est ce que l’on cherche à maximiser lorque l’on choisit comment scinder en deux un noeud donné. Par example, avec l’indice de Gini, le gain d’information est donné par <span class="math display">\[\text{indice de Gini avant la division} - \sum_{j = 1}^{2} \frac{n_j}{n_{1} + n_{2}} G_j,\]</span> où <span class="math inline">\(j = 1, 2\)</span> dénote les deux morceaux créés par la division, <span class="math inline">\(n_j\)</span> est le nombre d’observations qui tombent dans le morceau <span class="math inline">\(j\)</span> et <span class="math inline">\(G_j\)</span> est l’indice de Gini pour le morceau <span class="math inline">\(j\)</span>.</p>
-</section><section id="choix-du-nombre-de-divisionsfeuilles" class="level3"><h3 class="anchored" data-anchor-id="choix-du-nombre-de-divisionsfeuilles">Choix du nombre de divisions/feuilles</h3>
-<p>L’algorithme va faire croître l’arbre tant qu’on n’aura pas atteint un nombre de feuilles fixé ou tant que le nombre de d’observations dans chaque feuille ne sera pas trop petit. Mais, pas assez de feuilles veut dire manque d’ajustement car classification trop simpliste et inadéquate. Et trop de feuilles n’est pas mieux, car on fait du sur-ajustement et l’arbre n’aura pas une bonne performance sur un jeu de validation.</p>
-<p>Élage des arbres de classification (pruning): la stratégie commune en pratique est de laisser croître l’arbre et ensuite de l’élaguer de faon à atteindre un compromis entre ajustement aux données d’entrainement et taille de l’arbre (élagage coût-complexité). Si <span class="math inline">\(| T |\)</span> est la taille (nombre de feuilles) de l’arbre <span class="math inline">\(T\)</span>, on veut <span class="math display">\[\min \sum_{j = 1}^{|T|} c_j + \alpha | T |,\]</span> où <span class="math inline">\(\alpha \geq 0\)</span> est un hyper-paramètre qui contrôle le compromis et que l’on chosit par validation croisée.</p>
-</section><section id="avantages" class="level3"><h3 class="anchored" data-anchor-id="avantages">Avantages</h3>
-<ul>
-<li><p>Fonctionnent aussi bien avec des variables continues que catégorielles.</p></li>
-<li><p>Aucune hypothèse a priori n’est faite sur la distribution des données.</p></li>
-<li><p>Robuste aux données extrêmes.</p></li>
-<li><p>Faciles à interpréter.</p></li>
-<li><p>Tiennent implicitement compte des interactions possibles entre les variables.</p></li>
-<li><p>Sélectionnent implicitement les variables importantes.</p></li>
-<li><p>Permettent d’obtenir un modèle non linéaire.</p></li>
-</ul></section><section id="points-faibles" class="level3"><h3 class="anchored" data-anchor-id="points-faibles">Points faibles</h3>
-<ul>
-<li><p>Nécessitent un grand nombre de données.</p></li>
-<li><p>Peuvent être instables dans les résultats qu’elle produit.</p></li>
-<li><p>Ne fonctionnent pas très bien lorsque certaines des <span class="math inline">\(q\)</span> classes sont rares ou que certaines des modalités de <span class="math inline">\(X_j\)</span> catégorielles sont rares.</p></li>
-</ul></section><section id="example" class="level3"><h3 class="anchored" data-anchor-id="example">Example</h3>
+<p>Le noeud de départ consiste en l’ensemble des observations.</p>
+</section><section id="critères-dhomogénéité-pour-la-classification" class="level2"><h2 class="anchored" data-anchor-id="critères-dhomogénéité-pour-la-classification">Critères d’homogénéité pour la classification</h2>
+<p>Soit <span class="math inline">\(\widehat{p}_{jk}\)</span>, la proportion d’observations de la région <span class="math inline">\(R_j\)</span> de l’ensemble <span class="math inline">\(\mathbb{R}^p\)</span> qui appartiennent à la classe <span class="math inline">\(k\)</span>. Trois critères sont habituellement utilisés pour déterminer les divisions optimales à chaque étape de la construction de l’arbre:</p>
+<ol type="1">
+<li><p>Le <strong>Taux d’erreur de classification</strong> correspond à la proportion d’observations mal classées dans une feuille. Il est défini comme <span class="math display">\[E_j = 1 - \max_k \widehat{p}_{jk}.\]</span> Ce critère est facile à interpréter, mais il est peu sensible et donc il est rarement utilisé pour la construction de l’arbre. Il est plutôt emplyé pour évaluer la performance du modèle une fois l’arbre construit.</p></li>
+<li><p>L’<strong>Indice de Gini</strong> est un des critères les plus utilisés. Il est défini comme <span class="math display">\[G_j = \sum_{k = 1}^{K} \widehat{p}_{jk} (1 - \widehat{p}_{i j}).\]</span> Ce critère est minimale et égale à <span class="math inline">\(0\)</span> lorsque tous les individus d’une région appartiennent à une unique classe, ce qui reflète une homogénéité parfaite. On cherche donc à avoir un indice de Gini faible.</p></li>
+<li><p>L’<strong>Entropie croisée</strong> est un autre critère couramment utilisé. Il est basé sur la théorie de l’information de Shannon et est défini comme <span class="math display">\[D_j = - \sum_{k = 1}^{K}  \widehat{p}_{jk} \log(\widehat{p}_{j k}).\]</span> Ce critère atteint aussi sa valeur minimale lorsque la classe est parfaitement prédite. On cherche donc aussi à avoir une entropie croisée faible.</p></li>
+</ol>
+<p>Lors de la construction de l’arbre, on évalue pour chaque division possible la réduction d’hétérogénéité qu’elle entraîne, appelée <strong>gain d’information</strong>. Par exemple, pour l’indice de Gini, le gain d’information s’écrit comme la différence entre l’indice avant la division et une moyenne pondérée des indices dans les sous-groupes obtenus : <span class="math display">\[\Delta G = G_{\text{avant la division}} - \left( \frac{n_1}{n} G_1 + \frac{n_2}{n} G_2 \right),\]</span> où <span class="math inline">\(n_1\)</span> et <span class="math inline">\(n_2\)</span> représente le nombre d’observations dans les deux sous-ensembles et <span class="math inline">\(n = n_{1} + n_{2}\)</span>. On choisit alors la division qui maximise ce gain.</p>
+</section><section id="choix-de-la-complexité-élagage-de-larbre" class="level2"><h2 class="anchored" data-anchor-id="choix-de-la-complexité-élagage-de-larbre">Choix de la complexité : élagage de l’arbre</h2>
+<p>Plus l’arbre devient profond, i.e plus le nombre de feuilles augmente, plus il s’adapte fidèlement aux données d’apprentissage. Toutefois, cette grande adaptation conduit au phénomène de sur-ajustement (cf. Section sur l’évaluation de modèles). Ainsi, dans ce cas, le modèle ne sera plus capable de généraliser à des données inconnues. Cependant, si l’arbre n’a pas assez de feuilles, il y a un manque d’ajustement aux données car la classification est trop simpliste.</p>
+<p>Pour éviter ce phénomène, on recourt à une stratégie d’élagage (<em>purning</em>). Dans un premier temps, on fait croître l’arbre jusqu’à un développement complet, i.e. jusqu’à ce que toutes les feuilles soient pures (ne contiennent qu’une seule observation) ou qu’aucune division ne soit pertinente. Dans un second temps, on coupe l’arbre en se débarassant des branches qui n’apportent que peu d’amélioration en termes de performance.</p>
+<p>L’élagage peut être réalisé à l’aide d’un critère appelé coût-complexité. On cherche alors à minimiser une fonction combinant l’erreur de prédiction et la complexité de l’arbre. Cette fonction prend la forme suivante : <span class="math display">\[\sum_{j = 1}^{|T|} c_j + \alpha |T|,\]</span> où <span class="math inline">\(|T|\)</span> est le nombre de feuille de l’arbre, <span class="math inline">\(c_j\)</span> le coût de classification ou de régression dans la feuille <span class="math inline">\(j\)</span> et <span class="math inline">\(\alpha\)</span> un paramètre de régularisation contrôlant la pénalité associée à la taille de l’arbre. Plus le paramètre <span class="math inline">\(\alpha\)</span> est élevé, plus on favorise les arbres simples. Le choix optimal de <span class="math inline">\(\alpha\)</span> peut se faire par validation croisée, en comparant les performances sur des jeux de validation pour différentes valeurs de ce paramètre.</p>
+</section><section id="quelques-commentaires" class="level2"><h2 class="anchored" data-anchor-id="quelques-commentaires">Quelques commentaires</h2>
+<p>Les arbres présentent quelques avantages intéressants. Ils sont d’abord très interprétables. En effet, chaque prédiction peut être expliquée à l’aide d’un chemin dans l’arbre, ce qui les rend particulièrement adaptés à une utilisation dans un contexte appliqué. Ils sont également robustes aux valeurs extrêmes et aux transformations monotones des variables explicatives. De plus, ils gèrent naturellement les interactions entre les variables sans qu’il soit nécessaire de les expliciter. Ils peuvent être utilisés à la fois avec des variables quantitatives et quantitatives, et ne reposent sur aucune hypothèse de distribution des données. Ils effectuent automatiquement une sélection des variables au cours de leur construction. Les variables importantes auront tendance à être choisies en premières pour la découpe des noeuds. Enfin, ils constituent la base de nombreuses méthodes modernes d’apprentissage statistique, comme les forêts aléatoires ou bien le <em>gradient boosting</em> (cf. Section “Méthodes ensemblistes”).</p>
+<p>Malgré leurs nombreux avantages, les arbres présentent aussi certaines limites. Ils sont instables. En effet, de légères modifications dans les données peuvent entraîner des arbres très différents. Ainsi, lorsqu’ils sont utilisés seuls, ils peuvent être moins performants que d’autres méthodes, notemment lorsque les données sont bruitées. La forme des divisions (en rectangles alignés sur les axes) peut être inadaptée si les frontières entre les classes sont non-linéaires. Par ailleurs, sans élagage, les arbres ont tendance à surajuster les données. Ils sont également sensibles au déséquilibre des classes, i.e. lorsque certaines classes sont fortement sous-représentées dans les données. Ainsi, on leur préférera généralement une forme agrégée (e.g. forêts aléatoires, <em>boosting</em>) pour améliorer leur stabilité et leur performance.</p>
 
 
 </section></main><!-- /main --><script>
@@ -1258,8 +1244,8 @@ window.onload = function() {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../contents/supervised/03-hierarchy.html" class="pagination-link" aria-label="Hierarchique">
-        <span class="nav-page-text">Hierarchique</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../contents/supervised/03-ensemble.html" class="pagination-link" aria-label="Méthodes ensemblistes">
+        <span class="nav-page-text">Méthodes ensemblistes</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

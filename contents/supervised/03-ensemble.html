@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
 <head>
-<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/contents/supervised/04-ensemble.html" />
-<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/contents/supervised/04-ensemble.en.html" />
+<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/contents/supervised/03-ensemble.html" />
+<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/contents/supervised/03-ensemble.en.html" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.32">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Ensemble – STT-2200: Analyse de données</title>
+<title>Méthodes ensemblistes – STT-2200: Analyse de données</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 </style>
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script><script src="../../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../../site_libs/quarto-search/fuse.min.js"></script><script src="../../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../../">
 <link href="../../contents/06-nonsupervisee.html" rel="next">
-<link href="../../contents/supervised/03-hierarchy.html" rel="prev">
+<link href="../../contents/supervised/02-tree.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script><script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../../site_libs/quarto-html/popper.min.js"></script><script src="../../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../../site_libs/quarto-html/anchor.min.js"></script><link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
@@ -84,7 +84,7 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script><meta property="og:title" content="Ensemble – STT-2200: Analyse de données">
+</script><meta property="og:title" content="Méthodes ensemblistes – STT-2200: Analyse de données">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
@@ -259,7 +259,7 @@ window.Quarto = {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/05-supervisee.html">05 - Supervisée</a></li>
-<li class="breadcrumb-item"><a href="../../contents/supervised/04-ensemble.html">Ensemble</a></li>
+<li class="breadcrumb-item"><a href="../../contents/supervised/03-ensemble.html">Méthodes ensemblistes</a></li>
 </ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
@@ -282,7 +282,7 @@ window.Quarto = {
         </div>
         </div>
     <div class="dropdown" id="languages-links-parent">
-<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Français</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="https://stt2200.netlify.app/en/contents/supervised/04-ensemble.html" id="language-link-en">English</a></li></ul>
+<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> Français</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="https://stt2200.netlify.app/en/contents/supervised/03-ensemble.html" id="language-link-en">English</a></li></ul>
 </div>
 <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
@@ -475,14 +475,8 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contents/supervised/03-hierarchy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Hierarchique</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../contents/supervised/04-ensemble.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Ensemble</span></a>
+  <a href="../../contents/supervised/03-ensemble.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Méthodes ensemblistes</span></a>
   </div>
 </li>
       </ul>
@@ -546,20 +540,20 @@ window.Quarto = {
   </ul>
 <div class="toc-actions"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
-<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/supervised/04-ensemble.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/supervised/03-ensemble.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
 </ul></div>
 <div class="quarto-alternate-formats">
 <h2>Autres formats</h2>
-<ul><li><a href="04-ensemble.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
+<ul><li><a href="03-ensemble.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
 </div></nav>
 </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/05-supervisee.html">05 - Supervisée</a></li>
-<li class="breadcrumb-item"><a href="../../contents/supervised/04-ensemble.html">Ensemble</a></li>
+<li class="breadcrumb-item"><a href="../../contents/supervised/03-ensemble.html">Méthodes ensemblistes</a></li>
 </ol></nav><div class="quarto-title">
-<h1 class="title">Ensemble</h1>
+<h1 class="title">Méthodes ensemblistes</h1>
 </div>
 
 
@@ -1230,8 +1224,8 @@ window.onload = function() {
     }
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../../contents/supervised/03-hierarchy.html" class="pagination-link" aria-label="Hierarchique">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Hierarchique</span>
+      <a href="../../contents/supervised/02-tree.html" class="pagination-link" aria-label="Arbres">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Arbres</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -1249,7 +1243,7 @@ window.onload = function() {
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
 <div class="toc-actions d-sm-block d-md-none"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
-<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/supervised/04-ensemble.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/supervised/03-ensemble.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
 </ul></div>
 </div>
     <div class="nav-footer-right">
