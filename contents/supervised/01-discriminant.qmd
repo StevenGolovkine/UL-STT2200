@@ -12,14 +12,14 @@ L'analyse discriminante vise à classer des individus dans différents groupes �
 ## Notation
 
 
-Soit $X = (X_{i j}) \in \mathbb{R}^{n \times p}$ un matrice de données, où $n$ est le nombre d'individus dans l'échantillon, $p$ est le nombre de variables et $X_{i j}$ est la valeur de la $j$e variable pour le $i$e individus.
+Soit $X = (X_{i j}) \in \mathbb{R}^{n \times p}$ un matrice de données, où $n$ est le nombre d'individus dans l'échantillon, $p$ est le nombre de variables et $X_{i j}$ est la valeur de la $j$e variable pour le $i$e individus. 
 
-On suppose que chaque individu appartient à l'un des $K$ groupes. Pour $k \in \{ 1, \dots, K \}$, on note $I_k$ l'ensemble des individus du groupe $k$, $n_k$ le nombre d'observations dans $I_k$. On a donc $\sum_{k = 1}^{K} n_k = n$.
+On suppose qu'il y a $K$ groupes dans la population et que chaque individu appartient à l'un des $K$ groupes. Pour $k \in \{ 1, \dots, K \}$, on note $I_k$ l'ensemble des individus du groupe $k$, $n_k$ le nombre d'observations dans $I_k$. On a donc $\sum_{k = 1}^{K} n_k = n$.
 
 
 ## Objectif
 
-Nos observations sont dans $R^p$. Pour faire de la classification à partir de $X_{1}, \dots, X_p$, on doit partionner $R^p$ en $K$ sous-ensembles de sorte que chacun des $K$ sous-ensembles soit associé à l'un des $K$ groupes. L'idée est de passer de $\mathbb{R}^p$ à $\mathbb{R}$ en calculant, pour chaque observation, un score $f(X_{1}, \dots, X_p) \in \mathbb{R}$ et ensuite utiliser ce score pour déterminer le groupe d'appartenance (et donc de partionner $R$). Le score proposé par Fisher est une combinaison linéaire des variables, i.e.
+Nos observations sont dans $\mathbb{R}^p$. Pour faire de la classification à partir de $X_{1}, \dots, X_p$, on doit partionner $\mathbb{R}^p$ en $K$ sous-ensembles de sorte que chacun des $K$ sous-ensembles soit associé à l'un des $K$ groupes. Dans le cas de l'analyse discriminante, l'idée est de passer de $\mathbb{R}^p$ à $\mathbb{R}$ en calculant, pour chaque observation, un score $f(X_{1}, \dots, X_p) \in \mathbb{R}$ et ensuite utiliser ce score pour déterminer le groupe d'appartenance (et donc de partionner $\mathbb{R}$). Le score proposé par Fisher est une combinaison linéaire des variables, i.e.
 $$f(X_{1}, \dots, X_p) = a^{\top} X + b = a_{1} X_{1} + \cdots + a_p X_p + b.$$
 Cette fonction de score nous permet de regrouper les individus d'un même groupe dans des zones proches du score et de séparer autant que possible les différents groupes selon ce score. On en déduira $K$ intervalles de décision $S_{1}, \dots, S_K$ associés aux groupes.
 
@@ -36,33 +36,33 @@ Il ne reste plus qu'à choisir le vecteur $a = (a_{1}, \dots, a_p)$.
 
 ## Critère de Fisher
 
-L'idée centrale de Fisher est d'optimiser le rapport entre la variabilité inter-groupes et la variabilité intra-groupe en fonction de $a$. Dit autrement, on voudrait choisir le vecteur $a$ de sorte que les scores soient, à la fois, très différents entre les groupes et très similaires à l'intérieur d'un groupe. On s'intéresse donc à la variabilité des scores à l'intérieur des groupes et entre les groupes.
+L'idée centrale de Fisher est d'optimiser le rapport entre la variabilité inter-groupes et la variabilité intra-groupe en fonction du vectuer $a$. Dit autrement, on voudrait choisir le vecteur $a$ de sorte que les scores soient, à la fois, très différents entre les groupes et très similaires à l'intérieur d'un groupe. On s'intéresse donc à la variabilité des scores à l'intérieur des groupes et entre les groupes.
 
 Notons 
 
-* $S$ la matrice de variance-covariance totale donnée par
+* $S$, la matrice de variance-covariance totale donnée par
 
 $$S = \sum_{i = 1}^{n} (X_i - \overline{X})(X_i - \overline{X})^{\top} \quad \text{où}\quad \overline{X} = \frac{1}{n} \sum_{i = 1}^{n} X_i;$$
 
-* $W$ la matrice de variance-covariance intra-groupe donnée par 
+* $W$, la matrice de variance-covariance intra-groupe donnée par 
 
 $$W = \sum_{k = 1}^{K} \sum_{i \in I_k} (X_i - \overline{X}_k)(X_i - \overline{X}_k)^{\top} \quad \text{où} \quad \overline{X}_k = \frac{1}{n_k} \sum_{i \in I_k} X_i;$$
 
-* $B$ la matrice de variance-covariance inter-groupe donnée par 
+* $B$, la matrice de variance-covariance inter-groupe donnée par 
 
 $$B = \sum_{k = 1}^{K} n_k (\overline{X}_k - \overline{X})(\overline{X}_k - \overline{X})^{\top}.$$
 
 
 Étant donné que $a \in \mathbb{R}^p$, on a:
 $$\mathrm{Var}(f(X_{1}, \dots, X_p)) = \mathrm{Var}(a^{\top} X) = a^{\top} \mathrm{Var}(X) a.$$
-Nous pouvons estimer cette variance par 
+Comme $S$ est un estimateur de la variance totale de $X$, nous pouvons estimer cette variance par 
 $$\widehat{\mathrm{Var}}(f(X_{1}, \dots, X_p)) = \frac{1}{n} a^{\top} S a.$$
 
 La base de l'analyse discriminante repose sur le fait que 
 $$S = W + B.$$
 
 ::: {.callout-tip icon=false collapse=true}
-## Preuve
+## Preuve que $S = W + B$
 
 On peut prouver ce résultat en considérant la définition des matrices $S, W$ et $B$.
 La moyenne de la variable $j$ pour tous les individus de l'échantillon est
@@ -98,9 +98,9 @@ Ainsi, en remplaçant $S$ par $W + B$, on obtient
 $$\widehat{\mathrm{Var}}(a^{\top} X) = \frac{1}{n} a^{\top} S a = \frac{1}{n} \left( a^{\top} W a + a^{\top} B a \right).$$
 Le critère de Fisher s'écrit donc, pour $a \in \mathbb{R}^p$,
 $$J(a) = \frac{a^{\top} B a}{a^{\top} W a}.$$
-Le critère de Fisher peut se réécrire de façon équivalente comme 
+Celui-ci peut se réécrire de façon équivalente comme 
 $$J(a) = \frac{a^{\top} B a}{a^{\top} S a}.$$
-On cherche à maximiser $J(a)$. Ce problème peut être reformuler des façons suivantes:
+On cherche à maximiser $J(a)$. Ce problème peut être reformulé des façons suivantes, toutes équivalentes:
 
 1. Maximiser $J(a)$ sous la contrainte que $a^{\top} a = 1$.
 
@@ -108,11 +108,11 @@ On cherche à maximiser $J(a)$. Ce problème peut être reformuler des façons s
 
 3. Maximiser $c^{\top} S^{-1/2} B S^{-1/2} c$ sous la contrainte que $c^{\top} c = 1$, où $c = S^{1/2} a$.
 
-En réécrivant la troisième formulation
+En réécrivant la troisième formulation, on obtient
 $$c^{\top} \left( S^{-1/2} B S^{-1/2} \right) c \quad\text{s.c.}\quad c^{\top} c = 1,$$
-on peut prendre $a = S^{-1/2} c$, où $c$ est un vecteur propre normé associé à $\lambda_{1}$ la première valeur propre de $S^{-1/2} B S^{-1/2}$. 
+on peut prendre $a = S^{-1/2} c$, où $c$ est un vecteur propre normé associé à $\lambda_{1}$, la première valeur propre de $S^{-1/2} B S^{-1/2}$. 
 De façon équivalente, de la deuxième formulation, on peut prendre $a$, un vecteur propre normé associé à $\lambda_{1}$ la première valeur propre de $S^{-1} B$.
-Notons que comme
+Notons que comme, pour $\lambda$ une valeur propre quelconque de $S^{-1/2} B S^{-1/2}$,
 $$S^{-1/2} B S^{-1/2} c = \lambda c \quad\text{et}\quad a = S^{-1/2} c,$$
 alors 
 $$S^{-1/2} B a = \lambda S^{1/2} a \Rightarrow S^{-1} B a = \lambda a.$$
@@ -123,52 +123,51 @@ Les valeurs propres de $S^{-1} B$ et de $S^{-1/2} B S^{-1/2}$ sont donc les mêm
 La fonction discriminante de Fisher est donc 
 $$f(x) = a^{\top} (x - \overline{X}),$$
 où $a$ est le vecteur propre normé associé à la plus grande valeur propre de $S^{-1} B$. 
-Les scores, i.e. la représentation des observations dans $R$, sont données par $U_i = a^{\top} (X_{i} - \overline{X})$. Ces scores sont des combinaisons linéaires des variables et ils maximisent le rapport variance intra-groupe. sur variance inter-groupes.
+Les scores, i.e. la représentation des observations dans $\mathbb{R}$, sont données par $U_i = a^{\top} (X_{i} - \overline{X})$. Ces scores sont des combinaisons linéaires des variables et ils maximisent le rapport variance intra-groupe / variance inter-groupes.
 
 ::: {.callout-note icon=false}
 ## Remarque 
 
-On peut aussi prendre $U_i = a^{\top} X_i$, car ajouter la même constante à toutes les observations $i = 1, \dots, n$ ne fait que décaler la représentation dans $R$.
+On peut aussi prendre $U_i = a^{\top} X_i$, car ajouter la même constante à toutes les observations $i = 1, \dots, n$ ne fait que décaler la représentation dans $\mathbb{R}$.
 
 :::
 
-* Pouvoir discriminant
+### Pouvoir discriminant
 
 Puisque la matrice $S^{-1/2} B S^{-1/2}$ est symétrique et définie positive, ses valeurs propres sont toutes réelles et positives. De plus, on a que $S^{-1} B a = \lambda_{1} a$. Ainsi,
 $$B a = \lambda_{1} S a \Rightarrow a^{\top} B a = \lambda_{1} a^{\top} S a \Rightarrow \lambda_{1} = \frac{a^{\top} B a}{a^{\top} S a}.$$
 
 On a donc $0 \leq \lambda_{1} \leq 1$. La valeur propre $\lambda_{1}$ peut donc être vue comme le pouvoir discriminant de $f$:
 
-* $\lambda_{1} = 1 \Rightarrow a^{\top} B a = a^{\top} S a$, donc $100\%$ de la variabilité entre les groupes et $0$ variabilité à l'intérieur des groupes. 
+* $\lambda_{1} = 1 \Rightarrow a^{\top} B a = a^{\top} S a$, donc $100\%$ de la variabilité est entre les groupes et il n'y a aucune variabilité à l'intérieur des groupes. Cela représente le cas idéal.
 
-* $\lambda_{1} = 0 \Rightarrow a^{\top} B a = 0$, donc $0$ variabilité entre les gorupes et $100\%$ de la variabilité à l'intérieur des groupes. 
+* $\lambda_{1} = 0 \Rightarrow a^{\top} B a = 0$, donc il n'y a aucune variabilité entre les gorupes et toute la variabilité est concentrée à l'intérieur des groupes. Cela représente le cas où l'analyse discriminante est inutile.
 
 ### Règle de classification
 
-* Score moyen des groupes: Après avoir défini la fonction discriminante $f(x)$, on peut calculer le score moyen de chaque groupe défini comme étant 
+Après avoir estimer la fonction discriminante $f(x)$, on peut calculer le score moyen de chaque groupe $k$ défini comme étant 
 $$m_k = a^{\top} \left( \overline{X}_{k 1}, \dots, \overline{X}_{k p} \right)^{\top},$$
-où $\overline{X}_{k j}$ est la moyenne de la $j$e variable pour les individus appartenant au $k$e groupe. 
+où $\overline{X}_{k j}, j = 1, \dots, p$ est la moyenne de la $j$e variable pour les individus appartenant au $k$e groupe. 
 
-* Stratégie de classement des individus. Considérons une nouvelle observations $X_{0} \in \mathbb{R}^p$. Pour classer ce nouvel individu dans un groupe de la population, on calcule son score $f(X_{0}) = a^{\top} X_{0}$. Ensuite, on l'assigne au groupe $k_{0}$ qui lui ressemble le plus, c'est-à-dire le groupe tel que 
-$$\left| a^{\top} X_{0} - m_{k_0} \right| = \min_{1 <= k <= q} \left| a^{\top} X_{0} - m_k \right|.$$
-
+Considérons maintenant une nouvelle observation $X_{0} \in \mathbb{R}^p$ qui n'était pas dans le jeu de données lors de l'estimation de $f(x)$. Pour classer ce nouvel individu dans un groupe de la population, on calcule son score $f(X_{0}) = a^{\top} X_{0}$. Ensuite, on l'assigne au groupe $k^\star$ dont le score moyen $m_k$ est le plus proche de $f(X_0)$, i.e. le groupe tel que 
+$$\left| a^{\top} X_{0} - m_{k_0} \right| = \min_{1 \leq k \leq K} \left| a^{\top} X_{0} - m_k \right|.$$
+Autrement dit, on a 
+$$k^\star = \arg\min_{k} \left| a^{\top} X_0 - m_k \right|.$$
 En applicant cette règle à l'échantillon $X_{1}, \dots, X_n$, on peut estimer les risques de mauvaise classification avec la matrice de confusion.
 
 ### Cas particulier de la classification binaire 
 
-On peut montrer que le vectuer propre de l'analyse discriminante dans la cas où il n'y que deux populations peut être défini ainsi:
-$$a = S^{-1} C = \sqrt{\frac{n_{1} n_{2}}{n}} S^{-1} (\widetilde{X}_1 - \widetilde{X}_2),$$
-où
-$$C = \sqrt{\frac{n_{1} n_{2}}{n}} (\widetilde{x}_1 - \widetilde{x}_2) \quad\text{et}\quad B = C C^{\top}.$$
-et $\widetilde{x}_i, i = 1, 2$ sont les moyennes des caractériques $x$ dans chaque groupe.
+Dans le cas où $K = 2$, il est possible de calculer explicitement la valeur de vecteur propre $a$. Soit 
+$$C =  \sqrt{\frac{n_{1} n_{2}}{n}} (\overline{X}_1 - \widetilde{X}_2),$$
+$\overline{X}_i, i = 1, 2$ sont les vecteurs moyens des caractériques dans chaque groupe,
+alors 
+$$B = C C^{\top}, \quad a = S^{-1} C.$$
 
 Supposons que 
-$$ m_{1} = a^{\top} \widetilde{x}_1 > a^{\top} \widetilde{x}_2 = m_{2}.$$
-Alors, on classe un individu dans le premier groupe si
-$$a^{\top} x > \overline{m} = \frac{m_{1} + m_{2}}{2} = a^{\top} \left( \frac{\widetilde{x}_1 + \widetilde{x}_2}{2} \right).$$
+$$ m_{1} = a^{\top} \overline{X}_1 > a^{\top} \overline{X}_2 = m_{2}.$$
+Alors, on classe un individu $X_0$ dans le premier groupe si
+$$a^{\top} X_0 > \overline{m} = \frac{m_{1} + m_{2}}{2} = a^{\top} \left( \frac{\overline{X}_1 + \overline{X}_2}{2} \right),$$
+et dans le second groupe sinon. Cette règle de classification est équivalente à
+$$(\overline{X}_1 - \overline{X}_2)^\top S^{-1} X_0 > \frac{1}{2}(\overline{X}_1 - \overline{X}_2)^\top S^{-1} (\overline{X}_1 + \overline{X}_2).$$
 
-Ceci est équivalent à 
-$$(\widetilde{x}_1 - \widetilde{x}_2)^\top S^{-1} x > (\widetilde{x}_1 - \widetilde{x}_2)^\top S^{-1} \left( \frac{\widetilde{x}_1 + \widetilde{x}_2}{2} \right).$$
 
-
-## Example
