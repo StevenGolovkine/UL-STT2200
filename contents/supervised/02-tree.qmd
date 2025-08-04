@@ -3,95 +3,89 @@ title: "Arbres"
 format: 
   html: default
   pdf:
+    number-sections: true
     header-includes:
       - \usepackage{mathtools} 
 ---
 
-Les arbres de régression et de classification (Classification And Regression Trres, CART) font partie des méthodes d'apprentissage supervisée. On dispose d'observations qui appartiennent à $\mathbb{R}^p$, soit $X_{1}, \dots, X_p$. Un arbre de classification cherche à assigner une observation à l'un des $K$ groupes sur la base de $X_{1}, \dots, X_p$. Un arbre de régression cherche à prédire la valeur d'une valeur numérique continue $Y$ à partir de $X_{1}, \dots, X_p$.
+Les arbres de classification et de régression (*Classification And Regression Trees*, CART) font parties des méthodes d'apprentissage supervisée. Ils permettent de prédire une variable réponse à partir de plusieurs variables explicatives $X_1, \dots, X_p$. On dispose donc de $n$ observations appartenant à $\mathbb{R}^p$. Un arbre de classification cherche à assigner une observation $i$ à l'un des $K$ groupes sur la base de $X_{i1}, \dots, X_{ip}$, les valeurs des variables pour cette observation $i$. Tandis qu'un arbre de régression cherche à prédire la valeur d'une variable numérique continue $Y$ à partir des observations de $X_{1}, \dots, X_p$.
 
-La construction d'arbres, on partitionne l'ensemble $R^p$ en hyper-rectangles en effectuant des divisions binaires successives en fonction de la valeur d'une des $p$ variables (algorithme de dédoublements binaires successifs).
+## Objectif 
 
-1. On effectue des divisions binaires successives de l'ensemble $R^p$ en fonction de la valeur d'une variable. Le choix de la variable et le choix de la limite pour la division binaire sont déterminés par un certain critère. 
+L'objectif de l'algorithme CART est de partionner l'espace des observations, i.e. $\mathbb{R}^p$, en sous-ensembles homogènes à l'aide de découpages successifs. Chaque sous-ensemble est représenté par une **feuille** de l'arbre, à laquelle est associée une prédiction.
 
-2. On cesse d'effectuer des divisions lorsqu'un critère d'arrêt est rencontré (nombre minimal d'observations par feuille atteint, nombre de feuilles désirées atteint, etc.)
+De façon plus précise, l'algorithme CART est un algorithme récursif de découpage binaire. Il procède de la façon suivante :
 
-3. Chaque sous-division finale de l'ensemble $\mathbb{R}^p$est appelée "feuille" ou "noeud terminal". On prédit une catégorie à chaque observation selon la feuille à laquelle elle appartient.
+1. Le découpage de l'espace $\mathbb{R}^p$ en sous-régions rectangulaires (que l'on appelle hyper-rectangles), en coupant selon une variable $X_j, j = 1, \dots, p$ à une certaine valeur seuil $s$.
 
-Toutes les observations dans une même "feuille" re\c{c}oivent la même prédiction, soit la classe la plus fréquente parmi les données du jeu d'entrainement qui aboutissent dans cette feuille.
+2. À chaque étape, on choisit la variable $X_j, j = 1, \dots, p$ et la valeur seuil $s$ qui offrent la meilleure amélioration d'un **critère d'homogénéité** (cf. la section "Critères d'homogénéité").
+
+3. On répète ce découpage tant qu'un **critère d'arrêt** n'est pas atteint (cf. la section "Choix de la complexité").
+
+4. Chaque feuille contient des observations similaires et fournit une prédiction unique : la classe majoritaire pour la classification et la moyenne des $Y$ pour la régression. Ainsi, toutes les observations dans une même feuille reçoivent la même prédiction.
 
 ::: {.callout-tip icon=false}
 ## Remarque
 
-L'algorithme de partitions binaires successives est un algortihme glouton qui ne nous garantit pas l'arbre optimal...
+L'algorithme CART est un algortihme glouton : à chaque étape, cette algorithme choisit localement la meilleure coupure. Mais cela ne garantit pas l'optimum global !
 
-Supposons que nous désirions partionner $\mathbb{R}^p$ en J hyper-rectangles (donc un arbre à $J$ feuilles) et soit $c_j$ un critère de "coût" pour les observations qui sont mal classées dans la région $j$. On aimerait pouvoir trouver les hyper-rectangles $R_1, \dots, R_J$ tels que $\sum_{j = 1}^{J} c_j$ soit minimal, mais il n'est pas computationnellement possible de le faire !
+Il serait théoriquement préférable de chercher l'arbre à $K$ feuilles qui minimise une fonction de coût globale :
+$$\min_{R_1, \dots, R_K} \sum_{k = 1}^{K} c_k,$$
+où $c_k$ mesure l'erreur dans le région $R_k$. Cependant, il y aurait trop de combinaisons possibles pour résoudre ce problème. C'est un problème intraitable (*intractable*).
+
 :::
 
-### Algortihme 
+## Algorithme
 
-Pour chaque noeud de l'arbre, on doit décider si on le découpe en deux et si oui, en utilisant quelle valeur de quelle variable :
+L'algorithme se déroule comme suit, pour chaque noeud :
 
-1. Pour chacune des $p$ variables et pour chaque point de coupure possible pour cette variable, calculer l'amélioration du critère de qualité et choisir la variable et le point de coupure résultant en la meilleur amélioration du critère.
+1. Pour chaque variable $X_j, j = 1, \dots, p$ et chaque seuil (valeur de coupure) possible $s$, on calcule la réduction du critère d'homogénéité entre les deux sous-ensembles.
 
-2. Créer une division binaire de l'arbre à l'aide de la variable et du point de coupure choisis en 1.
+2. On sélectionne le couple $(X_j, s)$ qui maximise la réduction du critère d'homogénéité, i.e. qui offre le gain maximal.
 
-3. Répéter 1 et 2 jusqu'à ce que l'arbre ait le nombre de feuilles désiré ou que le nombre minimal d'observations soit atteint dans chaque feuille.
+3. On divise le noeud en deux sous-noeuds (sous-ensembles) selon la règle $X_j \leq s$ vs. $X_j > s$.
 
-### Critères 
+4. On répète ce processus jusqu'à ce qu'un nombre maximal de feuilles soit atteint ou bien que le nombre d'observations dans chaque feuille soit suffisant.
 
-Soit $\widehat{p}_{jk}$, la proporiton d'observations de la $j$e région de l'ensemble $\mathbb{R}^p$ qui appartiennent à la $k$e classe.
+Le noeud de départ consiste en l'ensemble des observations.
 
-Trois critères sont habituellement utilisés pour déterminer les divisions optimales à chaque étape de la construction de l'arbre:
 
-1. Taux d'erreurs de classification
+## Critères d'homogénéité pour la classification
+
+Soit $\widehat{p}_{jk}$, la proportion d'observations de la région $R_j$ de l'ensemble $\mathbb{R}^p$ qui appartiennent à la classe $k$. Trois critères sont habituellement utilisés pour déterminer les divisions optimales à chaque étape de la construction de l'arbre:
+
+1. Le **Taux d'erreur de classification** correspond à la proportion d'observations mal classées dans une feuille. Il est défini comme 
 $$E_j = 1 - \max_k \widehat{p}_{jk}.$$
-Pas assez sensible pour construire l'arbre.
+Ce critère est facile à interpréter, mais il est peu sensible et donc il est rarement utilisé pour la construction de l'arbre. Il est plutôt emplyé pour évaluer la performance du modèle une fois l'arbre construit. 
 
-2. Indice de Gini
+2. L'**Indice de Gini** est un des critères les plus utilisés. Il est défini comme 
 $$G_j = \sum_{k = 1}^{K} \widehat{p}_{jk} (1 - \widehat{p}_{i j}).$$
-Plus c'est faible, mieux c'est.
+Ce critère est minimale et égale à $0$ lorsque tous les individus d'une région appartiennent à une unique classe, ce qui reflète une homogénéité parfaite. On cherche donc à avoir un indice de Gini faible.
 
-3. Entropie croisée 
-$$D_j = - \sum_{k = 1}^{K}  \widehat{p}_{jk} \log(\widehat{p}_{m k}).$$
-Plus c'est faible, mieux c'est.
-
-
-Le gain d'information est ce que l'on cherche à maximiser lorque l'on choisit comment scinder en deux un noeud donné. Par example, avec l'indice de Gini, le gain d'information est donné par 
-$$\text{indice de Gini avant la division} - \sum_{j = 1}^{2} \frac{n_j}{n_{1} + n_{2}} G_j,$$
-où $j = 1, 2$ dénote les deux morceaux créés par la division, $n_j$ est le nombre d'observations qui tombent dans le morceau $j$ et $G_j$ est l'indice de Gini pour le morceau $j$.
-
-### Choix du nombre de divisions/feuilles 
-
-L'algorithme va faire croître l'arbre tant qu'on n'aura pas atteint un nombre de feuilles fixé ou tant que le nombre de d'observations dans chaque feuille ne sera pas trop petit. Mais, pas assez de feuilles veut dire manque d'ajustement car classification trop simpliste et inadéquate. Et trop de feuilles n'est pas mieux, car on fait du sur-ajustement et l'arbre n'aura pas une bonne performance sur un jeu de validation.
-
-Élage des arbres de classification (pruning): la stratégie commune en pratique est de laisser croître l'arbre et ensuite de l'élaguer de fa\c{c}on à atteindre un compromis entre ajustement aux données d'entrainement et taille de l'arbre (élagage coût-complexité). Si $| T |$ est la taille (nombre de feuilles) de l'arbre $T$, on veut 
-$$\min \sum_{j = 1}^{|T|} c_j + \alpha | T |,$$
-où $\alpha \geq 0$ est un hyper-paramètre qui contrôle le compromis et que l'on chosit par validation croisée.
+3. L'**Entropie croisée** est un autre critère couramment utilisé. Il est basé sur la théorie de l'information de Shannon et est défini comme
+$$D_j = - \sum_{k = 1}^{K}  \widehat{p}_{jk} \log(\widehat{p}_{j k}).$$
+Ce critère atteint aussi sa valeur minimale lorsque la classe est parfaitement prédite. On cherche donc aussi à avoir une entropie croisée faible.
 
 
-### Avantages
-
-* Fonctionnent aussi bien avec des variables continues que catégorielles.
-
-* Aucune hypothèse a priori n'est faite sur la distribution des données.
-
-* Robuste aux données extrêmes.
-
-* Faciles à interpréter.
-
-* Tiennent implicitement compte des interactions possibles entre les variables.
-
-* Sélectionnent implicitement les variables importantes.
-
-* Permettent d'obtenir un modèle non linéaire.
+Lors de la construction de l'arbre, on évalue pour chaque division possible la réduction d'hétérogénéité qu'elle entraîne, appelée **gain d'information**. Par exemple, pour l'indice de Gini, le gain d'information s'écrit comme la différence entre l'indice avant la division et une moyenne pondérée des indices dans les sous-groupes obtenus :
+$$\Delta G = G_{\text{avant la division}} - \left( \frac{n_1}{n} G_1 + \frac{n_2}{n} G_2 \right),$$
+où $n_1$ et $n_2$ représente le nombre d'observations dans les deux sous-ensembles et $n = n_{1} + n_{2}$. On choisit alors la division qui maximise ce gain.
 
 
-### Points faibles 
+## Choix de la complexité : élagage de l'arbre
 
-* Nécessitent un grand nombre de données.
+Plus l'arbre devient profond, i.e plus le nombre de feuilles augmente, plus il s'adapte fidèlement aux données d'apprentissage. Toutefois, cette grande adaptation conduit au phénomène de sur-ajustement (cf. Section sur l'évaluation de modèles). Ainsi, dans ce cas, le modèle ne sera plus capable de généraliser à des données inconnues. Cependant, si l'arbre n'a pas assez de feuilles, il y a un manque d'ajustement aux données car la classification est trop simpliste. 
 
-* Peuvent être instables dans les résultats qu'elle produit.
+Pour éviter ce phénomène, on recourt à une stratégie d'élagage (*purning*). Dans un premier temps, on fait croître l'arbre jusqu'à un développement complet, i.e. jusqu'à ce que toutes les feuilles soient pures (ne contiennent qu'une seule observation) ou qu'aucune division ne soit pertinente. Dans un second temps, on coupe l'arbre en se débarassant des branches qui n'apportent que peu d'amélioration en termes de performance.
 
-* Ne fonctionnent pas très bien lorsque certaines des $q$ classes sont rares ou que certaines des modalités de $X_j$ catégorielles sont rares.
+L'élagage peut être réalisé à l'aide d'un critère appelé coût-complexité. On cherche alors à minimiser une fonction combinant l'erreur de prédiction et la complexité de l'arbre. Cette fonction prend la forme suivante :
+$$\sum_{j = 1}^{|T|} c_j + \alpha |T|,$$
+où $|T|$ est le nombre de feuille de l'arbre, $c_j$ le coût de classification ou de régression dans la feuille $j$ et $\alpha$ un paramètre de régularisation contrôlant la pénalité associée à la taille de l'arbre. Plus le paramètre $\alpha$ est élevé, plus on favorise les arbres simples. Le choix optimal de $\alpha$ peut se faire par validation croisée, en comparant les performances sur des jeux de validation pour différentes valeurs de ce paramètre.
 
-### Example
+
+## Quelques commentaires
+
+Les arbres présentent quelques avantages intéressants. Ils sont d'abord très interprétables. En effet, chaque prédiction peut être expliquée à l'aide d'un chemin dans l'arbre, ce qui les rend particulièrement adaptés à une utilisation dans un contexte appliqué. Ils sont également robustes aux valeurs extrêmes et aux transformations monotones des variables explicatives. De plus, ils gèrent naturellement les interactions entre les variables sans qu'il soit nécessaire de les expliciter. Ils peuvent être utilisés à la fois avec des variables quantitatives et quantitatives, et ne reposent sur aucune hypothèse de distribution des données. Ils effectuent automatiquement une sélection des variables au cours de leur construction. Les variables importantes auront tendance à être choisies en premières pour la découpe des noeuds. Enfin, ils constituent la base de nombreuses méthodes modernes d'apprentissage statistique, comme les forêts aléatoires ou bien le *gradient boosting* (cf. Section "Méthodes ensemblistes").
+
+Malgré leurs nombreux avantages, les arbres présentent aussi certaines limites. Ils sont instables. En effet, de légères modifications dans les données peuvent entraîner des arbres très différents. Ainsi, lorsqu'ils sont utilisés seuls, ils peuvent être moins performants que d'autres méthodes, notemment lorsque les données sont bruitées. La forme des divisions (en rectangles alignés sur les axes) peut être inadaptée si les frontières entre les classes sont non-linéaires. Par ailleurs, sans élagage, les arbres ont tendance à surajuster les données. Ils sont également sensibles au déséquilibre des classes, i.e. lorsque certaines classes sont fortement sous-représentées dans les données. Ainsi, on leur préférera généralement une forme agrégée (e.g. forêts aléatoires, *boosting*) pour améliorer leur stabilité et leur performance.
+
