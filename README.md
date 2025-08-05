@@ -30,15 +30,15 @@ This repository contains the website used for the module STT-2200 given at Unive
     - [X] PCA
     - [X] CA
     - [X] MCA
-  * [ ] Supervised
+  * [X] Supervised
     - [X] Discriminant analysis
     - [X] Tree 
-    - [ ] Ensemble models 
+    - [X] Ensemble models 
   * [ ] Unsupervised
     - [X] k-means
     - [X] Hierarchical clustering
     - [ ] Gaussian mixtures
-  * [ ] Ethics 
+  * [X] Ethics 
 
 - [ ] TP/TD
   * [X] Remainders
