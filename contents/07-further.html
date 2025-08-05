@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.32">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Autres topics – STT-2200: Analyse de données</title>
+<title>Aspects éthiques – STT-2200: Analyse de données</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -84,7 +84,8 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script><meta property="og:title" content="Autres topics – STT-2200: Analyse de données">
+</script><meta property="og:title" content="Aspects éthiques – STT-2200: Analyse de données">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
 <body class="nav-sidebar floating quarto-light">
@@ -527,18 +528,29 @@ window.Quarto = {
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+<li><a href="#confidentialit%C3%A9-des-donn%C3%A9es" id="toc-confidentialité-des-données" class="nav-link active" data-scroll-target="#confidentialité-des-données">Confidentialité des données</a></li>
+  <li><a href="#implications-sociales" id="toc-implications-sociales" class="nav-link" data-scroll-target="#implications-sociales">Implications sociales</a></li>
+  <li><a href="#d%C3%A9construire-quelques-mythes" id="toc-déconstruire-quelques-mythes" class="nav-link" data-scroll-target="#déconstruire-quelques-mythes">Déconstruire quelques mythes</a></li>
+  <li><a href="#que-faire-pour-r%C3%A9duire-ces-biais" id="toc-que-faire-pour-réduire-ces-biais" class="nav-link" data-scroll-target="#que-faire-pour-réduire-ces-biais">Que faire pour réduire ces biais ?</a></li>
+  </ul>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/07-further.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
+</ul></div>
+<div class="quarto-alternate-formats">
 <h2>Autres formats</h2>
 <ul><li><a href="07-further.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
-</div>
+</div></nav>
 </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../contents/07-further.html">07 - Éthique</a></li>
 </ol></nav><div class="quarto-title">
-<h1 class="title">Autres topics</h1>
+<h1 class="title">Aspects éthiques</h1>
 </div>
 
 
@@ -552,7 +564,36 @@ window.Quarto = {
   
 
 
-</header></main><!-- /main --><script>
+</header><p>L’analyse de données est aujourd’hui utilisé dans de nombreux domaines : santé, éducation, politique publique, etc. Les données jouent même un rôle central dans la plupart des domaines. Les analyses permettent de prendre des décisions mieux informées et parfois automatisées. Dans certains domaines, ces décisions sont inconséquentes, mais pour d’autres domaines, cela soulève des questions éthiques majeures. Par exemple, est-ce que mes données représentent fidélement ma population ? quelles décisions sont prises à partir de ces analyses ? quelles sont les conséquences pour les individus concernés ?</p>
+<p>Les données ne sont pas neutres, elles sont le reflet d’un contexte social, institutionnel et technique. Ainsi, les modèles qui en sont issus peuvent renforcer les inégalités, reproduire des biais historiques, ou éventuellement porter atteinte à la vie privée des individus. Il est donc essentiel, lorsque l’on fait une analyse de données, d’avoir une certaine vigilance éthique, en réflechissant aux impacts sociaux, aux limites méthodologiques et aux responsabilités associées à ses choix.</p>
+<section id="confidentialité-des-données" class="level2"><h2 class="anchored" data-anchor-id="confidentialité-des-données">Confidentialité des données</h2>
+<p>Lorsqu’on manipule des données individuelles, il est essentiel de protéger la vie privée des personnes concernées. Plusieurs approches existent pour minimiser les risques de ré-identification ou d’exploitation abusive.</p>
+<p>L’<strong>anonymisation des données</strong> consiste à supprimer ou à transformer les identifiants directs (e.g. les noms et adresses) et indirects (e.g. les dates de naissance et les codes postaux) susceptibles de permettre l’identification d’un individu. Il convient de faire particulièrement attention à ce cas, dans certaines situations, c’est le croisement de plusieurs variables qui permet l’identification d’un individu et non une unique variable. Par exemple, deux chercheurs de l’université du Texas ont été capable d’identifier des utilisateurs de Netflix en utilisant des notes sur IMDb (c.f. <a href="https://arxiv.org/pdf/cs/0610105">lien</a>). On peut aussi <strong>réduire la granularité des informations</strong> en limitant les détails fournis (e.g. en regroupant les âges en tranches et en n’utilisant pas l’âge exact) pour réduire le risque de ré-identification.</p>
+<p>Lorsque certaines modalités d’une variable catégorielle sont associées à très peu d’individus, on peut les <strong>regrouper</strong> pour éviter qu’une combinaison unique de caractéristiques ne permette de retrouver une personne. On peut aussi <strong>ajouter du bruit</strong> aux données ou aux résultats. Cela permet de préserver des tendances globales tout en rendant les identification individuelles plus difficiles. Il faut faire attention à ne pas ajouter trop de bruit, sinon on risque de compromettre la validité des analyses. Enfin, on peut appliquer une <strong>approche de confidentialité différentielle</strong> consistant à garantir qu’un individu ne peut pas être identifié, même en connaissant toutes les autres données du jeu.</p>
+</section><section id="implications-sociales" class="level2"><h2 class="anchored" data-anchor-id="implications-sociales">Implications sociales</h2>
+<p>L’utilisation des résultats d’analyses statistiques dans des contextes sociaux ou décisionnels soulève d’importants enjeux éthiques. En effet, plusieurs sources de discrimination peuvent intervenir dans un processus apparemment rigoureux.</p>
+<p>Il peut y avoir un <strong>biais dans l’échantillonnage</strong> si le jeu de données ne reflète pas fidèlement la population cible (e.g. la sous-représentation de certaines communautés). Dans ce cas, les modèles entraînés risquent d’être inéquitables. Il peut aussi y avoir un <strong>biais dans la variable à expliquer</strong>. Par exemple, pour un modèle basé sur des décisions judiciaires passées, il est possible qu’il perpétue les biais historiques des jugements.</p>
+<p>On peut aussi se trouver avec une <strong>validité variable selon les groupes</strong>. Un même modèle peut très bien fonctionner pour un sous-groupe de la population, mais être très mauvais pour un autre, menant à des erreurs systématiques. Enfin, si certaines classes sont <strong>mal représentées</strong>, e.g. des maladies rares ou des groupes démographiques minoritaires, et donc peu présentes dans les données, le modèle peut mal les prédire ou même les ignorer.</p>
+</section><section id="déconstruire-quelques-mythes" class="level2"><h2 class="anchored" data-anchor-id="déconstruire-quelques-mythes">Déconstruire quelques mythes</h2>
+<ul>
+<li><strong>“La machine apprend toute seule.”</strong></li>
+</ul>
+<p>En réalité, le choix des données, des variables, de la variable à expliquer et de l’algorithme est faite par des êtres humains. L’“apprentissage” dépend entièrement des décisions humaines en amont.</p>
+<ul>
+<li><strong>“C’est objectif, c’est basé sur des données.”</strong></li>
+</ul>
+<p>Les données ne sont jamais neutres. Elles sont le produit d’un contexte social, institutionnel et méthodologique. Les modèles entraînés sur ces données héritent de leurs biais.</p>
+<ul>
+<li><strong>“Mon modèle ne peut pas être sexiste car je n’ai pas utilisé le genre pour le construire.”</strong></li>
+</ul>
+<p>Même sans inclure explicitement une variable comme le genre, un modèle peut apprendreà en inférer à partir d’autres variables corrélées comme le profession ou le parcours scolaire. L’exclusion explicite d’une variable sensible ne garantit pas l’absence de biais.</p>
+</section><section id="que-faire-pour-réduire-ces-biais" class="level2"><h2 class="anchored" data-anchor-id="que-faire-pour-réduire-ces-biais">Que faire pour réduire ces biais ?</h2>
+<p>Plusieurs approches peuvent être mises en oeuvre à différentes étapes du processus :</p>
+<ul>
+<li><p><strong>Agir en amont sur les données</strong> : rééquilibrer l’échantillon, sur-représenter certains groupes ou encore corriger les biais connus dans la variable à expliquer.</p></li>
+<li><p><strong>Modifier les modèles a posteriori</strong> : appliquer des corrections sur les résultats produits comme le recalibrage des probabilités ou l’ajustement des seuils de décision pour certaines classes.</p></li>
+<li><p><strong>Modifier la fonction de perte utilisée pour l’apprentissage</strong> : intégrer des pénalités visant à réduire les inégalités de performance entre les groupes. On peut, par exemple, imposer une équité en terme de faux positifs pour les différents groupes dans la population.</p></li>
+</ul></section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -1191,7 +1232,7 @@ window.onload = function() {
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions"><ul>
+<div class="toc-actions d-sm-block d-md-none"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/07-further.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
 </ul></div>
