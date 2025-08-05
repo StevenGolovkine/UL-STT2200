@@ -8,73 +8,43 @@ format:
       - \usepackage{mathtools} 
 --- 
 
-On se rend compte qu'en présence de grands jeux de données, il est plus facile d'avoir une classification performante en combinant les prévisions de plusieurs classificateurs faibles qu'en construisant un seul classificateur très complexe. On appelle méthode d'ensemble une méthode qui consiste à déduire une prévision unique à partir des prévisions de plusieurs modèles.
 
-Il existe plusieurs stratégies pour combiner les prévisions de modèles multiples :
-* Moyenne des probabilités prescrites par chaque modèle. 
-* Vote de majorité
-* Approche de type "sélection de variables" utilisée en régression, mais on prend un modèles au lieu d'une variable.
-* Bagging, boosting, forêts aléatoires
+Lorsqu'on travaille avec de grands jeux de données, il est souvent plus efficace de combiner les prédictions de plusieurs modèles simples, appelés **classificateurs faibles**, que d'essayer de construire un unique modèle très complexe. Cette idée est à la base des **méthodes d'ensemble**, qui visent à produire une prédiction unique à partir des prédictions de plusieurs modèles. En regroupant ainsi plusieurs modèles, on peut généralement obtenir une meilleure performance globale et souvent une meilleure robustesse par rapport au bruit et au sur-ajustement. 
 
-## Bagging 
+Plusieurs stratégies peuvent être employées pour combiner les résultats de plusieurs modèles. Une première approche consiste à faire la **moyenne des probabilités prédites** par chaque modèle. Une autre méthode courante est le **vote de majorité**, où la classe la plus souvent prédite est retenue. On peut également adopter une stratégie inspirée de la sélection de variables utilisée dans le modèle de régression. Au lieu de choisir les "meilleures" variables, on sélectionne les modèles les plus pertinents pour l'ensemble. Enfin, des techniques plus avancées comme le ***bagging***, le ***boosting*** et les **forêts aléatoires** ont été développées pour automatiser et optimiser cette combinaison de modèles.
 
-La méthode consiste à 
 
-1. Sélectionner $B$ échantillons "bootstrap" (tirage avec remise).
+## Bagging
 
-2. Construire un arbre de classification avec chacun des échantillons "bootstrap"
+La méthode du ***bagging*** (*bootstrap aggregating*) consiste à construire plusieurs versions d'un même modèle à partir d'échantillons différents du jeu de données d'origine. Plus précisement, on commence par générer $B$ échantillons *bootstrap* (tirages aléatoires avec remise) à partir des données d'apprentissage. Un arbre de classification est ensuite construit pour chacun de ces $B$ échantillons. On obtient donc $B$ arbres de classification. On prédit la classe d'une nouvelle observation pour chacun des $B$ arbres et on retient la classe prédite le plus souvent, ce qui correspond à un vote de majorité. Il est également possible de calculer la moyenne des probabilités de classe fournies par chaque arbre pour obtenir un score plus nuancé.
 
-3. Prédire la classe d'une nouvelle observation avec chacun des $B$ arbres
+Le principal avantage du *bagging* est qu'il permet de réduire la variance et d'augmenter la stabilité des prédictions. Cependant, cette méthode rend plus difficile l'interprétation du rôle joué par chaque variable dans la classification. Pour évaluer l'importance d'une variable, on peut additionner les réductions de l'indice de Gini observées à chaque division basée sur cette variable, puis faire la moyenne de ces réductions sur tous les arbres. On exprime enfin ces moyennes sous forme de pourcentage relatif à la réduction maximale observée parmi toutes les variables.
 
-4. Attribuer à la nouvelle observation la classe dans laquelle elle est prédite le plus souvent. On peut calculer un score qui est la moyenne des probabilités prédites par chaque arbre.
-
-La méthode du bagging augmente la stabilité des prédictions. Cependant, il est plus difficile d'interpréter l'importance de chaque variable dans le processus de classification. On peut procéder ainsi:
-* additionner la réduction de l'indice de Gini pour toutes les divisions basées sur une certaine variable;
-* calculer la moyenne de ces réductions sur tous les arbres
-* exprimer la moyenne de réduction de chaque variable en pourcentage de la moyenne de réduction maximale observée sur l'ensemble des variables.
 
 ## Forêts aléatoires
 
-Très similaire à la méthode du  bagging; la méthode des forêts aléatoires considère elle aussi $B$ arbres obtenus à partir de $B$ échantillons bootstrap.
+Les **forêts aléatoires** reprennent le principe du *bagging*, mais introduisent une source supplémentaire d'aléa qui permet de décorréler les arbres construits. En effet, les arbres construits par l'algorithme de *bagging* tendent à se ressembler car les classes les plus fréquentes dominent. Pour résoudre ce problème, la méthode des forêts aléatoires impose qu'à chaque division dans un arbre, on sélectionne aléatoirement un sous-ensemble de $m$ variables parmi les $p$ disponibles et que seules ces $m$ variables soient considérées pour choisir la meilleure division. Un choix usuel est $m \approx \sqrt{p}$. Cette diversification améliore la performance globale de l'algorithme, ainsi que sa robustesse.
 
-L'idée est que lors de la construction des $B$ arbres, dans la méthode des forêts aléatoires avant chaque division on choisit aléatoirement $m<p$ des variables $X_1,\ldots,X_p$ et on ne considère que ces $m$ variables pour la division optimale. Un choix commun est $m\approx\sqrt{p}$.
-
-L'avantage de procéder ainsi est de décorréler les arbres obtenus, puisque le gros point faible de la méthode du bagging est que les $B$ arbres obtenus se ressemblent souvent beaucoup.
 
 ## Boosting
 
-L'idée derrière cette approche est de créer des arbres de fa\c{c}on successive en donnant un poids plus élevé aux observations mal classées par les arbres précédents.  Il est important d'utiliser des arbres peu performants (très, très simples)} et de laisser le boosting déterminer les bons poids à fournir à ces arbres.
+À la différence du *bagging*, le ***boosting*** adopte une approche séquentielle. L'idée est de construire une série de modèles simples en accordant progressivement plus d'importance aux observations mal classées par les modèles précédents. Chaque nouveau modèle est entraîné pour corriger les erreurs du précédent, ce qui permet d'atteindre une très bonne précision globale. Pour fonctionner efficacement, le *boosting* doit utiliser des modèles faibles, laissant au processus le soin de combiner leurs prédictions de manière optimale.
 
-Il existe plusieurs variantes à ce type d'approche
-* boosting adaptatif (AdaBoost);
-* boosting par descente du gradient (gradient boosting).
-
-## Descente du gradient stochastique
-
-On doit choisir un nombre $M$ d'itérations, la taille $J$ de l'arbre de classification à construire à chaque itération (on suggère quelque chose de petit, comme $4\le J\le 8$), la fraction $f$ des données d'entrainement à échantillonner "au hasard" à chaque itération (on suggère $0.5\le f\le 0.8$).
+Il existe plusieurs variantes du *boosting*. L'une des plus connues est *AdaBoost* (*boosting adaptatif*), qui ajuste les poids des observations à chaque itération. Une autre approche très utilisée aujourd'hui est le *gradient boosting*, qui repose sur la minimisation d'une fonction de perte à l'aide d'une procédure itérative inspirée de la descente du gradient.
 
 
- On construit un premier arbre de taille $J$ au jeu de données, disons $T_1$.
- Pour $m=2,\ldots,M$:
-  * On calcule les erreurs de prévisions (pseudo-résidus) obtenus avec l'arbre $T_{m-1}$ pour chaque observation.
-  * On échantillonne une fraction $f$ du jeu de données d'entrainement et on construit un nouvel arbre de taille $J$, disons $t_m$, pour ces données, mais ce coup-ci en utilisant les pseudo-résidus comme variable à prédire.
-  * On calcule un multiplicateur $\gamma_m$ qui minimise une certaine fonction de perte.
-  * On pose $T_m=T_{m-1}+\gamma_mt_m$.
-
-* Le mode d'échantillonnage aléatoire à l'étape 3: donner une probabilité d'être sélectionnée plus élevée aux observations pour lesquelles le pseudo-résidu est plus loin de 0
-* La fonction de perte calculée à l'étape 4, la façon dont elle est optimisée, le poids qu'elle donne à chaque observation
-* Inclusion de pénalités de régularisation pour prévenir le sur-ajustement
-* Implémentation informatique (XGBoost vs LightGBM, utilisation de GPU, etc.)
+## Optimisation des hyper-paramètres
 
 
-## Tuning
+Comme toute méthode de classification, les modèles d'ensembles nécessitent une optimisation de leur hyper-paramètres pour atteindre un bon compromis entre performance et robustesse. On observe d'ailleurs empiriquement que plus une méthode est puissante, plus l'optimisation des hyper-paramètres est complexe et sensible.
 
-Toute m\'ethode de classification requiert qu'on règle (tune) la valeur des hyper-paramètres.
+Voici quelques exemples de paramètres à ajuster selon les méthodes :
 
-Même si ce n'est pas un théorème, on semble très souvent observer le phénomène que plus la méthode est puissante, plus son réglage est difficile (p.ex. plusieurs hyper-paramètres, sensibilité à la valeur des hyper-paramètres, etc.)
+* *Bagging* : nombre d'échantillons *bootstrap* $B$;
 
-* Analyse discriminante: linéaire ou quadratique? ; probabilités  a priori
-* Arbres de classification: indice d'impureté ; nombre de feuilles maximal ; profondeur maximale ; nombre minimal d'observations dans un noeud avant de tenter un scission ; nombre minimal d'observations dans une feuille
-* Bagging: Arbres de classification + nombre d'échantillons bootstrap  ($B$)
-* Forêts aléatoires: Bagging + nombre de variables à considérer pour chaque division ($m$)
-* Boosting: Arbres de classification + fraction du jeu de données à échantillonner ($f$) + quelques autres hyper-paramètres selon la variante ...
+* Forêts aléatoires : nombre d'échantillons *bootstrap* $B$ et nombre de variables $m$ à considérer à chaque division;
+
+* *Boosting*: taille des arbres, fraction du jeu de données à échantillonner à chaque étape, nombre d'itérations de l'algorithme, ...
+
+Pour optimiser ces hyper-paramètres et éviter le sur-ajustement, une validation croisée pour chacun des paramètres est généralement nécessaire.
+
