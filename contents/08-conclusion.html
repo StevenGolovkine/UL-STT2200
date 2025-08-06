@@ -84,6 +84,7 @@ window.Quarto = {
   typesetMath
 };
 </script><meta property="og:title" content="Conclusion – STT-2200: Analyse de données">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
 <body class="nav-sidebar floating quarto-light">
@@ -551,14 +552,27 @@ window.Quarto = {
   
 
 
-</header><ul>
-<li>Y a-t-il des algorithmes/stratégies/critères pour identifier les bonnes valeurs des hyper-paramètres (en ACP, en regroupement hiérarchique, arbres, méthodes d’ensemble) ?</li>
-<li>Comment définir/construire les variables <span class="math inline">\(X_1,\ldots,X_p\)</span> (feature engineering) ?</li>
-<li>Comment identifier les données aberrantes et décider si on les enlève ou les garde ?</li>
-<li>Comment scinder les données en entrainement vs validation ?</li>
-<li>Les données sont-elles représentatives de la “population cible” ?</li>
-<li>On fait quoi si pour certaines observations, des valeurs de certaines variables sont manquantes ?</li>
-</ul></main><!-- /main --><script>
+</header><p>Pour conclure, il n’existe aucun algorithme universellement meilleur permettant de résoudre tous les problèmes de classification ou de prédiction. On appelle ce phénomène le <em>no free lunch theorem</em>. Chaque jeu de données, chaque contexte d’analyse, chaque objectif de modélisation est unique. Il n’y a donc pas de solution pré-établie : c’est donc au statisticien ou au data scientist de faire preuve de discernement, d’esprit critique, et de créativité pour adapter les méthodes aux données et à la question posée.</p>
+<p>Cela dit, on peut dégager certains principes qui peuvent nous guider dans une démarche rigoureuse :</p>
+<ol type="1">
+<li><p>Commencer par une exploration descriptive des données, en étudiant les distributions, les relations entre variables, les valeurs manquantes, etc.</p></li>
+<li><p>Tirer parti de l’expertise métier, en consultant les personnes qui connaissent le contexte des données (experts du domaine, utilisateurs finaux, etc.).</p></li>
+<li><p>S’inspirer des méthodes ayant déjà donné de bons résultats dans des situations similaires, en gardant toutefois un regard critique.</p></li>
+</ol>
+<p>Une des principales difficultés en pratique est souvent liée à la dimensionnalité du problème : le nombre de modèles ou d’approches possibles augmente rapidement avec le nombre de variables disponibles. Il devient alors crucial de simplifier l’espace de recherche, e.g. réduire la dimension avec une ACP, qui permettent de résumer l’information tout en limitant le bruit. Une approche fréquente consiste à appliquer des méthodes d’analyse à un sous-ensemble de variables soigneusement choisies, ou à utiliser les composantes principales comme nouvelles variables explicatives. Mais là encore, aucune règle générale ne permet d’identifier automatiquement le “bon” sous-ensemble…</p>
+<p>Enfin, on peut noter que plusieurs questions centrales en analyse de données ont été laissées de côté dans ce cours. Pourtant, celles-ci sont omniprésentes en pratique. Parmi ces questions :</p>
+<ul>
+<li>Comment définir les variables à utiliser comme prédicteurs (<em>feature engineering</em>) ?</li>
+<li>Comment repérer et gérer les données aberrantes (*outliers) ?</li>
+<li>Comment scinder les données entre apprentissage, validation et test ?</li>
+<li>Que faire en présence de données manquantes ?</li>
+<li>Les données analysées sont-elles représentatives de la population cible ?</li>
+</ul>
+<p>Ces questions soulignent que l’analyse de données est autant un art qu’une science. Il ne suffit pas d’appliquer mécaniquement des algorithmes : il faut formuler des hypothèses claires, évaluer leurs limites, et rester attentif aux enjeux éthiques, sociaux et pratiques.</p>
+
+
+
+</main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
