@@ -17,3 +17,6 @@ _environment.local
 
 # MacOS files
 ._*
+
+# Folders 
+exams/*
