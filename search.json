@@ -26,7 +26,7 @@
     "href": "informations/general.html#stt-2200-analyse-de-données",
     "title": "Informations générales",
     "section": "STT-2200: Analyse de données",
-    "text": "STT-2200: Analyse de données\nFormule d’enseignement: Présentiel\nTemps consacré:\n\nCours: 2h\nLaboratoire: 1h\nTravail personnel: 6h\nTotal: 9h\n\nCrédits: 3\nPréalables:\n\nACT-2000 ou STT-1000 ou STT-1300 ou STT-1900\nMAT-1200 ou ACT-2002\nSTT-1100 ou IFT-4902 ou ECN-2090 ou GLO-1901 ou IFT-1004\n\nPlage horaire:\n\n\n\nType\nJour\nHoraire\nDates\n\n\n\n\nLabo\nMardi\n\n\n\n\nClasse\nVendredi",
+    "text": "STT-2200: Analyse de données\nFormule d’enseignement: Présentiel\nTemps consacré:\n\nCours: 2h\nLaboratoire: 1h\nTravail personnel: 6h\nTotal: 9h\n\nCrédits: 3\nPréalables:\n\nACT-2000 ou STT-1000 ou STT-1300 ou STT-1900\nMAT-1200 ou ACT-2002\nSTT-1100 ou IFT-4902 ou ECN-2090 ou GLO-1901 ou IFT-1004\n\nPlage horaire:\n\n\n\nType\nJour\nHoraire\nSalle\n\n\n\n\nLabo\nMardi\n10h30-12h20\nPLT-3928\n\n\nClasse\nVendredi\n08h30-10h20\nVCH-3830",
     "crumbs": [
       "Informations",
       "Générales"
@@ -245,7 +245,7 @@
     "href": "contents/02-revisions.html",
     "title": "Révisions",
     "section": "",
-    "text": "Slides: link\nTD: link\nTP: link",
+    "text": "Slides:\n\nAlgèbre linéaire\nProbabilités et statistiques\nAlgorithmique / Programmation\n\nTD: link\nTP: link",
     "crumbs": [
       "Modules",
       "02 - Révisions"
@@ -685,6 +685,587 @@
     "title": "TP: Dimension",
     "section": "",
     "text": "Vous pouvez faire les exercices dans le langage de votre choix."
+  },
+  {
+    "objectID": "slides/02-revisions-programming-slides.html#philosophie-du-cours",
+    "href": "slides/02-revisions-programming-slides.html#philosophie-du-cours",
+    "title": "Révisions",
+    "section": "Philosophie du cours",
+    "text": "Philosophie du cours\n\n\n\n\n\n\nImportant\n\n\nLiberté de choix\nCe cours ne impose aucun langage spécifique !\nVous êtes libres de choisir : - R, Python, Julia, ou même SAS - Le langage qui vous convient le mieux - Celui avec lequel vous êtes le plus à l’aise\n\n\n\n\nObjectif commun : Code lisible, compréhensible et réutilisable"
+  },
+  {
+    "objectID": "slides/02-revisions-programming-slides.html#plan-de-la-présentation",
+    "href": "slides/02-revisions-programming-slides.html#plan-de-la-présentation",
+    "title": "Révisions",
+    "section": "Plan de la présentation",
+    "text": "Plan de la présentation\n\nBonnes pratiques universelles\nR : Le spécialiste des statistiques\nPython : Le généraliste populaire\nJulia : La nouvelle génération\nSAS : L’ancien propriétaire\nComment choisir ?"
+  },
+  {
+    "objectID": "slides/02-revisions-programming-slides.html#principes-fondamentaux",
+    "href": "slides/02-revisions-programming-slides.html#principes-fondamentaux",
+    "title": "Révisions",
+    "section": "Principes fondamentaux",
+    "text": "Principes fondamentaux\n\nCode lisible : les autres (et vous dans 6 mois !) doivent comprendre\nDocumentation : commentaires clairs et concis\nStructure : organisation logique des fichiers et fonctions\nReproductibilité : mêmes données → mêmes résultats\nGestion des versions : Git pour suivre les modifications"
+  },
+  {
+    "objectID": "slides/02-revisions-programming-slides.html#exemple-code-mal-écrit-vs.-bien-écrit",
+    "href": "slides/02-revisions-programming-slides.html#exemple-code-mal-écrit-vs.-bien-écrit",
+    "title": "Révisions",
+    "section": "Exemple : Code mal écrit vs. bien écrit",
+    "text": "Exemple : Code mal écrit vs. bien écrit\n\n❌ Code difficile à comprendre :\nimport pandas as pd\nd=pd.read_csv('data.csv')\nr=d.groupby('A').mean()['B']\nprint(r)\n\n\n✅ Code clair et documenté :\nimport pandas as pd\n\n# Chargement des données de ventes\nsales_data = pd.read_csv('monthly_sales.csv')\n\n# Calcul de la moyenne des ventes par région\naverage_sales_by_region = sales_data.groupby('region').mean()['sales_amount']\n\nprint(\"Ventes moyennes par région :\")\nprint(average_sales_by_region)"
+  },
+  {
+    "objectID": "slides/02-revisions-programming-slides.html#structure-de-projet-recommandée",
+    "href": "slides/02-revisions-programming-slides.html#structure-de-projet-recommandée",
+    "title": "Révisions",
+    "section": "Structure de projet recommandée",
+    "text": "Structure de projet recommandée\nmon_projet/\n├── data/           # Données brutes et nettoyées\n├── scripts/        # Scripts d'analyse\n├── functions/      # Fonctions réutilisables\n├── results/        # Graphiques, tableaux\n├── docs/          # Documentation\n└── README.md      # Description du projet\n\nAvantages : - Organisation claire - Facilite la collaboration - Projet reproductible"
+  },
+  {
+    "objectID": "slides/02-revisions-programming-slides.html#présentation-de-r",
+    "href": "slides/02-revisions-programming-slides.html#présentation-de-r",
+    "title": "Révisions",
+    "section": "Présentation de R",
+    "text": "Présentation de R\n\n\n\n\n\n\nNote\n\n\nR en bref\n\nSpécialisé : analyse statistique et visualisation\nGratuit et open-source\nÉcosystème riche : +18,000 packages sur CRAN\nCommunauté active : mise à jour quotidienne des packages\n\n\n\n\n\nPoints forts : - Syntaxe intuitive pour les statistiques - Graphiques de haute qualité (ggplot2) - Intégration avec LaTeX et Markdown"
+  },
+  {
+    "objectID": "slides/02-revisions-programming-slides.html#exemple-pratique-analyse-exploratoire",
+    "href": "slides/02-revisions-programming-slides.html#exemple-pratique-analyse-exploratoire",
+    "title": "Révisions",
+    "section": "Exemple pratique : Analyse exploratoire",
+    "text": "Exemple pratique : Analyse exploratoire\n# Chargement des bibliothèques\nlibrary(ggplot2)\nlibrary(dplyr)\n\n# Lecture des données\ndata &lt;- read.csv(\"sales_data.csv\")\n\n# Statistiques descriptives\nsummary(data$sales)\n\n# Analyse par groupe avec pipe operator\nsales_summary &lt;- data %&gt;%\n  group_by(region) %&gt;%\n  summarise(\n    mean_sales = mean(sales),\n    median_sales = median(sales),\n    n_observations = n()\n  )\n\nprint(sales_summary)"
+  },
+  {
+    "objectID": "slides/02-revisions-programming-slides.html#visualisation-avec-ggplot2",
+    "href": "slides/02-revisions-programming-slides.html#visualisation-avec-ggplot2",
+    "title": "Révisions",
+    "section": "Visualisation avec ggplot2",
+    "text": "Visualisation avec ggplot2\n# Graphique en barres des ventes par région\nggplot(sales_summary, aes(x = region, y = mean_sales)) +\n  geom_col(fill = \"steelblue\", alpha = 0.7) +\n  labs(\n    title = \"Ventes moyennes par région\",\n    x = \"Région\",\n    y = \"Ventes moyennes (€)\",\n    caption = \"Source: Données internes 2023\"\n  ) +\n  theme_minimal() +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))"
+  },
+  {
+    "objectID": "slides/02-revisions-programming-slides.html#lopérateur-pipe",
+    "href": "slides/02-revisions-programming-slides.html#lopérateur-pipe",
+    "title": "Révisions",
+    "section": "L’opérateur pipe (%>%)",
+    "text": "L’opérateur pipe (%&gt;%)\n\nSans pipe (difficile à lire) :\nresult &lt;- arrange(summarise(group_by(filter(data, sales &gt; 1000), region), avg_sales = mean(sales)), desc(avg_sales))\n\n\nAvec pipe (lecture naturelle) :\nresult &lt;- data %&gt;%\n  filter(sales &gt; 1000) %&gt;%\n  group_by(region) %&gt;%\n  summarise(avg_sales = mean(sales)) %&gt;%\n  arrange(desc(avg_sales))\n\n\nAvantage : Se lit comme une phrase : “prendre les données, puis filtrer, puis grouper, puis calculer la moyenne, puis trier”"
+  },
+  {
+    "objectID": "slides/02-revisions-programming-slides.html#présentation-de-python",
+    "href": "slides/02-revisions-programming-slides.html#présentation-de-python",
+    "title": "Révisions",
+    "section": "Présentation de Python",
+    "text": "Présentation de Python\n\n\n\n\n\n\nNote\n\n\nPython en bref\n\nGénéraliste : web, analyse de données, IA, automatisation…\nGratuit et open-source\nÉcosystème mature : NumPy, Pandas, Scikit-learn, Matplotlib…\nSyntaxe claire : “executable pseudocode”\n\n\n\n\n\nPoints forts : - Facilité d’apprentissage - Communauté énorme - Intégration avec autres systèmes"
+  },
+  {
+    "objectID": "slides/02-revisions-programming-slides.html#exemple-même-analyse-en-python",
+    "href": "slides/02-revisions-programming-slides.html#exemple-même-analyse-en-python",
+    "title": "Révisions",
+    "section": "Exemple : Même analyse en Python",
+    "text": "Exemple : Même analyse en Python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Lecture des données\ndata = pd.read_csv('sales_data.csv')\n\n# Statistiques descriptives\nprint(data['sales'].describe())\n\n# Analyse par groupe\nsales_summary = (data\n                 .groupby('region')['sales']\n                 .agg(['mean', 'median', 'count'])\n                 .round(2))\n\nprint(sales_summary)"
+  },
+  {
+    "objectID": "slides/02-revisions-programming-slides.html#visualisation-avec-matplotlibseaborn",
+    "href": "slides/02-revisions-programming-slides.html#visualisation-avec-matplotlibseaborn",
+    "title": "Révisions",
+    "section": "Visualisation avec matplotlib/seaborn",
+    "text": "Visualisation avec matplotlib/seaborn\n# Configuration du style\nplt.style.use('seaborn-v0_8')\nfig, ax = plt.subplots(figsize=(10, 6))\n\n# Graphique en barres\nsales_summary['mean'].plot(kind='bar', ax=ax, color='steelblue', alpha=0.7)\n\n# Personnalisation\nax.set_title('Ventes moyennes par région', fontsize=14, fontweight='bold')\nax.set_xlabel('Région')\nax.set_ylabel('Ventes moyennes (€)')\nax.tick_params(axis='x', rotation=45)\n\nplt.tight_layout()\nplt.show()"
+  },
+  {
+    "objectID": "slides/02-revisions-programming-slides.html#machine-learning-avec-scikit-learn",
+    "href": "slides/02-revisions-programming-slides.html#machine-learning-avec-scikit-learn",
+    "title": "Révisions",
+    "section": "Machine Learning avec Scikit-learn",
+    "text": "Machine Learning avec Scikit-learn\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.linear_model import LinearRegression\nfrom sklearn.metrics import mean_squared_error\n\n# Préparation des données\nX = data[['advertising_budget', 'num_employees']]\ny = data['sales']\n\n# Division train/test\nX_train, X_test, y_train, y_test = train_test_split(\n    X, y, test_size=0.2, random_state=42\n)\n\n# Modèle de régression linéaire\nmodel = LinearRegression()\nmodel.fit(X_train, y_train)\n\n# Prédictions et évaluation\ny_pred = model.predict(X_test)\nmse = mean_squared_error(y_test, y_pred)\n\nprint(f\"Erreur quadratique moyenne: {mse:.2f}\")"
+  },
+  {
+    "objectID": "slides/02-revisions-programming-slides.html#présentation-de-julia",
+    "href": "slides/02-revisions-programming-slides.html#présentation-de-julia",
+    "title": "Révisions",
+    "section": "Présentation de Julia",
+    "text": "Présentation de Julia\n\n\n\n\n\n\nNote\n\n\nJulia en bref\n\nModerne : créé au début des années 2010\nPerformance : vitesse proche du C\nSyntaxe : familière (ressemble à Python/R)\nInteropérabilité : appel natif de C/Fortran, support R/Python\n\n\n\n\n\nPhilosophie : “Résoudre le problème des deux langages” - Prototypage rapide ET exécution rapide - Pas besoin de réécrire en C/C++ pour la performance"
+  },
+  {
+    "objectID": "slides/02-revisions-programming-slides.html#exemple-même-analyse-en-julia",
+    "href": "slides/02-revisions-programming-slides.html#exemple-même-analyse-en-julia",
+    "title": "Révisions",
+    "section": "Exemple : Même analyse en Julia",
+    "text": "Exemple : Même analyse en Julia\nusing DataFrames, CSV, Statistics, StatsPlots\n\n# Lecture des données\ndata = CSV.read(\"sales_data.csv\", DataFrame)\n\n# Statistiques descriptives\nprintln(\"Statistiques des ventes:\")\nprintln(describe(data.sales))\n\n# Analyse par groupe\nsales_summary = combine(groupby(data, :region), \n                       :sales =&gt; mean =&gt; :mean_sales,\n                       :sales =&gt; median =&gt; :median_sales,\n                       :sales =&gt; length =&gt; :count)\n\nprintln(sales_summary)"
+  },
+  {
+    "objectID": "slides/02-revisions-programming-slides.html#performance-comparaison-de-vitesse",
+    "href": "slides/02-revisions-programming-slides.html#performance-comparaison-de-vitesse",
+    "title": "Révisions",
+    "section": "Performance : Comparaison de vitesse",
+    "text": "Performance : Comparaison de vitesse\n\nTest : Calcul sur 1 million d’éléments\n# Julia\nfunction compute_heavy(n)\n    result = 0.0\n    for i in 1:n\n        result += sin(i) * cos(i)\n    end\n    return result\nend\n\n@time compute_heavy(1_000_000)  # ~0.02 seconds\n\n\nComparaison approximative : - Julia : ~0.02s - C : ~0.02s\n- Python : ~0.8s - R : ~0.5s\nJulia ≈ 40x plus rapide que Python !"
+  },
+  {
+    "objectID": "slides/02-revisions-programming-slides.html#interopérabilité-appeler-python-depuis-julia",
+    "href": "slides/02-revisions-programming-slides.html#interopérabilité-appeler-python-depuis-julia",
+    "title": "Révisions",
+    "section": "Interopérabilité : Appeler Python depuis Julia",
+    "text": "Interopérabilité : Appeler Python depuis Julia\nusing PyCall\n\n# Importer numpy depuis Julia\nnp = pyimport(\"numpy\")\n\n# Utiliser une fonction Python\npython_array = np.random.randn(1000)\njulia_array = randn(1000)\n\n# Comparaison des moyennes\nprintln(\"Moyenne Python: \", np.mean(python_array))\nprintln(\"Moyenne Julia: \", mean(julia_array))\n\nAvantage : Utiliser le meilleur des deux mondes sans friction !"
+  },
+  {
+    "objectID": "slides/02-revisions-programming-slides.html#présentation-de-sas",
+    "href": "slides/02-revisions-programming-slides.html#présentation-de-sas",
+    "title": "Révisions",
+    "section": "Présentation de SAS",
+    "text": "Présentation de SAS\n\n\n\n\n\n\nAvertissement\n\n\nSAS : Points importants\nAvantages : - Très utilisé dans certaines industries (pharma, finance) - Procédures statistiques robustes - Documentation officielle complète\nInconvénients majeurs : - Propriétaire : licence coûteuse à renouveler - Communauté limitée : peu d’aide en ligne - Code fermé : impossible de voir/modifier les algorithmes"
+  },
+  {
+    "objectID": "slides/02-revisions-programming-slides.html#exemple-sas-pour-comparaison",
+    "href": "slides/02-revisions-programming-slides.html#exemple-sas-pour-comparaison",
+    "title": "Révisions",
+    "section": "Exemple SAS (pour comparaison)",
+    "text": "Exemple SAS (pour comparaison)\n/* Lecture des données */\nPROC IMPORT OUT=sales_data\n    DATAFILE=\"sales_data.csv\"\n    DBMS=CSV REPLACE;\n    GETNAMES=YES;\nRUN;\n\n/* Statistiques descriptives */\nPROC MEANS DATA=sales_data;\n    VAR sales;\nRUN;\n\n/* Analyse par groupe */\nPROC MEANS DATA=sales_data;\n    CLASS region;\n    VAR sales;\nRUN;"
+  },
+  {
+    "objectID": "slides/02-revisions-programming-slides.html#pourquoi-éviter-sas-dans-ce-cours",
+    "href": "slides/02-revisions-programming-slides.html#pourquoi-éviter-sas-dans-ce-cours",
+    "title": "Révisions",
+    "section": "Pourquoi éviter SAS dans ce cours ?",
+    "text": "Pourquoi éviter SAS dans ce cours ?\n\nCoût : Licence étudiante payante même à l’université\nApprentissage limité : difficile de comprendre les algorithmes\nCarrière : Tendance décroissante sur le marché\nCollaboration : Difficile de partager le code\nFlexibilité : Limité aux analyses prédéfinies\n\n\nRecommandation : Choisissez un langage open-source (R, Python, Julia)"
+  },
+  {
+    "objectID": "slides/02-revisions-programming-slides.html#critères-de-décision",
+    "href": "slides/02-revisions-programming-slides.html#critères-de-décision",
+    "title": "Révisions",
+    "section": "Critères de décision",
+    "text": "Critères de décision\n\nVotre expérience : Quel langage connaissez-vous déjà ?\nType de projet : Statistiques pures vs. ML vs. applications web\nPerformance : Avez-vous besoin de calculs très rapides ?\nÉcosystème : Quels packages/bibliothèques vous faut-il ?\nÉquipe : Quel langage utilise votre groupe/entreprise ?"
+  },
+  {
+    "objectID": "slides/02-revisions-programming-slides.html#guide-de-décision-pratique",
+    "href": "slides/02-revisions-programming-slides.html#guide-de-décision-pratique",
+    "title": "Révisions",
+    "section": "Guide de décision pratique",
+    "text": "Guide de décision pratique\n\nChoisissez R si : - Focus sur statistiques et visualisation - Travail avec des statisticiens - Rapports automatisés (R Markdown) - Analyse exploratoire intensive\n\n\nChoisissez Python si : - Machine learning et deep learning - Intégration avec applications web - Large écosystème nécessaire - Équipe mixte (développeurs + data scientists)"
+  },
+  {
+    "objectID": "slides/02-revisions-programming-slides.html#guide-de-décision-pratique-suite",
+    "href": "slides/02-revisions-programming-slides.html#guide-de-décision-pratique-suite",
+    "title": "Révisions",
+    "section": "Guide de décision pratique (suite)",
+    "text": "Guide de décision pratique (suite)\n\nChoisissez Julia si : - Performance critique - Calculs scientifiques intensifs - Vous aimez les nouveaux langages - Besoin d’interopérabilité R/Python\n\n\nÉvitez SAS sauf si : - Imposé par l’entreprise - Industrie très spécifique (pharma avec contraintes réglementaires) - Budget conséquent disponible"
+  },
+  {
+    "objectID": "slides/02-revisions-programming-slides.html#exemples-de-cas-dusage",
+    "href": "slides/02-revisions-programming-slides.html#exemples-de-cas-dusage",
+    "title": "Révisions",
+    "section": "Exemples de cas d’usage",
+    "text": "Exemples de cas d’usage\n\nProjet 1 : Analyse de sondage électoral → R (statistiques, graphiques, rapports)\n\n\nProjet 2 : Système de recommandation e-commerce → Python (ML, intégration web, grande communauté)\n\n\nProjet 3 : Simulation Monte Carlo financière → Julia (performance, calculs intensifs)\n\n\nProjet 4 : Analyses prédéfinies en entreprise pharma → SAS (si imposé par la réglementation)"
+  },
+  {
+    "objectID": "slides/02-revisions-programming-slides.html#apprentissage-recommandé",
+    "href": "slides/02-revisions-programming-slides.html#apprentissage-recommandé",
+    "title": "Révisions",
+    "section": "Apprentissage recommandé",
+    "text": "Apprentissage recommandé\n\n\n\n\n\n\nAstuce\n\n\nStratégie d’apprentissage\n\nMaîtrisez un langage à fond plutôt que trois superficiellement\nApprenez les concepts (statistiques, ML) avant la syntaxe\nPratiquez régulièrement : projets personnels\nLisez du code des autres : GitHub, Stack Overflow\nSuivez les bonnes pratiques dès le début"
+  },
+  {
+    "objectID": "slides/02-revisions-programming-slides.html#ressources-dapprentissage",
+    "href": "slides/02-revisions-programming-slides.html#ressources-dapprentissage",
+    "title": "Révisions",
+    "section": "Ressources d’apprentissage",
+    "text": "Ressources d’apprentissage\nPour tous les langages : - Learn X in Y minutes (guides rapides) - Stack Overflow (questions/réponses) - Documentation officielle\nSpécifique : - R : R for Data Science, RStudio tutorials - Python : Python Data Science Handbook, Kaggle Learn - Julia : Julia Academy, Modern Julia Workflows"
+  },
+  {
+    "objectID": "slides/02-revisions-programming-slides.html#points-clés-à-retenir",
+    "href": "slides/02-revisions-programming-slides.html#points-clés-à-retenir",
+    "title": "Révisions",
+    "section": "Points clés à retenir",
+    "text": "Points clés à retenir\n\nPas de “meilleur” langage : tout dépend du contexte\nBonnes pratiques sont universelles\nR : excellent pour statistiques et visualisation\nPython : polyvalent, écosystème riche ML\nJulia : performance + syntaxe moderne\nSAS : éviter sauf contrainte externe"
+  },
+  {
+    "objectID": "slides/02-revisions-programming-slides.html#limportant-cest",
+    "href": "slides/02-revisions-programming-slides.html#limportant-cest",
+    "title": "Révisions",
+    "section": "L’important c’est…",
+    "text": "L’important c’est…\n\n\n\n\n\n\nImportant\n\n\nCe qui compte vraiment :\n\nComprendre les concepts mathématiques et statistiques\nÉcrire du code lisible et documenté\nReproduire ses analyses\nContinuer d’apprendre et s’adapter\n\n\n\n\n\nLe langage n’est qu’un outil pour exprimer vos idées !"
+  },
+  {
+    "objectID": "slides/02-revisions-programming-slides.html#questions",
+    "href": "slides/02-revisions-programming-slides.html#questions",
+    "title": "Révisions",
+    "section": "Questions ?",
+    "text": "Questions ?\nLiens utiles : - Guides des bonnes pratiques (voir course website) - Apprendre R en Y minutes - Apprendre Python en Y minutes - Learn Julia in Y minutes"
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#plan-de-la-présentation",
+    "href": "slides/02-revisions-algebre-slides.html#plan-de-la-présentation",
+    "title": "Révisions",
+    "section": "Plan de la présentation",
+    "text": "Plan de la présentation\n\nPropriétés matricielles\nValeurs et vecteurs propres\nDiagonalisation de matrices\nApplications pratiques"
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#notations-de-base",
+    "href": "slides/02-revisions-algebre-slides.html#notations-de-base",
+    "title": "Révisions",
+    "section": "Notations de base",
+    "text": "Notations de base\n\n\\(M_{n, m}(\\mathbb{R})\\) : matrices à \\(n\\) lignes et \\(m\\) colonnes\n\\(M_{n}(\\mathbb{R})\\) : matrices carrées de taille \\(n\\)\n\n\\(I_n\\) : matrice identité de taille \\(n\\)\n\\(u, v \\in \\mathbb{R}^n\\) : vecteurs colonnes"
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#inverse-de-matrices",
+    "href": "slides/02-revisions-algebre-slides.html#inverse-de-matrices",
+    "title": "Révisions",
+    "section": "Inverse de matrices",
+    "text": "Inverse de matrices\n\n\n\n\n\n\nImportant\n\n\nPropriété fondamentale\nSi \\(A\\) et \\(B\\) sont inversibles, alors : \\((AB)^{-1} = B^{-1} A^{-1}\\)\n\n\n\n\nExemple pratique : \\(A = \\begin{pmatrix} 2 & 0 \\\\ 0 & 3 \\end{pmatrix}, \\quad B = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}\\)\n\\(AB = \\begin{pmatrix} 2 & 2 \\\\ 0 & 3 \\end{pmatrix}, \\quad (AB)^{-1} = \\begin{pmatrix} 1/2 & -1/3 \\\\ 0 & 1/3 \\end{pmatrix}\\)\nEt effectivement : \\(B^{-1}A^{-1} = \\begin{pmatrix} 1 & -1 \\\\ 0 & 1 \\end{pmatrix} \\begin{pmatrix} 1/2 & 0 \\\\ 0 & 1/3 \\end{pmatrix} = \\begin{pmatrix} 1/2 & -1/3 \\\\ 0 & 1/3 \\end{pmatrix}\\)"
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#propriétés-du-déterminant",
+    "href": "slides/02-revisions-algebre-slides.html#propriétés-du-déterminant",
+    "title": "Révisions",
+    "section": "Propriétés du déterminant",
+    "text": "Propriétés du déterminant\n\n\n\n\n\n\nImportant\n\n\nPropriétés essentielles\n\n\\(\\det(A^\\top) = \\det(A)\\)\n\\(\\det(AB) = \\det(A)\\det(B)\\)\n\\(\\det(A^{-1}) = \\frac{1}{\\det(A)}\\)\n\n\n\n\n\nExemple concret : \\(A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}, \\quad B = \\begin{pmatrix} 2 & 0 \\\\ 1 & 1 \\end{pmatrix}\\)\n\\(\\det(A) = 4 - 6 = -2\\), \\(\\det(B) = 2\\)\n\\(AB = \\begin{pmatrix} 4 & 2 \\\\ 10 & 4 \\end{pmatrix}\\), \\(\\det(AB) = 16 - 20 = -4\\)\nVérification : \\(\\det(A) \\cdot \\det(B) = (-2) \\times 2 = -4\\) ✓"
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#exemple-propriétés-de-la-trace",
+    "href": "slides/02-revisions-algebre-slides.html#exemple-propriétés-de-la-trace",
+    "title": "Révisions",
+    "section": "Exemple : Propriétés de la trace",
+    "text": "Exemple : Propriétés de la trace\n\nCalcul pratique : \\(A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}, \\quad B = \\begin{pmatrix} 5 & 0 \\\\ 1 & 2 \\end{pmatrix}\\)\n\\(\\tr(A) = 1 + 4 = 5\\), \\(\\tr(B) = 5 + 2 = 7\\)\n\\(A + B = \\begin{pmatrix} 6 & 2 \\\\ 4 & 6 \\end{pmatrix}\\), \\(\\tr(A + B) = 6 + 6 = 12\\)\nVérification : \\(\\tr(A) + \\tr(B) = 5 + 7 = 12\\) ✓"
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#propriétés-de-la-trace",
+    "href": "slides/02-revisions-algebre-slides.html#propriétés-de-la-trace",
+    "title": "Révisions",
+    "section": "Propriétés de la trace",
+    "text": "Propriétés de la trace\n\n\n\n\n\n\nImportant\n\n\nPropriétés de la trace\n\n\\(\\tr(A) = \\tr(A^{\\top})\\)\n\\(\\tr(A + B) = \\tr(A) + \\tr(B)\\)\n\\(\\tr(MN^{\\top}) = \\tr(N^{\\top}M)\\)\n\n\n\n\n\nRappel : La trace est la somme des éléments diagonaux \\(\\tr(A) = \\sum_{i=1}^{n} a_{ii}\\)"
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#exemple-matrices-définies-positives",
+    "href": "slides/02-revisions-algebre-slides.html#exemple-matrices-définies-positives",
+    "title": "Révisions",
+    "section": "Exemple : Matrices définies positives",
+    "text": "Exemple : Matrices définies positives\n\nTest de positivité : \\(A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}\\)\nPour tout \\(u = \\begin{pmatrix} x \\\\ y \\end{pmatrix} \\neq 0\\) : \\(u^\\top A u = \\begin{pmatrix} x & y \\end{pmatrix} \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix} = 2x^2 + 2xy + 2y^2\\) \\(= x^2 + y^2 + (x+y)^2 &gt; 0\\)\nDonc \\(A\\) est définie positive !"
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#matrices-spéciales",
+    "href": "slides/02-revisions-algebre-slides.html#matrices-spéciales",
+    "title": "Révisions",
+    "section": "Matrices spéciales",
+    "text": "Matrices spéciales\n\n\n\n\n\n\nAvertissement\n\n\nDéfinitions importantes\nMatrice définie positive : \\(A\\) est définie positive si \\[u^\\top A u &gt; 0 \\text{ pour tout } u \\neq 0\\]\nMatrice orthogonale : \\(A\\) est orthogonale si \\[A^\\top A = A A^\\top = I_n\\]"
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#définition-fondamentale",
+    "href": "slides/02-revisions-algebre-slides.html#définition-fondamentale",
+    "title": "Révisions",
+    "section": "Définition fondamentale",
+    "text": "Définition fondamentale\n\n\n\n\n\n\nAvertissement\n\n\nValeurs et vecteurs propres\n\\(\\lambda \\in \\mathbb{R}\\) est une valeur propre de \\(A\\) s’il existe \\(u \\neq 0\\) tel que : \\(Au = \\lambda u\\)\n\\(u\\) est le vecteur propre correspondant à \\(\\lambda\\).\nLe spectre \\(\\text{sp}(A)\\) est l’ensemble des valeurs propres."
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#exemple-simple-22",
+    "href": "slides/02-revisions-algebre-slides.html#exemple-simple-22",
+    "title": "Révisions",
+    "section": "Exemple simple 2×2",
+    "text": "Exemple simple 2×2\n\n\\(A = \\begin{pmatrix} 3 & 1 \\\\ 0 & 2 \\end{pmatrix}\\)\nCalcul des valeurs propres : \\(\\det(A - \\lambda I) = \\det\\begin{pmatrix} 3-\\lambda & 1 \\\\ 0 & 2-\\lambda \\end{pmatrix} = (3-\\lambda)(2-\\lambda) = 0\\)\nDonc \\(\\lambda_1 = 3\\) et \\(\\lambda_2 = 2\\)\n\n\nVecteurs propres : - Pour \\(\\lambda_1 = 3\\) : \\(u_1 = \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}\\) - Pour \\(\\lambda_2 = 2\\) : \\(u_2 = \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}\\)\nVérification : \\(A u_1 = \\begin{pmatrix} 3 \\\\ 0 \\end{pmatrix} = 3 u_1\\) ✓"
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#propriétés-des-vecteurs-propres",
+    "href": "slides/02-revisions-algebre-slides.html#propriétés-des-vecteurs-propres",
+    "title": "Révisions",
+    "section": "Propriétés des vecteurs propres",
+    "text": "Propriétés des vecteurs propres\n\n\n\n\n\n\nImportant\n\n\nPropriétés essentielles\n\nSi \\(u\\) est vecteur propre pour \\(\\lambda\\), alors \\(cu\\) l’est aussi (pour \\(c \\neq 0\\))\nPour matrices symétriques : Si \\(u_1\\) et \\(u_2\\) correspondent à des valeurs propres différentes, alors : \\[u_1^\\top u_2 = 0 \\text{ (orthogonalité)}\\]"
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#preuve-de-lorthogonalité",
+    "href": "slides/02-revisions-algebre-slides.html#preuve-de-lorthogonalité",
+    "title": "Révisions",
+    "section": "Preuve de l’orthogonalité",
+    "text": "Preuve de l’orthogonalité\nSoient \\(\\lambda_1 \\neq \\lambda_2\\) et \\(Au_1 = \\lambda_1 u_1\\), \\(Au_2 = \\lambda_2 u_2\\)\n\n\\[\\lambda_1 u_1^\\top u_2 = u_1^\\top A u_2 = \\lambda_2 u_1^\\top u_2\\]\n\n\n\\[(\\lambda_1 - \\lambda_2)u_1^\\top u_2 = 0\\]\n\n\nComme \\(\\lambda_1 \\neq \\lambda_2\\), on a nécessairement \\(u_1^\\top u_2 = 0\\)\n\n\n→ Cette propriété est cruciale pour l’analyse en composantes principales !"
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#caractérisation-par-les-valeurs-propres",
+    "href": "slides/02-revisions-algebre-slides.html#caractérisation-par-les-valeurs-propres",
+    "title": "Révisions",
+    "section": "Caractérisation par les valeurs propres",
+    "text": "Caractérisation par les valeurs propres\n\n\n\n\n\n\nImportant\n\n\nThéorèmes importants\n\nMatrice symétrique → toutes les valeurs propres sont réelles\nMatrice définie positive → toutes les valeurs propres sont strictement positives\n\n\n\n\n\nExemple illustratif : \\(A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix} \\text{ (symétrique et définie positive)}\\)\nValeurs propres : \\(\\lambda_1 = 3, \\lambda_2 = 1\\) (toutes réelles et &gt; 0)\nVecteurs propres : \\(u_1 = \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}, u_2 = \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}\\)\nVérification orthogonalité : \\(u_1^\\top u_2 = 1 - 1 = 0\\) ✓"
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#définition-de-la-diagonalisation",
+    "href": "slides/02-revisions-algebre-slides.html#définition-de-la-diagonalisation",
+    "title": "Révisions",
+    "section": "Définition de la diagonalisation",
+    "text": "Définition de la diagonalisation\n\n\n\n\n\n\nAvertissement\n\n\nMatrice diagonalisable\n\\(A\\) est diagonalisable s’il existe \\(P\\) inversible et \\(D\\) diagonale telles que : \\[P^{-1} A P = D \\Leftrightarrow A = P D P^{-1}\\]\n\n\n\n\nInterprétation : On peut “simplifier” \\(A\\) en changeant de base"
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#théorème-de-décomposition-spectrale",
+    "href": "slides/02-revisions-algebre-slides.html#théorème-de-décomposition-spectrale",
+    "title": "Révisions",
+    "section": "Théorème de décomposition spectrale",
+    "text": "Théorème de décomposition spectrale\n\n\n\n\n\n\nMise en garde\n\n\nDécomposition spectrale\nPour toute matrice symétrique \\(A\\), il existe une matrice orthogonale \\(P\\) telle que : \\(A = P \\Lambda P^\\top\\) où \\(\\Lambda = \\text{diag}(\\lambda_1, \\ldots, \\lambda_n)\\)\n\n\n\n\nExemple concret : \\(A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}, \\quad P = \\frac{1}{\\sqrt{2}}\\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}, \\quad \\Lambda = \\begin{pmatrix} 3 & 0 \\\\ 0 & 1 \\end{pmatrix}\\)\nVérification : \\(P \\Lambda P^\\top = \\frac{1}{2}\\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}\\begin{pmatrix} 3 & 0 \\\\ 0 & 1 \\end{pmatrix}\\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix} = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix} = A\\) ✓"
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#applications-pratiques",
+    "href": "slides/02-revisions-algebre-slides.html#applications-pratiques",
+    "title": "Révisions",
+    "section": "Applications pratiques",
+    "text": "Applications pratiques\nProblème d’optimisation : Maximiser \\(u^\\top A u\\) sous la contrainte \\(u^\\top B u = 1\\)\n\nExemple numérique : \\(A = \\begin{pmatrix} 5 & 2 \\\\ 2 & 2 \\end{pmatrix}, \\quad B = \\begin{pmatrix} 2 & 0 \\\\ 0 & 1 \\end{pmatrix}\\)\n\\(B^{-1}A = \\begin{pmatrix} 1/2 & 0 \\\\ 0 & 1 \\end{pmatrix}\\begin{pmatrix} 5 & 2 \\\\ 2 & 2 \\end{pmatrix} = \\begin{pmatrix} 5/2 & 1 \\\\ 2 & 2 \\end{pmatrix}\\)\nPlus grande valeur propre : \\(\\lambda_{\\max} \\approx 3.56\\)\nSolution optimale : $u^* = $ vecteur propre correspondant\n\n\n→ Principe fondamental de l’analyse en composantes principales"
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#lien-avec-déterminant-et-trace",
+    "href": "slides/02-revisions-algebre-slides.html#lien-avec-déterminant-et-trace",
+    "title": "Révisions",
+    "section": "Lien avec déterminant et trace",
+    "text": "Lien avec déterminant et trace\n\n\n\n\n\n\nImportant\n\n\nRelations fondamentales\nSi \\(A\\) a pour valeurs propres \\(\\lambda_1, \\ldots, \\lambda_n\\) :\n\n\\(\\det(A) = \\prod_{i=1}^{n} \\lambda_i\\)\n\\(\\tr(A) = \\sum_{i=1}^{n} \\lambda_i\\)\n\n\n\n\n\nExemple de vérification : \\(A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}, \\quad \\lambda_1 = 3, \\lambda_2 = 1\\)\n\\(\\det(A) = 4 - 1 = 3 = 3 \\times 1 = \\lambda_1 \\lambda_2\\) ✓\n\\(\\tr(A) = 2 + 2 = 4 = 3 + 1 = \\lambda_1 + \\lambda_2\\) ✓"
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#exemple-complet-acp",
+    "href": "slides/02-revisions-algebre-slides.html#exemple-complet-acp",
+    "title": "Révisions",
+    "section": "Exemple complet : ACP",
+    "text": "Exemple complet : ACP\n\nDonnées : positions de points en 2D \\(X = \\begin{pmatrix} 1 & 2 \\\\ 3 & 1 \\\\ 2 & 3 \\\\ 4 & 2 \\end{pmatrix}\\)\nMatrice de covariance : \\(C = \\frac{1}{n-1}X^\\top X = \\begin{pmatrix} 2.33 & 0.33 \\\\ 0.33 & 1.33 \\end{pmatrix}\\)\nComposantes principales : vecteurs propres de \\(C\\) - 1ère composante : direction de variance maximale - 2ème composante : direction orthogonale de variance restante"
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#points-clés-à-retenir",
+    "href": "slides/02-revisions-algebre-slides.html#points-clés-à-retenir",
+    "title": "Révisions",
+    "section": "Points clés à retenir",
+    "text": "Points clés à retenir\n\nMatrices symétriques : valeurs propres réelles, vecteurs propres orthogonaux\nDécomposition spectrale : outil puissant pour l’analyse\nApplications : optimisation, réduction de dimension\nLiens : déterminant et trace via les valeurs propres"
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#applications-en-apprentissage-automatique",
+    "href": "slides/02-revisions-algebre-slides.html#applications-en-apprentissage-automatique",
+    "title": "Révisions",
+    "section": "Applications en apprentissage automatique",
+    "text": "Applications en apprentissage automatique\n\nAnalyse en composantes principales (ACP)\nOptimisation de fonctions quadratiques\nMéthodes de réduction de dimension\nAnalyse de stabilité des algorithmes"
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#questions",
+    "href": "slides/02-revisions-algebre-slides.html#questions",
+    "title": "Révisions",
+    "section": "Questions ?",
+    "text": "Questions ?\nRessources recommandées : - Cours MAT-1200 - Deisenroth, Faisal, et Ong (2020) (anglais) - Grifone (2024) (français)"
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#references",
+    "href": "slides/02-revisions-algebre-slides.html#references",
+    "title": "Révisions",
+    "section": "",
+    "text": "Merci pour votre attention !\n\n\n\n\nDeisenroth, Marc Peter, A. Aldo Faisal, et Cheng Soon Ong. 2020. Mathematics for Machine Learning. 1ʳᵉ éd. Cambridge University Press. https://doi.org/10.1017/9781108679930.\n\n\nGrifone, Joseph. 2024. Algèbre Linéaire. 7e edition. Toulouse: CEPADUES."
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#plan-de-la-présentation",
+    "href": "slides/02-revisions-proba-slides.html#plan-de-la-présentation",
+    "title": "Révisions",
+    "section": "Plan de la présentation",
+    "text": "Plan de la présentation\n\nModéliser le hasard\nVariables aléatoires\nVecteurs aléatoires\nEstimation statistique\nApplications pratiques"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#espace-dévénements-et-événements",
+    "href": "slides/02-revisions-proba-slides.html#espace-dévénements-et-événements",
+    "title": "Révisions",
+    "section": "Espace d’événements et événements",
+    "text": "Espace d’événements et événements\n\n\n\n\n\n\nAvertissement\n\n\nDéfinitions de base\n\nEspace d’événements \\(S\\) : ensemble de tous les résultats possibles\nÉvénement : sous-ensemble de \\(S\\)\n\n\n\n\n\nExemple 1 : Lancer de pièce - \\(S = \\{0, 1\\}\\) (pile = 0, face = 1) - Événement \\(E = \\{1\\}\\) : “obtenir face”\n\n\nExemple 2 : Durée de vie d’un téléphone - \\(S = \\mathbb{R}_+ = [0, +\\infty)\\) (en années) - Événement \\(E = [10, \\infty)\\) : “durée de vie &gt; 10 ans”"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#exemple-détaillé-jours-sans-neige",
+    "href": "slides/02-revisions-proba-slides.html#exemple-détaillé-jours-sans-neige",
+    "title": "Révisions",
+    "section": "Exemple détaillé : Jours sans neige",
+    "text": "Exemple détaillé : Jours sans neige\n\nContexte : Nombre de jours sans neige à Québec dans l’année - \\(S = \\{0, 1, 2, \\ldots, 365\\}\\) - Événement \\(E_1 = [0, 5]\\) : “moins de 6 jours sans neige” - Événement \\(E_2 = [100, 200]\\) : “entre 100 et 200 jours sans neige”\n\n\nPerspective subjective : - Nouvel arrivant : probabilités uniformes sur \\(S\\) - Québécois : probabilités plus élevées pour \\(E_2\\) que \\(E_1\\)"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#mesure-de-probabilité",
+    "href": "slides/02-revisions-proba-slides.html#mesure-de-probabilité",
+    "title": "Révisions",
+    "section": "Mesure de probabilité",
+    "text": "Mesure de probabilité\n\n\n\n\n\n\nAvertissement\n\n\nDéfinition formelle\nUne mesure de probabilité \\(\\mathbb{P}\\) satisfait :\n\n\\(\\mathbb{P}(E) \\in [0, 1]\\) pour tout événement \\(E\\)\n\\(\\mathbb{P}(S) = 1\\) (certitude totale)\nPour événements disjoints : \\(\\mathbb{P}(E_1 \\cup E_2 \\cup \\cdots) = \\mathbb{P}(E_1) + \\mathbb{P}(E_2) + \\cdots\\)\n\n\n\n\n\nExemple pratique : Lancer d’un dé équilibré : \\(S = \\{1, 2, 3, 4, 5, 6\\}\\) - \\(\\mathbb{P}(\\{i\\}) = 1/6\\) pour \\(i = 1, \\ldots, 6\\) - \\(\\mathbb{P}(\\{2, 4, 6\\}) = 1/6 + 1/6 + 1/6 = 1/2\\) (nombre pair)"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#indépendance-et-probabilité-conditionnelle",
+    "href": "slides/02-revisions-proba-slides.html#indépendance-et-probabilité-conditionnelle",
+    "title": "Révisions",
+    "section": "Indépendance et probabilité conditionnelle",
+    "text": "Indépendance et probabilité conditionnelle\n\n\n\n\n\n\nAvertissement\n\n\nDéfinitions\nIndépendance : \\(E\\) et \\(F\\) sont indépendants si \\[\\mathbb{P}(E \\cap F) = \\mathbb{P}(E) \\times \\mathbb{P}(F)\\]\nProbabilité conditionnelle : \\[\\mathbb{P}(E \\mid F) = \\frac{\\mathbb{P}(E \\cap F)}{\\mathbb{P}(F)}\\]"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#exemple-cartes-à-jouer",
+    "href": "slides/02-revisions-proba-slides.html#exemple-cartes-à-jouer",
+    "title": "Révisions",
+    "section": "Exemple : Cartes à jouer",
+    "text": "Exemple : Cartes à jouer\n\nContexte : Tirage d’une carte dans un jeu standard (52 cartes) - \\(E\\) : “tirer un roi” → \\(\\mathbb{P}(E) = 4/52 = 1/13\\) - \\(F\\) : “tirer un cœur” → \\(\\mathbb{P}(F) = 13/52 = 1/4\\)\n\n\nTest d’indépendance : - \\(E \\cap F\\) : “tirer le roi de cœur” → \\(\\mathbb{P}(E \\cap F) = 1/52\\) - \\(\\mathbb{P}(E) \\times \\mathbb{P}(F) = (1/13) \\times (1/4) = 1/52\\) ✓\nConclusion : \\(E\\) et \\(F\\) sont indépendants !\n\n\nProbabilité conditionnelle : \\(\\mathbb{P}(E \\mid F) = \\frac{1/52}{1/4} = \\frac{1}{13} = \\mathbb{P}(E)\\) (cohérent avec l’indépendance)"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#variables-discrètes",
+    "href": "slides/02-revisions-proba-slides.html#variables-discrètes",
+    "title": "Révisions",
+    "section": "Variables discrètes",
+    "text": "Variables discrètes\n\n\n\n\n\n\nAvertissement\n\n\nDéfinition\nVariable aléatoire discrète : prend au plus un nombre dénombrable de valeurs\nDistribution donnée par : \\(\\mathbb{P}(X = x)\\) pour chaque valeur \\(x\\)\n\n\n\n\nExemple : Lancer de deux dés - \\(X\\) = somme des deux dés - \\(S = \\{2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12\\}\\) - \\(\\mathbb{P}(X = 7) = 6/36 = 1/6\\) (combinaisons : 1+6, 2+5, 3+4, 4+3, 5+2, 6+1) - \\(\\mathbb{P}(X = 2) = 1/36\\) (une seule combinaison : 1+1)"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#variables-continues",
+    "href": "slides/02-revisions-proba-slides.html#variables-continues",
+    "title": "Révisions",
+    "section": "Variables continues",
+    "text": "Variables continues\n\n\n\n\n\n\nAvertissement\n\n\nDéfinition\nVariable aléatoire continue : probabilités données par des intégrales \\[\\mathbb{P}(X \\in A) = \\int_A f(x) dx\\] où \\(f(x) \\geq 0\\) et \\(\\int_{-\\infty}^{\\infty} f(x) dx = 1\\)\nImportant : \\(\\mathbb{P}(X = x) = 0\\) pour tout \\(x\\) fixé !"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#exemple-loi-uniforme",
+    "href": "slides/02-revisions-proba-slides.html#exemple-loi-uniforme",
+    "title": "Révisions",
+    "section": "Exemple : Loi uniforme",
+    "text": "Exemple : Loi uniforme\n\nVariable uniforme sur \\([0, 1]\\) : \\[f(x) = \\begin{cases} 1 & \\text{si } x \\in [0, 1] \\\\ 0 & \\text{sinon} \\end{cases}\\]\n\n\nCalculs de probabilités : - \\(\\mathbb{P}(X \\leq 0.5) = \\int_0^{0.5} 1 \\, dx = 0.5\\) - \\(\\mathbb{P}(0.2 &lt; X &lt; 0.7) = \\int_{0.2}^{0.7} 1 \\, dx = 0.5\\) - \\(\\mathbb{P}(X = 0.3) = 0\\) (point isolé)"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#espérance-mathématique",
+    "href": "slides/02-revisions-proba-slides.html#espérance-mathématique",
+    "title": "Révisions",
+    "section": "Espérance mathématique",
+    "text": "Espérance mathématique\n\n\n\n\n\n\nAvertissement\n\n\nDéfinition\nL’espérance \\(\\mathbb{E}(X) = \\mu\\) est la valeur moyenne de \\(X\\)\n\nCas discret : \\(\\mathbb{E}(X) = \\sum_x x \\cdot \\mathbb{P}(X = x)\\)\nCas continu : \\(\\mathbb{E}(X) = \\int_{-\\infty}^{\\infty} x \\cdot f(x) dx\\)"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#exemples-de-calculs-despérance",
+    "href": "slides/02-revisions-proba-slides.html#exemples-de-calculs-despérance",
+    "title": "Révisions",
+    "section": "Exemples de calculs d’espérance",
+    "text": "Exemples de calculs d’espérance\n\nExemple 1 : Dé équilibré \\[\\mathbb{E}(X) = 1 \\cdot \\frac{1}{6} + 2 \\cdot \\frac{1}{6} + \\cdots + 6 \\cdot \\frac{1}{6} = \\frac{21}{6} = 3.5\\]\n\n\nExemple 2 : Loi uniforme sur \\([0, 1]\\) \\[\\mathbb{E}(X) = \\int_0^1 x \\cdot 1 \\, dx = \\left[\\frac{x^2}{2}\\right]_0^1 = \\frac{1}{2}\\]\n\n\nExemple 3 : Somme de deux dés Par linéarité : \\(\\mathbb{E}(X_1 + X_2) = \\mathbb{E}(X_1) + \\mathbb{E}(X_2) = 3.5 + 3.5 = 7\\)"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#théorème-de-transfert",
+    "href": "slides/02-revisions-proba-slides.html#théorème-de-transfert",
+    "title": "Révisions",
+    "section": "Théorème de transfert",
+    "text": "Théorème de transfert\n\n\n\n\n\n\nMise en garde\n\n\nThéorème de transfert\nPour une fonction \\(g\\), l’espérance de \\(g(X)\\) est :\n\nCas discret : \\(\\mathbb{E}[g(X)] = \\sum_x g(x) \\mathbb{P}(X = x)\\)\nCas continu : \\(\\mathbb{E}[g(X)] = \\int_{-\\infty}^{\\infty} g(x) f(x) dx\\)\n\n\n\n\n\nExemple pratique : Pour \\(X\\) uniforme sur \\([0, 1]\\) et \\(g(x) = x^2\\) : \\[\\mathbb{E}[X^2] = \\int_0^1 x^2 \\cdot 1 \\, dx = \\left[\\frac{x^3}{3}\\right]_0^1 = \\frac{1}{3}\\]"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#variance-et-écart-type",
+    "href": "slides/02-revisions-proba-slides.html#variance-et-écart-type",
+    "title": "Révisions",
+    "section": "Variance et écart-type",
+    "text": "Variance et écart-type\n\n\n\n\n\n\nAvertissement\n\n\nDéfinitions\nVariance : \\(\\text{Var}(X) = \\mathbb{E}[(X - \\mathbb{E}(X))^2] = \\mathbb{E}[X^2] - \\mathbb{E}[X]^2\\)\nÉcart-type : \\(\\sigma(X) = \\sqrt{\\text{Var}(X)}\\)\n\n\n\n\nExemple : Loi uniforme sur \\([0, 1]\\) - \\(\\mathbb{E}(X) = 1/2\\) - \\(\\mathbb{E}(X^2) = 1/3\\) - \\(\\text{Var}(X) = 1/3 - (1/2)^2 = 1/3 - 1/4 = 1/12\\) - \\(\\sigma(X) = \\sqrt{1/12} \\approx 0.289\\)"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#fonction-de-répartition",
+    "href": "slides/02-revisions-proba-slides.html#fonction-de-répartition",
+    "title": "Révisions",
+    "section": "Fonction de répartition",
+    "text": "Fonction de répartition\n\n\n\n\n\n\nAvertissement\n\n\nDéfinition\nLa fonction de répartition est : \\[F(t) = \\mathbb{P}(X \\leq t)\\]\n\n\n\n\nExemple : Loi uniforme sur \\([0, 1]\\) \\[F(t) = \\begin{cases}\n0 & \\text{si } t &lt; 0 \\\\\nt & \\text{si } 0 \\leq t \\leq 1 \\\\\n1 & \\text{si } t &gt; 1\n\\end{cases}\\]\nVérification : \\(\\mathbb{P}(0.2 &lt; X \\leq 0.7) = F(0.7) - F(0.2) = 0.7 - 0.2 = 0.5\\) ✓"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#densités-marginales-et-indépendance",
+    "href": "slides/02-revisions-proba-slides.html#densités-marginales-et-indépendance",
+    "title": "Révisions",
+    "section": "Densités marginales et indépendance",
+    "text": "Densités marginales et indépendance\n\n\n\n\n\n\nAvertissement\n\n\nVecteur aléatoire\n\\(X = (X_1, X_2)\\) avec densité conjointe \\(f_X(x, y)\\)\nDensités marginales : - \\(f_{X_1}(x) = \\int_{-\\infty}^{\\infty} f_X(x, y) dy\\) - \\(f_{X_2}(y) = \\int_{-\\infty}^{\\infty} f_X(x, y) dx\\)\nIndépendance : \\(f_X(x, y) = f_{X_1}(x) \\cdot f_{X_2}(y)\\)"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#exemple-variables-indépendantes",
+    "href": "slides/02-revisions-proba-slides.html#exemple-variables-indépendantes",
+    "title": "Révisions",
+    "section": "Exemple : Variables indépendantes",
+    "text": "Exemple : Variables indépendantes\n\nContexte : \\(X_1\\) et \\(X_2\\) uniformes indépendantes sur \\([0, 1]\\)\n\\[f_X(x, y) = \\begin{cases} 1 & \\text{si } (x,y) \\in [0,1]^2 \\\\ 0 & \\text{sinon} \\end{cases}\\]\n\n\nCalculs de probabilités : - \\(\\mathbb{P}(X_1 \\leq 0.5, X_2 \\leq 0.8) = \\int_0^{0.5} \\int_0^{0.8} 1 \\, dy \\, dx = 0.5 \\times 0.8 = 0.4\\) - \\(\\mathbb{P}(X_1 + X_2 \\leq 1) = \\int \\int_{x+y \\leq 1} 1 \\, dy \\, dx = 0.5\\) (aire du triangle)"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#loi-normale-multivariée",
+    "href": "slides/02-revisions-proba-slides.html#loi-normale-multivariée",
+    "title": "Révisions",
+    "section": "Loi normale multivariée",
+    "text": "Loi normale multivariée\n\n\n\n\n\n\nNote\n\n\nLoi normale \\(p\\)-dimensionnelle\n\\[f_X(x) = \\frac{1}{(2\\pi)^{p/2}} \\frac{1}{(\\det \\Sigma)^{1/2}} \\exp\\left\\{-\\frac{1}{2}(x-\\mu)^T \\Sigma^{-1} (x-\\mu)\\right\\}\\]\nNotation : \\(X \\sim \\mathcal{N}_p(\\mu, \\Sigma)\\)"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#exemple-loi-normale-bivariée",
+    "href": "slides/02-revisions-proba-slides.html#exemple-loi-normale-bivariée",
+    "title": "Révisions",
+    "section": "Exemple : Loi normale bivariée",
+    "text": "Exemple : Loi normale bivariée\n\nCas simple : \\(X \\sim \\mathcal{N}_2(\\mu, I_2)\\) avec \\(\\mu = \\begin{pmatrix} 0 \\\\ 0 \\end{pmatrix}\\)\n\\[f_X(x, y) = \\frac{1}{2\\pi} \\exp\\left\\{-\\frac{x^2 + y^2}{2}\\right\\}\\]\n\n\nPropriétés : - Les courbes de niveau sont des cercles centrés à l’origine - \\(X_1\\) et \\(X_2\\) sont indépendantes (car \\(\\Sigma = I_2\\)) - \\(\\mathbb{E}(X_1) = \\mathbb{E}(X_2) = 0\\), \\(\\text{Var}(X_1) = \\text{Var}(X_2) = 1\\)"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#covariance-et-corrélation",
+    "href": "slides/02-revisions-proba-slides.html#covariance-et-corrélation",
+    "title": "Révisions",
+    "section": "Covariance et corrélation",
+    "text": "Covariance et corrélation\n\n\n\n\n\n\nAvertissement\n\n\nDéfinitions\nCovariance : \\[\\text{Cov}(X_1, X_2) = \\mathbb{E}[(X_1 - \\mathbb{E}(X_1))(X_2 - \\mathbb{E}(X_2))]\\]\nCorrélation : \\[\\text{Corr}(X_1, X_2) = \\frac{\\text{Cov}(X_1, X_2)}{\\sigma(X_1) \\sigma(X_2)}\\]"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#interprétation-des-signes",
+    "href": "slides/02-revisions-proba-slides.html#interprétation-des-signes",
+    "title": "Révisions",
+    "section": "Interprétation des signes",
+    "text": "Interprétation des signes\n\nCorrélation positive (\\(&gt; 0\\)) : \\(X_1 \\uparrow \\Rightarrow X_2 \\uparrow\\)\nCorrélation négative (\\(&lt; 0\\)) : \\(X_1 \\uparrow \\Rightarrow X_2 \\downarrow\\)\nCorrélation nulle (\\(= 0\\)) : pas de relation linéaire (variables orthogonales)\n\n\nExemple numérique : Données : \\((1,2)\\), \\((2,3)\\), \\((3,5)\\), \\((4,6)\\)\n\n\\(\\mathbb{E}(X_1) = 2.5\\), \\(\\mathbb{E}(X_2) = 4\\)\n\\(\\text{Cov}(X_1, X_2) = \\mathbb{E}(X_1 X_2) - \\mathbb{E}(X_1)\\mathbb{E}(X_2) = 11.5 - 10 = 1.5 &gt; 0\\)\n\nInterprétation : relation positive entre \\(X_1\\) et \\(X_2\\)"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#propriétés-de-la-covariance",
+    "href": "slides/02-revisions-proba-slides.html#propriétés-de-la-covariance",
+    "title": "Révisions",
+    "section": "Propriétés de la covariance",
+    "text": "Propriétés de la covariance\n\n\n\n\n\n\nImportant\n\n\nPropriétés essentielles\n\n\\(\\text{Cov}(X_1, X_2) = \\mathbb{E}(X_1 X_2) - \\mathbb{E}(X_1)\\mathbb{E}(X_2)\\)\n\\(\\text{Cov}(X_1, X_2) = \\text{Cov}(X_2, X_1)\\) (symétrie)\n\\(\\text{Cov}(X_1 + \\lambda Y_1, X_2) = \\text{Cov}(X_1, X_2) + \\lambda \\text{Cov}(Y_1, X_2)\\) (linéarité)\n\n\n\n\n\nExemple de linéarité : \\[\\text{Cov}(2X_1 + 3Y_1, X_2) = 2\\text{Cov}(X_1, X_2) + 3\\text{Cov}(Y_1, X_2)\\]"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#le-problème-de-lestimation",
+    "href": "slides/02-revisions-proba-slides.html#le-problème-de-lestimation",
+    "title": "Révisions",
+    "section": "Le problème de l’estimation",
+    "text": "Le problème de l’estimation\n\nRéalité : On ne connaît pas exactement la distribution\nDonnées : Échantillon \\(x_1, x_2, \\ldots, x_n\\) (observations)\nObjectif : Estimer les paramètres inconnus (\\(\\mu\\), \\(\\Sigma\\), etc.)"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#estimation-de-la-moyenne",
+    "href": "slides/02-revisions-proba-slides.html#estimation-de-la-moyenne",
+    "title": "Révisions",
+    "section": "Estimation de la moyenne",
+    "text": "Estimation de la moyenne\n\n\n\n\n\n\nAvertissement\n\n\nEstimateur de la moyenne \\[\\widehat{\\mu} = \\overline{X} = \\frac{1}{n} \\sum_{i=1}^n x_i\\]\n\n\n\n\nExemple pratique : Tailles d’étudiants (cm) : 170, 175, 168, 180, 172\n\\(\\widehat{\\mu} = \\frac{170 + 175 + 168 + 180 + 172}{5} = \\frac{865}{5} = 173\\) cm"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#estimation-de-la-variance",
+    "href": "slides/02-revisions-proba-slides.html#estimation-de-la-variance",
+    "title": "Révisions",
+    "section": "Estimation de la variance",
+    "text": "Estimation de la variance\n\n\n\n\n\n\nAvertissement\n\n\nEstimateur de la variance \\[\\widehat{\\Sigma} = \\frac{1}{n-1} \\sum_{i=1}^n (x_i - \\widehat{\\mu})(x_i - \\widehat{\\mu})^T\\]\nPourquoi \\(n-1\\) ? Correction du biais dû à l’utilisation de \\(\\widehat{\\mu}\\)"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#exemple-complet-de-calcul",
+    "href": "slides/02-revisions-proba-slides.html#exemple-complet-de-calcul",
+    "title": "Révisions",
+    "section": "Exemple complet de calcul",
+    "text": "Exemple complet de calcul\n\nDonnées : 170, 175, 168, 180, 172 (tailles en cm) - \\(\\widehat{\\mu} = 173\\) - Écarts au carré : \\((170-173)^2 = 9\\), \\((175-173)^2 = 4\\), \\((168-173)^2 = 25\\), \\((180-173)^2 = 49\\), \\((172-173)^2 = 1\\)\n\n\nVariance estimée : \\[\\widehat{\\sigma}^2 = \\frac{9 + 4 + 25 + 49 + 1}{5-1} = \\frac{88}{4} = 22\\]\nÉcart-type estimé : \\(\\widehat{\\sigma} = \\sqrt{22} \\approx 4.69\\) cm"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#estimation-de-la-corrélation",
+    "href": "slides/02-revisions-proba-slides.html#estimation-de-la-corrélation",
+    "title": "Révisions",
+    "section": "Estimation de la corrélation",
+    "text": "Estimation de la corrélation\n\nMatrice de corrélation estimée : \\[\\widehat{R} = D^{-1} \\widehat{\\Sigma} D^{-1}\\] où \\(D\\) est la matrice des écarts-types\n\n\nExemple 2D : Si \\(\\widehat{\\Sigma} = \\begin{pmatrix} 4 & 1.5 \\\\ 1.5 & 9 \\end{pmatrix}\\)\nAlors \\(D = \\begin{pmatrix} 2 & 0 \\\\ 0 & 3 \\end{pmatrix}\\) et \\(\\widehat{R} = \\begin{pmatrix} 1 & 0.25 \\\\ 0.25 & 1 \\end{pmatrix}\\)\nInterprétation : corrélation faible positive (0.25) entre les variables"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#exemple-analyse-de-données-météorologiques",
+    "href": "slides/02-revisions-proba-slides.html#exemple-analyse-de-données-météorologiques",
+    "title": "Révisions",
+    "section": "Exemple : Analyse de données météorologiques",
+    "text": "Exemple : Analyse de données météorologiques\n\nContexte : Température et humidité quotidiennes - Échantillon : 30 jours de mesures - \\(X_1\\) = température (°C), \\(X_2\\) = humidité (%)\n\n\nRésultats estimés : - \\(\\widehat{\\mu} = \\begin{pmatrix} 22 \\\\ 65 \\end{pmatrix}\\) (température moyenne : 22°C, humidité : 65%) - Corrélation estimée : \\(\\widehat{\\rho} = -0.6\\) (négative forte)\nInterprétation : Quand la température augmente, l’humidité tend à diminuer"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#application-contrôle-qualité",
+    "href": "slides/02-revisions-proba-slides.html#application-contrôle-qualité",
+    "title": "Révisions",
+    "section": "Application : Contrôle qualité",
+    "text": "Application : Contrôle qualité\n\nContexte : Production de pièces manufacturées - \\(X\\) = diamètre des pièces (mm) - Spécification : \\(\\mu = 50\\) mm, \\(\\sigma = 0.1\\) mm\n\n\nÉchantillon de contrôle : 49.9, 50.1, 49.8, 50.2, 50.0\n\\(\\widehat{\\mu} = 50.0\\) mm ✓ (dans les spécifications)\n\\(\\widehat{\\sigma} = 0.15\\) mm ⚠️ (variabilité plus élevée que prévu)\nAction : Ajuster le processus de production"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#points-clés-à-retenir",
+    "href": "slides/02-revisions-proba-slides.html#points-clés-à-retenir",
+    "title": "Révisions",
+    "section": "Points clés à retenir",
+    "text": "Points clés à retenir\n\nProbabilités : modélisation de l’incertitude\nVariables aléatoires : quantification des phénomènes aléatoires\nEspérance et variance : caractéristiques centrales des distributions\nCovariance/corrélation : mesure de dépendance linéaire\nEstimation : inférence à partir d’échantillons"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#applications-en-apprentissage-automatique",
+    "href": "slides/02-revisions-proba-slides.html#applications-en-apprentissage-automatique",
+    "title": "Révisions",
+    "section": "Applications en apprentissage automatique",
+    "text": "Applications en apprentissage automatique\n\nClassification probabiliste (Bayes naïf, régression logistique)\nRéduction de dimension (ACP via matrices de covariance)\nApprentissage de paramètres (maximum de vraisemblance)\nIncertitude en prédiction (intervalles de confiance)\nAnalyse de données (statistiques descriptives)"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#questions",
+    "href": "slides/02-revisions-proba-slides.html#questions",
+    "title": "Révisions",
+    "section": "Questions ?",
+    "text": "Questions ?\nRessources recommandées : - Cours STT-1000 - Wasserman (2010) (anglais) - Delmas (2013) (français)"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#references",
+    "href": "slides/02-revisions-proba-slides.html#references",
+    "title": "Révisions",
+    "section": "",
+    "text": "Merci pour votre attention !\n\n\n\n\nDelmas, Jean-François. 2013. Introduction au calcul des probabilités et à la statistique : exercices, problèmes et corrections (2e édition). Les Presses de l’ENSTA.\n\n\nWasserman, Larry. 2010. All of Statistics: A Concise Course in Statistical Inference. Springer Publishing Company, Incorporated."
   },
   {
     "objectID": "slides/01-introduction-slides.html#test",
@@ -1487,7 +2068,7 @@
     "href": "informations/evaluations.html",
     "title": "Évaluations",
     "section": "",
-    "text": "Voici les différents examens prévus pour ce module.\n\n\n\nTitre\nDate\nMode de travail\nPondération\n\n\n\n\nExamen 1\n\nIndividuel\n25%\n\n\nExamen 2\n\nIndividuel\n50%\n\n\nProjet\n\nEn équipe\n25%\n\n\n\n\nIdentification. Lors d’un examen, une carte d’identité avec photo admissible doit être déposée sur le coin de votre table. Les cartes admissibles sont la carte de l’Université Laval en plastique, un permis de conduire canadien, une carte d’assurance-maladie avec photo émise par une province canadienne ou un passeport canadien ou étranger.",
+    "text": "Voici les différents examens prévus pour ce module.\n\n\n\nTitre\nDate\nMode de travail\nPondération\n\n\n\n\nExamen 1\n\nIndividuel\n30%\n\n\nExamen 2\n\nIndividuel\n50%\n\n\nProjet\n\nEn équipe\n20%\n\n\n\n\nIdentification. Lors d’un examen, une carte d’identité avec photo admissible doit être déposée sur le coin de votre table. Les cartes admissibles sont la carte de l’Université Laval en plastique, un permis de conduire canadien, une carte d’assurance-maladie avec photo émise par une province canadienne ou un passeport canadien ou étranger.",
     "crumbs": [
       "Informations",
       "Évaluations"
@@ -1498,7 +2079,7 @@
     "href": "informations/evaluations.html#modalités-dévaluations",
     "title": "Évaluations",
     "section": "",
-    "text": "Voici les différents examens prévus pour ce module.\n\n\n\nTitre\nDate\nMode de travail\nPondération\n\n\n\n\nExamen 1\n\nIndividuel\n25%\n\n\nExamen 2\n\nIndividuel\n50%\n\n\nProjet\n\nEn équipe\n25%\n\n\n\n\nIdentification. Lors d’un examen, une carte d’identité avec photo admissible doit être déposée sur le coin de votre table. Les cartes admissibles sont la carte de l’Université Laval en plastique, un permis de conduire canadien, une carte d’assurance-maladie avec photo émise par une province canadienne ou un passeport canadien ou étranger.",
+    "text": "Voici les différents examens prévus pour ce module.\n\n\n\nTitre\nDate\nMode de travail\nPondération\n\n\n\n\nExamen 1\n\nIndividuel\n30%\n\n\nExamen 2\n\nIndividuel\n50%\n\n\nProjet\n\nEn équipe\n20%\n\n\n\n\nIdentification. Lors d’un examen, une carte d’identité avec photo admissible doit être déposée sur le coin de votre table. Les cartes admissibles sont la carte de l’Université Laval en plastique, un permis de conduire canadien, une carte d’assurance-maladie avec photo émise par une province canadienne ou un passeport canadien ou étranger.",
     "crumbs": [
       "Informations",
       "Évaluations"
@@ -1509,7 +2090,7 @@
     "href": "informations/evaluations.html#informations-détaillées-sur-les-évaluations",
     "title": "Évaluations",
     "section": "Informations détaillées sur les évaluations",
-    "text": "Informations détaillées sur les évaluations\nExamen 1\nDate et lieu:\nMode de travail: Individuel\nPondération: 25%\nRemise de l’évaluation:\nDirectives de l’évaluation: Tout le contenu du cours est susceptible d’être a l’examen.\nMatériel autorisé: pas de restriction.\nInformation supplementaire: lien.\nExamen 2\nDate et lieu:\nMode de travail: Individuel\nPondération: 50%\nRemise de l’évaluation:\nDirectives de l’évaluation: Tout le contenu du cours est susceptible d’être à l’examen.\nMatériel autorisé: pas de restriction.\nProjet\nDate et lieu:\nMode de travail: En équipe\nPondération: 25%\nRemise de l’évaluation:\nDirectives de l’évaluation:\nMatériel autorisé: pas de restriction.",
+    "text": "Informations détaillées sur les évaluations\nExamen 1\nDate et lieu: 24 octobre 2025 de 08h30 à 09h30\nMode de travail: Individuel\nPondération: 30%\nRemise de l’évaluation:\nDirectives de l’évaluation: Tout le contenu du cours est susceptible d’être a l’examen.\nMatériel autorisé: pas de restriction.\nInformation supplementaire: lien.\nExamen 2\nDate et lieu: 12 décembre 2025 de 08h30 à 10h20\nMode de travail: Individuel\nPondération: 50%\nRemise de l’évaluation:\nDirectives de l’évaluation: Tout le contenu du cours est susceptible d’être à l’examen.\nMatériel autorisé: pas de restriction.\nProjet\nDate et lieu: dû le 04 décembre 2025 à 17h00\nMode de travail: En équipe\nPondération: 20%\nRemise de l’évaluation:\nDirectives de l’évaluation:\nMatériel autorisé: pas de restriction.",
     "crumbs": [
       "Informations",
       "Évaluations"
