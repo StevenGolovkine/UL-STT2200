@@ -7,7 +7,13 @@ format:
       - \usepackage{mathtools} 
 --- 
 
-* Slides: [link](../slides/02-revisions-slides.qmd)
+* Slides: 
+
+  - [Algèbre linéaire](../slides/02-revisions-algebre-slides.qmd)
+
+  - [Probabilités et statistiques](../slides/02-revisions-proba-slides.qmd)
+
+  - [Algorithmique / Programmation](../slides/02-revisions-programming-slides.qmd)
 
 * TD: [link](../td/02-revision-td.qmd)
 

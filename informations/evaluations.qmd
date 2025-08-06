@@ -11,9 +11,9 @@ Voici les différents examens prévus pour ce module.
 
 | Titre      | Date    | Mode de travail | Pondération |
 | ---------- | ------- | --------------- | ----------- |
-| Examen 1   |         | Individuel      | 25\%        |
+| Examen 1   |         | Individuel      | 30\%        |
 | Examen 2   |         | Individuel      | 50\%        |
-| Projet     |         | En équipe       | 25\%        |
+| Projet     |         | En équipe       | 20\%        |
 
 <p style="font-size:10px; ">Identification. Lors d'un examen, une carte d'identité avec photo admissible doit être déposée sur le coin de votre table. Les cartes admissibles sont la carte de l'Université Laval en plastique, un permis de conduire canadien, une carte d'assurance-maladie avec photo émise par une province canadienne ou un passeport canadien ou étranger.</p>
 
@@ -21,11 +21,11 @@ Voici les différents examens prévus pour ce module.
 
 **Examen 1** 
 
-Date et lieu: 
+Date et lieu: 24 octobre 2025 de 08h30 à 09h30
 
 Mode de travail: Individuel
 
-Pondération: 25\%
+Pondération: 30\%
 
 Remise de l'évaluation: 
 
@@ -38,7 +38,7 @@ Information supplementaire: [lien](./mcq.qmd).
 
 **Examen 2**
 
-Date et lieu: 
+Date et lieu: 12 décembre 2025 de 08h30 à 10h20
 
 Mode de travail: Individuel
 
@@ -53,11 +53,11 @@ Matériel autorisé: pas de restriction.
 
 **Projet** 
 
-Date et lieu: 
+Date et lieu: dû le 04 décembre 2025 à 17h00 
 
 Mode de travail: En équipe 
 
-Pondération: 25\%
+Pondération: 20\%
 
 Remise de l'évaluation: 
 

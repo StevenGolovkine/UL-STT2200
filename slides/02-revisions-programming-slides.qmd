@@ -1,0 +1,552 @@
+--- 
+title: "Révisions"
+subtitle: "Algorithmique / Programmation"
+author: "Steven Golovkine"
+lang: fr
+date: today
+date-format: "DD MMM YYYY"
+slide-number: c/t
+title-logo: ../include/logo-ul.png
+format:
+  revealjs:
+    theme: [default, ../include/ulaval-slide.scss]
+    chalkboard: true
+    width: 1280
+    height: 720
+    template-partials:
+      - title-slide.html
+--- 
+
+## Philosophie du cours
+
+::: {.callout-important}
+**Liberté de choix**
+
+Ce cours ne impose **aucun langage spécifique** !
+
+Vous êtes libres de choisir :
+- R, Python, Julia, ou même SAS
+- Le langage qui vous convient le mieux
+- Celui avec lequel vous êtes le plus à l'aise
+:::
+
+::: {.fragment}
+**Objectif commun :** Code lisible, compréhensible et réutilisable
+:::
+
+## Plan de la présentation
+
+- Bonnes pratiques universelles
+- R : Le spécialiste des statistiques
+- Python : Le généraliste populaire
+- Julia : La nouvelle génération
+- SAS : L'ancien propriétaire
+- Comment choisir ?
+
+# Bonnes pratiques universelles
+
+## Principes fondamentaux
+
+::: {.incremental}
+- **Code lisible** : les autres (et vous dans 6 mois !) doivent comprendre
+- **Documentation** : commentaires clairs et concis
+- **Structure** : organisation logique des fichiers et fonctions
+- **Reproductibilité** : mêmes données → mêmes résultats
+- **Gestion des versions** : Git pour suivre les modifications
+:::
+
+## Exemple : Code mal écrit vs. bien écrit
+
+::: {.fragment}
+**❌ Code difficile à comprendre :**
+```python
+import pandas as pd
+d=pd.read_csv('data.csv')
+r=d.groupby('A').mean()['B']
+print(r)
+```
+:::
+
+::: {.fragment}
+**✅ Code clair et documenté :**
+```python
+import pandas as pd
+
+# Chargement des données de ventes
+sales_data = pd.read_csv('monthly_sales.csv')
+
+# Calcul de la moyenne des ventes par région
+average_sales_by_region = sales_data.groupby('region').mean()['sales_amount']
+
+print("Ventes moyennes par région :")
+print(average_sales_by_region)
+```
+:::
+
+## Structure de projet recommandée
+
+```
+mon_projet/
+├── data/           # Données brutes et nettoyées
+├── scripts/        # Scripts d'analyse
+├── functions/      # Fonctions réutilisables
+├── results/        # Graphiques, tableaux
+├── docs/          # Documentation
+└── README.md      # Description du projet
+```
+
+::: {.fragment}
+**Avantages :**
+- Organisation claire
+- Facilite la collaboration
+- Projet reproductible
+:::
+
+# R : Le spécialiste des statistiques
+
+## Présentation de R
+
+::: {.callout-note}
+**R en bref**
+
+- **Spécialisé** : analyse statistique et visualisation
+- **Gratuit et open-source**
+- **Écosystème riche** : +18,000 packages sur CRAN
+- **Communauté active** : mise à jour quotidienne des packages
+:::
+
+::: {.fragment}
+**Points forts :**
+- Syntaxe intuitive pour les statistiques
+- Graphiques de haute qualité (ggplot2)
+- Intégration avec LaTeX et Markdown
+:::
+
+## Exemple pratique : Analyse exploratoire
+
+```r
+# Chargement des bibliothèques
+library(ggplot2)
+library(dplyr)
+
+# Lecture des données
+data <- read.csv("sales_data.csv")
+
+# Statistiques descriptives
+summary(data$sales)
+
+# Analyse par groupe avec pipe operator
+sales_summary <- data %>%
+  group_by(region) %>%
+  summarise(
+    mean_sales = mean(sales),
+    median_sales = median(sales),
+    n_observations = n()
+  )
+
+print(sales_summary)
+```
+
+## Visualisation avec ggplot2
+
+```r
+# Graphique en barres des ventes par région
+ggplot(sales_summary, aes(x = region, y = mean_sales)) +
+  geom_col(fill = "steelblue", alpha = 0.7) +
+  labs(
+    title = "Ventes moyennes par région",
+    x = "Région",
+    y = "Ventes moyennes (€)",
+    caption = "Source: Données internes 2023"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+## L'opérateur pipe (%>%)
+
+::: {.fragment}
+**Sans pipe (difficile à lire) :**
+```r
+result <- arrange(summarise(group_by(filter(data, sales > 1000), region), avg_sales = mean(sales)), desc(avg_sales))
+```
+:::
+
+::: {.fragment}
+**Avec pipe (lecture naturelle) :**
+```r
+result <- data %>%
+  filter(sales > 1000) %>%
+  group_by(region) %>%
+  summarise(avg_sales = mean(sales)) %>%
+  arrange(desc(avg_sales))
+```
+:::
+
+::: {.fragment}
+**Avantage :** Se lit comme une phrase : "prendre les données, puis filtrer, puis grouper, puis calculer la moyenne, puis trier"
+:::
+
+# Python : Le généraliste populaire
+
+## Présentation de Python
+
+::: {.callout-note}
+**Python en bref**
+
+- **Généraliste** : web, analyse de données, IA, automatisation...
+- **Gratuit et open-source**
+- **Écosystème mature** : NumPy, Pandas, Scikit-learn, Matplotlib...
+- **Syntaxe claire** : "executable pseudocode"
+:::
+
+::: {.fragment}
+**Points forts :**
+- Facilité d'apprentissage
+- Communauté énorme
+- Intégration avec autres systèmes
+:::
+
+## Exemple : Même analyse en Python
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Lecture des données
+data = pd.read_csv('sales_data.csv')
+
+# Statistiques descriptives
+print(data['sales'].describe())
+
+# Analyse par groupe
+sales_summary = (data
+                 .groupby('region')['sales']
+                 .agg(['mean', 'median', 'count'])
+                 .round(2))
+
+print(sales_summary)
+```
+
+## Visualisation avec matplotlib/seaborn
+
+```python
+# Configuration du style
+plt.style.use('seaborn-v0_8')
+fig, ax = plt.subplots(figsize=(10, 6))
+
+# Graphique en barres
+sales_summary['mean'].plot(kind='bar', ax=ax, color='steelblue', alpha=0.7)
+
+# Personnalisation
+ax.set_title('Ventes moyennes par région', fontsize=14, fontweight='bold')
+ax.set_xlabel('Région')
+ax.set_ylabel('Ventes moyennes (€)')
+ax.tick_params(axis='x', rotation=45)
+
+plt.tight_layout()
+plt.show()
+```
+
+## Machine Learning avec Scikit-learn
+
+```python
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error
+
+# Préparation des données
+X = data[['advertising_budget', 'num_employees']]
+y = data['sales']
+
+# Division train/test
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+# Modèle de régression linéaire
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# Prédictions et évaluation
+y_pred = model.predict(X_test)
+mse = mean_squared_error(y_test, y_pred)
+
+print(f"Erreur quadratique moyenne: {mse:.2f}")
+```
+
+# Julia : La nouvelle génération
+
+## Présentation de Julia
+
+::: {.callout-note}
+**Julia en bref**
+
+- **Moderne** : créé au début des années 2010
+- **Performance** : vitesse proche du C
+- **Syntaxe** : familière (ressemble à Python/R)
+- **Interopérabilité** : appel natif de C/Fortran, support R/Python
+:::
+
+::: {.fragment}
+**Philosophie :** "Résoudre le problème des deux langages"
+- Prototypage rapide ET exécution rapide
+- Pas besoin de réécrire en C/C++ pour la performance
+:::
+
+## Exemple : Même analyse en Julia
+
+```julia
+using DataFrames, CSV, Statistics, StatsPlots
+
+# Lecture des données
+data = CSV.read("sales_data.csv", DataFrame)
+
+# Statistiques descriptives
+println("Statistiques des ventes:")
+println(describe(data.sales))
+
+# Analyse par groupe
+sales_summary = combine(groupby(data, :region), 
+                       :sales => mean => :mean_sales,
+                       :sales => median => :median_sales,
+                       :sales => length => :count)
+
+println(sales_summary)
+```
+
+## Performance : Comparaison de vitesse
+
+::: {.fragment}
+**Test : Calcul sur 1 million d'éléments**
+
+```julia
+# Julia
+function compute_heavy(n)
+    result = 0.0
+    for i in 1:n
+        result += sin(i) * cos(i)
+    end
+    return result
+end
+
+@time compute_heavy(1_000_000)  # ~0.02 seconds
+```
+:::
+
+::: {.fragment}
+**Comparaison approximative :**
+- **Julia** : ~0.02s
+- **C** : ~0.02s  
+- **Python** : ~0.8s
+- **R** : ~0.5s
+
+**Julia ≈ 40x plus rapide que Python !**
+:::
+
+## Interopérabilité : Appeler Python depuis Julia
+
+```julia
+using PyCall
+
+# Importer numpy depuis Julia
+np = pyimport("numpy")
+
+# Utiliser une fonction Python
+python_array = np.random.randn(1000)
+julia_array = randn(1000)
+
+# Comparaison des moyennes
+println("Moyenne Python: ", np.mean(python_array))
+println("Moyenne Julia: ", mean(julia_array))
+```
+
+::: {.fragment}
+**Avantage :** Utiliser le meilleur des deux mondes sans friction !
+:::
+
+# SAS : L'ancien propriétaire
+
+## Présentation de SAS
+
+::: {.callout-warning}
+**SAS : Points importants**
+
+**Avantages :**
+- Très utilisé dans certaines industries (pharma, finance)
+- Procédures statistiques robustes
+- Documentation officielle complète
+
+**Inconvénients majeurs :**
+- **Propriétaire** : licence coûteuse à renouveler
+- **Communauté limitée** : peu d'aide en ligne
+- **Code fermé** : impossible de voir/modifier les algorithmes
+:::
+
+## Exemple SAS (pour comparaison)
+
+```sas
+/* Lecture des données */
+PROC IMPORT OUT=sales_data
+    DATAFILE="sales_data.csv"
+    DBMS=CSV REPLACE;
+    GETNAMES=YES;
+RUN;
+
+/* Statistiques descriptives */
+PROC MEANS DATA=sales_data;
+    VAR sales;
+RUN;
+
+/* Analyse par groupe */
+PROC MEANS DATA=sales_data;
+    CLASS region;
+    VAR sales;
+RUN;
+```
+
+## Pourquoi éviter SAS dans ce cours ?
+
+::: {.incremental}
+- **Coût** : Licence étudiante payante même à l'université
+- **Apprentissage limité** : difficile de comprendre les algorithmes
+- **Carrière** : Tendance décroissante sur le marché
+- **Collaboration** : Difficile de partager le code
+- **Flexibilité** : Limité aux analyses prédéfinies
+:::
+
+::: {.fragment}
+**Recommandation :** Choisissez un langage open-source (R, Python, Julia)
+:::
+
+# Comment choisir votre langage ?
+
+## Critères de décision
+
+::: {.incremental}
+- **Votre expérience** : Quel langage connaissez-vous déjà ?
+- **Type de projet** : Statistiques pures vs. ML vs. applications web
+- **Performance** : Avez-vous besoin de calculs très rapides ?
+- **Écosystème** : Quels packages/bibliothèques vous faut-il ?
+- **Équipe** : Quel langage utilise votre groupe/entreprise ?
+:::
+
+## Guide de décision pratique
+
+::: {.fragment}
+**Choisissez R si :**
+- Focus sur statistiques et visualisation
+- Travail avec des statisticiens
+- Rapports automatisés (R Markdown)
+- Analyse exploratoire intensive
+:::
+
+::: {.fragment}
+**Choisissez Python si :**
+- Machine learning et deep learning
+- Intégration avec applications web
+- Large écosystème nécessaire
+- Équipe mixte (développeurs + data scientists)
+:::
+
+## Guide de décision pratique (suite)
+
+::: {.fragment}
+**Choisissez Julia si :**
+- Performance critique
+- Calculs scientifiques intensifs
+- Vous aimez les nouveaux langages
+- Besoin d'interopérabilité R/Python
+:::
+
+::: {.fragment}
+**Évitez SAS sauf si :**
+- Imposé par l'entreprise
+- Industrie très spécifique (pharma avec contraintes réglementaires)
+- Budget conséquent disponible
+:::
+
+## Exemples de cas d'usage
+
+::: {.fragment}
+**Projet 1 :** Analyse de sondage électoral
+→ **R** (statistiques, graphiques, rapports)
+:::
+
+::: {.fragment}
+**Projet 2 :** Système de recommandation e-commerce
+→ **Python** (ML, intégration web, grande communauté)
+:::
+
+::: {.fragment}
+**Projet 3 :** Simulation Monte Carlo financière
+→ **Julia** (performance, calculs intensifs)
+:::
+
+::: {.fragment}
+**Projet 4 :** Analyses prédéfinies en entreprise pharma
+→ **SAS** (si imposé par la réglementation)
+:::
+
+## Apprentissage recommandé
+
+::: {.callout-tip}
+**Stratégie d'apprentissage**
+
+1. **Maîtrisez un langage** à fond plutôt que trois superficiellement
+2. **Apprenez les concepts** (statistiques, ML) avant la syntaxe
+3. **Pratiquez régulièrement** : projets personnels
+4. **Lisez du code** des autres : GitHub, Stack Overflow
+5. **Suivez les bonnes pratiques** dès le début
+:::
+
+## Ressources d'apprentissage
+
+**Pour tous les langages :**
+- [Learn X in Y minutes](https://learnxinyminutes.com/) (guides rapides)
+- Stack Overflow (questions/réponses)
+- Documentation officielle
+
+**Spécifique :**
+- **R :** R for Data Science, RStudio tutorials
+- **Python :** Python Data Science Handbook, Kaggle Learn
+- **Julia :** Julia Academy, Modern Julia Workflows
+
+## Points clés à retenir
+
+::: {.incremental}
+- **Pas de "meilleur" langage** : tout dépend du contexte
+- **Bonnes pratiques** sont universelles
+- **R** : excellent pour statistiques et visualisation
+- **Python** : polyvalent, écosystème riche ML
+- **Julia** : performance + syntaxe moderne
+- **SAS** : éviter sauf contrainte externe
+:::
+
+## L'important c'est...
+
+::: {.callout-important}
+**Ce qui compte vraiment :**
+
+1. **Comprendre les concepts** mathématiques et statistiques
+2. **Écrire du code lisible** et documenté
+3. **Reproduire ses analyses**
+4. **Continuer d'apprendre** et s'adapter
+:::
+
+::: {.fragment}
+Le langage n'est qu'un **outil** pour exprimer vos idées !
+:::
+
+## Questions ?
+
+**Liens utiles :**
+- Guides des bonnes pratiques (voir course website)
+- [Apprendre R en Y minutes](https://learnxinyminutes.com/fr/r/)
+- [Apprendre Python en Y minutes](https://learnxinyminutes.com/fr/python/)
+- [Learn Julia in Y minutes](https://learnxinyminutes.com/julia/)
+
+---
+
+**Bonne programmation !**

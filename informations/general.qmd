@@ -31,10 +31,10 @@ Préalables:
 
 Plage horaire: 
 
-| Type   | Jour     | Horaire | Dates |
+| Type   | Jour     | Horaire | Salle |
 | ------ | -------- | ------- | ----- |
-| Labo   | Mardi    |         |       |
-| Classe | Vendredi |         |       |
+| Labo   | Mardi    | 10h30-12h20 | PLT-3928 |
+| Classe | Vendredi | 08h30-10h20 | VCH-3830 |
 
 
 ## Coordonnées et disponibilités
