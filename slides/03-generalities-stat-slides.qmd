@@ -1,0 +1,197 @@
+--- 
+title: "Généralités"
+subtitle: "Projet d'analyse de données"
+author: "Steven Golovkine"
+lang: fr
+date: today
+date-format: "DD MMM YYYY"
+slide-number: c/t
+title-logo: ../include/logo-ul.png
+format:
+  revealjs:
+    theme: [default, ../include/ulaval-slide.scss]
+    chalkboard: true
+    width: 1280
+    height: 720
+    template-partials:
+      - title-slide.html
+--- 
+
+## Plan de la présentation
+
+1. Structure d'un projet d'analyse
+2. Définition des objectifs
+3. Collecte et préparation des données
+4. Élaboration et validation des modèles
+5. Mise en production
+6. Suivi et amélioration
+
+## Structure d'un projet {.smaller}
+
+**5 étapes principales :**
+
+1. **Définition des objectifs**
+2. **Collecte et préparation des données**  
+3. **Élaboration et validation des modèles**
+4. **Implémentation et mise en production**
+5. **Suivi de la performance et amélioration continue**
+
+## Répartition temps vs importance
+
+| Étape | Temps | Importance |
+|:------|:-----:|:----------:|
+| Comprendre le problème | 10% | 15% |
+| Explorer la solution | 9% | 14% |
+| **Implementer la solution** | **1%** | **51%** |
+| **Préparer les données** | **60%** | **15%** |
+| Analyser les données | 15% | 3% |
+| Modéliser les données | 5% | 2% |
+
+::: {.fragment}
+**Constat :** L'importance ≠ temps passé !
+:::
+
+## 1. Définition des objectifs
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Pourquoi c'est crucial ?**
+
+- Guide la collecte des données
+- Définit le modèle adéquat
+- Facilite l'interprétation
+- Évite les explorations aveugles
+:::
+
+::: {.column width="50%"}
+**Comment bien formuler ?**
+
+- Clarifier les termes
+- Identifier les utilisateurs
+- Définir la population cible
+- Préciser les décisions qui dépendent des résultats
+:::
+
+::::
+
+## Exemples d'objectifs
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**❌ Mauvais objectifs**
+- Analyser les données clients
+- Analyser les données des adversaires  
+- Analyser les données du médicament
+:::
+
+::: {.column width="50%"}
+**✅ Bons objectifs**
+- Prédire quels clients achèteront le produit d'épargne
+- Caractériser le style de jeu pour identifier les faiblesses
+- Concevoir un protocole pour tester l'efficacité
+:::
+
+::::
+
+## 2. Sources de données
+
+**Plateformes génériques :**
+- [Google datasets](https://datasetsearch.research.google.com/)
+- [Kaggle](https://www.kaggle.com)
+- [UC Irvine ML Repository](https://archive-beta.ics.uci.edu)
+
+**Sources officielles :**
+- Canada: [StatCan](https://www.statcan.gc.ca/fr/debut)
+- France: [data.gouv.fr](https://www.data.gouv.fr/fr/)
+- USA: [data.gov](https://data.gov)
+
+**Sources internes :** bases clients, transactions, production, web analytics
+
+## Qualité des données
+
+> **"Garbage in, garbage out"**
+
+**Questions essentielles :**
+
+- Les données sont-elles **représentatives** ?
+- Sont-elles **exactes, complètes, pertinentes** ?
+- Y a-t-il des **valeurs manquantes, doublons, incohérences** ?
+
+## Format "Tidy Data"
+
+**3 principes fondamentaux :**
+
+1. **Chaque variable** = une colonne
+2. **Chaque observation** = une ligne  
+3. **Chaque cellule** = une valeur unique
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**R :** `tidyr`, `readr`, `readxl`, `haven`
+:::
+
+::: {.column width="50%"}
+**Python :** `pandas`, `polars`
+:::
+
+::::
+
+## Exploration préliminaire
+
+**Nettoyage :**
+- Supprimer les doublons
+- Uniformiser les modalités
+- Vérifier les formats
+
+**Exploration :**
+- Modalités rares/nombreuses
+- Valeurs extrêmes
+- Corrélations fortes
+- Classes déséquilibrées
+- Valeurs manquantes
+
+## 3. Modélisation : 4 composantes
+
+1. **Espace** de représentation (cadre mathématique)
+
+2. **Distance** ou similarité (comparer les observations)
+
+3. **Modèle** ou algorithme (méthode d'apprentissage)
+
+4. **Fonction de coût** (mesure de qualité)
+
+## 4. Mise en production
+
+**Data Engineering :**
+
+- Automatiser la collecte et le nettoyage
+- Intégrer le modèle dans l'application
+- Générer rapports/prédictions en temps réel
+- Maintenir la *pipeline* de données
+
+**Rôle du Data Engineer :** conception et maintenance de bout en bout
+
+## 5. Suivi et amélioration
+
+**Défis :**
+- Evolution des données (*data drift*)
+- Hypothèses initiales invalidées
+- Nouvelles variables disponibles
+
+**Solutions :**
+- **Monitoring** régulier des performances
+- Réentraînement avec données récentes
+- Amélioration continue du modèle
+
+## Conclusion
+
+**Un bon modèle :**
+
+- ✅ Performant à un instant donné
+- ✅ **Robuste** dans le temps
+- ✅ **Adaptable** aux changements
+
+**Clé du succès :** Équilibre entre toutes les étapes, pas seulement la modélisation !

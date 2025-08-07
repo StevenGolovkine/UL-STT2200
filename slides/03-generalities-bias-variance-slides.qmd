@@ -1,0 +1,286 @@
+--- 
+title: "Généralités"
+subtitle: "Data"
+author: "Steven Golovkine"
+lang: fr
+date: today
+date-format: "DD MMM YYYY"
+slide-number: c/t
+title-logo: ../include/logo-ul.png
+format:
+  revealjs:
+    theme: [default, ../include/ulaval-slide.scss]
+    chalkboard: true
+    width: 1280
+    height: 720
+    template-partials:
+      - title-slide.html
+--- 
+
+
+## Notre objectif de modélisation
+
+**Modéliser la relation entre :**
+- Variable réponse $Y$ (quantitative, qualitative, etc.)
+- Variables explicatives $X = (X_1, \ldots, X_p)$
+
+::: {.fragment}
+**Modèle général :**
+$$Y = f(X) + \varepsilon$$
+
+- $f$ : fonction déterministe (information systématique)
+- $\varepsilon$ : terme d'erreur aléatoire
+:::
+
+## Hypothèses du modèle
+
+**Sur le terme d'erreur $\varepsilon$ :**
+
+::: {.incremental}
+- Indépendant des variables explicatives $X$
+- $\mathbb{E}[\varepsilon] = 0$ (espérance nulle)
+- $\mathrm{Var}(\varepsilon) = \sigma^2$ (variance constante)
+:::
+
+::: {.fragment}
+**→ Cadre général pour toutes les méthodes du cours**
+:::
+
+## Plan
+
+1. **Mesures de qualité** - MSE et taux d'erreur
+2. **Compromis biais/variance** - Décomposition fondamentale
+3. **Flexibilité des modèles** - Rigidité vs adaptabilité
+4. **Optimisation pratique** - Trouver l'équilibre
+
+## Comment mesurer la qualité ?
+
+**Une fois $\widehat{f}$ estimé, comment évaluer $\widehat{Y} = \widehat{f}(X)$ ?**
+
+::: {.fragment}
+**Idée :** Mesurer à quel point $\widehat{Y}$ est proche de la vraie valeur $Y$
+:::
+
+## Variables quantitatives : MSE
+
+::: {.callout-warning}
+**Erreur Quadratique Moyenne (MSE) :**
+$$MSE(Y, \widehat{Y}) = \frac{1}{n} \sum_{i=1}^{n} (y_i - \widehat{f}(x_i))^2$$
+
+**Interprétation :** Distance moyenne entre valeurs observées et prédites
+:::
+
+::: {.fragment}
+**MSE faible → Prédictions proches des observations**
+:::
+
+## Variables qualitatives : Taux d'erreur
+
+::: {.callout-warning}
+**Taux d'erreur (ER) :**
+$$ER(Y, \widehat{Y}) = \frac{1}{n} \sum_{i=1}^{n} \mathbb{1}(y_i \neq \widehat{f}(x_i))$$
+
+**Interprétation :** Proportion de mauvaises prédictions
+:::
+
+## Exactitude vs Interprétabilité
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Modèles simples**
+- Faciles à interpréter
+- Relations complexes mal captées
+- Ex: régression linéaire
+:::
+
+::: {.column width="50%"}
+**Modèles flexibles**  
+- Meilleures prédictions
+- Difficiles à interpréter
+- Ex: forêt aléatoire
+:::
+
+::::
+
+::: {.fragment}
+**Le choix dépend de l'objectif :** compréhension ou performance ?
+:::
+
+## "No Free Lunch in Statistics"
+
+::: {.callout-tip}
+**Il n'existe pas de méthode universellement optimale !**
+
+Une méthode performante dans un contexte peut échouer ailleurs.
+
+**→ Toujours adapter l'approche au problème**
+:::
+
+## Erreur de prédiction
+
+**Notre vrai objectif :** Minimiser l'erreur sur de **nouvelles données**
+
+$$\mathbb{E}[(Y - \widehat{Y})^2] = \mathbb{E}[(Y - \widehat{f}(X))^2]$$
+
+::: {.fragment}
+**Cette erreur se décompose en 3 parties...**
+:::
+
+## Décomposition biais/variance
+
+::: {.callout-important}
+**Théorème fondamental :**
+$$\mathbb{E}[(Y - \widehat{f}(X))^2] = \text{Biais}(\widehat{f}(X))^2 + \text{Var}(\widehat{f}(X)) + \sigma^2$$
+:::
+
+**Trois composantes :**
+
+::: {.incremental}
+1. **Biais²** : Erreur systématique d'approximation
+2. **Variance** : Sensibilité aux fluctuations d'échantillon  
+3. **$\sigma^2$** : Erreur irréductible (bruit intrinsèque)
+:::
+
+## Interprétation des composantes
+
+**Biais :**
+- Erreur due à une approximation systématique
+- Ex: modèle linéaire pour relation non-linéaire
+
+**Variance :**
+- Variabilité de $\widehat{f}$ selon l'échantillon d'apprentissage
+- Mesure la "stabilité" de l'estimateur
+
+**Erreur irréductible :**
+- Bruit $\varepsilon$ qu'aucun modèle ne peut éliminer
+
+## Le compromis fondamental
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Modèle peu flexible**
+- ✅ Variance faible
+- ❌ Biais élevé
+- Ex: droite de régression
+:::
+
+::: {.column width="50%"}
+**Modèle très flexible**
+- ❌ Variance élevée  
+- ✅ Biais faible
+- Ex: interpolation parfaite
+:::
+
+::::
+
+::: {.fragment}
+**→ Besoin d'un équilibre optimal !**
+:::
+
+## Exemple : Régression linéaire simple
+
+::: {.callout-note}
+**Hypothèse :** $f(x) = ax + b$
+
+**Estimation :** Se résume à estimer les coefficients $a$ et $b$
+
+**Caractéristique :** Modèle rigide, faible variance, biais potentiellement élevé
+:::
+
+## Courbe en U de l'erreur
+
+**Comportement typique :**
+
+::: {.incremental}
+1. **Flexibilité faible** → Biais élevé, variance faible
+2. **Flexibilité augmente** → Biais diminue plus vite que variance augmente
+3. **Optimum** → Minimum de l'erreur totale
+4. **Flexibilité excessive** → Variance explose, biais négligeable
+:::
+
+::: {.fragment}
+**→ Courbe en U caractéristique**
+:::
+
+## Exemple visuel : Paramètre $\lambda$
+
+**Contrôle de flexibilité :**
+- $\lambda$ petit → Modèle flexible (faible biais, forte variance)
+- $\lambda$ grand → Modèle rigide (fort biais, faible variance)
+
+**Optimum :** $\lambda$ intermédiaire minimisant MSE totale
+
+## Pourquoi ce compromis ?
+
+::: {.callout-tip}
+**Cas extrêmes :**
+
+**Biais nul possible** → Modèle passant par tous les points
+**Problème :** Variance énorme !
+
+**Variance nulle possible** → Modèle constant  
+**Problème :** Biais énorme !
+
+**→ Il faut contrôler les deux simultanément**
+:::
+
+## Applications pratiques
+
+**Exemples de méthodes :**
+
+| Méthode | Flexibilité | Biais | Variance |
+|:--------|:----------:|:-----:|:--------:|
+| Régression linéaire | Faible | Élevé | Faible |
+| k-NN (k grand) | Faible | Élevé | Faible |
+| k-NN (k petit) | Élevée | Faible | Élevée |
+| Splines | Variable | Variable | Variable |
+
+## Stratégies d'optimisation
+
+**Comment trouver l'équilibre ?**
+
+::: {.incremental}
+1. **Validation croisée** → Estimer erreur de prédiction
+2. **Régularisation** → Contrôler la complexité du modèle
+3. **Sélection de modèle** → Comparer différentes flexibilités
+4. **Ensemble methods** → Combiner plusieurs modèles
+:::
+
+## Implications pour la pratique
+
+**Questions à se poser :**
+
+::: {.incremental}
+- Ai-je assez de données pour un modèle flexible ?
+- Mon objectif est-il la prédiction ou la compréhension ?
+- Quelle est la complexité réelle du phénomène ?
+- Comment évaluer la performance sur nouvelles données ?
+:::
+
+## Récapitulatif
+
+::: {.incremental}
+1. **Erreur totale** = Biais² + Variance + Bruit irréductible
+2. **Compromis fondamental** entre biais et variance
+3. **Modèles rigides** → Fort biais, faible variance
+4. **Modèles flexibles** → Faible biais, forte variance  
+5. **Optimum** → Équilibre minimisant l'erreur totale
+6. **Pas de solution universelle** → Adapter au contexte
+:::
+
+## Conclusion
+
+**Le compromis biais/variance est au cœur de l'apprentissage statistique**
+
+::: {.fragment}
+**Prochaines étapes :**
+- Comment mesurer ce compromis en pratique ?
+- Quelles méthodes pour l'optimiser ?
+- Comment valider nos choix ?
+:::
+
+::: {.fragment}
+**→ Validation et sélection de modèles**
+:::

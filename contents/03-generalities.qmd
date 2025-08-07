@@ -7,7 +7,17 @@ format:
       - \usepackage{mathtools} 
 ---
 
-* Slides: [link](../slides/03-generalities-slides.qmd)
+* Slides:
+  
+  - [Projet d'analyse de données](../slides/03-generalities-stat-slides.qmd)
+  
+  - [Espaces](../slides/03-generalities-space-slides.qmd)
+  
+  - [Distances](../slides/03-generalities-distance-slides.qmd)
+  
+  - [Biais / Variance](../slides/03-generalities-bias-variance-slides.qmd)
+  
+  - [Évaluation de modèles](../slides/03-generalities-model-evaluation-slides.qmd)
 
 * TD: [link](../td/03-generalities-td.qmd)
 

@@ -1,0 +1,278 @@
+--- 
+title: "Généralités"
+subtitle: "Data"
+author: "Steven Golovkine"
+lang: fr
+date: today
+date-format: "DD MMM YYYY"
+slide-number: c/t
+title-logo: ../include/logo-ul.png
+format:
+  revealjs:
+    theme: [default, ../include/ulaval-slide.scss]
+    chalkboard: true
+    width: 1280
+    height: 720
+    template-partials:
+      - title-slide.html
+--- 
+
+
+## Pourquoi les distances ?
+
+Dans tout projet d'analyse de données, il faut pouvoir quantifier la **ressemblance** ou la **dissemblance** entre observations.
+
+::: {.fragment}
+**Impact direct sur :**
+- Algorithmes d'apprentissage
+- Méthodes de regroupement  
+- Techniques de visualisation
+:::
+
+## Plan
+
+1. **Notion de distance** - Définition mathématique
+2. **Distances numériques** - $L_q$, euclidienne, Manhattan
+3. **Notion de similarité** - Concept opposé
+4. **Variables qualitatives** - Encodages et distances adaptées
+5. **Distance de Jaccard** - Cas des variables binaires
+
+## Définition mathématique
+
+::: {.callout-warning}
+**Distance sur $\mathcal{X}$**
+
+Une fonction $d: \mathcal{X} \times \mathcal{X} \to \mathbb{R}$ est une distance si :
+
+1. **Non-négativité :** $d(x, y) \geq 0$
+2. **Séparation :** $d(x, y) = 0 \Leftrightarrow x = y$  
+3. **Symétrie :** $d(x, y) = d(y, x)$
+4. **Inégalité triangulaire :** $d(x, y) \leq d(x, z) + d(y, z)$
+:::
+
+## Distance euclidienne
+
+::: {.callout-note}
+**Pour $x, y \in \mathbb{R}^p$ :**
+$$d(x, y) = \left\| x - y \right\|_2 = \sqrt{\sum_{i=1}^{p} (x_i - y_i)^2}$$
+
+**Quand l'utiliser :**
+Variables numériques de même ordre de grandeur
+:::
+
+## Distance $L_q$ (Minkowski)
+
+::: {.callout-note}
+**Formule générale :**
+$$d(x, y) = \left( \sum_{i=1}^{p} |x_i - y_i|^q \right)^{1/q}$$
+
+**Cas particuliers :**
+- $q = 1$ : **Distance de Manhattan** $\sum_{i=1}^{p} |x_i - y_i|$
+- $q = 2$ : **Distance euclidienne**
+:::
+
+## Exemple concret
+
+| Nom | Taille (cm) | Poids (kg) |
+|:---:|:----------:|:---------:|
+| Alice | 162.1 | 66.8 |
+| Bob | 175.8 | 81.6 |
+
+::: {.fragment}
+**Distance euclidienne :**
+$$d = \sqrt{(162.1-175.8)^2 + (66.8-81.6)^2} = 20.16$$
+:::
+
+::: {.fragment}
+**Distance de Manhattan :**
+$$d = |162.1-175.8| + |66.8-81.6| = 28.5$$
+:::
+
+## Problème d'échelle
+
+::: {.callout-important}
+**Attention !** Les distances $L_q$ ne sont **pas invariantes** aux changements d'échelle.
+
+**Solution :** Standardiser les variables
+$$d(x, y) = \sum_{i=1}^{p} \left( \frac{x_i - y_i}{\sigma_i} \right)^2$$
+
+où $\sigma_i$ = écart-type de la variable $i$
+:::
+
+## Notion de similarité
+
+::: {.callout-warning}
+**Mesure de similarité sur $\mathcal{X}$**
+
+Une fonction $s: \mathcal{X} \times \mathcal{X} \to \mathbb{R}$ telle que :
+
+1. $s(x, y) \geq 0$
+2. $s(x, y) = s(y, x)$ (symétrie)
+3. $s(x, x) = 1 \geq s(x, y)$ (maximum pour soi-même)
+:::
+
+**Plus la similarité est grande → plus les observations sont proches**
+
+## Conversion distance ↔ similarité
+
+**Distance → Similarité :**
+$$s(x, y) = \frac{1}{1 + d(x, y)}$$
+
+**Similarité → Dissemblance :**
+$$d^*(x, y) = 1 - s(x, y)$$
+
+::: {.fragment}
+⚠️ **Attention :** Similarité ne respecte pas toujours l'inégalité triangulaire
+:::
+
+## Variables qualitatives : Le défi
+
+**Problème :** Pour $\mathcal{X} = \{\text{Rouge}, \text{Vert}, \text{Bleu}\}$
+
+❌ **Mauvaise pratique :** Rouge=1, Vert=2, Bleu=3
+→ Introduit un ordre artificiel !
+
+✅ **Bonne pratique :** Encodage adapté
+
+## Encodage "1 parmi K"
+
+**One-hot encoding :**
+- Rouge → $(1, 0, 0)$
+- Vert → $(0, 1, 0)$  
+- Bleu → $(0, 0, 1)$
+
+::: {.fragment}
+**Avantages :** Pas d'ordre artificiel
+
+**Inconvénients :** Grande dimension si beaucoup de modalités
+:::
+
+## Distance discrète (Hamming)
+
+::: {.callout-note}
+**Pour deux observations qualitatives :**
+$$d(x, y) = \begin{cases}
+0, & \text{si } x = y \\
+1, & \text{si } x \neq y
+\end{cases}$$
+
+**Pour des vecteurs :**
+$$d(x, y) = \sum_{i=1}^{p} \mathbb{1}(x_i \neq y_i)$$
+:::
+
+## Exemple : Distance discrète
+
+| Nom | Couleur | Yeux | Cheveux |
+|:---:|:-------:|:----:|:-------:|
+| Alice | Rouge | Bleu | Blond |
+| Bob | Vert | Bleu | Roux |
+| Chris | Rouge | Vert | Blond |
+
+::: {.fragment}
+$$d(\text{Alice}, \text{Bob}) = 1 + 0 + 1 = 2$$
+$$d(\text{Alice}, \text{Chris}) = 0 + 1 + 0 = 1$$
+$$d(\text{Bob}, \text{Chris}) = 1 + 1 + 1 = 3$$
+:::
+
+## Similarité par accords
+
+**Compter les accords normalisés :**
+$$s(x, y) = \frac{1}{p}\sum_{i=1}^{p} \mathbb{1}(x_i = y_i)$$
+
+::: {.fragment}
+**Exemple précédent :**
+- $s(\text{Alice}, \text{Bob}) = \frac{1}{3}$
+- $s(\text{Alice}, \text{Chris}) = \frac{2}{3}$  
+- $s(\text{Bob}, \text{Chris}) = 0$
+:::
+
+## Problème des variables binaires
+
+**Avec encodage "1 parmi K" :**
+- Beaucoup de variables binaires
+- Beaucoup de 0, peu de 1
+- Distance discrète peu informative
+
+::: {.fragment}
+**Solution :** Se concentrer sur les attributs à 1
+**→ Distance de Jaccard**
+:::
+
+## Indice de Jaccard : Définition
+
+**Pour deux observations de K variables binaires :**
+
+- $M_{11}$ : nombre de variables à 1 pour x et y
+- $M_{10}$ : nombre de variables à 1 pour x, 0 pour y  
+- $M_{01}$ : nombre de variables à 0 pour x, 1 pour y
+- $M_{00}$ : nombre de variables à 0 pour x et y
+
+::: {.fragment}
+$$J(x, y) = \frac{M_{11}}{M_{10} + M_{01} + M_{11}} = \frac{M_{11}}{K - M_{00}}$$
+:::
+
+## Distance de Jaccard
+
+::: {.callout-important}
+**Distance de Jaccard :**
+$$d(x, y) = 1 - J(x, y) = \frac{M_{10} + M_{01}}{M_{01} + M_{10} + M_{11}}$$
+
+**Intuition :** Proportion de désaccords parmi les variables "actives"
+:::
+
+## Exemple : Distance de Jaccard
+
+| Nom | Q1 | Q2 | Q3 | Q4 | Q5 |
+|:---:|:--:|:--:|:--:|:--:|:--:|
+| Alice | 1 | 0 | 1 | 0 | 0 |
+| Bob | 1 | 0 | 0 | 1 | 0 |
+
+::: {.fragment}
+- $M_{11} = 1$, $M_{10} = 1$, $M_{01} = 1$, $M_{00} = 2$
+- $J(\text{Alice}, \text{Bob}) = \frac{1}{3}$
+- $d(\text{Alice}, \text{Bob}) = \frac{2}{3}$
+:::
+
+## Récapitulatif des distances
+
+| Type de données | Distance recommandée |
+|:----------------|:-------------------|
+| **Numériques** | Euclidienne (standardisée) |
+| **Qualitatives** | Discrète (Hamming) |
+| **Binaires nombreuses** | Jaccard |
+| **Mixtes** | Combinaison adaptée |
+
+## Propriétés importantes
+
+✅ **Distance euclidienne standardisée :** Invariante par changement d'échelle
+
+✅ **Distance de Jaccard :** Ignore les double-absences (00)
+
+✅ **Toutes respectent :** Les 4 propriétés mathématiques des distances
+
+## Choix pratique de la distance
+
+**Questions à se poser :**
+
+1. Quel type de variables ? (numériques/qualitatives)
+2. Même échelle ou standardisation nécessaire ?
+3. Beaucoup de variables binaires ?
+4. Les double-absences sont-elles informatives ?
+
+::: {.fragment}
+**→ Le choix de distance influence directement les résultats !**
+:::
+
+## Conclusion
+
+::: {.incremental}
+1. **Distance** = mesure de dissemblance (4 propriétés mathématiques)
+2. **Similarité** = mesure de ressemblance (concept opposé)  
+3. **Variables numériques** → Distance euclidienne (standardisée)
+4. **Variables qualitatives** → Encodage + distance adaptée
+5. **Variables binaires** → Distance de Jaccard pour ignorer les 00
+:::
+
+::: {.fragment}
+**Next:** Comment utiliser ces distances dans des modèles ?
+:::

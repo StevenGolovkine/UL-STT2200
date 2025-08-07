@@ -1,0 +1,234 @@
+--- 
+title: "Généralités"
+subtitle: "Espaces"
+author: "Steven Golovkine"
+lang: fr
+date: today
+date-format: "DD MMM YYYY"
+slide-number: c/t
+title-logo: ../include/logo-ul.png
+format:
+  revealjs:
+    theme: [default, ../include/ulaval-slide.scss]
+    chalkboard: true
+    width: 1280
+    height: 720
+    template-partials:
+      - title-slide.html
+--- 
+
+
+## Pourquoi étudier les espaces ?
+
+Le **type de variables** détermine :
+
+::: {.incremental}
+- L'**espace mathématique** dans lequel elle vit
+- Les **mesures de distance** qu'on peut utiliser
+- Les **modèles pertinents** à utiliser
+:::
+
+::: {.fragment}
+**→ Fondamental avant toute modélisation !**
+:::
+
+## Plan
+
+1. **Unité statistique** - Le choix du niveau d'analyse
+2. **Types de variables** - 4 catégories principales  
+3. **Espaces associés** - Le cadre mathématique $\mathcal{X}$
+
+## Unité statistique
+
+:::: {.columns}
+
+::: {.column width="60%"}
+**Définition :**
+L'élément de base sur lequel une observation est effectuée.
+
+**C'est un choix** du modélisateur qui détermine le niveau d'agrégation de l'analyse.
+:::
+
+::: {.column width="40%"}
+**Exemples :**
+- Enquête revenus → **individu**
+- Étude lycée → **classe**  
+- Imagerie médicale → **image**
+:::
+
+::::
+
+## Attention : Niveaux d'analyse multiples
+
+::: {.callout-caution}
+**Exemple : Image médicale**
+
+Une image = collection de pixels
+
+**Choix 1 :** Pixel comme unité
+→ Variables : RVB, opacité par pixel
+
+**Choix 2 :** Image comme unité  
+→ Variables : caractéristiques globales
+:::
+
+## Types de variables : Vue d'ensemble
+
+4 types principaux :
+
+1. **Numérique** (quantitative)
+2. **Ordinale** 
+3. **Nominale symétrique**
+4. **Nominale asymétrique**
+
+## 1. Variable numérique
+
+::: {.callout-warning}
+**Définition :** Valeurs numériques représentant une quantité mesurable
+
+**Exemples :**
+- Revenu en dollars
+- Masse corporelle  
+- Âge en années
+- Température
+:::
+
+**Espace naturel :** $\mathcal{X} = \mathbb{R}$ (ou sous-ensemble)
+
+## 2. Variable ordinale
+
+::: {.callout-warning}
+**Définition :** Variable qualitative dont les modalités peuvent être ordonnées naturellement, **sans que l'écart soit quantifiable**
+
+**Exemples :**
+- Niveau de revenu : faible < moyen < élevé
+- Satisfaction : pas du tout < peu < moyennement < très < tout à fait
+:::
+
+## 3. Variable nominale symétrique
+
+::: {.callout-warning}
+**Définition :** Variable qualitative où **toutes les modalités sont aussi informatives** les unes que les autres
+
+**Exemples :**
+- Nationalité : française, canadienne, allemande...
+- Filière : mathématiques, physique, biologie...
+- Couleur : rouge, vert, bleu...
+:::
+
+## 4. Variable nominale asymétrique
+
+::: {.callout-warning}
+**Définition :** Variable qualitative où **une modalité a un statut particulier** (souvent "par défaut" ou plus fréquente)
+
+**Exemples :**
+- Présence/absence de symptôme
+- Transaction frauduleuse/normale
+- Défaut/bon fonctionnement
+:::
+
+**Principe :** 2 observations "par défaut" → peu d'information  
+2 observations "non par défaut" → beaucoup d'information
+
+## Au-delà des variables classiques
+
+**Autres types de données :**
+- Courbes et signaux
+- Textes et séquences
+- Images et vidéos  
+- Réseaux et graphes
+- Données géospatiales
+
+**→ Le choix de représentation dépend de l'unité statistique**
+
+## Espaces d'observation $\mathcal{X}$
+
+:::: {.columns}
+
+::: {.column width="60%"}
+**Définition :**
+Espace mathématique dans lequel nos variables prennent leurs valeurs.
+
+**Rôle :**
+- Cadre formel de travail
+- Guide les choix méthodologiques
+:::
+
+::: {.column width="40%"}
+**Notation :**
+$\mathcal{X}$ = espace d'observation
+:::
+
+::::
+
+## Variable numérique → $\mathbb{R}$
+
+::: {.callout-note}
+**Cas général :** $\mathcal{X} = \mathbb{R}$
+
+**Cas restreints :**
+- Taille d'une personne : $\mathcal{X} = [0, +\infty)$
+- Probabilité : $\mathcal{X} = [0, 1]$  
+- Pourcentage : $\mathcal{X} = [0, 100]$
+:::
+
+## Variable nominale → Ensemble fini
+
+::: {.callout-note}
+**Exemple : Lancer de dé**
+$$\mathcal{X} = \{1, 2, 3, 4, 5, 6\}$$
+
+**Exemple : Filière d'étude**
+$$\mathcal{X} = \{\text{Math}, \text{Physique}, \text{Bio}, \text{Info}\}$$
+:::
+
+## Espaces plus complexes
+
+**Analyse de courbes :**
+$$\mathcal{X} = \mathcal{C}([a,b])$$
+(fonctions continues sur $[a,b]$)
+
+**Analyse de texte :**
+$$\mathcal{X} = \{A, B, C, \ldots, Z\}$$
+(alphabet)
+
+## Variables multiples : Produit cartésien
+
+**Observation simultanée :** taille + poids + sexe
+
+$$\mathcal{X} = \mathcal{X}_1 \times \mathcal{X}_2 \times \mathcal{X}_3$$
+
+**Cas particulier :** $p$ variables numériques
+$$\mathcal{X} = \mathbb{R}^p$$
+
+## Exemple concret
+
+**Étude d'étudiants :**
+- Age (numérique) : $\mathcal{X}_1 = [16, 30]$
+- Filière (nominale symétrique) : $\mathcal{X}_2 = \{\text{Math}, \text{Physique}\}$  
+- Satisfaction (ordinale) : $\mathcal{X}_3 = \{\text{Faible}, \text{Moyen}, \text{Élevé}\}$
+
+**Espace d'observation :**
+$$\mathcal{X} = [16, 30] \times \{\text{Math}, \text{Physique}\} \times \{\text{Faible}, \text{Moyen}, \text{Élevé}\}$$
+
+## Récapitulatif
+
+| Type de variable | Exemple | Espace typique |
+|:----------------|:--------|:---------------|
+| **Numérique** | Âge, revenu | $\mathbb{R}$, $[0,+\infty)$ |
+| **Ordinale** | Satisfaction | Ensemble ordonné fini |
+| **Nominale symétrique** | Nationalité | Ensemble fini |
+| **Nominale asymétrique** | Présence/absence | $\{0, 1\}$ |
+
+## Conclusion
+
+::: {.incremental}
+1. **L'unité statistique** définit le niveau d'analyse
+2. **Le type de variable** guide le choix de l'espace
+3. **L'espace d'observation** $\mathcal{X}$ est le cadre mathématique
+4. **Variables multiples** → produit cartésien
+:::
+
+::: {.fragment}
+**Prochaine étape :** Définir des distances dans ces espaces !
+:::
