@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr"><head>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/slides/03-generalities-slides.html" />
-<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/slides/03-generalities-slides.en.html" />
+<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/slides/03-generalities-distance-slides.html" />
+<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/slides/03-generalities-distance-slides.en.html" />
 <script src="../site_libs/quarto-html/tabby.min.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -145,15 +145,386 @@ Steven Golovkine
 </div>
 </div>
 
-  <p class="date">06 août 2025</p>
+  <p class="date">07 août 2025</p>
   <figure>
     <center>
       <img src="../include/logo-ul.png" alt="logo" width="40%">
     </center>
   </figure>
 </section>
-<section class="slide level2">
-
+<section id="pourquoi-les-distances" class="slide level2">
+<h2>Pourquoi les distances ?</h2>
+<p>Dans tout projet d’analyse de données, il faut pouvoir quantifier la <strong>ressemblance</strong> ou la <strong>dissemblance</strong> entre observations.</p>
+<div class="fragment">
+<p><strong>Impact direct sur :</strong> - Algorithmes d’apprentissage - Méthodes de regroupement<br>
+- Techniques de visualisation</p>
+</div>
+</section>
+<section id="plan" class="slide level2">
+<h2>Plan</h2>
+<ol type="1">
+<li><strong>Notion de distance</strong> - Définition mathématique</li>
+<li><strong>Distances numériques</strong> - <span class="math inline">\(L_q\)</span>, euclidienne, Manhattan</li>
+<li><strong>Notion de similarité</strong> - Concept opposé</li>
+<li><strong>Variables qualitatives</strong> - Encodages et distances adaptées</li>
+<li><strong>Distance de Jaccard</strong> - Cas des variables binaires</li>
+</ol>
+</section>
+<section id="définition-mathématique" class="slide level2">
+<h2>Définition mathématique</h2>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Avertissement</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Distance sur <span class="math inline">\(\mathcal{X}\)</span></strong></p>
+<p>Une fonction <span class="math inline">\(d: \mathcal{X} \times \mathcal{X} \to \mathbb{R}\)</span> est une distance si :</p>
+<ol type="1">
+<li><strong>Non-négativité :</strong> <span class="math inline">\(d(x, y) \geq 0\)</span></li>
+<li><strong>Séparation :</strong> <span class="math inline">\(d(x, y) = 0 \Leftrightarrow x = y\)</span><br>
+</li>
+<li><strong>Symétrie :</strong> <span class="math inline">\(d(x, y) = d(y, x)\)</span></li>
+<li><strong>Inégalité triangulaire :</strong> <span class="math inline">\(d(x, y) \leq d(x, z) + d(y, z)\)</span></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="distance-euclidienne" class="slide level2">
+<h2>Distance euclidienne</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Pour <span class="math inline">\(x, y \in \mathbb{R}^p\)</span> :</strong> <span class="math display">\[d(x, y) = \left\| x - y \right\|_2 = \sqrt{\sum_{i=1}^{p} (x_i - y_i)^2}\]</span></p>
+<p><strong>Quand l’utiliser :</strong> Variables numériques de même ordre de grandeur</p>
+</div>
+</div>
+</div>
+</section>
+<section id="distance-l_q-minkowski" class="slide level2">
+<h2>Distance <span class="math inline">\(L_q\)</span> (Minkowski)</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Formule générale :</strong> <span class="math display">\[d(x, y) = \left( \sum_{i=1}^{p} |x_i - y_i|^q \right)^{1/q}\]</span></p>
+<p><strong>Cas particuliers :</strong> - <span class="math inline">\(q = 1\)</span> : <strong>Distance de Manhattan</strong> <span class="math inline">\(\sum_{i=1}^{p} |x_i - y_i|\)</span> - <span class="math inline">\(q = 2\)</span> : <strong>Distance euclidienne</strong></p>
+</div>
+</div>
+</div>
+</section>
+<section id="exemple-concret" class="slide level2">
+<h2>Exemple concret</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Nom</th>
+<th style="text-align: center;">Taille (cm)</th>
+<th style="text-align: center;">Poids (kg)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Alice</td>
+<td style="text-align: center;">162.1</td>
+<td style="text-align: center;">66.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Bob</td>
+<td style="text-align: center;">175.8</td>
+<td style="text-align: center;">81.6</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p><strong>Distance euclidienne :</strong> <span class="math display">\[d = \sqrt{(162.1-175.8)^2 + (66.8-81.6)^2} = 20.16\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>Distance de Manhattan :</strong> <span class="math display">\[d = |162.1-175.8| + |66.8-81.6| = 28.5\]</span></p>
+</div>
+</section>
+<section id="problème-déchelle" class="slide level2">
+<h2>Problème d’échelle</h2>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Attention !</strong> Les distances <span class="math inline">\(L_q\)</span> ne sont <strong>pas invariantes</strong> aux changements d’échelle.</p>
+<p><strong>Solution :</strong> Standardiser les variables <span class="math display">\[d(x, y) = \sum_{i=1}^{p} \left( \frac{x_i - y_i}{\sigma_i} \right)^2\]</span></p>
+<p>où <span class="math inline">\(\sigma_i\)</span> = écart-type de la variable <span class="math inline">\(i\)</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="notion-de-similarité" class="slide level2">
+<h2>Notion de similarité</h2>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Avertissement</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Mesure de similarité sur <span class="math inline">\(\mathcal{X}\)</span></strong></p>
+<p>Une fonction <span class="math inline">\(s: \mathcal{X} \times \mathcal{X} \to \mathbb{R}\)</span> telle que :</p>
+<ol type="1">
+<li><span class="math inline">\(s(x, y) \geq 0\)</span></li>
+<li><span class="math inline">\(s(x, y) = s(y, x)\)</span> (symétrie)</li>
+<li><span class="math inline">\(s(x, x) = 1 \geq s(x, y)\)</span> (maximum pour soi-même)</li>
+</ol>
+</div>
+</div>
+</div>
+<p><strong>Plus la similarité est grande → plus les observations sont proches</strong></p>
+</section>
+<section id="conversion-distance-similarité" class="slide level2">
+<h2>Conversion distance ↔︎ similarité</h2>
+<p><strong>Distance → Similarité :</strong> <span class="math display">\[s(x, y) = \frac{1}{1 + d(x, y)}\]</span></p>
+<p><strong>Similarité → Dissemblance :</strong> <span class="math display">\[d^*(x, y) = 1 - s(x, y)\]</span></p>
+<div class="fragment">
+<p>⚠️ <strong>Attention :</strong> Similarité ne respecte pas toujours l’inégalité triangulaire</p>
+</div>
+</section>
+<section id="variables-qualitatives-le-défi" class="slide level2">
+<h2>Variables qualitatives : Le défi</h2>
+<p><strong>Problème :</strong> Pour <span class="math inline">\(\mathcal{X} = \{\text{Rouge}, \text{Vert}, \text{Bleu}\}\)</span></p>
+<p>❌ <strong>Mauvaise pratique :</strong> Rouge=1, Vert=2, Bleu=3 → Introduit un ordre artificiel !</p>
+<p>✅ <strong>Bonne pratique :</strong> Encodage adapté</p>
+</section>
+<section id="encodage-1-parmi-k" class="slide level2">
+<h2>Encodage “1 parmi K”</h2>
+<p><strong>One-hot encoding :</strong> - Rouge → <span class="math inline">\((1, 0, 0)\)</span> - Vert → <span class="math inline">\((0, 1, 0)\)</span><br>
+- Bleu → <span class="math inline">\((0, 0, 1)\)</span></p>
+<div class="fragment">
+<p><strong>Avantages :</strong> Pas d’ordre artificiel</p>
+<p><strong>Inconvénients :</strong> Grande dimension si beaucoup de modalités</p>
+</div>
+</section>
+<section id="distance-discrète-hamming" class="slide level2">
+<h2>Distance discrète (Hamming)</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Pour deux observations qualitatives :</strong> <span class="math display">\[d(x, y) = \begin{cases}
+0, &amp; \text{si } x = y \\
+1, &amp; \text{si } x \neq y
+\end{cases}\]</span></p>
+<p><strong>Pour des vecteurs :</strong> <span class="math display">\[d(x, y) = \sum_{i=1}^{p} \mathbb{1}(x_i \neq y_i)\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="exemple-distance-discrète" class="slide level2">
+<h2>Exemple : Distance discrète</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Nom</th>
+<th style="text-align: center;">Couleur</th>
+<th style="text-align: center;">Yeux</th>
+<th style="text-align: center;">Cheveux</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Alice</td>
+<td style="text-align: center;">Rouge</td>
+<td style="text-align: center;">Bleu</td>
+<td style="text-align: center;">Blond</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Bob</td>
+<td style="text-align: center;">Vert</td>
+<td style="text-align: center;">Bleu</td>
+<td style="text-align: center;">Roux</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Chris</td>
+<td style="text-align: center;">Rouge</td>
+<td style="text-align: center;">Vert</td>
+<td style="text-align: center;">Blond</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p><span class="math display">\[d(\text{Alice}, \text{Bob}) = 1 + 0 + 1 = 2\]</span> <span class="math display">\[d(\text{Alice}, \text{Chris}) = 0 + 1 + 0 = 1\]</span> <span class="math display">\[d(\text{Bob}, \text{Chris}) = 1 + 1 + 1 = 3\]</span></p>
+</div>
+</section>
+<section id="similarité-par-accords" class="slide level2">
+<h2>Similarité par accords</h2>
+<p><strong>Compter les accords normalisés :</strong> <span class="math display">\[s(x, y) = \frac{1}{p}\sum_{i=1}^{p} \mathbb{1}(x_i = y_i)\]</span></p>
+<div class="fragment">
+<p><strong>Exemple précédent :</strong> - <span class="math inline">\(s(\text{Alice}, \text{Bob}) = \frac{1}{3}\)</span> - <span class="math inline">\(s(\text{Alice}, \text{Chris}) = \frac{2}{3}\)</span><br>
+- <span class="math inline">\(s(\text{Bob}, \text{Chris}) = 0\)</span></p>
+</div>
+</section>
+<section id="problème-des-variables-binaires" class="slide level2">
+<h2>Problème des variables binaires</h2>
+<p><strong>Avec encodage “1 parmi K” :</strong> - Beaucoup de variables binaires - Beaucoup de 0, peu de 1 - Distance discrète peu informative</p>
+<div class="fragment">
+<p><strong>Solution :</strong> Se concentrer sur les attributs à 1 <strong>→ Distance de Jaccard</strong></p>
+</div>
+</section>
+<section id="indice-de-jaccard-définition" class="slide level2">
+<h2>Indice de Jaccard : Définition</h2>
+<p><strong>Pour deux observations de K variables binaires :</strong></p>
+<ul>
+<li><span class="math inline">\(M_{11}\)</span> : nombre de variables à 1 pour x et y</li>
+<li><span class="math inline">\(M_{10}\)</span> : nombre de variables à 1 pour x, 0 pour y<br>
+</li>
+<li><span class="math inline">\(M_{01}\)</span> : nombre de variables à 0 pour x, 1 pour y</li>
+<li><span class="math inline">\(M_{00}\)</span> : nombre de variables à 0 pour x et y</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[J(x, y) = \frac{M_{11}}{M_{10} + M_{01} + M_{11}} = \frac{M_{11}}{K - M_{00}}\]</span></p>
+</div>
+</section>
+<section id="distance-de-jaccard" class="slide level2">
+<h2>Distance de Jaccard</h2>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Distance de Jaccard :</strong> <span class="math display">\[d(x, y) = 1 - J(x, y) = \frac{M_{10} + M_{01}}{M_{01} + M_{10} + M_{11}}\]</span></p>
+<p><strong>Intuition :</strong> Proportion de désaccords parmi les variables “actives”</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exemple-distance-de-jaccard" class="slide level2">
+<h2>Exemple : Distance de Jaccard</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Nom</th>
+<th style="text-align: center;">Q1</th>
+<th style="text-align: center;">Q2</th>
+<th style="text-align: center;">Q3</th>
+<th style="text-align: center;">Q4</th>
+<th style="text-align: center;">Q5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Alice</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Bob</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<ul>
+<li><span class="math inline">\(M_{11} = 1\)</span>, <span class="math inline">\(M_{10} = 1\)</span>, <span class="math inline">\(M_{01} = 1\)</span>, <span class="math inline">\(M_{00} = 2\)</span></li>
+<li><span class="math inline">\(J(\text{Alice}, \text{Bob}) = \frac{1}{3}\)</span></li>
+<li><span class="math inline">\(d(\text{Alice}, \text{Bob}) = \frac{2}{3}\)</span></li>
+</ul>
+</div>
+</section>
+<section id="récapitulatif-des-distances" class="slide level2">
+<h2>Récapitulatif des distances</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Type de données</th>
+<th style="text-align: left;">Distance recommandée</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Numériques</strong></td>
+<td style="text-align: left;">Euclidienne (standardisée)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Qualitatives</strong></td>
+<td style="text-align: left;">Discrète (Hamming)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Binaires nombreuses</strong></td>
+<td style="text-align: left;">Jaccard</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Mixtes</strong></td>
+<td style="text-align: left;">Combinaison adaptée</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="propriétés-importantes" class="slide level2">
+<h2>Propriétés importantes</h2>
+<p>✅ <strong>Distance euclidienne standardisée :</strong> Invariante par changement d’échelle</p>
+<p>✅ <strong>Distance de Jaccard :</strong> Ignore les double-absences (00)</p>
+<p>✅ <strong>Toutes respectent :</strong> Les 4 propriétés mathématiques des distances</p>
+</section>
+<section id="choix-pratique-de-la-distance" class="slide level2">
+<h2>Choix pratique de la distance</h2>
+<p><strong>Questions à se poser :</strong></p>
+<ol type="1">
+<li>Quel type de variables ? (numériques/qualitatives)</li>
+<li>Même échelle ou standardisation nécessaire ?</li>
+<li>Beaucoup de variables binaires ?</li>
+<li>Les double-absences sont-elles informatives ?</li>
+</ol>
+<div class="fragment">
+<p><strong>→ Le choix de distance influence directement les résultats !</strong></p>
+</div>
+</section>
+<section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
+<ol type="1">
+<li class="fragment"><strong>Distance</strong> = mesure de dissemblance (4 propriétés mathématiques)</li>
+<li class="fragment"><strong>Similarité</strong> = mesure de ressemblance (concept opposé)<br>
+</li>
+<li class="fragment"><strong>Variables numériques</strong> → Distance euclidienne (standardisée)</li>
+<li class="fragment"><strong>Variables qualitatives</strong> → Encodage + distance adaptée</li>
+<li class="fragment"><strong>Variables binaires</strong> → Distance de Jaccard pour ignorer les 00</li>
+</ol>
+<div class="fragment">
+<p><strong>Next:</strong> Comment utiliser ces distances dans des modèles ?</p>
+</div>
 
 
 </section>

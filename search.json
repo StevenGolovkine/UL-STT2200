@@ -687,6 +687,153 @@
     "text": "Vous pouvez faire les exercices dans le langage de votre choix."
   },
   {
+    "objectID": "slides/03-generalities-bias-variance-slides.html#notre-objectif-de-modélisation",
+    "href": "slides/03-generalities-bias-variance-slides.html#notre-objectif-de-modélisation",
+    "title": "Généralités",
+    "section": "Notre objectif de modélisation",
+    "text": "Notre objectif de modélisation\nModéliser la relation entre : - Variable réponse \\(Y\\) (quantitative, qualitative, etc.) - Variables explicatives \\(X = (X_1, \\ldots, X_p)\\)\n\nModèle général : \\[Y = f(X) + \\varepsilon\\]\n\n\\(f\\) : fonction déterministe (information systématique)\n\\(\\varepsilon\\) : terme d’erreur aléatoire"
+  },
+  {
+    "objectID": "slides/03-generalities-bias-variance-slides.html#hypothèses-du-modèle",
+    "href": "slides/03-generalities-bias-variance-slides.html#hypothèses-du-modèle",
+    "title": "Généralités",
+    "section": "Hypothèses du modèle",
+    "text": "Hypothèses du modèle\nSur le terme d’erreur \\(\\varepsilon\\) :\n\nIndépendant des variables explicatives \\(X\\)\n\\(\\mathbb{E}[\\varepsilon] = 0\\) (espérance nulle)\n\\(\\mathrm{Var}(\\varepsilon) = \\sigma^2\\) (variance constante)\n\n\n→ Cadre général pour toutes les méthodes du cours"
+  },
+  {
+    "objectID": "slides/03-generalities-bias-variance-slides.html#plan",
+    "href": "slides/03-generalities-bias-variance-slides.html#plan",
+    "title": "Généralités",
+    "section": "Plan",
+    "text": "Plan\n\nMesures de qualité - MSE et taux d’erreur\nCompromis biais/variance - Décomposition fondamentale\nFlexibilité des modèles - Rigidité vs adaptabilité\nOptimisation pratique - Trouver l’équilibre"
+  },
+  {
+    "objectID": "slides/03-generalities-bias-variance-slides.html#comment-mesurer-la-qualité",
+    "href": "slides/03-generalities-bias-variance-slides.html#comment-mesurer-la-qualité",
+    "title": "Généralités",
+    "section": "Comment mesurer la qualité ?",
+    "text": "Comment mesurer la qualité ?\nUne fois \\(\\widehat{f}\\) estimé, comment évaluer \\(\\widehat{Y} = \\widehat{f}(X)\\) ?\n\nIdée : Mesurer à quel point \\(\\widehat{Y}\\) est proche de la vraie valeur \\(Y\\)"
+  },
+  {
+    "objectID": "slides/03-generalities-bias-variance-slides.html#variables-quantitatives-mse",
+    "href": "slides/03-generalities-bias-variance-slides.html#variables-quantitatives-mse",
+    "title": "Généralités",
+    "section": "Variables quantitatives : MSE",
+    "text": "Variables quantitatives : MSE\n\n\n\n\n\n\nAvertissement\n\n\nErreur Quadratique Moyenne (MSE) : \\[MSE(Y, \\widehat{Y}) = \\frac{1}{n} \\sum_{i=1}^{n} (y_i - \\widehat{f}(x_i))^2\\]\nInterprétation : Distance moyenne entre valeurs observées et prédites\n\n\n\n\nMSE faible → Prédictions proches des observations"
+  },
+  {
+    "objectID": "slides/03-generalities-bias-variance-slides.html#variables-qualitatives-taux-derreur",
+    "href": "slides/03-generalities-bias-variance-slides.html#variables-qualitatives-taux-derreur",
+    "title": "Généralités",
+    "section": "Variables qualitatives : Taux d’erreur",
+    "text": "Variables qualitatives : Taux d’erreur\n\n\n\n\n\n\nAvertissement\n\n\nTaux d’erreur (ER) : \\[ER(Y, \\widehat{Y}) = \\frac{1}{n} \\sum_{i=1}^{n} \\mathbb{1}(y_i \\neq \\widehat{f}(x_i))\\]\nInterprétation : Proportion de mauvaises prédictions"
+  },
+  {
+    "objectID": "slides/03-generalities-bias-variance-slides.html#exactitude-vs-interprétabilité",
+    "href": "slides/03-generalities-bias-variance-slides.html#exactitude-vs-interprétabilité",
+    "title": "Généralités",
+    "section": "Exactitude vs Interprétabilité",
+    "text": "Exactitude vs Interprétabilité\n\n\nModèles simples - Faciles à interpréter - Relations complexes mal captées - Ex: régression linéaire\n\nModèles flexibles\n- Meilleures prédictions - Difficiles à interpréter - Ex: forêt aléatoire\n\n\nLe choix dépend de l’objectif : compréhension ou performance ?"
+  },
+  {
+    "objectID": "slides/03-generalities-bias-variance-slides.html#no-free-lunch-in-statistics",
+    "href": "slides/03-generalities-bias-variance-slides.html#no-free-lunch-in-statistics",
+    "title": "Généralités",
+    "section": "“No Free Lunch in Statistics”",
+    "text": "“No Free Lunch in Statistics”\n\n\n\n\n\n\nAstuce\n\n\nIl n’existe pas de méthode universellement optimale !\nUne méthode performante dans un contexte peut échouer ailleurs.\n→ Toujours adapter l’approche au problème"
+  },
+  {
+    "objectID": "slides/03-generalities-bias-variance-slides.html#erreur-de-prédiction",
+    "href": "slides/03-generalities-bias-variance-slides.html#erreur-de-prédiction",
+    "title": "Généralités",
+    "section": "Erreur de prédiction",
+    "text": "Erreur de prédiction\nNotre vrai objectif : Minimiser l’erreur sur de nouvelles données\n\\[\\mathbb{E}[(Y - \\widehat{Y})^2] = \\mathbb{E}[(Y - \\widehat{f}(X))^2]\\]\n\nCette erreur se décompose en 3 parties…"
+  },
+  {
+    "objectID": "slides/03-generalities-bias-variance-slides.html#décomposition-biaisvariance",
+    "href": "slides/03-generalities-bias-variance-slides.html#décomposition-biaisvariance",
+    "title": "Généralités",
+    "section": "Décomposition biais/variance",
+    "text": "Décomposition biais/variance\n\n\n\n\n\n\nImportant\n\n\nThéorème fondamental : \\[\\mathbb{E}[(Y - \\widehat{f}(X))^2] = \\text{Biais}(\\widehat{f}(X))^2 + \\text{Var}(\\widehat{f}(X)) + \\sigma^2\\]\n\n\n\nTrois composantes :\n\nBiais² : Erreur systématique d’approximation\nVariance : Sensibilité aux fluctuations d’échantillon\n\n\\(\\sigma^2\\) : Erreur irréductible (bruit intrinsèque)"
+  },
+  {
+    "objectID": "slides/03-generalities-bias-variance-slides.html#interprétation-des-composantes",
+    "href": "slides/03-generalities-bias-variance-slides.html#interprétation-des-composantes",
+    "title": "Généralités",
+    "section": "Interprétation des composantes",
+    "text": "Interprétation des composantes\nBiais : - Erreur due à une approximation systématique - Ex: modèle linéaire pour relation non-linéaire\nVariance : - Variabilité de \\(\\widehat{f}\\) selon l’échantillon d’apprentissage - Mesure la “stabilité” de l’estimateur\nErreur irréductible : - Bruit \\(\\varepsilon\\) qu’aucun modèle ne peut éliminer"
+  },
+  {
+    "objectID": "slides/03-generalities-bias-variance-slides.html#le-compromis-fondamental",
+    "href": "slides/03-generalities-bias-variance-slides.html#le-compromis-fondamental",
+    "title": "Généralités",
+    "section": "Le compromis fondamental",
+    "text": "Le compromis fondamental\n\n\nModèle peu flexible - ✅ Variance faible - ❌ Biais élevé - Ex: droite de régression\n\nModèle très flexible - ❌ Variance élevée\n- ✅ Biais faible - Ex: interpolation parfaite\n\n\n→ Besoin d’un équilibre optimal !"
+  },
+  {
+    "objectID": "slides/03-generalities-bias-variance-slides.html#exemple-régression-linéaire-simple",
+    "href": "slides/03-generalities-bias-variance-slides.html#exemple-régression-linéaire-simple",
+    "title": "Généralités",
+    "section": "Exemple : Régression linéaire simple",
+    "text": "Exemple : Régression linéaire simple\n\n\n\n\n\n\nNote\n\n\nHypothèse : \\(f(x) = ax + b\\)\nEstimation : Se résume à estimer les coefficients \\(a\\) et \\(b\\)\nCaractéristique : Modèle rigide, faible variance, biais potentiellement élevé"
+  },
+  {
+    "objectID": "slides/03-generalities-bias-variance-slides.html#courbe-en-u-de-lerreur",
+    "href": "slides/03-generalities-bias-variance-slides.html#courbe-en-u-de-lerreur",
+    "title": "Généralités",
+    "section": "Courbe en U de l’erreur",
+    "text": "Courbe en U de l’erreur\nComportement typique :\n\nFlexibilité faible → Biais élevé, variance faible\nFlexibilité augmente → Biais diminue plus vite que variance augmente\nOptimum → Minimum de l’erreur totale\nFlexibilité excessive → Variance explose, biais négligeable\n\n\n→ Courbe en U caractéristique"
+  },
+  {
+    "objectID": "slides/03-generalities-bias-variance-slides.html#exemple-visuel-paramètre-lambda",
+    "href": "slides/03-generalities-bias-variance-slides.html#exemple-visuel-paramètre-lambda",
+    "title": "Généralités",
+    "section": "Exemple visuel : Paramètre \\(\\lambda\\)",
+    "text": "Exemple visuel : Paramètre \\(\\lambda\\)\nContrôle de flexibilité : - \\(\\lambda\\) petit → Modèle flexible (faible biais, forte variance) - \\(\\lambda\\) grand → Modèle rigide (fort biais, faible variance)\nOptimum : \\(\\lambda\\) intermédiaire minimisant MSE totale"
+  },
+  {
+    "objectID": "slides/03-generalities-bias-variance-slides.html#pourquoi-ce-compromis",
+    "href": "slides/03-generalities-bias-variance-slides.html#pourquoi-ce-compromis",
+    "title": "Généralités",
+    "section": "Pourquoi ce compromis ?",
+    "text": "Pourquoi ce compromis ?\n\n\n\n\n\n\nAstuce\n\n\nCas extrêmes :\nBiais nul possible → Modèle passant par tous les points Problème : Variance énorme !\nVariance nulle possible → Modèle constant\nProblème : Biais énorme !\n→ Il faut contrôler les deux simultanément"
+  },
+  {
+    "objectID": "slides/03-generalities-bias-variance-slides.html#applications-pratiques",
+    "href": "slides/03-generalities-bias-variance-slides.html#applications-pratiques",
+    "title": "Généralités",
+    "section": "Applications pratiques",
+    "text": "Applications pratiques\nExemples de méthodes :\n\n\n\nMéthode\nFlexibilité\nBiais\nVariance\n\n\n\n\nRégression linéaire\nFaible\nÉlevé\nFaible\n\n\nk-NN (k grand)\nFaible\nÉlevé\nFaible\n\n\nk-NN (k petit)\nÉlevée\nFaible\nÉlevée\n\n\nSplines\nVariable\nVariable\nVariable"
+  },
+  {
+    "objectID": "slides/03-generalities-bias-variance-slides.html#stratégies-doptimisation",
+    "href": "slides/03-generalities-bias-variance-slides.html#stratégies-doptimisation",
+    "title": "Généralités",
+    "section": "Stratégies d’optimisation",
+    "text": "Stratégies d’optimisation\nComment trouver l’équilibre ?\n\nValidation croisée → Estimer erreur de prédiction\nRégularisation → Contrôler la complexité du modèle\nSélection de modèle → Comparer différentes flexibilités\nEnsemble methods → Combiner plusieurs modèles"
+  },
+  {
+    "objectID": "slides/03-generalities-bias-variance-slides.html#implications-pour-la-pratique",
+    "href": "slides/03-generalities-bias-variance-slides.html#implications-pour-la-pratique",
+    "title": "Généralités",
+    "section": "Implications pour la pratique",
+    "text": "Implications pour la pratique\nQuestions à se poser :\n\nAi-je assez de données pour un modèle flexible ?\nMon objectif est-il la prédiction ou la compréhension ?\nQuelle est la complexité réelle du phénomène ?\nComment évaluer la performance sur nouvelles données ?"
+  },
+  {
+    "objectID": "slides/03-generalities-bias-variance-slides.html#récapitulatif",
+    "href": "slides/03-generalities-bias-variance-slides.html#récapitulatif",
+    "title": "Généralités",
+    "section": "Récapitulatif",
+    "text": "Récapitulatif\n\nErreur totale = Biais² + Variance + Bruit irréductible\nCompromis fondamental entre biais et variance\nModèles rigides → Fort biais, faible variance\nModèles flexibles → Faible biais, forte variance\n\nOptimum → Équilibre minimisant l’erreur totale\nPas de solution universelle → Adapter au contexte"
+  },
+  {
+    "objectID": "slides/03-generalities-bias-variance-slides.html#conclusion",
+    "href": "slides/03-generalities-bias-variance-slides.html#conclusion",
+    "title": "Généralités",
+    "section": "Conclusion",
+    "text": "Conclusion\nLe compromis biais/variance est au cœur de l’apprentissage statistique\n\nProchaines étapes : - Comment mesurer ce compromis en pratique ? - Quelles méthodes pour l’optimiser ? - Comment valider nos choix ?\n\n\n→ Validation et sélection de modèles"
+  },
+  {
     "objectID": "slides/02-revisions-programming-slides.html#philosophie-du-cours",
     "href": "slides/02-revisions-programming-slides.html#philosophie-du-cours",
     "title": "Révisions",
@@ -1044,6 +1191,132 @@
     "text": "Merci pour votre attention !\n\n\n\n\nDeisenroth, Marc Peter, A. Aldo Faisal, et Cheng Soon Ong. 2020. Mathematics for Machine Learning. 1ʳᵉ éd. Cambridge University Press. https://doi.org/10.1017/9781108679930.\n\n\nGrifone, Joseph. 2024. Algèbre Linéaire. 7e edition. Toulouse: CEPADUES."
   },
   {
+    "objectID": "slides/03-generalities-space-slides.html#pourquoi-étudier-les-espaces",
+    "href": "slides/03-generalities-space-slides.html#pourquoi-étudier-les-espaces",
+    "title": "Généralités",
+    "section": "Pourquoi étudier les espaces ?",
+    "text": "Pourquoi étudier les espaces ?\nLe type de variables détermine :\n\nL’espace mathématique dans lequel elle vit\nLes mesures de distance qu’on peut utiliser\nLes modèles pertinents à utiliser\n\n\n→ Fondamental avant toute modélisation !"
+  },
+  {
+    "objectID": "slides/03-generalities-space-slides.html#plan",
+    "href": "slides/03-generalities-space-slides.html#plan",
+    "title": "Généralités",
+    "section": "Plan",
+    "text": "Plan\n\nUnité statistique - Le choix du niveau d’analyse\nTypes de variables - 4 catégories principales\n\nEspaces associés - Le cadre mathématique \\(\\mathcal{X}\\)"
+  },
+  {
+    "objectID": "slides/03-generalities-space-slides.html#unité-statistique",
+    "href": "slides/03-generalities-space-slides.html#unité-statistique",
+    "title": "Généralités",
+    "section": "Unité statistique",
+    "text": "Unité statistique\n\n\nDéfinition : L’élément de base sur lequel une observation est effectuée.\nC’est un choix du modélisateur qui détermine le niveau d’agrégation de l’analyse.\n\nExemples : - Enquête revenus → individu - Étude lycée → classe\n- Imagerie médicale → image"
+  },
+  {
+    "objectID": "slides/03-generalities-space-slides.html#attention-niveaux-danalyse-multiples",
+    "href": "slides/03-generalities-space-slides.html#attention-niveaux-danalyse-multiples",
+    "title": "Généralités",
+    "section": "Attention : Niveaux d’analyse multiples",
+    "text": "Attention : Niveaux d’analyse multiples\n\n\n\n\n\n\nMise en garde\n\n\nExemple : Image médicale\nUne image = collection de pixels\nChoix 1 : Pixel comme unité → Variables : RVB, opacité par pixel\nChoix 2 : Image comme unité\n→ Variables : caractéristiques globales"
+  },
+  {
+    "objectID": "slides/03-generalities-space-slides.html#types-de-variables-vue-densemble",
+    "href": "slides/03-generalities-space-slides.html#types-de-variables-vue-densemble",
+    "title": "Généralités",
+    "section": "Types de variables : Vue d’ensemble",
+    "text": "Types de variables : Vue d’ensemble\n4 types principaux :\n\nNumérique (quantitative)\nOrdinale\nNominale symétrique\nNominale asymétrique"
+  },
+  {
+    "objectID": "slides/03-generalities-space-slides.html#variable-numérique",
+    "href": "slides/03-generalities-space-slides.html#variable-numérique",
+    "title": "Généralités",
+    "section": "1. Variable numérique",
+    "text": "1. Variable numérique\n\n\n\n\n\n\nAvertissement\n\n\nDéfinition : Valeurs numériques représentant une quantité mesurable\nExemples : - Revenu en dollars - Masse corporelle\n- Âge en années - Température\n\n\n\nEspace naturel : \\(\\mathcal{X} = \\mathbb{R}\\) (ou sous-ensemble)"
+  },
+  {
+    "objectID": "slides/03-generalities-space-slides.html#variable-ordinale",
+    "href": "slides/03-generalities-space-slides.html#variable-ordinale",
+    "title": "Généralités",
+    "section": "2. Variable ordinale",
+    "text": "2. Variable ordinale\n\n\n\n\n\n\nAvertissement\n\n\nDéfinition : Variable qualitative dont les modalités peuvent être ordonnées naturellement, sans que l’écart soit quantifiable\nExemples : - Niveau de revenu : faible &lt; moyen &lt; élevé - Satisfaction : pas du tout &lt; peu &lt; moyennement &lt; très &lt; tout à fait"
+  },
+  {
+    "objectID": "slides/03-generalities-space-slides.html#variable-nominale-symétrique",
+    "href": "slides/03-generalities-space-slides.html#variable-nominale-symétrique",
+    "title": "Généralités",
+    "section": "3. Variable nominale symétrique",
+    "text": "3. Variable nominale symétrique\n\n\n\n\n\n\nAvertissement\n\n\nDéfinition : Variable qualitative où toutes les modalités sont aussi informatives les unes que les autres\nExemples : - Nationalité : française, canadienne, allemande… - Filière : mathématiques, physique, biologie… - Couleur : rouge, vert, bleu…"
+  },
+  {
+    "objectID": "slides/03-generalities-space-slides.html#variable-nominale-asymétrique",
+    "href": "slides/03-generalities-space-slides.html#variable-nominale-asymétrique",
+    "title": "Généralités",
+    "section": "4. Variable nominale asymétrique",
+    "text": "4. Variable nominale asymétrique\n\n\n\n\n\n\nAvertissement\n\n\nDéfinition : Variable qualitative où une modalité a un statut particulier (souvent “par défaut” ou plus fréquente)\nExemples : - Présence/absence de symptôme - Transaction frauduleuse/normale - Défaut/bon fonctionnement\n\n\n\nPrincipe : 2 observations “par défaut” → peu d’information\n2 observations “non par défaut” → beaucoup d’information"
+  },
+  {
+    "objectID": "slides/03-generalities-space-slides.html#au-delà-des-variables-classiques",
+    "href": "slides/03-generalities-space-slides.html#au-delà-des-variables-classiques",
+    "title": "Généralités",
+    "section": "Au-delà des variables classiques",
+    "text": "Au-delà des variables classiques\nAutres types de données : - Courbes et signaux - Textes et séquences - Images et vidéos\n- Réseaux et graphes - Données géospatiales\n→ Le choix de représentation dépend de l’unité statistique"
+  },
+  {
+    "objectID": "slides/03-generalities-space-slides.html#espaces-dobservation-mathcalx",
+    "href": "slides/03-generalities-space-slides.html#espaces-dobservation-mathcalx",
+    "title": "Généralités",
+    "section": "Espaces d’observation \\(\\mathcal{X}\\)",
+    "text": "Espaces d’observation \\(\\mathcal{X}\\)\n\n\nDéfinition : Espace mathématique dans lequel nos variables prennent leurs valeurs.\nRôle : - Cadre formel de travail - Guide les choix méthodologiques\n\nNotation : \\(\\mathcal{X}\\) = espace d’observation"
+  },
+  {
+    "objectID": "slides/03-generalities-space-slides.html#variable-numérique-mathbbr",
+    "href": "slides/03-generalities-space-slides.html#variable-numérique-mathbbr",
+    "title": "Généralités",
+    "section": "Variable numérique → \\(\\mathbb{R}\\)",
+    "text": "Variable numérique → \\(\\mathbb{R}\\)\n\n\n\n\n\n\nNote\n\n\nCas général : \\(\\mathcal{X} = \\mathbb{R}\\)\nCas restreints : - Taille d’une personne : \\(\\mathcal{X} = [0, +\\infty)\\) - Probabilité : \\(\\mathcal{X} = [0, 1]\\)\n- Pourcentage : \\(\\mathcal{X} = [0, 100]\\)"
+  },
+  {
+    "objectID": "slides/03-generalities-space-slides.html#variable-nominale-ensemble-fini",
+    "href": "slides/03-generalities-space-slides.html#variable-nominale-ensemble-fini",
+    "title": "Généralités",
+    "section": "Variable nominale → Ensemble fini",
+    "text": "Variable nominale → Ensemble fini\n\n\n\n\n\n\nNote\n\n\nExemple : Lancer de dé \\[\\mathcal{X} = \\{1, 2, 3, 4, 5, 6\\}\\]\nExemple : Filière d’étude \\[\\mathcal{X} = \\{\\text{Math}, \\text{Physique}, \\text{Bio}, \\text{Info}\\}\\]"
+  },
+  {
+    "objectID": "slides/03-generalities-space-slides.html#espaces-plus-complexes",
+    "href": "slides/03-generalities-space-slides.html#espaces-plus-complexes",
+    "title": "Généralités",
+    "section": "Espaces plus complexes",
+    "text": "Espaces plus complexes\nAnalyse de courbes : \\[\\mathcal{X} = \\mathcal{C}([a,b])\\] (fonctions continues sur \\([a,b]\\))\nAnalyse de texte : \\[\\mathcal{X} = \\{A, B, C, \\ldots, Z\\}\\] (alphabet)"
+  },
+  {
+    "objectID": "slides/03-generalities-space-slides.html#variables-multiples-produit-cartésien",
+    "href": "slides/03-generalities-space-slides.html#variables-multiples-produit-cartésien",
+    "title": "Généralités",
+    "section": "Variables multiples : Produit cartésien",
+    "text": "Variables multiples : Produit cartésien\nObservation simultanée : taille + poids + sexe\n\\[\\mathcal{X} = \\mathcal{X}_1 \\times \\mathcal{X}_2 \\times \\mathcal{X}_3\\]\nCas particulier : \\(p\\) variables numériques \\[\\mathcal{X} = \\mathbb{R}^p\\]"
+  },
+  {
+    "objectID": "slides/03-generalities-space-slides.html#exemple-concret",
+    "href": "slides/03-generalities-space-slides.html#exemple-concret",
+    "title": "Généralités",
+    "section": "Exemple concret",
+    "text": "Exemple concret\nÉtude d’étudiants : - Age (numérique) : \\(\\mathcal{X}_1 = [16, 30]\\) - Filière (nominale symétrique) : \\(\\mathcal{X}_2 = \\{\\text{Math}, \\text{Physique}\\}\\)\n- Satisfaction (ordinale) : \\(\\mathcal{X}_3 = \\{\\text{Faible}, \\text{Moyen}, \\text{Élevé}\\}\\)\nEspace d’observation : \\[\\mathcal{X} = [16, 30] \\times \\{\\text{Math}, \\text{Physique}\\} \\times \\{\\text{Faible}, \\text{Moyen}, \\text{Élevé}\\}\\]"
+  },
+  {
+    "objectID": "slides/03-generalities-space-slides.html#récapitulatif",
+    "href": "slides/03-generalities-space-slides.html#récapitulatif",
+    "title": "Généralités",
+    "section": "Récapitulatif",
+    "text": "Récapitulatif\n\n\n\nType de variable\nExemple\nEspace typique\n\n\n\n\nNumérique\nÂge, revenu\n\\(\\mathbb{R}\\), \\([0,+\\infty)\\)\n\n\nOrdinale\nSatisfaction\nEnsemble ordonné fini\n\n\nNominale symétrique\nNationalité\nEnsemble fini\n\n\nNominale asymétrique\nPrésence/absence\n\\(\\{0, 1\\}\\)"
+  },
+  {
+    "objectID": "slides/03-generalities-space-slides.html#conclusion",
+    "href": "slides/03-generalities-space-slides.html#conclusion",
+    "title": "Généralités",
+    "section": "Conclusion",
+    "text": "Conclusion\n\nL’unité statistique définit le niveau d’analyse\nLe type de variable guide le choix de l’espace\nL’espace d’observation \\(\\mathcal{X}\\) est le cadre mathématique\nVariables multiples → produit cartésien\n\n\nProchaine étape : Définir des distances dans ces espaces !"
+  },
+  {
     "objectID": "slides/02-revisions-proba-slides.html#plan-de-la-présentation",
     "href": "slides/02-revisions-proba-slides.html#plan-de-la-présentation",
     "title": "Révisions",
@@ -1268,11 +1541,256 @@
     "text": "Merci pour votre attention !\n\n\n\n\nDelmas, Jean-François. 2013. Introduction au calcul des probabilités et à la statistique : exercices, problèmes et corrections (2e édition). Les Presses de l’ENSTA.\n\n\nWasserman, Larry. 2010. All of Statistics: A Concise Course in Statistical Inference. Springer Publishing Company, Incorporated."
   },
   {
+    "objectID": "slides/03-generalities-stat-slides.html#plan-de-la-présentation",
+    "href": "slides/03-generalities-stat-slides.html#plan-de-la-présentation",
+    "title": "Généralités",
+    "section": "Plan de la présentation",
+    "text": "Plan de la présentation\n\nStructure d’un projet d’analyse\nDéfinition des objectifs\nCollecte et préparation des données\nÉlaboration et validation des modèles\nMise en production\nSuivi et amélioration"
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#structure-dun-projet",
+    "href": "slides/03-generalities-stat-slides.html#structure-dun-projet",
+    "title": "Généralités",
+    "section": "Structure d’un projet",
+    "text": "Structure d’un projet\n5 étapes principales :\n\nDéfinition des objectifs\nCollecte et préparation des données\n\nÉlaboration et validation des modèles\nImplémentation et mise en production\nSuivi de la performance et amélioration continue"
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#répartition-temps-vs-importance",
+    "href": "slides/03-generalities-stat-slides.html#répartition-temps-vs-importance",
+    "title": "Généralités",
+    "section": "Répartition temps vs importance",
+    "text": "Répartition temps vs importance\n\n\n\nÉtape\nTemps\nImportance\n\n\n\n\nComprendre le problème\n10%\n15%\n\n\nExplorer la solution\n9%\n14%\n\n\nImplementer la solution\n1%\n51%\n\n\nPréparer les données\n60%\n15%\n\n\nAnalyser les données\n15%\n3%\n\n\nModéliser les données\n5%\n2%\n\n\n\n\nConstat : L’importance ≠ temps passé !"
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#définition-des-objectifs",
+    "href": "slides/03-generalities-stat-slides.html#définition-des-objectifs",
+    "title": "Généralités",
+    "section": "1. Définition des objectifs",
+    "text": "1. Définition des objectifs\n\n\nPourquoi c’est crucial ?\n\nGuide la collecte des données\nDéfinit le modèle adéquat\nFacilite l’interprétation\nÉvite les explorations aveugles\n\n\nComment bien formuler ?\n\nClarifier les termes\nIdentifier les utilisateurs\nDéfinir la population cible\nPréciser les décisions qui dépendent des résultats"
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#exemples-dobjectifs",
+    "href": "slides/03-generalities-stat-slides.html#exemples-dobjectifs",
+    "title": "Généralités",
+    "section": "Exemples d’objectifs",
+    "text": "Exemples d’objectifs\n\n\n❌ Mauvais objectifs - Analyser les données clients - Analyser les données des adversaires\n- Analyser les données du médicament\n\n✅ Bons objectifs - Prédire quels clients achèteront le produit d’épargne - Caractériser le style de jeu pour identifier les faiblesses - Concevoir un protocole pour tester l’efficacité"
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#sources-de-données",
+    "href": "slides/03-generalities-stat-slides.html#sources-de-données",
+    "title": "Généralités",
+    "section": "2. Sources de données",
+    "text": "2. Sources de données\nPlateformes génériques : - Google datasets - Kaggle - UC Irvine ML Repository\nSources officielles : - Canada: StatCan - France: data.gouv.fr - USA: data.gov\nSources internes : bases clients, transactions, production, web analytics"
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#qualité-des-données",
+    "href": "slides/03-generalities-stat-slides.html#qualité-des-données",
+    "title": "Généralités",
+    "section": "Qualité des données",
+    "text": "Qualité des données\n\n“Garbage in, garbage out”\n\nQuestions essentielles :\n\nLes données sont-elles représentatives ?\nSont-elles exactes, complètes, pertinentes ?\nY a-t-il des valeurs manquantes, doublons, incohérences ?"
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#format-tidy-data",
+    "href": "slides/03-generalities-stat-slides.html#format-tidy-data",
+    "title": "Généralités",
+    "section": "Format “Tidy Data”",
+    "text": "Format “Tidy Data”\n3 principes fondamentaux :\n\nChaque variable = une colonne\nChaque observation = une ligne\n\nChaque cellule = une valeur unique\n\n\n\nR : tidyr, readr, readxl, haven\n\nPython : pandas, polars"
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#exploration-préliminaire",
+    "href": "slides/03-generalities-stat-slides.html#exploration-préliminaire",
+    "title": "Généralités",
+    "section": "Exploration préliminaire",
+    "text": "Exploration préliminaire\nNettoyage : - Supprimer les doublons - Uniformiser les modalités - Vérifier les formats\nExploration : - Modalités rares/nombreuses - Valeurs extrêmes - Corrélations fortes - Classes déséquilibrées - Valeurs manquantes"
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#modélisation-4-composantes",
+    "href": "slides/03-generalities-stat-slides.html#modélisation-4-composantes",
+    "title": "Généralités",
+    "section": "3. Modélisation : 4 composantes",
+    "text": "3. Modélisation : 4 composantes\n\nEspace de représentation (cadre mathématique)\nDistance ou similarité (comparer les observations)\nModèle ou algorithme (méthode d’apprentissage)\nFonction de coût (mesure de qualité)"
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#mise-en-production",
+    "href": "slides/03-generalities-stat-slides.html#mise-en-production",
+    "title": "Généralités",
+    "section": "4. Mise en production",
+    "text": "4. Mise en production\nData Engineering :\n\nAutomatiser la collecte et le nettoyage\nIntégrer le modèle dans l’application\nGénérer rapports/prédictions en temps réel\nMaintenir la pipeline de données\n\nRôle du Data Engineer : conception et maintenance de bout en bout"
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#suivi-et-amélioration",
+    "href": "slides/03-generalities-stat-slides.html#suivi-et-amélioration",
+    "title": "Généralités",
+    "section": "5. Suivi et amélioration",
+    "text": "5. Suivi et amélioration\nDéfis : - Evolution des données (data drift) - Hypothèses initiales invalidées - Nouvelles variables disponibles\nSolutions : - Monitoring régulier des performances - Réentraînement avec données récentes - Amélioration continue du modèle"
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#conclusion",
+    "href": "slides/03-generalities-stat-slides.html#conclusion",
+    "title": "Généralités",
+    "section": "Conclusion",
+    "text": "Conclusion\nUn bon modèle :\n\n✅ Performant à un instant donné\n✅ Robuste dans le temps\n✅ Adaptable aux changements\n\nClé du succès : Équilibre entre toutes les étapes, pas seulement la modélisation !"
+  },
+  {
     "objectID": "slides/01-introduction-slides.html#test",
     "href": "slides/01-introduction-slides.html#test",
     "title": "Introduction",
     "section": "Test",
     "text": "Test\nCoucou"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides.html#pourquoi-les-distances",
+    "href": "slides/03-generalities-distance-slides.html#pourquoi-les-distances",
+    "title": "Généralités",
+    "section": "Pourquoi les distances ?",
+    "text": "Pourquoi les distances ?\nDans tout projet d’analyse de données, il faut pouvoir quantifier la ressemblance ou la dissemblance entre observations.\n\nImpact direct sur : - Algorithmes d’apprentissage - Méthodes de regroupement\n- Techniques de visualisation"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides.html#plan",
+    "href": "slides/03-generalities-distance-slides.html#plan",
+    "title": "Généralités",
+    "section": "Plan",
+    "text": "Plan\n\nNotion de distance - Définition mathématique\nDistances numériques - \\(L_q\\), euclidienne, Manhattan\nNotion de similarité - Concept opposé\nVariables qualitatives - Encodages et distances adaptées\nDistance de Jaccard - Cas des variables binaires"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides.html#définition-mathématique",
+    "href": "slides/03-generalities-distance-slides.html#définition-mathématique",
+    "title": "Généralités",
+    "section": "Définition mathématique",
+    "text": "Définition mathématique\n\n\n\n\n\n\nAvertissement\n\n\nDistance sur \\(\\mathcal{X}\\)\nUne fonction \\(d: \\mathcal{X} \\times \\mathcal{X} \\to \\mathbb{R}\\) est une distance si :\n\nNon-négativité : \\(d(x, y) \\geq 0\\)\nSéparation : \\(d(x, y) = 0 \\Leftrightarrow x = y\\)\n\nSymétrie : \\(d(x, y) = d(y, x)\\)\nInégalité triangulaire : \\(d(x, y) \\leq d(x, z) + d(y, z)\\)"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides.html#distance-euclidienne",
+    "href": "slides/03-generalities-distance-slides.html#distance-euclidienne",
+    "title": "Généralités",
+    "section": "Distance euclidienne",
+    "text": "Distance euclidienne\n\n\n\n\n\n\nNote\n\n\nPour \\(x, y \\in \\mathbb{R}^p\\) : \\[d(x, y) = \\left\\| x - y \\right\\|_2 = \\sqrt{\\sum_{i=1}^{p} (x_i - y_i)^2}\\]\nQuand l’utiliser : Variables numériques de même ordre de grandeur"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides.html#distance-l_q-minkowski",
+    "href": "slides/03-generalities-distance-slides.html#distance-l_q-minkowski",
+    "title": "Généralités",
+    "section": "Distance \\(L_q\\) (Minkowski)",
+    "text": "Distance \\(L_q\\) (Minkowski)\n\n\n\n\n\n\nNote\n\n\nFormule générale : \\[d(x, y) = \\left( \\sum_{i=1}^{p} |x_i - y_i|^q \\right)^{1/q}\\]\nCas particuliers : - \\(q = 1\\) : Distance de Manhattan \\(\\sum_{i=1}^{p} |x_i - y_i|\\) - \\(q = 2\\) : Distance euclidienne"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides.html#exemple-concret",
+    "href": "slides/03-generalities-distance-slides.html#exemple-concret",
+    "title": "Généralités",
+    "section": "Exemple concret",
+    "text": "Exemple concret\n\n\n\nNom\nTaille (cm)\nPoids (kg)\n\n\n\n\nAlice\n162.1\n66.8\n\n\nBob\n175.8\n81.6\n\n\n\n\nDistance euclidienne : \\[d = \\sqrt{(162.1-175.8)^2 + (66.8-81.6)^2} = 20.16\\]\n\n\nDistance de Manhattan : \\[d = |162.1-175.8| + |66.8-81.6| = 28.5\\]"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides.html#problème-déchelle",
+    "href": "slides/03-generalities-distance-slides.html#problème-déchelle",
+    "title": "Généralités",
+    "section": "Problème d’échelle",
+    "text": "Problème d’échelle\n\n\n\n\n\n\nImportant\n\n\nAttention ! Les distances \\(L_q\\) ne sont pas invariantes aux changements d’échelle.\nSolution : Standardiser les variables \\[d(x, y) = \\sum_{i=1}^{p} \\left( \\frac{x_i - y_i}{\\sigma_i} \\right)^2\\]\noù \\(\\sigma_i\\) = écart-type de la variable \\(i\\)"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides.html#notion-de-similarité",
+    "href": "slides/03-generalities-distance-slides.html#notion-de-similarité",
+    "title": "Généralités",
+    "section": "Notion de similarité",
+    "text": "Notion de similarité\n\n\n\n\n\n\nAvertissement\n\n\nMesure de similarité sur \\(\\mathcal{X}\\)\nUne fonction \\(s: \\mathcal{X} \\times \\mathcal{X} \\to \\mathbb{R}\\) telle que :\n\n\\(s(x, y) \\geq 0\\)\n\\(s(x, y) = s(y, x)\\) (symétrie)\n\\(s(x, x) = 1 \\geq s(x, y)\\) (maximum pour soi-même)\n\n\n\n\nPlus la similarité est grande → plus les observations sont proches"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides.html#conversion-distance-similarité",
+    "href": "slides/03-generalities-distance-slides.html#conversion-distance-similarité",
+    "title": "Généralités",
+    "section": "Conversion distance ↔︎ similarité",
+    "text": "Conversion distance ↔︎ similarité\nDistance → Similarité : \\[s(x, y) = \\frac{1}{1 + d(x, y)}\\]\nSimilarité → Dissemblance : \\[d^*(x, y) = 1 - s(x, y)\\]\n\n⚠️ Attention : Similarité ne respecte pas toujours l’inégalité triangulaire"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides.html#variables-qualitatives-le-défi",
+    "href": "slides/03-generalities-distance-slides.html#variables-qualitatives-le-défi",
+    "title": "Généralités",
+    "section": "Variables qualitatives : Le défi",
+    "text": "Variables qualitatives : Le défi\nProblème : Pour \\(\\mathcal{X} = \\{\\text{Rouge}, \\text{Vert}, \\text{Bleu}\\}\\)\n❌ Mauvaise pratique : Rouge=1, Vert=2, Bleu=3 → Introduit un ordre artificiel !\n✅ Bonne pratique : Encodage adapté"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides.html#encodage-1-parmi-k",
+    "href": "slides/03-generalities-distance-slides.html#encodage-1-parmi-k",
+    "title": "Généralités",
+    "section": "Encodage “1 parmi K”",
+    "text": "Encodage “1 parmi K”\nOne-hot encoding : - Rouge → \\((1, 0, 0)\\) - Vert → \\((0, 1, 0)\\)\n- Bleu → \\((0, 0, 1)\\)\n\nAvantages : Pas d’ordre artificiel\nInconvénients : Grande dimension si beaucoup de modalités"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides.html#distance-discrète-hamming",
+    "href": "slides/03-generalities-distance-slides.html#distance-discrète-hamming",
+    "title": "Généralités",
+    "section": "Distance discrète (Hamming)",
+    "text": "Distance discrète (Hamming)\n\n\n\n\n\n\nNote\n\n\nPour deux observations qualitatives : \\[d(x, y) = \\begin{cases}\n0, & \\text{si } x = y \\\\\n1, & \\text{si } x \\neq y\n\\end{cases}\\]\nPour des vecteurs : \\[d(x, y) = \\sum_{i=1}^{p} \\mathbb{1}(x_i \\neq y_i)\\]"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides.html#exemple-distance-discrète",
+    "href": "slides/03-generalities-distance-slides.html#exemple-distance-discrète",
+    "title": "Généralités",
+    "section": "Exemple : Distance discrète",
+    "text": "Exemple : Distance discrète\n\n\n\nNom\nCouleur\nYeux\nCheveux\n\n\n\n\nAlice\nRouge\nBleu\nBlond\n\n\nBob\nVert\nBleu\nRoux\n\n\nChris\nRouge\nVert\nBlond\n\n\n\n\n\\[d(\\text{Alice}, \\text{Bob}) = 1 + 0 + 1 = 2\\] \\[d(\\text{Alice}, \\text{Chris}) = 0 + 1 + 0 = 1\\] \\[d(\\text{Bob}, \\text{Chris}) = 1 + 1 + 1 = 3\\]"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides.html#similarité-par-accords",
+    "href": "slides/03-generalities-distance-slides.html#similarité-par-accords",
+    "title": "Généralités",
+    "section": "Similarité par accords",
+    "text": "Similarité par accords\nCompter les accords normalisés : \\[s(x, y) = \\frac{1}{p}\\sum_{i=1}^{p} \\mathbb{1}(x_i = y_i)\\]\n\nExemple précédent : - \\(s(\\text{Alice}, \\text{Bob}) = \\frac{1}{3}\\) - \\(s(\\text{Alice}, \\text{Chris}) = \\frac{2}{3}\\)\n- \\(s(\\text{Bob}, \\text{Chris}) = 0\\)"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides.html#problème-des-variables-binaires",
+    "href": "slides/03-generalities-distance-slides.html#problème-des-variables-binaires",
+    "title": "Généralités",
+    "section": "Problème des variables binaires",
+    "text": "Problème des variables binaires\nAvec encodage “1 parmi K” : - Beaucoup de variables binaires - Beaucoup de 0, peu de 1 - Distance discrète peu informative\n\nSolution : Se concentrer sur les attributs à 1 → Distance de Jaccard"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides.html#indice-de-jaccard-définition",
+    "href": "slides/03-generalities-distance-slides.html#indice-de-jaccard-définition",
+    "title": "Généralités",
+    "section": "Indice de Jaccard : Définition",
+    "text": "Indice de Jaccard : Définition\nPour deux observations de K variables binaires :\n\n\\(M_{11}\\) : nombre de variables à 1 pour x et y\n\\(M_{10}\\) : nombre de variables à 1 pour x, 0 pour y\n\n\\(M_{01}\\) : nombre de variables à 0 pour x, 1 pour y\n\\(M_{00}\\) : nombre de variables à 0 pour x et y\n\n\n\\[J(x, y) = \\frac{M_{11}}{M_{10} + M_{01} + M_{11}} = \\frac{M_{11}}{K - M_{00}}\\]"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides.html#distance-de-jaccard",
+    "href": "slides/03-generalities-distance-slides.html#distance-de-jaccard",
+    "title": "Généralités",
+    "section": "Distance de Jaccard",
+    "text": "Distance de Jaccard\n\n\n\n\n\n\nImportant\n\n\nDistance de Jaccard : \\[d(x, y) = 1 - J(x, y) = \\frac{M_{10} + M_{01}}{M_{01} + M_{10} + M_{11}}\\]\nIntuition : Proportion de désaccords parmi les variables “actives”"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides.html#exemple-distance-de-jaccard",
+    "href": "slides/03-generalities-distance-slides.html#exemple-distance-de-jaccard",
+    "title": "Généralités",
+    "section": "Exemple : Distance de Jaccard",
+    "text": "Exemple : Distance de Jaccard\n\n\n\nNom\nQ1\nQ2\nQ3\nQ4\nQ5\n\n\n\n\nAlice\n1\n0\n1\n0\n0\n\n\nBob\n1\n0\n0\n1\n0\n\n\n\n\n\n\\(M_{11} = 1\\), \\(M_{10} = 1\\), \\(M_{01} = 1\\), \\(M_{00} = 2\\)\n\\(J(\\text{Alice}, \\text{Bob}) = \\frac{1}{3}\\)\n\\(d(\\text{Alice}, \\text{Bob}) = \\frac{2}{3}\\)"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides.html#récapitulatif-des-distances",
+    "href": "slides/03-generalities-distance-slides.html#récapitulatif-des-distances",
+    "title": "Généralités",
+    "section": "Récapitulatif des distances",
+    "text": "Récapitulatif des distances\n\n\n\nType de données\nDistance recommandée\n\n\n\n\nNumériques\nEuclidienne (standardisée)\n\n\nQualitatives\nDiscrète (Hamming)\n\n\nBinaires nombreuses\nJaccard\n\n\nMixtes\nCombinaison adaptée"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides.html#propriétés-importantes",
+    "href": "slides/03-generalities-distance-slides.html#propriétés-importantes",
+    "title": "Généralités",
+    "section": "Propriétés importantes",
+    "text": "Propriétés importantes\n✅ Distance euclidienne standardisée : Invariante par changement d’échelle\n✅ Distance de Jaccard : Ignore les double-absences (00)\n✅ Toutes respectent : Les 4 propriétés mathématiques des distances"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides.html#choix-pratique-de-la-distance",
+    "href": "slides/03-generalities-distance-slides.html#choix-pratique-de-la-distance",
+    "title": "Généralités",
+    "section": "Choix pratique de la distance",
+    "text": "Choix pratique de la distance\nQuestions à se poser :\n\nQuel type de variables ? (numériques/qualitatives)\nMême échelle ou standardisation nécessaire ?\nBeaucoup de variables binaires ?\nLes double-absences sont-elles informatives ?\n\n\n→ Le choix de distance influence directement les résultats !"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides.html#conclusion",
+    "href": "slides/03-generalities-distance-slides.html#conclusion",
+    "title": "Généralités",
+    "section": "Conclusion",
+    "text": "Conclusion\n\nDistance = mesure de dissemblance (4 propriétés mathématiques)\nSimilarité = mesure de ressemblance (concept opposé)\n\nVariables numériques → Distance euclidienne (standardisée)\nVariables qualitatives → Encodage + distance adaptée\nVariables binaires → Distance de Jaccard pour ignorer les 00\n\n\nNext: Comment utiliser ces distances dans des modèles ?"
   },
   {
     "objectID": "tp/03-generalities-tp.html",
@@ -1765,7 +2283,7 @@
     "href": "contents/03-generalities.html",
     "title": "Généralités",
     "section": "",
-    "text": "Slides: link\nTD: link\nTP: link",
+    "text": "Slides:\n\nProjet d’analyse de données\nEspaces\nDistances\nBiais / Variance\nÉvaluation de modèles\n\nTD: link\nTP: link",
     "crumbs": [
       "Modules",
       "03 - Généralités"

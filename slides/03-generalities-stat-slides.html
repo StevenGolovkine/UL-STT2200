@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr"><head>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/slides/01-introduction-slides.html" />
-<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/slides/01-introduction-slides.en.html" />
+<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/slides/03-generalities-stat-slides.html" />
+<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/slides/03-generalities-stat-slides.en.html" />
 <script src="../site_libs/quarto-html/tabby.min.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -12,7 +12,7 @@
   <meta name="generator" content="quarto-1.7.33">
 
   <meta name="author" content="Steven Golovkine">
-  <title>STT-2200: Analyse de données – Introduction</title>
+  <title>STT-2200: Analyse de données – Généralités</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -125,8 +125,8 @@
       margin-right: 0; 
     }
   </style>
-<meta property="og:title" content="Introduction – STT-2200: Analyse de données">
-<meta property="og:description" content="Data">
+<meta property="og:title" content="Généralités – STT-2200: Analyse de données">
+<meta property="og:description" content="Projet d’analyse de données">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
 <body class="quarto-light">
@@ -134,8 +134,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Introduction</h1>
-  <p class="subtitle">Data</p>
+  <h1 class="title">Généralités</h1>
+  <p class="subtitle">Projet d’analyse de données</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -152,21 +152,183 @@ Steven Golovkine
     </center>
   </figure>
 </section>
-<section>
-<section id="coucou" class="title-slide slide level1 center">
-<h1>Coucou</h1>
+<section id="plan-de-la-présentation" class="slide level2">
+<h2>Plan de la présentation</h2>
+<ol type="1">
+<li>Structure d’un projet d’analyse</li>
+<li>Définition des objectifs</li>
+<li>Collecte et préparation des données</li>
+<li>Élaboration et validation des modèles</li>
+<li>Mise en production</li>
+<li>Suivi et amélioration</li>
+</ol>
+</section>
+<section id="structure-dun-projet" class="slide level2 smaller">
+<h2>Structure d’un projet</h2>
+<p><strong>5 étapes principales :</strong></p>
+<ol type="1">
+<li><strong>Définition des objectifs</strong></li>
+<li><strong>Collecte et préparation des données</strong><br>
+</li>
+<li><strong>Élaboration et validation des modèles</strong></li>
+<li><strong>Implémentation et mise en production</strong></li>
+<li><strong>Suivi de la performance et amélioration continue</strong></li>
+</ol>
+</section>
+<section id="répartition-temps-vs-importance" class="slide level2">
+<h2>Répartition temps vs importance</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Étape</th>
+<th style="text-align: center;">Temps</th>
+<th style="text-align: center;">Importance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Comprendre le problème</td>
+<td style="text-align: center;">10%</td>
+<td style="text-align: center;">15%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Explorer la solution</td>
+<td style="text-align: center;">9%</td>
+<td style="text-align: center;">14%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Implementer la solution</strong></td>
+<td style="text-align: center;"><strong>1%</strong></td>
+<td style="text-align: center;"><strong>51%</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Préparer les données</strong></td>
+<td style="text-align: center;"><strong>60%</strong></td>
+<td style="text-align: center;"><strong>15%</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Analyser les données</td>
+<td style="text-align: center;">15%</td>
+<td style="text-align: center;">3%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Modéliser les données</td>
+<td style="text-align: center;">5%</td>
+<td style="text-align: center;">2%</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p><strong>Constat :</strong> L’importance ≠ temps passé !</p>
+</div>
+</section>
+<section id="définition-des-objectifs" class="slide level2">
+<h2>1. Définition des objectifs</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Pourquoi c’est crucial ?</strong></p>
+<ul>
+<li>Guide la collecte des données</li>
+<li>Définit le modèle adéquat</li>
+<li>Facilite l’interprétation</li>
+<li>Évite les explorations aveugles</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Comment bien formuler ?</strong></p>
+<ul>
+<li>Clarifier les termes</li>
+<li>Identifier les utilisateurs</li>
+<li>Définir la population cible</li>
+<li>Préciser les décisions qui dépendent des résultats</li>
+</ul>
+</div></div>
+</section>
+<section id="exemples-dobjectifs" class="slide level2">
+<h2>Exemples d’objectifs</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>❌ Mauvais objectifs</strong> - Analyser les données clients - Analyser les données des adversaires<br>
+- Analyser les données du médicament</p>
+</div><div class="column" style="width:50%;">
+<p><strong>✅ Bons objectifs</strong> - Prédire quels clients achèteront le produit d’épargne - Caractériser le style de jeu pour identifier les faiblesses - Concevoir un protocole pour tester l’efficacité</p>
+</div></div>
+</section>
+<section id="sources-de-données" class="slide level2">
+<h2>2. Sources de données</h2>
+<p><strong>Plateformes génériques :</strong> - <a href="https://datasetsearch.research.google.com/">Google datasets</a> - <a href="https://www.kaggle.com">Kaggle</a> - <a href="https://archive-beta.ics.uci.edu">UC Irvine ML Repository</a></p>
+<p><strong>Sources officielles :</strong> - Canada: <a href="https://www.statcan.gc.ca/fr/debut">StatCan</a> - France: <a href="https://www.data.gouv.fr/fr/">data.gouv.fr</a> - USA: <a href="https://data.gov">data.gov</a></p>
+<p><strong>Sources internes :</strong> bases clients, transactions, production, web analytics</p>
+</section>
+<section id="qualité-des-données" class="slide level2">
+<h2>Qualité des données</h2>
+<blockquote>
+<p><strong>“Garbage in, garbage out”</strong></p>
+</blockquote>
+<p><strong>Questions essentielles :</strong></p>
+<ul>
+<li>Les données sont-elles <strong>représentatives</strong> ?</li>
+<li>Sont-elles <strong>exactes, complètes, pertinentes</strong> ?</li>
+<li>Y a-t-il des <strong>valeurs manquantes, doublons, incohérences</strong> ?</li>
+</ul>
+</section>
+<section id="format-tidy-data" class="slide level2">
+<h2>Format “Tidy Data”</h2>
+<p><strong>3 principes fondamentaux :</strong></p>
+<ol type="1">
+<li><strong>Chaque variable</strong> = une colonne</li>
+<li><strong>Chaque observation</strong> = une ligne<br>
+</li>
+<li><strong>Chaque cellule</strong> = une valeur unique</li>
+</ol>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>R :</strong> <code>tidyr</code>, <code>readr</code>, <code>readxl</code>, <code>haven</code></p>
+</div><div class="column" style="width:50%;">
+<p><strong>Python :</strong> <code>pandas</code>, <code>polars</code></p>
+</div></div>
+</section>
+<section id="exploration-préliminaire" class="slide level2">
+<h2>Exploration préliminaire</h2>
+<p><strong>Nettoyage :</strong> - Supprimer les doublons - Uniformiser les modalités - Vérifier les formats</p>
+<p><strong>Exploration :</strong> - Modalités rares/nombreuses - Valeurs extrêmes - Corrélations fortes - Classes déséquilibrées - Valeurs manquantes</p>
+</section>
+<section id="modélisation-4-composantes" class="slide level2">
+<h2>3. Modélisation : 4 composantes</h2>
+<ol type="1">
+<li><p><strong>Espace</strong> de représentation (cadre mathématique)</p></li>
+<li><p><strong>Distance</strong> ou similarité (comparer les observations)</p></li>
+<li><p><strong>Modèle</strong> ou algorithme (méthode d’apprentissage)</p></li>
+<li><p><strong>Fonction de coût</strong> (mesure de qualité)</p></li>
+</ol>
+</section>
+<section id="mise-en-production" class="slide level2">
+<h2>4. Mise en production</h2>
+<p><strong>Data Engineering :</strong></p>
+<ul>
+<li>Automatiser la collecte et le nettoyage</li>
+<li>Intégrer le modèle dans l’application</li>
+<li>Générer rapports/prédictions en temps réel</li>
+<li>Maintenir la <em>pipeline</em> de données</li>
+</ul>
+<p><strong>Rôle du Data Engineer :</strong> conception et maintenance de bout en bout</p>
+</section>
+<section id="suivi-et-amélioration" class="slide level2">
+<h2>5. Suivi et amélioration</h2>
+<p><strong>Défis :</strong> - Evolution des données (<em>data drift</em>) - Hypothèses initiales invalidées - Nouvelles variables disponibles</p>
+<p><strong>Solutions :</strong> - <strong>Monitoring</strong> régulier des performances - Réentraînement avec données récentes - Amélioration continue du modèle</p>
+</section>
+<section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
+<p><strong>Un bon modèle :</strong></p>
+<ul>
+<li>✅ Performant à un instant donné</li>
+<li>✅ <strong>Robuste</strong> dans le temps</li>
+<li>✅ <strong>Adaptable</strong> aux changements</li>
+</ul>
+<p><strong>Clé du succès :</strong> Équilibre entre toutes les étapes, pas seulement la modélisation !</p>
+
 
 </section>
-<section id="test" class="slide level2">
-<h2>Test</h2>
-<p>Coucou</p>
-</section>
-<section class="slide level2">
-
-<p><span class="math inline">\(1 + 1 = 2\)</span></p>
-
-
-</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

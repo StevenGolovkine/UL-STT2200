@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr"><head>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/slides/01-introduction-slides.html" />
-<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/slides/01-introduction-slides.en.html" />
+<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/slides/03-generalities-space-slides.html" />
+<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/slides/03-generalities-space-slides.en.html" />
 <script src="../site_libs/quarto-html/tabby.min.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -12,7 +12,7 @@
   <meta name="generator" content="quarto-1.7.33">
 
   <meta name="author" content="Steven Golovkine">
-  <title>STT-2200: Analyse de données – Introduction</title>
+  <title>STT-2200: Analyse de données – Généralités</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -125,8 +125,8 @@
       margin-right: 0; 
     }
   </style>
-<meta property="og:title" content="Introduction – STT-2200: Analyse de données">
-<meta property="og:description" content="Data">
+<meta property="og:title" content="Généralités – STT-2200: Analyse de données">
+<meta property="og:description" content="Espaces">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
 <body class="quarto-light">
@@ -134,8 +134,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Introduction</h1>
-  <p class="subtitle">Data</p>
+  <h1 class="title">Généralités</h1>
+  <p class="subtitle">Espaces</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -152,21 +152,256 @@ Steven Golovkine
     </center>
   </figure>
 </section>
-<section>
-<section id="coucou" class="title-slide slide level1 center">
-<h1>Coucou</h1>
+<section id="pourquoi-étudier-les-espaces" class="slide level2">
+<h2>Pourquoi étudier les espaces ?</h2>
+<p>Le <strong>type de variables</strong> détermine :</p>
+<ul>
+<li class="fragment">L’<strong>espace mathématique</strong> dans lequel elle vit</li>
+<li class="fragment">Les <strong>mesures de distance</strong> qu’on peut utiliser</li>
+<li class="fragment">Les <strong>modèles pertinents</strong> à utiliser</li>
+</ul>
+<div class="fragment">
+<p><strong>→ Fondamental avant toute modélisation !</strong></p>
+</div>
+</section>
+<section id="plan" class="slide level2">
+<h2>Plan</h2>
+<ol type="1">
+<li><strong>Unité statistique</strong> - Le choix du niveau d’analyse</li>
+<li><strong>Types de variables</strong> - 4 catégories principales<br>
+</li>
+<li><strong>Espaces associés</strong> - Le cadre mathématique <span class="math inline">\(\mathcal{X}\)</span></li>
+</ol>
+</section>
+<section id="unité-statistique" class="slide level2">
+<h2>Unité statistique</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><strong>Définition :</strong> L’élément de base sur lequel une observation est effectuée.</p>
+<p><strong>C’est un choix</strong> du modélisateur qui détermine le niveau d’agrégation de l’analyse.</p>
+</div><div class="column" style="width:40%;">
+<p><strong>Exemples :</strong> - Enquête revenus → <strong>individu</strong> - Étude lycée → <strong>classe</strong><br>
+- Imagerie médicale → <strong>image</strong></p>
+</div></div>
+</section>
+<section id="attention-niveaux-danalyse-multiples" class="slide level2">
+<h2>Attention : Niveaux d’analyse multiples</h2>
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Mise en garde</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Exemple : Image médicale</strong></p>
+<p>Une image = collection de pixels</p>
+<p><strong>Choix 1 :</strong> Pixel comme unité → Variables : RVB, opacité par pixel</p>
+<p><strong>Choix 2 :</strong> Image comme unité<br>
+→ Variables : caractéristiques globales</p>
+</div>
+</div>
+</div>
+</section>
+<section id="types-de-variables-vue-densemble" class="slide level2">
+<h2>Types de variables : Vue d’ensemble</h2>
+<p>4 types principaux :</p>
+<ol type="1">
+<li><strong>Numérique</strong> (quantitative)</li>
+<li><strong>Ordinale</strong></li>
+<li><strong>Nominale symétrique</strong></li>
+<li><strong>Nominale asymétrique</strong></li>
+</ol>
+</section>
+<section id="variable-numérique" class="slide level2">
+<h2>1. Variable numérique</h2>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Avertissement</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Définition :</strong> Valeurs numériques représentant une quantité mesurable</p>
+<p><strong>Exemples :</strong> - Revenu en dollars - Masse corporelle<br>
+- Âge en années - Température</p>
+</div>
+</div>
+</div>
+<p><strong>Espace naturel :</strong> <span class="math inline">\(\mathcal{X} = \mathbb{R}\)</span> (ou sous-ensemble)</p>
+</section>
+<section id="variable-ordinale" class="slide level2">
+<h2>2. Variable ordinale</h2>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Avertissement</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Définition :</strong> Variable qualitative dont les modalités peuvent être ordonnées naturellement, <strong>sans que l’écart soit quantifiable</strong></p>
+<p><strong>Exemples :</strong> - Niveau de revenu : faible &lt; moyen &lt; élevé - Satisfaction : pas du tout &lt; peu &lt; moyennement &lt; très &lt; tout à fait</p>
+</div>
+</div>
+</div>
+</section>
+<section id="variable-nominale-symétrique" class="slide level2">
+<h2>3. Variable nominale symétrique</h2>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Avertissement</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Définition :</strong> Variable qualitative où <strong>toutes les modalités sont aussi informatives</strong> les unes que les autres</p>
+<p><strong>Exemples :</strong> - Nationalité : française, canadienne, allemande… - Filière : mathématiques, physique, biologie… - Couleur : rouge, vert, bleu…</p>
+</div>
+</div>
+</div>
+</section>
+<section id="variable-nominale-asymétrique" class="slide level2">
+<h2>4. Variable nominale asymétrique</h2>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Avertissement</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Définition :</strong> Variable qualitative où <strong>une modalité a un statut particulier</strong> (souvent “par défaut” ou plus fréquente)</p>
+<p><strong>Exemples :</strong> - Présence/absence de symptôme - Transaction frauduleuse/normale - Défaut/bon fonctionnement</p>
+</div>
+</div>
+</div>
+<p><strong>Principe :</strong> 2 observations “par défaut” → peu d’information<br>
+2 observations “non par défaut” → beaucoup d’information</p>
+</section>
+<section id="au-delà-des-variables-classiques" class="slide level2">
+<h2>Au-delà des variables classiques</h2>
+<p><strong>Autres types de données :</strong> - Courbes et signaux - Textes et séquences - Images et vidéos<br>
+- Réseaux et graphes - Données géospatiales</p>
+<p><strong>→ Le choix de représentation dépend de l’unité statistique</strong></p>
+</section>
+<section id="espaces-dobservation-mathcalx" class="slide level2">
+<h2>Espaces d’observation <span class="math inline">\(\mathcal{X}\)</span></h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><strong>Définition :</strong> Espace mathématique dans lequel nos variables prennent leurs valeurs.</p>
+<p><strong>Rôle :</strong> - Cadre formel de travail - Guide les choix méthodologiques</p>
+</div><div class="column" style="width:40%;">
+<p><strong>Notation :</strong> <span class="math inline">\(\mathcal{X}\)</span> = espace d’observation</p>
+</div></div>
+</section>
+<section id="variable-numérique-mathbbr" class="slide level2">
+<h2>Variable numérique → <span class="math inline">\(\mathbb{R}\)</span></h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Cas général :</strong> <span class="math inline">\(\mathcal{X} = \mathbb{R}\)</span></p>
+<p><strong>Cas restreints :</strong> - Taille d’une personne : <span class="math inline">\(\mathcal{X} = [0, +\infty)\)</span> - Probabilité : <span class="math inline">\(\mathcal{X} = [0, 1]\)</span><br>
+- Pourcentage : <span class="math inline">\(\mathcal{X} = [0, 100]\)</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="variable-nominale-ensemble-fini" class="slide level2">
+<h2>Variable nominale → Ensemble fini</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Exemple : Lancer de dé</strong> <span class="math display">\[\mathcal{X} = \{1, 2, 3, 4, 5, 6\}\]</span></p>
+<p><strong>Exemple : Filière d’étude</strong> <span class="math display">\[\mathcal{X} = \{\text{Math}, \text{Physique}, \text{Bio}, \text{Info}\}\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="espaces-plus-complexes" class="slide level2">
+<h2>Espaces plus complexes</h2>
+<p><strong>Analyse de courbes :</strong> <span class="math display">\[\mathcal{X} = \mathcal{C}([a,b])\]</span> (fonctions continues sur <span class="math inline">\([a,b]\)</span>)</p>
+<p><strong>Analyse de texte :</strong> <span class="math display">\[\mathcal{X} = \{A, B, C, \ldots, Z\}\]</span> (alphabet)</p>
+</section>
+<section id="variables-multiples-produit-cartésien" class="slide level2">
+<h2>Variables multiples : Produit cartésien</h2>
+<p><strong>Observation simultanée :</strong> taille + poids + sexe</p>
+<p><span class="math display">\[\mathcal{X} = \mathcal{X}_1 \times \mathcal{X}_2 \times \mathcal{X}_3\]</span></p>
+<p><strong>Cas particulier :</strong> <span class="math inline">\(p\)</span> variables numériques <span class="math display">\[\mathcal{X} = \mathbb{R}^p\]</span></p>
+</section>
+<section id="exemple-concret" class="slide level2">
+<h2>Exemple concret</h2>
+<p><strong>Étude d’étudiants :</strong> - Age (numérique) : <span class="math inline">\(\mathcal{X}_1 = [16, 30]\)</span> - Filière (nominale symétrique) : <span class="math inline">\(\mathcal{X}_2 = \{\text{Math}, \text{Physique}\}\)</span><br>
+- Satisfaction (ordinale) : <span class="math inline">\(\mathcal{X}_3 = \{\text{Faible}, \text{Moyen}, \text{Élevé}\}\)</span></p>
+<p><strong>Espace d’observation :</strong> <span class="math display">\[\mathcal{X} = [16, 30] \times \{\text{Math}, \text{Physique}\} \times \{\text{Faible}, \text{Moyen}, \text{Élevé}\}\]</span></p>
+</section>
+<section id="récapitulatif" class="slide level2">
+<h2>Récapitulatif</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Type de variable</th>
+<th style="text-align: left;">Exemple</th>
+<th style="text-align: left;">Espace typique</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Numérique</strong></td>
+<td style="text-align: left;">Âge, revenu</td>
+<td style="text-align: left;"><span class="math inline">\(\mathbb{R}\)</span>, <span class="math inline">\([0,+\infty)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Ordinale</strong></td>
+<td style="text-align: left;">Satisfaction</td>
+<td style="text-align: left;">Ensemble ordonné fini</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Nominale symétrique</strong></td>
+<td style="text-align: left;">Nationalité</td>
+<td style="text-align: left;">Ensemble fini</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Nominale asymétrique</strong></td>
+<td style="text-align: left;">Présence/absence</td>
+<td style="text-align: left;"><span class="math inline">\(\{0, 1\}\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
+<ol type="1">
+<li class="fragment"><strong>L’unité statistique</strong> définit le niveau d’analyse</li>
+<li class="fragment"><strong>Le type de variable</strong> guide le choix de l’espace</li>
+<li class="fragment"><strong>L’espace d’observation</strong> <span class="math inline">\(\mathcal{X}\)</span> est le cadre mathématique</li>
+<li class="fragment"><strong>Variables multiples</strong> → produit cartésien</li>
+</ol>
+<div class="fragment">
+<p><strong>Prochaine étape :</strong> Définir des distances dans ces espaces !</p>
+</div>
+
 
 </section>
-<section id="test" class="slide level2">
-<h2>Test</h2>
-<p>Coucou</p>
-</section>
-<section class="slide level2">
-
-<p><span class="math inline">\(1 + 1 = 2\)</span></p>
-
-
-</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
