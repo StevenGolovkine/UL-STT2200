@@ -1,0 +1,287 @@
+--- 
+title: "Dimension"
+subtitle: "Analyse des correspondances multiples"
+author: "Steven Golovkine"
+lang: fr
+date: today
+date-format: "DD MMM YYYY"
+slide-number: c/t
+title-logo: ../include/logo-ul.png
+format:
+  revealjs:
+    theme: [default, ../include/ulaval-slide.scss]
+    chalkboard: true
+    width: 1280
+    height: 720
+    template-partials:
+      - title-slide.html
+--- 
+
+
+
+## Introduction à l'ACM
+
+L'**Analyse des Correspondances Multiples (ACM)** est un prolongement de l'AFC pour analyser **plus de deux variables qualitatives**.
+
+**Applications classiques** :
+- Questionnaires à choix multiples ($Q$ questions)
+- Visualisation de réponses d'enquêtes
+- Variables mixtes (quantitatives + qualitatives)
+
+**Principe fondamental** : Transformation préalable par **codage disjonctif complet**.
+
+## Extension de l'AFC
+
+L'ACM peut être vue comme :
+
+1. **AFC généralisée** : Plus de 2 variables qualitatives
+2. **ACP adaptée** : Variables mixtes (quanti + quali)
+3. **Analyse de questionnaires** : Réponses à choix multiples
+
+**Transformation clé** : Passer des variables originales aux modalités binaires.
+
+## Notation de base
+
+- $n$ : nombre d'individus (observations)
+- $Q$ : nombre de variables (questions)  
+- $J_q$ : nombre de modalités de la variable $q$
+- $J$ : nombre total de modalités ($J = \sum_{q=1}^Q J_q$)
+
+**Objectif** : Représenter graphiquement les relations entre toutes ces modalités.
+
+## Codage disjonctif complet
+
+::: {.callout-warning}
+**Définition** : Tableau binaire $Z$ ($n \times J$) contenant uniquement des 0 et des 1.
+:::
+
+**Principe** :
+- Chaque variable → ses modalités
+- Individu possède modalité → code 1
+- Individu ne possède pas modalité → code 0
+- **Disjonctif** : au plus une modalité par variable
+- **Complet** : au moins une modalité par variable
+
+## Exemple concret - Données
+
+**Produits avec Type et Prix** :
+
+| Produit | Type | Prix ($) |
+|---------|------|----------|
+| Nike Tech Fleece | Hoodie | 256.72 |
+| Puma Joggers | Joggers | 221.26 |
+| Off-White Hoodie | Hoodie | 198.45 |
+| Supreme Hoodie | Hoodie | 235.50 |
+| Jordan 1 High | Sneakers | 298.22 |
+| Nike Dunk Low | Sneakers | 273.00 |
+| Nike Tech Fleece | Hoodie | 162.38 |
+
+**Variable Prix** → 3 classes : <200$, [200$-250$], >250$
+
+## Exemple - Codage disjonctif complet
+
+**Tableau transformé** $Z$ :
+
+| Produit | Hoodie | Joggers | Sneakers | <200$ | [200-250$] | >250$ |
+|---------|:------:|:-------:|:--------:|:-----:|:----------:|:-----:|
+| Nike Tech Fleece | 1 | 0 | 0 | 0 | 0 | 1 |
+| Puma Joggers | 0 | 1 | 0 | 0 | 1 | 0 |
+| Off-White Hoodie | 1 | 0 | 0 | 1 | 0 | 0 |
+| Supreme Hoodie | 1 | 0 | 0 | 0 | 1 | 0 |
+| Jordan 1 High | 0 | 0 | 1 | 0 | 0 | 1 |
+| Nike Dunk Low | 0 | 0 | 1 | 0 | 0 | 1 |
+| Nike Tech Fleece | 1 | 0 | 0 | 1 | 0 | 0 |
+
+Chaque ligne somme à $Q = 2$ (2 variables).
+
+## Propriétés du tableau Z
+
+::: {.callout-important}
+**Propriétés fondamentales** :
+
+1. **Somme par ligne** : $\sum_{j=1}^J z_{ij} = Q$ (constante)
+2. **Somme totale** : $\sum_{i,j} z_{ij} = nQ$ 
+3. **Somme par colonne** : $\sum_{i=1}^n z_{ij} = n_j$ (effectif modalité $j$)
+:::
+
+Ces propriétés découlent directement du codage disjonctif complet.
+
+## Perte d'information
+
+::: {.callout-tip}
+**Variables quantitatives** → **Classes** : Perte d'information inévitable.
+
+- Valeur précise → Appartenance à une classe
+- Exemple : 256.72$ → ">250$"
+- **Compromis** : Granularité vs interprétabilité
+:::
+
+**Enjeu** : Choisir des classes pertinentes pour le problème étudié.
+
+## Tableau de Burt
+
+::: {.callout-warning}
+**Définition** : $B = Z^\top Z$ (matrice $J \times J$)
+:::
+
+**Structure du tableau de Burt** :
+- **Blocs diagonaux** : $B_{qq} = Z_q^\top Z_q$ (effectifs par modalité)
+- **Blocs non-diagonaux** : $B_{qq'} = Z_q^\top Z_{q'}$ (tableaux de contingence)
+- **Symétrique** : $B_{q'q} = B_{qq'}^\top$
+
+## Propriétés du tableau de Burt
+
+**Taille** : $J \times J$ (nombre total de modalités)
+
+**Blocs diagonaux** : Matrices diagonales
+- Éléments = effectifs de chaque modalité
+
+**Blocs non-diagonaux** : Tableaux de contingence  
+- Croisement entre variables $q$ et $q'$
+
+**Symétrie** : $B = B^\top$
+
+## Équivalence mathématique
+
+**Propriété fondamentale** : L'ACM peut s'effectuer sur :
+- Le tableau disjonctif complet $Z$
+- Le tableau de Burt $B = Z^\top Z$
+
+**Résultat** : Les deux approches donnent les **mêmes facteurs** !
+
+Cette équivalence offre une flexibilité computationnelle.
+
+## Éléments propres de Z
+
+**Analyse directe** - Vecteurs propres de :
+$$S = \frac{1}{Q} Z^\top Z D_J^{-1}$$
+
+où $D_J = \text{diag}(n_1, \ldots, n_J)$
+
+**Coordonnées profils-lignes** :
+$$\Phi_k = n Z D_J^{-1} u_k$$
+
+**Analyse duale** - Vecteurs propres de :
+$$T = \frac{1}{Q} Z D_J^{-1} Z^\top$$
+
+## Éléments propres de B
+
+**Tableau de Burt symétrique** → Analyse directe = duale
+
+**Vecteurs propres de** :
+$$S' = \frac{1}{Q^2} B^\top D_J^{-1} B D_J^{-1}$$
+
+**Propriété remarquable** :
+$$S' = \frac{1}{Q^2} Z^\top Z D_J^{-1} Z^\top Z D_J^{-1}$$
+
+## Relation entre valeurs propres
+
+**Théorème fondamental** :
+
+Si $\lambda$ est valeur propre de $S$ (analyse de $Z$),  
+alors $\lambda^2$ est valeur propre de $S'$ (analyse de $B$).
+
+**Conséquence** : 
+- Mêmes vecteurs propres pour $Z$ et $B$
+- Valeurs propres de $B$ = carrés des valeurs propres de $Z$
+
+## Encodage des variables quantitatives
+
+**Choix des bornes** crucial pour la qualité de l'analyse :
+
+**Approches recommandées** :
+- Analyser la distribution (histogrammes)
+- Bornes pertinentes au domaine d'étude
+- Éviter les classes peu informatives
+
+**Approche déconseillée** :
+- Effectifs égaux automatiques
+- Classes sans sens métier
+
+## Encodage des variables qualitatives
+
+**Modalités "naturelles"** mais problèmes potentiels :
+
+**Effectifs déséquilibrés** :
+- Modalités très rares vs très fréquentes
+- Impact sur la représentation
+
+**Solutions** :
+- **Regroupements pertinents** (connaissance du domaine)
+- Éviter la répartition aléatoire
+- Préserver le sens des modalités
+
+## Stratégies d'encodage
+
+**Variables continues** :
+1. Examiner la distribution
+2. Identifier des seuils naturels
+3. Classes équilibrées ET pertinentes
+4. Éviter trop de classes (complexité)
+
+**Variables qualitatives** :
+1. Analyser les effectifs
+2. Regrouper les modalités rares
+3. Préserver la logique métier
+4. Maintenir l'interprétabilité
+
+## Considérations pratiques
+
+**Nombre optimal de classes** :
+- Trop peu → Perte d'information
+- Trop → Complexité, effectifs faibles
+
+**Validation du codage** :
+- Vérifier la pertinence des classes
+- Tester différents découpages
+- Évaluer l'impact sur les résultats
+
+**Documentation** : Justifier les choix d'encodage.
+
+## Applications typiques
+
+**Études marketing** :
+- Profils consommateurs × Préférences
+- Segmentation clientèle
+
+**Sciences sociales** :
+- Enquêtes d'opinion
+- Comportements × Caractéristiques
+
+**Santé publique** :
+- Facteurs de risque × Pathologies
+- Questionnaires de qualité de vie
+
+## Avantages de l'ACM
+
+- **Visualisation** de relations complexes multi-variables
+- **Traitement unifié** de variables hétérogènes  
+- **Réduction de dimension** préservant les associations
+- **Interprétation intuitive** des proximités
+- **Flexibilité** dans l'encodage des variables
+
+## Limites et précautions
+
+**Perte d'information** :
+- Variables continues → classes
+- Choix d'encodage critique
+
+**Sensibilité aux effectifs** :
+- Modalités rares peuvent dominer
+- Équilibrage nécessaire
+
+**Interprétation** :
+- Proximités entre modalités de variables différentes
+- Attention aux artefacts d'encodage
+
+## Conclusion
+
+L'ACM étend l'AFC au cas multi-variables grâce au **codage disjonctif complet**.
+
+**Éléments clés** :
+- Transformation binaire préalable
+- Équivalence $Z$ ↔ Tableau de Burt
+- Choix d'encodage fondamental
+- Visualisation des patterns complexes
+
+**Succès** dépend de la qualité de l'encodage des variables originales.

@@ -1,0 +1,239 @@
+--- 
+title: "Dimension"
+subtitle: "Analyse factorielle des correspondances"
+author: "Steven Golovkine"
+lang: fr
+date: today
+date-format: "DD MMM YYYY"
+slide-number: c/t
+title-logo: ../include/logo-ul.png
+format:
+  revealjs:
+    theme: [default, ../include/ulaval-slide.scss]
+    chalkboard: true
+    width: 1280
+    height: 720
+    template-partials:
+      - title-slide.html
+--- 
+
+
+
+## Introduction à l'AFC
+
+L'**Analyse Factorielle des Correspondances (AFC)** est une méthode d'analyse exploratoire pour représenter graphiquement les relations entre les modalités de **deux variables qualitatives**.
+
+**Objectifs** :
+- Représenter simultanément les profils-lignes et profils-colonnes
+- Préserver la distance du $\chi^2$
+- Trouver une représentation en faible dimension (2D-3D)
+- Révéler les proximités géométriques = similarités entre modalités
+
+## AFC comme double ACP
+
+::: {.callout-tip}
+L'AFC peut être vue comme une **double ACP pondérée** :
+- ACP des profils-lignes dans $\mathbb{R}^p$
+- ACP des profils-colonnes dans $\mathbb{R}^n$ 
+- Avec métriques du $\chi^2$ adaptées à chaque espace
+:::
+
+Cette dualité permet une représentation cohérente des lignes et colonnes dans le même espace réduit.
+
+## Notation de base
+
+**Tableau de contingence** : $K = (k_{ij})$ avec $k_{ij}$ = effectif classe $i$, catégorie $j$
+
+**Tableau de fréquences relatives** : $F = (f_{ij})$ où
+$$f_{ij} = \frac{k_{ij}}{k_{\bullet\bullet}}$$
+
+**Marges** :
+- Ligne : $f_{i\bullet} = \sum_{j=1}^p f_{ij}$
+- Colonne : $f_{\bullet j} = \sum_{i=1}^n f_{ij}$
+- Total : $f_{\bullet\bullet} = 1$
+
+## Exemple concret
+
+**Étudiants STT-2200 (Automne 2025)** : Majeure × Type d'admission
+
+| Majeure | Collège | ULaval | Autre univ. | Hors QC | Total |
+|---------|---------|--------|-------------|---------|-------|
+| Actuariat | 0.08 | 0 | 0 | 0.04 | 0.12 |
+| Statistique | 0.08 | 0.16 | 0.04 | 0 | 0.28 |
+| Bio-info | 0.16 | 0.08 | 0 | 0.08 | 0.32 |
+| Finance | 0.08 | 0 | 0 | 0 | 0.08 |
+| **Total** | **0.52** | **0.28** | **0.04** | **0.16** | **1** |
+
+25 étudiants au total, convertis en fréquences relatives.
+
+## Indépendance statistique
+
+**Test d'indépendance** : Si les variables sont indépendantes,
+$$f_{ij} \approx f_{i\bullet} f_{\bullet j}$$
+
+**Test du $\chi^2$** :
+$$T = \sum_{i,j} \frac{(k_{ij} - \mathbb{E}(k_{ij}))^2}{\mathbb{E}(k_{ij})} = \sum_{i,j} \frac{(k_{ij} - \frac{k_{i\bullet}k_{\bullet j}}{k_{\bullet\bullet}})^2}{\frac{k_{i\bullet}k_{\bullet j}}{k_{\bullet\bullet}}}$$
+
+Si $T \approx 0$ → indépendance  
+Si $T$ grand → dépendance (intéressant pour l'AFC)
+
+## Profils-lignes et profils-colonnes
+
+**Profil-ligne $i$** : Répartition de la modalité $i$ parmi les colonnes
+$$L_i = \left(\frac{f_{i1}}{f_{i\bullet}}, \ldots, \frac{f_{ip}}{f_{i\bullet}}\right)$$
+
+**Profil-colonne $j$** : Répartition de la modalité $j$ parmi les lignes
+$$C_j = \left(\frac{f_{1j}}{f_{\bullet j}}, \ldots, \frac{f_{nj}}{f_{\bullet j}}\right)$$
+
+Les profils sont des **distributions conditionnelles**.
+
+## Profils moyens
+
+**Profil-ligne moyen** = fréquences marginales colonnes :
+$$\text{Profil moyen} = (f_{\bullet 1}, \ldots, f_{\bullet p})$$
+
+**Profil-colonne moyen** = fréquences marginales lignes :
+$$\text{Profil moyen} = (f_{1\bullet}, \ldots, f_{n\bullet})$$
+
+**Indépendance** ⟺ Tous les profils = profils moyens
+
+## Distance du $\chi^2$
+
+**Distance entre profils-lignes** :
+$$d^2(L_i, L_{i'}) = \sum_{j=1}^p \frac{1}{f_{\bullet j}} \left(\frac{f_{ij}}{f_{i\bullet}} - \frac{f_{i'j}}{f_{i'\bullet}}\right)^2$$
+
+**Distance entre profils-colonnes** :
+$$d^2(C_j, C_{j'}) = \sum_{i=1}^n \frac{1}{f_{i\bullet}} \left(\frac{f_{ij}}{f_{\bullet j}} - \frac{f_{ij'}}{f_{\bullet j'}}\right)^2$$
+
+**Pondération** par l'inverse des fréquences marginales.
+
+## Formulation matricielle
+
+**Matrices de poids** :
+- $D_n = \text{diag}(f_{i\bullet})$ (poids des lignes)
+- $D_p = \text{diag}(f_{\bullet j})$ (poids des colonnes)
+
+**Distance du $\chi^2$ matricielle** :
+- Profils-lignes : $d^2(L_i, L_{i'}) = (L_i - L_{i'})^\top D_p^{-1} (L_i - L_{i'})$
+- Profils-colonnes : $d^2(C_j, C_{j'}) = (C_j - C_{j'})^\top D_n^{-1} (C_j - C_{j'})$
+
+## Analyse directe (profils-lignes)
+
+**Objectif** : Maximiser la variance projetée des profils-lignes
+
+**Problème d'optimisation** :
+$$\max_u u^\top D_p^{-1} F^\top D_n^{-1} F D_p^{-1} u \quad \text{s.c.} \quad u^\top D_p^{-1} u = 1$$
+
+**Solution** : Vecteurs propres de la matrice
+$$S = F^\top D_n^{-1} F D_p^{-1}$$
+
+**Premier axe factoriel** : $S u_1 = \lambda_1 u_1$
+
+## Analyse duale (profils-colonnes)
+
+**Objectif** : Maximiser la variance projetée des profils-colonnes
+
+**Problème d'optimisation** similaire avec matrice :
+$$T = F D_p^{-1} F^\top D_n^{-1}$$
+
+**Premier axe factoriel** : $T v_1 = \mu_1 v_1$
+
+**Propriété fondamentale** : $S$ et $T$ ont les mêmes $r = \min(n-1, p-1)$ valeurs propres positives !
+
+## Relations entre analyses
+
+**Cohérence des représentations** : $\lambda_k = \mu_k$ pour $k = 1, \ldots, r$
+
+**Relations entre vecteurs propres** :
+$$u_k = \frac{1}{\sqrt{\lambda_k}} F^\top D_n^{-1} v_k$$
+$$v_k = \frac{1}{\sqrt{\lambda_k}} F D_p^{-1} u_k$$
+
+Cette propriété garantit une représentation cohérente dans le même espace réduit.
+
+## Coordonnées factorielles
+
+**Coordonnées des profils-lignes** sur l'axe $k$ :
+$$\Phi_k = D_n^{-1} F D_p^{-1} u_k$$
+
+**Coordonnées des profils-colonnes** sur l'axe $k$ :
+$$\Psi_k = D_p^{-1} F^\top D_n^{-1} v_k$$
+
+**Relations entre coordonnées** :
+$$\Phi_k = \frac{1}{\sqrt{\lambda_k}} D_n^{-1} F \Psi_k$$
+
+## Centrage et centre de gravité
+
+**Convention** : Représentation centrée en $(0,0)$ dans les logiciels
+
+**Centres de gravité** :
+- Lignes : $G_L = (f_{\bullet 1}, \ldots, f_{\bullet p})^\top$
+- Colonnes : $G_C = (f_{1\bullet}, \ldots, f_{n\bullet})^\top$
+
+**Centrage** : Soustraire les profils moyens
+$$\frac{f_{ij}}{f_{i\bullet}} - f_{\bullet j} = \frac{f_{ij} - f_{i\bullet}f_{\bullet j}}{f_{i\bullet}}$$
+
+## Inertie totale
+
+**Matrice centrée** : $S^* = (s_{jj'}^*)$ avec
+$$s_{jj'}^* = \sum_{i=1}^n \frac{(f_{ij} - f_{i\bullet}f_{\bullet j})(f_{ij'} - f_{i\bullet}f_{\bullet j'})}{f_{i\bullet}f_{\bullet j'}}$$
+
+**Inertie totale** :
+$$\text{tr}(S^*) = \sum_{j=1}^p \sum_{i=1}^n \frac{(f_{ij} - f_{i\bullet}f_{\bullet j})^2}{f_{i\bullet}f_{\bullet j}}$$
+
+Cette inertie correspond à la **statistique du $\chi^2$ normalisée**.
+
+## Représentation barycentrique
+
+**Propriété remarquable** : Sur chaque axe factoriel,
+
+$$[\Phi_k]_i = \frac{1}{\sqrt{\lambda_k}} \sum_{j=1}^p \frac{f_{ij}}{f_{i\bullet}} [\Psi_k]_j$$
+
+$$[\Psi_k]_j = \frac{1}{\sqrt{\lambda_k}} \sum_{i=1}^n \frac{f_{ij}}{f_{\bullet j}} [\Phi_k]_i$$
+
+**Interprétation** : Chaque profil-ligne est au **barycentre** des profils-colonnes (et vice versa).
+
+## Double représentation barycentrique
+
+::: {.callout-tip}
+**Propriété fondamentale de l'AFC** :
+
+Sur les axes factoriels, chaque point d'un nuage est au barycentre des points de l'autre nuage, pondéré par les contributions respectives.
+:::
+
+Cette propriété permet une **interprétation conjointe** des modalités des deux variables dans le même graphique.
+
+## Applications pratiques
+
+**Domaines d'application** :
+- Marketing : Préférences × Segments de clientèle
+- Sociologie : Catégories sociales × Comportements  
+- Biologie : Espèces × Environnements
+- Linguistique : Mots × Contextes
+
+**Avantages** :
+- Visualisation intuitive des associations
+- Identification des profils similaires
+- Détection de structures cachées
+
+## Interprétation des résultats
+
+**Proximité géométrique** = **Similarité des profils**
+
+**Axes factoriels** : Directions de variation maximale
+
+**Contribution des modalités** : Importance dans la construction des axes
+
+**Inertie expliquée** : $\frac{\lambda_k}{\sum_{j=1}^r \lambda_j} \times 100\%$
+
+**Qualité de représentation** : Proportion de l'inertie d'un point expliquée par les axes retenus.
+
+## Conclusion
+
+L'AFC est un outil puissant pour :
+
+- **Explorer** les relations entre variables qualitatives
+- **Visualiser** des structures complexes en 2D/3D  
+- **Identifier** des associations non évidentes
+- **Interpréter** conjointement lignes et colonnes
+
+La **dualité ligne-colonne** et la **représentation barycentrique** en font une méthode unique pour l'analyse de tableaux de contingence.

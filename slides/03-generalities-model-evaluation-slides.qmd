@@ -1,6 +1,6 @@
 --- 
 title: "Généralités"
-subtitle: "Data"
+subtitle: "Évaluation de modèles"
 author: "Steven Golovkine"
 lang: fr
 date: today
@@ -18,3 +18,125 @@ format:
 --- 
 
 
+## Introduction
+
+L'évaluation de modèles est cruciale pour mesurer la performance prédictive réelle.
+
+Les métriques classiques incluent l'erreur quadratique moyenne (MSE) pour les variables quantitatives et le taux d'erreur (ER) pour les variables qualitatives.
+
+Cependant, évaluer uniquement sur les données d'entraînement pose des problèmes fondamentaux.
+
+## Le problème du sur-ajustement
+
+**Définition**: Un modèle s'adapte trop aux données d'entraînement, y compris au bruit aléatoire.
+
+**Conséquences**:
+- Erreur faible sur les données d'entraînement
+- Erreur élevée sur de nouvelles observations
+- Mauvaise capacité de généralisation
+
+**Cause**: L'estimateur $\widehat{f}$ a été ajusté pour minimiser l'erreur sur ces mêmes données.
+
+## Sur-ajustement vs Sous-ajustement
+
+**Sur-ajustement** (*overfitting*):
+- Modèle trop flexible
+- Capture le bruit plutôt que le signal
+- Bonne performance sur l'entraînement, mauvaise sur de nouvelles données
+
+**Sous-ajustement** (*underfitting*):
+- Modèle trop rigide
+- Ne capture pas la structure des données
+- Mauvaise performance même sur l'entraînement
+
+**Objectif**: Trouver le bon compromis entre flexibilité et généralisation.
+
+## Approche idéale
+
+**Principe**: Séparer complètement les données d'entraînement et d'évaluation.
+
+**Jeu d'entraînement**: Utilisé pour ajuster le modèle
+
+**Jeu de test**: Utilisé pour évaluer la performance prédictive
+
+**Problème pratique**: Nous n'avons généralement pas accès à un jeu de test indépendant.
+
+**Solution**: Utiliser des méthodes de validation.
+
+## Approche par jeu de validation
+
+**Principe**: Diviser aléatoirement le jeu de données en deux sous-ensembles.
+
+**Jeu d'entraînement**: Pour ajuster le modèle
+
+**Jeu de validation**: Pour estimer l'erreur de prédiction
+
+**Proportions recommandées**:
+- Grand nombre d'observations: division 50-50
+- Petit nombre d'observations: division 70-30 ou 80-20
+
+## Limites du jeu de validation
+
+**Estimation instable**: L'erreur dépend fortement des observations dans le jeu de validation.
+
+**Perte d'information**: Moins de données pour ajuster le modèle, ce qui peut surestimer l'erreur réelle.
+
+**Variabilité**: Différents jeux de validation peuvent donner des résultats très différents.
+
+**Solution**: Validation croisée pour une approche plus robuste.
+
+## Validation croisée - Principe
+
+**Objectif**: Méthode plus robuste et stable que le simple jeu de validation.
+
+**Principe**: Répéter l'approche par jeu de validation plusieurs fois sur différents sous-ensembles.
+
+**Méthode**:
+1. Découper aléatoirement en $K$ sous-ensembles (*folds*)
+2. Utiliser chaque *fold* comme validation
+3. Entraîner sur les $K-1$ *folds* restants
+4. Calculer la moyenne des $K$ erreurs
+
+## Choix du paramètre K
+
+**Valeurs courantes**: $K = 5$ ou $K = 10$
+
+**Compromis à considérer**:
+- **Coût computationnel**: Plus $K$ est grand, plus c'est coûteux
+- **Précision de l'estimation**: Plus $K$ est grand, moins de biais
+- **Stabilité**: Valeurs modérées de $K$ réduisent la variance
+
+**Cas limite**: $K = n$ (Leave-One-Out Cross-Validation - LOOCV)
+
+## Leave-One-Out Cross-Validation
+
+**Principe**: $K = n$ où $n$ est le nombre d'observations
+
+**Avantages**:
+- Biais minimal dans l'estimation
+- Utilise presque toutes les données pour l'entraînement
+
+**Inconvénients**:
+- Variance élevée (erreurs très corrélées)
+- Coût computationnel très élevé
+- Estimation instable
+
+## Recommandations pratiques
+
+**Choix de $K$**: Privilégier $K = 5$ ou $K = 10$ pour un bon compromis biais-variance.
+
+**Taille des données**: Adapter la stratégie selon le volume de données disponibles.
+
+**Généralité**: La validation croisée s'applique à la plupart des modèles.
+
+**Objectif**: Obtenir une estimation fiable de la performance de généralisation.
+
+## Conclusion
+
+La validation appropriée des modèles est essentielle pour éviter les illusions de performance.
+
+Le sur-ajustement est un piège courant qui nécessite une évaluation rigoureuse.
+
+La validation croisée offre une solution robuste et pratique pour estimer la performance réelle.
+
+Le choix des paramètres de validation doit équilibrer précision, stabilité et coût computationnel.

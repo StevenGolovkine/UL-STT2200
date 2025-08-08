@@ -7,7 +7,13 @@ format:
       - \usepackage{mathtools}
 --- 
 
-* Slides: [link](../slides/04-dimension-slides.qmd)
+* Slides: 
+
+  - [Analyse en composantes principales](../slides/04-dimension-pca-slides.qmd)
+
+  - [Analyse factorielle des correspondances](../slides/04-dimension-mca-slides.qmd)
+
+  - [Analyse des correspondances multiples](../slides/04-dimension-mca-slides.qmd)
 
 * TD: [link](../td/04-dimension-td.qmd)
 
