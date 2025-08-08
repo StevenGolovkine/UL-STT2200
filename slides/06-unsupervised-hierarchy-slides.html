@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr"><head>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/slides/05-supervised-tree-slides.html" />
-<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/slides/05-supervised-tree-slides.en.html" />
+<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/slides/06-unsupervised-hierarchy-slides.html" />
+<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/slides/06-unsupervised-hierarchy-slides.en.html" />
 <script src="../site_libs/quarto-html/tabby.min.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -12,7 +12,7 @@
   <meta name="generator" content="quarto-1.7.33">
 
   <meta name="author" content="Steven Golovkine">
-  <title>STT-2200: Analyse de données – Dimension</title>
+  <title>STT-2200: Analyse de données – Non-supervisée</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -125,8 +125,8 @@
       margin-right: 0; 
     }
   </style>
-<meta property="og:title" content="Dimension – STT-2200: Analyse de données">
-<meta property="og:description" content="Data">
+<meta property="og:title" content="Non-supervisée – STT-2200: Analyse de données">
+<meta property="og:description" content="Classification hiérarchique">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
 <body class="quarto-light">
@@ -134,8 +134,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Dimension</h1>
-  <p class="subtitle">Data</p>
+  <h1 class="title">Non-supervisée</h1>
+  <p class="subtitle">Classification hiérarchique</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -153,157 +153,293 @@ Steven Golovkine
   </figure>
 </section>
 <section>
-<section id="arbres-de-décision-cart" class="title-slide slide level1 center">
-<h1>Arbres de décision (CART)</h1>
+<section id="classification-hiérarchique" class="title-slide slide level1 center">
+<h1>Classification hiérarchique</h1>
 
 </section>
-<section id="introduction" class="slide level2">
-<h2>Introduction</h2>
-<ul>
-<li class="fragment"><strong>CART</strong>: Classification And Regression Trees</li>
-<li class="fragment"><strong>Méthode d’apprentissage supervisée</strong></li>
-<li class="fragment"><strong>Classification</strong>: Prédire l’appartenance à l’un des <span class="math inline">\(K\)</span> groupes</li>
-<li class="fragment"><strong>Régression</strong>: Prédire une variable numérique continue <span class="math inline">\(Y\)</span></li>
-<li class="fragment"><strong>Variables</strong>: <span class="math inline">\(X_1, \ldots, X_p\)</span> avec <span class="math inline">\(n\)</span> observations dans <span class="math inline">\(\mathbb{R}^p\)</span></li>
-</ul>
-</section>
-<section id="objectif-principal" class="slide level2">
-<h2>Objectif principal</h2>
+<section id="motivation" class="slide level2">
+<h2>Motivation</h2>
 <div class="fragment">
-<p><strong>Partitionner l’espace des observations</strong> <span class="math inline">\(\mathbb{R}^p\)</span> en sous-ensembles homogènes</p>
+<p><strong>Limites du <span class="math inline">\(k\)</span>-means</strong> - Nécessite les données originales - Problématique avec matrice de similarité/distance uniquement</p>
 </div>
 <div class="fragment">
-<p><strong>Algorithme récursif de découpage binaire</strong> 1. Découper selon une variable <span class="math inline">\(X_j\)</span> à un seuil <span class="math inline">\(s\)</span> 2. Créer des sous-régions rectangulaires (hyper-rectangles) 3. Chaque sous-ensemble = une <strong>feuille</strong> avec une prédiction</p>
-</div>
-<div class="fragment">
-<p><strong>Prédiction par feuille</strong> - <strong>Classification</strong>: Classe majoritaire - <strong>Régression</strong>: Moyenne des <span class="math inline">\(Y\)</span></p>
+<p><strong>Solution : Classification hiérarchique</strong> - Série de <strong>partitions imbriquées</strong> - De <span class="math inline">\(n\)</span> groupes (chaque observation isolée) à 1 groupe (toutes ensemble) - Représentation : <strong>Dendrogramme</strong></p>
 </div>
 </section>
-<section id="principe-de-lalgorithme" class="slide level2">
-<h2>Principe de l’algorithme</h2>
+<section id="types-dalgorithmes" class="slide level2">
+<h2>Types d’algorithmes</h2>
 <ol type="1">
-<li class="fragment"><strong>Découpage</strong> selon <span class="math inline">\(X_j \leq s\)</span> vs <span class="math inline">\(X_j &gt; s\)</span></li>
-<li class="fragment"><strong>Choix optimal</strong> de <span class="math inline">\((X_j, s)\)</span> maximisant le <strong>critère d’homogénéité</strong></li>
-<li class="fragment"><strong>Répétition</strong> jusqu’au <strong>critère d’arrêt</strong></li>
-<li class="fragment"><strong>Prédiction unique</strong> par feuille pour toutes les observations</li>
+<li class="fragment"><strong>Algorithmes ascendants</strong>
+<ul>
+<li class="fragment">Départ : <span class="math inline">\(n\)</span> groupes individuels</li>
+<li class="fragment">Processus : Fusions successives</li>
+</ul></li>
+<li class="fragment"><strong>Algorithmes descendants</strong>
+<ul>
+<li class="fragment">Départ : 1 groupe de toutes les observations</li>
+<li class="fragment">Processus : Divisions successives</li>
+</ul></li>
 </ol>
 <div class="fragment">
-<p>⚠️ <strong>Algorithme glouton</strong>: Optimisation locale, pas globale !</p>
+<p><strong>Résultat commun</strong> : <span class="math inline">\(n\)</span> partitions hiérarchiques de 1 à <span class="math inline">\(n\)</span> groupes</p>
 </div>
 </section>
-<section id="algorithme-détaillé" class="slide level2">
-<h2>Algorithme détaillé</h2>
+<section id="algorithmes-descendants" class="slide level2">
+<h2>Algorithmes descendants</h2>
 <div class="fragment">
-<p><strong>Pour chaque nœud:</strong></p>
+<p><strong>Principe</strong> - Démarrage avec toutes les observations dans un groupe - Division du groupe le moins homogène à chaque étape - Maximisation de la dissimilarité entre sous-groupes</p>
 </div>
+<div class="fragment">
+<p><strong>Inconvénient majeur</strong> Coût computationnel très élevé (évaluation de toutes les divisions possibles)</p>
+</div>
+<div class="fragment">
+<p><strong>Usage</strong> : Rarement utilisé en pratique</p>
+</div>
+</section>
+<section id="algorithmes-ascendants" class="slide level2">
+<h2>Algorithmes ascendants</h2>
+<div class="fragment">
+<p><strong>Principe</strong> - Démarrage avec <span class="math inline">\(n\)</span> groupes distincts - Fusion des deux groupes les plus similaires à chaque étape - Continuation jusqu’à un seul groupe</p>
+</div>
+<div class="fragment">
+<p><strong>Avantage</strong> : Plus efficace computationnellement</p>
+</div>
+<div class="fragment">
+<p><strong>Enjeu clé</strong> : Définir la distance entre groupes</p>
+</div>
+</section></section>
+<section>
+<section id="distances-entre-groupes" class="title-slide slide level1 center">
+<h1>Distances entre groupes</h1>
+
+</section>
+<section id="plus-proche-voisin-single-linkage" class="slide level2">
+<h2>Plus proche voisin (<em>Single Linkage</em>)</h2>
+<div class="fragment">
+<p><strong>Définition</strong> <span class="math display">\[d(A, B) = \min \{d_{ij}: i \in A, j \in B\}\]</span> Distance = plus petite distance entre individus des deux groupes</p>
+</div>
+<div class="fragment">
+<p><strong>Avantages</strong> - Bon avec variables de types différents - Groupes de formes irrégulières - Robuste aux données aberrantes - Bonnes propriétés théoriques</p>
+</div>
+<div class="fragment">
+<p><strong>Inconvénients</strong> - Groupes déséquilibrés (effet “chaîne”) - Moins performant pour groupes réguliers</p>
+</div>
+</section>
+<section id="voisin-le-plus-distant-complete-linkage" class="slide level2">
+<h2>Voisin le plus distant (<em>Complete Linkage</em>)</h2>
+<div class="fragment">
+<p><strong>Définition</strong> <span class="math display">\[d(A, B) = \max \{d_{ij}: i \in A, j \in B\}\]</span> Distance = plus grande distance entre individus</p>
+</div>
+<div class="fragment">
+<p><strong>Avantages</strong> - Groupes réguliers et homogènes en taille - Adapté aux variables de types différents</p>
+</div>
+<div class="fragment">
+<p><strong>Inconvénients</strong> - <strong>Extrêmement</strong> sensible aux données aberrantes - Force des groupes de même taille</p>
+</div>
+</section>
+<section id="méthode-de-la-moyenne-average-linkage" class="slide level2">
+<h2>Méthode de la moyenne (<em>Average Linkage</em>)</h2>
+<div class="fragment">
+<p><strong>Définition</strong> <span class="math display">\[d(A, B) = \frac{1}{n_A n_B} \sum_{i \in A} \sum_{j \in B} d(X_i, X_j)\]</span> Distance = moyenne de toutes les distances inter-groupes</p>
+</div>
+<div class="fragment">
+<p><strong>Caractéristiques</strong> - Considère toutes les interactions - Produit des groupes homogènes (variance faible) - Privilégie des groupes de variance similaire</p>
+</div>
+</section>
+<section id="méthode-du-centroïde" class="slide level2">
+<h2>Méthode du centroïde</h2>
+<div class="fragment">
+<p><strong>Définition</strong> <span class="math display">\[d(A, B) = d(\overline{X}_A, \overline{X}_B)\]</span> Distance entre les moyennes des groupes</p>
+</div>
+<div class="fragment">
+<p><strong>Mise à jour après fusion</strong> <span class="math display">\[\overline{X}_{AB} = \frac{n_A \overline{X}_A + n_B \overline{X}_B}{n_A + n_B}\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>Propriété</strong> : Assez robuste aux données aberrantes, mais peu performant sans elles</p>
+</div>
+</section>
+<section id="méthode-de-la-médiane" class="slide level2">
+<h2>Méthode de la médiane</h2>
+<div class="fragment">
+<p><strong>Principe</strong> : Mise à jour récursive des distances</p>
+</div>
+<div class="fragment">
+<p><strong>Formule de mise à jour</strong> <span class="math display">\[d(AB, C) = \frac{d(A, C) + d(B, C)}{2} - \frac{d(A, B)}{4}\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>Caractéristiques</strong> - Très robuste aux données aberrantes - Peu efficace sans valeurs extrêmes</p>
+</div>
+</section>
+<section id="méthode-de-ward" class="slide level2">
+<h2>Méthode de Ward</h2>
+<div class="fragment">
+<p><strong>Principe</strong> : Minimisation de l’augmentation d’inertie intra-groupe</p>
+</div>
+<div class="fragment">
+<p><strong>Critère d’optimisation</strong> <span class="math display">\[I_{AB} = SC_{AB} - SC_A - SC_B = \frac{d^2(\overline{X}_A, \overline{X}_B)}{\frac{1}{n_A} + \frac{1}{n_B}}\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>Conditions optimales</strong> - Observations gaussiennes multivariées - Même matrice de variance-covariance - Moyennes différentes</p>
+</div>
+</section>
+<section id="ward-avantages-et-limites" class="slide level2">
+<h2>Ward : Avantages et limites</h2>
+<div class="fragment">
+<p><strong>Avantages</strong> - Très efficace sous hypothèses gaussiennes - Groupes homogènes et de taille comparable - Méthode très populaire en pratique</p>
+</div>
+<div class="fragment">
+<p><strong>Inconvénients</strong> - Sensible aux données aberrantes - Tend à former des groupes de même taille - Hypothèses gaussiennes restrictives</p>
+</div>
+</section>
+<section id="méthode-flexible" class="slide level2">
+<h2>Méthode flexible</h2>
+<div class="fragment">
+<p><strong>Formule générale</strong> <span class="math display">\[d(C, AB) = \alpha_A d(C, A) + \alpha_B d(C, B) + \beta d(A, B) + \gamma |d(C, A) - d(C, B)|\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>Flexibilité</strong> Selon <span class="math inline">\((\alpha_A, \alpha_B, \beta, \gamma)\)</span>, on retrouve toutes les méthodes précédentes</p>
+</div>
+<div class="fragment">
+<p><strong>Paramétrage standard</strong> - <span class="math inline">\(\alpha_A = \alpha_B\)</span>, <span class="math inline">\(\alpha_A + \alpha_B + \beta = 1\)</span>, <span class="math inline">\(\gamma = 0\)</span> - Choix courant : <span class="math inline">\(\beta = -0.25\)</span> - Données aberrantes : <span class="math inline">\(\beta = -0.5\)</span></p>
+</div>
+</section></section>
+<section>
+<section id="choix-de-la-partition" class="title-slide slide level1 center">
+<h1>Choix de la partition</h1>
+
+</section>
+<section id="le-problème-du-choix" class="slide level2">
+<h2>Le problème du choix</h2>
+<div class="fragment">
+<p><strong>Question centrale</strong> Parmi les <span class="math inline">\(n\)</span> partitions possibles, laquelle choisir ?</p>
+</div>
+<div class="fragment">
+<p><strong>Critères pratiques</strong> - Interprétabilité scientifique ou métier - Pertinence opérationnelle - Nombre de groupes <span class="math inline">\(K\)</span> déterminé à l’avance</p>
+</div>
+<div class="fragment">
+<p><strong>Critères statistiques</strong> Quand les considérations pratiques ne suffisent pas</p>
+</div>
+</section>
+<section id="outils-disponibles" class="slide level2">
+<h2>Outils disponibles</h2>
+<div class="fragment">
+<p><strong>Librairies spécialisées</strong> - R <code>NbClust</code> : ~30 critères - Python <code>sklearn</code> : ~10 critères</p>
+</div>
+<div class="fragment">
+<p><strong>Adaptation</strong> Critères surtout adaptés aux variables continues</p>
+</div>
+</section></section>
+<section>
+<section id="critères-basés-sur-linertie" class="title-slide slide level1 center">
+<h1>Critères basés sur l’inertie</h1>
+
+</section>
+<section id="décomposition-de-linertie" class="slide level2">
+<h2>Décomposition de l’inertie</h2>
+<div class="fragment">
+<p><strong>Inertie totale</strong> <span class="math display">\[I_{\text{tot}} = \frac{1}{n}\sum_{i=1}^{n} d(X_i, G)\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>Décomposition fondamentale</strong> <span class="math display">\[I_{\text{tot}} = I_{\text{intra-groupe}} + I_{\text{inter-groupe}}\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>Objectif</strong> : Maximiser <span class="math inline">\(I_{\text{inter-groupe}}\)</span> (séparation des groupes)</p>
+</div>
+</section>
+<section id="inertie-inter-groupe-et-intra-groupe" class="slide level2">
+<h2>Inertie inter-groupe et intra-groupe</h2>
+<div class="fragment">
+<p><strong>Inertie inter-groupe</strong> (séparation) <span class="math display">\[I_{\text{inter-groupe}} = \frac{1}{n}\sum_{k=1}^{K} n_k d(G_k, G)\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>Inertie intra-groupe</strong> (compacité) <span class="math display">\[I_{\text{intra-groupe}} = \frac{1}{n}\sum_{k=1}^{K} \sum_{i \in C_k} d(X_i, G_k)\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>Principe</strong> : Groupes compacts <span class="math inline">\(\Rightarrow\)</span> faible inertie intra-groupe</p>
+</div>
+</section>
+<section id="critères-dérivés" class="slide level2">
+<h2>Critères dérivés</h2>
+<div class="fragment">
+<p><strong>Pseudo-<span class="math inline">\(R^2\)</span></strong> <span class="math display">\[\text{pseudo-}R^2 = \frac{I_{\text{inter-groupe}}}{I_{\text{tot}}}\]</span> Proportion d’inertie expliquée par la partition</p>
+</div>
+<div class="fragment">
+<p><strong>Statistique Calinski-Harabasz (CH)</strong> <span class="math display">\[\text{CH} = \frac{I_{\text{inter-groupe}} / (K-1)}{I_{\text{intra-groupe}} / (n-K)}\]</span> Équilibre entre compacité et séparation</p>
+</div>
+</section></section>
+<section>
+<section id="critères-basés-sur-la-distance" class="title-slide slide level1 center">
+<h1>Critères basés sur la distance</h1>
+
+</section>
+<section id="indice-de-dunn" class="slide level2">
+<h2>Indice de Dunn</h2>
+<div class="fragment">
+<p><strong>Définition</strong> <span class="math display">\[D = \frac{\text{Distance minimale entre 2 groupes}}{\text{Distance maximale dans un groupe}}\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>Objectif</strong> : Maximiser <span class="math inline">\(D\)</span> - Groupes denses (faible distance interne) - Groupes bien séparés (grande distance externe)</p>
+</div>
+</section>
+<section id="indice-de-silhouette" class="slide level2">
+<h2>Indice de silhouette</h2>
+<div class="fragment">
+<p><strong>Pour une observation <span class="math inline">\(X_i\)</span></strong> <span class="math display">\[S(X_i) = \frac{b_i - a_i}{\max(b_i, a_i)}\]</span> où : - <span class="math inline">\(a_i\)</span> : distance moyenne aux observations du même groupe - <span class="math inline">\(b_i\)</span> : distance moyenne au groupe le plus proche</p>
+</div>
+<div class="fragment">
+<p><strong>Interprétation</strong> - <span class="math inline">\(S(X_i) \approx 1\)</span> : Bien classée - <span class="math inline">\(S(X_i) \approx 0\)</span> : À la frontière - <span class="math inline">\(S(X_i) \approx -1\)</span> : Mal classée</p>
+</div>
+</section>
+<section id="utilisation-de-la-silhouette" class="slide level2">
+<h2>Utilisation de la silhouette</h2>
+<div class="fragment">
+<p><strong>Silhouette moyenne</strong> Indicateur de cohérence globale de la partition</p>
+</div>
+<div class="fragment">
+<p><strong>Avantage</strong> : Intuitive et facilement interprétable</p>
+</div>
+<div class="fragment">
+<p><strong>Usage</strong> : Souvent utilisée pour choisir le nombre optimal de groupes</p>
+</div>
+</section>
+<section id="recommandations-pratiques" class="slide level2">
+<h2>Recommandations pratiques</h2>
 <ol type="1">
-<li class="fragment"><strong>Évaluer</strong> tous les couples <span class="math inline">\((X_j, s)\)</span> possibles</li>
-<li class="fragment"><strong>Calculer</strong> la réduction du critère d’homogénéité</li>
-<li class="fragment"><strong>Sélectionner</strong> le couple qui maximise le gain</li>
-<li class="fragment"><strong>Diviser</strong> le nœud selon <span class="math inline">\(X_j \leq s\)</span> vs <span class="math inline">\(X_j &gt; s\)</span></li>
-<li class="fragment"><strong>Répéter</strong> jusqu’aux critères d’arrêt</li>
+<li class="fragment"><strong>Croiser les approches</strong>
+<ul>
+<li class="fragment">Connaissance métier</li>
+<li class="fragment">Visualisation (dendrogramme)</li>
+<li class="fragment">Critères statistiques multiples</li>
+</ul></li>
+<li class="fragment"><strong>Aucun critère n’est parfait</strong>
+<ul>
+<li class="fragment">Complémentarité des indicateurs</li>
+<li class="fragment">Décision éclairée et contextualisée</li>
+</ul></li>
+<li class="fragment"><strong>Validation</strong>
+<ul>
+<li class="fragment">Interprétabilité des groupes obtenus</li>
+<li class="fragment">Stabilité des résultats</li>
+</ul></li>
 </ol>
-<div class="fragment">
-<p><strong>Point de départ</strong>: L’ensemble complet des observations</p>
-</div>
-</section>
-<section id="critères-dhomogénéité---classification" class="slide level2">
-<h2>Critères d’homogénéité - Classification</h2>
-<p>Soit <span class="math inline">\(\widehat{p}_{jk}\)</span> la proportion d’observations de la région <span class="math inline">\(R_j\)</span> appartenant à la classe <span class="math inline">\(k\)</span></p>
-<div class="fragment">
-<p><strong>1. Taux d’erreur de classification</strong> <span class="math display">\[E_j = 1 - \max_k \widehat{p}_{jk}\]</span> - Facile à interpréter - Peu sensible → rarement utilisé pour la construction</p>
-</div>
-</section>
-<section id="critères-dhomogénéité-suite" class="slide level2">
-<h2>Critères d’homogénéité (suite)</h2>
-<div class="fragment">
-<p><strong>2. Indice de Gini</strong> (le plus utilisé) <span class="math display">\[G_j = \sum_{k=1}^{K} \widehat{p}_{jk}(1 - \widehat{p}_{jk})\]</span> - Minimal (<span class="math inline">\(= 0\)</span>) quand homogénéité parfaite - On cherche un indice faible</p>
-</div>
-<div class="fragment">
-<p><strong>3. Entropie croisée</strong> (théorie de l’information) <span class="math display">\[D_j = -\sum_{k=1}^{K} \widehat{p}_{jk} \log(\widehat{p}_{jk})\]</span> - Basé sur Shannon - Minimal pour classe parfaitement prédite</p>
-</div>
-</section>
-<section id="gain-dinformation" class="slide level2">
-<h2>Gain d’information</h2>
-<div class="fragment">
-<p><strong>Mesure de l’amélioration</strong> après division</p>
-</div>
-<div class="fragment">
-<p><strong>Exemple avec l’indice de Gini:</strong> <span class="math display">\[\Delta G = G_{\text{avant}} - \left(\frac{n_1}{n} G_1 + \frac{n_2}{n} G_2\right)\]</span></p>
-<p>où: - <span class="math inline">\(n_1, n_2\)</span> : nombres d’observations dans les sous-ensembles - <span class="math inline">\(n = n_1 + n_2\)</span></p>
-</div>
-<div class="fragment">
-<p><strong>Objectif</strong>: Maximiser le gain d’information</p>
-</div>
-</section>
-<section id="problème-du-sur-ajustement" class="slide level2">
-<h2>Problème du sur-ajustement</h2>
-<div class="fragment">
-<p><strong>Dilemme</strong> - <strong>Arbre trop profond</strong> → Sur-ajustement aux données d’apprentissage - <strong>Arbre trop simple</strong> → Sous-ajustement, classification trop simpliste</p>
-</div>
-<div class="fragment">
-<p><strong>Conséquence</strong> Perte de capacité de généralisation à de nouvelles données</p>
-</div>
-<div class="fragment">
-<p><strong>Solution</strong>: Élagage (<em>pruning</em>)</p>
-</div>
-</section>
-<section id="élagage-de-larbre" class="slide level2">
-<h2>Élagage de l’arbre</h2>
-<div class="fragment">
-<p><strong>Stratégie en deux temps:</strong> 1. <strong>Croissance complète</strong> jusqu’aux feuilles pures 2. <strong>Élagage</strong> des branches peu performantes</p>
-</div>
-<div class="fragment">
-<p><strong>Critère coût-complexité</strong> <span class="math display">\[\sum_{j=1}^{|T|} c_j + \alpha |T|\]</span></p>
-<p>où: - <span class="math inline">\(|T|\)</span> : nombre de feuilles - <span class="math inline">\(c_j\)</span> : coût dans la feuille <span class="math inline">\(j\)</span> - <span class="math inline">\(\alpha\)</span> : paramètre de régularisation</p>
-</div>
-</section>
-<section id="choix-du-paramètre-α" class="slide level2">
-<h2>Choix du paramètre α</h2>
-<div class="fragment">
-<p><strong>Interprétation</strong> - <span class="math inline">\(\alpha\)</span> élevé → Favorise les arbres simples - <span class="math inline">\(\alpha\)</span> faible → Arbres plus complexes</p>
-</div>
-<div class="fragment">
-<p><strong>Méthode de sélection</strong> Validation croisée pour comparer les performances sur différentes valeurs de <span class="math inline">\(\alpha\)</span></p>
-</div>
-</section>
-<section id="avantages-des-arbres" class="slide level2">
-<h2>Avantages des arbres</h2>
-<ul>
-<li class="fragment"><strong>Très interprétables</strong> : Chemin explicite pour chaque prédiction</li>
-<li class="fragment"><strong>Robustes</strong> aux valeurs extrêmes et transformations monotones</li>
-<li class="fragment"><strong>Gestion naturelle</strong> des interactions entre variables</li>
-<li class="fragment"><strong>Variables mixtes</strong> : Quantitatives et qualitatives</li>
-<li class="fragment"><strong>Aucune hypothèse</strong> sur la distribution des données</li>
-<li class="fragment"><strong>Sélection automatique</strong> des variables importantes</li>
-<li class="fragment"><strong>Base</strong> de méthodes modernes (forêts aléatoires, boosting)</li>
-</ul>
-</section>
-<section id="limites-des-arbres" class="slide level2">
-<h2>Limites des arbres</h2>
-<ul>
-<li class="fragment"><strong>Instabilité</strong> : Sensibles aux petites modifications des données</li>
-<li class="fragment"><strong>Performance limitée</strong> seuls, surtout avec données bruitées</li>
-<li class="fragment"><strong>Divisions rectangulaires</strong> inadaptées aux frontières non-linéaires</li>
-<li class="fragment"><strong>Tendance au sur-ajustement</strong> sans élagage</li>
-<li class="fragment"><strong>Sensibilité</strong> au déséquilibre des classes</li>
-<li class="fragment"><strong>Solution</strong> : Méthodes ensemblistes (forêts, boosting)</li>
-</ul>
 </section>
 <section id="récapitulatif" class="slide level2">
 <h2>Récapitulatif</h2>
 <div class="fragment">
-<p><strong>Les arbres CART</strong> - Méthode de partitionnement récursif - Algorithme glouton simple et intuitif - Nécessitent un élagage pour éviter le sur-ajustement</p>
+<p><strong>Classification hiérarchique</strong> - Alternative robuste au <span class="math inline">\(k\)</span>-means - Exploration complète de la hiérarchie de groupes - Choix de méthode de distance crucial</p>
 </div>
 <div class="fragment">
-<p><strong>Usage recommandé</strong> - Excellents pour l’interprétabilité - Meilleurs en combinaison (méthodes ensemblistes) - Première approche pour comprendre les données</p>
+<p><strong>Méthodes populaires</strong> - Ward (sous hypothèses gaussiennes) - Average linkage (bon compromis) - Complete linkage (groupes réguliers)</p>
+</div>
+<div class="fragment">
+<p><strong>Choix du nombre de groupes</strong> Combinaison de critères pratiques et statistiques</p>
 </div>
 </section>
 <section id="merci-pour-votre-attention" class="slide level2">
 <h2>Merci pour votre attention</h2>
 <p><strong>Questions ?</strong></p>
 <div class="fragment">
-<p><em>Les arbres de décision : simplicité, interprétabilité et fondement des méthodes ensemblistes</em></p>
+<p><em>Classification hiérarchique : explorer la structure naturelle des données</em></p>
 </div>
 
 

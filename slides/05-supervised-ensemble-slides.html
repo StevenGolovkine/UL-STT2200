@@ -152,11 +152,208 @@ Steven Golovkine
     </center>
   </figure>
 </section>
-<section class="slide level2">
-
-
+<section>
+<section id="méthodes-ensemblistes" class="title-slide slide level1 center">
+<h1>Méthodes ensemblistes</h1>
 
 </section>
+<section id="principe-fondamental" class="slide level2">
+<h2>Principe fondamental</h2>
+<div class="fragment">
+<p><strong>Idée centrale</strong> Combiner les prédictions de plusieurs <strong>modèles simples</strong> (classificateurs faibles) plutôt qu’un unique modèle complexe</p>
+</div>
+<ul>
+<li class="fragment"><strong>Meilleure performance</strong> globale</li>
+<li class="fragment"><strong>Plus grande robustesse</strong> au bruit</li>
+<li class="fragment"><strong>Réduction du sur-ajustement</strong></li>
+<li class="fragment"><strong>Stabilité</strong> des prédictions améliorée</li>
+</ul>
+</section>
+<section id="stratégies-de-combinaison" class="slide level2">
+<h2>Stratégies de combinaison</h2>
+<ol type="1">
+<li class="fragment"><p><strong>Moyenne des probabilités</strong> prédites par chaque modèle</p></li>
+<li class="fragment"><p><strong>Vote de majorité</strong> : Classe la plus souvent prédite</p></li>
+<li class="fragment"><p><strong>Sélection de modèles</strong> : Analogie avec la sélection de variables</p></li>
+<li class="fragment"><p><strong>Méthodes automatisées</strong> : Bagging, boosting, forêts aléatoires</p></li>
+</ol>
+</section></section>
+<section>
+<section id="bagging" class="title-slide slide level1 center">
+<h1>Bagging</h1>
+
+</section>
+<section id="bootstrap-aggregating" class="slide level2">
+<h2>Bootstrap Aggregating</h2>
+<div class="fragment">
+<p><strong>Principe</strong> Construire plusieurs versions d’un même modèle sur des échantillons différents</p>
+</div>
+<ol type="1">
+<li class="fragment"><strong>Générer</strong> <span class="math inline">\(B\)</span> échantillons bootstrap (tirage avec remise)</li>
+<li class="fragment"><strong>Construire</strong> un arbre pour chaque échantillon</li>
+<li class="fragment"><strong>Obtenir</strong> <span class="math inline">\(B\)</span> arbres de classification</li>
+<li class="fragment"><strong>Prédire</strong> par vote de majorité ou moyenne des probabilités</li>
+</ol>
+</section>
+<section id="avantages-et-évaluation" class="slide level2">
+<h2>Avantages et évaluation</h2>
+<div class="fragment">
+<p><strong>Avantages principaux</strong> - <strong>Réduction de la variance</strong> des prédictions - <strong>Augmentation de la stabilité</strong></p>
+</div>
+<div class="fragment">
+<p><strong>Inconvénient</strong> Perte d’interprétabilité des variables individuelles</p>
+</div>
+<div class="fragment">
+<p><strong>Évaluation de l’importance des variables</strong> - Sommer les réductions d’indice de Gini par variable - Moyenner sur tous les arbres - Exprimer en pourcentage relatif</p>
+</div>
+</section></section>
+<section>
+<section id="forêts-aléatoires" class="title-slide slide level1 center">
+<h1>Forêts aléatoires</h1>
+
+</section>
+<section id="extension-du-bagging" class="slide level2">
+<h2>Extension du bagging</h2>
+<div class="fragment">
+<p><strong>Problème du bagging</strong> Les arbres se ressemblent (dominance des classes fréquentes)</p>
+</div>
+<div class="fragment">
+<p><strong>Solution des forêts aléatoires</strong> Introduction d’une <strong>source supplémentaire d’aléa</strong></p>
+</div>
+<div class="fragment">
+<p><strong>Mécanisme</strong> À chaque division, sélectionner aléatoirement <span class="math inline">\(m\)</span> variables parmi <span class="math inline">\(p\)</span> disponibles</p>
+<p><strong>Choix usuel</strong>: <span class="math inline">\(m \approx \sqrt{p}\)</span></p>
+</div>
+</section>
+<section id="bénéfices-de-la-randomisation" class="slide level2">
+<h2>Bénéfices de la randomisation</h2>
+<ul>
+<li class="fragment"><strong>Décorrélation</strong> des arbres construits</li>
+<li class="fragment"><strong>Diversification</strong> des modèles</li>
+<li class="fragment"><strong>Amélioration</strong> de la performance globale</li>
+<li class="fragment"><strong>Robustesse</strong> accrue</li>
+</ul>
+<div class="fragment">
+<p><strong>Résultat</strong> Meilleure généralisation que le bagging simple</p>
+</div>
+</section></section>
+<section>
+<section id="boosting" class="title-slide slide level1 center">
+<h1>Boosting</h1>
+
+</section>
+<section id="approche-séquentielle" class="slide level2">
+<h2>Approche séquentielle</h2>
+<div class="fragment">
+<p><strong>Philosophie opposée au bagging</strong> Construction séquentielle au lieu de parallèle</p>
+</div>
+<div class="fragment">
+<p><strong>Principe</strong> 1. <strong>Construire</strong> une série de modèles simples 2. <strong>Accorder progressivement</strong> plus d’importance aux erreurs 3. <strong>Corriger</strong> les erreurs du modèle précédent 4. <strong>Atteindre</strong> une très haute précision globale</p>
+</div>
+</section>
+<section id="condition-de-succès" class="slide level2">
+<h2>Condition de succès</h2>
+<div class="fragment">
+<p><strong>Exigence fondamentale</strong> Utiliser des <strong>modèles faibles</strong> (weak learners)</p>
+</div>
+<div class="fragment">
+<p><strong>Raison</strong> Laisser au processus de boosting le soin de combiner optimalement les prédictions</p>
+</div>
+</section>
+<section id="variantes-principales" class="slide level2">
+<h2>Variantes principales</h2>
+<div class="fragment">
+<p><strong>1. AdaBoost</strong> (Adaptive Boosting) - Ajuste les poids des observations à chaque itération - Méthode historique et bien établie</p>
+</div>
+<div class="fragment">
+<p><strong>2. Gradient Boosting</strong> - Minimisation d’une fonction de perte - Procédure itérative inspirée de la descente du gradient - Très utilisé aujourd’hui</p>
+</div>
+</section></section>
+<section>
+<section id="optimisation-des-hyper-paramètres" class="title-slide slide level1 center">
+<h1>Optimisation des hyper-paramètres</h1>
+
+</section>
+<section id="nécessité-de-loptimisation" class="slide level2">
+<h2>Nécessité de l’optimisation</h2>
+<div class="fragment">
+<p><strong>Observation empirique</strong> Plus une méthode est puissante, plus l’optimisation des hyper-paramètres est complexe et sensible</p>
+</div>
+<div class="fragment">
+<p><strong>Objectif</strong> Atteindre un bon compromis entre performance et robustesse</p>
+</div>
+</section>
+<section id="paramètres-par-méthode" class="slide level2">
+<h2>Paramètres par méthode</h2>
+<div class="fragment">
+<p><strong>Bagging</strong> - Nombre d’échantillons bootstrap <span class="math inline">\(B\)</span></p>
+</div>
+<div class="fragment">
+<p><strong>Forêts aléatoires</strong> - Nombre d’échantillons bootstrap <span class="math inline">\(B\)</span> - Nombre de variables <span class="math inline">\(m\)</span> à considérer à chaque division</p>
+</div>
+<div class="fragment">
+<p><strong>Boosting</strong> - Taille des arbres - Fraction du jeu de données échantillonné - Nombre d’itérations - Paramètres de régularisation</p>
+</div>
+</section>
+<section id="méthode-doptimisation" class="slide level2">
+<h2>Méthode d’optimisation</h2>
+<div class="fragment">
+<p><strong>Validation croisée</strong> Nécessaire pour chaque paramètre afin d’éviter le sur-ajustement</p>
+</div>
+<div class="fragment">
+<p><strong>Processus</strong> 1. <strong>Définir</strong> une grille de valeurs pour chaque paramètre 2. <strong>Évaluer</strong> par validation croisée 3. <strong>Sélectionner</strong> la combinaison optimale 4. <strong>Tester</strong> sur un jeu de données indépendant</p>
+</div>
+</section>
+<section id="récapitulatif-des-méthodes" class="slide level2">
+<h2>Récapitulatif des méthodes</h2>
+<div class="fragment">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Méthode</th>
+<th>Approche</th>
+<th>Avantage principal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Bagging</strong></td>
+<td>Parallèle</td>
+<td>Réduction variance</td>
+</tr>
+<tr class="even">
+<td><strong>Forêts aléatoires</strong></td>
+<td>Parallèle + aléa</td>
+<td>Décorrélation</td>
+</tr>
+<tr class="odd">
+<td><strong>Boosting</strong></td>
+<td>Séquentielle</td>
+<td>Correction d’erreurs</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="points-clés-à-retenir" class="slide level2">
+<h2>Points clés à retenir</h2>
+<ul>
+<li class="fragment"><strong>Ensemble &gt; Individuel</strong> : Combinaison de modèles faibles</li>
+<li class="fragment"><strong>Diversité</strong> : Clé du succès des méthodes ensemblistes</li>
+<li class="fragment"><strong>Trade-off</strong> : Performance vs Interprétabilité</li>
+<li class="fragment"><strong>Optimisation</strong> : Cruciale pour la performance finale</li>
+<li class="fragment"><strong>Applications</strong> : Base de nombreux algorithmes modernes (XGBoost, LightGBM, etc.)</li>
+</ul>
+</section>
+<section id="merci-pour-votre-attention" class="slide level2">
+<h2>Merci pour votre attention</h2>
+<p><strong>Questions ?</strong></p>
+<div class="fragment">
+<p><em>Les méthodes ensemblistes : quand l’union fait la force</em></p>
+</div>
+
+
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
