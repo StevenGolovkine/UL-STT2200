@@ -18,3 +18,223 @@ format:
 --- 
 
 
+# Méthodes ensemblistes
+
+## Principe fondamental
+
+::: {.fragment}
+**Idée centrale**
+Combiner les prédictions de plusieurs **modèles simples** (classificateurs faibles) plutôt qu'un unique modèle complexe
+:::
+
+::: {.incremental}
+- **Meilleure performance** globale
+- **Plus grande robustesse** au bruit
+- **Réduction du sur-ajustement**
+- **Stabilité** des prédictions améliorée
+:::
+
+## Stratégies de combinaison
+
+::: {.incremental}
+1. **Moyenne des probabilités** prédites par chaque modèle
+
+2. **Vote de majorité** : Classe la plus souvent prédite
+
+3. **Sélection de modèles** : Analogie avec la sélection de variables
+
+4. **Méthodes automatisées** : Bagging, boosting, forêts aléatoires
+:::
+
+# Bagging
+
+## Bootstrap Aggregating
+
+::: {.fragment}
+**Principe**
+Construire plusieurs versions d'un même modèle sur des échantillons différents
+:::
+
+::: {.incremental}
+1. **Générer** $B$ échantillons bootstrap (tirage avec remise)
+2. **Construire** un arbre pour chaque échantillon
+3. **Obtenir** $B$ arbres de classification
+4. **Prédire** par vote de majorité ou moyenne des probabilités
+:::
+
+## Avantages et évaluation
+
+::: {.fragment}
+**Avantages principaux**
+- **Réduction de la variance** des prédictions
+- **Augmentation de la stabilité**
+:::
+
+::: {.fragment}
+**Inconvénient**
+Perte d'interprétabilité des variables individuelles
+:::
+
+::: {.fragment}
+**Évaluation de l'importance des variables**
+- Sommer les réductions d'indice de Gini par variable
+- Moyenner sur tous les arbres
+- Exprimer en pourcentage relatif
+:::
+
+# Forêts aléatoires
+
+## Extension du bagging
+
+::: {.fragment}
+**Problème du bagging**
+Les arbres se ressemblent (dominance des classes fréquentes)
+:::
+
+::: {.fragment}
+**Solution des forêts aléatoires**
+Introduction d'une **source supplémentaire d'aléa**
+:::
+
+::: {.fragment}
+**Mécanisme**
+À chaque division, sélectionner aléatoirement $m$ variables parmi $p$ disponibles
+
+**Choix usuel**: $m \approx \sqrt{p}$
+:::
+
+## Bénéfices de la randomisation
+
+::: {.incremental}
+- **Décorrélation** des arbres construits
+- **Diversification** des modèles
+- **Amélioration** de la performance globale
+- **Robustesse** accrue
+:::
+
+::: {.fragment}
+**Résultat**
+Meilleure généralisation que le bagging simple
+:::
+
+# Boosting
+
+## Approche séquentielle
+
+::: {.fragment}
+**Philosophie opposée au bagging**
+Construction séquentielle au lieu de parallèle
+:::
+
+::: {.fragment}
+**Principe**
+1. **Construire** une série de modèles simples
+2. **Accorder progressivement** plus d'importance aux erreurs
+3. **Corriger** les erreurs du modèle précédent
+4. **Atteindre** une très haute précision globale
+:::
+
+## Condition de succès
+
+::: {.fragment}
+**Exigence fondamentale**
+Utiliser des **modèles faibles** (weak learners)
+:::
+
+::: {.fragment}
+**Raison**
+Laisser au processus de boosting le soin de combiner optimalement les prédictions
+:::
+
+## Variantes principales
+
+::: {.fragment}
+**1. AdaBoost** (Adaptive Boosting)
+- Ajuste les poids des observations à chaque itération
+- Méthode historique et bien établie
+:::
+
+::: {.fragment}
+**2. Gradient Boosting**
+- Minimisation d'une fonction de perte
+- Procédure itérative inspirée de la descente du gradient
+- Très utilisé aujourd'hui
+:::
+
+# Optimisation des hyper-paramètres
+
+## Nécessité de l'optimisation
+
+::: {.fragment}
+**Observation empirique**
+Plus une méthode est puissante, plus l'optimisation des hyper-paramètres est complexe et sensible
+:::
+
+::: {.fragment}
+**Objectif**
+Atteindre un bon compromis entre performance et robustesse
+:::
+
+## Paramètres par méthode
+
+::: {.fragment}
+**Bagging**
+- Nombre d'échantillons bootstrap $B$
+:::
+
+::: {.fragment}
+**Forêts aléatoires**
+- Nombre d'échantillons bootstrap $B$
+- Nombre de variables $m$ à considérer à chaque division
+:::
+
+::: {.fragment}
+**Boosting**
+- Taille des arbres
+- Fraction du jeu de données échantillonné
+- Nombre d'itérations
+- Paramètres de régularisation
+:::
+
+## Méthode d'optimisation
+
+::: {.fragment}
+**Validation croisée**
+Nécessaire pour chaque paramètre afin d'éviter le sur-ajustement
+:::
+
+::: {.fragment}
+**Processus**
+1. **Définir** une grille de valeurs pour chaque paramètre
+2. **Évaluer** par validation croisée
+3. **Sélectionner** la combinaison optimale
+4. **Tester** sur un jeu de données indépendant
+:::
+
+## Récapitulatif des méthodes
+
+::: {.fragment}
+| Méthode | Approche | Avantage principal |
+|---------|----------|-------------------|
+| **Bagging** | Parallèle | Réduction variance |
+| **Forêts aléatoires** | Parallèle + aléa | Décorrélation |
+| **Boosting** | Séquentielle | Correction d'erreurs |
+:::
+
+## Points clés à retenir
+
+::: {.incremental}
+- **Ensemble > Individuel** : Combinaison de modèles faibles
+- **Diversité** : Clé du succès des méthodes ensemblistes
+- **Trade-off** : Performance vs Interprétabilité
+- **Optimisation** : Cruciale pour la performance finale
+- **Applications** : Base de nombreux algorithmes modernes (XGBoost, LightGBM, etc.)
+:::
+
+## Merci pour votre attention
+
+**Questions ?**
+
+::: {.fragment}
+*Les méthodes ensemblistes : quand l'union fait la force*
+:::

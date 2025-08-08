@@ -18,3 +18,205 @@ format:
 --- 
 
 
+# Arbres de décision (CART)
+
+## Introduction
+
+::: {.incremental}
+- **CART**: Classification And Regression Trees
+- **Méthode d'apprentissage supervisée**
+- **Classification**: Prédire l'appartenance à l'un des $K$ groupes
+- **Régression**: Prédire une variable numérique continue $Y$
+- **Variables**: $X_1, \ldots, X_p$ avec $n$ observations dans $\mathbb{R}^p$
+:::
+
+## Objectif principal
+
+::: {.fragment}
+**Partitionner l'espace des observations** $\mathbb{R}^p$ en sous-ensembles homogènes
+:::
+
+::: {.fragment}
+**Algorithme récursif de découpage binaire**
+1. Découper selon une variable $X_j$ à un seuil $s$
+2. Créer des sous-régions rectangulaires (hyper-rectangles)
+3. Chaque sous-ensemble = une **feuille** avec une prédiction
+:::
+
+::: {.fragment}
+**Prédiction par feuille**
+- **Classification**: Classe majoritaire
+- **Régression**: Moyenne des $Y$
+:::
+
+## Principe de l'algorithme
+
+::: {.incremental}
+1. **Découpage** selon $X_j \leq s$ vs $X_j > s$
+2. **Choix optimal** de $(X_j, s)$ maximisant le **critère d'homogénéité**
+3. **Répétition** jusqu'au **critère d'arrêt**
+4. **Prédiction unique** par feuille pour toutes les observations
+:::
+
+::: {.fragment}
+⚠️ **Algorithme glouton**: Optimisation locale, pas globale !
+:::
+
+## Algorithme détaillé
+
+::: {.fragment}
+**Pour chaque nœud:**
+:::
+
+::: {.incremental}
+1. **Évaluer** tous les couples $(X_j, s)$ possibles
+2. **Calculer** la réduction du critère d'homogénéité
+3. **Sélectionner** le couple qui maximise le gain
+4. **Diviser** le nœud selon $X_j \leq s$ vs $X_j > s$
+5. **Répéter** jusqu'aux critères d'arrêt
+:::
+
+::: {.fragment}
+**Point de départ**: L'ensemble complet des observations
+:::
+
+## Critères d'homogénéité - Classification
+
+Soit $\widehat{p}_{jk}$ la proportion d'observations de la région $R_j$ appartenant à la classe $k$
+
+::: {.fragment}
+**1. Taux d'erreur de classification**
+$$E_j = 1 - \max_k \widehat{p}_{jk}$$
+- Facile à interpréter
+- Peu sensible → rarement utilisé pour la construction
+:::
+
+## Critères d'homogénéité (suite)
+
+::: {.fragment}
+**2. Indice de Gini** (le plus utilisé)
+$$G_j = \sum_{k=1}^{K} \widehat{p}_{jk}(1 - \widehat{p}_{jk})$$
+- Minimal ($= 0$) quand homogénéité parfaite
+- On cherche un indice faible
+:::
+
+::: {.fragment}
+**3. Entropie croisée** (théorie de l'information)
+$$D_j = -\sum_{k=1}^{K} \widehat{p}_{jk} \log(\widehat{p}_{jk})$$
+- Basé sur Shannon
+- Minimal pour classe parfaitement prédite
+:::
+
+## Gain d'information
+
+::: {.fragment}
+**Mesure de l'amélioration** après division
+:::
+
+::: {.fragment}
+**Exemple avec l'indice de Gini:**
+$$\Delta G = G_{\text{avant}} - \left(\frac{n_1}{n} G_1 + \frac{n_2}{n} G_2\right)$$
+
+où:
+- $n_1, n_2$ : nombres d'observations dans les sous-ensembles
+- $n = n_1 + n_2$
+:::
+
+::: {.fragment}
+**Objectif**: Maximiser le gain d'information
+:::
+
+## Problème du sur-ajustement
+
+::: {.fragment}
+**Dilemme**
+- **Arbre trop profond** → Sur-ajustement aux données d'apprentissage
+- **Arbre trop simple** → Sous-ajustement, classification trop simpliste
+:::
+
+::: {.fragment}
+**Conséquence**
+Perte de capacité de généralisation à de nouvelles données
+:::
+
+::: {.fragment}
+**Solution**: Élagage (*pruning*)
+:::
+
+## Élagage de l'arbre
+
+::: {.fragment}
+**Stratégie en deux temps:**
+1. **Croissance complète** jusqu'aux feuilles pures
+2. **Élagage** des branches peu performantes
+:::
+
+::: {.fragment}
+**Critère coût-complexité**
+$$\sum_{j=1}^{|T|} c_j + \alpha |T|$$
+
+où:
+- $|T|$ : nombre de feuilles
+- $c_j$ : coût dans la feuille $j$
+- $\alpha$ : paramètre de régularisation
+:::
+
+## Choix du paramètre α
+
+::: {.fragment}
+**Interprétation**
+- $\alpha$ élevé → Favorise les arbres simples
+- $\alpha$ faible → Arbres plus complexes
+:::
+
+::: {.fragment}
+**Méthode de sélection**
+Validation croisée pour comparer les performances sur différentes valeurs de $\alpha$
+:::
+
+## Avantages des arbres
+
+::: {.incremental}
+- **Très interprétables** : Chemin explicite pour chaque prédiction
+- **Robustes** aux valeurs extrêmes et transformations monotones
+- **Gestion naturelle** des interactions entre variables
+- **Variables mixtes** : Quantitatives et qualitatives
+- **Aucune hypothèse** sur la distribution des données
+- **Sélection automatique** des variables importantes
+- **Base** de méthodes modernes (forêts aléatoires, boosting)
+:::
+
+## Limites des arbres
+
+::: {.incremental}
+- **Instabilité** : Sensibles aux petites modifications des données
+- **Performance limitée** seuls, surtout avec données bruitées
+- **Divisions rectangulaires** inadaptées aux frontières non-linéaires
+- **Tendance au sur-ajustement** sans élagage
+- **Sensibilité** au déséquilibre des classes
+- **Solution** : Méthodes ensemblistes (forêts, boosting)
+:::
+
+## Récapitulatif
+
+::: {.fragment}
+**Les arbres CART**
+- Méthode de partitionnement récursif
+- Algorithme glouton simple et intuitif
+- Nécessitent un élagage pour éviter le sur-ajustement
+:::
+
+::: {.fragment}
+**Usage recommandé**
+- Excellents pour l'interprétabilité
+- Meilleurs en combinaison (méthodes ensemblistes)
+- Première approche pour comprendre les données
+:::
+
+## Merci pour votre attention
+
+**Questions ?**
+
+::: {.fragment}
+*Les arbres de décision : simplicité, interprétabilité et fondement des méthodes ensemblistes*
+:::

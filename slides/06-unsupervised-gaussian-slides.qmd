@@ -16,5 +16,3 @@ format:
     template-partials:
       - title-slide.html
 --- 
-
-

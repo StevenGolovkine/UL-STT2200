@@ -1,0 +1,258 @@
+--- 
+title: "Non-supervisée"
+subtitle: "$k$-moyennes"
+author: "Steven Golovkine"
+lang: fr
+date: today
+date-format: "DD MMM YYYY"
+slide-number: c/t
+title-logo: ../include/logo-ul.png
+format:
+  revealjs:
+    theme: [default, ../include/ulaval-slide.scss]
+    chalkboard: true
+    width: 1280
+    height: 720
+    template-partials:
+      - title-slide.html
+--- 
+
+# Classification non-supervisée
+
+## Objectif de la classification non-supervisée
+
+::: {.fragment}
+**Données**
+$n$ observations $X_1, \ldots, X_n$ décrites par $p$ variables numériques
+:::
+
+::: {.fragment}
+**Préparation**
+Variables généralement standardisées pour éviter les effets d'échelle
+:::
+
+::: {.fragment}
+**Objectif**
+Regrouper en $K$ groupes tels que :
+1. **Intra-groupe** : Observations similaires
+2. **Inter-groupe** : Groupes distincts
+:::
+
+## Fonction de classification
+
+::: {.fragment}
+**Définition**
+$$C: \{1, \ldots, n\} \to \{1, \ldots, K\}$$
+Associe à chaque observation $i$ une étiquette de groupe $C(i)$
+:::
+
+::: {.fragment}
+**Fonction de coût**
+$$W(C) = \sum_{k=1}^{K} \sum_{i: C(i)=k} \sum_{j: C(j)=k} d(X_i, X_j)$$
+où $d(X_i, X_j)$ mesure la dissimilarité entre observations
+:::
+
+::: {.fragment}
+**Objectif** : Minimiser $W(C)$ (cohésion intra-groupe)
+:::
+
+## Complexité du problème
+
+::: {.fragment}
+**Problème d'optimisation combinatoire**
+- $K^n$ combinaisons possibles
+- Exploration exhaustive impossible même pour petites valeurs
+:::
+
+::: {.fragment}
+**Solution pratique : Algorithmes gloutons**
+- Exploration d'un sous-ensemble restreint
+- Amélioration itérative progressive
+- Convergence vers un **minimum local**
+:::
+
+::: {.fragment}
+**Hypothèses**
+1. Variables numériques, souvent centrées-réduites
+2. Nombre de groupes $K$ fixé à l'avance
+:::
+
+# Algorithme $k$-moyennes
+
+## Principe général
+
+::: {.fragment}
+**Objectif**
+Regrouper $n$ observations en $K$ groupes homogènes
+:::
+
+::: {.fragment}
+**Mesure de dissimilarité**
+Généralement la **distance euclidienne** pour données quantitatives
+:::
+
+::: {.fragment}
+**Stratégie**
+- Observations proches au sein d'un groupe
+- Groupes éloignés entre eux
+:::
+
+## Algorithme détaillé
+
+::: {.incremental}
+1. **Choix de $K$** : Nombre de groupes fixé à l'avance
+
+2. **Initialisation** : Partition aléatoire ou centres initiaux aléatoires
+
+3. **Calcul des centroïdes** :
+   $$\mu_k = \frac{1}{N_k} \sum_{i: C(i)=k} X_i$$
+
+4. **Réaffectation** : Chaque observation au centre le plus proche
+
+5. **Itération** : Répéter 3-4 jusqu'à stabilisation
+:::
+
+## Convergence
+
+::: {.fragment}
+**Garantie de convergence**
+En nombre fini d'itérations
+:::
+
+::: {.fragment}
+**Mécanisme**
+Chaque étape réduit l'**inertie intra-groupe**
+(somme des distances observations ↔ centroïdes)
+:::
+
+::: {.fragment}
+**⚠️ Limitation importante**
+Convergence vers un **minimum local**, pas nécessairement global
+:::
+
+## Limites des $k$-moyennes
+
+::: {.incremental}
+1. **Sensibilité à l'initialisation**
+   - Résultats variables selon centres initiaux
+   - Solution : Algorithme $k$-means++
+
+2. **Choix de $K$ à l'avance**
+   - Pas toujours évident
+   - Critères : Silhouette, méthode du coude, BIC/AIC
+
+3. **Coût computationnel**
+   - Recalcul de toutes les distances à chaque itération
+   - Problématique pour grand $n$ ou $p$
+:::
+
+## Limites (suite)
+
+::: {.fragment}
+4. **Sensibilité aux valeurs extrêmes**
+   - La moyenne influencée par observations atypiques
+   - Centroïdes faussés
+   - Regroupements incohérents
+:::
+
+::: {.fragment}
+**Conséquence**
+Nécessité de prétraiter les données (détection d'outliers)
+:::
+
+# Algorithme $k$-médoïdes
+
+## Principe des $k$-médoïdes
+
+::: {.fragment}
+**Différence fondamentale**
+Utilise des **observations réelles** comme représentants (pas des moyennes)
+:::
+
+::: {.fragment}
+**Médoïde**
+Observation qui minimise la somme des distances aux autres observations du même groupe
+:::
+
+::: {.fragment}
+**Avantage conceptuel**
+Représentants concrets et interprétables
+:::
+
+## Avantages des $k$-médoïdes
+
+::: {.incremental}
+1. **Robustesse aux valeurs extrêmes**
+   - Médoïdes moins sensibles que moyennes
+   - Meilleure résistance aux outliers
+
+2. **Compatibilité étendue**
+   - Variables ordinales ou catégorielles
+   - Mesures de dissimilarité personnalisées
+
+3. **Flexibilité**
+   - Matrice de dissimilarité sur mesure
+   - Adaptée à la nature des données
+:::
+
+## Inconvénients des $k$-médoïdes
+
+::: {.fragment}
+**Problèmes partagés avec $k$-moyennes**
+- Choix de $K$ à l'avance
+- Convergence vers minimum local
+:::
+
+::: {.fragment}
+**Coût computationnel plus élevé**
+- Calculs plus complexes pour identifier médoïdes
+- Particulièrement avec distances non-euclidiennes
+- Problématique pour grands jeux de données
+:::
+
+## Comparaison des méthodes
+
+::: {.fragment}
+| Aspect | $k$-moyennes | $k$-médoïdes |
+|--------|--------------|--------------|
+| **Représentants** | Centroïdes (moyennes) | Observations réelles |
+| **Robustesse** | Sensible aux outliers | Plus robuste |
+| **Types de variables** | Numériques | Numériques + ordinales |
+| **Coût computationnel** | Modéré | Plus élevé |
+| **Interprétabilité** | Abstraite | Concrète |
+:::
+
+## Critères de choix de $K$
+
+::: {.incremental}
+1. **Méthode du coude (Elbow method)**
+   - Graphique inertie vs $K$
+   - Recherche du "coude"
+
+2. **Coefficient de silhouette**
+   - Mesure qualité des groupes
+   - Valeurs entre -1 et 1
+
+3. **Critères d'information**
+   - BIC, AIC en cadre probabiliste
+   - Pénalisent la complexité
+:::
+
+## Points clés à retenir
+
+::: {.incremental}
+- **Classification non-supervisée** : Découverte de structure sans étiquettes
+- **$k$-moyennes** : Méthode classique, efficace mais limitations
+- **$k$-médoïdes** : Alternative robuste, coût plus élevé
+- **Choix de $K$** : Crucial, plusieurs critères disponibles
+- **Initialisation** : Importante pour éviter minima locaux
+- **Prétraitement** : Standardisation et gestion des outliers essentielles
+:::
+
+## Merci pour votre attention
+
+**Questions ?**
+
+::: {.fragment}
+*Classification non-supervisée : découvrir la structure cachée des données*
+:::

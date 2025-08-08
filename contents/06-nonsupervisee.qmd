@@ -7,7 +7,13 @@ format:
       - \usepackage{mathtools}
 --- 
 
-* Slides: [link](../slides/04-unsupervised-slides.qmd)
+* Slides:
+
+  - [$k$-moyennes](../slides/06-unsupervised-kmeans-slides.qmd)
+
+  - [Méthodes hiérarchiques](../slides/06-unsupervised-hierarchy-slides.qmd)
+
+  - [Mélanges de gaussiennes](../slides/06-unsupervised-gaussian-slides.qmd)
 
 * TD: [link](../td/06-unsupervised-td.qmd)
 

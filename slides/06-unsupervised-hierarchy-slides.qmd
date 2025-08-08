@@ -1,0 +1,407 @@
+--- 
+title: "Non-supervisée"
+subtitle: "Classification hiérarchique"
+author: "Steven Golovkine"
+lang: fr
+date: today
+date-format: "DD MMM YYYY"
+slide-number: c/t
+title-logo: ../include/logo-ul.png
+format:
+  revealjs:
+    theme: [default, ../include/ulaval-slide.scss]
+    chalkboard: true
+    width: 1280
+    height: 720
+    template-partials:
+      - title-slide.html
+--- 
+
+# Classification hiérarchique
+
+## Motivation
+
+::: {.fragment}
+**Limites du $k$-means**
+- Nécessite les données originales
+- Problématique avec matrice de similarité/distance uniquement
+:::
+
+::: {.fragment}
+**Solution : Classification hiérarchique**
+- Série de **partitions imbriquées**
+- De $n$ groupes (chaque observation isolée) à 1 groupe (toutes ensemble)
+- Représentation : **Dendrogramme**
+:::
+
+## Types d'algorithmes
+
+::: {.incremental}
+1. **Algorithmes ascendants**
+   - Départ : $n$ groupes individuels
+   - Processus : Fusions successives
+
+2. **Algorithmes descendants**
+   - Départ : 1 groupe de toutes les observations
+   - Processus : Divisions successives
+:::
+
+::: {.fragment}
+**Résultat commun** : $n$ partitions hiérarchiques de 1 à $n$ groupes
+:::
+
+## Algorithmes descendants
+
+::: {.fragment}
+**Principe**
+- Démarrage avec toutes les observations dans un groupe
+- Division du groupe le moins homogène à chaque étape
+- Maximisation de la dissimilarité entre sous-groupes
+:::
+
+::: {.fragment}
+**Inconvénient majeur**
+Coût computationnel très élevé (évaluation de toutes les divisions possibles)
+:::
+
+::: {.fragment}
+**Usage** : Rarement utilisé en pratique
+:::
+
+## Algorithmes ascendants
+
+::: {.fragment}
+**Principe**
+- Démarrage avec $n$ groupes distincts
+- Fusion des deux groupes les plus similaires à chaque étape
+- Continuation jusqu'à un seul groupe
+:::
+
+::: {.fragment}
+**Avantage** : Plus efficace computationnellement
+:::
+
+::: {.fragment}
+**Enjeu clé** : Définir la distance entre groupes
+:::
+
+# Distances entre groupes
+
+## Plus proche voisin (*Single Linkage*)
+
+::: {.fragment}
+**Définition**
+$$d(A, B) = \min \{d_{ij}: i \in A, j \in B\}$$
+Distance = plus petite distance entre individus des deux groupes
+:::
+
+::: {.fragment}
+**Avantages**
+- Bon avec variables de types différents
+- Groupes de formes irrégulières
+- Robuste aux données aberrantes
+- Bonnes propriétés théoriques
+:::
+
+::: {.fragment}
+**Inconvénients**
+- Groupes déséquilibrés (effet "chaîne")
+- Moins performant pour groupes réguliers
+:::
+
+## Voisin le plus distant (*Complete Linkage*)
+
+::: {.fragment}
+**Définition**
+$$d(A, B) = \max \{d_{ij}: i \in A, j \in B\}$$
+Distance = plus grande distance entre individus
+:::
+
+::: {.fragment}
+**Avantages**
+- Groupes réguliers et homogènes en taille
+- Adapté aux variables de types différents
+:::
+
+::: {.fragment}
+**Inconvénients**
+- **Extrêmement** sensible aux données aberrantes
+- Force des groupes de même taille
+:::
+
+## Méthode de la moyenne (*Average Linkage*)
+
+::: {.fragment}
+**Définition**
+$$d(A, B) = \frac{1}{n_A n_B} \sum_{i \in A} \sum_{j \in B} d(X_i, X_j)$$
+Distance = moyenne de toutes les distances inter-groupes
+:::
+
+::: {.fragment}
+**Caractéristiques**
+- Considère toutes les interactions
+- Produit des groupes homogènes (variance faible)
+- Privilégie des groupes de variance similaire
+:::
+
+## Méthode du centroïde
+
+::: {.fragment}
+**Définition**
+$$d(A, B) = d(\overline{X}_A, \overline{X}_B)$$
+Distance entre les moyennes des groupes
+:::
+
+::: {.fragment}
+**Mise à jour après fusion**
+$$\overline{X}_{AB} = \frac{n_A \overline{X}_A + n_B \overline{X}_B}{n_A + n_B}$$
+:::
+
+::: {.fragment}
+**Propriété** : Assez robuste aux données aberrantes, mais peu performant sans elles
+:::
+
+## Méthode de la médiane
+
+::: {.fragment}
+**Principe** : Mise à jour récursive des distances
+:::
+
+::: {.fragment}
+**Formule de mise à jour**
+$$d(AB, C) = \frac{d(A, C) + d(B, C)}{2} - \frac{d(A, B)}{4}$$
+:::
+
+::: {.fragment}
+**Caractéristiques**
+- Très robuste aux données aberrantes
+- Peu efficace sans valeurs extrêmes
+:::
+
+## Méthode de Ward
+
+::: {.fragment}
+**Principe** : Minimisation de l'augmentation d'inertie intra-groupe
+:::
+
+::: {.fragment}
+**Critère d'optimisation**
+$$I_{AB} = SC_{AB} - SC_A - SC_B = \frac{d^2(\overline{X}_A, \overline{X}_B)}{\frac{1}{n_A} + \frac{1}{n_B}}$$
+:::
+
+::: {.fragment}
+**Conditions optimales**
+- Observations gaussiennes multivariées
+- Même matrice de variance-covariance
+- Moyennes différentes
+:::
+
+## Ward : Avantages et limites
+
+::: {.fragment}
+**Avantages**
+- Très efficace sous hypothèses gaussiennes
+- Groupes homogènes et de taille comparable
+- Méthode très populaire en pratique
+:::
+
+::: {.fragment}
+**Inconvénients**
+- Sensible aux données aberrantes
+- Tend à former des groupes de même taille
+- Hypothèses gaussiennes restrictives
+:::
+
+## Méthode flexible
+
+::: {.fragment}
+**Formule générale**
+$$d(C, AB) = \alpha_A d(C, A) + \alpha_B d(C, B) + \beta d(A, B) + \gamma |d(C, A) - d(C, B)|$$
+:::
+
+::: {.fragment}
+**Flexibilité**
+Selon $(\alpha_A, \alpha_B, \beta, \gamma)$, on retrouve toutes les méthodes précédentes
+:::
+
+::: {.fragment}
+**Paramétrage standard**
+- $\alpha_A = \alpha_B$, $\alpha_A + \alpha_B + \beta = 1$, $\gamma = 0$
+- Choix courant : $\beta = -0.25$
+- Données aberrantes : $\beta = -0.5$
+:::
+
+# Choix de la partition
+
+## Le problème du choix
+
+::: {.fragment}
+**Question centrale**
+Parmi les $n$ partitions possibles, laquelle choisir ?
+:::
+
+::: {.fragment}
+**Critères pratiques**
+- Interprétabilité scientifique ou métier
+- Pertinence opérationnelle
+- Nombre de groupes $K$ déterminé à l'avance
+:::
+
+::: {.fragment}
+**Critères statistiques**
+Quand les considérations pratiques ne suffisent pas
+:::
+
+## Outils disponibles
+
+::: {.fragment}
+**Librairies spécialisées**
+- R `NbClust` : ~30 critères
+- Python `sklearn` : ~10 critères
+:::
+
+::: {.fragment}
+**Adaptation**
+Critères surtout adaptés aux variables continues
+:::
+
+# Critères basés sur l'inertie
+
+## Décomposition de l'inertie
+
+::: {.fragment}
+**Inertie totale**
+$$I_{\text{tot}} = \frac{1}{n}\sum_{i=1}^{n} d(X_i, G)$$
+:::
+
+::: {.fragment}
+**Décomposition fondamentale**
+$$I_{\text{tot}} = I_{\text{intra-groupe}} + I_{\text{inter-groupe}}$$
+:::
+
+::: {.fragment}
+**Objectif** : Maximiser $I_{\text{inter-groupe}}$ (séparation des groupes)
+:::
+
+## Inertie inter-groupe et intra-groupe
+
+::: {.fragment}
+**Inertie inter-groupe** (séparation)
+$$I_{\text{inter-groupe}} = \frac{1}{n}\sum_{k=1}^{K} n_k d(G_k, G)$$
+:::
+
+::: {.fragment}
+**Inertie intra-groupe** (compacité)
+$$I_{\text{intra-groupe}} = \frac{1}{n}\sum_{k=1}^{K} \sum_{i \in C_k} d(X_i, G_k)$$
+:::
+
+::: {.fragment}
+**Principe** : Groupes compacts $\Rightarrow$ faible inertie intra-groupe
+:::
+
+## Critères dérivés
+
+::: {.fragment}
+**Pseudo-$R^2$**
+$$\text{pseudo-}R^2 = \frac{I_{\text{inter-groupe}}}{I_{\text{tot}}}$$
+Proportion d'inertie expliquée par la partition
+:::
+
+::: {.fragment}
+**Statistique Calinski-Harabasz (CH)**
+$$\text{CH} = \frac{I_{\text{inter-groupe}} / (K-1)}{I_{\text{intra-groupe}} / (n-K)}$$
+Équilibre entre compacité et séparation
+:::
+
+# Critères basés sur la distance
+
+## Indice de Dunn
+
+::: {.fragment}
+**Définition**
+$$D = \frac{\text{Distance minimale entre 2 groupes}}{\text{Distance maximale dans un groupe}}$$
+:::
+
+::: {.fragment}
+**Objectif** : Maximiser $D$
+- Groupes denses (faible distance interne)
+- Groupes bien séparés (grande distance externe)
+:::
+
+## Indice de silhouette
+
+::: {.fragment}
+**Pour une observation $X_i$**
+$$S(X_i) = \frac{b_i - a_i}{\max(b_i, a_i)}$$
+où :
+- $a_i$ : distance moyenne aux observations du même groupe
+- $b_i$ : distance moyenne au groupe le plus proche
+:::
+
+::: {.fragment}
+**Interprétation**
+- $S(X_i) \approx 1$ : Bien classée
+- $S(X_i) \approx 0$ : À la frontière
+- $S(X_i) \approx -1$ : Mal classée
+:::
+
+## Utilisation de la silhouette
+
+::: {.fragment}
+**Silhouette moyenne**
+Indicateur de cohérence globale de la partition
+:::
+
+::: {.fragment}
+**Avantage** : Intuitive et facilement interprétable
+:::
+
+::: {.fragment}
+**Usage** : Souvent utilisée pour choisir le nombre optimal de groupes
+:::
+
+## Recommandations pratiques
+
+::: {.incremental}
+1. **Croiser les approches**
+   - Connaissance métier
+   - Visualisation (dendrogramme)
+   - Critères statistiques multiples
+
+2. **Aucun critère n'est parfait**
+   - Complémentarité des indicateurs
+   - Décision éclairée et contextualisée
+
+3. **Validation**
+   - Interprétabilité des groupes obtenus
+   - Stabilité des résultats
+:::
+
+## Récapitulatif
+
+::: {.fragment}
+**Classification hiérarchique**
+- Alternative robuste au $k$-means
+- Exploration complète de la hiérarchie de groupes
+- Choix de méthode de distance crucial
+:::
+
+::: {.fragment}
+**Méthodes populaires**
+- Ward (sous hypothèses gaussiennes)
+- Average linkage (bon compromis)
+- Complete linkage (groupes réguliers)
+:::
+
+::: {.fragment}
+**Choix du nombre de groupes**
+Combinaison de critères pratiques et statistiques
+:::
+
+## Merci pour votre attention
+
+**Questions ?**
+
+::: {.fragment}
+*Classification hiérarchique : explorer la structure naturelle des données*
+:::
