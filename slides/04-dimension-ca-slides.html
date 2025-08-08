@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr"><head>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/slides/06-unsupervised-slides.html" />
-<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/slides/06-unsupervised-slides.en.html" />
+<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/slides/04-dimension-ca-slides.html" />
+<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/slides/04-dimension-ca-slides.en.html" />
 <script src="../site_libs/quarto-html/tabby.min.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -126,7 +126,7 @@
     }
   </style>
 <meta property="og:title" content="Dimension – STT-2200: Analyse de données">
-<meta property="og:description" content="Data">
+<meta property="og:description" content="Analyse factorielle des correspondances">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
 <body class="quarto-light">
@@ -135,7 +135,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Dimension</h1>
-  <p class="subtitle">Data</p>
+  <p class="subtitle">Analyse factorielle des correspondances</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -152,8 +152,211 @@ Steven Golovkine
     </center>
   </figure>
 </section>
-<section class="slide level2">
-
+<section id="introduction-à-lafc" class="slide level2">
+<h2>Introduction à l’AFC</h2>
+<p>L’<strong>Analyse Factorielle des Correspondances (AFC)</strong> est une méthode d’analyse exploratoire pour représenter graphiquement les relations entre les modalités de <strong>deux variables qualitatives</strong>.</p>
+<p><strong>Objectifs</strong> : - Représenter simultanément les profils-lignes et profils-colonnes - Préserver la distance du <span class="math inline">\(\chi^2\)</span> - Trouver une représentation en faible dimension (2D-3D) - Révéler les proximités géométriques = similarités entre modalités</p>
+</section>
+<section id="afc-comme-double-acp" class="slide level2">
+<h2>AFC comme double ACP</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Astuce</strong></p>
+</div>
+<div class="callout-content">
+<p>L’AFC peut être vue comme une <strong>double ACP pondérée</strong> : - ACP des profils-lignes dans <span class="math inline">\(\mathbb{R}^p\)</span> - ACP des profils-colonnes dans <span class="math inline">\(\mathbb{R}^n\)</span> - Avec métriques du <span class="math inline">\(\chi^2\)</span> adaptées à chaque espace</p>
+</div>
+</div>
+</div>
+<p>Cette dualité permet une représentation cohérente des lignes et colonnes dans le même espace réduit.</p>
+</section>
+<section id="notation-de-base" class="slide level2">
+<h2>Notation de base</h2>
+<p><strong>Tableau de contingence</strong> : <span class="math inline">\(K = (k_{ij})\)</span> avec <span class="math inline">\(k_{ij}\)</span> = effectif classe <span class="math inline">\(i\)</span>, catégorie <span class="math inline">\(j\)</span></p>
+<p><strong>Tableau de fréquences relatives</strong> : <span class="math inline">\(F = (f_{ij})\)</span> où <span class="math display">\[f_{ij} = \frac{k_{ij}}{k_{\bullet\bullet}}\]</span></p>
+<p><strong>Marges</strong> : - Ligne : <span class="math inline">\(f_{i\bullet} = \sum_{j=1}^p f_{ij}\)</span> - Colonne : <span class="math inline">\(f_{\bullet j} = \sum_{i=1}^n f_{ij}\)</span> - Total : <span class="math inline">\(f_{\bullet\bullet} = 1\)</span></p>
+</section>
+<section id="exemple-concret" class="slide level2">
+<h2>Exemple concret</h2>
+<p><strong>Étudiants STT-2200 (Automne 2025)</strong> : Majeure × Type d’admission</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Majeure</th>
+<th>Collège</th>
+<th>ULaval</th>
+<th>Autre univ.</th>
+<th>Hors QC</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Actuariat</td>
+<td>0.08</td>
+<td>0</td>
+<td>0</td>
+<td>0.04</td>
+<td>0.12</td>
+</tr>
+<tr class="even">
+<td>Statistique</td>
+<td>0.08</td>
+<td>0.16</td>
+<td>0.04</td>
+<td>0</td>
+<td>0.28</td>
+</tr>
+<tr class="odd">
+<td>Bio-info</td>
+<td>0.16</td>
+<td>0.08</td>
+<td>0</td>
+<td>0.08</td>
+<td>0.32</td>
+</tr>
+<tr class="even">
+<td>Finance</td>
+<td>0.08</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0.08</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td><strong>0.52</strong></td>
+<td><strong>0.28</strong></td>
+<td><strong>0.04</strong></td>
+<td><strong>0.16</strong></td>
+<td><strong>1</strong></td>
+</tr>
+</tbody>
+</table>
+<p>25 étudiants au total, convertis en fréquences relatives.</p>
+</section>
+<section id="indépendance-statistique" class="slide level2">
+<h2>Indépendance statistique</h2>
+<p><strong>Test d’indépendance</strong> : Si les variables sont indépendantes, <span class="math display">\[f_{ij} \approx f_{i\bullet} f_{\bullet j}\]</span></p>
+<p><strong>Test du <span class="math inline">\(\chi^2\)</span></strong> : <span class="math display">\[T = \sum_{i,j} \frac{(k_{ij} - \mathbb{E}(k_{ij}))^2}{\mathbb{E}(k_{ij})} = \sum_{i,j} \frac{(k_{ij} - \frac{k_{i\bullet}k_{\bullet j}}{k_{\bullet\bullet}})^2}{\frac{k_{i\bullet}k_{\bullet j}}{k_{\bullet\bullet}}}\]</span></p>
+<p>Si <span class="math inline">\(T \approx 0\)</span> → indépendance<br>
+Si <span class="math inline">\(T\)</span> grand → dépendance (intéressant pour l’AFC)</p>
+</section>
+<section id="profils-lignes-et-profils-colonnes" class="slide level2">
+<h2>Profils-lignes et profils-colonnes</h2>
+<p><strong>Profil-ligne <span class="math inline">\(i\)</span></strong> : Répartition de la modalité <span class="math inline">\(i\)</span> parmi les colonnes <span class="math display">\[L_i = \left(\frac{f_{i1}}{f_{i\bullet}}, \ldots, \frac{f_{ip}}{f_{i\bullet}}\right)\]</span></p>
+<p><strong>Profil-colonne <span class="math inline">\(j\)</span></strong> : Répartition de la modalité <span class="math inline">\(j\)</span> parmi les lignes <span class="math display">\[C_j = \left(\frac{f_{1j}}{f_{\bullet j}}, \ldots, \frac{f_{nj}}{f_{\bullet j}}\right)\]</span></p>
+<p>Les profils sont des <strong>distributions conditionnelles</strong>.</p>
+</section>
+<section id="profils-moyens" class="slide level2">
+<h2>Profils moyens</h2>
+<p><strong>Profil-ligne moyen</strong> = fréquences marginales colonnes : <span class="math display">\[\text{Profil moyen} = (f_{\bullet 1}, \ldots, f_{\bullet p})\]</span></p>
+<p><strong>Profil-colonne moyen</strong> = fréquences marginales lignes : <span class="math display">\[\text{Profil moyen} = (f_{1\bullet}, \ldots, f_{n\bullet})\]</span></p>
+<p><strong>Indépendance</strong> ⟺ Tous les profils = profils moyens</p>
+</section>
+<section id="distance-du-chi2" class="slide level2">
+<h2>Distance du <span class="math inline">\(\chi^2\)</span></h2>
+<p><strong>Distance entre profils-lignes</strong> : <span class="math display">\[d^2(L_i, L_{i'}) = \sum_{j=1}^p \frac{1}{f_{\bullet j}} \left(\frac{f_{ij}}{f_{i\bullet}} - \frac{f_{i'j}}{f_{i'\bullet}}\right)^2\]</span></p>
+<p><strong>Distance entre profils-colonnes</strong> : <span class="math display">\[d^2(C_j, C_{j'}) = \sum_{i=1}^n \frac{1}{f_{i\bullet}} \left(\frac{f_{ij}}{f_{\bullet j}} - \frac{f_{ij'}}{f_{\bullet j'}}\right)^2\]</span></p>
+<p><strong>Pondération</strong> par l’inverse des fréquences marginales.</p>
+</section>
+<section id="formulation-matricielle" class="slide level2">
+<h2>Formulation matricielle</h2>
+<p><strong>Matrices de poids</strong> : - <span class="math inline">\(D_n = \text{diag}(f_{i\bullet})\)</span> (poids des lignes) - <span class="math inline">\(D_p = \text{diag}(f_{\bullet j})\)</span> (poids des colonnes)</p>
+<p><strong>Distance du <span class="math inline">\(\chi^2\)</span> matricielle</strong> : - Profils-lignes : <span class="math inline">\(d^2(L_i, L_{i'}) = (L_i - L_{i'})^\top D_p^{-1} (L_i - L_{i'})\)</span> - Profils-colonnes : <span class="math inline">\(d^2(C_j, C_{j'}) = (C_j - C_{j'})^\top D_n^{-1} (C_j - C_{j'})\)</span></p>
+</section>
+<section id="analyse-directe-profils-lignes" class="slide level2">
+<h2>Analyse directe (profils-lignes)</h2>
+<p><strong>Objectif</strong> : Maximiser la variance projetée des profils-lignes</p>
+<p><strong>Problème d’optimisation</strong> : <span class="math display">\[\max_u u^\top D_p^{-1} F^\top D_n^{-1} F D_p^{-1} u \quad \text{s.c.} \quad u^\top D_p^{-1} u = 1\]</span></p>
+<p><strong>Solution</strong> : Vecteurs propres de la matrice <span class="math display">\[S = F^\top D_n^{-1} F D_p^{-1}\]</span></p>
+<p><strong>Premier axe factoriel</strong> : <span class="math inline">\(S u_1 = \lambda_1 u_1\)</span></p>
+</section>
+<section id="analyse-duale-profils-colonnes" class="slide level2">
+<h2>Analyse duale (profils-colonnes)</h2>
+<p><strong>Objectif</strong> : Maximiser la variance projetée des profils-colonnes</p>
+<p><strong>Problème d’optimisation</strong> similaire avec matrice : <span class="math display">\[T = F D_p^{-1} F^\top D_n^{-1}\]</span></p>
+<p><strong>Premier axe factoriel</strong> : <span class="math inline">\(T v_1 = \mu_1 v_1\)</span></p>
+<p><strong>Propriété fondamentale</strong> : <span class="math inline">\(S\)</span> et <span class="math inline">\(T\)</span> ont les mêmes <span class="math inline">\(r = \min(n-1, p-1)\)</span> valeurs propres positives !</p>
+</section>
+<section id="relations-entre-analyses" class="slide level2">
+<h2>Relations entre analyses</h2>
+<p><strong>Cohérence des représentations</strong> : <span class="math inline">\(\lambda_k = \mu_k\)</span> pour <span class="math inline">\(k = 1, \ldots, r\)</span></p>
+<p><strong>Relations entre vecteurs propres</strong> : <span class="math display">\[u_k = \frac{1}{\sqrt{\lambda_k}} F^\top D_n^{-1} v_k\]</span> <span class="math display">\[v_k = \frac{1}{\sqrt{\lambda_k}} F D_p^{-1} u_k\]</span></p>
+<p>Cette propriété garantit une représentation cohérente dans le même espace réduit.</p>
+</section>
+<section id="coordonnées-factorielles" class="slide level2">
+<h2>Coordonnées factorielles</h2>
+<p><strong>Coordonnées des profils-lignes</strong> sur l’axe <span class="math inline">\(k\)</span> : <span class="math display">\[\Phi_k = D_n^{-1} F D_p^{-1} u_k\]</span></p>
+<p><strong>Coordonnées des profils-colonnes</strong> sur l’axe <span class="math inline">\(k\)</span> : <span class="math display">\[\Psi_k = D_p^{-1} F^\top D_n^{-1} v_k\]</span></p>
+<p><strong>Relations entre coordonnées</strong> : <span class="math display">\[\Phi_k = \frac{1}{\sqrt{\lambda_k}} D_n^{-1} F \Psi_k\]</span></p>
+</section>
+<section id="centrage-et-centre-de-gravité" class="slide level2">
+<h2>Centrage et centre de gravité</h2>
+<p><strong>Convention</strong> : Représentation centrée en <span class="math inline">\((0,0)\)</span> dans les logiciels</p>
+<p><strong>Centres de gravité</strong> : - Lignes : <span class="math inline">\(G_L = (f_{\bullet 1}, \ldots, f_{\bullet p})^\top\)</span> - Colonnes : <span class="math inline">\(G_C = (f_{1\bullet}, \ldots, f_{n\bullet})^\top\)</span></p>
+<p><strong>Centrage</strong> : Soustraire les profils moyens <span class="math display">\[\frac{f_{ij}}{f_{i\bullet}} - f_{\bullet j} = \frac{f_{ij} - f_{i\bullet}f_{\bullet j}}{f_{i\bullet}}\]</span></p>
+</section>
+<section id="inertie-totale" class="slide level2">
+<h2>Inertie totale</h2>
+<p><strong>Matrice centrée</strong> : <span class="math inline">\(S^* = (s_{jj'}^*)\)</span> avec <span class="math display">\[s_{jj'}^* = \sum_{i=1}^n \frac{(f_{ij} - f_{i\bullet}f_{\bullet j})(f_{ij'} - f_{i\bullet}f_{\bullet j'})}{f_{i\bullet}f_{\bullet j'}}\]</span></p>
+<p><strong>Inertie totale</strong> : <span class="math display">\[\text{tr}(S^*) = \sum_{j=1}^p \sum_{i=1}^n \frac{(f_{ij} - f_{i\bullet}f_{\bullet j})^2}{f_{i\bullet}f_{\bullet j}}\]</span></p>
+<p>Cette inertie correspond à la <strong>statistique du <span class="math inline">\(\chi^2\)</span> normalisée</strong>.</p>
+</section>
+<section id="représentation-barycentrique" class="slide level2">
+<h2>Représentation barycentrique</h2>
+<p><strong>Propriété remarquable</strong> : Sur chaque axe factoriel,</p>
+<p><span class="math display">\[[\Phi_k]_i = \frac{1}{\sqrt{\lambda_k}} \sum_{j=1}^p \frac{f_{ij}}{f_{i\bullet}} [\Psi_k]_j\]</span></p>
+<p><span class="math display">\[[\Psi_k]_j = \frac{1}{\sqrt{\lambda_k}} \sum_{i=1}^n \frac{f_{ij}}{f_{\bullet j}} [\Phi_k]_i\]</span></p>
+<p><strong>Interprétation</strong> : Chaque profil-ligne est au <strong>barycentre</strong> des profils-colonnes (et vice versa).</p>
+</section>
+<section id="double-représentation-barycentrique" class="slide level2">
+<h2>Double représentation barycentrique</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Astuce</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Propriété fondamentale de l’AFC</strong> :</p>
+<p>Sur les axes factoriels, chaque point d’un nuage est au barycentre des points de l’autre nuage, pondéré par les contributions respectives.</p>
+</div>
+</div>
+</div>
+<p>Cette propriété permet une <strong>interprétation conjointe</strong> des modalités des deux variables dans le même graphique.</p>
+</section>
+<section id="applications-pratiques" class="slide level2">
+<h2>Applications pratiques</h2>
+<p><strong>Domaines d’application</strong> : - Marketing : Préférences × Segments de clientèle - Sociologie : Catégories sociales × Comportements<br>
+- Biologie : Espèces × Environnements - Linguistique : Mots × Contextes</p>
+<p><strong>Avantages</strong> : - Visualisation intuitive des associations - Identification des profils similaires - Détection de structures cachées</p>
+</section>
+<section id="interprétation-des-résultats" class="slide level2">
+<h2>Interprétation des résultats</h2>
+<p><strong>Proximité géométrique</strong> = <strong>Similarité des profils</strong></p>
+<p><strong>Axes factoriels</strong> : Directions de variation maximale</p>
+<p><strong>Contribution des modalités</strong> : Importance dans la construction des axes</p>
+<p><strong>Inertie expliquée</strong> : <span class="math inline">\(\frac{\lambda_k}{\sum_{j=1}^r \lambda_j} \times 100\%\)</span></p>
+<p><strong>Qualité de représentation</strong> : Proportion de l’inertie d’un point expliquée par les axes retenus.</p>
+</section>
+<section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
+<p>L’AFC est un outil puissant pour :</p>
+<ul>
+<li><strong>Explorer</strong> les relations entre variables qualitatives</li>
+<li><strong>Visualiser</strong> des structures complexes en 2D/3D<br>
+</li>
+<li><strong>Identifier</strong> des associations non évidentes</li>
+<li><strong>Interpréter</strong> conjointement lignes et colonnes</li>
+</ul>
+<p>La <strong>dualité ligne-colonne</strong> et la <strong>représentation barycentrique</strong> en font une méthode unique pour l’analyse de tableaux de contingence.</p>
 
 
 </section>

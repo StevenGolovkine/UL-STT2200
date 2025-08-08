@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr"><head>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/slides/06-unsupervised-slides.html" />
-<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/slides/06-unsupervised-slides.en.html" />
+<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/slides/04-dimension-pca-slides.html" />
+<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/slides/04-dimension-pca-slides.en.html" />
 <script src="../site_libs/quarto-html/tabby.min.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -126,7 +126,7 @@
     }
   </style>
 <meta property="og:title" content="Dimension – STT-2200: Analyse de données">
-<meta property="og:description" content="Data">
+<meta property="og:description" content="Analyse en composantes principales">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
 <body class="quarto-light">
@@ -135,7 +135,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Dimension</h1>
-  <p class="subtitle">Data</p>
+  <p class="subtitle">Analyse en composantes principales</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -152,8 +152,128 @@ Steven Golovkine
     </center>
   </figure>
 </section>
-<section class="slide level2">
-
+<section id="pourquoi-réduire-la-dimension" class="slide level2">
+<h2>Pourquoi réduire la dimension ?</h2>
+<p>Travailler avec un grand nombre de variables pose plusieurs défis :</p>
+<ul>
+<li><strong>Visualisation compliquée</strong> : impossible de représenter au-delà de 3 dimensions</li>
+<li><strong>Séparation des classes difficile</strong> : structure cachée dans des combinaisons</li>
+<li><strong>Coût computationnel élevé</strong> : modèles complexes difficiles à ajuster</li>
+<li><strong>Corrélations fortes</strong> : variables redondantes, modèles instables</li>
+</ul>
+<p><strong>Question centrale</strong> : Peut-on réduire la dimension sans perdre trop d’information ?</p>
+</section>
+<section id="lapproche-pca" class="slide level2">
+<h2>L’approche PCA</h2>
+<p><strong>Principe</strong> : Ne pas simplement supprimer des variables, mais construire de nouvelles variables.</p>
+<p><strong>Méthode</strong> : Créer des combinaisons linéaires des variables initiales qui résument l’information essentielle.</p>
+<p><strong>Analyse en Composantes Principales (ACP)</strong> : Méthode non-supervisée pour réduire la dimension tout en conservant le maximum d’information.</p>
+<p>Introduite par Hotelling (1933).</p>
+</section>
+<section id="applications-courantes" class="slide level2">
+<h2>Applications courantes</h2>
+<ol type="1">
+<li><p><strong>Visualisation</strong> : Représenter des données multidimensionnelles</p></li>
+<li><p><strong>Réduction dimensionnelle</strong> : Passer de <span class="math inline">\(p\)</span> à <span class="math inline">\(k \ll p\)</span> variables</p></li>
+<li><p><strong>Compression</strong> : Images ou signaux</p></li>
+<li><p><strong>Exploration</strong> : Données biologiques, textuelles, environnementales</p></li>
+</ol>
+</section>
+<section id="exemples-concrets" class="slide level2">
+<h2>Exemples concrets</h2>
+<ul>
+<li><strong>Sport</strong> : Comparer des équipes de hockey sur 6 statistiques</li>
+<li><strong>Criminologie</strong> : Résumer la criminalité entre provinces sur 7 types de crimes</li>
+<li><strong>Imagerie</strong> : Compresser des images de <span class="math inline">\(1084 \times 1084\)</span> pixels</li>
+<li><strong>Biologie</strong> : Identifier des variants de tumeurs à partir de millions de gènes</li>
+</ul>
+</section>
+<section id="formulation-mathématique" class="slide level2">
+<h2>Formulation mathématique</h2>
+<p>Soit <span class="math inline">\(X = (X_1, \ldots, X_p)^{\top}\)</span> un vecteur aléatoire centré avec matrice de covariance <span class="math inline">\(\Sigma\)</span>.</p>
+<p>On cherche une combinaison linéaire : <span class="math display">\[Y_1 = \alpha_1^{\top} X = \sum_{k=1}^p \alpha_{1k} X_k\]</span></p>
+<p><strong>Objectif</strong> : Maximiser <span class="math inline">\(\text{Var}(Y_1)\)</span> sous contrainte <span class="math inline">\(\|\alpha_1\| = 1\)</span></p>
+</section>
+<section id="problème-doptimisation" class="slide level2">
+<h2>Problème d’optimisation</h2>
+<p><span class="math display">\[\max_{\alpha_1^{\top} \alpha_1 = 1} \text{Var}(Y_1) = \max_{\alpha_1^{\top} \alpha_1 = 1} \alpha_1^{\top} \Sigma \alpha_1\]</span></p>
+<p><strong>Solution</strong> (multiplicateurs de Lagrange) : <span class="math display">\[\Sigma \alpha_1 = \lambda_1 \alpha_1\]</span></p>
+<p>où <span class="math inline">\(\lambda_1\)</span> est la plus grande valeur propre de <span class="math inline">\(\Sigma\)</span> et <span class="math inline">\(\alpha_1\)</span> le vecteur propre associé.</p>
+</section>
+<section id="construction-des-composantes" class="slide level2">
+<h2>Construction des composantes</h2>
+<p>Les composantes suivantes sont construites par orthogonalité :</p>
+<p><span class="math display">\[\Sigma \alpha_k = \lambda_k \alpha_k, \quad \lambda_1 \geq \lambda_2 \geq \ldots \geq \lambda_p\]</span></p>
+<p><strong>Composantes principales</strong> : <span class="math display">\[Y_k = \alpha_k^{\top} X\]</span></p>
+<p>où <span class="math inline">\(\alpha_k\)</span> est le vecteur propre associé à <span class="math inline">\(\lambda_k\)</span>.</p>
+</section>
+<section id="représentation-matricielle" class="slide level2">
+<h2>Représentation matricielle</h2>
+<p>Soit <span class="math inline">\(A = (\alpha_1, \ldots, \alpha_p) \in \mathbb{R}^{p \times p}\)</span> la matrice des vecteurs propres.</p>
+<p><span class="math display">\[Y = A^{\top} X\]</span></p>
+<p><strong>Propriétés de <span class="math inline">\(A\)</span></strong> : - <span class="math inline">\(A^{\top} A = AA^{\top} = I_p\)</span> (orthogonale) - <span class="math inline">\(A^{\top} = A^{-1}\)</span> - <span class="math inline">\(\Sigma A = A \Lambda\)</span> où <span class="math inline">\(\Lambda = \text{diag}(\lambda_1, \ldots, \lambda_p)\)</span></p>
+</section>
+<section id="variance-des-composantes" class="slide level2">
+<h2>Variance des composantes</h2>
+<p><span class="math display">\[\text{Var}(Y) = A^{\top} \Sigma A = \Lambda\]</span></p>
+<p><strong>Conséquences</strong> : - <span class="math inline">\(\text{Cov}(Y_k, Y_l) = 0\)</span> si <span class="math inline">\(k \neq l\)</span> (orthogonalité) - <span class="math inline">\(\text{Var}(Y_k) = \lambda_k\)</span> (variance décroissante) - <span class="math inline">\(\text{Var}(Y_1) \geq \text{Var}(Y_2) \geq \ldots \geq \text{Var}(Y_p)\)</span></p>
+</section>
+<section id="proportion-de-variance-expliquée" class="slide level2">
+<h2>Proportion de variance expliquée</h2>
+<p><strong>Variation totale</strong> : <span class="math display">\[\text{tr}(\Sigma) = \sum_{i=1}^p \lambda_i = \sum_{k=1}^p \text{Var}(Y_k)\]</span></p>
+<p><strong>Proportion expliquée par <span class="math inline">\(Y_k\)</span></strong> : <span class="math display">\[\frac{\lambda_k}{\lambda_1 + \cdots + \lambda_p} = \frac{\text{Var}(Y_k)}{\text{tr}(\Sigma)}\]</span></p>
+<p><strong>Proportion expliquée par les <span class="math inline">\(m\)</span> premières</strong> : <span class="math display">\[100\% \times \frac{\sum_{k=1}^m \lambda_k}{\sum_{k=1}^p \lambda_k}\]</span></p>
+</section>
+<section id="estimation-pratique" class="slide level2">
+<h2>Estimation pratique</h2>
+<p>En pratique, <span class="math inline">\(\Sigma\)</span> est inconnue. On estime par :</p>
+<p><span class="math display">\[\widehat{\Sigma} = \frac{1}{n-1} \sum_{i=1}^n (X_i - \overline{X})(X_i - \overline{X})^{\top}\]</span></p>
+<p><strong>Décomposition spectrale</strong> : <span class="math display">\[\widehat{\Sigma} = \widehat{A} \widehat{\Lambda} \widehat{A}^{\top}\]</span></p>
+<p><strong>Composantes estimées</strong> : <span class="math display">\[Y_i = \widehat{A}^{\top} X_i\]</span></p>
+</section>
+<section id="sensibilité-à-léchelle" class="slide level2">
+<h2>Sensibilité à l’échelle</h2>
+<p><strong>Problème</strong> : Variables avec grandes variances dominent l’ACP.</p>
+<p><strong>Exemple</strong> : Distance en mètres vs kilomètres multiplie la variance par <span class="math inline">\(10^6\)</span>.</p>
+<p><strong>Solution</strong> : Standardiser les variables si elles ont des unités différentes.</p>
+<p><strong>Équivalence</strong> : ACP sur matrice de corrélations au lieu de covariances.</p>
+</section>
+<section id="interprétation-géométrique" class="slide level2">
+<h2>Interprétation géométrique</h2>
+<p><strong>Rotation des axes</strong> : <span class="math inline">\(Y = A^{\top}X\)</span> représente une rotation orthogonale.</p>
+<p><strong>Nouveaux axes</strong> : Directions de variation maximale successive.</p>
+<p><strong>Scores</strong> : <span class="math inline">\(Y_{ik} = \alpha_k^{\top} X_i\)</span> (coordonnées dans le nouveau système).</p>
+<p><strong>Qualité de représentation</strong> : <span class="math display">\[Q_{ik} = \frac{Y_{ik}^2}{\sum_{j=1}^p Y_{ij}^2}\]</span></p>
+</section>
+<section id="choix-du-nombre-de-composantes" class="slide level2">
+<h2>Choix du nombre de composantes</h2>
+<p><strong>1. Règle des 80%</strong> : Retenir assez de composantes pour expliquer 80% de la variance.</p>
+<p><strong>2. Règle de Kaiser</strong> : Conserver les composantes avec <span class="math inline">\(\lambda_k &gt; 1\)</span> (si matrice de corrélations).</p>
+<p><strong>3. Règle de Joliffe</strong> : Variante plus stricte, <span class="math inline">\(\lambda_k &gt; 0.7\)</span>.</p>
+<p><strong>4. Règle de Cattell (coude)</strong> : Chercher un point de rupture dans le graphique des valeurs propres.</p>
+</section>
+<section id="règles-de-choix---détails" class="slide level2">
+<h2>Règles de choix - Détails</h2>
+<p><strong>Règle des 80%</strong> : - Seuil arbitraire mais pratique - Bon équilibre information/simplicité</p>
+<p><strong>Règle de Kaiser</strong> : - Basée sur la moyenne des valeurs propres = 1 - Applicable uniquement avec standardisation</p>
+<p><strong>Règle du coude</strong> : - Graphique <span class="math inline">\(\lambda_k\)</span> vs rang <span class="math inline">\(k\)</span> - Chercher changement de pente - Plus subjective mais intuitive</p>
+</section>
+<section id="considérations-pratiques" class="slide level2">
+<h2>Considérations pratiques</h2>
+<p><strong>Usage en prédiction</strong> : Utiliser les <span class="math inline">\(k\)</span> premières composantes comme prédicteurs.</p>
+<p><strong>Avantages</strong> : - Réduit la dimension - Élimine la multicolinéarité - Conserve l’information essentielle</p>
+<p><strong>Compromis</strong> : - Trop de composantes : pas de simplification - Trop peu : perte d’information pertinente</p>
+</section>
+<section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
+<p>L’ACP est un outil puissant pour la réduction de dimension qui :</p>
+<ul>
+<li><strong>Préserve</strong> l’information maximale</li>
+<li><strong>Élimine</strong> la redondance</li>
+<li><strong>Facilite</strong> la visualisation et la modélisation</li>
+<li><strong>Nécessite</strong> des choix méthodologiques importants</li>
+</ul>
+<p>Le succès dépend du choix approprié du nombre de composantes selon le contexte d’application.</p>
 
 
 </section>

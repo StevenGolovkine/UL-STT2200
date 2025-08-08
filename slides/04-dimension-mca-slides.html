@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr"><head>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/slides/06-unsupervised-slides.html" />
-<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/slides/06-unsupervised-slides.en.html" />
+<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/slides/04-dimension-mca-slides.html" />
+<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/slides/04-dimension-mca-slides.en.html" />
 <script src="../site_libs/quarto-html/tabby.min.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -126,7 +126,7 @@
     }
   </style>
 <meta property="og:title" content="Dimension – STT-2200: Analyse de données">
-<meta property="og:description" content="Data">
+<meta property="og:description" content="Analyse des correspondances multiples">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
 <body class="quarto-light">
@@ -135,7 +135,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Dimension</h1>
-  <p class="subtitle">Data</p>
+  <p class="subtitle">Analyse des correspondances multiples</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -152,8 +152,330 @@ Steven Golovkine
     </center>
   </figure>
 </section>
-<section class="slide level2">
-
+<section id="introduction-à-lacm" class="slide level2">
+<h2>Introduction à l’ACM</h2>
+<p>L’<strong>Analyse des Correspondances Multiples (ACM)</strong> est un prolongement de l’AFC pour analyser <strong>plus de deux variables qualitatives</strong>.</p>
+<p><strong>Applications classiques</strong> : - Questionnaires à choix multiples (<span class="math inline">\(Q\)</span> questions) - Visualisation de réponses d’enquêtes - Variables mixtes (quantitatives + qualitatives)</p>
+<p><strong>Principe fondamental</strong> : Transformation préalable par <strong>codage disjonctif complet</strong>.</p>
+</section>
+<section id="extension-de-lafc" class="slide level2">
+<h2>Extension de l’AFC</h2>
+<p>L’ACM peut être vue comme :</p>
+<ol type="1">
+<li><strong>AFC généralisée</strong> : Plus de 2 variables qualitatives</li>
+<li><strong>ACP adaptée</strong> : Variables mixtes (quanti + quali)</li>
+<li><strong>Analyse de questionnaires</strong> : Réponses à choix multiples</li>
+</ol>
+<p><strong>Transformation clé</strong> : Passer des variables originales aux modalités binaires.</p>
+</section>
+<section id="notation-de-base" class="slide level2">
+<h2>Notation de base</h2>
+<ul>
+<li><span class="math inline">\(n\)</span> : nombre d’individus (observations)</li>
+<li><span class="math inline">\(Q\)</span> : nombre de variables (questions)<br>
+</li>
+<li><span class="math inline">\(J_q\)</span> : nombre de modalités de la variable <span class="math inline">\(q\)</span></li>
+<li><span class="math inline">\(J\)</span> : nombre total de modalités (<span class="math inline">\(J = \sum_{q=1}^Q J_q\)</span>)</li>
+</ul>
+<p><strong>Objectif</strong> : Représenter graphiquement les relations entre toutes ces modalités.</p>
+</section>
+<section id="codage-disjonctif-complet" class="slide level2">
+<h2>Codage disjonctif complet</h2>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Avertissement</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Définition</strong> : Tableau binaire <span class="math inline">\(Z\)</span> (<span class="math inline">\(n \times J\)</span>) contenant uniquement des 0 et des 1.</p>
+</div>
+</div>
+</div>
+<p><strong>Principe</strong> : - Chaque variable → ses modalités - Individu possède modalité → code 1 - Individu ne possède pas modalité → code 0 - <strong>Disjonctif</strong> : au plus une modalité par variable - <strong>Complet</strong> : au moins une modalité par variable</p>
+</section>
+<section id="exemple-concret---données" class="slide level2">
+<h2>Exemple concret - Données</h2>
+<p><strong>Produits avec Type et Prix</strong> :</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Produit</th>
+<th>Type</th>
+<th>Prix ($)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nike Tech Fleece</td>
+<td>Hoodie</td>
+<td>256.72</td>
+</tr>
+<tr class="even">
+<td>Puma Joggers</td>
+<td>Joggers</td>
+<td>221.26</td>
+</tr>
+<tr class="odd">
+<td>Off-White Hoodie</td>
+<td>Hoodie</td>
+<td>198.45</td>
+</tr>
+<tr class="even">
+<td>Supreme Hoodie</td>
+<td>Hoodie</td>
+<td>235.50</td>
+</tr>
+<tr class="odd">
+<td>Jordan 1 High</td>
+<td>Sneakers</td>
+<td>298.22</td>
+</tr>
+<tr class="even">
+<td>Nike Dunk Low</td>
+<td>Sneakers</td>
+<td>273.00</td>
+</tr>
+<tr class="odd">
+<td>Nike Tech Fleece</td>
+<td>Hoodie</td>
+<td>162.38</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable Prix</strong> → 3 classes : &lt;200<span class="math inline">\(, [200\)</span>-250<span class="math inline">\(], &gt;250\)</span></p>
+</section>
+<section id="exemple---codage-disjonctif-complet" class="slide level2">
+<h2>Exemple - Codage disjonctif complet</h2>
+<p><strong>Tableau transformé</strong> <span class="math inline">\(Z\)</span> :</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Produit</th>
+<th style="text-align: center;">Hoodie</th>
+<th style="text-align: center;">Joggers</th>
+<th style="text-align: center;">Sneakers</th>
+<th style="text-align: center;">&lt;200$</th>
+<th style="text-align: center;">[200-250<span class="math inline">\(] | &gt;250\)</span></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nike Tech Fleece</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td>Puma Joggers</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td>Off-White Hoodie</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td>Supreme Hoodie</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td>Jordan 1 High</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td>Nike Dunk Low</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td>Nike Tech Fleece</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<p>Chaque ligne somme à <span class="math inline">\(Q = 2\)</span> (2 variables).</p>
+</section>
+<section id="propriétés-du-tableau-z" class="slide level2">
+<h2>Propriétés du tableau Z</h2>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Propriétés fondamentales</strong> :</p>
+<ol type="1">
+<li><strong>Somme par ligne</strong> : <span class="math inline">\(\sum_{j=1}^J z_{ij} = Q\)</span> (constante)</li>
+<li><strong>Somme totale</strong> : <span class="math inline">\(\sum_{i,j} z_{ij} = nQ\)</span></li>
+<li><strong>Somme par colonne</strong> : <span class="math inline">\(\sum_{i=1}^n z_{ij} = n_j\)</span> (effectif modalité <span class="math inline">\(j\)</span>)</li>
+</ol>
+</div>
+</div>
+</div>
+<p>Ces propriétés découlent directement du codage disjonctif complet.</p>
+</section>
+<section id="perte-dinformation" class="slide level2">
+<h2>Perte d’information</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Astuce</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Variables quantitatives</strong> → <strong>Classes</strong> : Perte d’information inévitable.</p>
+<ul>
+<li>Valeur précise → Appartenance à une classe</li>
+<li>Exemple : 256.72$ → “&gt;250$”</li>
+<li><strong>Compromis</strong> : Granularité vs interprétabilité</li>
+</ul>
+</div>
+</div>
+</div>
+<p><strong>Enjeu</strong> : Choisir des classes pertinentes pour le problème étudié.</p>
+</section>
+<section id="tableau-de-burt" class="slide level2">
+<h2>Tableau de Burt</h2>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Avertissement</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Définition</strong> : <span class="math inline">\(B = Z^\top Z\)</span> (matrice <span class="math inline">\(J \times J\)</span>)</p>
+</div>
+</div>
+</div>
+<p><strong>Structure du tableau de Burt</strong> : - <strong>Blocs diagonaux</strong> : <span class="math inline">\(B_{qq} = Z_q^\top Z_q\)</span> (effectifs par modalité) - <strong>Blocs non-diagonaux</strong> : <span class="math inline">\(B_{qq'} = Z_q^\top Z_{q'}\)</span> (tableaux de contingence) - <strong>Symétrique</strong> : <span class="math inline">\(B_{q'q} = B_{qq'}^\top\)</span></p>
+</section>
+<section id="propriétés-du-tableau-de-burt" class="slide level2">
+<h2>Propriétés du tableau de Burt</h2>
+<p><strong>Taille</strong> : <span class="math inline">\(J \times J\)</span> (nombre total de modalités)</p>
+<p><strong>Blocs diagonaux</strong> : Matrices diagonales - Éléments = effectifs de chaque modalité</p>
+<p><strong>Blocs non-diagonaux</strong> : Tableaux de contingence<br>
+- Croisement entre variables <span class="math inline">\(q\)</span> et <span class="math inline">\(q'\)</span></p>
+<p><strong>Symétrie</strong> : <span class="math inline">\(B = B^\top\)</span></p>
+</section>
+<section id="équivalence-mathématique" class="slide level2">
+<h2>Équivalence mathématique</h2>
+<p><strong>Propriété fondamentale</strong> : L’ACM peut s’effectuer sur : - Le tableau disjonctif complet <span class="math inline">\(Z\)</span> - Le tableau de Burt <span class="math inline">\(B = Z^\top Z\)</span></p>
+<p><strong>Résultat</strong> : Les deux approches donnent les <strong>mêmes facteurs</strong> !</p>
+<p>Cette équivalence offre une flexibilité computationnelle.</p>
+</section>
+<section id="éléments-propres-de-z" class="slide level2">
+<h2>Éléments propres de Z</h2>
+<p><strong>Analyse directe</strong> - Vecteurs propres de : <span class="math display">\[S = \frac{1}{Q} Z^\top Z D_J^{-1}\]</span></p>
+<p>où <span class="math inline">\(D_J = \text{diag}(n_1, \ldots, n_J)\)</span></p>
+<p><strong>Coordonnées profils-lignes</strong> : <span class="math display">\[\Phi_k = n Z D_J^{-1} u_k\]</span></p>
+<p><strong>Analyse duale</strong> - Vecteurs propres de : <span class="math display">\[T = \frac{1}{Q} Z D_J^{-1} Z^\top\]</span></p>
+</section>
+<section id="éléments-propres-de-b" class="slide level2">
+<h2>Éléments propres de B</h2>
+<p><strong>Tableau de Burt symétrique</strong> → Analyse directe = duale</p>
+<p><strong>Vecteurs propres de</strong> : <span class="math display">\[S' = \frac{1}{Q^2} B^\top D_J^{-1} B D_J^{-1}\]</span></p>
+<p><strong>Propriété remarquable</strong> : <span class="math display">\[S' = \frac{1}{Q^2} Z^\top Z D_J^{-1} Z^\top Z D_J^{-1}\]</span></p>
+</section>
+<section id="relation-entre-valeurs-propres" class="slide level2">
+<h2>Relation entre valeurs propres</h2>
+<p><strong>Théorème fondamental</strong> :</p>
+<p>Si <span class="math inline">\(\lambda\)</span> est valeur propre de <span class="math inline">\(S\)</span> (analyse de <span class="math inline">\(Z\)</span>),<br>
+alors <span class="math inline">\(\lambda^2\)</span> est valeur propre de <span class="math inline">\(S'\)</span> (analyse de <span class="math inline">\(B\)</span>).</p>
+<p><strong>Conséquence</strong> : - Mêmes vecteurs propres pour <span class="math inline">\(Z\)</span> et <span class="math inline">\(B\)</span> - Valeurs propres de <span class="math inline">\(B\)</span> = carrés des valeurs propres de <span class="math inline">\(Z\)</span></p>
+</section>
+<section id="encodage-des-variables-quantitatives" class="slide level2">
+<h2>Encodage des variables quantitatives</h2>
+<p><strong>Choix des bornes</strong> crucial pour la qualité de l’analyse :</p>
+<p><strong>Approches recommandées</strong> : - Analyser la distribution (histogrammes) - Bornes pertinentes au domaine d’étude - Éviter les classes peu informatives</p>
+<p><strong>Approche déconseillée</strong> : - Effectifs égaux automatiques - Classes sans sens métier</p>
+</section>
+<section id="encodage-des-variables-qualitatives" class="slide level2">
+<h2>Encodage des variables qualitatives</h2>
+<p><strong>Modalités “naturelles”</strong> mais problèmes potentiels :</p>
+<p><strong>Effectifs déséquilibrés</strong> : - Modalités très rares vs très fréquentes - Impact sur la représentation</p>
+<p><strong>Solutions</strong> : - <strong>Regroupements pertinents</strong> (connaissance du domaine) - Éviter la répartition aléatoire - Préserver le sens des modalités</p>
+</section>
+<section id="stratégies-dencodage" class="slide level2">
+<h2>Stratégies d’encodage</h2>
+<p><strong>Variables continues</strong> : 1. Examiner la distribution 2. Identifier des seuils naturels 3. Classes équilibrées ET pertinentes 4. Éviter trop de classes (complexité)</p>
+<p><strong>Variables qualitatives</strong> : 1. Analyser les effectifs 2. Regrouper les modalités rares 3. Préserver la logique métier 4. Maintenir l’interprétabilité</p>
+</section>
+<section id="considérations-pratiques" class="slide level2">
+<h2>Considérations pratiques</h2>
+<p><strong>Nombre optimal de classes</strong> : - Trop peu → Perte d’information - Trop → Complexité, effectifs faibles</p>
+<p><strong>Validation du codage</strong> : - Vérifier la pertinence des classes - Tester différents découpages - Évaluer l’impact sur les résultats</p>
+<p><strong>Documentation</strong> : Justifier les choix d’encodage.</p>
+</section>
+<section id="applications-typiques" class="slide level2">
+<h2>Applications typiques</h2>
+<p><strong>Études marketing</strong> : - Profils consommateurs × Préférences - Segmentation clientèle</p>
+<p><strong>Sciences sociales</strong> : - Enquêtes d’opinion - Comportements × Caractéristiques</p>
+<p><strong>Santé publique</strong> : - Facteurs de risque × Pathologies - Questionnaires de qualité de vie</p>
+</section>
+<section id="avantages-de-lacm" class="slide level2">
+<h2>Avantages de l’ACM</h2>
+<ul>
+<li><strong>Visualisation</strong> de relations complexes multi-variables</li>
+<li><strong>Traitement unifié</strong> de variables hétérogènes<br>
+</li>
+<li><strong>Réduction de dimension</strong> préservant les associations</li>
+<li><strong>Interprétation intuitive</strong> des proximités</li>
+<li><strong>Flexibilité</strong> dans l’encodage des variables</li>
+</ul>
+</section>
+<section id="limites-et-précautions" class="slide level2">
+<h2>Limites et précautions</h2>
+<p><strong>Perte d’information</strong> : - Variables continues → classes - Choix d’encodage critique</p>
+<p><strong>Sensibilité aux effectifs</strong> : - Modalités rares peuvent dominer - Équilibrage nécessaire</p>
+<p><strong>Interprétation</strong> : - Proximités entre modalités de variables différentes - Attention aux artefacts d’encodage</p>
+</section>
+<section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
+<p>L’ACM étend l’AFC au cas multi-variables grâce au <strong>codage disjonctif complet</strong>.</p>
+<p><strong>Éléments clés</strong> : - Transformation binaire préalable - Équivalence <span class="math inline">\(Z\)</span> ↔︎ Tableau de Burt - Choix d’encodage fondamental - Visualisation des patterns complexes</p>
+<p><strong>Succès</strong> dépend de la qualité de l’encodage des variables originales.</p>
 
 
 </section>

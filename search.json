@@ -454,7 +454,7 @@
     "href": "contents/04-dimension.html",
     "title": "Dimension",
     "section": "",
-    "text": "Slides: link\nTD: link\nTP: link",
+    "text": "Slides:\n\nAnalyse en composantes principales\nAnalyse factorielle des correspondances\nAnalyse des correspondances multiples\n\nTD: link\nTP: link",
     "crumbs": [
       "Modules",
       "04 - Dimension"
@@ -685,6 +685,125 @@
     "title": "TP: Dimension",
     "section": "",
     "text": "Vous pouvez faire les exercices dans le langage de votre choix."
+  },
+  {
+    "objectID": "slides/04-dimension-pca-slides.html#pourquoi-réduire-la-dimension",
+    "href": "slides/04-dimension-pca-slides.html#pourquoi-réduire-la-dimension",
+    "title": "Dimension",
+    "section": "Pourquoi réduire la dimension ?",
+    "text": "Pourquoi réduire la dimension ?\nTravailler avec un grand nombre de variables pose plusieurs défis :\n\nVisualisation compliquée : impossible de représenter au-delà de 3 dimensions\nSéparation des classes difficile : structure cachée dans des combinaisons\nCoût computationnel élevé : modèles complexes difficiles à ajuster\nCorrélations fortes : variables redondantes, modèles instables\n\nQuestion centrale : Peut-on réduire la dimension sans perdre trop d’information ?"
+  },
+  {
+    "objectID": "slides/04-dimension-pca-slides.html#lapproche-pca",
+    "href": "slides/04-dimension-pca-slides.html#lapproche-pca",
+    "title": "Dimension",
+    "section": "L’approche PCA",
+    "text": "L’approche PCA\nPrincipe : Ne pas simplement supprimer des variables, mais construire de nouvelles variables.\nMéthode : Créer des combinaisons linéaires des variables initiales qui résument l’information essentielle.\nAnalyse en Composantes Principales (ACP) : Méthode non-supervisée pour réduire la dimension tout en conservant le maximum d’information.\nIntroduite par Hotelling (1933)."
+  },
+  {
+    "objectID": "slides/04-dimension-pca-slides.html#applications-courantes",
+    "href": "slides/04-dimension-pca-slides.html#applications-courantes",
+    "title": "Dimension",
+    "section": "Applications courantes",
+    "text": "Applications courantes\n\nVisualisation : Représenter des données multidimensionnelles\nRéduction dimensionnelle : Passer de \\(p\\) à \\(k \\ll p\\) variables\nCompression : Images ou signaux\nExploration : Données biologiques, textuelles, environnementales"
+  },
+  {
+    "objectID": "slides/04-dimension-pca-slides.html#exemples-concrets",
+    "href": "slides/04-dimension-pca-slides.html#exemples-concrets",
+    "title": "Dimension",
+    "section": "Exemples concrets",
+    "text": "Exemples concrets\n\nSport : Comparer des équipes de hockey sur 6 statistiques\nCriminologie : Résumer la criminalité entre provinces sur 7 types de crimes\nImagerie : Compresser des images de \\(1084 \\times 1084\\) pixels\nBiologie : Identifier des variants de tumeurs à partir de millions de gènes"
+  },
+  {
+    "objectID": "slides/04-dimension-pca-slides.html#formulation-mathématique",
+    "href": "slides/04-dimension-pca-slides.html#formulation-mathématique",
+    "title": "Dimension",
+    "section": "Formulation mathématique",
+    "text": "Formulation mathématique\nSoit \\(X = (X_1, \\ldots, X_p)^{\\top}\\) un vecteur aléatoire centré avec matrice de covariance \\(\\Sigma\\).\nOn cherche une combinaison linéaire : \\[Y_1 = \\alpha_1^{\\top} X = \\sum_{k=1}^p \\alpha_{1k} X_k\\]\nObjectif : Maximiser \\(\\text{Var}(Y_1)\\) sous contrainte \\(\\|\\alpha_1\\| = 1\\)"
+  },
+  {
+    "objectID": "slides/04-dimension-pca-slides.html#problème-doptimisation",
+    "href": "slides/04-dimension-pca-slides.html#problème-doptimisation",
+    "title": "Dimension",
+    "section": "Problème d’optimisation",
+    "text": "Problème d’optimisation\n\\[\\max_{\\alpha_1^{\\top} \\alpha_1 = 1} \\text{Var}(Y_1) = \\max_{\\alpha_1^{\\top} \\alpha_1 = 1} \\alpha_1^{\\top} \\Sigma \\alpha_1\\]\nSolution (multiplicateurs de Lagrange) : \\[\\Sigma \\alpha_1 = \\lambda_1 \\alpha_1\\]\noù \\(\\lambda_1\\) est la plus grande valeur propre de \\(\\Sigma\\) et \\(\\alpha_1\\) le vecteur propre associé."
+  },
+  {
+    "objectID": "slides/04-dimension-pca-slides.html#construction-des-composantes",
+    "href": "slides/04-dimension-pca-slides.html#construction-des-composantes",
+    "title": "Dimension",
+    "section": "Construction des composantes",
+    "text": "Construction des composantes\nLes composantes suivantes sont construites par orthogonalité :\n\\[\\Sigma \\alpha_k = \\lambda_k \\alpha_k, \\quad \\lambda_1 \\geq \\lambda_2 \\geq \\ldots \\geq \\lambda_p\\]\nComposantes principales : \\[Y_k = \\alpha_k^{\\top} X\\]\noù \\(\\alpha_k\\) est le vecteur propre associé à \\(\\lambda_k\\)."
+  },
+  {
+    "objectID": "slides/04-dimension-pca-slides.html#représentation-matricielle",
+    "href": "slides/04-dimension-pca-slides.html#représentation-matricielle",
+    "title": "Dimension",
+    "section": "Représentation matricielle",
+    "text": "Représentation matricielle\nSoit \\(A = (\\alpha_1, \\ldots, \\alpha_p) \\in \\mathbb{R}^{p \\times p}\\) la matrice des vecteurs propres.\n\\[Y = A^{\\top} X\\]\nPropriétés de \\(A\\) : - \\(A^{\\top} A = AA^{\\top} = I_p\\) (orthogonale) - \\(A^{\\top} = A^{-1}\\) - \\(\\Sigma A = A \\Lambda\\) où \\(\\Lambda = \\text{diag}(\\lambda_1, \\ldots, \\lambda_p)\\)"
+  },
+  {
+    "objectID": "slides/04-dimension-pca-slides.html#variance-des-composantes",
+    "href": "slides/04-dimension-pca-slides.html#variance-des-composantes",
+    "title": "Dimension",
+    "section": "Variance des composantes",
+    "text": "Variance des composantes\n\\[\\text{Var}(Y) = A^{\\top} \\Sigma A = \\Lambda\\]\nConséquences : - \\(\\text{Cov}(Y_k, Y_l) = 0\\) si \\(k \\neq l\\) (orthogonalité) - \\(\\text{Var}(Y_k) = \\lambda_k\\) (variance décroissante) - \\(\\text{Var}(Y_1) \\geq \\text{Var}(Y_2) \\geq \\ldots \\geq \\text{Var}(Y_p)\\)"
+  },
+  {
+    "objectID": "slides/04-dimension-pca-slides.html#proportion-de-variance-expliquée",
+    "href": "slides/04-dimension-pca-slides.html#proportion-de-variance-expliquée",
+    "title": "Dimension",
+    "section": "Proportion de variance expliquée",
+    "text": "Proportion de variance expliquée\nVariation totale : \\[\\text{tr}(\\Sigma) = \\sum_{i=1}^p \\lambda_i = \\sum_{k=1}^p \\text{Var}(Y_k)\\]\nProportion expliquée par \\(Y_k\\) : \\[\\frac{\\lambda_k}{\\lambda_1 + \\cdots + \\lambda_p} = \\frac{\\text{Var}(Y_k)}{\\text{tr}(\\Sigma)}\\]\nProportion expliquée par les \\(m\\) premières : \\[100\\% \\times \\frac{\\sum_{k=1}^m \\lambda_k}{\\sum_{k=1}^p \\lambda_k}\\]"
+  },
+  {
+    "objectID": "slides/04-dimension-pca-slides.html#estimation-pratique",
+    "href": "slides/04-dimension-pca-slides.html#estimation-pratique",
+    "title": "Dimension",
+    "section": "Estimation pratique",
+    "text": "Estimation pratique\nEn pratique, \\(\\Sigma\\) est inconnue. On estime par :\n\\[\\widehat{\\Sigma} = \\frac{1}{n-1} \\sum_{i=1}^n (X_i - \\overline{X})(X_i - \\overline{X})^{\\top}\\]\nDécomposition spectrale : \\[\\widehat{\\Sigma} = \\widehat{A} \\widehat{\\Lambda} \\widehat{A}^{\\top}\\]\nComposantes estimées : \\[Y_i = \\widehat{A}^{\\top} X_i\\]"
+  },
+  {
+    "objectID": "slides/04-dimension-pca-slides.html#sensibilité-à-léchelle",
+    "href": "slides/04-dimension-pca-slides.html#sensibilité-à-léchelle",
+    "title": "Dimension",
+    "section": "Sensibilité à l’échelle",
+    "text": "Sensibilité à l’échelle\nProblème : Variables avec grandes variances dominent l’ACP.\nExemple : Distance en mètres vs kilomètres multiplie la variance par \\(10^6\\).\nSolution : Standardiser les variables si elles ont des unités différentes.\nÉquivalence : ACP sur matrice de corrélations au lieu de covariances."
+  },
+  {
+    "objectID": "slides/04-dimension-pca-slides.html#interprétation-géométrique",
+    "href": "slides/04-dimension-pca-slides.html#interprétation-géométrique",
+    "title": "Dimension",
+    "section": "Interprétation géométrique",
+    "text": "Interprétation géométrique\nRotation des axes : \\(Y = A^{\\top}X\\) représente une rotation orthogonale.\nNouveaux axes : Directions de variation maximale successive.\nScores : \\(Y_{ik} = \\alpha_k^{\\top} X_i\\) (coordonnées dans le nouveau système).\nQualité de représentation : \\[Q_{ik} = \\frac{Y_{ik}^2}{\\sum_{j=1}^p Y_{ij}^2}\\]"
+  },
+  {
+    "objectID": "slides/04-dimension-pca-slides.html#choix-du-nombre-de-composantes",
+    "href": "slides/04-dimension-pca-slides.html#choix-du-nombre-de-composantes",
+    "title": "Dimension",
+    "section": "Choix du nombre de composantes",
+    "text": "Choix du nombre de composantes\n1. Règle des 80% : Retenir assez de composantes pour expliquer 80% de la variance.\n2. Règle de Kaiser : Conserver les composantes avec \\(\\lambda_k &gt; 1\\) (si matrice de corrélations).\n3. Règle de Joliffe : Variante plus stricte, \\(\\lambda_k &gt; 0.7\\).\n4. Règle de Cattell (coude) : Chercher un point de rupture dans le graphique des valeurs propres."
+  },
+  {
+    "objectID": "slides/04-dimension-pca-slides.html#règles-de-choix---détails",
+    "href": "slides/04-dimension-pca-slides.html#règles-de-choix---détails",
+    "title": "Dimension",
+    "section": "Règles de choix - Détails",
+    "text": "Règles de choix - Détails\nRègle des 80% : - Seuil arbitraire mais pratique - Bon équilibre information/simplicité\nRègle de Kaiser : - Basée sur la moyenne des valeurs propres = 1 - Applicable uniquement avec standardisation\nRègle du coude : - Graphique \\(\\lambda_k\\) vs rang \\(k\\) - Chercher changement de pente - Plus subjective mais intuitive"
+  },
+  {
+    "objectID": "slides/04-dimension-pca-slides.html#considérations-pratiques",
+    "href": "slides/04-dimension-pca-slides.html#considérations-pratiques",
+    "title": "Dimension",
+    "section": "Considérations pratiques",
+    "text": "Considérations pratiques\nUsage en prédiction : Utiliser les \\(k\\) premières composantes comme prédicteurs.\nAvantages : - Réduit la dimension - Élimine la multicolinéarité - Conserve l’information essentielle\nCompromis : - Trop de composantes : pas de simplification - Trop peu : perte d’information pertinente"
+  },
+  {
+    "objectID": "slides/04-dimension-pca-slides.html#conclusion",
+    "href": "slides/04-dimension-pca-slides.html#conclusion",
+    "title": "Dimension",
+    "section": "Conclusion",
+    "text": "Conclusion\nL’ACP est un outil puissant pour la réduction de dimension qui :\n\nPréserve l’information maximale\nÉlimine la redondance\nFacilite la visualisation et la modélisation\nNécessite des choix méthodologiques importants\n\nLe succès dépend du choix approprié du nombre de composantes selon le contexte d’application."
   },
   {
     "objectID": "slides/03-generalities-bias-variance-slides.html#notre-objectif-de-modélisation",
@@ -1037,6 +1156,83 @@
     "text": "Questions ?\nLiens utiles : - Guides des bonnes pratiques (voir course website) - Apprendre R en Y minutes - Apprendre Python en Y minutes - Learn Julia in Y minutes"
   },
   {
+    "objectID": "slides/03-generalities-model-evaluation-slides.html#introduction",
+    "href": "slides/03-generalities-model-evaluation-slides.html#introduction",
+    "title": "Généralités",
+    "section": "Introduction",
+    "text": "Introduction\nL’évaluation de modèles est cruciale pour mesurer la performance prédictive réelle.\nLes métriques classiques incluent l’erreur quadratique moyenne (MSE) pour les variables quantitatives et le taux d’erreur (ER) pour les variables qualitatives.\nCependant, évaluer uniquement sur les données d’entraînement pose des problèmes fondamentaux."
+  },
+  {
+    "objectID": "slides/03-generalities-model-evaluation-slides.html#le-problème-du-sur-ajustement",
+    "href": "slides/03-generalities-model-evaluation-slides.html#le-problème-du-sur-ajustement",
+    "title": "Généralités",
+    "section": "Le problème du sur-ajustement",
+    "text": "Le problème du sur-ajustement\nDéfinition: Un modèle s’adapte trop aux données d’entraînement, y compris au bruit aléatoire.\nConséquences: - Erreur faible sur les données d’entraînement - Erreur élevée sur de nouvelles observations - Mauvaise capacité de généralisation\nCause: L’estimateur \\(\\widehat{f}\\) a été ajusté pour minimiser l’erreur sur ces mêmes données."
+  },
+  {
+    "objectID": "slides/03-generalities-model-evaluation-slides.html#sur-ajustement-vs-sous-ajustement",
+    "href": "slides/03-generalities-model-evaluation-slides.html#sur-ajustement-vs-sous-ajustement",
+    "title": "Généralités",
+    "section": "Sur-ajustement vs Sous-ajustement",
+    "text": "Sur-ajustement vs Sous-ajustement\nSur-ajustement (overfitting): - Modèle trop flexible - Capture le bruit plutôt que le signal - Bonne performance sur l’entraînement, mauvaise sur de nouvelles données\nSous-ajustement (underfitting): - Modèle trop rigide - Ne capture pas la structure des données - Mauvaise performance même sur l’entraînement\nObjectif: Trouver le bon compromis entre flexibilité et généralisation."
+  },
+  {
+    "objectID": "slides/03-generalities-model-evaluation-slides.html#approche-idéale",
+    "href": "slides/03-generalities-model-evaluation-slides.html#approche-idéale",
+    "title": "Généralités",
+    "section": "Approche idéale",
+    "text": "Approche idéale\nPrincipe: Séparer complètement les données d’entraînement et d’évaluation.\nJeu d’entraînement: Utilisé pour ajuster le modèle\nJeu de test: Utilisé pour évaluer la performance prédictive\nProblème pratique: Nous n’avons généralement pas accès à un jeu de test indépendant.\nSolution: Utiliser des méthodes de validation."
+  },
+  {
+    "objectID": "slides/03-generalities-model-evaluation-slides.html#approche-par-jeu-de-validation",
+    "href": "slides/03-generalities-model-evaluation-slides.html#approche-par-jeu-de-validation",
+    "title": "Généralités",
+    "section": "Approche par jeu de validation",
+    "text": "Approche par jeu de validation\nPrincipe: Diviser aléatoirement le jeu de données en deux sous-ensembles.\nJeu d’entraînement: Pour ajuster le modèle\nJeu de validation: Pour estimer l’erreur de prédiction\nProportions recommandées: - Grand nombre d’observations: division 50-50 - Petit nombre d’observations: division 70-30 ou 80-20"
+  },
+  {
+    "objectID": "slides/03-generalities-model-evaluation-slides.html#limites-du-jeu-de-validation",
+    "href": "slides/03-generalities-model-evaluation-slides.html#limites-du-jeu-de-validation",
+    "title": "Généralités",
+    "section": "Limites du jeu de validation",
+    "text": "Limites du jeu de validation\nEstimation instable: L’erreur dépend fortement des observations dans le jeu de validation.\nPerte d’information: Moins de données pour ajuster le modèle, ce qui peut surestimer l’erreur réelle.\nVariabilité: Différents jeux de validation peuvent donner des résultats très différents.\nSolution: Validation croisée pour une approche plus robuste."
+  },
+  {
+    "objectID": "slides/03-generalities-model-evaluation-slides.html#validation-croisée---principe",
+    "href": "slides/03-generalities-model-evaluation-slides.html#validation-croisée---principe",
+    "title": "Généralités",
+    "section": "Validation croisée - Principe",
+    "text": "Validation croisée - Principe\nObjectif: Méthode plus robuste et stable que le simple jeu de validation.\nPrincipe: Répéter l’approche par jeu de validation plusieurs fois sur différents sous-ensembles.\nMéthode: 1. Découper aléatoirement en \\(K\\) sous-ensembles (folds) 2. Utiliser chaque fold comme validation 3. Entraîner sur les \\(K-1\\) folds restants 4. Calculer la moyenne des \\(K\\) erreurs"
+  },
+  {
+    "objectID": "slides/03-generalities-model-evaluation-slides.html#choix-du-paramètre-k",
+    "href": "slides/03-generalities-model-evaluation-slides.html#choix-du-paramètre-k",
+    "title": "Généralités",
+    "section": "Choix du paramètre K",
+    "text": "Choix du paramètre K\nValeurs courantes: \\(K = 5\\) ou \\(K = 10\\)\nCompromis à considérer: - Coût computationnel: Plus \\(K\\) est grand, plus c’est coûteux - Précision de l’estimation: Plus \\(K\\) est grand, moins de biais - Stabilité: Valeurs modérées de \\(K\\) réduisent la variance\nCas limite: \\(K = n\\) (Leave-One-Out Cross-Validation - LOOCV)"
+  },
+  {
+    "objectID": "slides/03-generalities-model-evaluation-slides.html#leave-one-out-cross-validation",
+    "href": "slides/03-generalities-model-evaluation-slides.html#leave-one-out-cross-validation",
+    "title": "Généralités",
+    "section": "Leave-One-Out Cross-Validation",
+    "text": "Leave-One-Out Cross-Validation\nPrincipe: \\(K = n\\) où \\(n\\) est le nombre d’observations\nAvantages: - Biais minimal dans l’estimation - Utilise presque toutes les données pour l’entraînement\nInconvénients: - Variance élevée (erreurs très corrélées) - Coût computationnel très élevé - Estimation instable"
+  },
+  {
+    "objectID": "slides/03-generalities-model-evaluation-slides.html#recommandations-pratiques",
+    "href": "slides/03-generalities-model-evaluation-slides.html#recommandations-pratiques",
+    "title": "Généralités",
+    "section": "Recommandations pratiques",
+    "text": "Recommandations pratiques\nChoix de \\(K\\): Privilégier \\(K = 5\\) ou \\(K = 10\\) pour un bon compromis biais-variance.\nTaille des données: Adapter la stratégie selon le volume de données disponibles.\nGénéralité: La validation croisée s’applique à la plupart des modèles.\nObjectif: Obtenir une estimation fiable de la performance de généralisation."
+  },
+  {
+    "objectID": "slides/03-generalities-model-evaluation-slides.html#conclusion",
+    "href": "slides/03-generalities-model-evaluation-slides.html#conclusion",
+    "title": "Généralités",
+    "section": "Conclusion",
+    "text": "Conclusion\nLa validation appropriée des modèles est essentielle pour éviter les illusions de performance.\nLe sur-ajustement est un piège courant qui nécessite une évaluation rigoureuse.\nLa validation croisée offre une solution robuste et pratique pour estimer la performance réelle.\nLe choix des paramètres de validation doit équilibrer précision, stabilité et coût computationnel."
+  },
+  {
     "objectID": "slides/02-revisions-algebre-slides.html#plan-de-la-présentation",
     "href": "slides/02-revisions-algebre-slides.html#plan-de-la-présentation",
     "title": "Révisions",
@@ -1317,6 +1513,90 @@
     "text": "Conclusion\n\nL’unité statistique définit le niveau d’analyse\nLe type de variable guide le choix de l’espace\nL’espace d’observation \\(\\mathcal{X}\\) est le cadre mathématique\nVariables multiples → produit cartésien\n\n\nProchaine étape : Définir des distances dans ces espaces !"
   },
   {
+    "objectID": "slides/05-supervised-discriminant-slides.html#introduction",
+    "href": "slides/05-supervised-discriminant-slides.html#introduction",
+    "title": "Supervisée",
+    "section": "Introduction",
+    "text": "Introduction\n\nObjectif: Classer des individus dans différents groupes\nMéthode supervisée: Les groupes sont connus dans les données d’apprentissage\nVariables: Variables explicatives continues\nBut: Apprendre une règle de classification optimale"
+  },
+  {
+    "objectID": "slides/05-supervised-discriminant-slides.html#notation",
+    "href": "slides/05-supervised-discriminant-slides.html#notation",
+    "title": "Supervisée",
+    "section": "Notation",
+    "text": "Notation\n\nDonnées - \\(X = (X_{ij}) \\in \\mathbb{R}^{n \\times p}\\) : matrice de données - \\(n\\) : nombre d’individus - \\(p\\) : nombre de variables\n\n\nGroupes - \\(K\\) groupes dans la population - \\(I_k\\) : ensemble des individus du groupe \\(k\\) - \\(n_k\\) : nombre d’observations dans \\(I_k\\) - \\(\\sum_{k=1}^{K} n_k = n\\)"
+  },
+  {
+    "objectID": "slides/05-supervised-discriminant-slides.html#objectif-principal",
+    "href": "slides/05-supervised-discriminant-slides.html#objectif-principal",
+    "title": "Supervisée",
+    "section": "Objectif principal",
+    "text": "Objectif principal\n\nPrincipe - Partitionner \\(\\mathbb{R}^p\\) en \\(K\\) sous-ensembles - Passer de \\(\\mathbb{R}^p\\) à \\(\\mathbb{R}\\) via un score\n\n\nScore de Fisher \\[f(X_1, \\ldots, X_p) = a^{\\top} X + b = a_1 X_1 + \\cdots + a_p X_p + b\\]\n\n\nSimplification En centrant les variables: \\(-b = a^{\\top} \\overline{X}\\)\nIl reste à déterminer le vecteur \\(a = (a_1, \\ldots, a_p)\\)"
+  },
+  {
+    "objectID": "slides/05-supervised-discriminant-slides.html#critère-de-fisher",
+    "href": "slides/05-supervised-discriminant-slides.html#critère-de-fisher",
+    "title": "Supervisée",
+    "section": "Critère de Fisher",
+    "text": "Critère de Fisher\n\nIdée centrale Optimiser le rapport entre: - Variabilité inter-groupes (maximiser) - Variabilité intra-groupe (minimiser)\n\n\nMatrices de variance-covariance\n\n\\(S\\) : matrice totale\n\\(W\\) : matrice intra-groupe\n\n\\(B\\) : matrice inter-groupe\n\nRelation fondamentale: \\(S = W + B\\)"
+  },
+  {
+    "objectID": "slides/05-supervised-discriminant-slides.html#matrices-de-variance-covariance",
+    "href": "slides/05-supervised-discriminant-slides.html#matrices-de-variance-covariance",
+    "title": "Supervisée",
+    "section": "Matrices de variance-covariance",
+    "text": "Matrices de variance-covariance\nMatrice totale \\[S = \\sum_{i=1}^{n} (X_i - \\overline{X})(X_i - \\overline{X})^{\\top}\\]\nMatrice intra-groupe \\[W = \\sum_{k=1}^{K} \\sum_{i \\in I_k} (X_i - \\overline{X}_k)(X_i - \\overline{X}_k)^{\\top}\\]\nMatrice inter-groupe \\[B = \\sum_{k=1}^{K} n_k (\\overline{X}_k - \\overline{X})(\\overline{X}_k - \\overline{X})^{\\top}\\]"
+  },
+  {
+    "objectID": "slides/05-supervised-discriminant-slides.html#critère-doptimisation",
+    "href": "slides/05-supervised-discriminant-slides.html#critère-doptimisation",
+    "title": "Supervisée",
+    "section": "Critère d’optimisation",
+    "text": "Critère d’optimisation\n\nCritère de Fisher \\[J(a) = \\frac{a^{\\top} B a}{a^{\\top} W a} = \\frac{a^{\\top} B a}{a^{\\top} S a}\\]\n\n\nFormulations équivalentes 1. Maximiser \\(J(a)\\) sous contrainte \\(a^{\\top} a = 1\\) 2. Maximiser \\(a^{\\top} B a\\) sous contrainte \\(a^{\\top} S a = 1\\) 3. Maximiser \\(c^{\\top} S^{-1/2} B S^{-1/2} c\\) sous contrainte \\(c^{\\top} c = 1\\)"
+  },
+  {
+    "objectID": "slides/05-supervised-discriminant-slides.html#solution-optimale",
+    "href": "slides/05-supervised-discriminant-slides.html#solution-optimale",
+    "title": "Supervisée",
+    "section": "Solution optimale",
+    "text": "Solution optimale\n\nRésultat \\(a\\) est un vecteur propre normé associé à \\(\\lambda_1\\), la plus grande valeur propre de \\(S^{-1} B\\)\n\n\nFonction discriminante \\[f(x) = a^{\\top} (x - \\overline{X})\\]\n\n\nScores des observations \\[U_i = a^{\\top} (X_i - \\overline{X})\\] Ces scores maximisent le rapport variance inter-groupe / variance intra-groupe"
+  },
+  {
+    "objectID": "slides/05-supervised-discriminant-slides.html#pouvoir-discriminant",
+    "href": "slides/05-supervised-discriminant-slides.html#pouvoir-discriminant",
+    "title": "Supervisée",
+    "section": "Pouvoir discriminant",
+    "text": "Pouvoir discriminant\n\nInterprétation de \\(\\lambda_1\\) \\[\\lambda_1 = \\frac{a^{\\top} B a}{a^{\\top} S a} \\quad \\text{avec } 0 \\leq \\lambda_1 \\leq 1\\]\n\n\n\\(\\lambda_1 = 1\\) : Cas idéal\n\n100% de variabilité entre les groupes\nAucune variabilité intra-groupe\n\n\\(\\lambda_1 = 0\\) : Analyse inutile\n\nAucune variabilité entre les groupes\nToute la variabilité est intra-groupe"
+  },
+  {
+    "objectID": "slides/05-supervised-discriminant-slides.html#règle-de-classification",
+    "href": "slides/05-supervised-discriminant-slides.html#règle-de-classification",
+    "title": "Supervisée",
+    "section": "Règle de classification",
+    "text": "Règle de classification\n\nScore moyen par groupe \\[m_k = a^{\\top} (\\overline{X}_{k1}, \\ldots, \\overline{X}_{kp})^{\\top}\\]\n\n\nClassification d’une nouvelle observation \\(X_0\\) 1. Calculer le score: \\(f(X_0) = a^{\\top} X_0\\) 2. Assigner au groupe \\(k^*\\) tel que: \\[k^* = \\arg\\min_{k} |a^{\\top} X_0 - m_k|\\]"
+  },
+  {
+    "objectID": "slides/05-supervised-discriminant-slides.html#cas-binaire-k-2",
+    "href": "slides/05-supervised-discriminant-slides.html#cas-binaire-k-2",
+    "title": "Supervisée",
+    "section": "Cas binaire (\\(K = 2\\))",
+    "text": "Cas binaire (\\(K = 2\\))\n\nSolution explicite \\[C = \\sqrt{\\frac{n_1 n_2}{n}} (\\overline{X}_1 - \\overline{X}_2)\\] \\[B = CC^{\\top}, \\quad a = S^{-1}C\\]\n\n\nRègle de classification Si \\(m_1 &gt; m_2\\), classer \\(X_0\\) dans le groupe 1 si: \\[a^{\\top} X_0 &gt; \\frac{m_1 + m_2}{2}\\]\n\n\nForme équivalente \\[(\\overline{X}_1 - \\overline{X}_2)^{\\top} S^{-1} X_0 &gt; \\frac{1}{2}(\\overline{X}_1 - \\overline{X}_2)^{\\top} S^{-1} (\\overline{X}_1 + \\overline{X}_2)\\]"
+  },
+  {
+    "objectID": "slides/05-supervised-discriminant-slides.html#évaluation-de-la-performance",
+    "href": "slides/05-supervised-discriminant-slides.html#évaluation-de-la-performance",
+    "title": "Supervisée",
+    "section": "Évaluation de la performance",
+    "text": "Évaluation de la performance\n\nMatrice de confusion - Appliquer la règle de classification à l’échantillon d’apprentissage - Comparer les classifications prédites aux vraies classes - Estimer les risques de mauvaise classification\n\n\nAvantages de l’analyse discriminante - Méthode linéaire simple et interprétable - Solution analytique explicite - Réduction de dimension naturelle (\\(\\mathbb{R}^p \\to \\mathbb{R}\\))"
+  },
+  {
+    "objectID": "slides/05-supervised-discriminant-slides.html#merci-pour-votre-attention",
+    "href": "slides/05-supervised-discriminant-slides.html#merci-pour-votre-attention",
+    "title": "Supervisée",
+    "section": "Merci pour votre attention",
+    "text": "Merci pour votre attention\nQuestions ?\n\nL’analyse discriminante de Fisher : une méthode élégante pour la classification supervisée"
+  },
+  {
     "objectID": "slides/02-revisions-proba-slides.html#plan-de-la-présentation",
     "href": "slides/02-revisions-proba-slides.html#plan-de-la-présentation",
     "title": "Révisions",
@@ -1541,6 +1821,160 @@
     "text": "Merci pour votre attention !\n\n\n\n\nDelmas, Jean-François. 2013. Introduction au calcul des probabilités et à la statistique : exercices, problèmes et corrections (2e édition). Les Presses de l’ENSTA.\n\n\nWasserman, Larry. 2010. All of Statistics: A Concise Course in Statistical Inference. Springer Publishing Company, Incorporated."
   },
   {
+    "objectID": "slides/04-dimension-mca-slides.html#introduction-à-lacm",
+    "href": "slides/04-dimension-mca-slides.html#introduction-à-lacm",
+    "title": "Dimension",
+    "section": "Introduction à l’ACM",
+    "text": "Introduction à l’ACM\nL’Analyse des Correspondances Multiples (ACM) est un prolongement de l’AFC pour analyser plus de deux variables qualitatives.\nApplications classiques : - Questionnaires à choix multiples (\\(Q\\) questions) - Visualisation de réponses d’enquêtes - Variables mixtes (quantitatives + qualitatives)\nPrincipe fondamental : Transformation préalable par codage disjonctif complet."
+  },
+  {
+    "objectID": "slides/04-dimension-mca-slides.html#extension-de-lafc",
+    "href": "slides/04-dimension-mca-slides.html#extension-de-lafc",
+    "title": "Dimension",
+    "section": "Extension de l’AFC",
+    "text": "Extension de l’AFC\nL’ACM peut être vue comme :\n\nAFC généralisée : Plus de 2 variables qualitatives\nACP adaptée : Variables mixtes (quanti + quali)\nAnalyse de questionnaires : Réponses à choix multiples\n\nTransformation clé : Passer des variables originales aux modalités binaires."
+  },
+  {
+    "objectID": "slides/04-dimension-mca-slides.html#notation-de-base",
+    "href": "slides/04-dimension-mca-slides.html#notation-de-base",
+    "title": "Dimension",
+    "section": "Notation de base",
+    "text": "Notation de base\n\n\\(n\\) : nombre d’individus (observations)\n\\(Q\\) : nombre de variables (questions)\n\n\\(J_q\\) : nombre de modalités de la variable \\(q\\)\n\\(J\\) : nombre total de modalités (\\(J = \\sum_{q=1}^Q J_q\\))\n\nObjectif : Représenter graphiquement les relations entre toutes ces modalités."
+  },
+  {
+    "objectID": "slides/04-dimension-mca-slides.html#codage-disjonctif-complet",
+    "href": "slides/04-dimension-mca-slides.html#codage-disjonctif-complet",
+    "title": "Dimension",
+    "section": "Codage disjonctif complet",
+    "text": "Codage disjonctif complet\n\n\n\n\n\n\nAvertissement\n\n\nDéfinition : Tableau binaire \\(Z\\) (\\(n \\times J\\)) contenant uniquement des 0 et des 1.\n\n\n\nPrincipe : - Chaque variable → ses modalités - Individu possède modalité → code 1 - Individu ne possède pas modalité → code 0 - Disjonctif : au plus une modalité par variable - Complet : au moins une modalité par variable"
+  },
+  {
+    "objectID": "slides/04-dimension-mca-slides.html#exemple-concret---données",
+    "href": "slides/04-dimension-mca-slides.html#exemple-concret---données",
+    "title": "Dimension",
+    "section": "Exemple concret - Données",
+    "text": "Exemple concret - Données\nProduits avec Type et Prix :\n\n\n\nProduit\nType\nPrix ($)\n\n\n\n\nNike Tech Fleece\nHoodie\n256.72\n\n\nPuma Joggers\nJoggers\n221.26\n\n\nOff-White Hoodie\nHoodie\n198.45\n\n\nSupreme Hoodie\nHoodie\n235.50\n\n\nJordan 1 High\nSneakers\n298.22\n\n\nNike Dunk Low\nSneakers\n273.00\n\n\nNike Tech Fleece\nHoodie\n162.38\n\n\n\nVariable Prix → 3 classes : &lt;200\\(, [200\\)-250\\(], &gt;250\\)"
+  },
+  {
+    "objectID": "slides/04-dimension-mca-slides.html#exemple---codage-disjonctif-complet",
+    "href": "slides/04-dimension-mca-slides.html#exemple---codage-disjonctif-complet",
+    "title": "Dimension",
+    "section": "Exemple - Codage disjonctif complet",
+    "text": "Exemple - Codage disjonctif complet\nTableau transformé \\(Z\\) :\n\n\n\nProduit\nHoodie\nJoggers\nSneakers\n&lt;200$\n[200-250\\(] | &gt;250\\)\n\n\n\n\n\nNike Tech Fleece\n1\n0\n0\n0\n0\n1\n\n\nPuma Joggers\n0\n1\n0\n0\n1\n0\n\n\nOff-White Hoodie\n1\n0\n0\n1\n0\n0\n\n\nSupreme Hoodie\n1\n0\n0\n0\n1\n0\n\n\nJordan 1 High\n0\n0\n1\n0\n0\n1\n\n\nNike Dunk Low\n0\n0\n1\n0\n0\n1\n\n\nNike Tech Fleece\n1\n0\n0\n1\n0\n0\n\n\n\nChaque ligne somme à \\(Q = 2\\) (2 variables)."
+  },
+  {
+    "objectID": "slides/04-dimension-mca-slides.html#propriétés-du-tableau-z",
+    "href": "slides/04-dimension-mca-slides.html#propriétés-du-tableau-z",
+    "title": "Dimension",
+    "section": "Propriétés du tableau Z",
+    "text": "Propriétés du tableau Z\n\n\n\n\n\n\nImportant\n\n\nPropriétés fondamentales :\n\nSomme par ligne : \\(\\sum_{j=1}^J z_{ij} = Q\\) (constante)\nSomme totale : \\(\\sum_{i,j} z_{ij} = nQ\\)\nSomme par colonne : \\(\\sum_{i=1}^n z_{ij} = n_j\\) (effectif modalité \\(j\\))\n\n\n\n\nCes propriétés découlent directement du codage disjonctif complet."
+  },
+  {
+    "objectID": "slides/04-dimension-mca-slides.html#perte-dinformation",
+    "href": "slides/04-dimension-mca-slides.html#perte-dinformation",
+    "title": "Dimension",
+    "section": "Perte d’information",
+    "text": "Perte d’information\n\n\n\n\n\n\nAstuce\n\n\nVariables quantitatives → Classes : Perte d’information inévitable.\n\nValeur précise → Appartenance à une classe\nExemple : 256.72$ → “&gt;250$”\nCompromis : Granularité vs interprétabilité\n\n\n\n\nEnjeu : Choisir des classes pertinentes pour le problème étudié."
+  },
+  {
+    "objectID": "slides/04-dimension-mca-slides.html#tableau-de-burt",
+    "href": "slides/04-dimension-mca-slides.html#tableau-de-burt",
+    "title": "Dimension",
+    "section": "Tableau de Burt",
+    "text": "Tableau de Burt\n\n\n\n\n\n\nAvertissement\n\n\nDéfinition : \\(B = Z^\\top Z\\) (matrice \\(J \\times J\\))\n\n\n\nStructure du tableau de Burt : - Blocs diagonaux : \\(B_{qq} = Z_q^\\top Z_q\\) (effectifs par modalité) - Blocs non-diagonaux : \\(B_{qq'} = Z_q^\\top Z_{q'}\\) (tableaux de contingence) - Symétrique : \\(B_{q'q} = B_{qq'}^\\top\\)"
+  },
+  {
+    "objectID": "slides/04-dimension-mca-slides.html#propriétés-du-tableau-de-burt",
+    "href": "slides/04-dimension-mca-slides.html#propriétés-du-tableau-de-burt",
+    "title": "Dimension",
+    "section": "Propriétés du tableau de Burt",
+    "text": "Propriétés du tableau de Burt\nTaille : \\(J \\times J\\) (nombre total de modalités)\nBlocs diagonaux : Matrices diagonales - Éléments = effectifs de chaque modalité\nBlocs non-diagonaux : Tableaux de contingence\n- Croisement entre variables \\(q\\) et \\(q'\\)\nSymétrie : \\(B = B^\\top\\)"
+  },
+  {
+    "objectID": "slides/04-dimension-mca-slides.html#équivalence-mathématique",
+    "href": "slides/04-dimension-mca-slides.html#équivalence-mathématique",
+    "title": "Dimension",
+    "section": "Équivalence mathématique",
+    "text": "Équivalence mathématique\nPropriété fondamentale : L’ACM peut s’effectuer sur : - Le tableau disjonctif complet \\(Z\\) - Le tableau de Burt \\(B = Z^\\top Z\\)\nRésultat : Les deux approches donnent les mêmes facteurs !\nCette équivalence offre une flexibilité computationnelle."
+  },
+  {
+    "objectID": "slides/04-dimension-mca-slides.html#éléments-propres-de-z",
+    "href": "slides/04-dimension-mca-slides.html#éléments-propres-de-z",
+    "title": "Dimension",
+    "section": "Éléments propres de Z",
+    "text": "Éléments propres de Z\nAnalyse directe - Vecteurs propres de : \\[S = \\frac{1}{Q} Z^\\top Z D_J^{-1}\\]\noù \\(D_J = \\text{diag}(n_1, \\ldots, n_J)\\)\nCoordonnées profils-lignes : \\[\\Phi_k = n Z D_J^{-1} u_k\\]\nAnalyse duale - Vecteurs propres de : \\[T = \\frac{1}{Q} Z D_J^{-1} Z^\\top\\]"
+  },
+  {
+    "objectID": "slides/04-dimension-mca-slides.html#éléments-propres-de-b",
+    "href": "slides/04-dimension-mca-slides.html#éléments-propres-de-b",
+    "title": "Dimension",
+    "section": "Éléments propres de B",
+    "text": "Éléments propres de B\nTableau de Burt symétrique → Analyse directe = duale\nVecteurs propres de : \\[S' = \\frac{1}{Q^2} B^\\top D_J^{-1} B D_J^{-1}\\]\nPropriété remarquable : \\[S' = \\frac{1}{Q^2} Z^\\top Z D_J^{-1} Z^\\top Z D_J^{-1}\\]"
+  },
+  {
+    "objectID": "slides/04-dimension-mca-slides.html#relation-entre-valeurs-propres",
+    "href": "slides/04-dimension-mca-slides.html#relation-entre-valeurs-propres",
+    "title": "Dimension",
+    "section": "Relation entre valeurs propres",
+    "text": "Relation entre valeurs propres\nThéorème fondamental :\nSi \\(\\lambda\\) est valeur propre de \\(S\\) (analyse de \\(Z\\)),\nalors \\(\\lambda^2\\) est valeur propre de \\(S'\\) (analyse de \\(B\\)).\nConséquence : - Mêmes vecteurs propres pour \\(Z\\) et \\(B\\) - Valeurs propres de \\(B\\) = carrés des valeurs propres de \\(Z\\)"
+  },
+  {
+    "objectID": "slides/04-dimension-mca-slides.html#encodage-des-variables-quantitatives",
+    "href": "slides/04-dimension-mca-slides.html#encodage-des-variables-quantitatives",
+    "title": "Dimension",
+    "section": "Encodage des variables quantitatives",
+    "text": "Encodage des variables quantitatives\nChoix des bornes crucial pour la qualité de l’analyse :\nApproches recommandées : - Analyser la distribution (histogrammes) - Bornes pertinentes au domaine d’étude - Éviter les classes peu informatives\nApproche déconseillée : - Effectifs égaux automatiques - Classes sans sens métier"
+  },
+  {
+    "objectID": "slides/04-dimension-mca-slides.html#encodage-des-variables-qualitatives",
+    "href": "slides/04-dimension-mca-slides.html#encodage-des-variables-qualitatives",
+    "title": "Dimension",
+    "section": "Encodage des variables qualitatives",
+    "text": "Encodage des variables qualitatives\nModalités “naturelles” mais problèmes potentiels :\nEffectifs déséquilibrés : - Modalités très rares vs très fréquentes - Impact sur la représentation\nSolutions : - Regroupements pertinents (connaissance du domaine) - Éviter la répartition aléatoire - Préserver le sens des modalités"
+  },
+  {
+    "objectID": "slides/04-dimension-mca-slides.html#stratégies-dencodage",
+    "href": "slides/04-dimension-mca-slides.html#stratégies-dencodage",
+    "title": "Dimension",
+    "section": "Stratégies d’encodage",
+    "text": "Stratégies d’encodage\nVariables continues : 1. Examiner la distribution 2. Identifier des seuils naturels 3. Classes équilibrées ET pertinentes 4. Éviter trop de classes (complexité)\nVariables qualitatives : 1. Analyser les effectifs 2. Regrouper les modalités rares 3. Préserver la logique métier 4. Maintenir l’interprétabilité"
+  },
+  {
+    "objectID": "slides/04-dimension-mca-slides.html#considérations-pratiques",
+    "href": "slides/04-dimension-mca-slides.html#considérations-pratiques",
+    "title": "Dimension",
+    "section": "Considérations pratiques",
+    "text": "Considérations pratiques\nNombre optimal de classes : - Trop peu → Perte d’information - Trop → Complexité, effectifs faibles\nValidation du codage : - Vérifier la pertinence des classes - Tester différents découpages - Évaluer l’impact sur les résultats\nDocumentation : Justifier les choix d’encodage."
+  },
+  {
+    "objectID": "slides/04-dimension-mca-slides.html#applications-typiques",
+    "href": "slides/04-dimension-mca-slides.html#applications-typiques",
+    "title": "Dimension",
+    "section": "Applications typiques",
+    "text": "Applications typiques\nÉtudes marketing : - Profils consommateurs × Préférences - Segmentation clientèle\nSciences sociales : - Enquêtes d’opinion - Comportements × Caractéristiques\nSanté publique : - Facteurs de risque × Pathologies - Questionnaires de qualité de vie"
+  },
+  {
+    "objectID": "slides/04-dimension-mca-slides.html#avantages-de-lacm",
+    "href": "slides/04-dimension-mca-slides.html#avantages-de-lacm",
+    "title": "Dimension",
+    "section": "Avantages de l’ACM",
+    "text": "Avantages de l’ACM\n\nVisualisation de relations complexes multi-variables\nTraitement unifié de variables hétérogènes\n\nRéduction de dimension préservant les associations\nInterprétation intuitive des proximités\nFlexibilité dans l’encodage des variables"
+  },
+  {
+    "objectID": "slides/04-dimension-mca-slides.html#limites-et-précautions",
+    "href": "slides/04-dimension-mca-slides.html#limites-et-précautions",
+    "title": "Dimension",
+    "section": "Limites et précautions",
+    "text": "Limites et précautions\nPerte d’information : - Variables continues → classes - Choix d’encodage critique\nSensibilité aux effectifs : - Modalités rares peuvent dominer - Équilibrage nécessaire\nInterprétation : - Proximités entre modalités de variables différentes - Attention aux artefacts d’encodage"
+  },
+  {
+    "objectID": "slides/04-dimension-mca-slides.html#conclusion",
+    "href": "slides/04-dimension-mca-slides.html#conclusion",
+    "title": "Dimension",
+    "section": "Conclusion",
+    "text": "Conclusion\nL’ACM étend l’AFC au cas multi-variables grâce au codage disjonctif complet.\nÉléments clés : - Transformation binaire préalable - Équivalence \\(Z\\) ↔︎ Tableau de Burt - Choix d’encodage fondamental - Visualisation des patterns complexes\nSuccès dépend de la qualité de l’encodage des variables originales."
+  },
+  {
     "objectID": "slides/03-generalities-stat-slides.html#plan-de-la-présentation",
     "href": "slides/03-generalities-stat-slides.html#plan-de-la-présentation",
     "title": "Généralités",
@@ -1630,6 +2064,146 @@
     "title": "Généralités",
     "section": "Conclusion",
     "text": "Conclusion\nUn bon modèle :\n\n✅ Performant à un instant donné\n✅ Robuste dans le temps\n✅ Adaptable aux changements\n\nClé du succès : Équilibre entre toutes les étapes, pas seulement la modélisation !"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#introduction-à-lafc",
+    "href": "slides/04-dimension-ca-slides.html#introduction-à-lafc",
+    "title": "Dimension",
+    "section": "Introduction à l’AFC",
+    "text": "Introduction à l’AFC\nL’Analyse Factorielle des Correspondances (AFC) est une méthode d’analyse exploratoire pour représenter graphiquement les relations entre les modalités de deux variables qualitatives.\nObjectifs : - Représenter simultanément les profils-lignes et profils-colonnes - Préserver la distance du \\(\\chi^2\\) - Trouver une représentation en faible dimension (2D-3D) - Révéler les proximités géométriques = similarités entre modalités"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#afc-comme-double-acp",
+    "href": "slides/04-dimension-ca-slides.html#afc-comme-double-acp",
+    "title": "Dimension",
+    "section": "AFC comme double ACP",
+    "text": "AFC comme double ACP\n\n\n\n\n\n\nAstuce\n\n\nL’AFC peut être vue comme une double ACP pondérée : - ACP des profils-lignes dans \\(\\mathbb{R}^p\\) - ACP des profils-colonnes dans \\(\\mathbb{R}^n\\) - Avec métriques du \\(\\chi^2\\) adaptées à chaque espace\n\n\n\nCette dualité permet une représentation cohérente des lignes et colonnes dans le même espace réduit."
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#notation-de-base",
+    "href": "slides/04-dimension-ca-slides.html#notation-de-base",
+    "title": "Dimension",
+    "section": "Notation de base",
+    "text": "Notation de base\nTableau de contingence : \\(K = (k_{ij})\\) avec \\(k_{ij}\\) = effectif classe \\(i\\), catégorie \\(j\\)\nTableau de fréquences relatives : \\(F = (f_{ij})\\) où \\[f_{ij} = \\frac{k_{ij}}{k_{\\bullet\\bullet}}\\]\nMarges : - Ligne : \\(f_{i\\bullet} = \\sum_{j=1}^p f_{ij}\\) - Colonne : \\(f_{\\bullet j} = \\sum_{i=1}^n f_{ij}\\) - Total : \\(f_{\\bullet\\bullet} = 1\\)"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#exemple-concret",
+    "href": "slides/04-dimension-ca-slides.html#exemple-concret",
+    "title": "Dimension",
+    "section": "Exemple concret",
+    "text": "Exemple concret\nÉtudiants STT-2200 (Automne 2025) : Majeure × Type d’admission\n\n\n\nMajeure\nCollège\nULaval\nAutre univ.\nHors QC\nTotal\n\n\n\n\nActuariat\n0.08\n0\n0\n0.04\n0.12\n\n\nStatistique\n0.08\n0.16\n0.04\n0\n0.28\n\n\nBio-info\n0.16\n0.08\n0\n0.08\n0.32\n\n\nFinance\n0.08\n0\n0\n0\n0.08\n\n\nTotal\n0.52\n0.28\n0.04\n0.16\n1\n\n\n\n25 étudiants au total, convertis en fréquences relatives."
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#indépendance-statistique",
+    "href": "slides/04-dimension-ca-slides.html#indépendance-statistique",
+    "title": "Dimension",
+    "section": "Indépendance statistique",
+    "text": "Indépendance statistique\nTest d’indépendance : Si les variables sont indépendantes, \\[f_{ij} \\approx f_{i\\bullet} f_{\\bullet j}\\]\nTest du \\(\\chi^2\\) : \\[T = \\sum_{i,j} \\frac{(k_{ij} - \\mathbb{E}(k_{ij}))^2}{\\mathbb{E}(k_{ij})} = \\sum_{i,j} \\frac{(k_{ij} - \\frac{k_{i\\bullet}k_{\\bullet j}}{k_{\\bullet\\bullet}})^2}{\\frac{k_{i\\bullet}k_{\\bullet j}}{k_{\\bullet\\bullet}}}\\]\nSi \\(T \\approx 0\\) → indépendance\nSi \\(T\\) grand → dépendance (intéressant pour l’AFC)"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#profils-lignes-et-profils-colonnes",
+    "href": "slides/04-dimension-ca-slides.html#profils-lignes-et-profils-colonnes",
+    "title": "Dimension",
+    "section": "Profils-lignes et profils-colonnes",
+    "text": "Profils-lignes et profils-colonnes\nProfil-ligne \\(i\\) : Répartition de la modalité \\(i\\) parmi les colonnes \\[L_i = \\left(\\frac{f_{i1}}{f_{i\\bullet}}, \\ldots, \\frac{f_{ip}}{f_{i\\bullet}}\\right)\\]\nProfil-colonne \\(j\\) : Répartition de la modalité \\(j\\) parmi les lignes \\[C_j = \\left(\\frac{f_{1j}}{f_{\\bullet j}}, \\ldots, \\frac{f_{nj}}{f_{\\bullet j}}\\right)\\]\nLes profils sont des distributions conditionnelles."
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#profils-moyens",
+    "href": "slides/04-dimension-ca-slides.html#profils-moyens",
+    "title": "Dimension",
+    "section": "Profils moyens",
+    "text": "Profils moyens\nProfil-ligne moyen = fréquences marginales colonnes : \\[\\text{Profil moyen} = (f_{\\bullet 1}, \\ldots, f_{\\bullet p})\\]\nProfil-colonne moyen = fréquences marginales lignes : \\[\\text{Profil moyen} = (f_{1\\bullet}, \\ldots, f_{n\\bullet})\\]\nIndépendance ⟺ Tous les profils = profils moyens"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#distance-du-chi2",
+    "href": "slides/04-dimension-ca-slides.html#distance-du-chi2",
+    "title": "Dimension",
+    "section": "Distance du \\(\\chi^2\\)",
+    "text": "Distance du \\(\\chi^2\\)\nDistance entre profils-lignes : \\[d^2(L_i, L_{i'}) = \\sum_{j=1}^p \\frac{1}{f_{\\bullet j}} \\left(\\frac{f_{ij}}{f_{i\\bullet}} - \\frac{f_{i'j}}{f_{i'\\bullet}}\\right)^2\\]\nDistance entre profils-colonnes : \\[d^2(C_j, C_{j'}) = \\sum_{i=1}^n \\frac{1}{f_{i\\bullet}} \\left(\\frac{f_{ij}}{f_{\\bullet j}} - \\frac{f_{ij'}}{f_{\\bullet j'}}\\right)^2\\]\nPondération par l’inverse des fréquences marginales."
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#formulation-matricielle",
+    "href": "slides/04-dimension-ca-slides.html#formulation-matricielle",
+    "title": "Dimension",
+    "section": "Formulation matricielle",
+    "text": "Formulation matricielle\nMatrices de poids : - \\(D_n = \\text{diag}(f_{i\\bullet})\\) (poids des lignes) - \\(D_p = \\text{diag}(f_{\\bullet j})\\) (poids des colonnes)\nDistance du \\(\\chi^2\\) matricielle : - Profils-lignes : \\(d^2(L_i, L_{i'}) = (L_i - L_{i'})^\\top D_p^{-1} (L_i - L_{i'})\\) - Profils-colonnes : \\(d^2(C_j, C_{j'}) = (C_j - C_{j'})^\\top D_n^{-1} (C_j - C_{j'})\\)"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#analyse-directe-profils-lignes",
+    "href": "slides/04-dimension-ca-slides.html#analyse-directe-profils-lignes",
+    "title": "Dimension",
+    "section": "Analyse directe (profils-lignes)",
+    "text": "Analyse directe (profils-lignes)\nObjectif : Maximiser la variance projetée des profils-lignes\nProblème d’optimisation : \\[\\max_u u^\\top D_p^{-1} F^\\top D_n^{-1} F D_p^{-1} u \\quad \\text{s.c.} \\quad u^\\top D_p^{-1} u = 1\\]\nSolution : Vecteurs propres de la matrice \\[S = F^\\top D_n^{-1} F D_p^{-1}\\]\nPremier axe factoriel : \\(S u_1 = \\lambda_1 u_1\\)"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#analyse-duale-profils-colonnes",
+    "href": "slides/04-dimension-ca-slides.html#analyse-duale-profils-colonnes",
+    "title": "Dimension",
+    "section": "Analyse duale (profils-colonnes)",
+    "text": "Analyse duale (profils-colonnes)\nObjectif : Maximiser la variance projetée des profils-colonnes\nProblème d’optimisation similaire avec matrice : \\[T = F D_p^{-1} F^\\top D_n^{-1}\\]\nPremier axe factoriel : \\(T v_1 = \\mu_1 v_1\\)\nPropriété fondamentale : \\(S\\) et \\(T\\) ont les mêmes \\(r = \\min(n-1, p-1)\\) valeurs propres positives !"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#relations-entre-analyses",
+    "href": "slides/04-dimension-ca-slides.html#relations-entre-analyses",
+    "title": "Dimension",
+    "section": "Relations entre analyses",
+    "text": "Relations entre analyses\nCohérence des représentations : \\(\\lambda_k = \\mu_k\\) pour \\(k = 1, \\ldots, r\\)\nRelations entre vecteurs propres : \\[u_k = \\frac{1}{\\sqrt{\\lambda_k}} F^\\top D_n^{-1} v_k\\] \\[v_k = \\frac{1}{\\sqrt{\\lambda_k}} F D_p^{-1} u_k\\]\nCette propriété garantit une représentation cohérente dans le même espace réduit."
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#coordonnées-factorielles",
+    "href": "slides/04-dimension-ca-slides.html#coordonnées-factorielles",
+    "title": "Dimension",
+    "section": "Coordonnées factorielles",
+    "text": "Coordonnées factorielles\nCoordonnées des profils-lignes sur l’axe \\(k\\) : \\[\\Phi_k = D_n^{-1} F D_p^{-1} u_k\\]\nCoordonnées des profils-colonnes sur l’axe \\(k\\) : \\[\\Psi_k = D_p^{-1} F^\\top D_n^{-1} v_k\\]\nRelations entre coordonnées : \\[\\Phi_k = \\frac{1}{\\sqrt{\\lambda_k}} D_n^{-1} F \\Psi_k\\]"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#centrage-et-centre-de-gravité",
+    "href": "slides/04-dimension-ca-slides.html#centrage-et-centre-de-gravité",
+    "title": "Dimension",
+    "section": "Centrage et centre de gravité",
+    "text": "Centrage et centre de gravité\nConvention : Représentation centrée en \\((0,0)\\) dans les logiciels\nCentres de gravité : - Lignes : \\(G_L = (f_{\\bullet 1}, \\ldots, f_{\\bullet p})^\\top\\) - Colonnes : \\(G_C = (f_{1\\bullet}, \\ldots, f_{n\\bullet})^\\top\\)\nCentrage : Soustraire les profils moyens \\[\\frac{f_{ij}}{f_{i\\bullet}} - f_{\\bullet j} = \\frac{f_{ij} - f_{i\\bullet}f_{\\bullet j}}{f_{i\\bullet}}\\]"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#inertie-totale",
+    "href": "slides/04-dimension-ca-slides.html#inertie-totale",
+    "title": "Dimension",
+    "section": "Inertie totale",
+    "text": "Inertie totale\nMatrice centrée : \\(S^* = (s_{jj'}^*)\\) avec \\[s_{jj'}^* = \\sum_{i=1}^n \\frac{(f_{ij} - f_{i\\bullet}f_{\\bullet j})(f_{ij'} - f_{i\\bullet}f_{\\bullet j'})}{f_{i\\bullet}f_{\\bullet j'}}\\]\nInertie totale : \\[\\text{tr}(S^*) = \\sum_{j=1}^p \\sum_{i=1}^n \\frac{(f_{ij} - f_{i\\bullet}f_{\\bullet j})^2}{f_{i\\bullet}f_{\\bullet j}}\\]\nCette inertie correspond à la statistique du \\(\\chi^2\\) normalisée."
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#représentation-barycentrique",
+    "href": "slides/04-dimension-ca-slides.html#représentation-barycentrique",
+    "title": "Dimension",
+    "section": "Représentation barycentrique",
+    "text": "Représentation barycentrique\nPropriété remarquable : Sur chaque axe factoriel,\n\\[[\\Phi_k]_i = \\frac{1}{\\sqrt{\\lambda_k}} \\sum_{j=1}^p \\frac{f_{ij}}{f_{i\\bullet}} [\\Psi_k]_j\\]\n\\[[\\Psi_k]_j = \\frac{1}{\\sqrt{\\lambda_k}} \\sum_{i=1}^n \\frac{f_{ij}}{f_{\\bullet j}} [\\Phi_k]_i\\]\nInterprétation : Chaque profil-ligne est au barycentre des profils-colonnes (et vice versa)."
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#double-représentation-barycentrique",
+    "href": "slides/04-dimension-ca-slides.html#double-représentation-barycentrique",
+    "title": "Dimension",
+    "section": "Double représentation barycentrique",
+    "text": "Double représentation barycentrique\n\n\n\n\n\n\nAstuce\n\n\nPropriété fondamentale de l’AFC :\nSur les axes factoriels, chaque point d’un nuage est au barycentre des points de l’autre nuage, pondéré par les contributions respectives.\n\n\n\nCette propriété permet une interprétation conjointe des modalités des deux variables dans le même graphique."
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#applications-pratiques",
+    "href": "slides/04-dimension-ca-slides.html#applications-pratiques",
+    "title": "Dimension",
+    "section": "Applications pratiques",
+    "text": "Applications pratiques\nDomaines d’application : - Marketing : Préférences × Segments de clientèle - Sociologie : Catégories sociales × Comportements\n- Biologie : Espèces × Environnements - Linguistique : Mots × Contextes\nAvantages : - Visualisation intuitive des associations - Identification des profils similaires - Détection de structures cachées"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#interprétation-des-résultats",
+    "href": "slides/04-dimension-ca-slides.html#interprétation-des-résultats",
+    "title": "Dimension",
+    "section": "Interprétation des résultats",
+    "text": "Interprétation des résultats\nProximité géométrique = Similarité des profils\nAxes factoriels : Directions de variation maximale\nContribution des modalités : Importance dans la construction des axes\nInertie expliquée : \\(\\frac{\\lambda_k}{\\sum_{j=1}^r \\lambda_j} \\times 100\\%\\)\nQualité de représentation : Proportion de l’inertie d’un point expliquée par les axes retenus."
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#conclusion",
+    "href": "slides/04-dimension-ca-slides.html#conclusion",
+    "title": "Dimension",
+    "section": "Conclusion",
+    "text": "Conclusion\nL’AFC est un outil puissant pour :\n\nExplorer les relations entre variables qualitatives\nVisualiser des structures complexes en 2D/3D\n\nIdentifier des associations non évidentes\nInterpréter conjointement lignes et colonnes\n\nLa dualité ligne-colonne et la représentation barycentrique en font une méthode unique pour l’analyse de tableaux de contingence."
   },
   {
     "objectID": "slides/01-introduction-slides.html#test",

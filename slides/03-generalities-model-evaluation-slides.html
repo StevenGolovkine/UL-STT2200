@@ -126,7 +126,7 @@
     }
   </style>
 <meta property="og:title" content="Généralités – STT-2200: Analyse de données">
-<meta property="og:description" content="Data">
+<meta property="og:description" content="Évaluation de modèles">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
 <body class="quarto-light">
@@ -135,7 +135,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Généralités</h1>
-  <p class="subtitle">Data</p>
+  <p class="subtitle">Évaluation de modèles</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -145,15 +145,84 @@ Steven Golovkine
 </div>
 </div>
 
-  <p class="date">07 août 2025</p>
+  <p class="date">08 août 2025</p>
   <figure>
     <center>
       <img src="../include/logo-ul.png" alt="logo" width="40%">
     </center>
   </figure>
 </section>
-<section class="slide level2">
-
+<section id="introduction" class="slide level2">
+<h2>Introduction</h2>
+<p>L’évaluation de modèles est cruciale pour mesurer la performance prédictive réelle.</p>
+<p>Les métriques classiques incluent l’erreur quadratique moyenne (MSE) pour les variables quantitatives et le taux d’erreur (ER) pour les variables qualitatives.</p>
+<p>Cependant, évaluer uniquement sur les données d’entraînement pose des problèmes fondamentaux.</p>
+</section>
+<section id="le-problème-du-sur-ajustement" class="slide level2">
+<h2>Le problème du sur-ajustement</h2>
+<p><strong>Définition</strong>: Un modèle s’adapte trop aux données d’entraînement, y compris au bruit aléatoire.</p>
+<p><strong>Conséquences</strong>: - Erreur faible sur les données d’entraînement - Erreur élevée sur de nouvelles observations - Mauvaise capacité de généralisation</p>
+<p><strong>Cause</strong>: L’estimateur <span class="math inline">\(\widehat{f}\)</span> a été ajusté pour minimiser l’erreur sur ces mêmes données.</p>
+</section>
+<section id="sur-ajustement-vs-sous-ajustement" class="slide level2">
+<h2>Sur-ajustement vs Sous-ajustement</h2>
+<p><strong>Sur-ajustement</strong> (<em>overfitting</em>): - Modèle trop flexible - Capture le bruit plutôt que le signal - Bonne performance sur l’entraînement, mauvaise sur de nouvelles données</p>
+<p><strong>Sous-ajustement</strong> (<em>underfitting</em>): - Modèle trop rigide - Ne capture pas la structure des données - Mauvaise performance même sur l’entraînement</p>
+<p><strong>Objectif</strong>: Trouver le bon compromis entre flexibilité et généralisation.</p>
+</section>
+<section id="approche-idéale" class="slide level2">
+<h2>Approche idéale</h2>
+<p><strong>Principe</strong>: Séparer complètement les données d’entraînement et d’évaluation.</p>
+<p><strong>Jeu d’entraînement</strong>: Utilisé pour ajuster le modèle</p>
+<p><strong>Jeu de test</strong>: Utilisé pour évaluer la performance prédictive</p>
+<p><strong>Problème pratique</strong>: Nous n’avons généralement pas accès à un jeu de test indépendant.</p>
+<p><strong>Solution</strong>: Utiliser des méthodes de validation.</p>
+</section>
+<section id="approche-par-jeu-de-validation" class="slide level2">
+<h2>Approche par jeu de validation</h2>
+<p><strong>Principe</strong>: Diviser aléatoirement le jeu de données en deux sous-ensembles.</p>
+<p><strong>Jeu d’entraînement</strong>: Pour ajuster le modèle</p>
+<p><strong>Jeu de validation</strong>: Pour estimer l’erreur de prédiction</p>
+<p><strong>Proportions recommandées</strong>: - Grand nombre d’observations: division 50-50 - Petit nombre d’observations: division 70-30 ou 80-20</p>
+</section>
+<section id="limites-du-jeu-de-validation" class="slide level2">
+<h2>Limites du jeu de validation</h2>
+<p><strong>Estimation instable</strong>: L’erreur dépend fortement des observations dans le jeu de validation.</p>
+<p><strong>Perte d’information</strong>: Moins de données pour ajuster le modèle, ce qui peut surestimer l’erreur réelle.</p>
+<p><strong>Variabilité</strong>: Différents jeux de validation peuvent donner des résultats très différents.</p>
+<p><strong>Solution</strong>: Validation croisée pour une approche plus robuste.</p>
+</section>
+<section id="validation-croisée---principe" class="slide level2">
+<h2>Validation croisée - Principe</h2>
+<p><strong>Objectif</strong>: Méthode plus robuste et stable que le simple jeu de validation.</p>
+<p><strong>Principe</strong>: Répéter l’approche par jeu de validation plusieurs fois sur différents sous-ensembles.</p>
+<p><strong>Méthode</strong>: 1. Découper aléatoirement en <span class="math inline">\(K\)</span> sous-ensembles (<em>folds</em>) 2. Utiliser chaque <em>fold</em> comme validation 3. Entraîner sur les <span class="math inline">\(K-1\)</span> <em>folds</em> restants 4. Calculer la moyenne des <span class="math inline">\(K\)</span> erreurs</p>
+</section>
+<section id="choix-du-paramètre-k" class="slide level2">
+<h2>Choix du paramètre K</h2>
+<p><strong>Valeurs courantes</strong>: <span class="math inline">\(K = 5\)</span> ou <span class="math inline">\(K = 10\)</span></p>
+<p><strong>Compromis à considérer</strong>: - <strong>Coût computationnel</strong>: Plus <span class="math inline">\(K\)</span> est grand, plus c’est coûteux - <strong>Précision de l’estimation</strong>: Plus <span class="math inline">\(K\)</span> est grand, moins de biais - <strong>Stabilité</strong>: Valeurs modérées de <span class="math inline">\(K\)</span> réduisent la variance</p>
+<p><strong>Cas limite</strong>: <span class="math inline">\(K = n\)</span> (Leave-One-Out Cross-Validation - LOOCV)</p>
+</section>
+<section id="leave-one-out-cross-validation" class="slide level2">
+<h2>Leave-One-Out Cross-Validation</h2>
+<p><strong>Principe</strong>: <span class="math inline">\(K = n\)</span> où <span class="math inline">\(n\)</span> est le nombre d’observations</p>
+<p><strong>Avantages</strong>: - Biais minimal dans l’estimation - Utilise presque toutes les données pour l’entraînement</p>
+<p><strong>Inconvénients</strong>: - Variance élevée (erreurs très corrélées) - Coût computationnel très élevé - Estimation instable</p>
+</section>
+<section id="recommandations-pratiques" class="slide level2">
+<h2>Recommandations pratiques</h2>
+<p><strong>Choix de <span class="math inline">\(K\)</span></strong>: Privilégier <span class="math inline">\(K = 5\)</span> ou <span class="math inline">\(K = 10\)</span> pour un bon compromis biais-variance.</p>
+<p><strong>Taille des données</strong>: Adapter la stratégie selon le volume de données disponibles.</p>
+<p><strong>Généralité</strong>: La validation croisée s’applique à la plupart des modèles.</p>
+<p><strong>Objectif</strong>: Obtenir une estimation fiable de la performance de généralisation.</p>
+</section>
+<section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
+<p>La validation appropriée des modèles est essentielle pour éviter les illusions de performance.</p>
+<p>Le sur-ajustement est un piège courant qui nécessite une évaluation rigoureuse.</p>
+<p>La validation croisée offre une solution robuste et pratique pour estimer la performance réelle.</p>
+<p>Le choix des paramètres de validation doit équilibrer précision, stabilité et coût computationnel.</p>
 
 
 </section>

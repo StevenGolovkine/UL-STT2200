@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr"><head>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/slides/06-unsupervised-slides.html" />
-<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/slides/06-unsupervised-slides.en.html" />
+<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/slides/05-supervised-discriminant-slides.html" />
+<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/slides/05-supervised-discriminant-slides.en.html" />
 <script src="../site_libs/quarto-html/tabby.min.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -12,7 +12,7 @@
   <meta name="generator" content="quarto-1.7.33">
 
   <meta name="author" content="Steven Golovkine">
-  <title>STT-2200: Analyse de données – Dimension</title>
+  <title>STT-2200: Analyse de données – Supervisée</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -125,8 +125,8 @@
       margin-right: 0; 
     }
   </style>
-<meta property="og:title" content="Dimension – STT-2200: Analyse de données">
-<meta property="og:description" content="Data">
+<meta property="og:title" content="Supervisée – STT-2200: Analyse de données">
+<meta property="og:description" content="Analyse discriminante">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
 <body class="quarto-light">
@@ -134,8 +134,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Dimension</h1>
-  <p class="subtitle">Data</p>
+  <h1 class="title">Supervisée</h1>
+  <p class="subtitle">Analyse discriminante</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -152,11 +152,142 @@ Steven Golovkine
     </center>
   </figure>
 </section>
-<section class="slide level2">
-
-
+<section>
+<section id="analyse-discriminante" class="title-slide slide level1 center">
+<h1>Analyse discriminante</h1>
 
 </section>
+<section id="introduction" class="slide level2">
+<h2>Introduction</h2>
+<ul>
+<li class="fragment"><strong>Objectif</strong>: Classer des individus dans différents groupes</li>
+<li class="fragment"><strong>Méthode supervisée</strong>: Les groupes sont connus dans les données d’apprentissage</li>
+<li class="fragment"><strong>Variables</strong>: Variables explicatives continues</li>
+<li class="fragment"><strong>But</strong>: Apprendre une règle de classification optimale</li>
+</ul>
+</section>
+<section id="notation" class="slide level2">
+<h2>Notation</h2>
+<div class="fragment">
+<p><strong>Données</strong> - <span class="math inline">\(X = (X_{ij}) \in \mathbb{R}^{n \times p}\)</span> : matrice de données - <span class="math inline">\(n\)</span> : nombre d’individus - <span class="math inline">\(p\)</span> : nombre de variables</p>
+</div>
+<div class="fragment">
+<p><strong>Groupes</strong> - <span class="math inline">\(K\)</span> groupes dans la population - <span class="math inline">\(I_k\)</span> : ensemble des individus du groupe <span class="math inline">\(k\)</span> - <span class="math inline">\(n_k\)</span> : nombre d’observations dans <span class="math inline">\(I_k\)</span> - <span class="math inline">\(\sum_{k=1}^{K} n_k = n\)</span></p>
+</div>
+</section>
+<section id="objectif-principal" class="slide level2">
+<h2>Objectif principal</h2>
+<div class="fragment">
+<p><strong>Principe</strong> - Partitionner <span class="math inline">\(\mathbb{R}^p\)</span> en <span class="math inline">\(K\)</span> sous-ensembles - Passer de <span class="math inline">\(\mathbb{R}^p\)</span> à <span class="math inline">\(\mathbb{R}\)</span> via un score</p>
+</div>
+<div class="fragment">
+<p><strong>Score de Fisher</strong> <span class="math display">\[f(X_1, \ldots, X_p) = a^{\top} X + b = a_1 X_1 + \cdots + a_p X_p + b\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>Simplification</strong> En centrant les variables: <span class="math inline">\(-b = a^{\top} \overline{X}\)</span></p>
+<p>Il reste à déterminer le vecteur <span class="math inline">\(a = (a_1, \ldots, a_p)\)</span></p>
+</div>
+</section>
+<section id="critère-de-fisher" class="slide level2">
+<h2>Critère de Fisher</h2>
+<div class="fragment">
+<p><strong>Idée centrale</strong> Optimiser le rapport entre: - Variabilité <strong>inter-groupes</strong> (maximiser) - Variabilité <strong>intra-groupe</strong> (minimiser)</p>
+</div>
+<div class="fragment">
+<p><strong>Matrices de variance-covariance</strong></p>
+<ul>
+<li><span class="math inline">\(S\)</span> : matrice totale</li>
+<li><span class="math inline">\(W\)</span> : matrice intra-groupe<br>
+</li>
+<li><span class="math inline">\(B\)</span> : matrice inter-groupe</li>
+</ul>
+<p><strong>Relation fondamentale</strong>: <span class="math inline">\(S = W + B\)</span></p>
+</div>
+</section>
+<section id="matrices-de-variance-covariance" class="slide level2">
+<h2>Matrices de variance-covariance</h2>
+<p><strong>Matrice totale</strong> <span class="math display">\[S = \sum_{i=1}^{n} (X_i - \overline{X})(X_i - \overline{X})^{\top}\]</span></p>
+<p><strong>Matrice intra-groupe</strong> <span class="math display">\[W = \sum_{k=1}^{K} \sum_{i \in I_k} (X_i - \overline{X}_k)(X_i - \overline{X}_k)^{\top}\]</span></p>
+<p><strong>Matrice inter-groupe</strong> <span class="math display">\[B = \sum_{k=1}^{K} n_k (\overline{X}_k - \overline{X})(\overline{X}_k - \overline{X})^{\top}\]</span></p>
+</section>
+<section id="critère-doptimisation" class="slide level2">
+<h2>Critère d’optimisation</h2>
+<div class="fragment">
+<p><strong>Critère de Fisher</strong> <span class="math display">\[J(a) = \frac{a^{\top} B a}{a^{\top} W a} = \frac{a^{\top} B a}{a^{\top} S a}\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>Formulations équivalentes</strong> 1. Maximiser <span class="math inline">\(J(a)\)</span> sous contrainte <span class="math inline">\(a^{\top} a = 1\)</span> 2. Maximiser <span class="math inline">\(a^{\top} B a\)</span> sous contrainte <span class="math inline">\(a^{\top} S a = 1\)</span> 3. Maximiser <span class="math inline">\(c^{\top} S^{-1/2} B S^{-1/2} c\)</span> sous contrainte <span class="math inline">\(c^{\top} c = 1\)</span></p>
+</div>
+</section>
+<section id="solution-optimale" class="slide level2">
+<h2>Solution optimale</h2>
+<div class="fragment">
+<p><strong>Résultat</strong> <span class="math inline">\(a\)</span> est un vecteur propre normé associé à <span class="math inline">\(\lambda_1\)</span>, la <strong>plus grande valeur propre</strong> de <span class="math inline">\(S^{-1} B\)</span></p>
+</div>
+<div class="fragment">
+<p><strong>Fonction discriminante</strong> <span class="math display">\[f(x) = a^{\top} (x - \overline{X})\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>Scores des observations</strong> <span class="math display">\[U_i = a^{\top} (X_i - \overline{X})\]</span> Ces scores maximisent le rapport variance inter-groupe / variance intra-groupe</p>
+</div>
+</section>
+<section id="pouvoir-discriminant" class="slide level2">
+<h2>Pouvoir discriminant</h2>
+<div class="fragment">
+<p><strong>Interprétation de <span class="math inline">\(\lambda_1\)</span></strong> <span class="math display">\[\lambda_1 = \frac{a^{\top} B a}{a^{\top} S a} \quad \text{avec } 0 \leq \lambda_1 \leq 1\]</span></p>
+</div>
+<ul>
+<li class="fragment"><span class="math inline">\(\lambda_1 = 1\)</span> : <strong>Cas idéal</strong>
+<ul>
+<li class="fragment">100% de variabilité entre les groupes</li>
+<li class="fragment">Aucune variabilité intra-groupe</li>
+</ul></li>
+<li class="fragment"><span class="math inline">\(\lambda_1 = 0\)</span> : <strong>Analyse inutile</strong>
+<ul>
+<li class="fragment">Aucune variabilité entre les groupes</li>
+<li class="fragment">Toute la variabilité est intra-groupe</li>
+</ul></li>
+</ul>
+</section>
+<section id="règle-de-classification" class="slide level2">
+<h2>Règle de classification</h2>
+<div class="fragment">
+<p><strong>Score moyen par groupe</strong> <span class="math display">\[m_k = a^{\top} (\overline{X}_{k1}, \ldots, \overline{X}_{kp})^{\top}\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>Classification d’une nouvelle observation <span class="math inline">\(X_0\)</span></strong> 1. Calculer le score: <span class="math inline">\(f(X_0) = a^{\top} X_0\)</span> 2. Assigner au groupe <span class="math inline">\(k^*\)</span> tel que: <span class="math display">\[k^* = \arg\min_{k} |a^{\top} X_0 - m_k|\]</span></p>
+</div>
+</section>
+<section id="cas-binaire-k-2" class="slide level2">
+<h2>Cas binaire (<span class="math inline">\(K = 2\)</span>)</h2>
+<div class="fragment">
+<p><strong>Solution explicite</strong> <span class="math display">\[C = \sqrt{\frac{n_1 n_2}{n}} (\overline{X}_1 - \overline{X}_2)\]</span> <span class="math display">\[B = CC^{\top}, \quad a = S^{-1}C\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>Règle de classification</strong> Si <span class="math inline">\(m_1 &gt; m_2\)</span>, classer <span class="math inline">\(X_0\)</span> dans le groupe 1 si: <span class="math display">\[a^{\top} X_0 &gt; \frac{m_1 + m_2}{2}\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>Forme équivalente</strong> <span class="math display">\[(\overline{X}_1 - \overline{X}_2)^{\top} S^{-1} X_0 &gt; \frac{1}{2}(\overline{X}_1 - \overline{X}_2)^{\top} S^{-1} (\overline{X}_1 + \overline{X}_2)\]</span></p>
+</div>
+</section>
+<section id="évaluation-de-la-performance" class="slide level2">
+<h2>Évaluation de la performance</h2>
+<div class="fragment">
+<p><strong>Matrice de confusion</strong> - Appliquer la règle de classification à l’échantillon d’apprentissage - Comparer les classifications prédites aux vraies classes - Estimer les risques de mauvaise classification</p>
+</div>
+<div class="fragment">
+<p><strong>Avantages de l’analyse discriminante</strong> - Méthode linéaire simple et interprétable - Solution analytique explicite - Réduction de dimension naturelle (<span class="math inline">\(\mathbb{R}^p \to \mathbb{R}\)</span>)</p>
+</div>
+</section>
+<section id="merci-pour-votre-attention" class="slide level2">
+<h2>Merci pour votre attention</h2>
+<p><strong>Questions ?</strong></p>
+<div class="fragment">
+<p><em>L’analyse discriminante de Fisher : une méthode élégante pour la classification supervisée</em></p>
+</div>
+
+
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
