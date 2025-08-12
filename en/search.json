@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STT-2200: Data Analysis",
+    "section": "",
+    "text": "Welcome everyone to the class STT-2200 in Autumn 2025.\nYou will find on this website every necessary information for the modules, the practicals and the exams. The contents will be updated during the session with the answers to some work. I invite you to skim through the differents modules before classes.\nThis website has been created with the help of Aurélien Nicosia and Thierry Duchesne notes.\nThis website a been built using Quarto.\nMost of the contents has been translated using DeepL.\n\n\n\nData trap (xkcd:2582)."
+  },
+  {
     "objectID": "informations/materials.html",
     "href": "informations/materials.html",
     "title": "Materials",
@@ -11,36 +18,27 @@
     ]
   },
   {
-    "objectID": "informations/general.html",
-    "href": "informations/general.html",
-    "title": "General informations",
+    "objectID": "informations/mcq.html",
+    "href": "informations/mcq.html",
+    "title": "MCQ",
     "section": "",
-    "text": "Faculté des sciences et de génie\nDépartement de mathématiques et de statistique",
+    "text": "The first exam is a multiple-choice question with quantification of uncertainty.\nThe use of degrees of certainty enables the student to assess the level of knowledge of the answer given. The scoring system, based on decision theory (Leclercq et al. 1993), may seem odd but it has been designed in such a way that:\n\ntelling the truth is the strategy that earns the most points;\nthose who self-assess well earn more points than if we applied a corrective scale taking into account the probabilities of having the correct answer randomly.\n\nIn general, students self-assess realistically, and benefit from degrees of certainty. Their score is better than if it had been calculated solely on the basis of the number of correct answers.",
     "crumbs": [
       "Informations",
-      "Générales"
+      "Évaluations",
+      "MCQ"
     ]
   },
   {
-    "objectID": "informations/general.html#stt-2200-data-analysis",
-    "href": "informations/general.html#stt-2200-data-analysis",
-    "title": "General informations",
-    "section": "STT-2200: Data Analysis",
-    "text": "STT-2200: Data Analysis\nTeaching format: Face-to-face\nTime spent:\n\nLecture: 2h\nLaboratory: 1h\nPersonal work: 6h\nTotal: 9h\n\nCredits: 3\nPrerequisites:\n\nACT-2000 or STT-1000 or STT-1300 or STT-1900\nMAT-1200 or ACT-2002\nSTT-1100 or IFT-4902 or ECN-2090 or GLO-1901 or IFT-1004\n\nTime range:\n\n\n\nType\nDay\nTime\nDates\n\n\n\n\nLab\nTuesday\n\n\n\n\nClass\nFriday",
+    "objectID": "informations/mcq.html#information-on-the-first-exam",
+    "href": "informations/mcq.html#information-on-the-first-exam",
+    "title": "MCQ",
+    "section": "",
+    "text": "The first exam is a multiple-choice question with quantification of uncertainty.\nThe use of degrees of certainty enables the student to assess the level of knowledge of the answer given. The scoring system, based on decision theory (Leclercq et al. 1993), may seem odd but it has been designed in such a way that:\n\ntelling the truth is the strategy that earns the most points;\nthose who self-assess well earn more points than if we applied a corrective scale taking into account the probabilities of having the correct answer randomly.\n\nIn general, students self-assess realistically, and benefit from degrees of certainty. Their score is better than if it had been calculated solely on the basis of the number of correct answers.",
     "crumbs": [
       "Informations",
-      "Générales"
-    ]
-  },
-  {
-    "objectID": "informations/general.html#contact-details-and-availability",
-    "href": "informations/general.html#contact-details-and-availability",
-    "title": "General informations",
-    "section": "Contact details and availability",
-    "text": "Contact details and availability\nTeacher: Steven Golovkine\nLocal: VCH-2209\nEmail: steven.golovkine@mat.ulaval.ca\nAvailability: I am available to meet with you by appointment by email or without appointment from Monday to Thursday between 8am and 10am.\n\nThe University recognizes the right to disconnect of professors, lecturers and other teaching staff. This means that they are not required to check messages sent to them (email, voicemail, forum messages, etc.) during evenings, weekends and vacations. The person who has sent a message during these periods should therefore expect to receive a reply within a reasonable time, calculated from the resumption of normal working hours.",
-    "crumbs": [
-      "Informations",
-      "Générales"
+      "Évaluations",
+      "MCQ"
     ]
   },
   {
@@ -55,74 +53,18 @@
     ]
   },
   {
-    "objectID": "contents/03-generalities.html",
-    "href": "contents/03-generalities.html",
-    "title": "Generalities",
+    "objectID": "contents/misc/good-practices-R.html",
+    "href": "contents/misc/good-practices-R.html",
+    "title": "Good practices in R",
     "section": "",
-    "text": "Slides: link\nTD: link\nTP: link",
-    "crumbs": [
-      "Modules",
-      "03 - Généralités"
-    ]
+    "text": "This page is based on a document created by Aurélien Nicosia (ULaval) in 2023 called “Bonnes pratiques de programmation en R.” It has been updated.\nSince R is “just” a programming language, it is technically possible to use a simple text editor to write R code and a terminal to run it. However, it is much more convenient—especially for beginners—to use a code editor such as RStudio to run your code. This allows you to run your code interactively, view your working environment, test your code, and more.\nIn addition, it is best to make sure you are working with the latest version of R and the packages you need. This reduces the risk of encountering bugs and allows you to take advantage of the latest features. One point to note, however, is that I would advise against changing the version of R or the packages once you have started working on something. This change could introduce bugs in the middle of the analysis (so always report the versions of the packages used for reproducibility). You can get a summary of the working environment with the systemInfo() and packageVersion(pkg) functions.\nRegarding documentation, the roxygen package allows you to convert comments in your functions and packages into clean documentation.\nA uniform syntax makes code much easier to read and understand. A style guide sets standards for uniform syntax. The tidyverse style guide (https://style.tidyverse.org) is recommended in R. Before presenting some style conventions, note that you can quickly change the formatting of a piece of R code in RStudio in the “Code -&gt; Reformat Selection” menu.\nLine breaks and indentation\nA simple way to make your code more readable is to insert appropriate line breaks and indentations. For example, suppose we have the following character string:\n\ntext &lt;- \"Ceci est un example\"\n\nWe want to correct two errors in this sentence: the word “example” written in English rather than French and the missing period at the end of the sentence. This can be done with the following instruction:\n\npaste0(gsub(pattern = \"example\", replacement = \"example\", x = text), \".\")\n\nThis instruction contains one function call nested within another. It is much easier to read as follows:\n\npaste0(\n  gsub(\n    pattern = \"example\",\n    replacement = \"exemple\",\n    x = text),\n  \".\")\n\nAssignment operator\nIn R, &lt;- is used to assign a value to a variable, and = is used to pass values to arguments in a function call.\nNaming conventions\nThe tydiverse style guide recommends using lowercase letters, numbers, and the underscore _ to name variables and functions. Underscores are used to separate words in a name. Although other conventions may be found, these should be avoided. In any case, it is important to choose a convention and stick to it. In addition, it is best to avoid accents in variable names.\nCode organization\nWhen the code starts to get long, it becomes advantageous to separate it into several files. For example, you can have one file per part of the analysis (one for data cleaning, one for analysis, one for visualization, etc.). In addition, a data analysis does not usually consist solely of R code, e.g., C++ code files, data files, configuration files, etc. It is therefore recommended to create subfolders grouping files of the same type. RStudio projects are ideal for gathering all project-related files in one place. In addition, they make it easier to work on several projects simultaneously by managing the transition from one working directory to another.\nA few things to do\n\nWrite your code in a script and save it frequently. This prevents you from losing track of important instructions because they were written directly in the console.\nIt is best to start every R work session with an empty work environment. To do this, disable automatic session image restoration in the settings. This allows you to be aware of the presence of different objects in the working environment.\nDo not use the load function when the working environment is not empty. This prevents you from modifying an object in the working environment by overwriting it.\nDo not use the attach function. This prevents you from modifying the file search path.\nSave the graphics options and settings before modifying them.\nDo not use T and F instead of TRUE and FALSE."
   },
   {
-    "objectID": "contents/03-generalities.html#outline",
-    "href": "contents/03-generalities.html#outline",
-    "title": "Generalities",
-    "section": "Outline",
-    "text": "Outline\n\nData analysis project\nSpaces\nDistances\nBias / Variance\nModel evaluation\n\n\n\n\nCorrelation (xkcd:552).",
-    "crumbs": [
-      "Modules",
-      "03 - Généralités"
-    ]
-  },
-  {
-    "objectID": "contents/remainders/01-linear-algebra.html",
-    "href": "contents/remainders/01-linear-algebra.html",
-    "title": "Linear Algebra",
+    "objectID": "contents/misc/pipe.html",
+    "href": "contents/misc/pipe.html",
+    "title": "Pipe operator in R",
     "section": "",
-    "text": "In this section, we present some linear algebra results that are useful in the context of this course. For more information, you can refer to the MAT-1200 course, Deisenroth, Faisal, and Ong (2020) (in English), and Grifone (2024) (in French).",
-    "crumbs": [
-      "Modules",
-      "02 - Révisions",
-      "Linear Algebra"
-    ]
-  },
-  {
-    "objectID": "contents/remainders/01-linear-algebra.html#some-matrix-properties",
-    "href": "contents/remainders/01-linear-algebra.html#some-matrix-properties",
-    "title": "Linear Algebra",
-    "section": "Some matrix properties",
-    "text": "Some matrix properties\nLet \\(M_{n, m}(\\mathbb{R})\\) be the set of matrices with \\(n\\) rows and \\(m\\) columns whose entries belong to \\(\\mathbb{R}\\). Let \\(M_{n}(\\mathbb{R})\\) be the set of square matrices of size \\(n\\), i.e., with \\(n\\) rows and \\(n\\) columns whose entries belong to \\(\\mathbb{R}\\). Let \\(M\\), \\(N\\), and \\(P\\) be matrices in \\(M_{n, m}(\\mathbb{R})\\). Let \\(A\\) and \\(B\\) be matrices in \\(M_{n}(\\mathbb{R})\\). Let \\(I_n\\) be the identity matrix of size \\(n\\), i.e., containing \\(1\\)s on the diagonal and \\(0\\)s on the elements outside the diagonal. Let \\(u\\) and \\(v\\) in \\(\\mathbb{R}^n\\), i.e., column vectors of size \\(n\\).\n\n\n\n\n\n\nProperties of the inverse of matrices\n\n\n\nSuppose that the matrices \\(A\\) and \\(B\\) are invertible. Then the matrix product \\(AB\\) is invertible and is given by:\n\\[(AB)^{-1} = B^{-1} A^{-1}.\\]\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nLet \\(C = AB\\) and \\(D = B^{-1} A^{-1}\\). Then\n\\[\\begin{align*}\n  CD &= A B B^{-1} A^{-1} \\\\\n     &= A A^{-1} \\\\\n     &= I_n\n\\end{align*}\\]\nSimilarly, we find that \\(DC = I_n\\). Thus, \\(AB\\) is invertible and its inverse is given by \\(B^{-1} A^{-1}\\).\n\n\n\n\n\n\n\n\n\nProperties of the determinant of matrices\n\n\n\nConsidering the matrices defined at the beginning of the section, we have:\n\n\\(\\text{det}(A^\\top) = \\text{det}(A)\\),\n\\(\\text{det}(AB) = \\text{det}(A)\\text{det}(B)\\),\n\\(\\text{det}(A^{-1}) = 1 / \\text{det}(A)\\).\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nThe proofs of properties \\(1\\) and \\(2\\) are technical and are omitted, but can be found, for example, here. As for the third property, by definition, we have \\(A A^{-1} = I_n\\). The determinant of \\(I_n\\) is equal to \\(1\\) (product of the elements on the diagonal). Therefore, \\(\\text{det}(A A^{-1}) = 1\\). However, according to the second property, \\(\\text{det}(A A^{-1}) = \\text{det}(A)\\text{det}(A^{-1})\\). We therefore have \\(\\text{det}(A^{-1}) = 1 / \\text{det}(A)\\).\n\n\n\n\n\n\n\n\n\nProperties of the trace of matrices\n\n\n\nConsidering the matrices defined at the beginning of the section, we have:\n\n\\(\\text{tr}(A) = \\text{tr}(A^{\\top})\\),\n\\(\\text{tr}(A + B) = \\text{tr}(A) + \\text{tr}(B)\\),\n\\(\\text{tr}(MN^{\\top}) = \\text{tr}(N^{\\top}M)\\).\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nFor a square matrix \\(A\\), let \\(a_{ij}\\) be the element of matrix \\(A\\) in row \\(i\\) and column \\(j\\). The trace of \\(A\\) is given by the sum of the diagonal elements, i.e. \\(\\text{tr}(A) = \\sum_{i = 1}^{n} a_{ii}\\).\n\nSince transposition does not change the diagonal elements, the result is straightforward.\nLet \\(C = A + B\\). Since \\(A\\) and \\(B\\) are square matrices, \\(C\\) is a square matrix. We have \\(c_{ij} = a_{ij} + b_{ij}\\) for all \\(i, j = 1, \\dots, n\\). Therefore \\[\\text{tr}(A + B) = \\text{tr}(C) = \\sum_{i = 1}^{n} c_{ii} = \\sum_{i = 1}^{n} a_{ii} + b_{ii} = \\sum_{i = 1}^{n} a_{ii} + \\sum_{i = 1}^{n} b_{ii} = \\text{tr}(A) + \\text{tr}(B).\\]\nThe matrices \\(M N^{\\top}\\) and \\(N^{\\top} M\\) are square, with dimensions \\(n \\times n\\) and \\(m \\times m\\) respectively, so we can calculate their traces. Let \\(C = M N^{\\top}\\) and \\(D = N^{\\top} M\\). \\[\\text{tr}(M N^{\\top}) = \\text{tr}(C) = \\sum_{i = 1}^{n} c_{ii} = \\sum_{i = 1}^{n} \\sum_{j = 1}^{m} m_{ij} n_{ji} = \\sum_{j = 1}^{m} \\sum_{i = 1}^{n} n_{ji} m_{ij} = \\sum_{j = 1}^{m} d_{jj} = \\text{tr}(D)  = \\text{tr}(N^{\\top} M).\\]\n\n\n\n\n\n\n\n\n\n\nDefinition\n\n\n\n\nLet \\(A\\) be a symmetric matrix in \\(M_n(\\mathbb{R})\\). \\(A\\) is positive definite if \\(u^\\top A u &gt; 0\\) for all \\(u \\in \\mathbb{R}^n\\) such that \\(u \\neq 0\\).\nLet \\(A \\in M_n(\\mathbb{R})\\). \\(A\\) is orthogonal if \\(A^\\top A = A A^\\top = I_n\\).",
-    "crumbs": [
-      "Modules",
-      "02 - Révisions",
-      "Linear Algebra"
-    ]
-  },
-  {
-    "objectID": "contents/remainders/01-linear-algebra.html#eigenvalues-and-eigenvectors",
-    "href": "contents/remainders/01-linear-algebra.html#eigenvalues-and-eigenvectors",
-    "title": "Linear Algebra",
-    "section": "Eigenvalues and eigenvectors",
-    "text": "Eigenvalues and eigenvectors\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(A \\in M_n(\\mathbb{R})\\). We say that \\(\\lambda \\in \\mathbb{R}\\) is an eigenvalue of \\(A\\) if there exists a nonzero vector \\(u \\in \\mathbb{R}^n\\) such that \\[Au = \\lambda u. \\tag{1}\\] The vector \\(u\\) is called an eigenvector of \\(A\\) corresponding to the eigenvalue \\(\\lambda\\).\nThe set of real numbers \\(\\lambda\\) satisfying Equation 1 is called the spectrum of the matrix \\(A\\) and is denoted by \\(\\text{sp}(A)\\).\n\n\n\n\n\n\n\n\nProperty of eigenvectors\n\n\n\n\nIf \\(u\\) is an eigenvector of \\(A\\) corresponding to an eigenvalue \\(\\lambda\\), then the vector \\(cu\\), \\(c \\in \\mathbb{R}^\\star\\) is also an eigenvector of \\(A\\) corresponding to \\(\\lambda\\).\nIf \\(A\\) is symmetric and \\(u_{1}\\) and \\(u_{2}\\) are eigenvectors corresponding to different eigenvalues of \\(A\\), then \\(u_{1}\\) and \\(u_{2}\\) are orthogonal, i.e. \\(u_{1}^\\top u_{2} = 0\\).\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\n\nLet \\(c \\in \\mathbb{R}^\\star\\) and \\(u\\) be an eigenvector of \\(A\\) associated with the eigenvalue \\(\\lambda\\). We have: \\[A(cu) = cAu = c \\lambda u = \\lambda (cu).\\] Therefore, the vector \\(cu\\) is also an eigenvector of \\(A\\) associated with the eigenvalue \\(\\lambda\\).\nLet \\(\\lambda_{1}\\) and \\(\\lambda_{2}\\) be the eigenvalues associated with \\(u_{1}\\) and \\(u_{2}\\), such that \\(\\lambda_{1} \\neq \\lambda_{2}\\). We have \\(A u_{1} = \\lambda_{1} u_{1}\\) and \\(A u_{2} = \\lambda_{2} u_{2}\\). Then \\[\\lambda_{1} u_{1}^{\\top} u_{2} = u_{1}^\\top A u_{2} = \\lambda_{2} u_{1}^\\top u_{2}.\\] This implies that \\((\\lambda_{1} - \\lambda_{2})u_{1}^\\top u_{2} = 0\\). However, \\(\\lambda_{1} \\neq \\lambda_{2}\\). Therefore, necessarily, \\(u_{1}^\\top u_{2} = 0\\).\n\n\n\n\nThis second property will be useful when we look at dimension reduction and, in particular, principal component analysis.\n\n\n\n\n\n\nCharacterization of matrices with their eigenvalues\n\n\n\n\nIf \\(A\\) is symmetric, then all its eigenvalues are real.\nIf \\(A\\) is positive definite, then all its eigenvalues are strictly positive.\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\n\nConsider the more general case where \\(A\\) is a Hermitian matrix. The matrix \\(A\\) is equal to the transpose of its conjugate, denoted \\(A^*\\). Let \\(\\lambda\\) be an eigenvalue associated with an eigenvector \\(u\\), which may be complex. We have: \\[\\begin{align}\n\\overline{u}^{\\top} A u &= \\overline{u}^\\top \\lambda u = \\lambda \\overline{u}^{\\top} u, \\\\\n\\overline{u}^\\top A u &= \\overline{u}^\\top A^* u = \\overline{Au}^\\top u = \\overline{\\lambda} \\overline{u}^\\top u.\n\\end{align}\\] This implies that \\((\\lambda - \\overline{\\lambda}) \\overline{u}^{\\top} u = 0\\). Since \\(u \\neq 0\\), we have \\(\\lambda = \\overline{\\lambda}\\). Therefore, \\(\\lambda \\in \\mathbb{R}\\).\nConsider \\(u\\), an eigenvector of \\(A\\) associated with the eigenvalue \\(\\lambda\\). We have that \\(u^{\\top} A u = \\lambda u^{\\top} u\\). However, since \\(u \\neq 0\\), \\(u^{\\top}u \\neq 0\\). Therefore, \\[\\lambda = \\frac{u^{\\top} A u}{u^{\\top} u}.\\] Since \\(A\\) is positive definite, \\(u^{\\top} A u &gt; 0\\) for all nonzero vectors \\(u\\). We can therefore deduce that \\(\\lambda &gt; 0\\).",
-    "crumbs": [
-      "Modules",
-      "02 - Révisions",
-      "Linear Algebra"
-    ]
-  },
-  {
-    "objectID": "contents/remainders/01-linear-algebra.html#diagonalization-of-matrices",
-    "href": "contents/remainders/01-linear-algebra.html#diagonalization-of-matrices",
-    "title": "Linear Algebra",
-    "section": "Diagonalization of matrices",
-    "text": "Diagonalization of matrices\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(A \\in M_n(\\mathbb{R})\\). We say that \\(A\\) is diagonalizable if there exists a non-singular matrix \\(P \\in M_n(\\mathbb{R})\\) and a diagonal matrix \\(D \\in M_n(\\mathbb{R})\\) such that \\[P^{-1} A P = D \\Longleftrightarrow A = P D P^{-1}.\\]\n\n\n\n\n\n\n\n\nSpectral decomposition theorem\n\n\n\nLet \\(A\\) be a symmetric matrix in \\(M_n(\\mathbb{R})\\) and \\(\\lambda_{1}, \\dots, \\lambda_n\\) its \\(n\\) eigenvalues. Then there exists an orthogonal matrix \\(P\\) in \\(M_n(\\mathbb{R})\\) such that \\[A = P \\Lambda P^\\top, \\quad\\text{where}\\quad \\Lambda = \\text{diag}(\\lambda_1, \\dots, \\lambda_n).\\]\n\n\nIf \\(A\\) has \\(n\\) distinct positive eigenvalues, then we can take \\(P\\) to be the matrix whose \\(k\\)th column is the normalized eigenvector corresponding to the \\(k\\)th eigenvalue \\(\\lambda_k\\) of \\(A\\).\nGiven two symmetric matrices, \\(A\\) and \\(B\\), how can we determine the vector \\(u\\) such that \\(u^{\\top} A u\\) is maximal, knowing that \\(u^{\\top} B u = 1\\)? We simply take \\(u\\) as the eigenvector of \\(B^{-1}A\\) associated with \\(\\lambda\\), the maximal eigenvalue of \\(B^{-1}A\\). We thus obtain \\[u^{\\top} A u = u^{\\top}\\lambda M u = \\lambda U^{\\top} M u = \\lambda.\\]\n\n\n\n\n\n\nCharacterization of the determinant and trace of matrices with their eigenvalues\n\n\n\nIf \\(A\\) has eigenvalues (real, but not necessarily distinct) \\(\\lambda_{1}, \\dots, \\lambda_{n}\\), then\n\n\\(\\text{det}(A) = \\prod_{i = 1}^{n} \\lambda_i\\)\n\\(\\text{tr}(A) = \\sum_{i = 1}^{n} \\lambda_i.\\)\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nUsing the spectral decomposition theorem, there exists an invertible matrix \\(P\\) such that \\(A = P \\Lambda P^{-1}\\), where \\(\\Lambda\\) is a diagonal matrix containing the eigenvalues. We therefore have, for the determinant,\n\\[\\text{det}(A) = \\text{det}(P \\Lambda P^{-1}) = \\text{det}(P)\\text{det}(\\Lambda)\\text{det}(P^{-1}) = \\text{det}(P)\\text{det}(\\Lambda)\\text{det}(P)^{-1} = \\text{det}(\\lambda) = \\prod_{i = 1}^{n} \\lambda_i, \\]\nand, for the trace,\n\\[\\text{tr}(A) = \\text{tr}(P \\Lambda P^{-1}) = \\text{tr}(P^{-1} P \\Lambda) = \\text{tr}(\\Lambda) = \\sum_{i = 1}^{n} \\lambda_i.\\]",
-    "crumbs": [
-      "Modules",
-      "02 - Révisions",
-      "Linear Algebra"
-    ]
+    "text": "This page is based on a document created by Aurélien Nicosia (ULaval) in 2023 called “Pipe Operator.” It has been updated.\nSince version 4.1.0 of R, released in May 2021, the language has introduced the pipe operator |&gt;, inspired by what the magrittr package was doing. Starting with R 4.3.0, the style guide for the tidyverse recommends using the basic pipe operator, not the one from magrittr.\n\n\n\n\n\n\nKeyboard shortcuts\n\n\n\nIn RStudio, the keyboard shortcut for inserting the pipe operator is:\n\nOn Windows: Ctrl + Shift + M\nOn macOS: ⌘ + ⇧ + M\n\n\n\nThis operator introduces a way to chain instructions and pass arguments to functions in a more readable way than the traditional method.\nTo summarize how this operator works, here is how it transforms a few function calls:\n\nf(x) becomes x |&gt; f();\nf(x, y) becomes x |&gt; f(y);\nh(g(f(x))) becomes x |&gt; f() |&gt; g() |&gt; h().\n\nThis operator allows you to highlight the sequence of actions rather than the object on which the sequence of actions is performed. This makes the code more readable (and having readable code is a good practice). Reading the instruction h(g(f(x))) from left to right, we first see the call to the function h, then the call to the function g, and finally the call to the function f. However, this instruction is evaluated in reverse order. In fact, R will first:\n\nevaluate f(x);\nthen pass the result to the function g and return the result;\nwhich will be passed to the function h and the final result will be returned.\n\nIf we want to write code that correctly reflects the order of evaluation, we could write:\n\nres1 &lt;- f(x)\nres2 &lt;- g(res1)\nh(res2)\n\nHowever, this code has the disadvantage of creating objects that we do not necessarily want to keep. The |&gt; operator does not have this disadvantage! In fact, an instruction written using the |&gt; operator allows us to follow the order of evaluations without creating unnecessary objects in memory.\nFor even greater clarity, it is possible to extend an instruction containing several |&gt; operators over several lines so that there is one function per line:\n\nx |&gt; \n  f() |&gt; \n  g() |&gt; \n  h()\n\nIf the argument we want to pass with the |&gt; operator is not the first one, we must use _ as follows with a named argument: f(y, z = x) becomes x |&gt; f(y, z = _).\nLet’s take an example to illustrate the use of the |&gt; operator. Suppose we have the following character string:\n\ntext &lt;- \"This is an example\"\n\nand we want to correct it—replace “example” with “example” and add a period at the end—with the following instruction:\n\npaste0(gsub(pattern = \"example\", replacement = \"example\", x = text), \".\")\n\n[1] \"This is an example.\"\n\n\nThis instruction is a little difficult to read because of the call to the gsub function nested within a call to the paste0 function. We could rewrite it as follows using the |&gt; operator:\n\ntext |&gt; \n  gsub(pattern = \"example\", replacement = \"example\", x = _) |&gt; \n  paste0(\".\")\n\n[1] \"This is an example.\"\n\n\nLet’s take another numerical example. We want to perform the following calculation: \\[\\frac{(2 + 4) \\times 8}{2}.\\]\nTo do this, we need a few mathematical functions.\n\nadd &lt;- function(x, y) {\n  x + y\n}\n\nmul &lt;- function(x, y) {\n  x * y\n}\n\ndiv &lt;- function(x, y) {\n  x / y\n}\n\nWe can perform the calculation in three different ways:\n\n# By creating different objects \nres1 &lt;- add(2, 4)\nres2 &lt;- mul(res1, 8)\nres3 &lt;- div(res2, 2)\nprint(res3)\n\n[1] 24\n\n# By nesting functions\nres &lt;- div(mul(add(2, 4), 8), 2)\nprint(res)\n\n[1] 24\n\n# With the pipe operator \nres &lt;- 2 |&gt;\n  add(4) |&gt; \n  mul(8) |&gt; \n  div(2)\nprint(res)\n\n[1] 24"
   },
   {
     "objectID": "contents/remainders/02-probabilities.html",
@@ -185,67 +127,81 @@
     ]
   },
   {
-    "objectID": "contents/misc/good-practices.html",
-    "href": "contents/misc/good-practices.html",
-    "title": "Programming good practices",
+    "objectID": "contents/01-introduction.html",
+    "href": "contents/01-introduction.html",
+    "title": "Introduction",
     "section": "",
-    "text": "This page is based on a document created by Aurélien Nicosia (ULaval) in 2023 called “Bonnes pratiques de programmation en R.” It has been updated and written in a more general context.\nRegardless of the programming language, employing good programming practices means adhering to certain standards in order to create “good” code. This raises the question of what constitutes “good” code. For me, “good” code is code that fulfills three objectives:\nWhy is it desirable to adopt good practices? It allows the code to be understood and used by anyone (and in particular, by yourself in the future). In the long term, good practices increase our productivity by avoiding unnecessary repetition."
+    "text": "Data analysis is a set of methods for extracting information from a data set. It’s also known as statistical learning. The idea is to use statistical models to understand how data is structured and how it interacts with each other.\n\n\n\n\n\n\nExample\n\n\n\nLet’s imagine you work for the United Nations (UN). Your mission is to analyze life expectancy around the world. To do this, you’ll have a measure of life expectancy in each UN member country, of course, but also GDP per capita, health expenditure, fertility rate, urbanization rate, education level of the country, and so on. The aim of data analysis is to find links between these different variables and the variable of interest, life expectancy, to visualize these data, and eventually to predict life expectancy from the other variables.",
+    "crumbs": [
+      "Modules",
+      "01 - Introduction"
+    ]
   },
   {
-    "objectID": "contents/misc/good-practices.html#objective-1-produce-the-expected-results",
-    "href": "contents/misc/good-practices.html#objective-1-produce-the-expected-results",
-    "title": "Programming good practices",
-    "section": "Objective 1: Produce the expected results",
-    "text": "Objective 1: Produce the expected results\nThe priority when developing any computer code is undoubtedly to write code that does what it is supposed to do. Therefore, “good” code must produce the right results. To achieve this, the code must first be functional, i.e., it must not contain any bugs. To ensure that the code works correctly, it simply needs to be tested. It is better to test frequently, with each small addition, rather than producing a lot of code before testing it. This way, there is much less debugging to do. One school of thought in computer science even advocates writing tests before writing code (test-driven development). However, a better practice is to formalize the tests so that they can be easily rerun when future changes are made to the code."
-  },
-  {
-    "objectID": "contents/misc/good-practices.html#objective-2-easy-to-maintain-code",
-    "href": "contents/misc/good-practices.html#objective-2-easy-to-maintain-code",
-    "title": "Programming good practices",
-    "section": "Objective 2: Easy-to-maintain code",
-    "text": "Objective 2: Easy-to-maintain code\nMaintaining computer code means ensuring that it continues to function properly in the future, despite any changes made to it. Code that is used frequently is code that will need to be updated, either to add features or to fix bugs that were not detected by testing but discovered by users. Taking over code written by someone else, or written by ourselves a few months ago, is not always an easy task. However, if the code is written correctly, it should not be too difficult to understand and modify.\nCode maintenance is based on three principles: versioning, comprehensibility, and reusability.\nThe principle of versioning is to use software that records the various changes made to the code. The best known is Git. It allows you to navigate between different versions of your code, create multiple versions (called branches), and collaborate with others on the same code. It is truly an essential tool to have in your arsenal. Versioning can then be recorded on Github, which manages the underlying machinery. For example, this site uses Git and Github for versioning, and you can see the different versions here.\nComprehensible code is clear and easy to read (almost like text). It often includes instructions that are self-explanatory. These instructions are typically succinct, as overly long instructions often perform several tasks that are difficult to discern. If reading an instruction does not allow a programmer familiar with the computer language used to understand what it does, it is recommended to insert a comment in the code to explain what the instruction is for. In addition to comments explaining certain instructions, all functions should be documented. The documentation for a function should contain: an explanatory text describing what the function does, a description of the arguments accepted as input, a description of the results produced, and an example of use. When programming, it is also good practice to follow a style guide. A style guide is a set of rules that developers have agreed upon to ensure consistent syntax across different projects. In R, you can use the tidyverse style guide. In Python, you can use the PEP8 style guide written by the creator of Python. And in Julia, you can use the style guide provided with the language manual. You can use a linter, a static code analysis tool, to help you comply with these style guides. Note that these style guides are recommendations and there is no obligation to follow them. Some rules contradict each other, so I would even recommend not following some of them.\nThe most common way to make code easy to reuse is to turn it into functions that can then be shared through a package."
-  },
-  {
-    "objectID": "contents/misc/good-practices.html#objective-3-sufficiently-fast-code",
-    "href": "contents/misc/good-practices.html#objective-3-sufficiently-fast-code",
-    "title": "Programming good practices",
-    "section": "Objective 3: Sufficiently fast code",
-    "text": "Objective 3: Sufficiently fast code\nOnce we have ensured that our code works correctly and is easy to maintain, we can focus on its execution time. Although this is not the most important criterion for defining “good” code, it is still a criterion that should not be overlooked, as code that is too slow may not be used. To produce computationally efficient code, you need to:\n\nput a few simple tricks into practice, i.e., use the optimized syntaxes of the different languages;\ncompare the execution time of different ways of programming a task;\nsometimes perform parallel calculations;\nsometimes program pieces of code in another, lower-level language."
-  },
-  {
-    "objectID": "contents/misc/good-practices.html#in-summary",
-    "href": "contents/misc/good-practices.html#in-summary",
-    "title": "Programming good practices",
-    "section": "In summary",
-    "text": "In summary\nIn summary, to adopt good programming practices, you need to:\n\nTest your code frequently.\nUse version control software.\nDocument your code.\nFollow a style guide.\nFactorize your code by creating functions and packages.\nOptimize execution time."
-  },
-  {
-    "objectID": "contents/misc/good-practices-python.html",
-    "href": "contents/misc/good-practices-python.html",
-    "title": "Good practices in Python",
+    "objectID": "contents/01-introduction.html#what-is-data-analysis",
+    "href": "contents/01-introduction.html#what-is-data-analysis",
+    "title": "Introduction",
     "section": "",
-    "text": "This page is inspired by this document.\nLike R, Python is “just” a programming language, so it is possible to write Python code in a text editor and run it via a terminal. Although this is feasible, it is easier to use a code editor. While it is technically possible to use RStudio as an editor for Python, I would recommend using a specialized editor such as PyCharm. The notebook format is also very popular in Python. In this case, I would recommend the marimo library, which allows you to convert your .py files into notebooks.\nIn addition, it is best to make sure you are working with the latest stable version of Python that is compatible with the packages you are using (e.g., numpy, matplotlib, sklearn). Very often, there is a delay before the latest versions of packages are compatible with the latest version of Python. It is therefore important to share the version of the packages used with the analysis.\nRegarding documentation, the standard in Python is to follow the recommendations of PEP 257. The Sphinx library allows you to generate documentation from docstrings.\nA uniform syntax makes code much easier to read and understand. A style guide sets out standards for uniform syntax. The PEP 8 style guide is recommended in Python.\nLine breaks and indentation\nIndentation is part of Python, i.e. if...else and for blocks are defined using indentation. You can use either tabs or spaces. The choice is yours, but it is important to be consistent in your code.\nNaming convention\nThe use of single-character variable names should be avoided. Otherwise, variables, functions, methods, packages, and modules are named with lowercase letters, numbers, and the underscore _. Classes and exceptions should be named with uppercase letters to separate words (UneClasse). Constants are in uppercase.\nCode organization\nAs with R, when the code starts to get long, it is advantageous to split it into several files. For example, you can have one file per part of the analysis (one for data cleaning, one for analysis, one for visualization, etc.). You can also create several subfolders.\nSome things to do\n\nDo not make comparisons to True, False, or None.\n\n\nif attr:\n    print(\"True!\")\n\nif not attr:\n    print(\"False!\")\n\nif attr is None:\n    print(\"None!\")\n\n\nUse list comprehension when possible.\n\n\na = [3, 4, 5]\nb = [i for i in a if i &gt; 4]\n\n\nLoad a file with with. This ensures that the connection to the file is closed once it has been read.\n\n\nwith open(\"file.txt\") as f:\n    read(f)\n\n\nUse a maximum of 80 characters per line.\nUse parentheses to wrap long strings."
+    "text": "Data analysis is a set of methods for extracting information from a data set. It’s also known as statistical learning. The idea is to use statistical models to understand how data is structured and how it interacts with each other.\n\n\n\n\n\n\nExample\n\n\n\nLet’s imagine you work for the United Nations (UN). Your mission is to analyze life expectancy around the world. To do this, you’ll have a measure of life expectancy in each UN member country, of course, but also GDP per capita, health expenditure, fertility rate, urbanization rate, education level of the country, and so on. The aim of data analysis is to find links between these different variables and the variable of interest, life expectancy, to visualize these data, and eventually to predict life expectancy from the other variables.",
+    "crumbs": [
+      "Modules",
+      "01 - Introduction"
+    ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "STT-2200: Data Analysis",
-    "section": "",
-    "text": "Welcome everyone to the class STT-2200 in Autumn 2025.\nYou will find on this website every necessary information for the modules, the practicals and the exams. The contents will be updated during the session with the answers to some work. I invite you to skim through the differents modules before classes.\nThis website has been created with the help of Aurélien Nicosia and Thierry Duchesne notes.\nThis website a been built using Quarto.\nMost of the contents has been translated using DeepL.\n\n\n\nData trap (xkcd:2582)."
+    "objectID": "contents/01-introduction.html#course-objectives",
+    "href": "contents/01-introduction.html#course-objectives",
+    "title": "Introduction",
+    "section": "Course objectives",
+    "text": "Course objectives\nIn this course, we aim to introduce methods that allow us to study a “high-dimensional” dataset (in the sense that we can’t simply graph all the variables for each observation) without having to resort to a probabilistic model. The various techniques we’ll be looking at can be used to:\n\nvisualize data\nreduce data size;\nidentify certain relationships between variables;\ndivide the dataset into groups/classes.\n\nThis course is not intended to be exhaustive, in the sense of presenting all possible methods. Nor is it intended to be state-of-the-art, in the sense that it will not cover the latest developments in machine learning. Nor is it a programming course.\nTo finish this introduction, here is a quote from Statistical Rethinking by Richard McElreath (McElreath 2020) particularly accurate in this course.\n\nStatistics courses […] tend to resemble horosscopes. There are two senses to this resemblance. First, in order to remain plausibly correct, they must remain tremendously vague. This is because the targets of the advice, for both horoscopes and statistical advice, are diverse. But only the most general advice applies to all cases. A horoscope uses only the basic facts of birth to forecast life events, and a […] statistical guide uses only the basic facts of measurement and design to dictate a model. It is easy to do better, once more detail is available. In the case of statistical analysis, it is tipically only the scientist whho can provide that detail, not the statistician. Second, there are strong incentives for both astrologers and statisticians to exaggerate the power and importance of their advice. No one likes an astrologer who forecasts doom, and few want a statistician who admits the answers as desired are not in the data as collected. Scientists desire results, and they will buy and attend to statisticians and statistical procedures that promise them. What we end up with is too often horoscopic: vague and optimistic, but still claiming critical importance.",
+    "crumbs": [
+      "Modules",
+      "01 - Introduction"
+    ]
   },
   {
-    "objectID": "contents/misc/pipe.html",
-    "href": "contents/misc/pipe.html",
-    "title": "Pipe operator in R",
+    "objectID": "contents/02-revisions.html",
+    "href": "contents/02-revisions.html",
+    "title": "Remainders",
     "section": "",
-    "text": "This page is based on a document created by Aurélien Nicosia (ULaval) in 2023 called “Pipe Operator.” It has been updated.\nSince version 4.1.0 of R, released in May 2021, the language has introduced the pipe operator |&gt;, inspired by what the magrittr package was doing. Starting with R 4.3.0, the style guide for the tidyverse recommends using the basic pipe operator, not the one from magrittr.\n\n\n\n\n\n\nKeyboard shortcuts\n\n\n\nIn RStudio, the keyboard shortcut for inserting the pipe operator is:\n\nOn Windows: Ctrl + Shift + M\nOn macOS: ⌘ + ⇧ + M\n\n\n\nThis operator introduces a way to chain instructions and pass arguments to functions in a more readable way than the traditional method.\nTo summarize how this operator works, here is how it transforms a few function calls:\n\nf(x) becomes x |&gt; f();\nf(x, y) becomes x |&gt; f(y);\nh(g(f(x))) becomes x |&gt; f() |&gt; g() |&gt; h().\n\nThis operator allows you to highlight the sequence of actions rather than the object on which the sequence of actions is performed. This makes the code more readable (and having readable code is a good practice). Reading the instruction h(g(f(x))) from left to right, we first see the call to the function h, then the call to the function g, and finally the call to the function f. However, this instruction is evaluated in reverse order. In fact, R will first:\n\nevaluate f(x);\nthen pass the result to the function g and return the result;\nwhich will be passed to the function h and the final result will be returned.\n\nIf we want to write code that correctly reflects the order of evaluation, we could write:\n\nres1 &lt;- f(x)\nres2 &lt;- g(res1)\nh(res2)\n\nHowever, this code has the disadvantage of creating objects that we do not necessarily want to keep. The |&gt; operator does not have this disadvantage! In fact, an instruction written using the |&gt; operator allows us to follow the order of evaluations without creating unnecessary objects in memory.\nFor even greater clarity, it is possible to extend an instruction containing several |&gt; operators over several lines so that there is one function per line:\n\nx |&gt; \n  f() |&gt; \n  g() |&gt; \n  h()\n\nIf the argument we want to pass with the |&gt; operator is not the first one, we must use _ as follows with a named argument: f(y, z = x) becomes x |&gt; f(y, z = _).\nLet’s take an example to illustrate the use of the |&gt; operator. Suppose we have the following character string:\n\ntext &lt;- \"This is an example\"\n\nand we want to correct it—replace “example” with “example” and add a period at the end—with the following instruction:\n\npaste0(gsub(pattern = \"example\", replacement = \"example\", x = text), \".\")\n\n[1] \"This is an example.\"\n\n\nThis instruction is a little difficult to read because of the call to the gsub function nested within a call to the paste0 function. We could rewrite it as follows using the |&gt; operator:\n\ntext |&gt; \n  gsub(pattern = \"example\", replacement = \"example\", x = _) |&gt; \n  paste0(\".\")\n\n[1] \"This is an example.\"\n\n\nLet’s take another numerical example. We want to perform the following calculation: \\[\\frac{(2 + 4) \\times 8}{2}.\\]\nTo do this, we need a few mathematical functions.\n\nadd &lt;- function(x, y) {\n  x + y\n}\n\nmul &lt;- function(x, y) {\n  x * y\n}\n\ndiv &lt;- function(x, y) {\n  x / y\n}\n\nWe can perform the calculation in three different ways:\n\n# By creating different objects \nres1 &lt;- add(2, 4)\nres2 &lt;- mul(res1, 8)\nres3 &lt;- div(res2, 2)\nprint(res3)\n\n[1] 24\n\n# By nesting functions\nres &lt;- div(mul(add(2, 4), 8), 2)\nprint(res)\n\n[1] 24\n\n# With the pipe operator \nres &lt;- 2 |&gt;\n  add(4) |&gt; \n  mul(8) |&gt; \n  div(2)\nprint(res)\n\n[1] 24"
+    "text": "Linear algebra\nProbabilities and statistics\nAlgorithmic / Programming\n\n\n\n\nPrediction (xkcd:2370).",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions"
+    ]
   },
   {
-    "objectID": "contents/misc/good-practices-R.html",
-    "href": "contents/misc/good-practices-R.html",
-    "title": "Good practices in R",
+    "objectID": "contents/02-revisions.html#outline",
+    "href": "contents/02-revisions.html#outline",
+    "title": "Remainders",
     "section": "",
-    "text": "This page is based on a document created by Aurélien Nicosia (ULaval) in 2023 called “Bonnes pratiques de programmation en R.” It has been updated.\nSince R is “just” a programming language, it is technically possible to use a simple text editor to write R code and a terminal to run it. However, it is much more convenient—especially for beginners—to use a code editor such as RStudio to run your code. This allows you to run your code interactively, view your working environment, test your code, and more.\nIn addition, it is best to make sure you are working with the latest version of R and the packages you need. This reduces the risk of encountering bugs and allows you to take advantage of the latest features. One point to note, however, is that I would advise against changing the version of R or the packages once you have started working on something. This change could introduce bugs in the middle of the analysis (so always report the versions of the packages used for reproducibility). You can get a summary of the working environment with the systemInfo() and packageVersion(pkg) functions.\nRegarding documentation, the roxygen package allows you to convert comments in your functions and packages into clean documentation.\nA uniform syntax makes code much easier to read and understand. A style guide sets standards for uniform syntax. The tidyverse style guide (https://style.tidyverse.org) is recommended in R. Before presenting some style conventions, note that you can quickly change the formatting of a piece of R code in RStudio in the “Code -&gt; Reformat Selection” menu.\nLine breaks and indentation\nA simple way to make your code more readable is to insert appropriate line breaks and indentations. For example, suppose we have the following character string:\n\ntext &lt;- \"Ceci est un example\"\n\nWe want to correct two errors in this sentence: the word “example” written in English rather than French and the missing period at the end of the sentence. This can be done with the following instruction:\n\npaste0(gsub(pattern = \"example\", replacement = \"example\", x = text), \".\")\n\nThis instruction contains one function call nested within another. It is much easier to read as follows:\n\npaste0(\n  gsub(\n    pattern = \"example\",\n    replacement = \"exemple\",\n    x = text),\n  \".\")\n\nAssignment operator\nIn R, &lt;- is used to assign a value to a variable, and = is used to pass values to arguments in a function call.\nNaming conventions\nThe tydiverse style guide recommends using lowercase letters, numbers, and the underscore _ to name variables and functions. Underscores are used to separate words in a name. Although other conventions may be found, these should be avoided. In any case, it is important to choose a convention and stick to it. In addition, it is best to avoid accents in variable names.\nCode organization\nWhen the code starts to get long, it becomes advantageous to separate it into several files. For example, you can have one file per part of the analysis (one for data cleaning, one for analysis, one for visualization, etc.). In addition, a data analysis does not usually consist solely of R code, e.g., C++ code files, data files, configuration files, etc. It is therefore recommended to create subfolders grouping files of the same type. RStudio projects are ideal for gathering all project-related files in one place. In addition, they make it easier to work on several projects simultaneously by managing the transition from one working directory to another.\nA few things to do\n\nWrite your code in a script and save it frequently. This prevents you from losing track of important instructions because they were written directly in the console.\nIt is best to start every R work session with an empty work environment. To do this, disable automatic session image restoration in the settings. This allows you to be aware of the presence of different objects in the working environment.\nDo not use the load function when the working environment is not empty. This prevents you from modifying an object in the working environment by overwriting it.\nDo not use the attach function. This prevents you from modifying the file search path.\nSave the graphics options and settings before modifying them.\nDo not use T and F instead of TRUE and FALSE."
+    "text": "Linear algebra\nProbabilities and statistics\nAlgorithmic / Programming\n\n\n\n\nPrediction (xkcd:2370).",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions"
+    ]
+  },
+  {
+    "objectID": "contents/03-generalities.html",
+    "href": "contents/03-generalities.html",
+    "title": "Generalities",
+    "section": "",
+    "text": "Slides: link\nTD: link\nTP: link",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités"
+    ]
+  },
+  {
+    "objectID": "contents/03-generalities.html#outline",
+    "href": "contents/03-generalities.html#outline",
+    "title": "Generalities",
+    "section": "Outline",
+    "text": "Outline\n\nData analysis project\nSpaces\nDistances\nBias / Variance\nModel evaluation\n\n\n\n\nCorrelation (xkcd:552).",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités"
+    ]
   },
   {
     "objectID": "contents/generalities/01-stat.html",
@@ -332,82 +288,126 @@
     ]
   },
   {
-    "objectID": "contents/01-introduction.html",
-    "href": "contents/01-introduction.html",
-    "title": "Introduction",
+    "objectID": "contents/remainders/01-linear-algebra.html",
+    "href": "contents/remainders/01-linear-algebra.html",
+    "title": "Linear Algebra",
     "section": "",
-    "text": "Data analysis is a set of methods for extracting information from a data set. It’s also known as statistical learning. The idea is to use statistical models to understand how data is structured and how it interacts with each other.\n\n\n\n\n\n\nExample\n\n\n\nLet’s imagine you work for the United Nations (UN). Your mission is to analyze life expectancy around the world. To do this, you’ll have a measure of life expectancy in each UN member country, of course, but also GDP per capita, health expenditure, fertility rate, urbanization rate, education level of the country, and so on. The aim of data analysis is to find links between these different variables and the variable of interest, life expectancy, to visualize these data, and eventually to predict life expectancy from the other variables.",
+    "text": "In this section, we present some linear algebra results that are useful in the context of this course. For more information, you can refer to the MAT-1200 course, Deisenroth, Faisal, and Ong (2020) (in English), and Grifone (2024) (in French).",
     "crumbs": [
       "Modules",
-      "01 - Introduction"
+      "02 - Révisions",
+      "Linear Algebra"
     ]
   },
   {
-    "objectID": "contents/01-introduction.html#what-is-data-analysis",
-    "href": "contents/01-introduction.html#what-is-data-analysis",
-    "title": "Introduction",
-    "section": "",
-    "text": "Data analysis is a set of methods for extracting information from a data set. It’s also known as statistical learning. The idea is to use statistical models to understand how data is structured and how it interacts with each other.\n\n\n\n\n\n\nExample\n\n\n\nLet’s imagine you work for the United Nations (UN). Your mission is to analyze life expectancy around the world. To do this, you’ll have a measure of life expectancy in each UN member country, of course, but also GDP per capita, health expenditure, fertility rate, urbanization rate, education level of the country, and so on. The aim of data analysis is to find links between these different variables and the variable of interest, life expectancy, to visualize these data, and eventually to predict life expectancy from the other variables.",
+    "objectID": "contents/remainders/01-linear-algebra.html#some-matrix-properties",
+    "href": "contents/remainders/01-linear-algebra.html#some-matrix-properties",
+    "title": "Linear Algebra",
+    "section": "Some matrix properties",
+    "text": "Some matrix properties\nLet \\(M_{n, m}(\\mathbb{R})\\) be the set of matrices with \\(n\\) rows and \\(m\\) columns whose entries belong to \\(\\mathbb{R}\\). Let \\(M_{n}(\\mathbb{R})\\) be the set of square matrices of size \\(n\\), i.e., with \\(n\\) rows and \\(n\\) columns whose entries belong to \\(\\mathbb{R}\\). Let \\(M\\), \\(N\\), and \\(P\\) be matrices in \\(M_{n, m}(\\mathbb{R})\\). Let \\(A\\) and \\(B\\) be matrices in \\(M_{n}(\\mathbb{R})\\). Let \\(I_n\\) be the identity matrix of size \\(n\\), i.e., containing \\(1\\)s on the diagonal and \\(0\\)s on the elements outside the diagonal. Let \\(u\\) and \\(v\\) in \\(\\mathbb{R}^n\\), i.e., column vectors of size \\(n\\).\n\n\n\n\n\n\nProperties of the inverse of matrices\n\n\n\nSuppose that the matrices \\(A\\) and \\(B\\) are invertible. Then the matrix product \\(AB\\) is invertible and is given by:\n\\[(AB)^{-1} = B^{-1} A^{-1}.\\]\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nLet \\(C = AB\\) and \\(D = B^{-1} A^{-1}\\). Then\n\\[\\begin{align*}\n  CD &= A B B^{-1} A^{-1} \\\\\n     &= A A^{-1} \\\\\n     &= I_n\n\\end{align*}\\]\nSimilarly, we find that \\(DC = I_n\\). Thus, \\(AB\\) is invertible and its inverse is given by \\(B^{-1} A^{-1}\\).\n\n\n\n\n\n\n\n\n\nProperties of the determinant of matrices\n\n\n\nConsidering the matrices defined at the beginning of the section, we have:\n\n\\(\\text{det}(A^\\top) = \\text{det}(A)\\),\n\\(\\text{det}(AB) = \\text{det}(A)\\text{det}(B)\\),\n\\(\\text{det}(A^{-1}) = 1 / \\text{det}(A)\\).\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nThe proofs of properties \\(1\\) and \\(2\\) are technical and are omitted, but can be found, for example, here. As for the third property, by definition, we have \\(A A^{-1} = I_n\\). The determinant of \\(I_n\\) is equal to \\(1\\) (product of the elements on the diagonal). Therefore, \\(\\text{det}(A A^{-1}) = 1\\). However, according to the second property, \\(\\text{det}(A A^{-1}) = \\text{det}(A)\\text{det}(A^{-1})\\). We therefore have \\(\\text{det}(A^{-1}) = 1 / \\text{det}(A)\\).\n\n\n\n\n\n\n\n\n\nProperties of the trace of matrices\n\n\n\nConsidering the matrices defined at the beginning of the section, we have:\n\n\\(\\text{tr}(A) = \\text{tr}(A^{\\top})\\),\n\\(\\text{tr}(A + B) = \\text{tr}(A) + \\text{tr}(B)\\),\n\\(\\text{tr}(MN^{\\top}) = \\text{tr}(N^{\\top}M)\\).\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nFor a square matrix \\(A\\), let \\(a_{ij}\\) be the element of matrix \\(A\\) in row \\(i\\) and column \\(j\\). The trace of \\(A\\) is given by the sum of the diagonal elements, i.e. \\(\\text{tr}(A) = \\sum_{i = 1}^{n} a_{ii}\\).\n\nSince transposition does not change the diagonal elements, the result is straightforward.\nLet \\(C = A + B\\). Since \\(A\\) and \\(B\\) are square matrices, \\(C\\) is a square matrix. We have \\(c_{ij} = a_{ij} + b_{ij}\\) for all \\(i, j = 1, \\dots, n\\). Therefore \\[\\text{tr}(A + B) = \\text{tr}(C) = \\sum_{i = 1}^{n} c_{ii} = \\sum_{i = 1}^{n} a_{ii} + b_{ii} = \\sum_{i = 1}^{n} a_{ii} + \\sum_{i = 1}^{n} b_{ii} = \\text{tr}(A) + \\text{tr}(B).\\]\nThe matrices \\(M N^{\\top}\\) and \\(N^{\\top} M\\) are square, with dimensions \\(n \\times n\\) and \\(m \\times m\\) respectively, so we can calculate their traces. Let \\(C = M N^{\\top}\\) and \\(D = N^{\\top} M\\). \\[\\text{tr}(M N^{\\top}) = \\text{tr}(C) = \\sum_{i = 1}^{n} c_{ii} = \\sum_{i = 1}^{n} \\sum_{j = 1}^{m} m_{ij} n_{ji} = \\sum_{j = 1}^{m} \\sum_{i = 1}^{n} n_{ji} m_{ij} = \\sum_{j = 1}^{m} d_{jj} = \\text{tr}(D)  = \\text{tr}(N^{\\top} M).\\]\n\n\n\n\n\n\n\n\n\n\nDefinition\n\n\n\n\nLet \\(A\\) be a symmetric matrix in \\(M_n(\\mathbb{R})\\). \\(A\\) is positive definite if \\(u^\\top A u &gt; 0\\) for all \\(u \\in \\mathbb{R}^n\\) such that \\(u \\neq 0\\).\nLet \\(A \\in M_n(\\mathbb{R})\\). \\(A\\) is orthogonal if \\(A^\\top A = A A^\\top = I_n\\).",
     "crumbs": [
       "Modules",
-      "01 - Introduction"
+      "02 - Révisions",
+      "Linear Algebra"
     ]
   },
   {
-    "objectID": "contents/01-introduction.html#course-objectives",
-    "href": "contents/01-introduction.html#course-objectives",
-    "title": "Introduction",
-    "section": "Course objectives",
-    "text": "Course objectives\nIn this course, we aim to introduce methods that allow us to study a “high-dimensional” dataset (in the sense that we can’t simply graph all the variables for each observation) without having to resort to a probabilistic model. The various techniques we’ll be looking at can be used to:\n\nvisualize data\nreduce data size;\nidentify certain relationships between variables;\ndivide the dataset into groups/classes.\n\nThis course is not intended to be exhaustive, in the sense of presenting all possible methods. Nor is it intended to be state-of-the-art, in the sense that it will not cover the latest developments in machine learning. Nor is it a programming course.\nTo finish this introduction, here is a quote from Statistical Rethinking by Richard McElreath (McElreath 2020) particularly accurate in this course.\n\nStatistics courses […] tend to resemble horosscopes. There are two senses to this resemblance. First, in order to remain plausibly correct, they must remain tremendously vague. This is because the targets of the advice, for both horoscopes and statistical advice, are diverse. But only the most general advice applies to all cases. A horoscope uses only the basic facts of birth to forecast life events, and a […] statistical guide uses only the basic facts of measurement and design to dictate a model. It is easy to do better, once more detail is available. In the case of statistical analysis, it is tipically only the scientist whho can provide that detail, not the statistician. Second, there are strong incentives for both astrologers and statisticians to exaggerate the power and importance of their advice. No one likes an astrologer who forecasts doom, and few want a statistician who admits the answers as desired are not in the data as collected. Scientists desire results, and they will buy and attend to statisticians and statistical procedures that promise them. What we end up with is too often horoscopic: vague and optimistic, but still claiming critical importance.",
+    "objectID": "contents/remainders/01-linear-algebra.html#eigenvalues-and-eigenvectors",
+    "href": "contents/remainders/01-linear-algebra.html#eigenvalues-and-eigenvectors",
+    "title": "Linear Algebra",
+    "section": "Eigenvalues and eigenvectors",
+    "text": "Eigenvalues and eigenvectors\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(A \\in M_n(\\mathbb{R})\\). We say that \\(\\lambda \\in \\mathbb{R}\\) is an eigenvalue of \\(A\\) if there exists a nonzero vector \\(u \\in \\mathbb{R}^n\\) such that \\[Au = \\lambda u. \\tag{1}\\] The vector \\(u\\) is called an eigenvector of \\(A\\) corresponding to the eigenvalue \\(\\lambda\\).\nThe set of real numbers \\(\\lambda\\) satisfying Equation 1 is called the spectrum of the matrix \\(A\\) and is denoted by \\(\\text{sp}(A)\\).\n\n\n\n\n\n\n\n\nProperty of eigenvectors\n\n\n\n\nIf \\(u\\) is an eigenvector of \\(A\\) corresponding to an eigenvalue \\(\\lambda\\), then the vector \\(cu\\), \\(c \\in \\mathbb{R}^\\star\\) is also an eigenvector of \\(A\\) corresponding to \\(\\lambda\\).\nIf \\(A\\) is symmetric and \\(u_{1}\\) and \\(u_{2}\\) are eigenvectors corresponding to different eigenvalues of \\(A\\), then \\(u_{1}\\) and \\(u_{2}\\) are orthogonal, i.e. \\(u_{1}^\\top u_{2} = 0\\).\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\n\nLet \\(c \\in \\mathbb{R}^\\star\\) and \\(u\\) be an eigenvector of \\(A\\) associated with the eigenvalue \\(\\lambda\\). We have: \\[A(cu) = cAu = c \\lambda u = \\lambda (cu).\\] Therefore, the vector \\(cu\\) is also an eigenvector of \\(A\\) associated with the eigenvalue \\(\\lambda\\).\nLet \\(\\lambda_{1}\\) and \\(\\lambda_{2}\\) be the eigenvalues associated with \\(u_{1}\\) and \\(u_{2}\\), such that \\(\\lambda_{1} \\neq \\lambda_{2}\\). We have \\(A u_{1} = \\lambda_{1} u_{1}\\) and \\(A u_{2} = \\lambda_{2} u_{2}\\). Then \\[\\lambda_{1} u_{1}^{\\top} u_{2} = u_{1}^\\top A u_{2} = \\lambda_{2} u_{1}^\\top u_{2}.\\] This implies that \\((\\lambda_{1} - \\lambda_{2})u_{1}^\\top u_{2} = 0\\). However, \\(\\lambda_{1} \\neq \\lambda_{2}\\). Therefore, necessarily, \\(u_{1}^\\top u_{2} = 0\\).\n\n\n\n\nThis second property will be useful when we look at dimension reduction and, in particular, principal component analysis.\n\n\n\n\n\n\nCharacterization of matrices with their eigenvalues\n\n\n\n\nIf \\(A\\) is symmetric, then all its eigenvalues are real.\nIf \\(A\\) is positive definite, then all its eigenvalues are strictly positive.\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\n\nConsider the more general case where \\(A\\) is a Hermitian matrix. The matrix \\(A\\) is equal to the transpose of its conjugate, denoted \\(A^*\\). Let \\(\\lambda\\) be an eigenvalue associated with an eigenvector \\(u\\), which may be complex. We have: \\[\\begin{align}\n\\overline{u}^{\\top} A u &= \\overline{u}^\\top \\lambda u = \\lambda \\overline{u}^{\\top} u, \\\\\n\\overline{u}^\\top A u &= \\overline{u}^\\top A^* u = \\overline{Au}^\\top u = \\overline{\\lambda} \\overline{u}^\\top u.\n\\end{align}\\] This implies that \\((\\lambda - \\overline{\\lambda}) \\overline{u}^{\\top} u = 0\\). Since \\(u \\neq 0\\), we have \\(\\lambda = \\overline{\\lambda}\\). Therefore, \\(\\lambda \\in \\mathbb{R}\\).\nConsider \\(u\\), an eigenvector of \\(A\\) associated with the eigenvalue \\(\\lambda\\). We have that \\(u^{\\top} A u = \\lambda u^{\\top} u\\). However, since \\(u \\neq 0\\), \\(u^{\\top}u \\neq 0\\). Therefore, \\[\\lambda = \\frac{u^{\\top} A u}{u^{\\top} u}.\\] Since \\(A\\) is positive definite, \\(u^{\\top} A u &gt; 0\\) for all nonzero vectors \\(u\\). We can therefore deduce that \\(\\lambda &gt; 0\\).",
     "crumbs": [
       "Modules",
-      "01 - Introduction"
+      "02 - Révisions",
+      "Linear Algebra"
     ]
   },
   {
-    "objectID": "contents/02-revisions.html",
-    "href": "contents/02-revisions.html",
-    "title": "Remainders",
-    "section": "",
-    "text": "Linear algebra\nProbabilities and statistics\nAlgorithmic / Programming\n\n\n\n\nPrediction (xkcd:2370).",
+    "objectID": "contents/remainders/01-linear-algebra.html#diagonalization-of-matrices",
+    "href": "contents/remainders/01-linear-algebra.html#diagonalization-of-matrices",
+    "title": "Linear Algebra",
+    "section": "Diagonalization of matrices",
+    "text": "Diagonalization of matrices\n\n\n\n\n\n\nDefinition\n\n\n\nLet \\(A \\in M_n(\\mathbb{R})\\). We say that \\(A\\) is diagonalizable if there exists a non-singular matrix \\(P \\in M_n(\\mathbb{R})\\) and a diagonal matrix \\(D \\in M_n(\\mathbb{R})\\) such that \\[P^{-1} A P = D \\Longleftrightarrow A = P D P^{-1}.\\]\n\n\n\n\n\n\n\n\nSpectral decomposition theorem\n\n\n\nLet \\(A\\) be a symmetric matrix in \\(M_n(\\mathbb{R})\\) and \\(\\lambda_{1}, \\dots, \\lambda_n\\) its \\(n\\) eigenvalues. Then there exists an orthogonal matrix \\(P\\) in \\(M_n(\\mathbb{R})\\) such that \\[A = P \\Lambda P^\\top, \\quad\\text{where}\\quad \\Lambda = \\text{diag}(\\lambda_1, \\dots, \\lambda_n).\\]\n\n\nIf \\(A\\) has \\(n\\) distinct positive eigenvalues, then we can take \\(P\\) to be the matrix whose \\(k\\)th column is the normalized eigenvector corresponding to the \\(k\\)th eigenvalue \\(\\lambda_k\\) of \\(A\\).\nGiven two symmetric matrices, \\(A\\) and \\(B\\), how can we determine the vector \\(u\\) such that \\(u^{\\top} A u\\) is maximal, knowing that \\(u^{\\top} B u = 1\\)? We simply take \\(u\\) as the eigenvector of \\(B^{-1}A\\) associated with \\(\\lambda\\), the maximal eigenvalue of \\(B^{-1}A\\). We thus obtain \\[u^{\\top} A u = u^{\\top}\\lambda M u = \\lambda U^{\\top} M u = \\lambda.\\]\n\n\n\n\n\n\nCharacterization of the determinant and trace of matrices with their eigenvalues\n\n\n\nIf \\(A\\) has eigenvalues (real, but not necessarily distinct) \\(\\lambda_{1}, \\dots, \\lambda_{n}\\), then\n\n\\(\\text{det}(A) = \\prod_{i = 1}^{n} \\lambda_i\\)\n\\(\\text{tr}(A) = \\sum_{i = 1}^{n} \\lambda_i.\\)\n\n\n\n\n\n\n\n\n\nProof\n\n\n\n\n\nUsing the spectral decomposition theorem, there exists an invertible matrix \\(P\\) such that \\(A = P \\Lambda P^{-1}\\), where \\(\\Lambda\\) is a diagonal matrix containing the eigenvalues. We therefore have, for the determinant,\n\\[\\text{det}(A) = \\text{det}(P \\Lambda P^{-1}) = \\text{det}(P)\\text{det}(\\Lambda)\\text{det}(P^{-1}) = \\text{det}(P)\\text{det}(\\Lambda)\\text{det}(P)^{-1} = \\text{det}(\\lambda) = \\prod_{i = 1}^{n} \\lambda_i, \\]\nand, for the trace,\n\\[\\text{tr}(A) = \\text{tr}(P \\Lambda P^{-1}) = \\text{tr}(P^{-1} P \\Lambda) = \\text{tr}(\\Lambda) = \\sum_{i = 1}^{n} \\lambda_i.\\]",
     "crumbs": [
       "Modules",
-      "02 - Révisions"
+      "02 - Révisions",
+      "Linear Algebra"
     ]
   },
   {
-    "objectID": "contents/02-revisions.html#outline",
-    "href": "contents/02-revisions.html#outline",
-    "title": "Remainders",
+    "objectID": "contents/misc/good-practices-python.html",
+    "href": "contents/misc/good-practices-python.html",
+    "title": "Good practices in Python",
     "section": "",
-    "text": "Linear algebra\nProbabilities and statistics\nAlgorithmic / Programming\n\n\n\n\nPrediction (xkcd:2370).",
-    "crumbs": [
-      "Modules",
-      "02 - Révisions"
-    ]
+    "text": "This page is inspired by this document.\nLike R, Python is “just” a programming language, so it is possible to write Python code in a text editor and run it via a terminal. Although this is feasible, it is easier to use a code editor. While it is technically possible to use RStudio as an editor for Python, I would recommend using a specialized editor such as PyCharm. The notebook format is also very popular in Python. In this case, I would recommend the marimo library, which allows you to convert your .py files into notebooks.\nIn addition, it is best to make sure you are working with the latest stable version of Python that is compatible with the packages you are using (e.g., numpy, matplotlib, sklearn). Very often, there is a delay before the latest versions of packages are compatible with the latest version of Python. It is therefore important to share the version of the packages used with the analysis.\nRegarding documentation, the standard in Python is to follow the recommendations of PEP 257. The Sphinx library allows you to generate documentation from docstrings.\nA uniform syntax makes code much easier to read and understand. A style guide sets out standards for uniform syntax. The PEP 8 style guide is recommended in Python.\nLine breaks and indentation\nIndentation is part of Python, i.e. if...else and for blocks are defined using indentation. You can use either tabs or spaces. The choice is yours, but it is important to be consistent in your code.\nNaming convention\nThe use of single-character variable names should be avoided. Otherwise, variables, functions, methods, packages, and modules are named with lowercase letters, numbers, and the underscore _. Classes and exceptions should be named with uppercase letters to separate words (UneClasse). Constants are in uppercase.\nCode organization\nAs with R, when the code starts to get long, it is advantageous to split it into several files. For example, you can have one file per part of the analysis (one for data cleaning, one for analysis, one for visualization, etc.). You can also create several subfolders.\nSome things to do\n\nDo not make comparisons to True, False, or None.\n\n\nif attr:\n    print(\"True!\")\n\nif not attr:\n    print(\"False!\")\n\nif attr is None:\n    print(\"None!\")\n\n\nUse list comprehension when possible.\n\n\na = [3, 4, 5]\nb = [i for i in a if i &gt; 4]\n\n\nLoad a file with with. This ensures that the connection to the file is closed once it has been read.\n\n\nwith open(\"file.txt\") as f:\n    read(f)\n\n\nUse a maximum of 80 characters per line.\nUse parentheses to wrap long strings."
   },
   {
-    "objectID": "informations/mcq.html",
-    "href": "informations/mcq.html",
-    "title": "MCQ",
+    "objectID": "contents/misc/good-practices.html",
+    "href": "contents/misc/good-practices.html",
+    "title": "Programming good practices",
     "section": "",
-    "text": "The first exam is a multiple-choice question with quantification of uncertainty.\nThe use of degrees of certainty enables the student to assess the level of knowledge of the answer given. The scoring system, based on decision theory (Leclercq et al. 1993), may seem odd but it has been designed in such a way that:\n\ntelling the truth is the strategy that earns the most points;\nthose who self-assess well earn more points than if we applied a corrective scale taking into account the probabilities of having the correct answer randomly.\n\nIn general, students self-assess realistically, and benefit from degrees of certainty. Their score is better than if it had been calculated solely on the basis of the number of correct answers.",
+    "text": "This page is based on a document created by Aurélien Nicosia (ULaval) in 2023 called “Bonnes pratiques de programmation en R.” It has been updated and written in a more general context.\nRegardless of the programming language, employing good programming practices means adhering to certain standards in order to create “good” code. This raises the question of what constitutes “good” code. For me, “good” code is code that fulfills three objectives:\nWhy is it desirable to adopt good practices? It allows the code to be understood and used by anyone (and in particular, by yourself in the future). In the long term, good practices increase our productivity by avoiding unnecessary repetition."
+  },
+  {
+    "objectID": "contents/misc/good-practices.html#objective-1-produce-the-expected-results",
+    "href": "contents/misc/good-practices.html#objective-1-produce-the-expected-results",
+    "title": "Programming good practices",
+    "section": "Objective 1: Produce the expected results",
+    "text": "Objective 1: Produce the expected results\nThe priority when developing any computer code is undoubtedly to write code that does what it is supposed to do. Therefore, “good” code must produce the right results. To achieve this, the code must first be functional, i.e., it must not contain any bugs. To ensure that the code works correctly, it simply needs to be tested. It is better to test frequently, with each small addition, rather than producing a lot of code before testing it. This way, there is much less debugging to do. One school of thought in computer science even advocates writing tests before writing code (test-driven development). However, a better practice is to formalize the tests so that they can be easily rerun when future changes are made to the code."
+  },
+  {
+    "objectID": "contents/misc/good-practices.html#objective-2-easy-to-maintain-code",
+    "href": "contents/misc/good-practices.html#objective-2-easy-to-maintain-code",
+    "title": "Programming good practices",
+    "section": "Objective 2: Easy-to-maintain code",
+    "text": "Objective 2: Easy-to-maintain code\nMaintaining computer code means ensuring that it continues to function properly in the future, despite any changes made to it. Code that is used frequently is code that will need to be updated, either to add features or to fix bugs that were not detected by testing but discovered by users. Taking over code written by someone else, or written by ourselves a few months ago, is not always an easy task. However, if the code is written correctly, it should not be too difficult to understand and modify.\nCode maintenance is based on three principles: versioning, comprehensibility, and reusability.\nThe principle of versioning is to use software that records the various changes made to the code. The best known is Git. It allows you to navigate between different versions of your code, create multiple versions (called branches), and collaborate with others on the same code. It is truly an essential tool to have in your arsenal. Versioning can then be recorded on Github, which manages the underlying machinery. For example, this site uses Git and Github for versioning, and you can see the different versions here.\nComprehensible code is clear and easy to read (almost like text). It often includes instructions that are self-explanatory. These instructions are typically succinct, as overly long instructions often perform several tasks that are difficult to discern. If reading an instruction does not allow a programmer familiar with the computer language used to understand what it does, it is recommended to insert a comment in the code to explain what the instruction is for. In addition to comments explaining certain instructions, all functions should be documented. The documentation for a function should contain: an explanatory text describing what the function does, a description of the arguments accepted as input, a description of the results produced, and an example of use. When programming, it is also good practice to follow a style guide. A style guide is a set of rules that developers have agreed upon to ensure consistent syntax across different projects. In R, you can use the tidyverse style guide. In Python, you can use the PEP8 style guide written by the creator of Python. And in Julia, you can use the style guide provided with the language manual. You can use a linter, a static code analysis tool, to help you comply with these style guides. Note that these style guides are recommendations and there is no obligation to follow them. Some rules contradict each other, so I would even recommend not following some of them.\nThe most common way to make code easy to reuse is to turn it into functions that can then be shared through a package."
+  },
+  {
+    "objectID": "contents/misc/good-practices.html#objective-3-sufficiently-fast-code",
+    "href": "contents/misc/good-practices.html#objective-3-sufficiently-fast-code",
+    "title": "Programming good practices",
+    "section": "Objective 3: Sufficiently fast code",
+    "text": "Objective 3: Sufficiently fast code\nOnce we have ensured that our code works correctly and is easy to maintain, we can focus on its execution time. Although this is not the most important criterion for defining “good” code, it is still a criterion that should not be overlooked, as code that is too slow may not be used. To produce computationally efficient code, you need to:\n\nput a few simple tricks into practice, i.e., use the optimized syntaxes of the different languages;\ncompare the execution time of different ways of programming a task;\nsometimes perform parallel calculations;\nsometimes program pieces of code in another, lower-level language."
+  },
+  {
+    "objectID": "contents/misc/good-practices.html#in-summary",
+    "href": "contents/misc/good-practices.html#in-summary",
+    "title": "Programming good practices",
+    "section": "In summary",
+    "text": "In summary\nIn summary, to adopt good programming practices, you need to:\n\nTest your code frequently.\nUse version control software.\nDocument your code.\nFollow a style guide.\nFactorize your code by creating functions and packages.\nOptimize execution time."
+  },
+  {
+    "objectID": "informations/general.html",
+    "href": "informations/general.html",
+    "title": "General informations",
+    "section": "",
+    "text": "Faculté des sciences et de génie\nDépartement de mathématiques et de statistique",
     "crumbs": [
       "Informations",
-      "Évaluations",
-      "MCQ"
+      "Générales"
     ]
   },
   {
-    "objectID": "informations/mcq.html#information-on-the-first-exam",
-    "href": "informations/mcq.html#information-on-the-first-exam",
-    "title": "MCQ",
-    "section": "",
-    "text": "The first exam is a multiple-choice question with quantification of uncertainty.\nThe use of degrees of certainty enables the student to assess the level of knowledge of the answer given. The scoring system, based on decision theory (Leclercq et al. 1993), may seem odd but it has been designed in such a way that:\n\ntelling the truth is the strategy that earns the most points;\nthose who self-assess well earn more points than if we applied a corrective scale taking into account the probabilities of having the correct answer randomly.\n\nIn general, students self-assess realistically, and benefit from degrees of certainty. Their score is better than if it had been calculated solely on the basis of the number of correct answers.",
+    "objectID": "informations/general.html#stt-2200-data-analysis",
+    "href": "informations/general.html#stt-2200-data-analysis",
+    "title": "General informations",
+    "section": "STT-2200: Data Analysis",
+    "text": "STT-2200: Data Analysis\nTeaching format: Face-to-face\nTime spent:\n\nLecture: 2h\nLaboratory: 1h\nPersonal work: 6h\nTotal: 9h\n\nCredits: 3\nPrerequisites:\n\nACT-2000 or STT-1000 or STT-1300 or STT-1900\nMAT-1200 or ACT-2002\nSTT-1100 or IFT-4902 or ECN-2090 or GLO-1901 or IFT-1004\n\nTime range:\n\n\n\nType\nDay\nTime\nDates\n\n\n\n\nLab\nTuesday\n\n\n\n\nClass\nFriday",
     "crumbs": [
       "Informations",
-      "Évaluations",
-      "MCQ"
+      "Générales"
+    ]
+  },
+  {
+    "objectID": "informations/general.html#contact-details-and-availability",
+    "href": "informations/general.html#contact-details-and-availability",
+    "title": "General informations",
+    "section": "Contact details and availability",
+    "text": "Contact details and availability\nTeacher: Steven Golovkine\nLocal: VCH-2209\nEmail: steven.golovkine@mat.ulaval.ca\nAvailability: I am available to meet with you by appointment by email or without appointment from Monday to Thursday between 8am and 10am.\n\nThe University recognizes the right to disconnect of professors, lecturers and other teaching staff. This means that they are not required to check messages sent to them (email, voicemail, forum messages, etc.) during evenings, weekends and vacations. The person who has sent a message during these periods should therefore expect to receive a reply within a reasonable time, calculated from the resumption of normal working hours.",
+    "crumbs": [
+      "Informations",
+      "Générales"
     ]
   },
   {
