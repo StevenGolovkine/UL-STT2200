@@ -1,6 +1,6 @@
 --- 
-title: "Introduction"
-subtitle: "Data"
+title: "STT-2200: Analyse de données"
+subtitle: "Introduction"
 author: "Steven Golovkine"
 lang: fr
 date: today
@@ -17,12 +17,103 @@ format:
       - title-slide.html
 --- 
 
-# Coucou
+## Qui suis-je ?
 
-## Test
+* Diplôme d'ingénieur en statistique + Maitrise en analyse de données massives à l'ENSAI, France
 
-Coucou
+* Doctorat en maths appliqués, statistiques à l'ENSAI, France
 
---- 
+* Postdoc en statistique à University of Limerick, Ireland
 
-$1 + 1 = 2$
+* Actuellement, professeur adjoint à ULaval
+
+* Recherche en analyse de données fonctionnelles
+
+
+## Qui êtes-vous ?
+
+:::: {.columns .v-center-container}
+
+::: {.column width="60%"}
+
+![](./img/wooclap_qr_code.png)
+
+:::
+
+::: {.column width="40%"}
+
+1. Allez sur [wooclap.com](https://www.wooclap.com)
+
+2. Entrez le code **KFFPDJ**
+
+:::
+
+::::
+
+
+
+## Qu'est ce que l'analyse de données ?
+
+
+
+## Ce qu'on ne fait **PAS** dans ce cours
+
+* Visualisation de données
+
+* Algorithmique
+
+
+
+## Ce qu'on fait dans ce cours
+
+* Compréhension des concepts 
+
+* Mathématiques
+
+## Contenu du cours
+
+
+
+## Format du cours
+
+1. Révisions / Rappels
+
+2. Généralité sur l'analyse de données
+
+3. Réduction de la dimension 
+
+4. Classication supervisée
+
+5. Classification non-supervisée
+
+
+## Évaluations
+
+* Partiel le ... $\longrightarrow$ QCM (30\%)
+
+* Examen final le ... (50\%)
+
+* Projet libre en équipe à rendre le ... (20\%)
+
+
+## Logiciels
+
+* Libre à vous de choisir votre logiciel préféré (ou celui que vous maitrisez le mieux)
+
+* Cependant, R ou Python est recommandé
+
+## Communications
+
+* Site du cours MonPortail
+
+* Notes de cours : [stt-2200.netlify.app](https://stt2200.netlify.app)
+
+* Une question : forum ou courriel ?
+
+* Mon bureau : VCH-2209
+
+## Mon rôle comme prof
+
+
+
+# Questions ?

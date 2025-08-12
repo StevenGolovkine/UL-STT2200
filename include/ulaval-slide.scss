@@ -113,3 +113,11 @@ hr, .level2 h2::after, .mline h2::after {
 .reveal .slide-number > a[href*='title-slide'] {
   display: none;
 }
+
+/* Vertically center */
+.v-center-container {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+}

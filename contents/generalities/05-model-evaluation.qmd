@@ -12,6 +12,7 @@ format:
 
 Cette section est basée sur @jamesIntroductionStatisticalLearning2021, chapitre 5.
 
+
 ## Évaluer la performance d'un modèle prédictif
 
 Dans la section précédente, nous avons introduit des outils pour mesurer la qualité d'un estimateur : l'erreur quadratique moyenne (MSE) pour les variables quantitatives et le taux d'erreur (ER) pour les variables qualitatives. Ces mesures comparent les valeurs prédites $\widehat{Y} = \widehat{f}(X)$ aux valeurs observées $Y$.  Cependant, si l'on calcule ces erreurs uniquement à partir des données qui ont servi à entraîner le modèle, on risque de **sous-estimer** la véritable erreur de prédiction. Pourquoi ? Parce que l'estimateur $\widehat{f}$ a été ajusté pour minimiser l'erreur sur ces mêmes données. Il s'y adapte donc bien, et généralement, trop bien ! Cela peut conduire à l'illlusion que notre modèle est performant. En effet, un modèle très flexible peut avoir une erreur faible sur les données d'entraînement simplement parce qu'il capture le bruit plutôt que le signal. Mais si le modèle s'adapte trop aux données d'entraînement, il risque de mal généraliser à de nouvelles données, i.e. des données qu'il n'a jamais vues. Ce phénomène s'appelle le **sur-ajustement** (*overfitting*).
