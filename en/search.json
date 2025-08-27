@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "STT-2200: Data Analysis",
     "section": "",
-    "text": "Welcome everyone to the class STT-2200 in Autumn 2025.\nYou will find on this website every necessary information for the modules, the practicals and the exams. The contents will be updated during the session with the answers to some work. I invite you to skim through the differents modules before classes.\nThis website has been created with the help of Aurélien Nicosia and Thierry Duchesne notes.\nThis website a been built using Quarto.\nMost of the contents has been translated using DeepL.\n\n\n\nData trap (xkcd:2582)."
+    "text": "Welcome everyone to the class STT-2200 in Autumn 2025.\nYou will find on this website every necessary information for the modules, the practicals and the exams. The contents will be updated during the session with the answers to some work. I invite you to skim through the differents modules before classes.\nThis website has been created with the help of Aurélien Nicosia and Thierry Duchesne notes.\nThis website a been built using Quarto.\nMost of the contents has been translated using DeepL. Large languages models (LLM), ChatGPT et Claude, have been used to improve notes reading, check the typos and improve the formatting of the figures. All remaining errors are strictly and directly attributable to me.\n\n\n\nData trap (xkcd:2582)."
   },
   {
     "objectID": "informations/materials.html",
@@ -46,7 +46,7 @@
     "href": "informations/schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "The plan is given for information only.\n\n\n\nWeek\nDate\nHour\nPlan\nEvaluations",
+    "text": "The plan is given for information only.\n\n\n\nWeek\nPlan\nEvaluations\n\n\n\n\n1er september\nCourse presentation and remainders\n\n\n\n8 september\nRemainders\n\n\n\n15 september\nGeneralities\n\n\n\n22 september\nGeneralities\n\n\n\n29 september\nPCA\n\n\n\n6 october\nCA\n\n\n\n13 october\nMCA\n\n\n\n20 october\nDiscriminant analysis\nIntra exam\n\n\n27 october\nLecture week\nRetake exam\n\n\n3 november\nTrees\n\n\n\n10 november\nEnsemble models\n\n\n\n17 november\n\\(k\\)-means\n\n\n\n24 november\nHierarchical models + Mixture models\n\n\n\n1er décember\nRevision + University holidays\nPoster handoff\n\n\n8 décember\n\nPoster presentation + final exam\n\n\n15 décember\n\nRetake exam",
     "crumbs": [
       "Informations",
       "Plan"
@@ -393,7 +393,7 @@
     "href": "informations/general.html#stt-2200-data-analysis",
     "title": "General informations",
     "section": "STT-2200: Data Analysis",
-    "text": "STT-2200: Data Analysis\nTeaching format: Face-to-face\nTime spent:\n\nLecture: 2h\nLaboratory: 1h\nPersonal work: 6h\nTotal: 9h\n\nCredits: 3\nPrerequisites:\n\nACT-2000 or STT-1000 or STT-1300 or STT-1900\nMAT-1200 or ACT-2002\nSTT-1100 or IFT-4902 or ECN-2090 or GLO-1901 or IFT-1004\n\nTime range:\n\n\n\nType\nDay\nTime\nDates\n\n\n\n\nLab\nTuesday\n\n\n\n\nClass\nFriday",
+    "text": "STT-2200: Data Analysis\nTeaching format: Face-to-face\nTime spent:\n\nLecture: 2h\nLaboratory: 1h\nPersonal work: 6h\nTotal: 9h\n\nCredits: 3\nPrerequisites:\n\nACT-2000 or STT-1000 or STT-1300 or STT-1900\nMAT-1200 or ACT-2002\nSTT-1100 or IFT-4902 or ECN-2090 or GLO-1901 or IFT-1004\n\nTime range:\n\n\n\nType\nDay\nTime\nDates\n\n\n\n\nLab\nTuesday\n10h30-12h20\nPLT-3928\n\n\nClass\nFriday\n08h30-10h20\nVCH-3820",
     "crumbs": [
       "Informations",
       "Générales"
@@ -448,7 +448,7 @@
     "href": "informations/description.html#specific-objectives",
     "title": "Description",
     "section": "Specific objectives",
-    "text": "Specific objectives\nBy the end of the course, students should be able to:\n\nunderstand and briefly describe the theoretical foundations of the data analysis methods studied;\ncorrectly identify situations where the use of these methods is indicated;\nuse a programming language effectively to implement these methods;\nanalyze and interpret the results of analysis;\nformulate the conclusions of the analysis in writing, within the limits of the methodology.",
+    "text": "Specific objectives\nBy the end of the course, students should be able to:\n\nunderstand and describe the theoretical foundations of the data analysis methods studied;\ncorrectly identify situations where the use of these methods is indicated;\nuse a programming language effectively to implement these methods;\nanalyze and interpret the results of analysis;\nformulate the conclusions of the analysis in writing, within the limits of the methodology.",
     "crumbs": [
       "Informations",
       "Description"

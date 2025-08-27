@@ -178,7 +178,7 @@
     "href": "informations/description.html#objectifs-spécifiques",
     "title": "Description du cours",
     "section": "Objectifs spécifiques",
-    "text": "Objectifs spécifiques\nÀ la fin du cours, l’étudiant ou l’étudiante devrait être capable :\n\nde comprendre et décrire succinctement les fondements théoriques des méthodes d’analyse de données étudiées;\nd’identifier correctement les situations où l’emploi de ces méthodes est indiqué;\nd’utiliser efficacement un langage de programmation pour mettre en oeuvre ces méthodes;\nd’analyser et d’interpréter judicieusement les résultats découlant de l’analyse;\nde formuler par écrit les conclusions de l’analyse, dans le respect des limites de la méthodologie.",
+    "text": "Objectifs spécifiques\nÀ la fin du cours, l’étudiant ou l’étudiante devrait être capable :\n\nde comprendre et décrire les fondements théoriques des méthodes d’analyse de données étudiées;\nd’identifier correctement les situations où l’emploi de ces méthodes est indiqué;\nd’utiliser efficacement un langage de programmation pour mettre en oeuvre ces méthodes;\nd’analyser et d’interpréter judicieusement les résultats découlant de l’analyse;\nde formuler par écrit les conclusions de l’analyse, dans le respect des limites de la méthodologie.",
     "crumbs": [
       "Informations",
       "Description"
@@ -2254,6 +2254,20 @@
     "text": "Qui êtes-vous ?\n\n\n\n\n\nAllez sur wooclap.com\nEntrez le code KFFPDJ"
   },
   {
+    "objectID": "slides/01-introduction-slides.html#test",
+    "href": "slides/01-introduction-slides.html#test",
+    "title": "STT-2200: Analyse de données",
+    "section": "Test",
+    "text": "Test"
+  },
+  {
+    "objectID": "slides/01-introduction-slides.html#test-1",
+    "href": "slides/01-introduction-slides.html#test-1",
+    "title": "STT-2200: Analyse de données",
+    "section": "Test",
+    "text": "Test"
+  },
+  {
     "objectID": "slides/01-introduction-slides.html#quest-ce-que-lanalyse-de-données",
     "href": "slides/01-introduction-slides.html#quest-ce-que-lanalyse-de-données",
     "title": "STT-2200: Analyse de données",
@@ -3731,7 +3745,7 @@
     "href": "informations/schedule.html",
     "title": "Plan",
     "section": "",
-    "text": "Le plan est donné à titre indicatif.\n\n\n\nSemaine\nDate\nDurée\nPlan\nÉvaluations",
+    "text": "Le plan est donné à titre indicatif.\n\n\n\nSemaine\nPlan\nÉvaluations\n\n\n\n\n1er septembre\nPrésentation du cours et rappels\n\n\n\n8 septembre\nRappels\n\n\n\n15 septembre\nGénéralités\n\n\n\n22 septembre\nGénéralités\n\n\n\n29 septembre\nACP\n\n\n\n6 octobre\nAFC\n\n\n\n13 octobre\nACM\n\n\n\n20 octobre\nAnalyse discriminante\nExamen intra\n\n\n27 octobre\nSemaine de lecture\nExamen de reprise\n\n\n3 novembre\nArbres\n\n\n\n10 novembre\nModèles ensemblistes\n\n\n\n17 novembre\n\\(k\\)-moyennes\n\n\n\n24 novembre\nMéthodes hiérarchiques + Modèles de mélanges\n\n\n\n1er décembre\nRévision + Fête de l’université\nRemise du poster\n\n\n8 décembre\n\nPrésentation du poster + Examen final\n\n\n15 décembre\n\nExamen de reprise",
     "crumbs": [
       "Informations",
       "Plan"
@@ -3777,7 +3791,7 @@
     "href": "index.html",
     "title": "STT-2200: Analyse de données",
     "section": "",
-    "text": "Bienvenue à tous au cours STT-2200 de l’automne 2025.\nVous trouverez sur ce site toute les informations nécessaire pour les cours, les différents travaux et les examens. Les contenus seront mis à jour au cours de la session avec les corrigés de certains travaux. Je vous invite à regarder les différents modules avant les cours.\nCe site a été créé en s’aidant des notes de cours de Aurélien Nicosia et de Thierry Duchesne.\nCe site a été créé avec Quarto.\n\n\n\nData trap (xkcd:2582)."
+    "text": "Bienvenue à tous au cours STT-2200 de l’automne 2025.\nVous trouverez sur ce site toute les informations nécessaire pour les cours, les différents travaux et les examens. Les contenus seront mis à jour au cours de la session avec les corrigés de certains travaux. Je vous invite à regarder les différents modules avant les cours.\nCe site a été créé en s’aidant des notes de cours de Aurélien Nicosia et de Thierry Duchesne.\nCe site a été créé avec Quarto. Des larges modèles de langages (LLM), ChatGPT et Claude, ont été utilisés pour améliorer la fluidité des notes, pour corriger les typos et pour la mise en forme des figures. Toutes erreurs restantes me sont strictement et directement imputable.\n\n\n\nData trap (xkcd:2582)."
   },
   {
     "objectID": "tp/04-dimension-tp.html",
