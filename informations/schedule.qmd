@@ -8,6 +8,22 @@ format:
 
 Le plan est donné à titre indicatif.
 
-| Semaine | Date | Durée | Plan | Évaluations |
-| ------: | ---: | ----: | :--: | ----------: |
+| Semaine | Plan | Évaluations |
+| ------: | :--: | ----------: |
+| 1er septembre | Présentation du cours et rappels | |
+| 8 septembre | Rappels | |
+| 15 septembre | Généralités | |
+| 22 septembre | Généralités | |
+| 29 septembre | ACP | |
+| 6 octobre | AFC | |
+| 13 octobre | ACM | |
+| 20 octobre | Analyse discriminante | Examen intra |
+| 27 octobre | Semaine de lecture | Examen de reprise |
+| 3 novembre | Arbres | |
+| 10 novembre | Modèles ensemblistes | |
+| 17 novembre | $k$-moyennes | |
+| 24 novembre | Méthodes hiérarchiques + Modèles de mélanges | |
+| 1er décembre | Révision + Fête de l'université | Remise du poster |
+| 8 décembre | | Présentation du poster + Examen final |
+| 15 décembre | | Examen de reprise |
 

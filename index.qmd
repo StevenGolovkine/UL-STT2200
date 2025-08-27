@@ -10,7 +10,7 @@ Vous trouverez sur ce site toute les informations nécessaire pour les cours, le
 Ce site a été créé en s'aidant des notes de cours de Aurélien Nicosia et de Thierry Duchesne.
 
 
-Ce site a été créé avec [Quarto](https://quarto.org/docs/websites). 
+Ce site a été créé avec [Quarto](https://quarto.org/docs/websites). Des larges modèles de langages (LLM), [ChatGPT](https://chatgpt.com) et [Claude](https://claude.ai/), ont été utilisés pour améliorer la fluidité des notes, pour corriger les typos et pour la mise en forme des figures. Toutes erreurs restantes me sont strictement et directement imputable.
 
 
 ![Data trap ([xkcd:2582](https://xkcd.com/2582/)).](./include/data_trap.png)

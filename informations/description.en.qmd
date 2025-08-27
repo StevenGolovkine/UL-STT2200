@@ -25,7 +25,7 @@ Students should also have some familiarity with basic algorithmic concepts, as w
 
 By the end of the course, students should be able to:
 
-* understand and briefly describe the theoretical foundations of the data analysis methods studied;
+* understand and describe the theoretical foundations of the data analysis methods studied;
 * correctly identify situations where the use of these methods is indicated;
 * use a programming language effectively to implement these methods;
 * analyze and interpret the results of analysis;

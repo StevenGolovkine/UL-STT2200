@@ -7,6 +7,22 @@ format:
 
 The plan is given for information only.
 
-| Week   | Date   | Hour  | Plan  | Evaluations  |
-| -----: | -----: | ----: | :---: | -----------: |
+| Week | Plan | Evaluations |
+| ------: | :--: | ----------: |
+| 1er september | Course presentation and remainders | |
+| 8 september | Remainders | |
+| 15 september | Generalities | |
+| 22 september | Generalities | |
+| 29 september | PCA | |
+| 6 october | CA | |
+| 13 october | MCA  | |
+| 20 october | Discriminant analysis | Intra exam |
+| 27 october | Lecture week | Retake exam|
+| 3 november | Trees | |
+| 10 november | Ensemble models | |
+| 17 november | $k$-means | |
+| 24 november | Hierarchical models + Mixture models | |
+| 1er décember | Revision + University holidays | Poster handoff |
+| 8 décember | | Poster presentation + final exam |
+| 15 décember | | Retake exam |
 

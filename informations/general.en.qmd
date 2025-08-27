@@ -33,8 +33,8 @@ Time range:
 
 | Type   | Day      | Time    | Dates |
 | ------ | -------- | ------- | ----- |
-| Lab    | Tuesday  |         |       |
-| Class  | Friday   |         |       |
+| Lab    | Tuesday  | 10h30-12h20 | PLT-3928 |
+| Class  | Friday   | 08h30-10h20 | VCH-3820 |
 
 
 ## Contact details and availability

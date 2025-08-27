@@ -25,7 +25,7 @@ Les étudiants devraient aussi avoir une certaine familiarité avec les concepts
 
 À la fin du cours, l'étudiant ou l'étudiante devrait être capable :
 
-* de comprendre et décrire succinctement les fondements théoriques des méthodes d’analyse de données étudiées;
+* de comprendre et décrire les fondements théoriques des méthodes d’analyse de données étudiées;
 * d’identifier correctement les situations où l’emploi de ces méthodes est indiqué;
 * d’utiliser efficacement un langage de programmation pour mettre en oeuvre ces méthodes;
 * d’analyser et d’interpréter judicieusement les résultats découlant de l’analyse;

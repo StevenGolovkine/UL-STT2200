@@ -11,7 +11,7 @@ This website has been created with the help of Aurélien Nicosia and Thierry Duc
 
 This website a been built using [Quarto](https://quarto.org/docs/websites).
 
-Most of the contents has been translated using [DeepL](https://www.deepl.com/en/translator).
+Most of the contents has been translated using [DeepL](https://www.deepl.com/en/translator). Large languages models (LLM), [ChatGPT](https://chatgpt.com) et [Claude](https://claude.ai/), have been used to improve notes reading, check the typos and improve the formatting of the figures. All remaining errors are strictly and directly attributable to me.
 
 ![Data trap ([xkcd:2582](https://xkcd.com/2582/)).](./include/data_trap.png)
 
