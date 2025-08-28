@@ -12,7 +12,11 @@ $body-bg: #FAFAFA;
 $body-color: #333333;
 $link-color: #E30513;
 
+$callout-margin-top: 3rem;
+$callout-margin-bottom: 3rem;
+
 /*-- scss:rules --*/
+
 
 /* Title slide */
 #title-slide {
@@ -120,4 +124,11 @@ hr, .level2 h2::after, .mline h2::after {
   justify-content: center;
   align-items: center;
   height: 90%;
+}
+
+.v-center-container-2 {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
 }
