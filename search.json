@@ -4,154 +4,175 @@
     "href": "slides/02-revisions-algebre-slides.html#plan-de-la-présentation",
     "title": "Révisions",
     "section": "Plan de la présentation",
-    "text": "Plan de la présentation\n\nPropriétés matricielles\nValeurs et vecteurs propres\nDiagonalisation de matrices\nApplications pratiques"
+    "text": "Plan de la présentation\n\n\nPropriétés matricielles\nValeurs et vecteurs propres\nDiagonalisation de matrices\nApplications pratiques"
   },
   {
     "objectID": "slides/02-revisions-algebre-slides.html#notations-de-base",
     "href": "slides/02-revisions-algebre-slides.html#notations-de-base",
     "title": "Révisions",
     "section": "Notations de base",
-    "text": "Notations de base\n\n\\(M_{n, m}(\\mathbb{R})\\) : matrices à \\(n\\) lignes et \\(m\\) colonnes\n\\(M_{n}(\\mathbb{R})\\) : matrices carrées de taille \\(n\\)\n\n\\(I_n\\) : matrice identité de taille \\(n\\)\n\\(u, v \\in \\mathbb{R}^n\\) : vecteurs colonnes"
-  },
-  {
-    "objectID": "slides/02-revisions-algebre-slides.html#inverse-de-matrices",
-    "href": "slides/02-revisions-algebre-slides.html#inverse-de-matrices",
-    "title": "Révisions",
-    "section": "Inverse de matrices",
-    "text": "Inverse de matrices\n\n\n\n\n\n\nImportant\n\n\nPropriété fondamentale\nSi \\(A\\) et \\(B\\) sont inversibles, alors : \\((AB)^{-1} = B^{-1} A^{-1}\\)\n\n\n\n\nExemple pratique : \\(A = \\begin{pmatrix} 2 & 0 \\\\ 0 & 3 \\end{pmatrix}, \\quad B = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}\\)\n\\(AB = \\begin{pmatrix} 2 & 2 \\\\ 0 & 3 \\end{pmatrix}, \\quad (AB)^{-1} = \\begin{pmatrix} 1/2 & -1/3 \\\\ 0 & 1/3 \\end{pmatrix}\\)\nEt effectivement : \\(B^{-1}A^{-1} = \\begin{pmatrix} 1 & -1 \\\\ 0 & 1 \\end{pmatrix} \\begin{pmatrix} 1/2 & 0 \\\\ 0 & 1/3 \\end{pmatrix} = \\begin{pmatrix} 1/2 & -1/3 \\\\ 0 & 1/3 \\end{pmatrix}\\)"
+    "text": "Notations de base\n\n\n\\(M_{n, m}(\\mathbb{R})\\) : matrices à \\(n\\) lignes et \\(m\\) colonnes\n\\(M_{n}(\\mathbb{R})\\) : matrices carrées de taille \\(n\\)\n\\(I_n\\) : matrice identité de taille \\(n\\)\n\\(u, v \\in \\mathbb{R}^n\\) : vecteurs colonnes"
   },
   {
     "objectID": "slides/02-revisions-algebre-slides.html#propriétés-du-déterminant",
     "href": "slides/02-revisions-algebre-slides.html#propriétés-du-déterminant",
     "title": "Révisions",
     "section": "Propriétés du déterminant",
-    "text": "Propriétés du déterminant\n\n\n\n\n\n\nImportant\n\n\nPropriétés essentielles\n\n\\(\\det(A^\\top) = \\det(A)\\)\n\\(\\det(AB) = \\det(A)\\det(B)\\)\n\\(\\det(A^{-1}) = \\frac{1}{\\det(A)}\\)\n\n\n\n\n\nExemple concret : \\(A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}, \\quad B = \\begin{pmatrix} 2 & 0 \\\\ 1 & 1 \\end{pmatrix}\\)\n\\(\\det(A) = 4 - 6 = -2\\), \\(\\det(B) = 2\\)\n\\(AB = \\begin{pmatrix} 4 & 2 \\\\ 10 & 4 \\end{pmatrix}\\), \\(\\det(AB) = 16 - 20 = -4\\)\nVérification : \\(\\det(A) \\cdot \\det(B) = (-2) \\times 2 = -4\\) ✓"
+    "text": "Propriétés du déterminant\n\n\n\n\nPropriétés\n\n\n\n\\(\\det(A^\\top) = \\det(A)\\)\n\\(\\det(AB) = \\det(A)\\det(B)\\)\n\\(\\det(A^{-1}) = \\frac{1}{\\det(A)}\\)"
   },
   {
-    "objectID": "slides/02-revisions-algebre-slides.html#exemple-propriétés-de-la-trace",
-    "href": "slides/02-revisions-algebre-slides.html#exemple-propriétés-de-la-trace",
+    "objectID": "slides/02-revisions-algebre-slides.html#propriétés-du-déterminant-1",
+    "href": "slides/02-revisions-algebre-slides.html#propriétés-du-déterminant-1",
     "title": "Révisions",
-    "section": "Exemple : Propriétés de la trace",
-    "text": "Exemple : Propriétés de la trace\n\nCalcul pratique : \\(A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}, \\quad B = \\begin{pmatrix} 5 & 0 \\\\ 1 & 2 \\end{pmatrix}\\)\n\\(\\tr(A) = 1 + 4 = 5\\), \\(\\tr(B) = 5 + 2 = 7\\)\n\\(A + B = \\begin{pmatrix} 6 & 2 \\\\ 4 & 6 \\end{pmatrix}\\), \\(\\tr(A + B) = 6 + 6 = 12\\)\nVérification : \\(\\tr(A) + \\tr(B) = 5 + 7 = 12\\) ✓"
+    "section": "Propriétés du déterminant",
+    "text": "Propriétés du déterminant\n\nCas particulier où \\(A \\in M_{2}(\\mathbb{R})\\).\nSoit \\(A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}\\). Alors\n\\[\\det(A) = ad - bc.\\]"
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#propriété-du-déterminant-exemple-wooclap-kffpdj",
+    "href": "slides/02-revisions-algebre-slides.html#propriété-du-déterminant-exemple-wooclap-kffpdj",
+    "title": "Révisions",
+    "section": "Propriété du déterminant : exemple (Wooclap: KFFPDJ)",
+    "text": "Propriété du déterminant : exemple (Wooclap: KFFPDJ)\n\n\\[A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}, \\quad B = \\begin{pmatrix} 2 & 0 \\\\ 1 & 1 \\end{pmatrix}\\]\n\nOn trouve que \\(\\det(A) = 4 - 6 = -2\\), \\(\\det(B) = 2 - 0 = 2\\). Donc\n\\[\\det(AB) = \\det(A) \\det(B) = -4\\]"
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#inverse-de-matrices",
+    "href": "slides/02-revisions-algebre-slides.html#inverse-de-matrices",
+    "title": "Révisions",
+    "section": "Inverse de matrices",
+    "text": "Inverse de matrices\n\n\n\n\nPropriété\n\n\nSi \\(A\\) et \\(B\\) sont inversibles, alors : \\((AB)^{-1} = B^{-1} A^{-1}\\)."
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#inverse-de-matrices-1",
+    "href": "slides/02-revisions-algebre-slides.html#inverse-de-matrices-1",
+    "title": "Révisions",
+    "section": "Inverse de matrices",
+    "text": "Inverse de matrices\n\nCas particulier où \\(A \\in M_{2}(\\mathbb{R})\\).\nSoit \\(A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}\\). Alors\n\\[A^{-1} = \\frac{1}{ad - bc}\\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}.\\]"
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#inverse-de-matrices-exemple-wooclap-kffpdj",
+    "href": "slides/02-revisions-algebre-slides.html#inverse-de-matrices-exemple-wooclap-kffpdj",
+    "title": "Révisions",
+    "section": "Inverse de matrices : exemple (Wooclap: KFFPDJ)",
+    "text": "Inverse de matrices : exemple (Wooclap: KFFPDJ)\n\n\\[A = \\begin{pmatrix} 2 & 0 \\\\ 0 & 3 \\end{pmatrix}, \\quad B = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}\\]\n\nOn a : \\(AB = \\begin{pmatrix} 2 & 2 \\\\ 0 & 3 \\end{pmatrix},\\) donc \\((AB)^{-1} = \\begin{pmatrix} 1/2 & -1/3 \\\\ 0 & 1/3 \\end{pmatrix}\\).\nEt effectivement : \\(B^{-1}A^{-1} = \\begin{pmatrix} 1 & -1 \\\\ 0 & 1 \\end{pmatrix} \\begin{pmatrix} 1/2 & 0 \\\\ 0 & 1/3 \\end{pmatrix} = \\begin{pmatrix} 1/2 & -1/3 \\\\ 0 & 1/3 \\end{pmatrix}\\)."
   },
   {
     "objectID": "slides/02-revisions-algebre-slides.html#propriétés-de-la-trace",
     "href": "slides/02-revisions-algebre-slides.html#propriétés-de-la-trace",
     "title": "Révisions",
     "section": "Propriétés de la trace",
-    "text": "Propriétés de la trace\n\n\n\n\n\n\nImportant\n\n\nPropriétés de la trace\n\n\\(\\tr(A) = \\tr(A^{\\top})\\)\n\\(\\tr(A + B) = \\tr(A) + \\tr(B)\\)\n\\(\\tr(MN^{\\top}) = \\tr(N^{\\top}M)\\)\n\n\n\n\n\nRappel : La trace est la somme des éléments diagonaux \\(\\tr(A) = \\sum_{i=1}^{n} a_{ii}\\)"
+    "text": "Propriétés de la trace\n\nLa trace de la matrice \\(A \\in M_{n}(\\mathbb{R})\\) est la somme des éléments diagonaux \\[\\text{tr}(A) = \\sum_{i=1}^{n} a_{ii}.\\]"
   },
   {
-    "objectID": "slides/02-revisions-algebre-slides.html#exemple-matrices-définies-positives",
-    "href": "slides/02-revisions-algebre-slides.html#exemple-matrices-définies-positives",
+    "objectID": "slides/02-revisions-algebre-slides.html#propriétés-de-la-trace-1",
+    "href": "slides/02-revisions-algebre-slides.html#propriétés-de-la-trace-1",
     "title": "Révisions",
-    "section": "Exemple : Matrices définies positives",
-    "text": "Exemple : Matrices définies positives\n\nTest de positivité : \\(A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}\\)\nPour tout \\(u = \\begin{pmatrix} x \\\\ y \\end{pmatrix} \\neq 0\\) : \\(u^\\top A u = \\begin{pmatrix} x & y \\end{pmatrix} \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix} = 2x^2 + 2xy + 2y^2\\) \\(= x^2 + y^2 + (x+y)^2 &gt; 0\\)\nDonc \\(A\\) est définie positive !"
+    "section": "Propriétés de la trace",
+    "text": "Propriétés de la trace\n\n\n\n\nPropriétés\n\n\n\n\\(\\text{tr}(A) = \\text{tr}(A^{\\top})\\)\n\\(\\text{tr}(A + B) = \\text{tr}(A) + \\text{tr}(B)\\)\n\\(\\text{tr}(MN^{\\top}) = \\text{tr}(N^{\\top}M)\\)"
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#propriétés-de-la-trace-exemple-wooclap-kffpdj",
+    "href": "slides/02-revisions-algebre-slides.html#propriétés-de-la-trace-exemple-wooclap-kffpdj",
+    "title": "Révisions",
+    "section": "Propriétés de la trace : exemple (Wooclap: KFFPDJ)",
+    "text": "Propriétés de la trace : exemple (Wooclap: KFFPDJ)\n\nSoit \\(X \\in M_{n, p}(\\mathbb{R})\\) avec \\(p &lt; n\\) et de rang \\(p\\), et donc telle que \\(X^\\top X\\) est de dimension \\(p \\times p\\) et inversible. Quelle est la valeur de la trace de \\(X (X^\\top X)^{-1} X^\\top\\) ?\n\n\\[\\begin{align*}\n\\text{tr}(X (X^\\top X)^{-1} X^\\top) &= \\text{tr}(X^\\top X (X^\\top X)^{-1})\\\\\n&= \\text{tr}(I_p) \\\\\n&= p.\n\\end{align*}\\]"
   },
   {
     "objectID": "slides/02-revisions-algebre-slides.html#matrices-spéciales",
     "href": "slides/02-revisions-algebre-slides.html#matrices-spéciales",
     "title": "Révisions",
     "section": "Matrices spéciales",
-    "text": "Matrices spéciales\n\n\n\n\n\n\nAvertissement\n\n\nDéfinitions importantes\nMatrice définie positive : \\(A\\) est définie positive si \\[u^\\top A u &gt; 0 \\text{ pour tout } u \\neq 0\\]\nMatrice orthogonale : \\(A\\) est orthogonale si \\[A^\\top A = A A^\\top = I_n\\]"
+    "text": "Matrices spéciales\n\n\n\nDéfinitions\n\n\nMatrice définie positive : \\(A\\) est définie positive si \\[\\text{pour tout } u \\neq 0,\\quad u^\\top A u &gt; 0.\\]\nMatrice orthogonale : \\(A\\) est orthogonale si \\[A^\\top A = A A^\\top = I_n.\\]"
   },
   {
-    "objectID": "slides/02-revisions-algebre-slides.html#définition-fondamentale",
-    "href": "slides/02-revisions-algebre-slides.html#définition-fondamentale",
+    "objectID": "slides/02-revisions-algebre-slides.html#comment-montrer-quune-matrice-est-définie-positive",
+    "href": "slides/02-revisions-algebre-slides.html#comment-montrer-quune-matrice-est-définie-positive",
     "title": "Révisions",
-    "section": "Définition fondamentale",
-    "text": "Définition fondamentale\n\n\n\n\n\n\nAvertissement\n\n\nValeurs et vecteurs propres\n\\(\\lambda \\in \\mathbb{R}\\) est une valeur propre de \\(A\\) s’il existe \\(u \\neq 0\\) tel que : \\(Au = \\lambda u\\)\n\\(u\\) est le vecteur propre correspondant à \\(\\lambda\\).\nLe spectre \\(\\text{sp}(A)\\) est l’ensemble des valeurs propres."
+    "section": "Comment montrer qu’une matrice est définie positive ?",
+    "text": "Comment montrer qu’une matrice est définie positive ?\n\nSoit \\(A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}\\) et pour tout \\(u = \\begin{pmatrix} x \\\\ y \\end{pmatrix} \\neq 0\\), on a : \\[\\begin{align*}\nu^\\top A u &= \\begin{pmatrix} x & y \\end{pmatrix} \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix} \\\\\n  &= 2x^2 + 2xy + 2y^2 \\\\\n  &= x^2 + y^2 + (x+y)^2 &gt; 0.\n\\end{align*}\\]\nDonc \\(A\\) est définie positive."
   },
   {
-    "objectID": "slides/02-revisions-algebre-slides.html#exemple-simple-22",
-    "href": "slides/02-revisions-algebre-slides.html#exemple-simple-22",
+    "objectID": "slides/02-revisions-algebre-slides.html#valeurs-et-vecteurs-propres-1",
+    "href": "slides/02-revisions-algebre-slides.html#valeurs-et-vecteurs-propres-1",
     "title": "Révisions",
-    "section": "Exemple simple 2×2",
-    "text": "Exemple simple 2×2\n\n\\(A = \\begin{pmatrix} 3 & 1 \\\\ 0 & 2 \\end{pmatrix}\\)\nCalcul des valeurs propres : \\(\\det(A - \\lambda I) = \\det\\begin{pmatrix} 3-\\lambda & 1 \\\\ 0 & 2-\\lambda \\end{pmatrix} = (3-\\lambda)(2-\\lambda) = 0\\)\nDonc \\(\\lambda_1 = 3\\) et \\(\\lambda_2 = 2\\)\n\n\nVecteurs propres : - Pour \\(\\lambda_1 = 3\\) : \\(u_1 = \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}\\) - Pour \\(\\lambda_2 = 2\\) : \\(u_2 = \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}\\)\nVérification : \\(A u_1 = \\begin{pmatrix} 3 \\\\ 0 \\end{pmatrix} = 3 u_1\\) ✓"
+    "section": "Valeurs et vecteurs propres",
+    "text": "Valeurs et vecteurs propres\n\nFaire un dessin pour Au = lu.\n\n\n\n\nDéfinitions\n\n\nSoit \\(A \\in M_{n}(\\mathbb{R})\\). Le scalaire \\(\\lambda \\in \\mathbb{R}\\) est une valeur propre de \\(A\\) s’il existe \\(u \\neq 0\\) tel que : \\(Au = \\lambda u\\).\n\\(u\\) est le vecteur propre correspondant à \\(\\lambda\\).\nLe spectre de \\(A\\), noté \\(\\text{sp}(A)\\), est l’ensemble des valeurs propres."
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#valeurs-et-vecteurs-propres-exemple",
+    "href": "slides/02-revisions-algebre-slides.html#valeurs-et-vecteurs-propres-exemple",
+    "title": "Révisions",
+    "section": "Valeurs et vecteurs propres : exemple",
+    "text": "Valeurs et vecteurs propres : exemple\n\\[A = \\begin{pmatrix} 3 & 1 \\\\ 0 & 2 \\end{pmatrix}\\]\n\nCalcul des valeurs propres : \\[\\det(A - \\lambda I) = \\det\\begin{pmatrix} 3-\\lambda & 1 \\\\ 0 & 2-\\lambda \\end{pmatrix} = (3-\\lambda)(2-\\lambda)\\]\nDonc \\(\\lambda_1 = 3\\) et \\(\\lambda_2 = 2\\)."
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#valeurs-et-vecteurs-propres-exemple-1",
+    "href": "slides/02-revisions-algebre-slides.html#valeurs-et-vecteurs-propres-exemple-1",
+    "title": "Révisions",
+    "section": "Valeurs et vecteurs propres : exemple",
+    "text": "Valeurs et vecteurs propres : exemple\n\\[A = \\begin{pmatrix} 3 & 1 \\\\ 0 & 2 \\end{pmatrix}\\]\n\nCalcul des vecteurs propres :\n\nPour \\(\\lambda_1 = 3\\) : \\(u_1 = \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}\\).\nPour \\(\\lambda_2 = 2\\) : \\(u_2 = \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}\\)."
   },
   {
     "objectID": "slides/02-revisions-algebre-slides.html#propriétés-des-vecteurs-propres",
     "href": "slides/02-revisions-algebre-slides.html#propriétés-des-vecteurs-propres",
     "title": "Révisions",
     "section": "Propriétés des vecteurs propres",
-    "text": "Propriétés des vecteurs propres\n\n\n\n\n\n\nImportant\n\n\nPropriétés essentielles\n\nSi \\(u\\) est vecteur propre pour \\(\\lambda\\), alors \\(cu\\) l’est aussi (pour \\(c \\neq 0\\))\nPour matrices symétriques : Si \\(u_1\\) et \\(u_2\\) correspondent à des valeurs propres différentes, alors : \\[u_1^\\top u_2 = 0 \\text{ (orthogonalité)}\\]"
+    "text": "Propriétés des vecteurs propres\n\n\n\nPropriétés\n\n\n\nSi \\(u\\) est vecteur propre pour \\(\\lambda\\), alors \\(cu\\) l’est aussi (pour \\(c \\neq 0\\)).\nPour matrices symétriques : Si \\(u_1\\) et \\(u_2\\) sont deux vecteurs propres correspondent à des valeurs propres différentes, alors : \\[u_1^\\top u_2 = 0 \\text{ (orthogonalité)}.\\]"
   },
   {
     "objectID": "slides/02-revisions-algebre-slides.html#preuve-de-lorthogonalité",
     "href": "slides/02-revisions-algebre-slides.html#preuve-de-lorthogonalité",
     "title": "Révisions",
     "section": "Preuve de l’orthogonalité",
-    "text": "Preuve de l’orthogonalité\nSoient \\(\\lambda_1 \\neq \\lambda_2\\) et \\(Au_1 = \\lambda_1 u_1\\), \\(Au_2 = \\lambda_2 u_2\\)\n\n\\[\\lambda_1 u_1^\\top u_2 = u_1^\\top A u_2 = \\lambda_2 u_1^\\top u_2\\]\n\n\n\\[(\\lambda_1 - \\lambda_2)u_1^\\top u_2 = 0\\]\n\n\nComme \\(\\lambda_1 \\neq \\lambda_2\\), on a nécessairement \\(u_1^\\top u_2 = 0\\)\n\n\n→ Cette propriété est cruciale pour l’analyse en composantes principales !"
+    "text": "Preuve de l’orthogonalité\nSoient \\(\\lambda_1 \\neq \\lambda_2\\) et \\(Au_1 = \\lambda_1 u_1\\), \\(Au_2 = \\lambda_2 u_2\\).\n\nOn a \\[\\lambda_1 u_1^\\top u_2 = u_1^\\top A u_2 = \\lambda_2 u_1^\\top u_2.\\]\n\n\nDonc \\[(\\lambda_1 - \\lambda_2)u_1^\\top u_2 = 0\\]\n\n\nComme \\(\\lambda_1 \\neq \\lambda_2\\), on a nécessairement \\(u_1^\\top u_2 = 0\\)\n→ Cette propriété est cruciale pour l’ACP !"
   },
   {
-    "objectID": "slides/02-revisions-algebre-slides.html#caractérisation-par-les-valeurs-propres",
-    "href": "slides/02-revisions-algebre-slides.html#caractérisation-par-les-valeurs-propres",
+    "objectID": "slides/02-revisions-algebre-slides.html#caractérisation-des-valeurs-propres",
+    "href": "slides/02-revisions-algebre-slides.html#caractérisation-des-valeurs-propres",
     "title": "Révisions",
-    "section": "Caractérisation par les valeurs propres",
-    "text": "Caractérisation par les valeurs propres\n\n\n\n\n\n\nImportant\n\n\nThéorèmes importants\n\nMatrice symétrique → toutes les valeurs propres sont réelles\nMatrice définie positive → toutes les valeurs propres sont strictement positives\n\n\n\n\n\nExemple illustratif : \\(A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix} \\text{ (symétrique et définie positive)}\\)\nValeurs propres : \\(\\lambda_1 = 3, \\lambda_2 = 1\\) (toutes réelles et &gt; 0)\nVecteurs propres : \\(u_1 = \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}, u_2 = \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}\\)\nVérification orthogonalité : \\(u_1^\\top u_2 = 1 - 1 = 0\\) ✓"
+    "section": "Caractérisation des valeurs propres",
+    "text": "Caractérisation des valeurs propres\n\n\n\n\nPropriétés\n\n\n\nMatrice symétrique → toutes les valeurs propres sont réelles.\nMatrice définie positive → toutes les valeurs propres sont strictement positives."
   },
   {
-    "objectID": "slides/02-revisions-algebre-slides.html#définition-de-la-diagonalisation",
-    "href": "slides/02-revisions-algebre-slides.html#définition-de-la-diagonalisation",
+    "objectID": "slides/02-revisions-algebre-slides.html#caractérisation-des-valeurs-propres-exemple",
+    "href": "slides/02-revisions-algebre-slides.html#caractérisation-des-valeurs-propres-exemple",
     "title": "Révisions",
-    "section": "Définition de la diagonalisation",
-    "text": "Définition de la diagonalisation\n\n\n\n\n\n\nAvertissement\n\n\nMatrice diagonalisable\n\\(A\\) est diagonalisable s’il existe \\(P\\) inversible et \\(D\\) diagonale telles que : \\[P^{-1} A P = D \\Leftrightarrow A = P D P^{-1}\\]\n\n\n\n\nInterprétation : On peut “simplifier” \\(A\\) en changeant de base"
+    "section": "Caractérisation des valeurs propres : exemple",
+    "text": "Caractérisation des valeurs propres : exemple\n\nSoit \\(A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix} \\text{ (symétrique et définie positive)}\\).\n\nValeurs propres : \\(\\lambda_1 = 3, \\lambda_2 = 1\\) (toutes réelles et &gt; 0).\nVecteurs propres : \\(u_1 = \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}, u_2 = \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}\\).\nVérifions l’orthogonalité : \\(u_1^\\top u_2 = 1 \\times 1 + 1 \\times (-1) = 0\\)."
+  },
+  {
+    "objectID": "slides/02-revisions-algebre-slides.html#diagonalisation-de-matrices",
+    "href": "slides/02-revisions-algebre-slides.html#diagonalisation-de-matrices",
+    "title": "Révisions",
+    "section": "Diagonalisation de matrices",
+    "text": "Diagonalisation de matrices\n\n\n\n\nDéfinition\n\n\nUne matrice \\(A\\) est diagonalisable s’il existe \\(P\\) inversible et \\(D\\) diagonale telles que : \\[A = P D P^{-1} \\Leftrightarrow P^{-1} A P = D.\\]\n\n\n\n\nInterprétation : On peut “simplifier” \\(A\\) en changeant de base."
   },
   {
     "objectID": "slides/02-revisions-algebre-slides.html#théorème-de-décomposition-spectrale",
     "href": "slides/02-revisions-algebre-slides.html#théorème-de-décomposition-spectrale",
     "title": "Révisions",
     "section": "Théorème de décomposition spectrale",
-    "text": "Théorème de décomposition spectrale\n\n\n\n\n\n\nMise en garde\n\n\nDécomposition spectrale\nPour toute matrice symétrique \\(A\\), il existe une matrice orthogonale \\(P\\) telle que : \\(A = P \\Lambda P^\\top\\) où \\(\\Lambda = \\text{diag}(\\lambda_1, \\ldots, \\lambda_n)\\)\n\n\n\n\nExemple concret : \\(A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}, \\quad P = \\frac{1}{\\sqrt{2}}\\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}, \\quad \\Lambda = \\begin{pmatrix} 3 & 0 \\\\ 0 & 1 \\end{pmatrix}\\)\nVérification : \\(P \\Lambda P^\\top = \\frac{1}{2}\\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}\\begin{pmatrix} 3 & 0 \\\\ 0 & 1 \\end{pmatrix}\\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix} = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix} = A\\) ✓"
+    "text": "Théorème de décomposition spectrale\n\n\n\n\nThéorème\n\n\nPour toute matrice symétrique \\(A\\), il existe une matrice orthogonale \\(P\\) telle que : \\(A = P \\Lambda P^\\top\\) où \\(\\Lambda = \\text{diag}(\\lambda_1, \\ldots, \\lambda_n)\\).\n\n\n\nLa matrice \\(P\\) est formée des vecteurs propres de \\(A\\) et \\(\\Lambda\\) est la matrice diagonale des valeurs propres associées."
   },
   {
-    "objectID": "slides/02-revisions-algebre-slides.html#applications-pratiques",
-    "href": "slides/02-revisions-algebre-slides.html#applications-pratiques",
+    "objectID": "slides/02-revisions-algebre-slides.html#exemple",
+    "href": "slides/02-revisions-algebre-slides.html#exemple",
     "title": "Révisions",
-    "section": "Applications pratiques",
-    "text": "Applications pratiques\nProblème d’optimisation : Maximiser \\(u^\\top A u\\) sous la contrainte \\(u^\\top B u = 1\\)\n\nExemple numérique : \\(A = \\begin{pmatrix} 5 & 2 \\\\ 2 & 2 \\end{pmatrix}, \\quad B = \\begin{pmatrix} 2 & 0 \\\\ 0 & 1 \\end{pmatrix}\\)\n\\(B^{-1}A = \\begin{pmatrix} 1/2 & 0 \\\\ 0 & 1 \\end{pmatrix}\\begin{pmatrix} 5 & 2 \\\\ 2 & 2 \\end{pmatrix} = \\begin{pmatrix} 5/2 & 1 \\\\ 2 & 2 \\end{pmatrix}\\)\nPlus grande valeur propre : \\(\\lambda_{\\max} \\approx 3.56\\)\nSolution optimale : $u^* = $ vecteur propre correspondant\n\n\n→ Principe fondamental de l’analyse en composantes principales"
+    "section": "Exemple",
+    "text": "Exemple\nEn reprenant l’example précédent.\nSoit \\(A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}\\). On a \\(P = \\frac{1}{\\sqrt{2}}\\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}\\) et \\(\\Lambda = \\begin{pmatrix} 3 & 0 \\\\ 0 & 1 \\end{pmatrix}.\\)\nOn peut vérifier le théorème de décomposition spectrale :\n\\[P \\Lambda P^\\top = \\frac{1}{2}\\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}\\begin{pmatrix} 3 & 0 \\\\ 0 & 1 \\end{pmatrix}\\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix} = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix} = A.\\]"
   },
   {
-    "objectID": "slides/02-revisions-algebre-slides.html#lien-avec-déterminant-et-trace",
-    "href": "slides/02-revisions-algebre-slides.html#lien-avec-déterminant-et-trace",
+    "objectID": "slides/02-revisions-algebre-slides.html#lien-avec-le-déterminant-et-la-trace",
+    "href": "slides/02-revisions-algebre-slides.html#lien-avec-le-déterminant-et-la-trace",
     "title": "Révisions",
-    "section": "Lien avec déterminant et trace",
-    "text": "Lien avec déterminant et trace\n\n\n\n\n\n\nImportant\n\n\nRelations fondamentales\nSi \\(A\\) a pour valeurs propres \\(\\lambda_1, \\ldots, \\lambda_n\\) :\n\n\\(\\det(A) = \\prod_{i=1}^{n} \\lambda_i\\)\n\\(\\tr(A) = \\sum_{i=1}^{n} \\lambda_i\\)\n\n\n\n\n\nExemple de vérification : \\(A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}, \\quad \\lambda_1 = 3, \\lambda_2 = 1\\)\n\\(\\det(A) = 4 - 1 = 3 = 3 \\times 1 = \\lambda_1 \\lambda_2\\) ✓\n\\(\\tr(A) = 2 + 2 = 4 = 3 + 1 = \\lambda_1 + \\lambda_2\\) ✓"
+    "section": "Lien avec le déterminant et la trace",
+    "text": "Lien avec le déterminant et la trace\n\n\n\n\nPropriétés\n\n\nSi la matrice \\(A\\) a pour valeurs propres \\(\\lambda_1, \\ldots, \\lambda_n\\) :\n\n\\(\\det(A) = \\prod_{i=1}^{n} \\lambda_i\\).\n\\(\\text{tr}(A) = \\sum_{i=1}^{n} \\lambda_i\\)."
   },
   {
-    "objectID": "slides/02-revisions-algebre-slides.html#exemple-complet-acp",
-    "href": "slides/02-revisions-algebre-slides.html#exemple-complet-acp",
+    "objectID": "slides/02-revisions-algebre-slides.html#lien-avec-le-déterminant-et-la-trace-exemple",
+    "href": "slides/02-revisions-algebre-slides.html#lien-avec-le-déterminant-et-la-trace-exemple",
     "title": "Révisions",
-    "section": "Exemple complet : ACP",
-    "text": "Exemple complet : ACP\n\nDonnées : positions de points en 2D \\(X = \\begin{pmatrix} 1 & 2 \\\\ 3 & 1 \\\\ 2 & 3 \\\\ 4 & 2 \\end{pmatrix}\\)\nMatrice de covariance : \\(C = \\frac{1}{n-1}X^\\top X = \\begin{pmatrix} 2.33 & 0.33 \\\\ 0.33 & 1.33 \\end{pmatrix}\\)\nComposantes principales : vecteurs propres de \\(C\\) - 1ère composante : direction de variance maximale - 2ème composante : direction orthogonale de variance restante"
-  },
-  {
-    "objectID": "slides/02-revisions-algebre-slides.html#points-clés-à-retenir",
-    "href": "slides/02-revisions-algebre-slides.html#points-clés-à-retenir",
-    "title": "Révisions",
-    "section": "Points clés à retenir",
-    "text": "Points clés à retenir\n\nMatrices symétriques : valeurs propres réelles, vecteurs propres orthogonaux\nDécomposition spectrale : outil puissant pour l’analyse\nApplications : optimisation, réduction de dimension\nLiens : déterminant et trace via les valeurs propres"
-  },
-  {
-    "objectID": "slides/02-revisions-algebre-slides.html#applications-en-apprentissage-automatique",
-    "href": "slides/02-revisions-algebre-slides.html#applications-en-apprentissage-automatique",
-    "title": "Révisions",
-    "section": "Applications en apprentissage automatique",
-    "text": "Applications en apprentissage automatique\n\nAnalyse en composantes principales (ACP)\nOptimisation de fonctions quadratiques\nMéthodes de réduction de dimension\nAnalyse de stabilité des algorithmes"
-  },
-  {
-    "objectID": "slides/02-revisions-algebre-slides.html#questions",
-    "href": "slides/02-revisions-algebre-slides.html#questions",
-    "title": "Révisions",
-    "section": "Questions ?",
-    "text": "Questions ?\nRessources recommandées : - Cours MAT-1200 - Deisenroth, Faisal, et Ong (2020) (anglais) - Grifone (2024) (français)"
-  },
-  {
-    "objectID": "slides/02-revisions-algebre-slides.html#references",
-    "href": "slides/02-revisions-algebre-slides.html#references",
-    "title": "Révisions",
-    "section": "",
-    "text": "Merci pour votre attention !\n\n\n\n\nDeisenroth, Marc Peter, A. Aldo Faisal, et Cheng Soon Ong. 2020. Mathematics for Machine Learning. 1ʳᵉ éd. Cambridge University Press. https://doi.org/10.1017/9781108679930.\n\n\nGrifone, Joseph. 2024. Algèbre Linéaire. 7e edition. Toulouse: CEPADUES."
+    "section": "Lien avec le déterminant et la trace : exemple",
+    "text": "Lien avec le déterminant et la trace : exemple\n\nSoit \\(A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}\\). On a vu que ses valeurs propres sont \\(\\lambda_1 = 3\\) et \\(\\lambda_2 = 1\\).\nOn peut donc vérifier les formules pour le déterminant et la trace :\n\\[\\det(A) = 4 - 1 = 3 = 3 \\times 1 = \\lambda_1 \\lambda_2,\\]\n\\[\\text{tr}(A) = 2 + 2 = 4 = 3 + 1 = \\lambda_1 + \\lambda_2.\\]"
   },
   {
     "objectID": "slides/04-dimension-pca-slides.html#pourquoi-réduire-la-dimension",
@@ -681,6 +702,13 @@
   {
     "objectID": "slides/01-introduction-slides.html#quest-ce-que-lanalyse-de-données",
     "href": "slides/01-introduction-slides.html#quest-ce-que-lanalyse-de-données",
+    "title": "STT-2200: Analyse de données",
+    "section": "Qu’est ce que l’analyse de données ?",
+    "text": "Qu’est ce que l’analyse de données ?\n\n\n\n\n\nAllez sur wooclap.com\nEntrez le code KFFPDJ"
+  },
+  {
+    "objectID": "slides/01-introduction-slides.html#quest-ce-que-lanalyse-de-données-1",
+    "href": "slides/01-introduction-slides.html#quest-ce-que-lanalyse-de-données-1",
     "title": "STT-2200: Analyse de données",
     "section": "Qu’est ce que l’analyse de données ?",
     "text": "Qu’est ce que l’analyse de données ?\n\nL’analyse de données est un ensemble de méthodes permettant de retirer de l’information d’un jeu de données. On parle aussi d’apprentissage statistique (statistical learning).\n\n\n\n\nExemple\n\n\nVous travaillez pour l’ONU. Votre mission est d’avoir de l’information sur l’espérance de vie à travers le monde. Pour cela, vous disposez de diverse données sur les différents pays du monde."

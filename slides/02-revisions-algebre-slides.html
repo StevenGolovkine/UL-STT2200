@@ -8,8 +8,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.33">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.34">
 
   <meta name="author" content="Steven Golovkine">
   <title>STT-2200: Analyse de données – Révisions</title>
@@ -30,27 +30,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for citations */
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-      margin-bottom: 0em;
-    }
-    .hanging-indent div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }  </style>
+  </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-f2e22a824a4b084df838f71b230e69aa.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -165,7 +145,7 @@ Steven Golovkine
 </div>
 </div>
 
-  <p class="date">28 août 2025</p>
+  <p class="date">29 août 2025</p>
   <figure>
     <center>
       <img src="../include/logo-ul.png" alt="logo" width="40%">
@@ -174,12 +154,13 @@ Steven Golovkine
 </section>
 <section id="plan-de-la-présentation" class="slide level2">
 <h2>Plan de la présentation</h2>
-<ul>
-<li>Propriétés matricielles</li>
-<li>Valeurs et vecteurs propres</li>
-<li>Diagonalisation de matrices</li>
-<li>Applications pratiques</li>
-</ul>
+<p><br></p>
+<ol type="1">
+<li><p>Propriétés matricielles</p></li>
+<li><p>Valeurs et vecteurs propres</p></li>
+<li><p>Diagonalisation de matrices</p></li>
+<li><p>Applications pratiques</p></li>
+</ol>
 </section>
 <section>
 <section id="propriétés-matricielles" class="title-slide slide level1 center">
@@ -188,218 +169,244 @@ Steven Golovkine
 </section>
 <section id="notations-de-base" class="slide level2">
 <h2>Notations de base</h2>
+<p><br></p>
 <ul>
-<li class="fragment"><span class="math inline">\(M_{n, m}(\mathbb{R})\)</span> : matrices à <span class="math inline">\(n\)</span> lignes et <span class="math inline">\(m\)</span> colonnes</li>
-<li class="fragment"><span class="math inline">\(M_{n}(\mathbb{R})\)</span> : matrices carrées de taille <span class="math inline">\(n\)</span><br>
-</li>
-<li class="fragment"><span class="math inline">\(I_n\)</span> : matrice identité de taille <span class="math inline">\(n\)</span></li>
-<li class="fragment"><span class="math inline">\(u, v \in \mathbb{R}^n\)</span> : vecteurs colonnes</li>
+<li><p><span class="math inline">\(M_{n, m}(\mathbb{R})\)</span> : matrices à <span class="math inline">\(n\)</span> lignes et <span class="math inline">\(m\)</span> colonnes</p></li>
+<li><p><span class="math inline">\(M_{n}(\mathbb{R})\)</span> : matrices carrées de taille <span class="math inline">\(n\)</span></p></li>
+<li><p><span class="math inline">\(I_n\)</span> : matrice identité de taille <span class="math inline">\(n\)</span></p></li>
+<li><p><span class="math inline">\(u, v \in \mathbb{R}^n\)</span> : vecteurs colonnes</p></li>
 </ul>
-</section>
-<section id="inverse-de-matrices" class="slide level2 smaller">
-<h2>Inverse de matrices</h2>
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Important</strong></p>
-</div>
-<div class="callout-content">
-<p><strong>Propriété fondamentale</strong></p>
-<p>Si <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> sont inversibles, alors : <span class="math inline">\((AB)^{-1} = B^{-1} A^{-1}\)</span></p>
-</div>
-</div>
-</div>
-<div class="fragment">
-<p><strong>Exemple pratique :</strong> <span class="math inline">\(A = \begin{pmatrix} 2 &amp; 0 \\ 0 &amp; 3 \end{pmatrix}, \quad B = \begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix}\)</span></p>
-<p><span class="math inline">\(AB = \begin{pmatrix} 2 &amp; 2 \\ 0 &amp; 3 \end{pmatrix}, \quad (AB)^{-1} = \begin{pmatrix} 1/2 &amp; -1/3 \\ 0 &amp; 1/3 \end{pmatrix}\)</span></p>
-<p>Et effectivement : <span class="math inline">\(B^{-1}A^{-1} = \begin{pmatrix} 1 &amp; -1 \\ 0 &amp; 1 \end{pmatrix} \begin{pmatrix} 1/2 &amp; 0 \\ 0 &amp; 1/3 \end{pmatrix} = \begin{pmatrix} 1/2 &amp; -1/3 \\ 0 &amp; 1/3 \end{pmatrix}\)</span></p>
-</div>
 </section>
 <section id="propriétés-du-déterminant" class="slide level2">
 <h2>Propriétés du déterminant</h2>
-<div class="callout callout-important callout-titled callout-style-default">
+<p><br></p>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Important</strong></p>
+<p><strong>Propriétés</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Propriétés essentielles</strong></p>
-<ol type="1">
-<li><span class="math inline">\(\det(A^\top) = \det(A)\)</span></li>
-<li><span class="math inline">\(\det(AB) = \det(A)\det(B)\)</span></li>
-<li><span class="math inline">\(\det(A^{-1}) = \frac{1}{\det(A)}\)</span></li>
-</ol>
+<ul>
+<li><p><span class="math inline">\(\det(A^\top) = \det(A)\)</span></p></li>
+<li><p><span class="math inline">\(\det(AB) = \det(A)\det(B)\)</span></p></li>
+<li><p><span class="math inline">\(\det(A^{-1}) = \frac{1}{\det(A)}\)</span></p></li>
+</ul>
 </div>
 </div>
-</div>
-<div class="fragment">
-<p><strong>Exemple concret :</strong> <span class="math inline">\(A = \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix}, \quad B = \begin{pmatrix} 2 &amp; 0 \\ 1 &amp; 1 \end{pmatrix}\)</span></p>
-<p><span class="math inline">\(\det(A) = 4 - 6 = -2\)</span>, <span class="math inline">\(\det(B) = 2\)</span></p>
-<p><span class="math inline">\(AB = \begin{pmatrix} 4 &amp; 2 \\ 10 &amp; 4 \end{pmatrix}\)</span>, <span class="math inline">\(\det(AB) = 16 - 20 = -4\)</span></p>
-<p>Vérification : <span class="math inline">\(\det(A) \cdot \det(B) = (-2) \times 2 = -4\)</span> ✓</p>
 </div>
 </section>
-<section id="exemple-propriétés-de-la-trace" class="slide level2">
-<h2>Exemple : Propriétés de la trace</h2>
+<section id="propriétés-du-déterminant-1" class="slide level2">
+<h2>Propriétés du déterminant</h2>
+<p><br></p>
+<p>Cas particulier où <span class="math inline">\(A \in M_{2}(\mathbb{R})\)</span>.</p>
+<p>Soit <span class="math inline">\(A = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}\)</span>. Alors</p>
+<p><span class="math display">\[\det(A) = ad - bc.\]</span></p>
+</section>
+<section id="propriété-du-déterminant-exemple-wooclap-kffpdj" class="slide level2">
+<h2>Propriété du déterminant : exemple (Wooclap: KFFPDJ)</h2>
+<p><br></p>
+<p><span class="math display">\[A = \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix}, \quad B = \begin{pmatrix} 2 &amp; 0 \\ 1 &amp; 1 \end{pmatrix}\]</span></p>
 <div class="fragment">
-<p><strong>Calcul pratique :</strong> <span class="math inline">\(A = \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix}, \quad B = \begin{pmatrix} 5 &amp; 0 \\ 1 &amp; 2 \end{pmatrix}\)</span></p>
-<p><span class="math inline">\(\tr(A) = 1 + 4 = 5\)</span>, <span class="math inline">\(\tr(B) = 5 + 2 = 7\)</span></p>
-<p><span class="math inline">\(A + B = \begin{pmatrix} 6 &amp; 2 \\ 4 &amp; 6 \end{pmatrix}\)</span>, <span class="math inline">\(\tr(A + B) = 6 + 6 = 12\)</span></p>
-<p>Vérification : <span class="math inline">\(\tr(A) + \tr(B) = 5 + 7 = 12\)</span> ✓</p>
+<p>On trouve que <span class="math inline">\(\det(A) = 4 - 6 = -2\)</span>, <span class="math inline">\(\det(B) = 2 - 0 = 2\)</span>. Donc</p>
+<p><span class="math display">\[\det(AB) = \det(A) \det(B) = -4\]</span></p>
+</div>
+</section>
+<section id="inverse-de-matrices" class="slide level2">
+<h2>Inverse de matrices</h2>
+<p><br></p>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Propriété</strong></p>
+</div>
+<div class="callout-content">
+<p>Si <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> sont inversibles, alors : <span class="math inline">\((AB)^{-1} = B^{-1} A^{-1}\)</span>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="inverse-de-matrices-1" class="slide level2">
+<h2>Inverse de matrices</h2>
+<p><br></p>
+<p>Cas particulier où <span class="math inline">\(A \in M_{2}(\mathbb{R})\)</span>.</p>
+<p>Soit <span class="math inline">\(A = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}\)</span>. Alors</p>
+<p><span class="math display">\[A^{-1} = \frac{1}{ad - bc}\begin{pmatrix} d &amp; -b \\ -c &amp; a \end{pmatrix}.\]</span></p>
+</section>
+<section id="inverse-de-matrices-exemple-wooclap-kffpdj" class="slide level2">
+<h2>Inverse de matrices : exemple (Wooclap: KFFPDJ)</h2>
+<p><br></p>
+<p><span class="math display">\[A = \begin{pmatrix} 2 &amp; 0 \\ 0 &amp; 3 \end{pmatrix}, \quad B = \begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix}\]</span></p>
+<div class="fragment">
+<p>On a : <span class="math inline">\(AB = \begin{pmatrix} 2 &amp; 2 \\ 0 &amp; 3 \end{pmatrix},\)</span> donc <span class="math inline">\((AB)^{-1} = \begin{pmatrix} 1/2 &amp; -1/3 \\ 0 &amp; 1/3 \end{pmatrix}\)</span>.</p>
+<p>Et effectivement : <span class="math inline">\(B^{-1}A^{-1} = \begin{pmatrix} 1 &amp; -1 \\ 0 &amp; 1 \end{pmatrix} \begin{pmatrix} 1/2 &amp; 0 \\ 0 &amp; 1/3 \end{pmatrix} = \begin{pmatrix} 1/2 &amp; -1/3 \\ 0 &amp; 1/3 \end{pmatrix}\)</span>.</p>
 </div>
 </section>
 <section id="propriétés-de-la-trace" class="slide level2">
 <h2>Propriétés de la trace</h2>
-<div class="callout callout-important callout-titled callout-style-default">
+<p><br></p>
+<p>La trace de la matrice <span class="math inline">\(A \in M_{n}(\mathbb{R})\)</span> est la somme des éléments diagonaux <span class="math display">\[\text{tr}(A) = \sum_{i=1}^{n} a_{ii}.\]</span></p>
+</section>
+<section id="propriétés-de-la-trace-1" class="slide level2">
+<h2>Propriétés de la trace</h2>
+<p><br></p>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Important</strong></p>
+<p><strong>Propriétés</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Propriétés de la trace</strong></p>
-<ol type="1">
-<li><span class="math inline">\(\tr(A) = \tr(A^{\top})\)</span></li>
-<li><span class="math inline">\(\tr(A + B) = \tr(A) + \tr(B)\)</span></li>
-<li><span class="math inline">\(\tr(MN^{\top}) = \tr(N^{\top}M)\)</span></li>
-</ol>
+<ul>
+<li><p><span class="math inline">\(\text{tr}(A) = \text{tr}(A^{\top})\)</span></p></li>
+<li><p><span class="math inline">\(\text{tr}(A + B) = \text{tr}(A) + \text{tr}(B)\)</span></p></li>
+<li><p><span class="math inline">\(\text{tr}(MN^{\top}) = \text{tr}(N^{\top}M)\)</span></p></li>
+</ul>
 </div>
 </div>
-</div>
-<div class="fragment">
-<p><strong>Rappel :</strong> La trace est la somme des éléments diagonaux <span class="math inline">\(\tr(A) = \sum_{i=1}^{n} a_{ii}\)</span></p>
 </div>
 </section>
-<section id="exemple-matrices-définies-positives" class="slide level2">
-<h2>Exemple : Matrices définies positives</h2>
+<section id="propriétés-de-la-trace-exemple-wooclap-kffpdj" class="slide level2">
+<h2>Propriétés de la trace : exemple (Wooclap: KFFPDJ)</h2>
+<p><br></p>
+<p>Soit <span class="math inline">\(X \in M_{n, p}(\mathbb{R})\)</span> avec <span class="math inline">\(p &lt; n\)</span> et de rang <span class="math inline">\(p\)</span>, et donc telle que <span class="math inline">\(X^\top X\)</span> est de dimension <span class="math inline">\(p \times p\)</span> et inversible. Quelle est la valeur de la trace de <span class="math inline">\(X (X^\top X)^{-1} X^\top\)</span> ?</p>
 <div class="fragment">
-<p><strong>Test de positivité :</strong> <span class="math inline">\(A = \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 2 \end{pmatrix}\)</span></p>
-<p>Pour tout <span class="math inline">\(u = \begin{pmatrix} x \\ y \end{pmatrix} \neq 0\)</span> : <span class="math inline">\(u^\top A u = \begin{pmatrix} x &amp; y \end{pmatrix} \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 2 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = 2x^2 + 2xy + 2y^2\)</span> <span class="math inline">\(= x^2 + y^2 + (x+y)^2 &gt; 0\)</span></p>
-<p>Donc <span class="math inline">\(A\)</span> est définie positive !</p>
+<p><span class="math display">\[\begin{align*}
+\text{tr}(X (X^\top X)^{-1} X^\top) &amp;= \text{tr}(X^\top X (X^\top X)^{-1})\\
+&amp;= \text{tr}(I_p) \\
+&amp;= p.
+\end{align*}\]</span></p>
 </div>
 </section>
 <section id="matrices-spéciales" class="slide level2">
 <h2>Matrices spéciales</h2>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-important no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Avertissement</strong></p>
+<p><strong>Définitions</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Définitions importantes</strong></p>
-<p><strong>Matrice définie positive :</strong> <span class="math inline">\(A\)</span> est définie positive si <span class="math display">\[u^\top A u &gt; 0 \text{ pour tout } u \neq 0\]</span></p>
-<p><strong>Matrice orthogonale :</strong> <span class="math inline">\(A\)</span> est orthogonale si <span class="math display">\[A^\top A = A A^\top = I_n\]</span></p>
+<p><strong>Matrice définie positive :</strong> <span class="math inline">\(A\)</span> est définie positive si <span class="math display">\[\text{pour tout } u \neq 0,\quad u^\top A u &gt; 0.\]</span></p>
+<p><strong>Matrice orthogonale :</strong> <span class="math inline">\(A\)</span> est orthogonale si <span class="math display">\[A^\top A = A A^\top = I_n.\]</span></p>
 </div>
 </div>
 </div>
+</section>
+<section id="comment-montrer-quune-matrice-est-définie-positive" class="slide level2">
+<h2>Comment montrer qu’une matrice est définie positive ?</h2>
+<p><br></p>
+<p>Soit <span class="math inline">\(A = \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 2 \end{pmatrix}\)</span> et pour tout <span class="math inline">\(u = \begin{pmatrix} x \\ y \end{pmatrix} \neq 0\)</span>, on a : <span class="math display">\[\begin{align*}
+u^\top A u &amp;= \begin{pmatrix} x &amp; y \end{pmatrix} \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 2 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} \\
+  &amp;= 2x^2 + 2xy + 2y^2 \\
+  &amp;= x^2 + y^2 + (x+y)^2 &gt; 0.
+\end{align*}\]</span></p>
+<p>Donc <span class="math inline">\(A\)</span> est définie positive.</p>
 </section></section>
 <section>
 <section id="valeurs-et-vecteurs-propres" class="title-slide slide level1 center">
 <h1>Valeurs et vecteurs propres</h1>
 
 </section>
-<section id="définition-fondamentale" class="slide level2">
-<h2>Définition fondamentale</h2>
-<div class="callout callout-warning callout-titled callout-style-default">
+<section id="valeurs-et-vecteurs-propres-1" class="slide level2">
+<h2>Valeurs et vecteurs propres</h2>
+<aside class="notes">
+<p>Faire un dessin pour Au = lu.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="callout callout-important no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Avertissement</strong></p>
+<p><strong>Définitions</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Valeurs et vecteurs propres</strong></p>
-<p><span class="math inline">\(\lambda \in \mathbb{R}\)</span> est une <strong>valeur propre</strong> de <span class="math inline">\(A\)</span> s’il existe <span class="math inline">\(u \neq 0\)</span> tel que : <span class="math inline">\(Au = \lambda u\)</span></p>
+<p>Soit <span class="math inline">\(A \in M_{n}(\mathbb{R})\)</span>. Le scalaire <span class="math inline">\(\lambda \in \mathbb{R}\)</span> est une <strong>valeur propre</strong> de <span class="math inline">\(A\)</span> s’il existe <span class="math inline">\(u \neq 0\)</span> tel que : <span class="math inline">\(Au = \lambda u\)</span>.</p>
 <p><span class="math inline">\(u\)</span> est le <strong>vecteur propre</strong> correspondant à <span class="math inline">\(\lambda\)</span>.</p>
-<p>Le <strong>spectre</strong> <span class="math inline">\(\text{sp}(A)\)</span> est l’ensemble des valeurs propres.</p>
+<p>Le <strong>spectre</strong> de <span class="math inline">\(A\)</span>, noté <span class="math inline">\(\text{sp}(A)\)</span>, est l’ensemble des valeurs propres.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="exemple-simple-22" class="slide level2">
-<h2>Exemple simple 2×2</h2>
+<section id="valeurs-et-vecteurs-propres-exemple" class="slide level2">
+<h2>Valeurs et vecteurs propres : exemple</h2>
+<p><span class="math display">\[A = \begin{pmatrix} 3 &amp; 1 \\ 0 &amp; 2 \end{pmatrix}\]</span></p>
 <div class="fragment">
-<p><span class="math inline">\(A = \begin{pmatrix} 3 &amp; 1 \\ 0 &amp; 2 \end{pmatrix}\)</span></p>
-<p><strong>Calcul des valeurs propres :</strong> <span class="math inline">\(\det(A - \lambda I) = \det\begin{pmatrix} 3-\lambda &amp; 1 \\ 0 &amp; 2-\lambda \end{pmatrix} = (3-\lambda)(2-\lambda) = 0\)</span></p>
-<p>Donc <span class="math inline">\(\lambda_1 = 3\)</span> et <span class="math inline">\(\lambda_2 = 2\)</span></p>
+<p><strong>Calcul des valeurs propres :</strong> <span class="math display">\[\det(A - \lambda I) = \det\begin{pmatrix} 3-\lambda &amp; 1 \\ 0 &amp; 2-\lambda \end{pmatrix} = (3-\lambda)(2-\lambda)\]</span></p>
+<p>Donc <span class="math inline">\(\lambda_1 = 3\)</span> et <span class="math inline">\(\lambda_2 = 2\)</span>.</p>
 </div>
+</section>
+<section id="valeurs-et-vecteurs-propres-exemple-1" class="slide level2">
+<h2>Valeurs et vecteurs propres : exemple</h2>
+<p><span class="math display">\[A = \begin{pmatrix} 3 &amp; 1 \\ 0 &amp; 2 \end{pmatrix}\]</span></p>
 <div class="fragment">
-<p><strong>Vecteurs propres :</strong> - Pour <span class="math inline">\(\lambda_1 = 3\)</span> : <span class="math inline">\(u_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}\)</span> - Pour <span class="math inline">\(\lambda_2 = 2\)</span> : <span class="math inline">\(u_2 = \begin{pmatrix} 1 \\ -1 \end{pmatrix}\)</span></p>
-<p><strong>Vérification :</strong> <span class="math inline">\(A u_1 = \begin{pmatrix} 3 \\ 0 \end{pmatrix} = 3 u_1\)</span> ✓</p>
+<p><strong>Calcul des vecteurs propres :</strong></p>
+<ul>
+<li><p>Pour <span class="math inline">\(\lambda_1 = 3\)</span> : <span class="math inline">\(u_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(\lambda_2 = 2\)</span> : <span class="math inline">\(u_2 = \begin{pmatrix} 1 \\ -1 \end{pmatrix}\)</span>.</p></li>
+</ul>
 </div>
 </section>
 <section id="propriétés-des-vecteurs-propres" class="slide level2">
 <h2>Propriétés des vecteurs propres</h2>
-<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Important</strong></p>
+<p><strong>Propriétés</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Propriétés essentielles</strong></p>
-<ol type="1">
-<li><p>Si <span class="math inline">\(u\)</span> est vecteur propre pour <span class="math inline">\(\lambda\)</span>, alors <span class="math inline">\(cu\)</span> l’est aussi (pour <span class="math inline">\(c \neq 0\)</span>)</p></li>
-<li><p><strong>Pour matrices symétriques :</strong> Si <span class="math inline">\(u_1\)</span> et <span class="math inline">\(u_2\)</span> correspondent à des valeurs propres différentes, alors : <span class="math display">\[u_1^\top u_2 = 0 \text{ (orthogonalité)}\]</span></p></li>
-</ol>
+<ul>
+<li><p>Si <span class="math inline">\(u\)</span> est vecteur propre pour <span class="math inline">\(\lambda\)</span>, alors <span class="math inline">\(cu\)</span> l’est aussi (pour <span class="math inline">\(c \neq 0\)</span>).</p></li>
+<li><p><strong>Pour matrices symétriques :</strong> Si <span class="math inline">\(u_1\)</span> et <span class="math inline">\(u_2\)</span> sont deux vecteurs propres correspondent à des valeurs propres différentes, alors : <span class="math display">\[u_1^\top u_2 = 0 \text{ (orthogonalité)}.\]</span></p></li>
+</ul>
 </div>
 </div>
 </div>
 </section>
-<section id="preuve-de-lorthogonalité" class="slide level2 smaller">
+<section id="preuve-de-lorthogonalité" class="slide level2">
 <h2>Preuve de l’orthogonalité</h2>
-<p>Soient <span class="math inline">\(\lambda_1 \neq \lambda_2\)</span> et <span class="math inline">\(Au_1 = \lambda_1 u_1\)</span>, <span class="math inline">\(Au_2 = \lambda_2 u_2\)</span></p>
+<p>Soient <span class="math inline">\(\lambda_1 \neq \lambda_2\)</span> et <span class="math inline">\(Au_1 = \lambda_1 u_1\)</span>, <span class="math inline">\(Au_2 = \lambda_2 u_2\)</span>.</p>
 <div class="fragment">
-<p><span class="math display">\[\lambda_1 u_1^\top u_2 = u_1^\top A u_2 = \lambda_2 u_1^\top u_2\]</span></p>
+<p>On a <span class="math display">\[\lambda_1 u_1^\top u_2 = u_1^\top A u_2 = \lambda_2 u_1^\top u_2.\]</span></p>
 </div>
 <div class="fragment">
-<p><span class="math display">\[(\lambda_1 - \lambda_2)u_1^\top u_2 = 0\]</span></p>
+<p>Donc <span class="math display">\[(\lambda_1 - \lambda_2)u_1^\top u_2 = 0\]</span></p>
 </div>
 <div class="fragment">
 <p>Comme <span class="math inline">\(\lambda_1 \neq \lambda_2\)</span>, on a nécessairement <span class="math inline">\(u_1^\top u_2 = 0\)</span></p>
-</div>
-<div class="fragment">
-<p><strong>→ Cette propriété est cruciale pour l’analyse en composantes principales !</strong></p>
+<p><strong>→ Cette propriété est cruciale pour l’ACP !</strong></p>
 </div>
 </section>
-<section id="caractérisation-par-les-valeurs-propres" class="slide level2">
-<h2>Caractérisation par les valeurs propres</h2>
-<div class="callout callout-important callout-titled callout-style-default">
+<section id="caractérisation-des-valeurs-propres" class="slide level2">
+<h2>Caractérisation des valeurs propres</h2>
+<p><br></p>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Important</strong></p>
+<p><strong>Propriétés</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Théorèmes importants</strong></p>
-<ol type="1">
-<li><p><strong>Matrice symétrique</strong> → toutes les valeurs propres sont <strong>réelles</strong></p></li>
-<li><p><strong>Matrice définie positive</strong> → toutes les valeurs propres sont <strong>strictement positives</strong></p></li>
-</ol>
+<ul>
+<li><p><strong>Matrice symétrique</strong> → toutes les valeurs propres sont <strong>réelles</strong>.</p></li>
+<li><p><strong>Matrice définie positive</strong> → toutes les valeurs propres sont <strong>strictement positives</strong>.</p></li>
+</ul>
 </div>
 </div>
 </div>
+</section>
+<section id="caractérisation-des-valeurs-propres-exemple" class="slide level2">
+<h2>Caractérisation des valeurs propres : exemple</h2>
+<p><br></p>
+<p>Soit <span class="math inline">\(A = \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 2 \end{pmatrix} \text{ (symétrique et définie positive)}\)</span>.</p>
 <div class="fragment">
-<p><strong>Exemple illustratif :</strong> <span class="math inline">\(A = \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 2 \end{pmatrix} \text{ (symétrique et définie positive)}\)</span></p>
-<p>Valeurs propres : <span class="math inline">\(\lambda_1 = 3, \lambda_2 = 1\)</span> (toutes réelles et &gt; 0)</p>
-<p>Vecteurs propres : <span class="math inline">\(u_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}, u_2 = \begin{pmatrix} 1 \\ -1 \end{pmatrix}\)</span></p>
-<p><strong>Vérification orthogonalité :</strong> <span class="math inline">\(u_1^\top u_2 = 1 - 1 = 0\)</span> ✓</p>
+<p>Valeurs propres : <span class="math inline">\(\lambda_1 = 3, \lambda_2 = 1\)</span> (toutes réelles et &gt; 0).</p>
+<p>Vecteurs propres : <span class="math inline">\(u_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}, u_2 = \begin{pmatrix} 1 \\ -1 \end{pmatrix}\)</span>.</p>
+<p>Vérifions l’orthogonalité : <span class="math inline">\(u_1^\top u_2 = 1 \times 1 + 1 \times (-1) = 0\)</span>.</p>
 </div>
 </section></section>
 <section>
@@ -407,134 +414,72 @@ Steven Golovkine
 <h1>Diagonalisation</h1>
 
 </section>
-<section id="définition-de-la-diagonalisation" class="slide level2">
-<h2>Définition de la diagonalisation</h2>
-<div class="callout callout-warning callout-titled callout-style-default">
+<section id="diagonalisation-de-matrices" class="slide level2">
+<h2>Diagonalisation de matrices</h2>
+<p><br></p>
+<div class="callout callout-important no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Avertissement</strong></p>
+<p><strong>Définition</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Matrice diagonalisable</strong></p>
-<p><span class="math inline">\(A\)</span> est diagonalisable s’il existe <span class="math inline">\(P\)</span> inversible et <span class="math inline">\(D\)</span> diagonale telles que : <span class="math display">\[P^{-1} A P = D \Leftrightarrow A = P D P^{-1}\]</span></p>
+<p>Une matrice <span class="math inline">\(A\)</span> est <strong>diagonalisable</strong> s’il existe <span class="math inline">\(P\)</span> inversible et <span class="math inline">\(D\)</span> diagonale telles que : <span class="math display">\[A = P D P^{-1} \Leftrightarrow P^{-1} A P = D.\]</span></p>
 </div>
 </div>
 </div>
 <div class="fragment">
-<p><strong>Interprétation :</strong> On peut “simplifier” <span class="math inline">\(A\)</span> en changeant de base</p>
+<p><strong>Interprétation :</strong> On peut “simplifier” <span class="math inline">\(A\)</span> en changeant de base.</p>
 </div>
 </section>
 <section id="théorème-de-décomposition-spectrale" class="slide level2">
 <h2>Théorème de décomposition spectrale</h2>
-<div class="callout callout-caution callout-titled callout-style-default">
+<p><br></p>
+<div class="callout callout-important no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Mise en garde</strong></p>
+<p><strong>Théorème</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Décomposition spectrale</strong></p>
-<p>Pour toute matrice <strong>symétrique</strong> <span class="math inline">\(A\)</span>, il existe une matrice <strong>orthogonale</strong> <span class="math inline">\(P\)</span> telle que : <span class="math inline">\(A = P \Lambda P^\top\)</span> où <span class="math inline">\(\Lambda = \text{diag}(\lambda_1, \ldots, \lambda_n)\)</span></p>
+<p>Pour toute matrice <strong>symétrique</strong> <span class="math inline">\(A\)</span>, il existe une matrice <strong>orthogonale</strong> <span class="math inline">\(P\)</span> telle que : <span class="math inline">\(A = P \Lambda P^\top\)</span> où <span class="math inline">\(\Lambda = \text{diag}(\lambda_1, \ldots, \lambda_n)\)</span>.</p>
 </div>
 </div>
 </div>
-<div class="fragment">
-<p><strong>Exemple concret :</strong> <span class="math inline">\(A = \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 2 \end{pmatrix}, \quad P = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 &amp; 1 \\ 1 &amp; -1 \end{pmatrix}, \quad \Lambda = \begin{pmatrix} 3 &amp; 0 \\ 0 &amp; 1 \end{pmatrix}\)</span></p>
-<p><strong>Vérification :</strong> <span class="math inline">\(P \Lambda P^\top = \frac{1}{2}\begin{pmatrix} 1 &amp; 1 \\ 1 &amp; -1 \end{pmatrix}\begin{pmatrix} 3 &amp; 0 \\ 0 &amp; 1 \end{pmatrix}\begin{pmatrix} 1 &amp; 1 \\ 1 &amp; -1 \end{pmatrix} = \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 2 \end{pmatrix} = A\)</span> ✓</p>
-</div>
+<p>La matrice <span class="math inline">\(P\)</span> est formée des vecteurs propres de <span class="math inline">\(A\)</span> et <span class="math inline">\(\Lambda\)</span> est la matrice diagonale des valeurs propres associées.</p>
 </section>
-<section id="applications-pratiques" class="slide level2 smaller">
-<h2>Applications pratiques</h2>
-<p><strong>Problème d’optimisation :</strong> Maximiser <span class="math inline">\(u^\top A u\)</span> sous la contrainte <span class="math inline">\(u^\top B u = 1\)</span></p>
-<div class="fragment">
-<p><strong>Exemple numérique :</strong> <span class="math inline">\(A = \begin{pmatrix} 5 &amp; 2 \\ 2 &amp; 2 \end{pmatrix}, \quad B = \begin{pmatrix} 2 &amp; 0 \\ 0 &amp; 1 \end{pmatrix}\)</span></p>
-<p><span class="math inline">\(B^{-1}A = \begin{pmatrix} 1/2 &amp; 0 \\ 0 &amp; 1 \end{pmatrix}\begin{pmatrix} 5 &amp; 2 \\ 2 &amp; 2 \end{pmatrix} = \begin{pmatrix} 5/2 &amp; 1 \\ 2 &amp; 2 \end{pmatrix}\)</span></p>
-<p>Plus grande valeur propre : <span class="math inline">\(\lambda_{\max} \approx 3.56\)</span></p>
-<p>Solution optimale : $u^* = $ vecteur propre correspondant</p>
-</div>
-<div class="fragment">
-<p><strong>→ Principe fondamental de l’analyse en composantes principales</strong></p>
-</div>
+<section id="exemple" class="slide level2">
+<h2>Exemple</h2>
+<p>En reprenant l’example précédent.</p>
+<p>Soit <span class="math inline">\(A = \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 2 \end{pmatrix}\)</span>. On a <span class="math inline">\(P = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 &amp; 1 \\ 1 &amp; -1 \end{pmatrix}\)</span> et <span class="math inline">\(\Lambda = \begin{pmatrix} 3 &amp; 0 \\ 0 &amp; 1 \end{pmatrix}.\)</span></p>
+<p>On peut vérifier le théorème de décomposition spectrale :</p>
+<p><span class="math display">\[P \Lambda P^\top = \frac{1}{2}\begin{pmatrix} 1 &amp; 1 \\ 1 &amp; -1 \end{pmatrix}\begin{pmatrix} 3 &amp; 0 \\ 0 &amp; 1 \end{pmatrix}\begin{pmatrix} 1 &amp; 1 \\ 1 &amp; -1 \end{pmatrix} = \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 2 \end{pmatrix} = A.\]</span></p>
 </section>
-<section id="lien-avec-déterminant-et-trace" class="slide level2">
-<h2>Lien avec déterminant et trace</h2>
-<div class="callout callout-important callout-titled callout-style-default">
+<section id="lien-avec-le-déterminant-et-la-trace" class="slide level2">
+<h2>Lien avec le déterminant et la trace</h2>
+<p><br></p>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Important</strong></p>
+<p><strong>Propriétés</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Relations fondamentales</strong></p>
-<p>Si <span class="math inline">\(A\)</span> a pour valeurs propres <span class="math inline">\(\lambda_1, \ldots, \lambda_n\)</span> :</p>
-<ol type="1">
-<li><span class="math inline">\(\det(A) = \prod_{i=1}^{n} \lambda_i\)</span></li>
-<li><span class="math inline">\(\tr(A) = \sum_{i=1}^{n} \lambda_i\)</span></li>
-</ol>
-</div>
-</div>
-</div>
-<div class="fragment">
-<p><strong>Exemple de vérification :</strong> <span class="math inline">\(A = \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 2 \end{pmatrix}, \quad \lambda_1 = 3, \lambda_2 = 1\)</span></p>
-<p><span class="math inline">\(\det(A) = 4 - 1 = 3 = 3 \times 1 = \lambda_1 \lambda_2\)</span> ✓</p>
-<p><span class="math inline">\(\tr(A) = 2 + 2 = 4 = 3 + 1 = \lambda_1 + \lambda_2\)</span> ✓</p>
-</div>
-</section>
-<section id="exemple-complet-acp" class="slide level2">
-<h2>Exemple complet : ACP</h2>
-<div class="fragment">
-<p><strong>Données : positions de points en 2D</strong> <span class="math inline">\(X = \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 1 \\ 2 &amp; 3 \\ 4 &amp; 2 \end{pmatrix}\)</span></p>
-<p><strong>Matrice de covariance :</strong> <span class="math inline">\(C = \frac{1}{n-1}X^\top X = \begin{pmatrix} 2.33 &amp; 0.33 \\ 0.33 &amp; 1.33 \end{pmatrix}\)</span></p>
-<p><strong>Composantes principales :</strong> vecteurs propres de <span class="math inline">\(C\)</span> - 1ère composante : direction de variance maximale - 2ème composante : direction orthogonale de variance restante</p>
-</div>
-</section></section>
-<section>
-<section id="conclusions" class="title-slide slide level1 center">
-<h1>Conclusions</h1>
-
-</section>
-<section id="points-clés-à-retenir" class="slide level2">
-<h2>Points clés à retenir</h2>
+<p>Si la matrice <span class="math inline">\(A\)</span> a pour valeurs propres <span class="math inline">\(\lambda_1, \ldots, \lambda_n\)</span> :</p>
 <ul>
-<li class="fragment"><strong>Matrices symétriques</strong> : valeurs propres réelles, vecteurs propres orthogonaux</li>
-<li class="fragment"><strong>Décomposition spectrale</strong> : outil puissant pour l’analyse</li>
-<li class="fragment"><strong>Applications</strong> : optimisation, réduction de dimension</li>
-<li class="fragment"><strong>Liens</strong> : déterminant et trace via les valeurs propres</li>
+<li><p><span class="math inline">\(\det(A) = \prod_{i=1}^{n} \lambda_i\)</span>.</p></li>
+<li><p><span class="math inline">\(\text{tr}(A) = \sum_{i=1}^{n} \lambda_i\)</span>.</p></li>
 </ul>
-</section>
-<section id="applications-en-apprentissage-automatique" class="slide level2">
-<h2>Applications en apprentissage automatique</h2>
-<ul>
-<li class="fragment"><strong>Analyse en composantes principales (ACP)</strong></li>
-<li class="fragment"><strong>Optimisation</strong> de fonctions quadratiques</li>
-<li class="fragment"><strong>Méthodes de réduction de dimension</strong></li>
-<li class="fragment"><strong>Analyse de stabilité</strong> des algorithmes</li>
-</ul>
-</section>
-<section id="questions" class="slide level2">
-<h2>Questions ?</h2>
-<p><strong>Ressources recommandées :</strong> - Cours MAT-1200 - <span class="citation" data-cites="deisenrothMathematicsMachineLearning2020">Deisenroth, Faisal, et Ong (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span> (anglais) - <span class="citation" data-cites="grifoneAlgebreLineaire2024">Grifone (<a href="#/references" role="doc-biblioref" onclick="">2024</a>)</span> (français)</p>
-</section>
-<section class="slide level2 smaller scrollable" id="references">
-
-<p><strong>Merci pour votre attention !</strong></p>
-
-
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-deisenrothMathematicsMachineLearning2020" class="csl-entry" role="listitem">
-Deisenroth, Marc Peter, A. Aldo Faisal, et Cheng Soon Ong. 2020. <em>Mathematics for <span>Machine Learning</span></em>. 1ʳᵉ éd. Cambridge University Press. <a href="https://doi.org/10.1017/9781108679930">https://doi.org/10.1017/9781108679930</a>.
-</div>
-<div id="ref-grifoneAlgebreLineaire2024" class="csl-entry" role="listitem">
-Grifone, Joseph. 2024. <em><span>Alg<span>è</span>bre Lin<span>é</span>aire</span></em>. 7e edition. Toulouse: CEPADUES.
 </div>
 </div>
+</div>
+</section>
+<section id="lien-avec-le-déterminant-et-la-trace-exemple" class="slide level2">
+<h2>Lien avec le déterminant et la trace : exemple</h2>
+<p><br></p>
+<p>Soit <span class="math inline">\(A = \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 2 \end{pmatrix}\)</span>. On a vu que ses valeurs propres sont <span class="math inline">\(\lambda_1 = 3\)</span> et <span class="math inline">\(\lambda_2 = 1\)</span>.</p>
+<p>On peut donc vérifier les formules pour le déterminant et la trace :</p>
+<p><span class="math display">\[\det(A) = 4 - 1 = 3 = 3 \times 1 = \lambda_1 \lambda_2,\]</span></p>
+<p><span class="math display">\[\text{tr}(A) = 2 + 2 = 4 = 3 + 1 = \lambda_1 + \lambda_2.\]</span></p>
+
+
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
