@@ -165,7 +165,7 @@ Steven Golovkine
 </div>
 </div>
 
-  <p class="date">29 août 2025</p>
+  <p class="date">30 août 2025</p>
   <figure>
     <center>
       <img src="../include/logo-ul.png" alt="logo" width="40%">
@@ -189,94 +189,107 @@ Steven Golovkine
 </section>
 <section id="espace-dévénements-et-événements" class="slide level2">
 <h2>Espace d’événements et événements</h2>
-<div class="callout callout-warning callout-titled callout-style-default">
+<p><br></p>
+<div class="callout callout-important no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Avertissement</strong></p>
+<p><strong>Définitions</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Définitions de base</strong></p>
 <ul>
-<li><strong>Espace d’événements</strong> <span class="math inline">\(S\)</span> : ensemble de tous les résultats possibles</li>
-<li><strong>Événement</strong> : sous-ensemble de <span class="math inline">\(S\)</span></li>
+<li><p><strong>Espace d’événements</strong> <span class="math inline">\(S\)</span> : ensemble de tous les résultats possibles d’une expérience.</p></li>
+<li><p><strong>Événement</strong> : sous-ensemble de <span class="math inline">\(S\)</span>.</p></li>
 </ul>
 </div>
 </div>
 </div>
-<div class="fragment">
-<p><strong>Exemple 1 : Lancer de pièce</strong> - <span class="math inline">\(S = \{0, 1\}\)</span> (pile = 0, face = 1) - Événement <span class="math inline">\(E = \{1\}\)</span> : “obtenir face”</p>
-</div>
-<div class="fragment">
-<p><strong>Exemple 2 : Durée de vie d’un téléphone</strong> - <span class="math inline">\(S = \mathbb{R}_+ = [0, +\infty)\)</span> (en années) - Événement <span class="math inline">\(E = [10, \infty)\)</span> : “durée de vie &gt; 10 ans”</p>
-</div>
 </section>
-<section id="exemple-détaillé-jours-sans-neige" class="slide level2">
-<h2>Exemple détaillé : Jours sans neige</h2>
+<section id="espace-dévénements-et-événements-exemples" class="slide level2">
+<h2>Espace d’événements et événements : exemples</h2>
+<p><br></p>
+<p><strong>Exemple 1 : Lancer de pièce</strong></p>
+<ul>
+<li><p><span class="math inline">\(S = \{0, 1\}\)</span> (pile = 0, face = 1).</p></li>
+<li><p>Événement <span class="math inline">\(E = \{1\}\)</span> : “obtenir face”.</p></li>
+</ul>
 <div class="fragment">
-<p><strong>Contexte :</strong> Nombre de jours sans neige à Québec dans l’année - <span class="math inline">\(S = \{0, 1, 2, \ldots, 365\}\)</span> - Événement <span class="math inline">\(E_1 = [0, 5]\)</span> : “moins de 6 jours sans neige” - Événement <span class="math inline">\(E_2 = [100, 200]\)</span> : “entre 100 et 200 jours sans neige”</p>
-</div>
-<div class="fragment">
-<p><strong>Perspective subjective :</strong> - <strong>Nouvel arrivant :</strong> probabilités uniformes sur <span class="math inline">\(S\)</span> - <strong>Québécois :</strong> probabilités plus élevées pour <span class="math inline">\(E_2\)</span> que <span class="math inline">\(E_1\)</span></p>
+<p><strong>Exemple 2 : Durée de vie d’un téléphone</strong></p>
+<ul>
+<li><p><span class="math inline">\(S = \mathbb{R}_+ = [0, +\infty)\)</span> (en années).</p></li>
+<li><p>Événement <span class="math inline">\(E = [10, \infty)\)</span> : “durée de vie &gt; 10 ans”.</p></li>
+</ul>
 </div>
 </section>
 <section id="mesure-de-probabilité" class="slide level2">
 <h2>Mesure de probabilité</h2>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-important no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Avertissement</strong></p>
+<p><strong>Définition</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Définition formelle</strong></p>
 <p>Une mesure de probabilité <span class="math inline">\(\mathbb{P}\)</span> satisfait :</p>
 <ol type="1">
-<li><span class="math inline">\(\mathbb{P}(E) \in [0, 1]\)</span> pour tout événement <span class="math inline">\(E\)</span></li>
-<li><span class="math inline">\(\mathbb{P}(S) = 1\)</span> (certitude totale)</li>
-<li>Pour événements disjoints : <span class="math inline">\(\mathbb{P}(E_1 \cup E_2 \cup \cdots) = \mathbb{P}(E_1) + \mathbb{P}(E_2) + \cdots\)</span></li>
+<li><p><span class="math inline">\(\mathbb{P}(E) \in [0, 1]\)</span> pour tout événement <span class="math inline">\(E\)</span>;</p></li>
+<li><p><span class="math inline">\(\mathbb{P}(S) = 1\)</span> (certitude totale);</p></li>
+<li><p>Pour des événements disjoints : <span class="math inline">\(\mathbb{P}(E_1 \cup E_2 \cup \cdots) = \mathbb{P}(E_1) + \mathbb{P}(E_2) + \cdots\)</span>.</p></li>
 </ol>
 </div>
 </div>
 </div>
-<div class="fragment">
-<p><strong>Exemple pratique :</strong> Lancer d’un dé équilibré : <span class="math inline">\(S = \{1, 2, 3, 4, 5, 6\}\)</span> - <span class="math inline">\(\mathbb{P}(\{i\}) = 1/6\)</span> pour <span class="math inline">\(i = 1, \ldots, 6\)</span> - <span class="math inline">\(\mathbb{P}(\{2, 4, 6\}) = 1/6 + 1/6 + 1/6 = 1/2\)</span> (nombre pair)</p>
-</div>
+</section>
+<section id="mesure-de-probabilité-exemple-wooclap-kffpdj" class="slide level2">
+<h2>Mesure de probabilité : exemple (Wooclap: KFFPDJ)</h2>
+<p><br></p>
+<p><strong>Exemple : Lancer d’un dé équilibré</strong></p>
+<ul>
+<li class="fragment"><p>Espace d’événements : <span class="math inline">\(S = \{1, 2, 3, 4, 5, 6\}\)</span>.</p></li>
+<li class="fragment"><p><span class="math inline">\(\mathbb{P}(\{i\}) = 1/6\)</span> pour <span class="math inline">\(i = 1, \ldots, 6\)</span>.</p></li>
+<li class="fragment"><p><span class="math inline">\(\mathbb{P}(\{2, 4, 6\}) = 1/6 + 1/6 + 1/6 = 1/2\)</span> (nombre pair).</p></li>
+</ul>
+</section>
+<section id="subjectivité-de-la-probabilité" class="slide level2">
+<h2>Subjectivité de la probabilité</h2>
+<p><br></p>
+<p><strong>Contexte :</strong> Nombre de jours sans neige à Québec dans l’année</p>
+<ul>
+<li><p>Espace d’événements : <span class="math inline">\(S = \{0, 1, 2, \ldots, 365\}\)</span>.</p></li>
+<li><p>Événement <span class="math inline">\(E_1 = [0, 100]\)</span> : “moins de 100 jours sans neige”.</p></li>
+<li><p>Événement <span class="math inline">\(E_2 = [100, 200]\)</span> : “entre 100 et 200 jours sans neige”.</p></li>
+</ul>
+<p><strong>Perspective subjective :</strong></p>
+<ul>
+<li><p><strong>Nouvel arrivant :</strong> probabilités uniformes sur <span class="math inline">\(S\)</span>.</p></li>
+<li><p><strong>Québécois :</strong> probabilités plus élevées pour <span class="math inline">\(E_1\)</span> que <span class="math inline">\(E_2\)</span>.</p></li>
+</ul>
 </section>
 <section id="indépendance-et-probabilité-conditionnelle" class="slide level2">
 <h2>Indépendance et probabilité conditionnelle</h2>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-important no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Avertissement</strong></p>
+<p><strong>Définitions</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Définitions</strong></p>
-<p><strong>Indépendance :</strong> <span class="math inline">\(E\)</span> et <span class="math inline">\(F\)</span> sont indépendants si <span class="math display">\[\mathbb{P}(E \cap F) = \mathbb{P}(E) \times \mathbb{P}(F)\]</span></p>
-<p><strong>Probabilité conditionnelle :</strong> <span class="math display">\[\mathbb{P}(E \mid F) = \frac{\mathbb{P}(E \cap F)}{\mathbb{P}(F)}\]</span></p>
+<p><strong>Indépendance :</strong> Les événements <span class="math inline">\(E\)</span> et <span class="math inline">\(F\)</span> sont indépendants si <span class="math display">\[\mathbb{P}(E \cap F) = \mathbb{P}(E) \times \mathbb{P}(F).\]</span> <strong>Probabilité conditionnelle :</strong> La probabilité de <span class="math inline">\(E\)</span> sachant <span class="math inline">\(F\)</span> est <span class="math display">\[\mathbb{P}(E \mid F) = \frac{\mathbb{P}(E \cap F)}{\mathbb{P}(F)}.\]</span></p>
 </div>
 </div>
 </div>
 </section>
 <section id="exemple-cartes-à-jouer" class="slide level2">
 <h2>Exemple : Cartes à jouer</h2>
-<div class="fragment">
-<p><strong>Contexte :</strong> Tirage d’une carte dans un jeu standard (52 cartes) - <span class="math inline">\(E\)</span> : “tirer un roi” → <span class="math inline">\(\mathbb{P}(E) = 4/52 = 1/13\)</span> - <span class="math inline">\(F\)</span> : “tirer un cœur” → <span class="math inline">\(\mathbb{P}(F) = 13/52 = 1/4\)</span></p>
-</div>
-<div class="fragment">
-<p><strong>Test d’indépendance :</strong> - <span class="math inline">\(E \cap F\)</span> : “tirer le roi de cœur” → <span class="math inline">\(\mathbb{P}(E \cap F) = 1/52\)</span> - <span class="math inline">\(\mathbb{P}(E) \times \mathbb{P}(F) = (1/13) \times (1/4) = 1/52\)</span> ✓</p>
+<p><br></p>
+<p><strong>Contexte :</strong> Tirage d’une carte dans un jeu standard (52 cartes)</p>
+<ul>
+<li><p><span class="math inline">\(E\)</span> : “tirer un roi” → <span class="math inline">\(\mathbb{P}(E) = 4/52 = 1/13\)</span>.</p></li>
+<li><p><span class="math inline">\(F\)</span> : “tirer un cœur” → <span class="math inline">\(\mathbb{P}(F) = 13/52 = 1/4\)</span>.</p></li>
+</ul>
+<p><strong>Test d’indépendance :</strong></p>
+<ul>
+<li><p><span class="math inline">\(E \cap F\)</span> : “tirer le roi de cœur” → <span class="math inline">\(\mathbb{P}(E \cap F) = 1/52\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathbb{P}(E) \times \mathbb{P}(F) = (1/13) \times (1/4) = 1/52\)</span>.</p></li>
+</ul>
 <p><strong>Conclusion :</strong> <span class="math inline">\(E\)</span> et <span class="math inline">\(F\)</span> sont indépendants !</p>
-</div>
-<div class="fragment">
-<p><strong>Probabilité conditionnelle :</strong> <span class="math inline">\(\mathbb{P}(E \mid F) = \frac{1/52}{1/4} = \frac{1}{13} = \mathbb{P}(E)\)</span> (cohérent avec l’indépendance)</p>
-</div>
 </section></section>
 <section>
 <section id="variables-aléatoires" class="title-slide slide level1 center">
@@ -285,51 +298,53 @@ Steven Golovkine
 </section>
 <section id="variables-discrètes" class="slide level2">
 <h2>Variables discrètes</h2>
-<div class="callout callout-warning callout-titled callout-style-default">
+<p><br></p>
+<div class="callout callout-important no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Avertissement</strong></p>
+<p><strong>Définition</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Définition</strong></p>
-<p>Variable aléatoire <strong>discrète</strong> : prend au plus un nombre dénombrable de valeurs</p>
-<p>Distribution donnée par : <span class="math inline">\(\mathbb{P}(X = x)\)</span> pour chaque valeur <span class="math inline">\(x\)</span></p>
+<p>Une variable aléatoire <strong>discrète</strong> prend au plus un nombre dénombrable de valeurs.</p>
+<p>Sa distribution donnée par <span class="math inline">\(\mathbb{P}(X = x)\)</span> pour chaque valeur <span class="math inline">\(x\)</span>.</p>
 </div>
 </div>
 </div>
-<div class="fragment">
-<p><strong>Exemple : Lancer de deux dés</strong> - <span class="math inline">\(X\)</span> = somme des deux dés - <span class="math inline">\(S = \{2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12\}\)</span> - <span class="math inline">\(\mathbb{P}(X = 7) = 6/36 = 1/6\)</span> (combinaisons : 1+6, 2+5, 3+4, 4+3, 5+2, 6+1) - <span class="math inline">\(\mathbb{P}(X = 2) = 1/36\)</span> (une seule combinaison : 1+1)</p>
-</div>
+</section>
+<section id="variables-discrètes-exemple" class="slide level2">
+<h2>Variables discrètes : exemple</h2>
+<p><br></p>
+<p><strong>Exemple : Lancer de deux dés</strong></p>
+<ul>
+<li><p>Variable aléatoire <span class="math inline">\(X\)</span> = somme des deux dés.</p></li>
+<li><p>Espace d’événements : <span class="math inline">\(S = \{2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12\}\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathbb{P}(X = 7) = 6/36 = 1/6\)</span> (combinaisons : 1+6, 2+5, 3+4, 4+3, 5+2, 6+1).</p></li>
+<li><p><span class="math inline">\(\mathbb{P}(X = 2) = 1/36\)</span> (une seule combinaison : 1+1).</p></li>
+</ul>
 </section>
 <section id="variables-continues" class="slide level2">
 <h2>Variables continues</h2>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-important no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Avertissement</strong></p>
+<p><strong>Définition</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Définition</strong></p>
-<p>Variable aléatoire <strong>continue</strong> : probabilités données par des intégrales <span class="math display">\[\mathbb{P}(X \in A) = \int_A f(x) dx\]</span> où <span class="math inline">\(f(x) \geq 0\)</span> et <span class="math inline">\(\int_{-\infty}^{\infty} f(x) dx = 1\)</span></p>
+<p>Les probabilités d’une variable aléatoire <strong>continue</strong> sont données par les intégrales <span class="math display">\[\mathbb{P}(X \in A) = \int_A f(x) dx\]</span> où <span class="math inline">\(f(x) \geq 0\)</span> et <span class="math inline">\(\int_{-\infty}^{\infty} f(x) dx = 1\)</span>.</p>
 <p><strong>Important :</strong> <span class="math inline">\(\mathbb{P}(X = x) = 0\)</span> pour tout <span class="math inline">\(x\)</span> fixé !</p>
 </div>
 </div>
 </div>
 </section>
-<section id="exemple-loi-uniforme" class="slide level2">
-<h2>Exemple : Loi uniforme</h2>
-<div class="fragment">
-<p><strong>Variable uniforme sur <span class="math inline">\([0, 1]\)</span> :</strong> <span class="math display">\[f(x) = \begin{cases} 1 &amp; \text{si } x \in [0, 1] \\ 0 &amp; \text{sinon} \end{cases}\]</span></p>
-</div>
-<div class="fragment">
-<p><strong>Calculs de probabilités :</strong> - <span class="math inline">\(\mathbb{P}(X \leq 0.5) = \int_0^{0.5} 1 \, dx = 0.5\)</span> - <span class="math inline">\(\mathbb{P}(0.2 &lt; X &lt; 0.7) = \int_{0.2}^{0.7} 1 \, dx = 0.5\)</span> - <span class="math inline">\(\mathbb{P}(X = 0.3) = 0\)</span> (point isolé)</p>
-</div>
+<section id="variables-continues-exemple" class="slide level2">
+<h2>Variables continues : exemple</h2>
+<p><strong>Variable uniforme sur <span class="math inline">\([0, 1]\)</span> :</strong> <span class="math display">\[f(x) = \begin{cases} 1 &amp; \text{si } x \in [0, 1] \\ 0 &amp; \text{sinon} \end{cases}.\]</span></p>
+<p><strong>Calculs de probabilités :</strong></p>
+<ul>
+<li><p><span class="math inline">\(\mathbb{P}(X \leq 0.5) = \int_0^{0.5} 1 \, dx = 0.5\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathbb{P}(0.2 &lt; X &lt; 0.7) = \int_{0.2}^{0.7} 1 \, dx = 0.5\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathbb{P}(X = 0.3) = 0\)</span> (point isolé).</p></li>
+</ul>
 </section>
 <section id="espérance-mathématique" class="slide level2">
 <h2>Espérance mathématique</h2>

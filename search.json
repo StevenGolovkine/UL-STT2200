@@ -4,7 +4,7 @@
     "href": "slides/02-revisions-algebre-slides.html#plan-de-la-présentation",
     "title": "Révisions",
     "section": "Plan de la présentation",
-    "text": "Plan de la présentation\n\n\nPropriétés matricielles\nValeurs et vecteurs propres\nDiagonalisation de matrices\nApplications pratiques"
+    "text": "Plan de la présentation\n\n\nPropriétés matricielles\nValeurs et vecteurs propres\nDiagonalisation de matrices"
   },
   {
     "objectID": "slides/02-revisions-algebre-slides.html#notations-de-base",
@@ -3630,56 +3630,77 @@
     "href": "slides/02-revisions-proba-slides.html#espace-dévénements-et-événements",
     "title": "Révisions",
     "section": "Espace d’événements et événements",
-    "text": "Espace d’événements et événements\n\n\n\n\n\n\nAvertissement\n\n\nDéfinitions de base\n\nEspace d’événements \\(S\\) : ensemble de tous les résultats possibles\nÉvénement : sous-ensemble de \\(S\\)\n\n\n\n\n\nExemple 1 : Lancer de pièce - \\(S = \\{0, 1\\}\\) (pile = 0, face = 1) - Événement \\(E = \\{1\\}\\) : “obtenir face”\n\n\nExemple 2 : Durée de vie d’un téléphone - \\(S = \\mathbb{R}_+ = [0, +\\infty)\\) (en années) - Événement \\(E = [10, \\infty)\\) : “durée de vie &gt; 10 ans”"
+    "text": "Espace d’événements et événements\n\n\n\n\nDéfinitions\n\n\n\nEspace d’événements \\(S\\) : ensemble de tous les résultats possibles d’une expérience.\nÉvénement : sous-ensemble de \\(S\\)."
   },
   {
-    "objectID": "slides/02-revisions-proba-slides.html#exemple-détaillé-jours-sans-neige",
-    "href": "slides/02-revisions-proba-slides.html#exemple-détaillé-jours-sans-neige",
+    "objectID": "slides/02-revisions-proba-slides.html#espace-dévénements-et-événements-exemples",
+    "href": "slides/02-revisions-proba-slides.html#espace-dévénements-et-événements-exemples",
     "title": "Révisions",
-    "section": "Exemple détaillé : Jours sans neige",
-    "text": "Exemple détaillé : Jours sans neige\n\nContexte : Nombre de jours sans neige à Québec dans l’année - \\(S = \\{0, 1, 2, \\ldots, 365\\}\\) - Événement \\(E_1 = [0, 5]\\) : “moins de 6 jours sans neige” - Événement \\(E_2 = [100, 200]\\) : “entre 100 et 200 jours sans neige”\n\n\nPerspective subjective : - Nouvel arrivant : probabilités uniformes sur \\(S\\) - Québécois : probabilités plus élevées pour \\(E_2\\) que \\(E_1\\)"
+    "section": "Espace d’événements et événements : exemples",
+    "text": "Espace d’événements et événements : exemples\n\nExemple 1 : Lancer de pièce\n\n\\(S = \\{0, 1\\}\\) (pile = 0, face = 1).\nÉvénement \\(E = \\{1\\}\\) : “obtenir face”.\n\n\nExemple 2 : Durée de vie d’un téléphone\n\n\\(S = \\mathbb{R}_+ = [0, +\\infty)\\) (en années).\nÉvénement \\(E = [10, \\infty)\\) : “durée de vie &gt; 10 ans”."
   },
   {
     "objectID": "slides/02-revisions-proba-slides.html#mesure-de-probabilité",
     "href": "slides/02-revisions-proba-slides.html#mesure-de-probabilité",
     "title": "Révisions",
     "section": "Mesure de probabilité",
-    "text": "Mesure de probabilité\n\n\n\n\n\n\nAvertissement\n\n\nDéfinition formelle\nUne mesure de probabilité \\(\\mathbb{P}\\) satisfait :\n\n\\(\\mathbb{P}(E) \\in [0, 1]\\) pour tout événement \\(E\\)\n\\(\\mathbb{P}(S) = 1\\) (certitude totale)\nPour événements disjoints : \\(\\mathbb{P}(E_1 \\cup E_2 \\cup \\cdots) = \\mathbb{P}(E_1) + \\mathbb{P}(E_2) + \\cdots\\)\n\n\n\n\n\nExemple pratique : Lancer d’un dé équilibré : \\(S = \\{1, 2, 3, 4, 5, 6\\}\\) - \\(\\mathbb{P}(\\{i\\}) = 1/6\\) pour \\(i = 1, \\ldots, 6\\) - \\(\\mathbb{P}(\\{2, 4, 6\\}) = 1/6 + 1/6 + 1/6 = 1/2\\) (nombre pair)"
+    "text": "Mesure de probabilité\n\n\n\nDéfinition\n\n\nUne mesure de probabilité \\(\\mathbb{P}\\) satisfait :\n\n\\(\\mathbb{P}(E) \\in [0, 1]\\) pour tout événement \\(E\\);\n\\(\\mathbb{P}(S) = 1\\) (certitude totale);\nPour des événements disjoints : \\(\\mathbb{P}(E_1 \\cup E_2 \\cup \\cdots) = \\mathbb{P}(E_1) + \\mathbb{P}(E_2) + \\cdots\\)."
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#mesure-de-probabilité-exemple-wooclap-kffpdj",
+    "href": "slides/02-revisions-proba-slides.html#mesure-de-probabilité-exemple-wooclap-kffpdj",
+    "title": "Révisions",
+    "section": "Mesure de probabilité : exemple (Wooclap: KFFPDJ)",
+    "text": "Mesure de probabilité : exemple (Wooclap: KFFPDJ)\n\nExemple : Lancer d’un dé équilibré\n\nEspace d’événements : \\(S = \\{1, 2, 3, 4, 5, 6\\}\\).\n\\(\\mathbb{P}(\\{i\\}) = 1/6\\) pour \\(i = 1, \\ldots, 6\\).\n\\(\\mathbb{P}(\\{2, 4, 6\\}) = 1/6 + 1/6 + 1/6 = 1/2\\) (nombre pair)."
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#subjectivité-de-la-probabilité",
+    "href": "slides/02-revisions-proba-slides.html#subjectivité-de-la-probabilité",
+    "title": "Révisions",
+    "section": "Subjectivité de la probabilité",
+    "text": "Subjectivité de la probabilité\n\nContexte : Nombre de jours sans neige à Québec dans l’année\n\nEspace d’événements : \\(S = \\{0, 1, 2, \\ldots, 365\\}\\).\nÉvénement \\(E_1 = [0, 100]\\) : “moins de 100 jours sans neige”.\nÉvénement \\(E_2 = [100, 200]\\) : “entre 100 et 200 jours sans neige”.\n\nPerspective subjective :\n\nNouvel arrivant : probabilités uniformes sur \\(S\\).\nQuébécois : probabilités plus élevées pour \\(E_1\\) que \\(E_2\\)."
   },
   {
     "objectID": "slides/02-revisions-proba-slides.html#indépendance-et-probabilité-conditionnelle",
     "href": "slides/02-revisions-proba-slides.html#indépendance-et-probabilité-conditionnelle",
     "title": "Révisions",
     "section": "Indépendance et probabilité conditionnelle",
-    "text": "Indépendance et probabilité conditionnelle\n\n\n\n\n\n\nAvertissement\n\n\nDéfinitions\nIndépendance : \\(E\\) et \\(F\\) sont indépendants si \\[\\mathbb{P}(E \\cap F) = \\mathbb{P}(E) \\times \\mathbb{P}(F)\\]\nProbabilité conditionnelle : \\[\\mathbb{P}(E \\mid F) = \\frac{\\mathbb{P}(E \\cap F)}{\\mathbb{P}(F)}\\]"
+    "text": "Indépendance et probabilité conditionnelle\n\n\n\nDéfinitions\n\n\nIndépendance : Les événements \\(E\\) et \\(F\\) sont indépendants si \\[\\mathbb{P}(E \\cap F) = \\mathbb{P}(E) \\times \\mathbb{P}(F).\\] Probabilité conditionnelle : La probabilité de \\(E\\) sachant \\(F\\) est \\[\\mathbb{P}(E \\mid F) = \\frac{\\mathbb{P}(E \\cap F)}{\\mathbb{P}(F)}.\\]"
   },
   {
     "objectID": "slides/02-revisions-proba-slides.html#exemple-cartes-à-jouer",
     "href": "slides/02-revisions-proba-slides.html#exemple-cartes-à-jouer",
     "title": "Révisions",
     "section": "Exemple : Cartes à jouer",
-    "text": "Exemple : Cartes à jouer\n\nContexte : Tirage d’une carte dans un jeu standard (52 cartes) - \\(E\\) : “tirer un roi” → \\(\\mathbb{P}(E) = 4/52 = 1/13\\) - \\(F\\) : “tirer un cœur” → \\(\\mathbb{P}(F) = 13/52 = 1/4\\)\n\n\nTest d’indépendance : - \\(E \\cap F\\) : “tirer le roi de cœur” → \\(\\mathbb{P}(E \\cap F) = 1/52\\) - \\(\\mathbb{P}(E) \\times \\mathbb{P}(F) = (1/13) \\times (1/4) = 1/52\\) ✓\nConclusion : \\(E\\) et \\(F\\) sont indépendants !\n\n\nProbabilité conditionnelle : \\(\\mathbb{P}(E \\mid F) = \\frac{1/52}{1/4} = \\frac{1}{13} = \\mathbb{P}(E)\\) (cohérent avec l’indépendance)"
+    "text": "Exemple : Cartes à jouer\n\nContexte : Tirage d’une carte dans un jeu standard (52 cartes)\n\n\\(E\\) : “tirer un roi” → \\(\\mathbb{P}(E) = 4/52 = 1/13\\).\n\\(F\\) : “tirer un cœur” → \\(\\mathbb{P}(F) = 13/52 = 1/4\\).\n\nTest d’indépendance :\n\n\\(E \\cap F\\) : “tirer le roi de cœur” → \\(\\mathbb{P}(E \\cap F) = 1/52\\).\n\\(\\mathbb{P}(E) \\times \\mathbb{P}(F) = (1/13) \\times (1/4) = 1/52\\).\n\nConclusion : \\(E\\) et \\(F\\) sont indépendants !"
   },
   {
     "objectID": "slides/02-revisions-proba-slides.html#variables-discrètes",
     "href": "slides/02-revisions-proba-slides.html#variables-discrètes",
     "title": "Révisions",
     "section": "Variables discrètes",
-    "text": "Variables discrètes\n\n\n\n\n\n\nAvertissement\n\n\nDéfinition\nVariable aléatoire discrète : prend au plus un nombre dénombrable de valeurs\nDistribution donnée par : \\(\\mathbb{P}(X = x)\\) pour chaque valeur \\(x\\)\n\n\n\n\nExemple : Lancer de deux dés - \\(X\\) = somme des deux dés - \\(S = \\{2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12\\}\\) - \\(\\mathbb{P}(X = 7) = 6/36 = 1/6\\) (combinaisons : 1+6, 2+5, 3+4, 4+3, 5+2, 6+1) - \\(\\mathbb{P}(X = 2) = 1/36\\) (une seule combinaison : 1+1)"
+    "text": "Variables discrètes\n\n\n\n\nDéfinition\n\n\nUne variable aléatoire discrète prend au plus un nombre dénombrable de valeurs.\nSa distribution donnée par \\(\\mathbb{P}(X = x)\\) pour chaque valeur \\(x\\)."
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#variables-discrètes-exemple",
+    "href": "slides/02-revisions-proba-slides.html#variables-discrètes-exemple",
+    "title": "Révisions",
+    "section": "Variables discrètes : exemple",
+    "text": "Variables discrètes : exemple\n\nExemple : Lancer de deux dés\n\nVariable aléatoire \\(X\\) = somme des deux dés.\nEspace d’événements : \\(S = \\{2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12\\}\\).\n\\(\\mathbb{P}(X = 7) = 6/36 = 1/6\\) (combinaisons : 1+6, 2+5, 3+4, 4+3, 5+2, 6+1).\n\\(\\mathbb{P}(X = 2) = 1/36\\) (une seule combinaison : 1+1)."
   },
   {
     "objectID": "slides/02-revisions-proba-slides.html#variables-continues",
     "href": "slides/02-revisions-proba-slides.html#variables-continues",
     "title": "Révisions",
     "section": "Variables continues",
-    "text": "Variables continues\n\n\n\n\n\n\nAvertissement\n\n\nDéfinition\nVariable aléatoire continue : probabilités données par des intégrales \\[\\mathbb{P}(X \\in A) = \\int_A f(x) dx\\] où \\(f(x) \\geq 0\\) et \\(\\int_{-\\infty}^{\\infty} f(x) dx = 1\\)\nImportant : \\(\\mathbb{P}(X = x) = 0\\) pour tout \\(x\\) fixé !"
+    "text": "Variables continues\n\n\n\nDéfinition\n\n\nLes probabilités d’une variable aléatoire continue sont données par les intégrales \\[\\mathbb{P}(X \\in A) = \\int_A f(x) dx\\] où \\(f(x) \\geq 0\\) et \\(\\int_{-\\infty}^{\\infty} f(x) dx = 1\\).\nImportant : \\(\\mathbb{P}(X = x) = 0\\) pour tout \\(x\\) fixé !"
   },
   {
-    "objectID": "slides/02-revisions-proba-slides.html#exemple-loi-uniforme",
-    "href": "slides/02-revisions-proba-slides.html#exemple-loi-uniforme",
+    "objectID": "slides/02-revisions-proba-slides.html#variables-continues-exemple",
+    "href": "slides/02-revisions-proba-slides.html#variables-continues-exemple",
     "title": "Révisions",
-    "section": "Exemple : Loi uniforme",
-    "text": "Exemple : Loi uniforme\n\nVariable uniforme sur \\([0, 1]\\) : \\[f(x) = \\begin{cases} 1 & \\text{si } x \\in [0, 1] \\\\ 0 & \\text{sinon} \\end{cases}\\]\n\n\nCalculs de probabilités : - \\(\\mathbb{P}(X \\leq 0.5) = \\int_0^{0.5} 1 \\, dx = 0.5\\) - \\(\\mathbb{P}(0.2 &lt; X &lt; 0.7) = \\int_{0.2}^{0.7} 1 \\, dx = 0.5\\) - \\(\\mathbb{P}(X = 0.3) = 0\\) (point isolé)"
+    "section": "Variables continues : exemple",
+    "text": "Variables continues : exemple\nVariable uniforme sur \\([0, 1]\\) : \\[f(x) = \\begin{cases} 1 & \\text{si } x \\in [0, 1] \\\\ 0 & \\text{sinon} \\end{cases}.\\]\nCalculs de probabilités :\n\n\\(\\mathbb{P}(X \\leq 0.5) = \\int_0^{0.5} 1 \\, dx = 0.5\\).\n\\(\\mathbb{P}(0.2 &lt; X &lt; 0.7) = \\int_{0.2}^{0.7} 1 \\, dx = 0.5\\).\n\\(\\mathbb{P}(X = 0.3) = 0\\) (point isolé)."
   },
   {
     "objectID": "slides/02-revisions-proba-slides.html#espérance-mathématique",
