@@ -30,137 +30,173 @@ format:
 
 ## Espace d'événements et événements
 
-::: {.callout-warning}
-**Définitions de base**
+<br>
 
-- **Espace d'événements** $S$ : ensemble de tous les résultats possibles
-- **Événement** : sous-ensemble de $S$
+::: {.callout-important icon=false}
+## Définitions
+
+- **Espace d'événements** $S$ : ensemble de tous les résultats possibles d'une expérience.
+
+- **Événement** : sous-ensemble de $S$.
+
 :::
 
-::: {.fragment}
+## Espace d'événements et événements : exemples
+
+<br>
+
 **Exemple 1 : Lancer de pièce**
-- $S = \{0, 1\}$ (pile = 0, face = 1)
-- Événement $E = \{1\}$ : "obtenir face"
-:::
 
-::: {.fragment}
+- $S = \{0, 1\}$ (pile = 0, face = 1).
+
+- Événement $E = \{1\}$ : "obtenir face".
+
+. . .
+
+
 **Exemple 2 : Durée de vie d'un téléphone**
-- $S = \mathbb{R}_+ = [0, +\infty)$ (en années)
-- Événement $E = [10, \infty)$ : "durée de vie > 10 ans"
-:::
 
-## Exemple détaillé : Jours sans neige
+- $S = \mathbb{R}_+ = [0, +\infty)$ (en années).
 
-::: {.fragment}
-**Contexte :** Nombre de jours sans neige à Québec dans l'année
-- $S = \{0, 1, 2, \ldots, 365\}$
-- Événement $E_1 = [0, 5]$ : "moins de 6 jours sans neige"
-- Événement $E_2 = [100, 200]$ : "entre 100 et 200 jours sans neige"
-:::
+- Événement $E = [10, \infty)$ : "durée de vie > 10 ans".
 
-::: {.fragment}
-**Perspective subjective :**
-- **Nouvel arrivant :** probabilités uniformes sur $S$
-- **Québécois :** probabilités plus élevées pour $E_2$ que $E_1$
-:::
 
 ## Mesure de probabilité
 
-::: {.callout-warning}
-**Définition formelle**
+::: {.callout-important icon=false}
+## Définition
 
 Une mesure de probabilité $\mathbb{P}$ satisfait :
 
-1. $\mathbb{P}(E) \in [0, 1]$ pour tout événement $E$
-2. $\mathbb{P}(S) = 1$ (certitude totale)
-3. Pour événements disjoints : $\mathbb{P}(E_1 \cup E_2 \cup \cdots) = \mathbb{P}(E_1) + \mathbb{P}(E_2) + \cdots$
+1. $\mathbb{P}(E) \in [0, 1]$ pour tout événement $E$;
+
+2. $\mathbb{P}(S) = 1$ (certitude totale);
+
+3. Pour des événements disjoints : $\mathbb{P}(E_1 \cup E_2 \cup \cdots) = \mathbb{P}(E_1) + \mathbb{P}(E_2) + \cdots$.
+
 :::
 
-::: {.fragment}
-**Exemple pratique :**
-Lancer d'un dé équilibré : $S = \{1, 2, 3, 4, 5, 6\}$
-- $\mathbb{P}(\{i\}) = 1/6$ pour $i = 1, \ldots, 6$
-- $\mathbb{P}(\{2, 4, 6\}) = 1/6 + 1/6 + 1/6 = 1/2$ (nombre pair)
+## Mesure de probabilité : exemple (Wooclap: KFFPDJ)
+
+<br>
+
+**Exemple : Lancer d'un dé équilibré**
+
+::: {.incremental}
+- Espace d'événements :  $S = \{1, 2, 3, 4, 5, 6\}$.
+
+- $\mathbb{P}(\{i\}) = 1/6$ pour $i = 1, \ldots, 6$.
+
+- $\mathbb{P}(\{2, 4, 6\}) = 1/6 + 1/6 + 1/6 = 1/2$ (nombre pair).
 :::
+
+
+## Subjectivité de la probabilité
+
+<br>
+
+**Contexte :** Nombre de jours sans neige à Québec dans l'année
+
+- Espace d'événements : $S = \{0, 1, 2, \ldots, 365\}$.
+
+- Événement $E_1 = [0, 100]$ : "moins de 100 jours sans neige".
+
+- Événement $E_2 = [100, 200]$ : "entre 100 et 200 jours sans neige".
+
+
+**Perspective subjective :**
+
+- **Nouvel arrivant :** probabilités uniformes sur $S$.
+
+- **Québécois :** probabilités plus élevées pour $E_1$ que $E_2$.
+
+
 
 ## Indépendance et probabilité conditionnelle
 
-::: {.callout-warning}
-**Définitions**
+::: {.callout-important icon=false}
+## Définitions
 
-**Indépendance :** $E$ et $F$ sont indépendants si
-$$\mathbb{P}(E \cap F) = \mathbb{P}(E) \times \mathbb{P}(F)$$
-
-**Probabilité conditionnelle :**
-$$\mathbb{P}(E \mid F) = \frac{\mathbb{P}(E \cap F)}{\mathbb{P}(F)}$$
+**Indépendance :** Les événements $E$ et $F$ sont indépendants si
+$$\mathbb{P}(E \cap F) = \mathbb{P}(E) \times \mathbb{P}(F).$$
+**Probabilité conditionnelle :** La probabilité de $E$ sachant $F$ est
+$$\mathbb{P}(E \mid F) = \frac{\mathbb{P}(E \cap F)}{\mathbb{P}(F)}.$$
 :::
 
 ## Exemple : Cartes à jouer
 
-::: {.fragment}
-**Contexte :** Tirage d'une carte dans un jeu standard (52 cartes)
-- $E$ : "tirer un roi" → $\mathbb{P}(E) = 4/52 = 1/13$
-- $F$ : "tirer un cœur" → $\mathbb{P}(F) = 13/52 = 1/4$
-:::
+<br>
 
-::: {.fragment}
+**Contexte :** Tirage d'une carte dans un jeu standard (52 cartes)
+
+- $E$ : "tirer un roi" → $\mathbb{P}(E) = 4/52 = 1/13$.
+
+- $F$ : "tirer un cœur" → $\mathbb{P}(F) = 13/52 = 1/4$.
+
+
 **Test d'indépendance :**
-- $E \cap F$ : "tirer le roi de cœur" → $\mathbb{P}(E \cap F) = 1/52$
-- $\mathbb{P}(E) \times \mathbb{P}(F) = (1/13) \times (1/4) = 1/52$ ✓
+
+- $E \cap F$ : "tirer le roi de cœur" → $\mathbb{P}(E \cap F) = 1/52$.
+
+- $\mathbb{P}(E) \times \mathbb{P}(F) = (1/13) \times (1/4) = 1/52$.
 
 **Conclusion :** $E$ et $F$ sont indépendants !
-:::
-
-::: {.fragment}
-**Probabilité conditionnelle :**
-$\mathbb{P}(E \mid F) = \frac{1/52}{1/4} = \frac{1}{13} = \mathbb{P}(E)$ (cohérent avec l'indépendance)
-:::
 
 # Variables aléatoires
 
 ## Variables discrètes
 
-::: {.callout-warning}
-**Définition**
+<br>
 
-Variable aléatoire **discrète** : prend au plus un nombre dénombrable de valeurs
+::: {.callout-important icon=false}
+## Définition
 
-Distribution donnée par : $\mathbb{P}(X = x)$ pour chaque valeur $x$
+Une variable aléatoire **discrète** prend au plus un nombre dénombrable de valeurs.
+
+Sa distribution donnée par $\mathbb{P}(X = x)$ pour chaque valeur $x$.
+
 :::
 
-::: {.fragment}
+## Variables discrètes : exemple
+
+<br>
+
 **Exemple : Lancer de deux dés**
-- $X$ = somme des deux dés
-- $S = \{2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12\}$
-- $\mathbb{P}(X = 7) = 6/36 = 1/6$ (combinaisons : 1+6, 2+5, 3+4, 4+3, 5+2, 6+1)
-- $\mathbb{P}(X = 2) = 1/36$ (une seule combinaison : 1+1)
-:::
+
+- Variable aléatoire $X$ = somme des deux dés.
+
+- Espace d'événements : $S = \{2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12\}$.
+
+- $\mathbb{P}(X = 7) = 6/36 = 1/6$ (combinaisons : 1+6, 2+5, 3+4, 4+3, 5+2, 6+1).
+
+- $\mathbb{P}(X = 2) = 1/36$ (une seule combinaison : 1+1).
+
 
 ## Variables continues
 
-::: {.callout-warning}
-**Définition**
+::: {.callout-important icon=false}
+## Définition
 
-Variable aléatoire **continue** : probabilités données par des intégrales
+Les probabilités d'une variable aléatoire **continue** sont données par les intégrales
 $$\mathbb{P}(X \in A) = \int_A f(x) dx$$
-où $f(x) \geq 0$ et $\int_{-\infty}^{\infty} f(x) dx = 1$
+où $f(x) \geq 0$ et $\int_{-\infty}^{\infty} f(x) dx = 1$.
 
 **Important :** $\mathbb{P}(X = x) = 0$ pour tout $x$ fixé !
 :::
 
-## Exemple : Loi uniforme
+## Variables continues : exemple
 
-::: {.fragment}
 **Variable uniforme sur $[0, 1]$ :**
-$$f(x) = \begin{cases} 1 & \text{si } x \in [0, 1] \\ 0 & \text{sinon} \end{cases}$$
-:::
+$$f(x) = \begin{cases} 1 & \text{si } x \in [0, 1] \\ 0 & \text{sinon} \end{cases}.$$
 
-::: {.fragment}
 **Calculs de probabilités :**
-- $\mathbb{P}(X \leq 0.5) = \int_0^{0.5} 1 \, dx = 0.5$
-- $\mathbb{P}(0.2 < X < 0.7) = \int_{0.2}^{0.7} 1 \, dx = 0.5$
-- $\mathbb{P}(X = 0.3) = 0$ (point isolé)
-:::
+
+- $\mathbb{P}(X \leq 0.5) = \int_0^{0.5} 1 \, dx = 0.5$.
+
+- $\mathbb{P}(0.2 < X < 0.7) = \int_{0.2}^{0.7} 1 \, dx = 0.5$.
+
+- $\mathbb{P}(X = 0.3) = 0$ (point isolé).
+
 
 ## Espérance mathématique
 

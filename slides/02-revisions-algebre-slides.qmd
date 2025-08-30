@@ -27,7 +27,6 @@ format:
 
 3. Diagonalisation de matrices
 
-4. Applications pratiques
 
 # Propriétés matricielles
 
