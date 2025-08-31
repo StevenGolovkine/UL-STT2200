@@ -20,11 +20,17 @@ format:
 
 ## Plan de la présentation
 
-- Modéliser le hasard
-- Variables aléatoires
-- Vecteurs aléatoires
-- Estimation statistique
-- Applications pratiques
+<br>
+
+1. Modéliser le hasard
+
+2. Variables aléatoires
+
+3. Vecteurs aléatoires
+
+4. Estimation statistique
+
+5. Applications pratiques
 
 # Modéliser le hasard
 
@@ -200,57 +206,69 @@ $$f(x) = \begin{cases} 1 & \text{si } x \in [0, 1] \\ 0 & \text{sinon} \end{case
 
 ## Espérance mathématique
 
-::: {.callout-warning}
-**Définition**
+::: {.callout-important icon=false}
+## Définition
 
-L'**espérance** $\mathbb{E}(X) = \mu$ est la valeur moyenne de $X$
+L'**espérance** $\mathbb{E}(X)$ est la valeur moyenne de $X$.
 
-- **Cas discret :** $\mathbb{E}(X) = \sum_x x \cdot \mathbb{P}(X = x)$
-- **Cas continu :** $\mathbb{E}(X) = \int_{-\infty}^{\infty} x \cdot f(x) dx$
-:::
+- **Cas discret :** $\mathbb{E}(X) = \sum_x x \mathbb{P}(X = x)$.
 
-## Exemples de calculs d'espérance
+- **Cas continu :** $\mathbb{E}(X) = \int_{-\infty}^{\infty} x  f(x) dx$.
 
-::: {.fragment}
+::: 
+
+## Espérance mathématique : exemple (Wooclap: KFFPDJ)
+
 **Exemple 1 : Dé équilibré**
-$$\mathbb{E}(X) = 1 \cdot \frac{1}{6} + 2 \cdot \frac{1}{6} + \cdots + 6 \cdot \frac{1}{6} = \frac{21}{6} = 3.5$$
-:::
 
-::: {.fragment}
+. . .
+
+$$\mathbb{E}(X) = 1 \cdot \frac{1}{6} + 2 \cdot \frac{1}{6} + \cdots + 6 \cdot \frac{1}{6} = \frac{21}{6} = 3.5.$$
+
+. . .
+
 **Exemple 2 : Loi uniforme sur $[0, 1]$**
-$$\mathbb{E}(X) = \int_0^1 x \cdot 1 \, dx = \left[\frac{x^2}{2}\right]_0^1 = \frac{1}{2}$$
-:::
 
-::: {.fragment}
-**Exemple 3 : Somme de deux dés**
-Par linéarité : $\mathbb{E}(X_1 + X_2) = \mathbb{E}(X_1) + \mathbb{E}(X_2) = 3.5 + 3.5 = 7$
-:::
+. . .
+
+$$\mathbb{E}(X) = \int_0^1 x \cdot 1 \, dx = \left[\frac{x^2}{2}\right]_0^1 = \frac{1}{2}.$$
+
 
 ## Théorème de transfert
 
-::: {.callout-caution}
-**Théorème de transfert**
+::: {.callout-caution icon=false}
+## Théorème
 
 Pour une fonction $g$, l'espérance de $g(X)$ est :
 
-- **Cas discret :** $\mathbb{E}[g(X)] = \sum_x g(x) \mathbb{P}(X = x)$
-- **Cas continu :** $\mathbb{E}[g(X)] = \int_{-\infty}^{\infty} g(x) f(x) dx$
+- **Cas discret :** $\mathbb{E}[g(X)] = \sum_x g(x) \mathbb{P}(X = x)$.
+
+- **Cas continu :** $\mathbb{E}[g(X)] = \int_{-\infty}^{\infty} g(x) f(x) dx$.
+
 :::
 
-::: {.fragment}
-**Exemple pratique :**
-Pour $X$ uniforme sur $[0, 1]$ et $g(x) = x^2$ :
-$$\mathbb{E}[X^2] = \int_0^1 x^2 \cdot 1 \, dx = \left[\frac{x^3}{3}\right]_0^1 = \frac{1}{3}$$
-:::
+## Théorème de transfert : exemple (Wooclap: KFFPDJ)
+
+<br>
+
+Pour $X$ suivant une loi uniforme sur $[0, 1]$ et $g(x) = x^2$ :
+
+. . .
+
+$$\mathbb{E}[X^2] = \int_0^1 x^2 \cdot 1 \, dx = \left[\frac{x^3}{3}\right]_0^1 = \frac{1}{3}.$$
+
 
 ## Variance et écart-type
 
-::: {.callout-warning}
-**Définitions**
+<br>
+
+::: {.callout-important icon=false}
+## Définitions
 
 **Variance :** $\text{Var}(X) = \mathbb{E}[(X - \mathbb{E}(X))^2] = \mathbb{E}[X^2] - \mathbb{E}[X]^2$
 
 **Écart-type :** $\sigma(X) = \sqrt{\text{Var}(X)}$
+
 :::
 
 ::: {.fragment}
