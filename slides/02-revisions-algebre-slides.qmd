@@ -3,7 +3,7 @@ title: "Révisions"
 subtitle: "Algèbre linéaire"
 author: "Steven Golovkine"
 lang: fr
-date: today
+date: "02 sept. 2025"
 date-format: "DD MMM YYYY"
 slide-number: c/t
 title-logo: ../include/logo-ul.png

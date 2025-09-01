@@ -3,7 +3,7 @@ title: "Révisions"
 subtitle: "Algorithmique / Programmation"
 author: "Steven Golovkine"
 lang: fr
-date: today
+date: "05 sept. 2025"
 date-format: "DD MMM YYYY"
 slide-number: c/t
 title-logo: ../include/logo-ul.png
@@ -19,20 +19,23 @@ format:
 
 ## Philosophie du cours
 
-::: {.callout-important}
-**Liberté de choix**
+::: {.callout-important icon=false}
+## Liberté de choix
 
-Ce cours ne impose **aucun langage spécifique** !
+Ce cours n'impose **aucun langage spécifique** !
 
 Vous êtes libres de choisir :
-- R, Python, Julia, ou même SAS
-- Le langage qui vous convient le mieux
-- Celui avec lequel vous êtes le plus à l'aise
+
+- R, Python, Julia, ou même SAS.
+
+- Le langage qui vous convient le mieux.
+
 :::
 
-::: {.fragment}
-**Objectif commun :** Code lisible, compréhensible et réutilisable
-:::
+. . .
+
+**Objectif commun :** Code lisible, compréhensible et réutilisable.
+
 
 ## Plan de la présentation
 
