@@ -998,7 +998,7 @@
     "href": "slides/02-revisions-programming-slides.html#philosophie-du-cours",
     "title": "Révisions",
     "section": "Philosophie du cours",
-    "text": "Philosophie du cours\n\n\n\n\n\n\nImportant\n\n\nLiberté de choix\nCe cours ne impose aucun langage spécifique !\nVous êtes libres de choisir : - R, Python, Julia, ou même SAS - Le langage qui vous convient le mieux - Celui avec lequel vous êtes le plus à l’aise\n\n\n\n\nObjectif commun : Code lisible, compréhensible et réutilisable"
+    "text": "Philosophie du cours\n\n\n\nLiberté de choix\n\n\nCe cours n’impose aucun langage spécifique !\nVous êtes libres de choisir :\n\nR, Python, Julia, ou même SAS.\nLe langage qui vous convient le mieux.\n\n\n\n\n\nObjectif commun : Code lisible, compréhensible et réutilisable."
   },
   {
     "objectID": "slides/02-revisions-programming-slides.html#plan-de-la-présentation",
@@ -3634,7 +3634,7 @@
     "href": "slides/02-revisions-proba-slides.html#plan-de-la-présentation",
     "title": "Révisions",
     "section": "Plan de la présentation",
-    "text": "Plan de la présentation\n\n\nModéliser le hasard\nVariables aléatoires\nVecteurs aléatoires\nEstimation statistique\nApplications pratiques"
+    "text": "Plan de la présentation\n\n\nModéliser le hasard\nVariables aléatoires\nVecteurs aléatoires\nEstimation statistique"
   },
   {
     "objectID": "slides/02-revisions-proba-slides.html#espace-dévénements-et-événements",
@@ -3746,139 +3746,118 @@
     "href": "slides/02-revisions-proba-slides.html#variance-et-écart-type",
     "title": "Révisions",
     "section": "Variance et écart-type",
-    "text": "Variance et écart-type\n\n\n\n\nDéfinitions\n\n\nVariance : \\(\\text{Var}(X) = \\mathbb{E}[(X - \\mathbb{E}(X))^2] = \\mathbb{E}[X^2] - \\mathbb{E}[X]^2\\)\nÉcart-type : \\(\\sigma(X) = \\sqrt{\\text{Var}(X)}\\)\n\n\n\n\nExemple : Loi uniforme sur \\([0, 1]\\) - \\(\\mathbb{E}(X) = 1/2\\) - \\(\\mathbb{E}(X^2) = 1/3\\) - \\(\\text{Var}(X) = 1/3 - (1/2)^2 = 1/3 - 1/4 = 1/12\\) - \\(\\sigma(X) = \\sqrt{1/12} \\approx 0.289\\)"
+    "text": "Variance et écart-type\n\n\n\n\nDéfinitions\n\n\nVariance : \\(\\text{Var}(X) = \\mathbb{E}[(X - \\mathbb{E}(X))^2] = \\mathbb{E}[X^2] - \\mathbb{E}[X]^2\\)\nÉcart-type : \\(\\sigma(X) = \\sqrt{\\text{Var}(X)}\\)"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#variance-et-écart-type-exemple",
+    "href": "slides/02-revisions-proba-slides.html#variance-et-écart-type-exemple",
+    "title": "Révisions",
+    "section": "Variance et écart-type : exemple",
+    "text": "Variance et écart-type : exemple\n\nLoi uniforme sur \\([0, 1]\\)\n\n\\(\\mathbb{E}(X) = 1/2\\)\n\\(\\mathbb{E}(X^2) = 1/3\\)\n\\(\\text{Var}(X) = 1/3 - (1/2)^2 = 1/3 - 1/4 = 1/12\\)\n\\(\\sigma(X) = \\sqrt{1/12} \\approx 0.289\\)"
   },
   {
     "objectID": "slides/02-revisions-proba-slides.html#fonction-de-répartition",
     "href": "slides/02-revisions-proba-slides.html#fonction-de-répartition",
     "title": "Révisions",
     "section": "Fonction de répartition",
-    "text": "Fonction de répartition\n\n\n\n\n\n\nAvertissement\n\n\nDéfinition\nLa fonction de répartition est : \\[F(t) = \\mathbb{P}(X \\leq t)\\]\n\n\n\n\nExemple : Loi uniforme sur \\([0, 1]\\) \\[F(t) = \\begin{cases}\n0 & \\text{si } t &lt; 0 \\\\\nt & \\text{si } 0 \\leq t \\leq 1 \\\\\n1 & \\text{si } t &gt; 1\n\\end{cases}\\]\nVérification : \\(\\mathbb{P}(0.2 &lt; X \\leq 0.7) = F(0.7) - F(0.2) = 0.7 - 0.2 = 0.5\\) ✓"
+    "text": "Fonction de répartition\n\n\n\n\nDéfinition\n\n\nLa fonction de répartition est donnée par : \\[F(t) = \\mathbb{P}(X \\leq t).\\]"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#fonction-de-répartition-exemple",
+    "href": "slides/02-revisions-proba-slides.html#fonction-de-répartition-exemple",
+    "title": "Révisions",
+    "section": "Fonction de répartition : exemple",
+    "text": "Fonction de répartition : exemple\nLoi uniforme sur \\([0, 1]\\)\n\\[F(t) = \\begin{cases}\n0 & \\text{si } t &lt; 0 \\\\\nt & \\text{si } 0 \\leq t \\leq 1 \\\\\n1 & \\text{si } t &gt; 1\n\\end{cases}.\\]\nCalcul : \\(\\mathbb{P}(0.2 &lt; X \\leq 0.7) = F(0.7) - F(0.2) = 0.7 - 0.2 = 0.5\\)."
   },
   {
     "objectID": "slides/02-revisions-proba-slides.html#densités-marginales-et-indépendance",
     "href": "slides/02-revisions-proba-slides.html#densités-marginales-et-indépendance",
     "title": "Révisions",
     "section": "Densités marginales et indépendance",
-    "text": "Densités marginales et indépendance\n\n\n\n\n\n\nAvertissement\n\n\nVecteur aléatoire\n\\(X = (X_1, X_2)\\) avec densité conjointe \\(f_X(x, y)\\)\nDensités marginales : - \\(f_{X_1}(x) = \\int_{-\\infty}^{\\infty} f_X(x, y) dy\\) - \\(f_{X_2}(y) = \\int_{-\\infty}^{\\infty} f_X(x, y) dx\\)\nIndépendance : \\(f_X(x, y) = f_{X_1}(x) \\cdot f_{X_2}(y)\\)"
+    "text": "Densités marginales et indépendance\nVecteur aléatoire : \\(X = (X_1, X_2)^\\top\\) avec densité conjointe \\(f_X(x, y)\\).\nDensités marginales :\n\n\\(f_{X_1}(x) = \\int_{-\\infty}^{\\infty} f_X(x, y) dy\\)\n\\(f_{X_2}(y) = \\int_{-\\infty}^{\\infty} f_X(x, y) dx\\)\n\nIndépendance : \\(f_X(x, y) = f_{X_1}(x) \\cdot f_{X_2}(y)\\)."
   },
   {
     "objectID": "slides/02-revisions-proba-slides.html#exemple-variables-indépendantes",
     "href": "slides/02-revisions-proba-slides.html#exemple-variables-indépendantes",
     "title": "Révisions",
     "section": "Exemple : Variables indépendantes",
-    "text": "Exemple : Variables indépendantes\n\nContexte : \\(X_1\\) et \\(X_2\\) uniformes indépendantes sur \\([0, 1]\\)\n\\[f_X(x, y) = \\begin{cases} 1 & \\text{si } (x,y) \\in [0,1]^2 \\\\ 0 & \\text{sinon} \\end{cases}\\]\n\n\nCalculs de probabilités : - \\(\\mathbb{P}(X_1 \\leq 0.5, X_2 \\leq 0.8) = \\int_0^{0.5} \\int_0^{0.8} 1 \\, dy \\, dx = 0.5 \\times 0.8 = 0.4\\) - \\(\\mathbb{P}(X_1 + X_2 \\leq 1) = \\int \\int_{x+y \\leq 1} 1 \\, dy \\, dx = 0.5\\) (aire du triangle)"
+    "text": "Exemple : Variables indépendantes\nContexte : Soient \\(X_1\\) et \\(X_2\\) uniformes indépendantes sur \\([0, 1]\\).\n\\[f_X(x, y) = \\begin{cases} 1 & \\text{si } (x,y) \\in [0,1]^2 \\\\ 0 & \\text{sinon} \\end{cases}\\]\n\nCalculs de probabilités :\n\n\\(\\mathbb{P}(X_1 \\leq 0.5, X_2 \\leq 0.8) = \\int_0^{0.5} \\int_0^{0.8} 1 \\, dy \\, dx = 0.5 \\times 0.8 = 0.4\\).\n\\(\\mathbb{P}(X_1 + X_2 \\leq 1) = \\int \\int_{x+y \\leq 1} 1 \\, dy \\, dx = 0.5\\) (aire du triangle)."
   },
   {
     "objectID": "slides/02-revisions-proba-slides.html#loi-normale-multivariée",
     "href": "slides/02-revisions-proba-slides.html#loi-normale-multivariée",
     "title": "Révisions",
     "section": "Loi normale multivariée",
-    "text": "Loi normale multivariée\n\n\n\n\n\n\nNote\n\n\nLoi normale \\(p\\)-dimensionnelle\n\\[f_X(x) = \\frac{1}{(2\\pi)^{p/2}} \\frac{1}{(\\det \\Sigma)^{1/2}} \\exp\\left\\{-\\frac{1}{2}(x-\\mu)^T \\Sigma^{-1} (x-\\mu)\\right\\}\\]\nNotation : \\(X \\sim \\mathcal{N}_p(\\mu, \\Sigma)\\)"
+    "text": "Loi normale multivariée\n\n\n\nLoi normale \\(p\\)-dimensionnelle\n\n\nSoit \\(X\\) un vecteur aléatoire suivant une loi normale \\(p\\)-dimensionnelle. Sa densité est donnée par : \\[f_X(x) = \\frac{1}{(2\\pi)^{p/2}} \\frac{1}{(\\det \\Sigma)^{1/2}} \\exp\\left\\{-\\frac{1}{2}(x-\\mu)^T \\Sigma^{-1} (x-\\mu)\\right\\}.\\]\nNotation : \\(X \\sim \\mathcal{N}_p(\\mu, \\Sigma)\\)."
   },
   {
     "objectID": "slides/02-revisions-proba-slides.html#exemple-loi-normale-bivariée",
     "href": "slides/02-revisions-proba-slides.html#exemple-loi-normale-bivariée",
     "title": "Révisions",
     "section": "Exemple : Loi normale bivariée",
-    "text": "Exemple : Loi normale bivariée\n\nCas simple : \\(X \\sim \\mathcal{N}_2(\\mu, I_2)\\) avec \\(\\mu = \\begin{pmatrix} 0 \\\\ 0 \\end{pmatrix}\\)\n\\[f_X(x, y) = \\frac{1}{2\\pi} \\exp\\left\\{-\\frac{x^2 + y^2}{2}\\right\\}\\]\n\n\nPropriétés : - Les courbes de niveau sont des cercles centrés à l’origine - \\(X_1\\) et \\(X_2\\) sont indépendantes (car \\(\\Sigma = I_2\\)) - \\(\\mathbb{E}(X_1) = \\mathbb{E}(X_2) = 0\\), \\(\\text{Var}(X_1) = \\text{Var}(X_2) = 1\\)"
+    "text": "Exemple : Loi normale bivariée\nCas simple : \\(X \\sim \\mathcal{N}_2(\\mu, I_2)\\) avec \\(\\mu = \\begin{pmatrix} 0 \\\\ 0 \\end{pmatrix}\\)\n\\[f_X(x, y) = \\frac{1}{2\\pi} \\exp\\left\\{-\\frac{x^2 + y^2}{2}\\right\\}\\]"
   },
   {
     "objectID": "slides/02-revisions-proba-slides.html#covariance-et-corrélation",
     "href": "slides/02-revisions-proba-slides.html#covariance-et-corrélation",
     "title": "Révisions",
     "section": "Covariance et corrélation",
-    "text": "Covariance et corrélation\n\n\n\n\n\n\nAvertissement\n\n\nDéfinitions\nCovariance : \\[\\text{Cov}(X_1, X_2) = \\mathbb{E}[(X_1 - \\mathbb{E}(X_1))(X_2 - \\mathbb{E}(X_2))]\\]\nCorrélation : \\[\\text{Corr}(X_1, X_2) = \\frac{\\text{Cov}(X_1, X_2)}{\\sigma(X_1) \\sigma(X_2)}\\]"
+    "text": "Covariance et corrélation\n\n\n\nDéfinitions\n\n\nSoit \\(X = (X_1, X_2)^\\top\\) un vecteur aléatoire.\nCovariance : \\(\\text{Cov}(X_1, X_2) = \\mathbb{E}[(X_1 - \\mathbb{E}(X_1))(X_2 - \\mathbb{E}(X_2))].\\)\nCorrélation : \\(\\text{Corr}(X_1, X_2) = \\frac{\\text{Cov}(X_1, X_2)}{\\sigma(X_1) \\sigma(X_2)}.\\)"
   },
   {
     "objectID": "slides/02-revisions-proba-slides.html#interprétation-des-signes",
     "href": "slides/02-revisions-proba-slides.html#interprétation-des-signes",
     "title": "Révisions",
     "section": "Interprétation des signes",
-    "text": "Interprétation des signes\n\nCorrélation positive (\\(&gt; 0\\)) : \\(X_1 \\uparrow \\Rightarrow X_2 \\uparrow\\)\nCorrélation négative (\\(&lt; 0\\)) : \\(X_1 \\uparrow \\Rightarrow X_2 \\downarrow\\)\nCorrélation nulle (\\(= 0\\)) : pas de relation linéaire (variables orthogonales)\n\n\nExemple numérique : Données : \\((1,2)\\), \\((2,3)\\), \\((3,5)\\), \\((4,6)\\)\n\n\\(\\mathbb{E}(X_1) = 2.5\\), \\(\\mathbb{E}(X_2) = 4\\)\n\\(\\text{Cov}(X_1, X_2) = \\mathbb{E}(X_1 X_2) - \\mathbb{E}(X_1)\\mathbb{E}(X_2) = 11.5 - 10 = 1.5 &gt; 0\\)\n\nInterprétation : relation positive entre \\(X_1\\) et \\(X_2\\)"
+    "text": "Interprétation des signes\n\nCorrélation positive (\\(&gt; 0\\)) : \\(X_1 \\nearrow ~\\Rightarrow ~ X_2 \\nearrow\\).\nCorrélation négative (\\(&lt; 0\\)) : \\(X_1 \\searrow ~\\Rightarrow ~ X_2 \\searrow\\).\nCorrélation nulle (\\(= 0\\)) : pas de relation linéaire (variables orthogonales)"
+  },
+  {
+    "objectID": "slides/02-revisions-proba-slides.html#interprétation-des-signes-exemple-wooclap-kffpdj",
+    "href": "slides/02-revisions-proba-slides.html#interprétation-des-signes-exemple-wooclap-kffpdj",
+    "title": "Révisions",
+    "section": "Interprétation des signes : exemple (Wooclap: KFFPDJ)",
+    "text": "Interprétation des signes : exemple (Wooclap: KFFPDJ)\nSoit \\(X = (X_1, X_2, X_3)^\\top\\) avec \\[\\text{Var}(X) = \\begin{pmatrix} 4 & 0 & 3 \\\\ 0 & 2 & 0 \\\\ 3 & 0 & 9 \\end{pmatrix}.\\] Calculer \\(\\text{Corr}(X_1, X_3)\\).\n\n\\[\\text{Corr}(X_1, X_3) = \\frac{\\text{Cov}(X_1, X_3)}{\\sigma(X_1)\\sigma(X_3)}\n= \\frac{3}{\\sqrt{4} \\times \\sqrt{9}} = \\frac{1}{2}.\\]"
   },
   {
     "objectID": "slides/02-revisions-proba-slides.html#propriétés-de-la-covariance",
     "href": "slides/02-revisions-proba-slides.html#propriétés-de-la-covariance",
     "title": "Révisions",
     "section": "Propriétés de la covariance",
-    "text": "Propriétés de la covariance\n\n\n\n\n\n\nImportant\n\n\nPropriétés essentielles\n\n\\(\\text{Cov}(X_1, X_2) = \\mathbb{E}(X_1 X_2) - \\mathbb{E}(X_1)\\mathbb{E}(X_2)\\)\n\\(\\text{Cov}(X_1, X_2) = \\text{Cov}(X_2, X_1)\\) (symétrie)\n\\(\\text{Cov}(X_1 + \\lambda Y_1, X_2) = \\text{Cov}(X_1, X_2) + \\lambda \\text{Cov}(Y_1, X_2)\\) (linéarité)\n\n\n\n\n\nExemple de linéarité : \\[\\text{Cov}(2X_1 + 3Y_1, X_2) = 2\\text{Cov}(X_1, X_2) + 3\\text{Cov}(Y_1, X_2)\\]"
+    "text": "Propriétés de la covariance\n\n\n\nPropriétés\n\n\n\n\\(\\text{Cov}(X_1, X_2) = \\mathbb{E}(X_1 X_2) - \\mathbb{E}(X_1)\\mathbb{E}(X_2)\\).\n\\(\\text{Cov}(X_1, X_2) = \\text{Cov}(X_2, X_1)\\) (symétrie).\n\\(\\text{Cov}(X_1 + \\lambda Y_1, X_2) = \\text{Cov}(X_1, X_2) + \\lambda \\text{Cov}(Y_1, X_2)\\) (linéarité)."
   },
   {
     "objectID": "slides/02-revisions-proba-slides.html#le-problème-de-lestimation",
     "href": "slides/02-revisions-proba-slides.html#le-problème-de-lestimation",
     "title": "Révisions",
     "section": "Le problème de l’estimation",
-    "text": "Le problème de l’estimation\n\nRéalité : On ne connaît pas exactement la distribution\nDonnées : Échantillon \\(x_1, x_2, \\ldots, x_n\\) (observations)\nObjectif : Estimer les paramètres inconnus (\\(\\mu\\), \\(\\Sigma\\), etc.)"
+    "text": "Le problème de l’estimation\n\n\nRéalité : On ne connaît pas exactement la distribution de \\(X\\).\nDonnées : Échantillon \\(x_1, x_2, \\ldots, x_n\\) (observations).\nObjectif : Estimer les paramètres inconnus (\\(\\mu\\), \\(\\Sigma\\), etc.)."
   },
   {
     "objectID": "slides/02-revisions-proba-slides.html#estimation-de-la-moyenne",
     "href": "slides/02-revisions-proba-slides.html#estimation-de-la-moyenne",
     "title": "Révisions",
     "section": "Estimation de la moyenne",
-    "text": "Estimation de la moyenne\n\n\n\n\n\n\nAvertissement\n\n\nEstimateur de la moyenne \\[\\widehat{\\mu} = \\overline{X} = \\frac{1}{n} \\sum_{i=1}^n x_i\\]\n\n\n\n\nExemple pratique : Tailles d’étudiants (cm) : 170, 175, 168, 180, 172\n\\(\\widehat{\\mu} = \\frac{170 + 175 + 168 + 180 + 172}{5} = \\frac{865}{5} = 173\\) cm"
+    "text": "Estimation de la moyenne\n\n\n\nEstimateur de la moyenne\n\n\n\\[\\widehat{\\mu} = \\overline{X} = \\frac{1}{n} \\sum_{i=1}^n x_i.\\]\n\n\n\n\nExemple pratique : Tailles en cm : 170, 175, 168, 180, 172\n\\[\\widehat{\\mu} = \\frac{170 + 175 + 168 + 180 + 172}{5} = \\frac{865}{5} = 173 \\text{cm.}\\]"
   },
   {
     "objectID": "slides/02-revisions-proba-slides.html#estimation-de-la-variance",
     "href": "slides/02-revisions-proba-slides.html#estimation-de-la-variance",
     "title": "Révisions",
     "section": "Estimation de la variance",
-    "text": "Estimation de la variance\n\n\n\n\n\n\nAvertissement\n\n\nEstimateur de la variance \\[\\widehat{\\Sigma} = \\frac{1}{n-1} \\sum_{i=1}^n (x_i - \\widehat{\\mu})(x_i - \\widehat{\\mu})^T\\]\nPourquoi \\(n-1\\) ? Correction du biais dû à l’utilisation de \\(\\widehat{\\mu}\\)"
+    "text": "Estimation de la variance\n\n\n\nEstimateur de la variance\n\n\n\\[\\widehat{\\Sigma} = \\frac{1}{n-1} \\sum_{i=1}^n (x_i - \\widehat{\\mu})(x_i - \\widehat{\\mu})^T\\]\nPourquoi diviser par \\(n-1\\) ? Correction du biais dû à l’utilisation de \\(\\widehat{\\mu}\\)."
   },
   {
     "objectID": "slides/02-revisions-proba-slides.html#exemple-complet-de-calcul",
     "href": "slides/02-revisions-proba-slides.html#exemple-complet-de-calcul",
     "title": "Révisions",
     "section": "Exemple complet de calcul",
-    "text": "Exemple complet de calcul\n\nDonnées : 170, 175, 168, 180, 172 (tailles en cm) - \\(\\widehat{\\mu} = 173\\) - Écarts au carré : \\((170-173)^2 = 9\\), \\((175-173)^2 = 4\\), \\((168-173)^2 = 25\\), \\((180-173)^2 = 49\\), \\((172-173)^2 = 1\\)\n\n\nVariance estimée : \\[\\widehat{\\sigma}^2 = \\frac{9 + 4 + 25 + 49 + 1}{5-1} = \\frac{88}{4} = 22\\]\nÉcart-type estimé : \\(\\widehat{\\sigma} = \\sqrt{22} \\approx 4.69\\) cm"
+    "text": "Exemple complet de calcul\nDonnées : 170, 175, 168, 180, 172 (tailles en cm)\n\n\\(\\widehat{\\mu} = 173\\)\nÉcarts au carré : \\((170-173)^2 = 9\\), \\((175-173)^2 = 4\\), \\((168-173)^2 = 25\\), \\((180-173)^2 = 49\\), \\((172-173)^2 = 1\\).\n\nVariance estimée :\n\\[\\widehat{\\sigma^2} = \\frac{9 + 4 + 25 + 49 + 1}{5-1} = \\frac{88}{4} = 22.\\]"
   },
   {
     "objectID": "slides/02-revisions-proba-slides.html#estimation-de-la-corrélation",
     "href": "slides/02-revisions-proba-slides.html#estimation-de-la-corrélation",
     "title": "Révisions",
     "section": "Estimation de la corrélation",
-    "text": "Estimation de la corrélation\n\nMatrice de corrélation estimée : \\[\\widehat{R} = D^{-1} \\widehat{\\Sigma} D^{-1}\\] où \\(D\\) est la matrice des écarts-types\n\n\nExemple 2D : Si \\(\\widehat{\\Sigma} = \\begin{pmatrix} 4 & 1.5 \\\\ 1.5 & 9 \\end{pmatrix}\\)\nAlors \\(D = \\begin{pmatrix} 2 & 0 \\\\ 0 & 3 \\end{pmatrix}\\) et \\(\\widehat{R} = \\begin{pmatrix} 1 & 0.25 \\\\ 0.25 & 1 \\end{pmatrix}\\)\nInterprétation : corrélation faible positive (0.25) entre les variables"
-  },
-  {
-    "objectID": "slides/02-revisions-proba-slides.html#exemple-analyse-de-données-météorologiques",
-    "href": "slides/02-revisions-proba-slides.html#exemple-analyse-de-données-météorologiques",
-    "title": "Révisions",
-    "section": "Exemple : Analyse de données météorologiques",
-    "text": "Exemple : Analyse de données météorologiques\n\nContexte : Température et humidité quotidiennes - Échantillon : 30 jours de mesures - \\(X_1\\) = température (°C), \\(X_2\\) = humidité (%)\n\n\nRésultats estimés : - \\(\\widehat{\\mu} = \\begin{pmatrix} 22 \\\\ 65 \\end{pmatrix}\\) (température moyenne : 22°C, humidité : 65%) - Corrélation estimée : \\(\\widehat{\\rho} = -0.6\\) (négative forte)\nInterprétation : Quand la température augmente, l’humidité tend à diminuer"
-  },
-  {
-    "objectID": "slides/02-revisions-proba-slides.html#application-contrôle-qualité",
-    "href": "slides/02-revisions-proba-slides.html#application-contrôle-qualité",
-    "title": "Révisions",
-    "section": "Application : Contrôle qualité",
-    "text": "Application : Contrôle qualité\n\nContexte : Production de pièces manufacturées - \\(X\\) = diamètre des pièces (mm) - Spécification : \\(\\mu = 50\\) mm, \\(\\sigma = 0.1\\) mm\n\n\nÉchantillon de contrôle : 49.9, 50.1, 49.8, 50.2, 50.0\n\\(\\widehat{\\mu} = 50.0\\) mm ✓ (dans les spécifications)\n\\(\\widehat{\\sigma} = 0.15\\) mm ⚠️ (variabilité plus élevée que prévu)\nAction : Ajuster le processus de production"
-  },
-  {
-    "objectID": "slides/02-revisions-proba-slides.html#points-clés-à-retenir",
-    "href": "slides/02-revisions-proba-slides.html#points-clés-à-retenir",
-    "title": "Révisions",
-    "section": "Points clés à retenir",
-    "text": "Points clés à retenir\n\nProbabilités : modélisation de l’incertitude\nVariables aléatoires : quantification des phénomènes aléatoires\nEspérance et variance : caractéristiques centrales des distributions\nCovariance/corrélation : mesure de dépendance linéaire\nEstimation : inférence à partir d’échantillons"
-  },
-  {
-    "objectID": "slides/02-revisions-proba-slides.html#applications-en-apprentissage-automatique",
-    "href": "slides/02-revisions-proba-slides.html#applications-en-apprentissage-automatique",
-    "title": "Révisions",
-    "section": "Applications en apprentissage automatique",
-    "text": "Applications en apprentissage automatique\n\nClassification probabiliste (Bayes naïf, régression logistique)\nRéduction de dimension (ACP via matrices de covariance)\nApprentissage de paramètres (maximum de vraisemblance)\nIncertitude en prédiction (intervalles de confiance)\nAnalyse de données (statistiques descriptives)"
-  },
-  {
-    "objectID": "slides/02-revisions-proba-slides.html#questions",
-    "href": "slides/02-revisions-proba-slides.html#questions",
-    "title": "Révisions",
-    "section": "Questions ?",
-    "text": "Questions ?\nRessources recommandées : - Cours STT-1000 - Wasserman (2010) (anglais) - Delmas (2013) (français)"
-  },
-  {
-    "objectID": "slides/02-revisions-proba-slides.html#references",
-    "href": "slides/02-revisions-proba-slides.html#references",
-    "title": "Révisions",
-    "section": "",
-    "text": "Merci pour votre attention !\n\n\n\n\nDelmas, Jean-François. 2013. Introduction au calcul des probabilités et à la statistique : exercices, problèmes et corrections (2e édition). Les Presses de l’ENSTA.\n\n\nWasserman, Larry. 2010. All of Statistics: A Concise Course in Statistical Inference. Springer Publishing Company, Incorporated."
+    "text": "Estimation de la corrélation\nMatrice de corrélation estimée : \\(\\widehat{R} = D^{-1} \\widehat{\\Sigma} D^{-1}\\) où \\(D\\) est la matrice diagonale des écarts-types.\n\nExemple 2D : Si \\(\\widehat{\\Sigma} = \\begin{pmatrix} 4 & 1.5 \\\\ 1.5 & 9 \\end{pmatrix}\\). Alors,\n\\[D = \\begin{pmatrix} 2 & 0 \\\\ 0 & 3 \\end{pmatrix}, \\quad\\text{et}\\quad\\widehat{R} = \\begin{pmatrix} 1 & 0.25 \\\\ 0.25 & 1 \\end{pmatrix}.\\]\nInterprétation : corrélation faible positive (0.25) entre les variables."
   }
 ]

@@ -30,27 +30,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for citations */
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-      margin-bottom: 0em;
-    }
-    .hanging-indent div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }  </style>
+  </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-f2e22a824a4b084df838f71b230e69aa.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -165,7 +145,7 @@ Steven Golovkine
 </div>
 </div>
 
-  <p class="date">01 sept. 2025</p>
+  <p class="date">05 sept. 2025</p>
   <figure>
     <center>
       <img src="../include/logo-ul.png" alt="logo" width="40%">
@@ -180,7 +160,6 @@ Steven Golovkine
 <li><p>Variables aléatoires</p></li>
 <li><p>Vecteurs aléatoires</p></li>
 <li><p>Estimation statistique</p></li>
-<li><p>Applications pratiques</p></li>
 </ol>
 </section>
 <section>
@@ -416,34 +395,41 @@ Steven Golovkine
 </div>
 </div>
 </div>
-<div class="fragment">
-<p><strong>Exemple : Loi uniforme sur <span class="math inline">\([0, 1]\)</span></strong> - <span class="math inline">\(\mathbb{E}(X) = 1/2\)</span> - <span class="math inline">\(\mathbb{E}(X^2) = 1/3\)</span> - <span class="math inline">\(\text{Var}(X) = 1/3 - (1/2)^2 = 1/3 - 1/4 = 1/12\)</span> - <span class="math inline">\(\sigma(X) = \sqrt{1/12} \approx 0.289\)</span></p>
-</div>
+</section>
+<section id="variance-et-écart-type-exemple" class="slide level2">
+<h2>Variance et écart-type : exemple</h2>
+<p><br></p>
+<p><strong>Loi uniforme sur <span class="math inline">\([0, 1]\)</span></strong></p>
+<ul>
+<li><p><span class="math inline">\(\mathbb{E}(X) = 1/2\)</span></p></li>
+<li><p><span class="math inline">\(\mathbb{E}(X^2) = 1/3\)</span></p></li>
+<li><p><span class="math inline">\(\text{Var}(X) = 1/3 - (1/2)^2 = 1/3 - 1/4 = 1/12\)</span></p></li>
+<li><p><span class="math inline">\(\sigma(X) = \sqrt{1/12} \approx 0.289\)</span></p></li>
+</ul>
 </section>
 <section id="fonction-de-répartition" class="slide level2">
 <h2>Fonction de répartition</h2>
-<div class="callout callout-warning callout-titled callout-style-default">
+<p><br></p>
+<div class="callout callout-important no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Avertissement</strong></p>
+<p><strong>Définition</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Définition</strong></p>
-<p>La <strong>fonction de répartition</strong> est : <span class="math display">\[F(t) = \mathbb{P}(X \leq t)\]</span></p>
+<p>La <strong>fonction de répartition</strong> est donnée par : <span class="math display">\[F(t) = \mathbb{P}(X \leq t).\]</span></p>
 </div>
 </div>
 </div>
-<div class="fragment">
-<p><strong>Exemple : Loi uniforme sur <span class="math inline">\([0, 1]\)</span></strong> <span class="math display">\[F(t) = \begin{cases}
+</section>
+<section id="fonction-de-répartition-exemple" class="slide level2">
+<h2>Fonction de répartition : exemple</h2>
+<p><strong>Loi uniforme sur <span class="math inline">\([0, 1]\)</span></strong></p>
+<p><span class="math display">\[F(t) = \begin{cases}
 0 &amp; \text{si } t &lt; 0 \\
 t &amp; \text{si } 0 \leq t \leq 1 \\
 1 &amp; \text{si } t &gt; 1
-\end{cases}\]</span></p>
-<p><strong>Vérification :</strong> <span class="math inline">\(\mathbb{P}(0.2 &lt; X \leq 0.7) = F(0.7) - F(0.2) = 0.7 - 0.2 = 0.5\)</span> ✓</p>
-</div>
+\end{cases}.\]</span></p>
+<p><strong>Calcul :</strong> <span class="math inline">\(\mathbb{P}(0.2 &lt; X \leq 0.7) = F(0.7) - F(0.2) = 0.7 - 0.2 = 0.5\)</span>.</p>
 </section></section>
 <section>
 <section id="vecteurs-aléatoires" class="title-slide slide level1 center">
@@ -452,75 +438,56 @@ t &amp; \text{si } 0 \leq t \leq 1 \\
 </section>
 <section id="densités-marginales-et-indépendance" class="slide level2">
 <h2>Densités marginales et indépendance</h2>
-<div class="callout callout-warning callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Avertissement</strong></p>
-</div>
-<div class="callout-content">
-<p><strong>Vecteur aléatoire</strong></p>
-<p><span class="math inline">\(X = (X_1, X_2)\)</span> avec densité conjointe <span class="math inline">\(f_X(x, y)\)</span></p>
-<p><strong>Densités marginales :</strong> - <span class="math inline">\(f_{X_1}(x) = \int_{-\infty}^{\infty} f_X(x, y) dy\)</span> - <span class="math inline">\(f_{X_2}(y) = \int_{-\infty}^{\infty} f_X(x, y) dx\)</span></p>
-<p><strong>Indépendance :</strong> <span class="math inline">\(f_X(x, y) = f_{X_1}(x) \cdot f_{X_2}(y)\)</span></p>
-</div>
-</div>
-</div>
+<p><strong>Vecteur aléatoire</strong> : <span class="math inline">\(X = (X_1, X_2)^\top\)</span> avec densité conjointe <span class="math inline">\(f_X(x, y)\)</span>.</p>
+<p><strong>Densités marginales :</strong></p>
+<ul>
+<li><p><span class="math inline">\(f_{X_1}(x) = \int_{-\infty}^{\infty} f_X(x, y) dy\)</span></p></li>
+<li><p><span class="math inline">\(f_{X_2}(y) = \int_{-\infty}^{\infty} f_X(x, y) dx\)</span></p></li>
+</ul>
+<p><strong>Indépendance :</strong> <span class="math inline">\(f_X(x, y) = f_{X_1}(x) \cdot f_{X_2}(y)\)</span>.</p>
 </section>
 <section id="exemple-variables-indépendantes" class="slide level2">
 <h2>Exemple : Variables indépendantes</h2>
-<div class="fragment">
-<p><strong>Contexte :</strong> <span class="math inline">\(X_1\)</span> et <span class="math inline">\(X_2\)</span> uniformes indépendantes sur <span class="math inline">\([0, 1]\)</span></p>
+<p><strong>Contexte :</strong> Soient <span class="math inline">\(X_1\)</span> et <span class="math inline">\(X_2\)</span> uniformes indépendantes sur <span class="math inline">\([0, 1]\)</span>.</p>
 <p><span class="math display">\[f_X(x, y) = \begin{cases} 1 &amp; \text{si } (x,y) \in [0,1]^2 \\ 0 &amp; \text{sinon} \end{cases}\]</span></p>
-</div>
 <div class="fragment">
-<p><strong>Calculs de probabilités :</strong> - <span class="math inline">\(\mathbb{P}(X_1 \leq 0.5, X_2 \leq 0.8) = \int_0^{0.5} \int_0^{0.8} 1 \, dy \, dx = 0.5 \times 0.8 = 0.4\)</span> - <span class="math inline">\(\mathbb{P}(X_1 + X_2 \leq 1) = \int \int_{x+y \leq 1} 1 \, dy \, dx = 0.5\)</span> (aire du triangle)</p>
+<p><strong>Calculs de probabilités :</strong></p>
+<ul>
+<li><p><span class="math inline">\(\mathbb{P}(X_1 \leq 0.5, X_2 \leq 0.8) = \int_0^{0.5} \int_0^{0.8} 1 \, dy \, dx = 0.5 \times 0.8 = 0.4\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathbb{P}(X_1 + X_2 \leq 1) = \int \int_{x+y \leq 1} 1 \, dy \, dx = 0.5\)</span> (aire du triangle).</p></li>
+</ul>
 </div>
 </section>
 <section id="loi-normale-multivariée" class="slide level2">
 <h2>Loi normale multivariée</h2>
-<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout callout-important no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Note</strong></p>
+<p><strong>Loi normale <span class="math inline">\(p\)</span>-dimensionnelle</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Loi normale <span class="math inline">\(p\)</span>-dimensionnelle</strong></p>
-<p><span class="math display">\[f_X(x) = \frac{1}{(2\pi)^{p/2}} \frac{1}{(\det \Sigma)^{1/2}} \exp\left\{-\frac{1}{2}(x-\mu)^T \Sigma^{-1} (x-\mu)\right\}\]</span></p>
-<p><strong>Notation :</strong> <span class="math inline">\(X \sim \mathcal{N}_p(\mu, \Sigma)\)</span></p>
+<p>Soit <span class="math inline">\(X\)</span> un vecteur aléatoire suivant une loi normale <span class="math inline">\(p\)</span>-dimensionnelle. Sa densité est donnée par : <span class="math display">\[f_X(x) = \frac{1}{(2\pi)^{p/2}} \frac{1}{(\det \Sigma)^{1/2}} \exp\left\{-\frac{1}{2}(x-\mu)^T \Sigma^{-1} (x-\mu)\right\}.\]</span></p>
+<p><strong>Notation :</strong> <span class="math inline">\(X \sim \mathcal{N}_p(\mu, \Sigma)\)</span>.</p>
 </div>
 </div>
 </div>
 </section>
 <section id="exemple-loi-normale-bivariée" class="slide level2">
 <h2>Exemple : Loi normale bivariée</h2>
-<div class="fragment">
 <p><strong>Cas simple :</strong> <span class="math inline">\(X \sim \mathcal{N}_2(\mu, I_2)\)</span> avec <span class="math inline">\(\mu = \begin{pmatrix} 0 \\ 0 \end{pmatrix}\)</span></p>
 <p><span class="math display">\[f_X(x, y) = \frac{1}{2\pi} \exp\left\{-\frac{x^2 + y^2}{2}\right\}\]</span></p>
-</div>
-<div class="fragment">
-<p><strong>Propriétés :</strong> - Les courbes de niveau sont des cercles centrés à l’origine - <span class="math inline">\(X_1\)</span> et <span class="math inline">\(X_2\)</span> sont indépendantes (car <span class="math inline">\(\Sigma = I_2\)</span>) - <span class="math inline">\(\mathbb{E}(X_1) = \mathbb{E}(X_2) = 0\)</span>, <span class="math inline">\(\text{Var}(X_1) = \text{Var}(X_2) = 1\)</span></p>
-</div>
 </section>
 <section id="covariance-et-corrélation" class="slide level2">
 <h2>Covariance et corrélation</h2>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-important no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Avertissement</strong></p>
+<p><strong>Définitions</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Définitions</strong></p>
-<p><strong>Covariance :</strong> <span class="math display">\[\text{Cov}(X_1, X_2) = \mathbb{E}[(X_1 - \mathbb{E}(X_1))(X_2 - \mathbb{E}(X_2))]\]</span></p>
-<p><strong>Corrélation :</strong> <span class="math display">\[\text{Corr}(X_1, X_2) = \frac{\text{Cov}(X_1, X_2)}{\sigma(X_1) \sigma(X_2)}\]</span></p>
+<p>Soit <span class="math inline">\(X = (X_1, X_2)^\top\)</span> un vecteur aléatoire.</p>
+<p><strong>Covariance :</strong> <span class="math inline">\(\text{Cov}(X_1, X_2) = \mathbb{E}[(X_1 - \mathbb{E}(X_1))(X_2 - \mathbb{E}(X_2))].\)</span></p>
+<p><strong>Corrélation :</strong> <span class="math inline">\(\text{Corr}(X_1, X_2) = \frac{\text{Cov}(X_1, X_2)}{\sigma(X_1) \sigma(X_2)}.\)</span></p>
 </div>
 </div>
 </div>
@@ -528,41 +495,34 @@ t &amp; \text{si } 0 \leq t \leq 1 \\
 <section id="interprétation-des-signes" class="slide level2">
 <h2>Interprétation des signes</h2>
 <ul>
-<li class="fragment"><strong>Corrélation positive</strong> (<span class="math inline">\(&gt; 0\)</span>) : <span class="math inline">\(X_1 \uparrow \Rightarrow X_2 \uparrow\)</span></li>
-<li class="fragment"><strong>Corrélation négative</strong> (<span class="math inline">\(&lt; 0\)</span>) : <span class="math inline">\(X_1 \uparrow \Rightarrow X_2 \downarrow\)</span></li>
-<li class="fragment"><strong>Corrélation nulle</strong> (<span class="math inline">\(= 0\)</span>) : pas de relation linéaire (variables orthogonales)</li>
+<li><p><strong>Corrélation positive</strong> (<span class="math inline">\(&gt; 0\)</span>) : <span class="math inline">\(X_1 \nearrow ~\Rightarrow ~ X_2 \nearrow\)</span>.</p></li>
+<li><p><strong>Corrélation négative</strong> (<span class="math inline">\(&lt; 0\)</span>) : <span class="math inline">\(X_1 \searrow ~\Rightarrow ~ X_2 \searrow\)</span>.</p></li>
+<li><p><strong>Corrélation nulle</strong> (<span class="math inline">\(= 0\)</span>) : pas de relation linéaire (variables orthogonales)</p></li>
 </ul>
+</section>
+<section id="interprétation-des-signes-exemple-wooclap-kffpdj" class="slide level2">
+<h2>Interprétation des signes : exemple (Wooclap: KFFPDJ)</h2>
+<p>Soit <span class="math inline">\(X = (X_1, X_2, X_3)^\top\)</span> avec <span class="math display">\[\text{Var}(X) = \begin{pmatrix} 4 &amp; 0 &amp; 3 \\ 0 &amp; 2 &amp; 0 \\ 3 &amp; 0 &amp; 9 \end{pmatrix}.\]</span> Calculer <span class="math inline">\(\text{Corr}(X_1, X_3)\)</span>.</p>
 <div class="fragment">
-<p><strong>Exemple numérique :</strong> Données : <span class="math inline">\((1,2)\)</span>, <span class="math inline">\((2,3)\)</span>, <span class="math inline">\((3,5)\)</span>, <span class="math inline">\((4,6)\)</span></p>
-<ul>
-<li><span class="math inline">\(\mathbb{E}(X_1) = 2.5\)</span>, <span class="math inline">\(\mathbb{E}(X_2) = 4\)</span></li>
-<li><span class="math inline">\(\text{Cov}(X_1, X_2) = \mathbb{E}(X_1 X_2) - \mathbb{E}(X_1)\mathbb{E}(X_2) = 11.5 - 10 = 1.5 &gt; 0\)</span></li>
-</ul>
-<p><strong>Interprétation :</strong> relation positive entre <span class="math inline">\(X_1\)</span> et <span class="math inline">\(X_2\)</span></p>
+<p><span class="math display">\[\text{Corr}(X_1, X_3) = \frac{\text{Cov}(X_1, X_3)}{\sigma(X_1)\sigma(X_3)}
+= \frac{3}{\sqrt{4} \times \sqrt{9}} = \frac{1}{2}.\]</span></p>
 </div>
 </section>
 <section id="propriétés-de-la-covariance" class="slide level2">
 <h2>Propriétés de la covariance</h2>
-<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Important</strong></p>
+<p><strong>Propriétés</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Propriétés essentielles</strong></p>
 <ol type="1">
-<li><span class="math inline">\(\text{Cov}(X_1, X_2) = \mathbb{E}(X_1 X_2) - \mathbb{E}(X_1)\mathbb{E}(X_2)\)</span></li>
-<li><span class="math inline">\(\text{Cov}(X_1, X_2) = \text{Cov}(X_2, X_1)\)</span> (symétrie)</li>
-<li><span class="math inline">\(\text{Cov}(X_1 + \lambda Y_1, X_2) = \text{Cov}(X_1, X_2) + \lambda \text{Cov}(Y_1, X_2)\)</span> (linéarité)</li>
+<li><p><span class="math inline">\(\text{Cov}(X_1, X_2) = \mathbb{E}(X_1 X_2) - \mathbb{E}(X_1)\mathbb{E}(X_2)\)</span>.</p></li>
+<li><p><span class="math inline">\(\text{Cov}(X_1, X_2) = \text{Cov}(X_2, X_1)\)</span> (symétrie).</p></li>
+<li><p><span class="math inline">\(\text{Cov}(X_1 + \lambda Y_1, X_2) = \text{Cov}(X_1, X_2) + \lambda \text{Cov}(Y_1, X_2)\)</span> (linéarité).</p></li>
 </ol>
 </div>
 </div>
-</div>
-<div class="fragment">
-<p><strong>Exemple de linéarité :</strong> <span class="math display">\[\text{Cov}(2X_1 + 3Y_1, X_2) = 2\text{Cov}(X_1, X_2) + 3\text{Cov}(Y_1, X_2)\]</span></p>
 </div>
 </section></section>
 <section>
@@ -572,133 +532,63 @@ t &amp; \text{si } 0 \leq t \leq 1 \\
 </section>
 <section id="le-problème-de-lestimation" class="slide level2">
 <h2>Le problème de l’estimation</h2>
+<p><br></p>
 <ul>
-<li class="fragment"><strong>Réalité :</strong> On ne connaît pas exactement la distribution</li>
-<li class="fragment"><strong>Données :</strong> Échantillon <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span> (observations)</li>
-<li class="fragment"><strong>Objectif :</strong> Estimer les paramètres inconnus (<span class="math inline">\(\mu\)</span>, <span class="math inline">\(\Sigma\)</span>, etc.)</li>
+<li><p><strong>Réalité :</strong> On ne connaît pas exactement la distribution de <span class="math inline">\(X\)</span>.</p></li>
+<li><p><strong>Données :</strong> Échantillon <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span> (observations).</p></li>
+<li><p><strong>Objectif :</strong> Estimer les paramètres inconnus (<span class="math inline">\(\mu\)</span>, <span class="math inline">\(\Sigma\)</span>, etc.).</p></li>
 </ul>
 </section>
 <section id="estimation-de-la-moyenne" class="slide level2">
 <h2>Estimation de la moyenne</h2>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Avertissement</strong></p>
+<p><strong>Estimateur de la moyenne</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Estimateur de la moyenne</strong> <span class="math display">\[\widehat{\mu} = \overline{X} = \frac{1}{n} \sum_{i=1}^n x_i\]</span></p>
+<p><span class="math display">\[\widehat{\mu} = \overline{X} = \frac{1}{n} \sum_{i=1}^n x_i.\]</span></p>
 </div>
 </div>
 </div>
 <div class="fragment">
-<p><strong>Exemple pratique :</strong> Tailles d’étudiants (cm) : 170, 175, 168, 180, 172</p>
-<p><span class="math inline">\(\widehat{\mu} = \frac{170 + 175 + 168 + 180 + 172}{5} = \frac{865}{5} = 173\)</span> cm</p>
+<p><strong>Exemple pratique :</strong> Tailles en cm : 170, 175, 168, 180, 172</p>
+<p><span class="math display">\[\widehat{\mu} = \frac{170 + 175 + 168 + 180 + 172}{5} = \frac{865}{5} = 173 \text{cm.}\]</span></p>
 </div>
 </section>
 <section id="estimation-de-la-variance" class="slide level2">
 <h2>Estimation de la variance</h2>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Avertissement</strong></p>
+<p><strong>Estimateur de la variance</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Estimateur de la variance</strong> <span class="math display">\[\widehat{\Sigma} = \frac{1}{n-1} \sum_{i=1}^n (x_i - \widehat{\mu})(x_i - \widehat{\mu})^T\]</span></p>
-<p><strong>Pourquoi <span class="math inline">\(n-1\)</span> ?</strong> Correction du biais dû à l’utilisation de <span class="math inline">\(\widehat{\mu}\)</span></p>
+<p><span class="math display">\[\widehat{\Sigma} = \frac{1}{n-1} \sum_{i=1}^n (x_i - \widehat{\mu})(x_i - \widehat{\mu})^T\]</span></p>
+<p><strong>Pourquoi diviser par <span class="math inline">\(n-1\)</span> ?</strong> Correction du biais dû à l’utilisation de <span class="math inline">\(\widehat{\mu}\)</span>.</p>
 </div>
 </div>
 </div>
 </section>
 <section id="exemple-complet-de-calcul" class="slide level2">
 <h2>Exemple complet de calcul</h2>
-<div class="fragment">
-<p><strong>Données :</strong> 170, 175, 168, 180, 172 (tailles en cm) - <span class="math inline">\(\widehat{\mu} = 173\)</span> - Écarts au carré : <span class="math inline">\((170-173)^2 = 9\)</span>, <span class="math inline">\((175-173)^2 = 4\)</span>, <span class="math inline">\((168-173)^2 = 25\)</span>, <span class="math inline">\((180-173)^2 = 49\)</span>, <span class="math inline">\((172-173)^2 = 1\)</span></p>
-</div>
-<div class="fragment">
-<p><strong>Variance estimée :</strong> <span class="math display">\[\widehat{\sigma}^2 = \frac{9 + 4 + 25 + 49 + 1}{5-1} = \frac{88}{4} = 22\]</span></p>
-<p><strong>Écart-type estimé :</strong> <span class="math inline">\(\widehat{\sigma} = \sqrt{22} \approx 4.69\)</span> cm</p>
-</div>
+<p><strong>Données :</strong> 170, 175, 168, 180, 172 (tailles en cm)</p>
+<ul>
+<li><p><span class="math inline">\(\widehat{\mu} = 173\)</span></p></li>
+<li><p>Écarts au carré : <span class="math inline">\((170-173)^2 = 9\)</span>, <span class="math inline">\((175-173)^2 = 4\)</span>, <span class="math inline">\((168-173)^2 = 25\)</span>, <span class="math inline">\((180-173)^2 = 49\)</span>, <span class="math inline">\((172-173)^2 = 1\)</span>.</p></li>
+</ul>
+<p><strong>Variance estimée :</strong></p>
+<p><span class="math display">\[\widehat{\sigma^2} = \frac{9 + 4 + 25 + 49 + 1}{5-1} = \frac{88}{4} = 22.\]</span></p>
 </section>
 <section id="estimation-de-la-corrélation" class="slide level2">
 <h2>Estimation de la corrélation</h2>
+<p><strong>Matrice de corrélation estimée :</strong> <span class="math inline">\(\widehat{R} = D^{-1} \widehat{\Sigma} D^{-1}\)</span> où <span class="math inline">\(D\)</span> est la matrice diagonale des écarts-types.</p>
 <div class="fragment">
-<p><strong>Matrice de corrélation estimée :</strong> <span class="math display">\[\widehat{R} = D^{-1} \widehat{\Sigma} D^{-1}\]</span> où <span class="math inline">\(D\)</span> est la matrice des écarts-types</p>
-</div>
-<div class="fragment">
-<p><strong>Exemple 2D :</strong> Si <span class="math inline">\(\widehat{\Sigma} = \begin{pmatrix} 4 &amp; 1.5 \\ 1.5 &amp; 9 \end{pmatrix}\)</span></p>
-<p>Alors <span class="math inline">\(D = \begin{pmatrix} 2 &amp; 0 \\ 0 &amp; 3 \end{pmatrix}\)</span> et <span class="math inline">\(\widehat{R} = \begin{pmatrix} 1 &amp; 0.25 \\ 0.25 &amp; 1 \end{pmatrix}\)</span></p>
-<p><strong>Interprétation :</strong> corrélation faible positive (0.25) entre les variables</p>
-</div>
-</section></section>
-<section>
-<section id="applications-pratiques" class="title-slide slide level1 center">
-<h1>Applications pratiques</h1>
-
-</section>
-<section id="exemple-analyse-de-données-météorologiques" class="slide level2">
-<h2>Exemple : Analyse de données météorologiques</h2>
-<div class="fragment">
-<p><strong>Contexte :</strong> Température et humidité quotidiennes - Échantillon : 30 jours de mesures - <span class="math inline">\(X_1\)</span> = température (°C), <span class="math inline">\(X_2\)</span> = humidité (%)</p>
-</div>
-<div class="fragment">
-<p><strong>Résultats estimés :</strong> - <span class="math inline">\(\widehat{\mu} = \begin{pmatrix} 22 \\ 65 \end{pmatrix}\)</span> (température moyenne : 22°C, humidité : 65%) - Corrélation estimée : <span class="math inline">\(\widehat{\rho} = -0.6\)</span> (négative forte)</p>
-<p><strong>Interprétation :</strong> Quand la température augmente, l’humidité tend à diminuer</p>
-</div>
-</section>
-<section id="application-contrôle-qualité" class="slide level2">
-<h2>Application : Contrôle qualité</h2>
-<div class="fragment">
-<p><strong>Contexte :</strong> Production de pièces manufacturées - <span class="math inline">\(X\)</span> = diamètre des pièces (mm) - Spécification : <span class="math inline">\(\mu = 50\)</span> mm, <span class="math inline">\(\sigma = 0.1\)</span> mm</p>
-</div>
-<div class="fragment">
-<p><strong>Échantillon de contrôle :</strong> 49.9, 50.1, 49.8, 50.2, 50.0</p>
-<p><span class="math inline">\(\widehat{\mu} = 50.0\)</span> mm ✓ (dans les spécifications)</p>
-<p><span class="math inline">\(\widehat{\sigma} = 0.15\)</span> mm ⚠️ (variabilité plus élevée que prévu)</p>
-<p><strong>Action :</strong> Ajuster le processus de production</p>
-</div>
-</section>
-<section id="points-clés-à-retenir" class="slide level2">
-<h2>Points clés à retenir</h2>
-<ul>
-<li class="fragment"><strong>Probabilités</strong> : modélisation de l’incertitude</li>
-<li class="fragment"><strong>Variables aléatoires</strong> : quantification des phénomènes aléatoires</li>
-<li class="fragment"><strong>Espérance et variance</strong> : caractéristiques centrales des distributions</li>
-<li class="fragment"><strong>Covariance/corrélation</strong> : mesure de dépendance linéaire</li>
-<li class="fragment"><strong>Estimation</strong> : inférence à partir d’échantillons</li>
-</ul>
-</section>
-<section id="applications-en-apprentissage-automatique" class="slide level2">
-<h2>Applications en apprentissage automatique</h2>
-<ul>
-<li class="fragment"><strong>Classification probabiliste</strong> (Bayes naïf, régression logistique)</li>
-<li class="fragment"><strong>Réduction de dimension</strong> (ACP via matrices de covariance)</li>
-<li class="fragment"><strong>Apprentissage de paramètres</strong> (maximum de vraisemblance)</li>
-<li class="fragment"><strong>Incertitude en prédiction</strong> (intervalles de confiance)</li>
-<li class="fragment"><strong>Analyse de données</strong> (statistiques descriptives)</li>
-</ul>
-</section>
-<section id="questions" class="slide level2">
-<h2>Questions ?</h2>
-<p><strong>Ressources recommandées :</strong> - Cours STT-1000 - <span class="citation" data-cites="wassermanAllStatisticsConcise2010">Wasserman (<a href="#/references" role="doc-biblioref" onclick="">2010</a>)</span> (anglais) - <span class="citation" data-cites="delmasIntroductionAuCalcul2013">Delmas (<a href="#/references" role="doc-biblioref" onclick="">2013</a>)</span> (français)</p>
-</section>
-<section class="slide level2 smaller scrollable" id="references">
-
-<p><strong>Merci pour votre attention !</strong></p>
+<p><strong>Exemple 2D :</strong> Si <span class="math inline">\(\widehat{\Sigma} = \begin{pmatrix} 4 &amp; 1.5 \\ 1.5 &amp; 9 \end{pmatrix}\)</span>. Alors,</p>
+<p><span class="math display">\[D = \begin{pmatrix} 2 &amp; 0 \\ 0 &amp; 3 \end{pmatrix}, \quad\text{et}\quad\widehat{R} = \begin{pmatrix} 1 &amp; 0.25 \\ 0.25 &amp; 1 \end{pmatrix}.\]</span></p>
+<p><strong>Interprétation :</strong> corrélation faible positive (0.25) entre les variables.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-delmasIntroductionAuCalcul2013" class="csl-entry" role="listitem">
-Delmas, Jean-François. 2013. <em><span>Introduction au calcul des probabilit<span>é</span>s et <span>à</span> la statistique : exercices, probl<span>è</span>mes et corrections (2e <span>é</span>dition)</span></em>. Les Presses de l’ENSTA.
-</div>
-<div id="ref-wassermanAllStatisticsConcise2010" class="csl-entry" role="listitem">
-Wasserman, Larry. 2010. <em>All of <span>Statistics</span>: <span>A Concise Course</span> in <span>Statistical Inference</span></em>. Springer Publishing Company, Incorporated.
-</div>
 </div>
 </section></section>
     </div>
