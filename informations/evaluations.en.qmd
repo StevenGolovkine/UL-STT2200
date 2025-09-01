@@ -11,9 +11,9 @@ Here are the examinations for this module.
 
 | Title      | Date       | Mode of work    | Weighting   |
 | ---------- | -------    | --------------- | ----------- |
-| Exam 1     |            |  Individual     | 25\%        |
-| Exam 2     |            |  Individual     | 50\%        |
-| Project    |            |  Team           | 25\%        |
+| Exam 1     | 24 oct. 2025           |  Individual     | 25\%        |
+| Exam 2     | 12 déc. 2025           |  Individual     | 50\%        |
+| Project    | 02 déc. 2025           |  Team           | 25\%        |
 
 <p style=“font-size:10px;”>Identification. During an exam, an eligible photo ID card must be placed on the corner of your table. Eligible cards are a plastic Université Laval card, a Canadian driver's license, a photo health insurance card issued by a Canadian province, or a Canadian or foreign passport.</p>
 
@@ -21,54 +21,54 @@ Here are the examinations for this module.
 
 **Exam 1** 
 
-Date and location: 
+Date and location: 24 october 2025, 08h30 - 09h30
 
 Mode of work: Individual
 
-Weighting: 25\%
+Weighting: 30\%
 
-Submission of assessment: 
+Submission of assessment: Handoff to the teacher
 
-Assessment guidelines: All course content may be examined. 
+Assessment guidelines: All course content (slides, classroom presentations, readings, etc.) may be included in the exam. 
 
-Materials allowed: no restrictions. 
+Materials allowed: Any materials not connected to the internet are permitted. Calculators are permitted. The use of AI tools is NOT permitted for this exam.
 
 Additional information: [link](./mcq.qmd).
 
 
 **Exam 2**
 
-Date and place: 
+Date and place: 12 december 2025, 08h30 - 10h20
 
 Mode of work: Individual
 
 Weighting: 50\%
 
-Submission of assessment: 
+Submission of assessment: Handoff to the teacher
 
-Assessment guidelines: All course content is subject to examination. 
+Assessment guidelines: All course content (slides, classroom presentations, readings, etc.) may be included in the exam. 
 
-Materials allowed: no restrictions. 
+Materials allowed: Any materials not connected to the internet are permitted. Calculators are permitted. The use of AI tools is NOT permitted for this exam.
 
 
 **Project** 
 
-Date and place: 
+Date and place: due 02 december 2025 - 17h00
 
 Mode of work: Team work 
 
-Weighting: 25\%
+Weighting: 20\%
 
-Submission of assessment: 
+Submission of assessment: Via monPortail
 
-Assessment guidelines: 
+Assessment guidelines: Any delay in submitting the project will result in a score of 0 for this part. There will be a poster presentation on December 9 between 10:30 a.m. and 12:30 p.m. The exact details of the presentations are still to be determined. If the posters cannot be displayed in the VCH pavilion, the presentations will take place in classroom PLT-3928. The data analysis project consists of creating a poster presenting a data analysis. The choice of subject and issue is left to your discretion. It is recommended that you use the methods presented in class, but this is not mandatory. In any case, expect to be asked questions about the methods you present. I am, of course, available to answer any questions you may have (where to find data, how to make a poster, etc.). Please submit a .zip file containing your project. This file must contain your poster in .pdf format, your code, and your data. If your data file is too large, please send me an email. I will take care of printing the posters. 
 
-Materials allowed: no restrictions. 
+Materials allowed: The use of AI tools is permitted for this exam. However, their use must be properly documented.
 
 
 ## Rating scale 
 
-| Rating \% minimum | \% maximum |
+| Rating | \% minimum | \% maximum |
 | :--: | ---------: | ---------: |
 | A+   | 92         | 100        |
 | A    | 88         | 91.99      |
@@ -87,10 +87,15 @@ Materials allowed: no restrictions.
 
 In accordance with the Department of Mathematics and Statistics' policy of improving and consolidating the knowledge of French, the quality of writing will be assessed in all assignments and examinations. A maximum of 10% of points may be deducted for the quality of language and writing.
 
-No late submissions will be accepted.
+No late submissions will be accepted. A delay will automatically result in a score of zero.
 
 Any resits granted under the Department's resit policy will take place on the faculty's official resit dates. To request a grade revision, you must follow the procedure set out in Chapter 4 of the Academic Regulations. You will find a form to complete at the following address: [link](https://www.fsg.ulaval.ca/departements/departement-de-mathematiques-et-de-statistique/etudier/reglements-et-documents-officiels-en-mathematiques-et-statistique).
 
+The FSG retake exam sessions for the fall 2025 session will take place:
+
+* Thursday, October 30, 2025, location to be determined, from 9 a.m. to 12 p.m. and/or from 1:30 p.m. to 4:30 p.m.
+
+* Thursday, December 18, 2025, location to be determined, from 9 a.m. to 12 p.m. and/or from 1:30 p.m. to 4:30 p.m.
 
 
 ## Absence from a mandatory activity
@@ -120,6 +125,12 @@ As soon as possible and no later than five (5) working days after the evaluation
 For more details on the procedures to be followed and the serious grounds for retaking an evaluation, please consult the document "[Modalités et procédure de reprise d'une évaluation sommative à la Faculté des sciences et de génie](https://www.fsg.ulaval.ca/fileadmin/site_facultaire/Espace_facultaire/Étudiants/Politiques_facultaires/Modalités_reprise_évaluation_FSG_A24.pdf)" available on the FSG website.
 
 In certain cases, the course leader may adopt a simplified procedure for managing requests to repeat an evaluation, while respecting the criteria described in this policy. In such cases, specific explanations will be provided in the course syllabus and presented at the first session.
+
+## Computer Lab Security Policy
+
+To use the computer labs, you must have read the Security Policy and agree to comply with it: [link](www.fsg.ulaval.ca/securite-labo-info).
+
+For technical assistance, please email [<aide@fsg.ulaval.ca>]. In case of emergency, call 418-656-5555, ext. 555, or use a red telephone located nearby.
 
 ## Policy on the use of electronic devices
 

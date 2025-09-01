@@ -11,9 +11,9 @@ Voici les différents examens prévus pour ce module.
 
 | Titre      | Date    | Mode de travail | Pondération |
 | ---------- | ------- | --------------- | ----------- |
-| Examen 1   |         | Individuel      | 30\%        |
-| Examen 2   |         | Individuel      | 50\%        |
-| Projet     |         | En équipe       | 20\%        |
+| Examen 1   | 24 oct. 2025        | Individuel      | 30\%        |
+| Examen 2   | 12 déc. 2025        | Individuel      | 50\%        |
+| Projet d'analyse de données    | 02 déc. 2025        | En équipe       | 20\%        |
 
 <p style="font-size:10px; ">Identification. Lors d'un examen, une carte d'identité avec photo admissible doit être déposée sur le coin de votre table. Les cartes admissibles sont la carte de l'Université Laval en plastique, un permis de conduire canadien, une carte d'assurance-maladie avec photo émise par une province canadienne ou un passeport canadien ou étranger.</p>
 
@@ -27,11 +27,11 @@ Mode de travail: Individuel
 
 Pondération: 30\%
 
-Remise de l'évaluation: 
+Remise de l'évaluation: Remise en main propre à l'enseignant
 
-Directives de l'évaluation: Tout le contenu du cours est susceptible d'être a l'examen. 
+Directives de l'évaluation: Tout le contenu du cours (diapos, présentations en classe, lectures, ...) est susceptible d'être à l'examen.
 
-Matériel autorisé: pas de restriction. 
+Matériel autorisé: Tout matériel non-connecté à internet est autorisé. Calculatrice autorisée. L'utilisation d'outils d'IA n'est PAS autorisée pour cette examen.
 
 Information supplementaire: [lien](./mcq.qmd).
 
@@ -44,26 +44,27 @@ Mode de travail: Individuel
 
 Pondération: 50\%
 
-Remise de l'évaluation: 
+Remise de l'évaluation: Remise en main propre à l'enseignant
 
-Directives de l'évaluation: Tout le contenu du cours est susceptible d'être à l'examen. 
+Directives de l'évaluation: Tout le contenu du cours (diapos, présentations en classe, lectures, ...) est susceptible d'être à l'examen.
 
-Matériel autorisé: pas de restriction. 
+Matériel autorisé: Tout matériel non-connecté à internet est autorisé. Calculatrice autorisée. L'utilisation d'outils d'IA n'est PAS autorisée pour cette examen.
 
 
-**Projet** 
+**Projet d'analyse de données** 
 
-Date et lieu: dû le 04 décembre 2025 à 17h00 
+Date et lieu: dû le 02 décembre 2025 à 17h00 
 
 Mode de travail: En équipe 
 
 Pondération: 20\%
 
-Remise de l'évaluation: 
+Remise de l'évaluation: Via monPortail
 
-Directives de l'évaluation: 
+Directives de l'évaluation: Tout retard sur la remise du projet entrainera la note de 0 pour cette partie. Il y aura une présentation des posters le 9 décembre entre 10h30 et 12h30. Les modalités exactes des présentations restent à définir. Dans le cas où l'affichage des posters ne puissent pas se faire au pavillon VCH, les présentations se feront dans la salle de classe PLT-3928. Le projet d'analyse de données consiste en la création d'un poster présentant une analyse de données. Le choix du sujet et de la problématique est laissé à votre discrétion. Il est recommandé d'utiliser les méthodes présentées en cours, mais ce n'est pas obligatoire. Dans tous les cas, attendez vous à avoir des questions sur les méthodes que vous présentez. Je suis bien entendu à votre disposition pour répondre à toutes questions (où trouver des données, comment faire un poster, ...). Merci de déposer un dossier .zip connant votre projet. Ce dossier doit contenir votre poster au format .pdf, votre code, ainsi que vos données. Si la taille du fichier de vos données est trop importante, merci de m'envoyer un email. Je m'occuperai de l'impression des posters. 
 
-Matériel autorisé: pas de restriction. 
+Matériel autorisé : L'utilisation d'outils d'IA est autorisée pour cette examen. Il convient cependant de proprement documenter son utilisation.
+
 
 ## Échelle des cotes 
 
@@ -86,9 +87,16 @@ Matériel autorisé: pas de restriction.
 
 Conformément à la politique du Département de mathématiques et de statistique en matière d'amélioration et de consolidation de la connaissance du français, la qualité de l'écrit sera sanctionnée dans tous les travaux et examens. Un maximum de 10\% des points pourra être enlevé pour la qualité de la langue et de la rédaction.
 
-Aucun retard n'est accepté pour la remise des travaux.
+Aucun retard n'est accepté pour la remise des travaux. Un retard entraîne automatiquement une note de zéro.
 
 Toute reprise d'évaluation accordée par la politique de reprise d'évaluation du Département aura lieu lors des dates de reprises officielles de la faculté. Pour toute demande de révision de note, vous devez suivre la procédure du chapitre 4 du Réglement des études. Vous trouverez un formulaire à remplir à l'adresse suivante: [lien](https://www.fsg.ulaval.ca/departements/departement-de-mathematiques-et-de-statistique/etudier/reglements-et-documents-officiels-en-mathematiques-et-statistique).
+
+Les séances d'examen de reprise FSG pour la session d'automne 2025 auront lieu :
+
+* Le jeudi 30 octobre 2025, local à déterminer, de 9h à 12h et/ou de 13h30 à 16h30.
+
+* Le jeudi 18 décembre 2025, local à déterminer, de 9h à 12h et/ou de 13h30 à 16h30.
+
 
 ## Absence à une activité obligatoire
 
@@ -117,6 +125,12 @@ Dès que possible et au plus tard cinq (5) jours ouvrables après la date de l'�
 Pour avoir plus de détail sur les procédures à suivre et les motifs sérieux pouvant donner droit à une reprise d'évaluation, consulter le document "[Modalités et procédure de reprise d'une évaluation sommative à la Faculté des sciences et de génie](https://www.fsg.ulaval.ca/fileadmin/site_facultaire/Espace_facultaire/Étudiants/Politiques_facultaires/Modalités_reprise_évaluation_FSG_A24.pdf)" disponible sur le site web de la FSG.
 
 Dans certains cas, la ou le responsable du cours pourrait adopter une procédure simplifiée de gestion des demandes de reprises d'évaluation, tout en respectant les critères décrits dans cette politique. Dans ces cas, des explications particulières seront données à cet effet dans le plan de cours et présentées lors de la première séance.
+
+## Politique sur la sécurité dans les laboratoires informatiques 
+
+Pour utiliser les laboratoires informatiques, il faut avoir pris connaissance de la Politique de sécurité et vous engagez à vous y conformer : [lien](www.fsg.ulaval.ca/securite-labo-info).
+
+Pour toute assistance technique, veuillez écrire à [<aide@fsg.ulaval.ca>]. En cas d’urgence, composez le 418-656-5555, poste 555 ou utilisez un téléphone rouge situé à proximité.
 
 ## Politique sur l'utilisation d'appareils électroniques
 

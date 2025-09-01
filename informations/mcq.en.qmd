@@ -18,7 +18,7 @@ The use of degrees of certainty enables the student to assess the level of knowl
 * those who self-assess well earn more points than if we applied a corrective scale taking into account the probabilities of having the correct answer randomly.
 
 
-::: {.content-visible when-format=“html”}
+::: {.content-visible when-format="html"}
 <table style=“width:100%”>
   <tr>
     <th>If you find that your answer has a probability of being correct between...</th>
@@ -71,7 +71,7 @@ The use of degrees of certainty enables the student to assess the level of knowl
 ::: 
 
 
-::: {.content-visible when-format=“pdf”}
+::: {.content-visible when-format="pdf"}
 
 \begin{table}
   \centering
