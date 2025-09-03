@@ -43,6 +43,7 @@ To finish this introduction, here is a quote from *Statistical Rethinking* by Ri
 > Second, there are strong incentives for both astrologers and statisticians to exaggerate the power and importance of their advice. No one likes an astrologer who forecasts doom, and few want a statistician who admits the answers as desired are not in the data as collected. Scientists desire results, and they will buy and attend to statisticians and statistical procedures that promise them. What we end up with is too often *horoscopic*: vague and optimistic, but still claiming critical importance. 
 
 
+![Machine learning ([xkcd:1838](https://xkcd.com/1838/)).](../include/machine_learning.png)
 
 
 ::: {.content-visible when-format="pdf"}

@@ -8,6 +8,19 @@ format:
 --- 
 
 
+* Slides: 
+
+  - [Algèbre linéaire](../slides/02-revisions-algebre-slides.qmd)
+
+  - [Probabilités et statistiques](../slides/02-revisions-proba-slides.qmd)
+
+  - [Algorithmique / Programmation](../slides/02-revisions-programming-slides.qmd)
+
+* TD: [link](../td/02-revision-td.qmd)
+
+* TP: [link](../tp/02-revision-tp.qmd)
+
+
 ## Outline
 
 1. [Linear algebra](./remainders/01-linear-algebra.qmd)
