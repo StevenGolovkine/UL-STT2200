@@ -1,0 +1,12 @@
+---
+title: "Classes"
+format: 
+  html: default 
+  pdf: default
+---
+
+Here are the recording of the classes for the semester Autumn 2025:
+
+* Class of 02 september 2025: [link](https://youtu.be/ZvyYi_sBNx0?si=MKSFb7Kfqp-9sFoH).
+
+

@@ -1,0 +1,12 @@
+---
+title: "Cours"
+format: 
+  html: default 
+  pdf: default
+---
+
+Voici les enregistrements des cours pour le semestre Automne 2025:
+
+* Cours du 02 septembre 2025: [lien](https://youtu.be/ZvyYi_sBNx0?si=MKSFb7Kfqp-9sFoH).
+
+

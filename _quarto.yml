@@ -54,6 +54,8 @@ website:
               - informations/mcq.qmd
           - href: informations/materials.qmd 
             text: Matériel
+          - href: informations/cours.qmd
+            text: Cours
       - section: "Modules"
         contents: 
           - href: contents/01-introduction.qmd 
