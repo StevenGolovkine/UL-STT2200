@@ -85,6 +85,7 @@ window.Quarto = {
   typesetMath
 };
 </script><meta property="og:title" content="Programming – STT-2200: Data Analysis">
+<meta property="og:description" content="Website for STT-2200">
 <meta property="og:site_name" content="STT-2200: Data Analysis">
 </head>
 <body class="nav-sidebar floating quarto-light">
@@ -534,11 +535,22 @@ window.Quarto = {
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#r" id="toc-r" class="nav-link active" data-scroll-target="#r">R</a></li>
+  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python">Python</a></li>
+  <li><a href="#julia" id="toc-julia" class="nav-link" data-scroll-target="#julia">Julia</a></li>
+  <li><a href="#sas" id="toc-sas" class="nav-link" data-scroll-target="#sas">SAS</a></li>
+  </ul>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/remainders/03-programming.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li>
+</ul></div>
+<div class="quarto-alternate-formats">
 <h2>Other Formats</h2>
 <ul><li><a href="03-programming.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
-</div>
+</div></nav>
 </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
@@ -560,7 +572,21 @@ window.Quarto = {
   
 
 
-</header></main><!-- /main --><script>
+</header><p>In this section, we present some references on the basics of programming in different languages. This course does not specify which language to use, so you are free to choose the one that suits you best for the various exercises and your project. In any case, there are a set of best practices that will help you write code that is readable, understandable, and reusable. You can find a (quick) guide to best practices in programming at this <a href="../../contents/misc/good-practices.html">link</a>.</p>
+<section id="r" class="level2"><h2 class="anchored" data-anchor-id="r">R</h2>
+<p>R is a programming language specialized in statistical analysis and data visualization. It is free, open-source, and available on Windows, macOS, and Linux. Regularly updated, new packages are available every day (see <a href="https://cloud.r-project.org/web/packages/available_packages_by_date.html">CRAN</a>).</p>
+<p>Here is a guide that introduces the basics of R: <a href="https://learnxinyminutes.com/fr/r/">Learn R in Y Minutes</a> and a guide to <a href="../../contents/misc/good-practices-R.html">good practices in R</a>. Finally, an important feature of the R language is the <em>pipe</em> operator. This makes the code clearer. You can find an explanation of this operator <a href="../../contents/misc/pipe.html">here</a>.</p>
+</section><section id="python" class="level2"><h2 class="anchored" data-anchor-id="python">Python</h2>
+<p>Python is a general-purpose programming language. It is free, open-source, and available on Windows, macOS, and Linux. Although it is a general-purpose language, there is a large community around data analysis and machine learning in Python. Thus, the usual methods have already been implemented, e.g. in the <a href="https://scikit-learn.org/stable/">sklearn</a> package, but if necessary, it is possible to view the code and modify it.</p>
+<p>Here is a guide that introduces the basics of Python: <a href="https://learnxinyminutes.com/fr/python/">Learn Python in Y Minutes</a> and a guide to <a href="../../contents/misc/good-practices-python.html">good practices in Python</a>.</p>
+</section><section id="julia" class="level2"><h2 class="anchored" data-anchor-id="julia">Julia</h2>
+<p>Julia is also a general-purpose programming language. It is a much newer language than its two counterparts, R and Python (Julia was created in the early 2010s, while R and Python were created in the early 1990s). It may therefore seem less mature in some respects, but most traditional data analysis methods have been implemented. Like R and Python, this language is free, open-source, and available on all major operating systems. Julia has the advantage of being faster than R and Python. It also includes native support for calling libraries in C or Fortran, and non-native support for calling libraries in R and Python.</p>
+<p>Here is a guide that introduces the basics of Julia: <a href="https://learnxinyminutes.com/julia/">Learn Julia in Y minutes</a> and a guide to <a href="https://modernjuliaworkflows.org">best practices in Julia</a>.</p>
+</section><section id="sas" class="level2"><h2 class="anchored" data-anchor-id="sas">SAS</h2>
+<p>SAS is a proprietary programming language specialized in data analysis. Although used in certain industries, e.g. pharmaceuticals, its use is declining. Furthermore, the license must be renewed annually, there is no online community (apart from the official documentation, there is not much help available), and it is impossible to view the code for the various procedures. For these reasons, I do not recommend using SAS for this course. However, if you wish, the university can provide licenses for a fee.</p>
+
+
+</section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -1199,7 +1225,7 @@ window.onload = function() {
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions"><ul>
+<div class="toc-actions d-sm-block d-md-none"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/remainders/03-programming.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li>
 </ul></div>
