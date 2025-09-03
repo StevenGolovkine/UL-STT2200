@@ -998,203 +998,63 @@
     "href": "slides/02-revisions-programming-slides.html#philosophie-du-cours",
     "title": "Révisions",
     "section": "Philosophie du cours",
-    "text": "Philosophie du cours\n\n\n\nLiberté de choix\n\n\nCe cours n’impose aucun langage spécifique !\nVous êtes libres de choisir :\n\nR, Python, Julia, ou même SAS.\nLe langage qui vous convient le mieux.\n\n\n\n\n\nObjectif commun : Code lisible, compréhensible et réutilisable."
+    "text": "Philosophie du cours\n\n\n\nLiberté de choix\n\n\nCe cours n’impose aucun langage spécifique !\nVous êtes libres de choisir :\n\nR, Python, Julia, ou même SAS ou C++.\nLe langage qui vous convient le mieux.\n\n\n\n\n\nObjectif commun : Code lisible, compréhensible et réutilisable."
   },
   {
     "objectID": "slides/02-revisions-programming-slides.html#plan-de-la-présentation",
     "href": "slides/02-revisions-programming-slides.html#plan-de-la-présentation",
     "title": "Révisions",
     "section": "Plan de la présentation",
-    "text": "Plan de la présentation\n\nBonnes pratiques universelles\nR : Le spécialiste des statistiques\nPython : Le généraliste populaire\nJulia : La nouvelle génération\nSAS : L’ancien propriétaire\nComment choisir ?"
+    "text": "Plan de la présentation\n\n\nBonnes pratiques universelles\nComment choisir ?"
   },
   {
     "objectID": "slides/02-revisions-programming-slides.html#principes-fondamentaux",
     "href": "slides/02-revisions-programming-slides.html#principes-fondamentaux",
     "title": "Révisions",
     "section": "Principes fondamentaux",
-    "text": "Principes fondamentaux\n\nCode lisible : les autres (et vous dans 6 mois !) doivent comprendre\nDocumentation : commentaires clairs et concis\nStructure : organisation logique des fichiers et fonctions\nReproductibilité : mêmes données → mêmes résultats\nGestion des versions : Git pour suivre les modifications"
+    "text": "Principes fondamentaux\n\n\nCode lisible : les autres (et vous dans 6 mois !) doivent comprendre\nDocumentation : commentaires clairs et concis\nStructure : organisation logique des fichiers et fonctions\nReproductibilité : mêmes données → mêmes résultats\nGestion des versions : Git pour suivre les modifications"
   },
   {
     "objectID": "slides/02-revisions-programming-slides.html#exemple-code-mal-écrit-vs.-bien-écrit",
     "href": "slides/02-revisions-programming-slides.html#exemple-code-mal-écrit-vs.-bien-écrit",
     "title": "Révisions",
     "section": "Exemple : Code mal écrit vs. bien écrit",
-    "text": "Exemple : Code mal écrit vs. bien écrit\n\n❌ Code difficile à comprendre :\nimport pandas as pd\nd=pd.read_csv('data.csv')\nr=d.groupby('A').mean()['B']\nprint(r)\n\n\n✅ Code clair et documenté :\nimport pandas as pd\n\n# Chargement des données de ventes\nsales_data = pd.read_csv('monthly_sales.csv')\n\n# Calcul de la moyenne des ventes par région\naverage_sales_by_region = sales_data.groupby('region').mean()['sales_amount']\n\nprint(\"Ventes moyennes par région :\")\nprint(average_sales_by_region)"
+    "text": "Exemple : Code mal écrit vs. bien écrit\n\n❌ Code difficile à comprendre :\nimport pandas as pd\nd=pd.read_csv('data.csv')\nr=d.groupby('A').mean()['B']\nprint(r)\n\n✅ Code clair et documenté :\nimport pandas as pd\n\n# Chargement des données de ventes\nsales_data = pd.read_csv('monthly_sales.csv')\n\n# Calcul de la moyenne des ventes par région\naverage_sales_by_region = sales_data.groupby('region').mean()['sales_amount']\n\nprint(f\"Ventes moyennes par région : {average_sales_by_region}\")"
   },
   {
     "objectID": "slides/02-revisions-programming-slides.html#structure-de-projet-recommandée",
     "href": "slides/02-revisions-programming-slides.html#structure-de-projet-recommandée",
     "title": "Révisions",
     "section": "Structure de projet recommandée",
-    "text": "Structure de projet recommandée\nmon_projet/\n├── data/           # Données brutes et nettoyées\n├── scripts/        # Scripts d'analyse\n├── functions/      # Fonctions réutilisables\n├── results/        # Graphiques, tableaux\n├── docs/          # Documentation\n└── README.md      # Description du projet\n\nAvantages : - Organisation claire - Facilite la collaboration - Projet reproductible"
-  },
-  {
-    "objectID": "slides/02-revisions-programming-slides.html#présentation-de-r",
-    "href": "slides/02-revisions-programming-slides.html#présentation-de-r",
-    "title": "Révisions",
-    "section": "Présentation de R",
-    "text": "Présentation de R\n\n\n\n\n\n\nNote\n\n\nR en bref\n\nSpécialisé : analyse statistique et visualisation\nGratuit et open-source\nÉcosystème riche : +18,000 packages sur CRAN\nCommunauté active : mise à jour quotidienne des packages\n\n\n\n\n\nPoints forts : - Syntaxe intuitive pour les statistiques - Graphiques de haute qualité (ggplot2) - Intégration avec LaTeX et Markdown"
-  },
-  {
-    "objectID": "slides/02-revisions-programming-slides.html#exemple-pratique-analyse-exploratoire",
-    "href": "slides/02-revisions-programming-slides.html#exemple-pratique-analyse-exploratoire",
-    "title": "Révisions",
-    "section": "Exemple pratique : Analyse exploratoire",
-    "text": "Exemple pratique : Analyse exploratoire\n# Chargement des bibliothèques\nlibrary(ggplot2)\nlibrary(dplyr)\n\n# Lecture des données\ndata &lt;- read.csv(\"sales_data.csv\")\n\n# Statistiques descriptives\nsummary(data$sales)\n\n# Analyse par groupe avec pipe operator\nsales_summary &lt;- data %&gt;%\n  group_by(region) %&gt;%\n  summarise(\n    mean_sales = mean(sales),\n    median_sales = median(sales),\n    n_observations = n()\n  )\n\nprint(sales_summary)"
-  },
-  {
-    "objectID": "slides/02-revisions-programming-slides.html#visualisation-avec-ggplot2",
-    "href": "slides/02-revisions-programming-slides.html#visualisation-avec-ggplot2",
-    "title": "Révisions",
-    "section": "Visualisation avec ggplot2",
-    "text": "Visualisation avec ggplot2\n# Graphique en barres des ventes par région\nggplot(sales_summary, aes(x = region, y = mean_sales)) +\n  geom_col(fill = \"steelblue\", alpha = 0.7) +\n  labs(\n    title = \"Ventes moyennes par région\",\n    x = \"Région\",\n    y = \"Ventes moyennes (€)\",\n    caption = \"Source: Données internes 2023\"\n  ) +\n  theme_minimal() +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))"
-  },
-  {
-    "objectID": "slides/02-revisions-programming-slides.html#lopérateur-pipe",
-    "href": "slides/02-revisions-programming-slides.html#lopérateur-pipe",
-    "title": "Révisions",
-    "section": "L’opérateur pipe (%>%)",
-    "text": "L’opérateur pipe (%&gt;%)\n\nSans pipe (difficile à lire) :\nresult &lt;- arrange(summarise(group_by(filter(data, sales &gt; 1000), region), avg_sales = mean(sales)), desc(avg_sales))\n\n\nAvec pipe (lecture naturelle) :\nresult &lt;- data %&gt;%\n  filter(sales &gt; 1000) %&gt;%\n  group_by(region) %&gt;%\n  summarise(avg_sales = mean(sales)) %&gt;%\n  arrange(desc(avg_sales))\n\n\nAvantage : Se lit comme une phrase : “prendre les données, puis filtrer, puis grouper, puis calculer la moyenne, puis trier”"
-  },
-  {
-    "objectID": "slides/02-revisions-programming-slides.html#présentation-de-python",
-    "href": "slides/02-revisions-programming-slides.html#présentation-de-python",
-    "title": "Révisions",
-    "section": "Présentation de Python",
-    "text": "Présentation de Python\n\n\n\n\n\n\nNote\n\n\nPython en bref\n\nGénéraliste : web, analyse de données, IA, automatisation…\nGratuit et open-source\nÉcosystème mature : NumPy, Pandas, Scikit-learn, Matplotlib…\nSyntaxe claire : “executable pseudocode”\n\n\n\n\n\nPoints forts : - Facilité d’apprentissage - Communauté énorme - Intégration avec autres systèmes"
-  },
-  {
-    "objectID": "slides/02-revisions-programming-slides.html#exemple-même-analyse-en-python",
-    "href": "slides/02-revisions-programming-slides.html#exemple-même-analyse-en-python",
-    "title": "Révisions",
-    "section": "Exemple : Même analyse en Python",
-    "text": "Exemple : Même analyse en Python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Lecture des données\ndata = pd.read_csv('sales_data.csv')\n\n# Statistiques descriptives\nprint(data['sales'].describe())\n\n# Analyse par groupe\nsales_summary = (data\n                 .groupby('region')['sales']\n                 .agg(['mean', 'median', 'count'])\n                 .round(2))\n\nprint(sales_summary)"
-  },
-  {
-    "objectID": "slides/02-revisions-programming-slides.html#visualisation-avec-matplotlibseaborn",
-    "href": "slides/02-revisions-programming-slides.html#visualisation-avec-matplotlibseaborn",
-    "title": "Révisions",
-    "section": "Visualisation avec matplotlib/seaborn",
-    "text": "Visualisation avec matplotlib/seaborn\n# Configuration du style\nplt.style.use('seaborn-v0_8')\nfig, ax = plt.subplots(figsize=(10, 6))\n\n# Graphique en barres\nsales_summary['mean'].plot(kind='bar', ax=ax, color='steelblue', alpha=0.7)\n\n# Personnalisation\nax.set_title('Ventes moyennes par région', fontsize=14, fontweight='bold')\nax.set_xlabel('Région')\nax.set_ylabel('Ventes moyennes (€)')\nax.tick_params(axis='x', rotation=45)\n\nplt.tight_layout()\nplt.show()"
-  },
-  {
-    "objectID": "slides/02-revisions-programming-slides.html#machine-learning-avec-scikit-learn",
-    "href": "slides/02-revisions-programming-slides.html#machine-learning-avec-scikit-learn",
-    "title": "Révisions",
-    "section": "Machine Learning avec Scikit-learn",
-    "text": "Machine Learning avec Scikit-learn\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.linear_model import LinearRegression\nfrom sklearn.metrics import mean_squared_error\n\n# Préparation des données\nX = data[['advertising_budget', 'num_employees']]\ny = data['sales']\n\n# Division train/test\nX_train, X_test, y_train, y_test = train_test_split(\n    X, y, test_size=0.2, random_state=42\n)\n\n# Modèle de régression linéaire\nmodel = LinearRegression()\nmodel.fit(X_train, y_train)\n\n# Prédictions et évaluation\ny_pred = model.predict(X_test)\nmse = mean_squared_error(y_test, y_pred)\n\nprint(f\"Erreur quadratique moyenne: {mse:.2f}\")"
-  },
-  {
-    "objectID": "slides/02-revisions-programming-slides.html#présentation-de-julia",
-    "href": "slides/02-revisions-programming-slides.html#présentation-de-julia",
-    "title": "Révisions",
-    "section": "Présentation de Julia",
-    "text": "Présentation de Julia\n\n\n\n\n\n\nNote\n\n\nJulia en bref\n\nModerne : créé au début des années 2010\nPerformance : vitesse proche du C\nSyntaxe : familière (ressemble à Python/R)\nInteropérabilité : appel natif de C/Fortran, support R/Python\n\n\n\n\n\nPhilosophie : “Résoudre le problème des deux langages” - Prototypage rapide ET exécution rapide - Pas besoin de réécrire en C/C++ pour la performance"
-  },
-  {
-    "objectID": "slides/02-revisions-programming-slides.html#exemple-même-analyse-en-julia",
-    "href": "slides/02-revisions-programming-slides.html#exemple-même-analyse-en-julia",
-    "title": "Révisions",
-    "section": "Exemple : Même analyse en Julia",
-    "text": "Exemple : Même analyse en Julia\nusing DataFrames, CSV, Statistics, StatsPlots\n\n# Lecture des données\ndata = CSV.read(\"sales_data.csv\", DataFrame)\n\n# Statistiques descriptives\nprintln(\"Statistiques des ventes:\")\nprintln(describe(data.sales))\n\n# Analyse par groupe\nsales_summary = combine(groupby(data, :region), \n                       :sales =&gt; mean =&gt; :mean_sales,\n                       :sales =&gt; median =&gt; :median_sales,\n                       :sales =&gt; length =&gt; :count)\n\nprintln(sales_summary)"
-  },
-  {
-    "objectID": "slides/02-revisions-programming-slides.html#performance-comparaison-de-vitesse",
-    "href": "slides/02-revisions-programming-slides.html#performance-comparaison-de-vitesse",
-    "title": "Révisions",
-    "section": "Performance : Comparaison de vitesse",
-    "text": "Performance : Comparaison de vitesse\n\nTest : Calcul sur 1 million d’éléments\n# Julia\nfunction compute_heavy(n)\n    result = 0.0\n    for i in 1:n\n        result += sin(i) * cos(i)\n    end\n    return result\nend\n\n@time compute_heavy(1_000_000)  # ~0.02 seconds\n\n\nComparaison approximative : - Julia : ~0.02s - C : ~0.02s\n- Python : ~0.8s - R : ~0.5s\nJulia ≈ 40x plus rapide que Python !"
-  },
-  {
-    "objectID": "slides/02-revisions-programming-slides.html#interopérabilité-appeler-python-depuis-julia",
-    "href": "slides/02-revisions-programming-slides.html#interopérabilité-appeler-python-depuis-julia",
-    "title": "Révisions",
-    "section": "Interopérabilité : Appeler Python depuis Julia",
-    "text": "Interopérabilité : Appeler Python depuis Julia\nusing PyCall\n\n# Importer numpy depuis Julia\nnp = pyimport(\"numpy\")\n\n# Utiliser une fonction Python\npython_array = np.random.randn(1000)\njulia_array = randn(1000)\n\n# Comparaison des moyennes\nprintln(\"Moyenne Python: \", np.mean(python_array))\nprintln(\"Moyenne Julia: \", mean(julia_array))\n\nAvantage : Utiliser le meilleur des deux mondes sans friction !"
-  },
-  {
-    "objectID": "slides/02-revisions-programming-slides.html#présentation-de-sas",
-    "href": "slides/02-revisions-programming-slides.html#présentation-de-sas",
-    "title": "Révisions",
-    "section": "Présentation de SAS",
-    "text": "Présentation de SAS\n\n\n\n\n\n\nAvertissement\n\n\nSAS : Points importants\nAvantages : - Très utilisé dans certaines industries (pharma, finance) - Procédures statistiques robustes - Documentation officielle complète\nInconvénients majeurs : - Propriétaire : licence coûteuse à renouveler - Communauté limitée : peu d’aide en ligne - Code fermé : impossible de voir/modifier les algorithmes"
-  },
-  {
-    "objectID": "slides/02-revisions-programming-slides.html#exemple-sas-pour-comparaison",
-    "href": "slides/02-revisions-programming-slides.html#exemple-sas-pour-comparaison",
-    "title": "Révisions",
-    "section": "Exemple SAS (pour comparaison)",
-    "text": "Exemple SAS (pour comparaison)\n/* Lecture des données */\nPROC IMPORT OUT=sales_data\n    DATAFILE=\"sales_data.csv\"\n    DBMS=CSV REPLACE;\n    GETNAMES=YES;\nRUN;\n\n/* Statistiques descriptives */\nPROC MEANS DATA=sales_data;\n    VAR sales;\nRUN;\n\n/* Analyse par groupe */\nPROC MEANS DATA=sales_data;\n    CLASS region;\n    VAR sales;\nRUN;"
-  },
-  {
-    "objectID": "slides/02-revisions-programming-slides.html#pourquoi-éviter-sas-dans-ce-cours",
-    "href": "slides/02-revisions-programming-slides.html#pourquoi-éviter-sas-dans-ce-cours",
-    "title": "Révisions",
-    "section": "Pourquoi éviter SAS dans ce cours ?",
-    "text": "Pourquoi éviter SAS dans ce cours ?\n\nCoût : Licence étudiante payante même à l’université\nApprentissage limité : difficile de comprendre les algorithmes\nCarrière : Tendance décroissante sur le marché\nCollaboration : Difficile de partager le code\nFlexibilité : Limité aux analyses prédéfinies\n\n\nRecommandation : Choisissez un langage open-source (R, Python, Julia)"
+    "text": "Structure de projet recommandée\n\nmon_projet/\n├── data/           # Données brutes et nettoyées\n├── scripts/        # Scripts d'analyse\n├── functions/      # Fonctions réutilisables\n├── results/        # Graphiques, tableaux, documents\n├── docs/           # Documentation\n└── README.md       # Description du projet\n\nAvantages :\n\nOrganisation claire\nFacilite la collaboration\nProjet reproductible"
   },
   {
     "objectID": "slides/02-revisions-programming-slides.html#critères-de-décision",
     "href": "slides/02-revisions-programming-slides.html#critères-de-décision",
     "title": "Révisions",
     "section": "Critères de décision",
-    "text": "Critères de décision\n\nVotre expérience : Quel langage connaissez-vous déjà ?\nType de projet : Statistiques pures vs. ML vs. applications web\nPerformance : Avez-vous besoin de calculs très rapides ?\nÉcosystème : Quels packages/bibliothèques vous faut-il ?\nÉquipe : Quel langage utilise votre groupe/entreprise ?"
-  },
-  {
-    "objectID": "slides/02-revisions-programming-slides.html#guide-de-décision-pratique",
-    "href": "slides/02-revisions-programming-slides.html#guide-de-décision-pratique",
-    "title": "Révisions",
-    "section": "Guide de décision pratique",
-    "text": "Guide de décision pratique\n\nChoisissez R si : - Focus sur statistiques et visualisation - Travail avec des statisticiens - Rapports automatisés (R Markdown) - Analyse exploratoire intensive\n\n\nChoisissez Python si : - Machine learning et deep learning - Intégration avec applications web - Large écosystème nécessaire - Équipe mixte (développeurs + data scientists)"
-  },
-  {
-    "objectID": "slides/02-revisions-programming-slides.html#guide-de-décision-pratique-suite",
-    "href": "slides/02-revisions-programming-slides.html#guide-de-décision-pratique-suite",
-    "title": "Révisions",
-    "section": "Guide de décision pratique (suite)",
-    "text": "Guide de décision pratique (suite)\n\nChoisissez Julia si : - Performance critique - Calculs scientifiques intensifs - Vous aimez les nouveaux langages - Besoin d’interopérabilité R/Python\n\n\nÉvitez SAS sauf si : - Imposé par l’entreprise - Industrie très spécifique (pharma avec contraintes réglementaires) - Budget conséquent disponible"
-  },
-  {
-    "objectID": "slides/02-revisions-programming-slides.html#exemples-de-cas-dusage",
-    "href": "slides/02-revisions-programming-slides.html#exemples-de-cas-dusage",
-    "title": "Révisions",
-    "section": "Exemples de cas d’usage",
-    "text": "Exemples de cas d’usage\n\nProjet 1 : Analyse de sondage électoral → R (statistiques, graphiques, rapports)\n\n\nProjet 2 : Système de recommandation e-commerce → Python (ML, intégration web, grande communauté)\n\n\nProjet 3 : Simulation Monte Carlo financière → Julia (performance, calculs intensifs)\n\n\nProjet 4 : Analyses prédéfinies en entreprise pharma → SAS (si imposé par la réglementation)"
+    "text": "Critères de décision\n\n\nVotre expérience : Quel langage connaissez-vous déjà ?\nType de projet : Statistiques pures vs. ML vs. applications web\nPerformance : Avez-vous besoin de calculs très rapides ?\nÉcosystème : Quels packages/bibliothèques vous faut-il ?\nÉquipe : Quel langage utilise votre groupe/entreprise ?"
   },
   {
     "objectID": "slides/02-revisions-programming-slides.html#apprentissage-recommandé",
     "href": "slides/02-revisions-programming-slides.html#apprentissage-recommandé",
     "title": "Révisions",
     "section": "Apprentissage recommandé",
-    "text": "Apprentissage recommandé\n\n\n\n\n\n\nAstuce\n\n\nStratégie d’apprentissage\n\nMaîtrisez un langage à fond plutôt que trois superficiellement\nApprenez les concepts (statistiques, ML) avant la syntaxe\nPratiquez régulièrement : projets personnels\nLisez du code des autres : GitHub, Stack Overflow\nSuivez les bonnes pratiques dès le début"
+    "text": "Apprentissage recommandé\n\n\n\n\n\nMaîtrisez un langage à fond plutôt que plusieurs superficiellement\nApprenez les concepts (statistiques, ML) avant la syntaxe\nPratiquez régulièrement : projets personnels\nLisez du code des autres : GitHub, Stack Overflow\nSuivez les bonnes pratiques dès le début"
   },
   {
     "objectID": "slides/02-revisions-programming-slides.html#ressources-dapprentissage",
     "href": "slides/02-revisions-programming-slides.html#ressources-dapprentissage",
     "title": "Révisions",
     "section": "Ressources d’apprentissage",
-    "text": "Ressources d’apprentissage\nPour tous les langages : - Learn X in Y minutes (guides rapides) - Stack Overflow (questions/réponses) - Documentation officielle\nSpécifique : - R : R for Data Science, RStudio tutorials - Python : Python Data Science Handbook, Kaggle Learn - Julia : Julia Academy, Modern Julia Workflows"
-  },
-  {
-    "objectID": "slides/02-revisions-programming-slides.html#points-clés-à-retenir",
-    "href": "slides/02-revisions-programming-slides.html#points-clés-à-retenir",
-    "title": "Révisions",
-    "section": "Points clés à retenir",
-    "text": "Points clés à retenir\n\nPas de “meilleur” langage : tout dépend du contexte\nBonnes pratiques sont universelles\nR : excellent pour statistiques et visualisation\nPython : polyvalent, écosystème riche ML\nJulia : performance + syntaxe moderne\nSAS : éviter sauf contrainte externe"
+    "text": "Ressources d’apprentissage\n\nPour tous les langages :\n\nLearn X in Y minutes (guides rapides)\nStack Overflow (questions/réponses)\nDocumentation officielle"
   },
   {
     "objectID": "slides/02-revisions-programming-slides.html#limportant-cest",
     "href": "slides/02-revisions-programming-slides.html#limportant-cest",
     "title": "Révisions",
     "section": "L’important c’est…",
-    "text": "L’important c’est…\n\n\n\n\n\n\nImportant\n\n\nCe qui compte vraiment :\n\nComprendre les concepts mathématiques et statistiques\nÉcrire du code lisible et documenté\nReproduire ses analyses\nContinuer d’apprendre et s’adapter\n\n\n\n\n\nLe langage n’est qu’un outil pour exprimer vos idées !"
-  },
-  {
-    "objectID": "slides/02-revisions-programming-slides.html#questions",
-    "href": "slides/02-revisions-programming-slides.html#questions",
-    "title": "Révisions",
-    "section": "Questions ?",
-    "text": "Questions ?\nLiens utiles : - Guides des bonnes pratiques (voir course website) - Apprendre R en Y minutes - Apprendre Python en Y minutes - Learn Julia in Y minutes"
+    "text": "L’important c’est…\n\n\n\n\nComprendre les concepts mathématiques et statistiques\nÉcrire du code lisible et documenté\nReproduire ses analyses\nContinuer d’apprendre et s’adapter\n\n\n\n\nLe langage de programmation n’est qu’un outil pour exprimer vos idées !"
   },
   {
     "objectID": "tp/02-revision-tp.html",

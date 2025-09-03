@@ -229,7 +229,7 @@ Steven Golovkine
 <p>Ce cours n’impose <strong>aucun langage spécifique</strong> !</p>
 <p>Vous êtes libres de choisir :</p>
 <ul>
-<li><p>R, Python, Julia, ou même SAS.</p></li>
+<li><p>R, Python, Julia, ou même SAS ou C++.</p></li>
 <li><p>Le langage qui vous convient le mieux.</p></li>
 </ul>
 </div>
@@ -241,14 +241,11 @@ Steven Golovkine
 </section>
 <section id="plan-de-la-présentation" class="slide level2">
 <h2>Plan de la présentation</h2>
-<ul>
-<li>Bonnes pratiques universelles</li>
-<li>R : Le spécialiste des statistiques</li>
-<li>Python : Le généraliste populaire</li>
-<li>Julia : La nouvelle génération</li>
-<li>SAS : L’ancien propriétaire</li>
-<li>Comment choisir ?</li>
-</ul>
+<p><br></p>
+<ol type="1">
+<li><p>Bonnes pratiques universelles</p></li>
+<li><p>Comment choisir ?</p></li>
+</ol>
 </section>
 <section>
 <section id="bonnes-pratiques-universelles" class="title-slide slide level1 center">
@@ -257,23 +254,23 @@ Steven Golovkine
 </section>
 <section id="principes-fondamentaux" class="slide level2">
 <h2>Principes fondamentaux</h2>
+<p><br></p>
 <ul>
-<li class="fragment"><strong>Code lisible</strong> : les autres (et vous dans 6 mois !) doivent comprendre</li>
-<li class="fragment"><strong>Documentation</strong> : commentaires clairs et concis</li>
-<li class="fragment"><strong>Structure</strong> : organisation logique des fichiers et fonctions</li>
-<li class="fragment"><strong>Reproductibilité</strong> : mêmes données → mêmes résultats</li>
-<li class="fragment"><strong>Gestion des versions</strong> : Git pour suivre les modifications</li>
+<li><p><strong>Code lisible</strong> : les autres (et vous dans 6 mois !) doivent comprendre</p></li>
+<li><p><strong>Documentation</strong> : commentaires clairs et concis</p></li>
+<li><p><strong>Structure</strong> : organisation logique des fichiers et fonctions</p></li>
+<li><p><strong>Reproductibilité</strong> : mêmes données → mêmes résultats</p></li>
+<li><p><strong>Gestion des versions</strong> : Git pour suivre les modifications</p></li>
 </ul>
 </section>
 <section id="exemple-code-mal-écrit-vs.-bien-écrit" class="slide level2">
 <h2>Exemple : Code mal écrit vs.&nbsp;bien écrit</h2>
-<div class="fragment">
+<p><br></p>
 <p><strong>❌ Code difficile à comprendre :</strong></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a></a>d<span class="op">=</span>pd.read_csv(<span class="st">'data.csv'</span>)</span>
 <span id="cb1-3"><a></a>r<span class="op">=</span>d.groupby(<span class="st">'A'</span>).mean()[<span class="st">'B'</span>]</span>
 <span id="cb1-4"><a></a><span class="bu">print</span>(r)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <div class="fragment">
 <p><strong>✅ Code clair et documenté :</strong></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -284,343 +281,26 @@ Steven Golovkine
 <span id="cb2-6"><a></a><span class="co"># Calcul de la moyenne des ventes par région</span></span>
 <span id="cb2-7"><a></a>average_sales_by_region <span class="op">=</span> sales_data.groupby(<span class="st">'region'</span>).mean()[<span class="st">'sales_amount'</span>]</span>
 <span id="cb2-8"><a></a></span>
-<span id="cb2-9"><a></a><span class="bu">print</span>(<span class="st">"Ventes moyennes par région :"</span>)</span>
-<span id="cb2-10"><a></a><span class="bu">print</span>(average_sales_by_region)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-9"><a></a><span class="bu">print</span>(<span class="ss">f"Ventes moyennes par région : </span><span class="sc">{</span>average_sales_by_region<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="structure-de-projet-recommandée" class="slide level2">
 <h2>Structure de projet recommandée</h2>
+<p><br></p>
 <pre><code>mon_projet/
 ├── data/           # Données brutes et nettoyées
 ├── scripts/        # Scripts d'analyse
 ├── functions/      # Fonctions réutilisables
-├── results/        # Graphiques, tableaux
-├── docs/          # Documentation
-└── README.md      # Description du projet</code></pre>
+├── results/        # Graphiques, tableaux, documents
+├── docs/           # Documentation
+└── README.md       # Description du projet</code></pre>
 <div class="fragment">
-<p><strong>Avantages :</strong> - Organisation claire - Facilite la collaboration - Projet reproductible</p>
-</div>
-</section></section>
-<section>
-<section id="r-le-spécialiste-des-statistiques" class="title-slide slide level1 center">
-<h1>R : Le spécialiste des statistiques</h1>
-
-</section>
-<section id="présentation-de-r" class="slide level2">
-<h2>Présentation de R</h2>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Note</strong></p>
-</div>
-<div class="callout-content">
-<p><strong>R en bref</strong></p>
+<p><strong>Avantages :</strong></p>
 <ul>
-<li><strong>Spécialisé</strong> : analyse statistique et visualisation</li>
-<li><strong>Gratuit et open-source</strong></li>
-<li><strong>Écosystème riche</strong> : +18,000 packages sur CRAN</li>
-<li><strong>Communauté active</strong> : mise à jour quotidienne des packages</li>
+<li><p>Organisation claire</p></li>
+<li><p>Facilite la collaboration</p></li>
+<li><p>Projet reproductible</p></li>
 </ul>
-</div>
-</div>
-</div>
-<div class="fragment">
-<p><strong>Points forts :</strong> - Syntaxe intuitive pour les statistiques - Graphiques de haute qualité (ggplot2) - Intégration avec LaTeX et Markdown</p>
-</div>
-</section>
-<section id="exemple-pratique-analyse-exploratoire" class="slide level2">
-<h2>Exemple pratique : Analyse exploratoire</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co"># Chargement des bibliothèques</span></span>
-<span id="cb4-2"><a></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb4-3"><a></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb4-4"><a></a></span>
-<span id="cb4-5"><a></a><span class="co"># Lecture des données</span></span>
-<span id="cb4-6"><a></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"sales_data.csv"</span>)</span>
-<span id="cb4-7"><a></a></span>
-<span id="cb4-8"><a></a><span class="co"># Statistiques descriptives</span></span>
-<span id="cb4-9"><a></a><span class="fu">summary</span>(data<span class="sc">$</span>sales)</span>
-<span id="cb4-10"><a></a></span>
-<span id="cb4-11"><a></a><span class="co"># Analyse par groupe avec pipe operator</span></span>
-<span id="cb4-12"><a></a>sales_summary <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb4-13"><a></a>  <span class="fu">group_by</span>(region) <span class="sc">%&gt;%</span></span>
-<span id="cb4-14"><a></a>  <span class="fu">summarise</span>(</span>
-<span id="cb4-15"><a></a>    <span class="at">mean_sales =</span> <span class="fu">mean</span>(sales),</span>
-<span id="cb4-16"><a></a>    <span class="at">median_sales =</span> <span class="fu">median</span>(sales),</span>
-<span id="cb4-17"><a></a>    <span class="at">n_observations =</span> <span class="fu">n</span>()</span>
-<span id="cb4-18"><a></a>  )</span>
-<span id="cb4-19"><a></a></span>
-<span id="cb4-20"><a></a><span class="fu">print</span>(sales_summary)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="visualisation-avec-ggplot2" class="slide level2">
-<h2>Visualisation avec ggplot2</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># Graphique en barres des ventes par région</span></span>
-<span id="cb5-2"><a></a><span class="fu">ggplot</span>(sales_summary, <span class="fu">aes</span>(<span class="at">x =</span> region, <span class="at">y =</span> mean_sales)) <span class="sc">+</span></span>
-<span id="cb5-3"><a></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb5-4"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb5-5"><a></a>    <span class="at">title =</span> <span class="st">"Ventes moyennes par région"</span>,</span>
-<span id="cb5-6"><a></a>    <span class="at">x =</span> <span class="st">"Région"</span>,</span>
-<span id="cb5-7"><a></a>    <span class="at">y =</span> <span class="st">"Ventes moyennes (€)"</span>,</span>
-<span id="cb5-8"><a></a>    <span class="at">caption =</span> <span class="st">"Source: Données internes 2023"</span></span>
-<span id="cb5-9"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb5-10"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb5-11"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="lopérateur-pipe" class="slide level2">
-<h2>L’opérateur pipe (%&gt;%)</h2>
-<div class="fragment">
-<p><strong>Sans pipe (difficile à lire) :</strong></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>result <span class="ot">&lt;-</span> <span class="fu">arrange</span>(<span class="fu">summarise</span>(<span class="fu">group_by</span>(<span class="fu">filter</span>(data, sales <span class="sc">&gt;</span> <span class="dv">1000</span>), region), <span class="at">avg_sales =</span> <span class="fu">mean</span>(sales)), <span class="fu">desc</span>(avg_sales))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="fragment">
-<p><strong>Avec pipe (lecture naturelle) :</strong></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>result <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb7-2"><a></a>  <span class="fu">filter</span>(sales <span class="sc">&gt;</span> <span class="dv">1000</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb7-3"><a></a>  <span class="fu">group_by</span>(region) <span class="sc">%&gt;%</span></span>
-<span id="cb7-4"><a></a>  <span class="fu">summarise</span>(<span class="at">avg_sales =</span> <span class="fu">mean</span>(sales)) <span class="sc">%&gt;%</span></span>
-<span id="cb7-5"><a></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(avg_sales))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="fragment">
-<p><strong>Avantage :</strong> Se lit comme une phrase : “prendre les données, puis filtrer, puis grouper, puis calculer la moyenne, puis trier”</p>
-</div>
-</section></section>
-<section>
-<section id="python-le-généraliste-populaire" class="title-slide slide level1 center">
-<h1>Python : Le généraliste populaire</h1>
-
-</section>
-<section id="présentation-de-python" class="slide level2">
-<h2>Présentation de Python</h2>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Note</strong></p>
-</div>
-<div class="callout-content">
-<p><strong>Python en bref</strong></p>
-<ul>
-<li><strong>Généraliste</strong> : web, analyse de données, IA, automatisation…</li>
-<li><strong>Gratuit et open-source</strong></li>
-<li><strong>Écosystème mature</strong> : NumPy, Pandas, Scikit-learn, Matplotlib…</li>
-<li><strong>Syntaxe claire</strong> : “executable pseudocode”</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="fragment">
-<p><strong>Points forts :</strong> - Facilité d’apprentissage - Communauté énorme - Intégration avec autres systèmes</p>
-</div>
-</section>
-<section id="exemple-même-analyse-en-python" class="slide level2">
-<h2>Exemple : Même analyse en Python</h2>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb8-2"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb8-3"><a></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb8-4"><a></a></span>
-<span id="cb8-5"><a></a><span class="co"># Lecture des données</span></span>
-<span id="cb8-6"><a></a>data <span class="op">=</span> pd.read_csv(<span class="st">'sales_data.csv'</span>)</span>
-<span id="cb8-7"><a></a></span>
-<span id="cb8-8"><a></a><span class="co"># Statistiques descriptives</span></span>
-<span id="cb8-9"><a></a><span class="bu">print</span>(data[<span class="st">'sales'</span>].describe())</span>
-<span id="cb8-10"><a></a></span>
-<span id="cb8-11"><a></a><span class="co"># Analyse par groupe</span></span>
-<span id="cb8-12"><a></a>sales_summary <span class="op">=</span> (data</span>
-<span id="cb8-13"><a></a>                 .groupby(<span class="st">'region'</span>)[<span class="st">'sales'</span>]</span>
-<span id="cb8-14"><a></a>                 .agg([<span class="st">'mean'</span>, <span class="st">'median'</span>, <span class="st">'count'</span>])</span>
-<span id="cb8-15"><a></a>                 .<span class="bu">round</span>(<span class="dv">2</span>))</span>
-<span id="cb8-16"><a></a></span>
-<span id="cb8-17"><a></a><span class="bu">print</span>(sales_summary)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="visualisation-avec-matplotlibseaborn" class="slide level2">
-<h2>Visualisation avec matplotlib/seaborn</h2>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="co"># Configuration du style</span></span>
-<span id="cb9-2"><a></a>plt.style.use(<span class="st">'seaborn-v0_8'</span>)</span>
-<span id="cb9-3"><a></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb9-4"><a></a></span>
-<span id="cb9-5"><a></a><span class="co"># Graphique en barres</span></span>
-<span id="cb9-6"><a></a>sales_summary[<span class="st">'mean'</span>].plot(kind<span class="op">=</span><span class="st">'bar'</span>, ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'steelblue'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb9-7"><a></a></span>
-<span id="cb9-8"><a></a><span class="co"># Personnalisation</span></span>
-<span id="cb9-9"><a></a>ax.set_title(<span class="st">'Ventes moyennes par région'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb9-10"><a></a>ax.set_xlabel(<span class="st">'Région'</span>)</span>
-<span id="cb9-11"><a></a>ax.set_ylabel(<span class="st">'Ventes moyennes (€)'</span>)</span>
-<span id="cb9-12"><a></a>ax.tick_params(axis<span class="op">=</span><span class="st">'x'</span>, rotation<span class="op">=</span><span class="dv">45</span>)</span>
-<span id="cb9-13"><a></a></span>
-<span id="cb9-14"><a></a>plt.tight_layout()</span>
-<span id="cb9-15"><a></a>plt.show()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="machine-learning-avec-scikit-learn" class="slide level2">
-<h2>Machine Learning avec Scikit-learn</h2>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
-<span id="cb10-2"><a></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
-<span id="cb10-3"><a></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error</span>
-<span id="cb10-4"><a></a></span>
-<span id="cb10-5"><a></a><span class="co"># Préparation des données</span></span>
-<span id="cb10-6"><a></a>X <span class="op">=</span> data[[<span class="st">'advertising_budget'</span>, <span class="st">'num_employees'</span>]]</span>
-<span id="cb10-7"><a></a>y <span class="op">=</span> data[<span class="st">'sales'</span>]</span>
-<span id="cb10-8"><a></a></span>
-<span id="cb10-9"><a></a><span class="co"># Division train/test</span></span>
-<span id="cb10-10"><a></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
-<span id="cb10-11"><a></a>    X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span></span>
-<span id="cb10-12"><a></a>)</span>
-<span id="cb10-13"><a></a></span>
-<span id="cb10-14"><a></a><span class="co"># Modèle de régression linéaire</span></span>
-<span id="cb10-15"><a></a>model <span class="op">=</span> LinearRegression()</span>
-<span id="cb10-16"><a></a>model.fit(X_train, y_train)</span>
-<span id="cb10-17"><a></a></span>
-<span id="cb10-18"><a></a><span class="co"># Prédictions et évaluation</span></span>
-<span id="cb10-19"><a></a>y_pred <span class="op">=</span> model.predict(X_test)</span>
-<span id="cb10-20"><a></a>mse <span class="op">=</span> mean_squared_error(y_test, y_pred)</span>
-<span id="cb10-21"><a></a></span>
-<span id="cb10-22"><a></a><span class="bu">print</span>(<span class="ss">f"Erreur quadratique moyenne: </span><span class="sc">{</span>mse<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section></section>
-<section>
-<section id="julia-la-nouvelle-génération" class="title-slide slide level1 center">
-<h1>Julia : La nouvelle génération</h1>
-
-</section>
-<section id="présentation-de-julia" class="slide level2">
-<h2>Présentation de Julia</h2>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Note</strong></p>
-</div>
-<div class="callout-content">
-<p><strong>Julia en bref</strong></p>
-<ul>
-<li><strong>Moderne</strong> : créé au début des années 2010</li>
-<li><strong>Performance</strong> : vitesse proche du C</li>
-<li><strong>Syntaxe</strong> : familière (ressemble à Python/R)</li>
-<li><strong>Interopérabilité</strong> : appel natif de C/Fortran, support R/Python</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="fragment">
-<p><strong>Philosophie :</strong> “Résoudre le problème des deux langages” - Prototypage rapide ET exécution rapide - Pas besoin de réécrire en C/C++ pour la performance</p>
-</div>
-</section>
-<section id="exemple-même-analyse-en-julia" class="slide level2">
-<h2>Exemple : Même analyse en Julia</h2>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb11-1"><a></a><span class="im">using</span> <span class="bu">DataFrames</span>, <span class="bu">CSV</span>, <span class="bu">Statistics</span>, <span class="bu">StatsPlots</span></span>
-<span id="cb11-2"><a></a></span>
-<span id="cb11-3"><a></a><span class="co"># Lecture des données</span></span>
-<span id="cb11-4"><a></a>data <span class="op">=</span> CSV.<span class="fu">read</span>(<span class="st">"sales_data.csv"</span>, DataFrame)</span>
-<span id="cb11-5"><a></a></span>
-<span id="cb11-6"><a></a><span class="co"># Statistiques descriptives</span></span>
-<span id="cb11-7"><a></a><span class="fu">println</span>(<span class="st">"Statistiques des ventes:"</span>)</span>
-<span id="cb11-8"><a></a><span class="fu">println</span>(<span class="fu">describe</span>(data.sales))</span>
-<span id="cb11-9"><a></a></span>
-<span id="cb11-10"><a></a><span class="co"># Analyse par groupe</span></span>
-<span id="cb11-11"><a></a>sales_summary <span class="op">=</span> <span class="fu">combine</span>(<span class="fu">groupby</span>(data, <span class="op">:</span>region), </span>
-<span id="cb11-12"><a></a>                       <span class="op">:</span>sales <span class="op">=&gt;</span> mean <span class="op">=&gt;</span> <span class="op">:</span>mean_sales,</span>
-<span id="cb11-13"><a></a>                       <span class="op">:</span>sales <span class="op">=&gt;</span> median <span class="op">=&gt;</span> <span class="op">:</span>median_sales,</span>
-<span id="cb11-14"><a></a>                       <span class="op">:</span>sales <span class="op">=&gt;</span> length <span class="op">=&gt;</span> <span class="op">:</span>count)</span>
-<span id="cb11-15"><a></a></span>
-<span id="cb11-16"><a></a><span class="fu">println</span>(sales_summary)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="performance-comparaison-de-vitesse" class="slide level2">
-<h2>Performance : Comparaison de vitesse</h2>
-<div class="fragment">
-<p><strong>Test : Calcul sur 1 million d’éléments</strong></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb12-1"><a></a><span class="co"># Julia</span></span>
-<span id="cb12-2"><a></a><span class="kw">function</span> <span class="fu">compute_heavy</span>(n)</span>
-<span id="cb12-3"><a></a>    result <span class="op">=</span> <span class="fl">0.0</span></span>
-<span id="cb12-4"><a></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>n</span>
-<span id="cb12-5"><a></a>        result <span class="op">+=</span> <span class="fu">sin</span>(i) <span class="op">*</span> <span class="fu">cos</span>(i)</span>
-<span id="cb12-6"><a></a>    <span class="cf">end</span></span>
-<span id="cb12-7"><a></a>    <span class="cf">return</span> result</span>
-<span id="cb12-8"><a></a><span class="kw">end</span></span>
-<span id="cb12-9"><a></a></span>
-<span id="cb12-10"><a></a><span class="pp">@time</span> <span class="fu">compute_heavy</span>(<span class="fl">1_000_000</span>)  <span class="co"># ~0.02 seconds</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="fragment">
-<p><strong>Comparaison approximative :</strong> - <strong>Julia</strong> : ~0.02s - <strong>C</strong> : ~0.02s<br>
-- <strong>Python</strong> : ~0.8s - <strong>R</strong> : ~0.5s</p>
-<p><strong>Julia ≈ 40x plus rapide que Python !</strong></p>
-</div>
-</section>
-<section id="interopérabilité-appeler-python-depuis-julia" class="slide level2">
-<h2>Interopérabilité : Appeler Python depuis Julia</h2>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb13-1"><a></a><span class="im">using</span> <span class="bu">PyCall</span></span>
-<span id="cb13-2"><a></a></span>
-<span id="cb13-3"><a></a><span class="co"># Importer numpy depuis Julia</span></span>
-<span id="cb13-4"><a></a>np <span class="op">=</span> <span class="fu">pyimport</span>(<span class="st">"numpy"</span>)</span>
-<span id="cb13-5"><a></a></span>
-<span id="cb13-6"><a></a><span class="co"># Utiliser une fonction Python</span></span>
-<span id="cb13-7"><a></a>python_array <span class="op">=</span> np.random.<span class="fu">randn</span>(<span class="fl">1000</span>)</span>
-<span id="cb13-8"><a></a>julia_array <span class="op">=</span> <span class="fu">randn</span>(<span class="fl">1000</span>)</span>
-<span id="cb13-9"><a></a></span>
-<span id="cb13-10"><a></a><span class="co"># Comparaison des moyennes</span></span>
-<span id="cb13-11"><a></a><span class="fu">println</span>(<span class="st">"Moyenne Python: "</span>, np.<span class="fu">mean</span>(python_array))</span>
-<span id="cb13-12"><a></a><span class="fu">println</span>(<span class="st">"Moyenne Julia: "</span>, <span class="fu">mean</span>(julia_array))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="fragment">
-<p><strong>Avantage :</strong> Utiliser le meilleur des deux mondes sans friction !</p>
-</div>
-</section></section>
-<section>
-<section id="sas-lancien-propriétaire" class="title-slide slide level1 center">
-<h1>SAS : L’ancien propriétaire</h1>
-
-</section>
-<section id="présentation-de-sas" class="slide level2">
-<h2>Présentation de SAS</h2>
-<div class="callout callout-warning callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Avertissement</strong></p>
-</div>
-<div class="callout-content">
-<p><strong>SAS : Points importants</strong></p>
-<p><strong>Avantages :</strong> - Très utilisé dans certaines industries (pharma, finance) - Procédures statistiques robustes - Documentation officielle complète</p>
-<p><strong>Inconvénients majeurs :</strong> - <strong>Propriétaire</strong> : licence coûteuse à renouveler - <strong>Communauté limitée</strong> : peu d’aide en ligne - <strong>Code fermé</strong> : impossible de voir/modifier les algorithmes</p>
-</div>
-</div>
-</div>
-</section>
-<section id="exemple-sas-pour-comparaison" class="slide level2">
-<h2>Exemple SAS (pour comparaison)</h2>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource sas number-lines code-with-copy"><code class="sourceCode"><span id="cb14-1"><a></a>/* Lecture des données */</span>
-<span id="cb14-2"><a></a>PROC IMPORT OUT=sales_data</span>
-<span id="cb14-3"><a></a>    DATAFILE="sales_data.csv"</span>
-<span id="cb14-4"><a></a>    DBMS=CSV REPLACE;</span>
-<span id="cb14-5"><a></a>    GETNAMES=YES;</span>
-<span id="cb14-6"><a></a>RUN;</span>
-<span id="cb14-7"><a></a></span>
-<span id="cb14-8"><a></a>/* Statistiques descriptives */</span>
-<span id="cb14-9"><a></a>PROC MEANS DATA=sales_data;</span>
-<span id="cb14-10"><a></a>    VAR sales;</span>
-<span id="cb14-11"><a></a>RUN;</span>
-<span id="cb14-12"><a></a></span>
-<span id="cb14-13"><a></a>/* Analyse par groupe */</span>
-<span id="cb14-14"><a></a>PROC MEANS DATA=sales_data;</span>
-<span id="cb14-15"><a></a>    CLASS region;</span>
-<span id="cb14-16"><a></a>    VAR sales;</span>
-<span id="cb14-17"><a></a>RUN;</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="pourquoi-éviter-sas-dans-ce-cours" class="slide level2">
-<h2>Pourquoi éviter SAS dans ce cours ?</h2>
-<ul>
-<li class="fragment"><strong>Coût</strong> : Licence étudiante payante même à l’université</li>
-<li class="fragment"><strong>Apprentissage limité</strong> : difficile de comprendre les algorithmes</li>
-<li class="fragment"><strong>Carrière</strong> : Tendance décroissante sur le marché</li>
-<li class="fragment"><strong>Collaboration</strong> : Difficile de partager le code</li>
-<li class="fragment"><strong>Flexibilité</strong> : Limité aux analyses prédéfinies</li>
-</ul>
-<div class="fragment">
-<p><strong>Recommandation :</strong> Choisissez un langage open-source (R, Python, Julia)</p>
 </div>
 </section></section>
 <section>
@@ -630,65 +310,27 @@ Steven Golovkine
 </section>
 <section id="critères-de-décision" class="slide level2">
 <h2>Critères de décision</h2>
+<p><br></p>
 <ul>
-<li class="fragment"><strong>Votre expérience</strong> : Quel langage connaissez-vous déjà ?</li>
-<li class="fragment"><strong>Type de projet</strong> : Statistiques pures vs.&nbsp;ML vs.&nbsp;applications web</li>
-<li class="fragment"><strong>Performance</strong> : Avez-vous besoin de calculs très rapides ?</li>
-<li class="fragment"><strong>Écosystème</strong> : Quels packages/bibliothèques vous faut-il ?</li>
-<li class="fragment"><strong>Équipe</strong> : Quel langage utilise votre groupe/entreprise ?</li>
+<li><p><strong>Votre expérience</strong> : Quel langage connaissez-vous déjà ?</p></li>
+<li><p><strong>Type de projet</strong> : Statistiques pures vs.&nbsp;ML vs.&nbsp;applications web</p></li>
+<li><p><strong>Performance</strong> : Avez-vous besoin de calculs très rapides ?</p></li>
+<li><p><strong>Écosystème</strong> : Quels packages/bibliothèques vous faut-il ?</p></li>
+<li><p><strong>Équipe</strong> : Quel langage utilise votre groupe/entreprise ?</p></li>
 </ul>
-</section>
-<section id="guide-de-décision-pratique" class="slide level2">
-<h2>Guide de décision pratique</h2>
-<div class="fragment">
-<p><strong>Choisissez R si :</strong> - Focus sur statistiques et visualisation - Travail avec des statisticiens - Rapports automatisés (R Markdown) - Analyse exploratoire intensive</p>
-</div>
-<div class="fragment">
-<p><strong>Choisissez Python si :</strong> - Machine learning et deep learning - Intégration avec applications web - Large écosystème nécessaire - Équipe mixte (développeurs + data scientists)</p>
-</div>
-</section>
-<section id="guide-de-décision-pratique-suite" class="slide level2">
-<h2>Guide de décision pratique (suite)</h2>
-<div class="fragment">
-<p><strong>Choisissez Julia si :</strong> - Performance critique - Calculs scientifiques intensifs - Vous aimez les nouveaux langages - Besoin d’interopérabilité R/Python</p>
-</div>
-<div class="fragment">
-<p><strong>Évitez SAS sauf si :</strong> - Imposé par l’entreprise - Industrie très spécifique (pharma avec contraintes réglementaires) - Budget conséquent disponible</p>
-</div>
-</section>
-<section id="exemples-de-cas-dusage" class="slide level2">
-<h2>Exemples de cas d’usage</h2>
-<div class="fragment">
-<p><strong>Projet 1 :</strong> Analyse de sondage électoral → <strong>R</strong> (statistiques, graphiques, rapports)</p>
-</div>
-<div class="fragment">
-<p><strong>Projet 2 :</strong> Système de recommandation e-commerce → <strong>Python</strong> (ML, intégration web, grande communauté)</p>
-</div>
-<div class="fragment">
-<p><strong>Projet 3 :</strong> Simulation Monte Carlo financière → <strong>Julia</strong> (performance, calculs intensifs)</p>
-</div>
-<div class="fragment">
-<p><strong>Projet 4 :</strong> Analyses prédéfinies en entreprise pharma → <strong>SAS</strong> (si imposé par la réglementation)</p>
-</div>
 </section>
 <section id="apprentissage-recommandé" class="slide level2">
 <h2>Apprentissage recommandé</h2>
-<div class="callout callout-tip callout-titled callout-style-default">
+<p><br></p>
+<div class="callout callout-tip no-icon callout-style-simple">
 <div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Astuce</strong></p>
-</div>
 <div class="callout-content">
-<p><strong>Stratégie d’apprentissage</strong></p>
 <ol type="1">
-<li><strong>Maîtrisez un langage</strong> à fond plutôt que trois superficiellement</li>
-<li><strong>Apprenez les concepts</strong> (statistiques, ML) avant la syntaxe</li>
-<li><strong>Pratiquez régulièrement</strong> : projets personnels</li>
-<li><strong>Lisez du code</strong> des autres : GitHub, Stack Overflow</li>
-<li><strong>Suivez les bonnes pratiques</strong> dès le début</li>
+<li><p><strong>Maîtrisez un langage</strong> à fond plutôt que plusieurs superficiellement</p></li>
+<li><p><strong>Apprenez les concepts</strong> (statistiques, ML) avant la syntaxe</p></li>
+<li><p><strong>Pratiquez régulièrement</strong> : projets personnels</p></li>
+<li><p><strong>Lisez du code</strong> des autres : GitHub, Stack Overflow</p></li>
+<li><p><strong>Suivez les bonnes pratiques</strong> dès le début</p></li>
 </ol>
 </div>
 </div>
@@ -696,52 +338,29 @@ Steven Golovkine
 </section>
 <section id="ressources-dapprentissage" class="slide level2">
 <h2>Ressources d’apprentissage</h2>
-<p><strong>Pour tous les langages :</strong> - <a href="https://learnxinyminutes.com/">Learn X in Y minutes</a> (guides rapides) - Stack Overflow (questions/réponses) - Documentation officielle</p>
-<p><strong>Spécifique :</strong> - <strong>R :</strong> R for Data Science, RStudio tutorials - <strong>Python :</strong> Python Data Science Handbook, Kaggle Learn - <strong>Julia :</strong> Julia Academy, Modern Julia Workflows</p>
-</section>
-<section id="points-clés-à-retenir" class="slide level2">
-<h2>Points clés à retenir</h2>
+<p><br></p>
+<p><strong>Pour tous les langages :</strong></p>
 <ul>
-<li class="fragment"><strong>Pas de “meilleur” langage</strong> : tout dépend du contexte</li>
-<li class="fragment"><strong>Bonnes pratiques</strong> sont universelles</li>
-<li class="fragment"><strong>R</strong> : excellent pour statistiques et visualisation</li>
-<li class="fragment"><strong>Python</strong> : polyvalent, écosystème riche ML</li>
-<li class="fragment"><strong>Julia</strong> : performance + syntaxe moderne</li>
-<li class="fragment"><strong>SAS</strong> : éviter sauf contrainte externe</li>
+<li><p><a href="https://learnxinyminutes.com/">Learn X in Y minutes</a> (guides rapides)</p></li>
+<li><p>Stack Overflow (questions/réponses)</p></li>
+<li><p>Documentation officielle</p></li>
 </ul>
 </section>
 <section id="limportant-cest" class="slide level2">
 <h2>L’important c’est…</h2>
-<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout callout-important no-icon callout-style-simple">
 <div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Important</strong></p>
-</div>
 <div class="callout-content">
-<p><strong>Ce qui compte vraiment :</strong></p>
 <ol type="1">
-<li><strong>Comprendre les concepts</strong> mathématiques et statistiques</li>
-<li><strong>Écrire du code lisible</strong> et documenté</li>
-<li><strong>Reproduire ses analyses</strong></li>
-<li><strong>Continuer d’apprendre</strong> et s’adapter</li>
+<li><p><strong>Comprendre les concepts</strong> mathématiques et statistiques</p></li>
+<li><p><strong>Écrire du code lisible</strong> et documenté</p></li>
+<li><p><strong>Reproduire ses analyses</strong></p></li>
+<li><p><strong>Continuer d’apprendre</strong> et s’adapter</p></li>
 </ol>
 </div>
 </div>
 </div>
-<div class="fragment">
-<p>Le langage n’est qu’un <strong>outil</strong> pour exprimer vos idées !</p>
-</div>
-</section>
-<section id="questions" class="slide level2">
-<h2>Questions ?</h2>
-<p><strong>Liens utiles :</strong> - Guides des bonnes pratiques (voir course website) - <a href="https://learnxinyminutes.com/fr/r/">Apprendre R en Y minutes</a> - <a href="https://learnxinyminutes.com/fr/python/">Apprendre Python en Y minutes</a> - <a href="https://learnxinyminutes.com/julia/">Learn Julia in Y minutes</a></p>
-</section>
-<section class="slide level2">
-
-<p><strong>Bonne programmation !</strong></p>
+<p>Le langage de programmation n’est qu’un <strong>outil</strong> pour exprimer vos idées !</p>
 
 
 </section></section>
