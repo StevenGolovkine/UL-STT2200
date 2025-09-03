@@ -296,41 +296,6 @@
     ]
   },
   {
-    "objectID": "informations/schedule.html",
-    "href": "informations/schedule.html",
-    "title": "Schedule",
-    "section": "",
-    "text": "The plan is given for information only.\n\n\n\nWeek\nPlan\nEvaluations\n\n\n\n\n1er september\nCourse presentation and remainders\n\n\n\n8 september\nRemainders\n\n\n\n15 september\nGeneralities\n\n\n\n22 september\nGeneralities\n\n\n\n29 september\nPCA\n\n\n\n6 october\nCA\n\n\n\n13 october\nMCA\n\n\n\n20 october\nDiscriminant analysis\nIntra exam\n\n\n27 october\nLecture week\nRetake exam\n\n\n3 november\nTrees\n\n\n\n10 november\nEnsemble models\n\n\n\n17 november\n\\(k\\)-means\n\n\n\n24 november\nHierarchical models + Mixture models\n\n\n\n1er décember\nRevision + University holidays\nPoster handoff\n\n\n8 décember\n\nPoster presentation + final exam\n\n\n15 décember\n\nRetake exam",
-    "crumbs": [
-      "Informations",
-      "Plan"
-    ]
-  },
-  {
-    "objectID": "informations/mcq.html",
-    "href": "informations/mcq.html",
-    "title": "MCQ",
-    "section": "",
-    "text": "The first exam is a multiple-choice question with quantification of uncertainty.\nThe use of degrees of certainty enables the student to assess the level of knowledge of the answer given. The scoring system, based on decision theory (Leclercq et al. 1993), may seem odd but it has been designed in such a way that:\n\ntelling the truth is the strategy that earns the most points;\nthose who self-assess well earn more points than if we applied a corrective scale taking into account the probabilities of having the correct answer randomly.\n\n\n\n\nIf you find that your answer has a probability of being correct between…\n\n\nChoose the degree of certainty…\n\n\nYou’ll get the following points for … answer.\n\n\n\n\n\n\n\n\ncorrect\n\n\nincorrect\n\n\n\n\n0% and 25%\n\n\n0\n\n\n+13\n\n\n+4\n\n\n\n\n25% and 50%\n\n\n1\n\n\n+16\n\n\n+3\n\n\n\n\n50% and 70%\n\n\n2\n\n\n+17\n\n\n+2\n\n\n\n\n70% and 85%\n\n\n3\n\n\n+18\n\n\n0\n\n\n\n\n85% and 95%\n\n\n4\n\n\n+19\n\n\n-6\n\n\n\n\n95% and 100%\n\n\n5\n\n\n+20\n\n\n-10\n\n\n\nIn general, students self-assess realistically, and benefit from degrees of certainty. Their score is better than if it had been calculated solely on the basis of the number of correct answers.",
-    "crumbs": [
-      "Informations",
-      "Évaluations",
-      "MCQ"
-    ]
-  },
-  {
-    "objectID": "informations/mcq.html#information-on-the-first-exam",
-    "href": "informations/mcq.html#information-on-the-first-exam",
-    "title": "MCQ",
-    "section": "",
-    "text": "The first exam is a multiple-choice question with quantification of uncertainty.\nThe use of degrees of certainty enables the student to assess the level of knowledge of the answer given. The scoring system, based on decision theory (Leclercq et al. 1993), may seem odd but it has been designed in such a way that:\n\ntelling the truth is the strategy that earns the most points;\nthose who self-assess well earn more points than if we applied a corrective scale taking into account the probabilities of having the correct answer randomly.\n\n\n\n\nIf you find that your answer has a probability of being correct between…\n\n\nChoose the degree of certainty…\n\n\nYou’ll get the following points for … answer.\n\n\n\n\n\n\n\n\ncorrect\n\n\nincorrect\n\n\n\n\n0% and 25%\n\n\n0\n\n\n+13\n\n\n+4\n\n\n\n\n25% and 50%\n\n\n1\n\n\n+16\n\n\n+3\n\n\n\n\n50% and 70%\n\n\n2\n\n\n+17\n\n\n+2\n\n\n\n\n70% and 85%\n\n\n3\n\n\n+18\n\n\n0\n\n\n\n\n85% and 95%\n\n\n4\n\n\n+19\n\n\n-6\n\n\n\n\n95% and 100%\n\n\n5\n\n\n+20\n\n\n-10\n\n\n\nIn general, students self-assess realistically, and benefit from degrees of certainty. Their score is better than if it had been calculated solely on the basis of the number of correct answers.",
-    "crumbs": [
-      "Informations",
-      "Évaluations",
-      "MCQ"
-    ]
-  },
-  {
     "objectID": "informations/description.html",
     "href": "informations/description.html",
     "title": "Description",
@@ -405,6 +370,52 @@
     "crumbs": [
       "Informations",
       "Description"
+    ]
+  },
+  {
+    "objectID": "informations/mcq.html",
+    "href": "informations/mcq.html",
+    "title": "MCQ",
+    "section": "",
+    "text": "The first exam is a multiple-choice question with quantification of uncertainty.\nThe use of degrees of certainty enables the student to assess the level of knowledge of the answer given. The scoring system, based on decision theory (Leclercq et al. 1993), may seem odd but it has been designed in such a way that:\n\ntelling the truth is the strategy that earns the most points;\nthose who self-assess well earn more points than if we applied a corrective scale taking into account the probabilities of having the correct answer randomly.\n\n\n\n\nIf you find that your answer has a probability of being correct between…\n\n\nChoose the degree of certainty…\n\n\nYou’ll get the following points for … answer.\n\n\n\n\n\n\n\n\ncorrect\n\n\nincorrect\n\n\n\n\n0% and 25%\n\n\n0\n\n\n+13\n\n\n+4\n\n\n\n\n25% and 50%\n\n\n1\n\n\n+16\n\n\n+3\n\n\n\n\n50% and 70%\n\n\n2\n\n\n+17\n\n\n+2\n\n\n\n\n70% and 85%\n\n\n3\n\n\n+18\n\n\n0\n\n\n\n\n85% and 95%\n\n\n4\n\n\n+19\n\n\n-6\n\n\n\n\n95% and 100%\n\n\n5\n\n\n+20\n\n\n-10\n\n\n\nIn general, students self-assess realistically, and benefit from degrees of certainty. Their score is better than if it had been calculated solely on the basis of the number of correct answers.",
+    "crumbs": [
+      "Informations",
+      "Évaluations",
+      "MCQ"
+    ]
+  },
+  {
+    "objectID": "informations/mcq.html#information-on-the-first-exam",
+    "href": "informations/mcq.html#information-on-the-first-exam",
+    "title": "MCQ",
+    "section": "",
+    "text": "The first exam is a multiple-choice question with quantification of uncertainty.\nThe use of degrees of certainty enables the student to assess the level of knowledge of the answer given. The scoring system, based on decision theory (Leclercq et al. 1993), may seem odd but it has been designed in such a way that:\n\ntelling the truth is the strategy that earns the most points;\nthose who self-assess well earn more points than if we applied a corrective scale taking into account the probabilities of having the correct answer randomly.\n\n\n\n\nIf you find that your answer has a probability of being correct between…\n\n\nChoose the degree of certainty…\n\n\nYou’ll get the following points for … answer.\n\n\n\n\n\n\n\n\ncorrect\n\n\nincorrect\n\n\n\n\n0% and 25%\n\n\n0\n\n\n+13\n\n\n+4\n\n\n\n\n25% and 50%\n\n\n1\n\n\n+16\n\n\n+3\n\n\n\n\n50% and 70%\n\n\n2\n\n\n+17\n\n\n+2\n\n\n\n\n70% and 85%\n\n\n3\n\n\n+18\n\n\n0\n\n\n\n\n85% and 95%\n\n\n4\n\n\n+19\n\n\n-6\n\n\n\n\n95% and 100%\n\n\n5\n\n\n+20\n\n\n-10\n\n\n\nIn general, students self-assess realistically, and benefit from degrees of certainty. Their score is better than if it had been calculated solely on the basis of the number of correct answers.",
+    "crumbs": [
+      "Informations",
+      "Évaluations",
+      "MCQ"
+    ]
+  },
+  {
+    "objectID": "informations/schedule.html",
+    "href": "informations/schedule.html",
+    "title": "Schedule",
+    "section": "",
+    "text": "The plan is given for information only.\n\n\n\nWeek\nPlan\nEvaluations\n\n\n\n\n1er september\nCourse presentation and remainders\n\n\n\n8 september\nRemainders\n\n\n\n15 september\nGeneralities\n\n\n\n22 september\nGeneralities\n\n\n\n29 september\nPCA\n\n\n\n6 october\nCA\n\n\n\n13 october\nMCA\n\n\n\n20 october\nDiscriminant analysis\nIntra exam\n\n\n27 october\nLecture week\nRetake exam\n\n\n3 november\nTrees\n\n\n\n10 november\nEnsemble models\n\n\n\n17 november\n\\(k\\)-means\n\n\n\n24 november\nHierarchical models + Mixture models\n\n\n\n1er décember\nRevision + University holidays\nPoster handoff\n\n\n8 décember\n\nPoster presentation + final exam\n\n\n15 décember\n\nRetake exam",
+    "crumbs": [
+      "Informations",
+      "Plan"
+    ]
+  },
+  {
+    "objectID": "informations/cours.html",
+    "href": "informations/cours.html",
+    "title": "Classes",
+    "section": "",
+    "text": "Here are the recording of the classes for the semester Autumn 2025:\n\nClass of 02 september 2025: link.",
+    "crumbs": [
+      "Informations",
+      "Cours"
     ]
   },
   {

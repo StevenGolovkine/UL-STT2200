@@ -2077,41 +2077,6 @@
     ]
   },
   {
-    "objectID": "informations/schedule.html",
-    "href": "informations/schedule.html",
-    "title": "Plan",
-    "section": "",
-    "text": "Le plan est donné à titre indicatif.\n\n\n\nSemaine\nPlan\nÉvaluations\n\n\n\n\n1er septembre\nPrésentation du cours et rappels\n\n\n\n8 septembre\nRappels\n\n\n\n15 septembre\nGénéralités\n\n\n\n22 septembre\nGénéralités\n\n\n\n29 septembre\nACP\n\n\n\n6 octobre\nAFC\n\n\n\n13 octobre\nACM\n\n\n\n20 octobre\nAnalyse discriminante\nExamen intra\n\n\n27 octobre\nSemaine de lecture\nExamen de reprise\n\n\n3 novembre\nArbres\n\n\n\n10 novembre\nModèles ensemblistes\n\n\n\n17 novembre\n\\(k\\)-moyennes\n\n\n\n24 novembre\nMéthodes hiérarchiques + Modèles de mélanges\n\n\n\n1er décembre\nRévision + Fête de l’université\nRemise du poster\n\n\n8 décembre\n\nPrésentation du poster + Examen final\n\n\n15 décembre\n\nExamen de reprise",
-    "crumbs": [
-      "Informations",
-      "Plan"
-    ]
-  },
-  {
-    "objectID": "informations/mcq.html",
-    "href": "informations/mcq.html",
-    "title": "QCM",
-    "section": "",
-    "text": "Le premier examen est un questionaire à choix multiples avec quantification de l’incertitude.\nL’ utilisation de degrés de certitude permet à l’étudiant et à l’étudiante d’évaluer le niveau de connaissance de la réponse donnée. La barème des notes, basé sur la théorie des décision (Leclercq et al. 1993), peut sembler bizarre mais il a été fait de tel manière que:\n\ndire la vérité soit la stratégie qui rapporte le plus de points;\nceux qui s’auto-évaluent bien gagnent plus de points que si l’on appliquait un barème correctif tenant compte des probabilités d’avoir la réponse correcte aléatoirement.\n\n\n\n\nSi vous condidérez que votre réponse a une probabilité d’être correcte comprise entre…\n\n\nChoisissez le degré de certitude…\n\n\nVous obtiendrez les points suivants en case de réponse…\n\n\n\n\n\n\n\n\ncorrecte\n\n\nincorrecte\n\n\n\n\n0% et 25%\n\n\n0\n\n\n+13\n\n\n+4\n\n\n\n\n25% et 50%\n\n\n1\n\n\n+16\n\n\n+3\n\n\n\n\n50% et 70%\n\n\n2\n\n\n+17\n\n\n+2\n\n\n\n\n70% et 85%\n\n\n3\n\n\n+18\n\n\n0\n\n\n\n\n85% et 95%\n\n\n4\n\n\n+19\n\n\n-6\n\n\n\n\n95% et 100%\n\n\n5\n\n\n+20\n\n\n-10\n\n\n\nGénéralement, les étudiants s’auto-estiment avec réalisme, et sont avantagés par les degrés de certitude. Leur score obtenu est meilleur que s’il avait été calculé uniquement sur la base du nombre de réponses justes.",
-    "crumbs": [
-      "Informations",
-      "Évaluations",
-      "QCM"
-    ]
-  },
-  {
-    "objectID": "informations/mcq.html#information-sur-le-premier-examen",
-    "href": "informations/mcq.html#information-sur-le-premier-examen",
-    "title": "QCM",
-    "section": "",
-    "text": "Le premier examen est un questionaire à choix multiples avec quantification de l’incertitude.\nL’ utilisation de degrés de certitude permet à l’étudiant et à l’étudiante d’évaluer le niveau de connaissance de la réponse donnée. La barème des notes, basé sur la théorie des décision (Leclercq et al. 1993), peut sembler bizarre mais il a été fait de tel manière que:\n\ndire la vérité soit la stratégie qui rapporte le plus de points;\nceux qui s’auto-évaluent bien gagnent plus de points que si l’on appliquait un barème correctif tenant compte des probabilités d’avoir la réponse correcte aléatoirement.\n\n\n\n\nSi vous condidérez que votre réponse a une probabilité d’être correcte comprise entre…\n\n\nChoisissez le degré de certitude…\n\n\nVous obtiendrez les points suivants en case de réponse…\n\n\n\n\n\n\n\n\ncorrecte\n\n\nincorrecte\n\n\n\n\n0% et 25%\n\n\n0\n\n\n+13\n\n\n+4\n\n\n\n\n25% et 50%\n\n\n1\n\n\n+16\n\n\n+3\n\n\n\n\n50% et 70%\n\n\n2\n\n\n+17\n\n\n+2\n\n\n\n\n70% et 85%\n\n\n3\n\n\n+18\n\n\n0\n\n\n\n\n85% et 95%\n\n\n4\n\n\n+19\n\n\n-6\n\n\n\n\n95% et 100%\n\n\n5\n\n\n+20\n\n\n-10\n\n\n\nGénéralement, les étudiants s’auto-estiment avec réalisme, et sont avantagés par les degrés de certitude. Leur score obtenu est meilleur que s’il avait été calculé uniquement sur la base du nombre de réponses justes.",
-    "crumbs": [
-      "Informations",
-      "Évaluations",
-      "QCM"
-    ]
-  },
-  {
     "objectID": "informations/description.html",
     "href": "informations/description.html",
     "title": "Description du cours",
@@ -2186,6 +2151,52 @@
     "crumbs": [
       "Informations",
       "Description"
+    ]
+  },
+  {
+    "objectID": "informations/mcq.html",
+    "href": "informations/mcq.html",
+    "title": "QCM",
+    "section": "",
+    "text": "Le premier examen est un questionaire à choix multiples avec quantification de l’incertitude.\nL’ utilisation de degrés de certitude permet à l’étudiant et à l’étudiante d’évaluer le niveau de connaissance de la réponse donnée. La barème des notes, basé sur la théorie des décision (Leclercq et al. 1993), peut sembler bizarre mais il a été fait de tel manière que:\n\ndire la vérité soit la stratégie qui rapporte le plus de points;\nceux qui s’auto-évaluent bien gagnent plus de points que si l’on appliquait un barème correctif tenant compte des probabilités d’avoir la réponse correcte aléatoirement.\n\n\n\n\nSi vous condidérez que votre réponse a une probabilité d’être correcte comprise entre…\n\n\nChoisissez le degré de certitude…\n\n\nVous obtiendrez les points suivants en case de réponse…\n\n\n\n\n\n\n\n\ncorrecte\n\n\nincorrecte\n\n\n\n\n0% et 25%\n\n\n0\n\n\n+13\n\n\n+4\n\n\n\n\n25% et 50%\n\n\n1\n\n\n+16\n\n\n+3\n\n\n\n\n50% et 70%\n\n\n2\n\n\n+17\n\n\n+2\n\n\n\n\n70% et 85%\n\n\n3\n\n\n+18\n\n\n0\n\n\n\n\n85% et 95%\n\n\n4\n\n\n+19\n\n\n-6\n\n\n\n\n95% et 100%\n\n\n5\n\n\n+20\n\n\n-10\n\n\n\nGénéralement, les étudiants s’auto-estiment avec réalisme, et sont avantagés par les degrés de certitude. Leur score obtenu est meilleur que s’il avait été calculé uniquement sur la base du nombre de réponses justes.",
+    "crumbs": [
+      "Informations",
+      "Évaluations",
+      "QCM"
+    ]
+  },
+  {
+    "objectID": "informations/mcq.html#information-sur-le-premier-examen",
+    "href": "informations/mcq.html#information-sur-le-premier-examen",
+    "title": "QCM",
+    "section": "",
+    "text": "Le premier examen est un questionaire à choix multiples avec quantification de l’incertitude.\nL’ utilisation de degrés de certitude permet à l’étudiant et à l’étudiante d’évaluer le niveau de connaissance de la réponse donnée. La barème des notes, basé sur la théorie des décision (Leclercq et al. 1993), peut sembler bizarre mais il a été fait de tel manière que:\n\ndire la vérité soit la stratégie qui rapporte le plus de points;\nceux qui s’auto-évaluent bien gagnent plus de points que si l’on appliquait un barème correctif tenant compte des probabilités d’avoir la réponse correcte aléatoirement.\n\n\n\n\nSi vous condidérez que votre réponse a une probabilité d’être correcte comprise entre…\n\n\nChoisissez le degré de certitude…\n\n\nVous obtiendrez les points suivants en case de réponse…\n\n\n\n\n\n\n\n\ncorrecte\n\n\nincorrecte\n\n\n\n\n0% et 25%\n\n\n0\n\n\n+13\n\n\n+4\n\n\n\n\n25% et 50%\n\n\n1\n\n\n+16\n\n\n+3\n\n\n\n\n50% et 70%\n\n\n2\n\n\n+17\n\n\n+2\n\n\n\n\n70% et 85%\n\n\n3\n\n\n+18\n\n\n0\n\n\n\n\n85% et 95%\n\n\n4\n\n\n+19\n\n\n-6\n\n\n\n\n95% et 100%\n\n\n5\n\n\n+20\n\n\n-10\n\n\n\nGénéralement, les étudiants s’auto-estiment avec réalisme, et sont avantagés par les degrés de certitude. Leur score obtenu est meilleur que s’il avait été calculé uniquement sur la base du nombre de réponses justes.",
+    "crumbs": [
+      "Informations",
+      "Évaluations",
+      "QCM"
+    ]
+  },
+  {
+    "objectID": "informations/schedule.html",
+    "href": "informations/schedule.html",
+    "title": "Plan",
+    "section": "",
+    "text": "Le plan est donné à titre indicatif.\n\n\n\nSemaine\nPlan\nÉvaluations\n\n\n\n\n1er septembre\nPrésentation du cours et rappels\n\n\n\n8 septembre\nRappels\n\n\n\n15 septembre\nGénéralités\n\n\n\n22 septembre\nGénéralités\n\n\n\n29 septembre\nACP\n\n\n\n6 octobre\nAFC\n\n\n\n13 octobre\nACM\n\n\n\n20 octobre\nAnalyse discriminante\nExamen intra\n\n\n27 octobre\nSemaine de lecture\nExamen de reprise\n\n\n3 novembre\nArbres\n\n\n\n10 novembre\nModèles ensemblistes\n\n\n\n17 novembre\n\\(k\\)-moyennes\n\n\n\n24 novembre\nMéthodes hiérarchiques + Modèles de mélanges\n\n\n\n1er décembre\nRévision + Fête de l’université\nRemise du poster\n\n\n8 décembre\n\nPrésentation du poster + Examen final\n\n\n15 décembre\n\nExamen de reprise",
+    "crumbs": [
+      "Informations",
+      "Plan"
+    ]
+  },
+  {
+    "objectID": "informations/cours.html",
+    "href": "informations/cours.html",
+    "title": "Cours",
+    "section": "",
+    "text": "Voici les enregistrements des cours pour le semestre Automne 2025:\n\nCours du 02 septembre 2025: lien.",
+    "crumbs": [
+      "Informations",
+      "Cours"
     ]
   },
   {
