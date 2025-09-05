@@ -10,9 +10,9 @@ format:
 
 * Slides: 
 
-  - [Algèbre linéaire](../slides/02-revisions-algebre-slides.qmd)
+  - [Algèbre linéaire](../slides/02-revisions-algebre-slides.qmd) - [annotated](../slides/02-revisions-algebre-slides-annotated.qmd)
 
-  - [Probabilités et statistiques](../slides/02-revisions-proba-slides.qmd)
+  - [Probabilités et statistiques](../slides/02-revisions-proba-slides.qmd) - [annotated](../slides/02-revisions-proba-slides-annotated.qmd)
 
   - [Algorithmique / Programmation](../slides/02-revisions-programming-slides.qmd)
 
