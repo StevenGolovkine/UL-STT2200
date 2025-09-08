@@ -29,13 +29,13 @@ Dans cet exercice, on se propose d'estimer $\pi$ grâce à la méthode de Monte-
 ## Exercice 2: Estimation d'intégrale
 
 Dans cette exercice, on se propose d'estimer 
-$$I = \int_{-1}^{1} \sqrt{1 - x^2} dx .$$
+$$I = \int_{0}^{1} \sqrt{1 - x^2} dx .$$
 
 1. Calculer $I$ en utilisant une primitive.
 
-2. Il est possible d'estimer $I = \int_{-1}^{1} f(x) dx$ à l'aide des sommes de Riemann $\widehat{I}(n) = \frac{1}{n}\sum_{i = 1}^{n} f(\frac{i}{n}), i = 1, \dots, n$. Estimer $I$ en utilisant les sommes de Riemann.
+2. Il est possible d'estimer $I = \int_{0}^{1} f(x) dx$ à l'aide des sommes de Riemann $\widehat{I}(n) = \frac{1}{n}\sum_{i = 1}^{n} f(\frac{i}{n}), i = 1, \dots, n$. Estimer $I$ en utilisant les sommes de Riemann.
 
-3. L'intégrale $I$ peut être vu comme l'espérance d'un variable aléatoire. $I = \mathbb{E}[f(U)]$, où $U \sim \mathcal{U}(-1, 1)$. On peut estimer $I$ en utilisant $\widetilde{I}(n) = \frac{1}{n} \sum_{i = 1}^{n} f(u_i)$, où les $u_i$ sont des réalisations de la variable aléatoire $U$. Estimer $I$ en utilisant cette méthode.
+3. L'intégrale $I$ peut être vu comme l'espérance d'un variable aléatoire. $I = \mathbb{E}[f(U)]$, où $U \sim \mathcal{U}(0, 1)$. On peut estimer $I$ en utilisant $\widetilde{I}(n) = \frac{1}{n} \sum_{i = 1}^{n} f(u_i)$, où les $u_i$ sont des réalisations de la variable aléatoire $U$. Estimer $I$ en utilisant cette méthode.
 
 4. Comparer la qualité de ces deux estimateurs de $I$ en fonction de $n$.
 
