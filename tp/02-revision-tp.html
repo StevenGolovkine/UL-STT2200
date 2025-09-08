@@ -641,11 +641,11 @@ window.Quarto = {
 </section>
 <section id="exercice-2-estimation-dintégrale" class="level2">
 <h2 class="anchored" data-anchor-id="exercice-2-estimation-dintégrale">Exercice 2: Estimation d’intégrale</h2>
-<p>Dans cette exercice, on se propose d’estimer <span class="math display">\[I = \int_{-1}^{1} \sqrt{1 - x^2} dx .\]</span></p>
+<p>Dans cette exercice, on se propose d’estimer <span class="math display">\[I = \int_{0}^{1} \sqrt{1 - x^2} dx .\]</span></p>
 <ol type="1">
 <li><p>Calculer <span class="math inline">\(I\)</span> en utilisant une primitive.</p></li>
-<li><p>Il est possible d’estimer <span class="math inline">\(I = \int_{-1}^{1} f(x) dx\)</span> à l’aide des sommes de Riemann <span class="math inline">\(\widehat{I}(n) = \frac{1}{n}\sum_{i = 1}^{n} f(\frac{i}{n}), i = 1, \dots, n\)</span>. Estimer <span class="math inline">\(I\)</span> en utilisant les sommes de Riemann.</p></li>
-<li><p>L’intégrale <span class="math inline">\(I\)</span> peut être vu comme l’espérance d’un variable aléatoire. <span class="math inline">\(I = \mathbb{E}[f(U)]\)</span>, où <span class="math inline">\(U \sim \mathcal{U}(-1, 1)\)</span>. On peut estimer <span class="math inline">\(I\)</span> en utilisant <span class="math inline">\(\widetilde{I}(n) = \frac{1}{n} \sum_{i = 1}^{n} f(u_i)\)</span>, où les <span class="math inline">\(u_i\)</span> sont des réalisations de la variable aléatoire <span class="math inline">\(U\)</span>. Estimer <span class="math inline">\(I\)</span> en utilisant cette méthode.</p></li>
+<li><p>Il est possible d’estimer <span class="math inline">\(I = \int_{0}^{1} f(x) dx\)</span> à l’aide des sommes de Riemann <span class="math inline">\(\widehat{I}(n) = \frac{1}{n}\sum_{i = 1}^{n} f(\frac{i}{n}), i = 1, \dots, n\)</span>. Estimer <span class="math inline">\(I\)</span> en utilisant les sommes de Riemann.</p></li>
+<li><p>L’intégrale <span class="math inline">\(I\)</span> peut être vu comme l’espérance d’un variable aléatoire. <span class="math inline">\(I = \mathbb{E}[f(U)]\)</span>, où <span class="math inline">\(U \sim \mathcal{U}(0, 1)\)</span>. On peut estimer <span class="math inline">\(I\)</span> en utilisant <span class="math inline">\(\widetilde{I}(n) = \frac{1}{n} \sum_{i = 1}^{n} f(u_i)\)</span>, où les <span class="math inline">\(u_i\)</span> sont des réalisations de la variable aléatoire <span class="math inline">\(U\)</span>. Estimer <span class="math inline">\(I\)</span> en utilisant cette méthode.</p></li>
 <li><p>Comparer la qualité de ces deux estimateurs de <span class="math inline">\(I\)</span> en fonction de <span class="math inline">\(n\)</span>.</p></li>
 </ol>
 </section>
