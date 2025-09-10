@@ -11,7 +11,7 @@ format:
 
 * TD: [link](../td/03-generalites-td.qmd)
 
-* TP: [link](../td/03-generalites-tp.qmd)
+* TP: [link](../tp/03-generalites-tp.qmd)
 
 ## Outline 
 

@@ -1,8 +1,620 @@
 --- 
-title: "Bias-variance"
+title: "Bias/Variance"
 format: 
-  html: default
+  html:
+    code-fold: true
   pdf:
-    header-includes:
-      - \usepackage{mathtools} 
---- 
+    number-sections: true
+    header-includes: 
+      - \usepackage{mathtools}
+---
+
+This section is based on @jamesIntroductionStatisticalLearning2021, Chapter 2.
+
+## What is our objective?
+
+We want to model the relationship between a response variable $Y$, which may be quantitative, qualitative, or of a different nature, and a set of $p$ explanatory variables $X = (X_{1}, \dots, X_{p})$, also of (potentially) different types. The central idea is that there is a relationship between $Y$ and the explanatory variables $X$. Generally speaking, we model this relationship using the following model:
+
+$$Y = f(X) + \varepsilon.$$ {#eq-model}
+
+Here, $f$ is a deterministic (non-random) function representing the systematic information that the explanatory variables $X_{1}, \dots, X_{p}$ provide about $Y$, and $\varepsilon$ is a random error term, modeling the variations in $Y$ not explained by $X$. For the purposes of this course, we will make the following assumptions: the random variable $\varepsilon$ is independent of the explanatory variables $X$, $\mathbb{E}[\varepsilon] = 0$, and $\mathrm{Var}(\varepsilon) = \sigma^2$. The @eq-model is general. It serves as a framework for all the methods we will study, even when the explicit form of $f$ is not known.
+
+::: {.content-visible when-format="pdf"}
+The @fig-model-pdf illustrates the different elements of the model: the observed data $(X_i, Y_i)$, the function $f$ (in blue), and the random deviations $\varepsilon_i$ represented by dotted lines.
+:::
+
+::: {.content-visible when-format="html"}
+The @fig-model-html illustrates the different elements of the model: the observed data $(X_i, Y_i)$, the function $f$ (in blue), and the random deviations $\varepsilon_i$ represented by dotted lines.
+:::
+
+::: {.content-visible when-format="pdf"}
+```{r}
+#| label: fig-model-pdf
+#| fig-cap: "The different elements of the model. The points represent the observed data $(X_i, Y_i)$. The blue curve represents the function $f$ and the dotted lines represent the error associated with each observation."
+#| warning: false
+#| eval: true
+#| echo:false
+
+#Load required package
+library(ggplot2)
+
+# Set seed for reproducibility
+set.seed(42)
+
+#1. Generate data
+n <- 100
+x <- sort(runif(n, 0.1, 1))
+f_x <- 4 * x * (1 - x) * log(x) + 2
+epsilon <- rnorm(n, mean = 0, sd = 0.1)
+y <- f_x + epsilon
+
+#2. Create data frame
+data <- data.frame(x = x, y = y, f_x = f_x)
+
+#3. Plot
+ggplot(data, aes(x, y)) + 
+# Vertical lines: error = Y - f(X) 
+geom_segment( 
+aes(x = x, xend = x, y = f_x, yend = y), 
+color = "gray60", linetype = "dashed" 
+) + 
+# Observed points 
+geom_point(color = "black", alpha = 0.7, size = 2) + 
+# True function 
+geom_line(aes(x = x, y = f_x), color = "blue", size = 1.2) + 
+labs( 
+x = "X", y = "Y" 
+) + 
+theme_minimal()
+
+```
+:::
+
+
+::: {.content-visible when-format="html"}
+```{r}
+#| eval:false
+
+library(tibble)
+library(dplyr)
+
+generate_noisy_data <- function(n = 100, noise_levels = c(0, 0.1, 0.3, 0.5)) { 
+# x values ​​(avoid 0 for log) 
+x_vals <- seq(0.01, 0.99, length.out = n) 
+
+# True function 
+f <- function(x) 4 * x * (1 - x) * log(x) + 2 
+
+# Generate data for each noise level 
+data <- lapply(noise_levels, function(sigma) { 
+y_true <- f(x_vals) 
+y_noisy <- y_true + rnorm(n, mean = 0, sd = sqrt(sigma)) 
+
+tibble( 
+x = x_vals, 
+y = y_noisy, 
+noise = sigma 
+) 
+}) %>% bind_rows() 
+
+return(data)
+}
+
+# Example usage
+set.seed(123)
+
+noise_levels <- seq(0, 0.5, by=0.01)
+df <- generate_noisy_data(noise_levels = noise_levels)
+write.csv(df, './data.csv')
+```
+
+```{ojs}
+//| warning: false
+//| eval:true
+//| echo:false
+
+data = FileAttachment("../../include/data/bias-variance/data.csv").csv({ typed: true })
+
+viewof noise = Inputs.range( 
+[0.01, 0.5], 
+{value: 0.25, step: 0.01, label: tex`\sigma^2`}
+)
+
+filtered = data.filter(function(df) { 
+return df.noise == noise;
+})
+
+true_curve = data.filter(function(df) { 
+return df.noise == 0;
+})
+
+errors = filtered.map(f => { 
+const location = true_curve.find(loc => loc.x === f.x); 
+return { ...f, y_end: location?.y };
+})
+
+```
+
+```{ojs}
+//| label: fig-model-html
+//| fig-cap: "The different elements of the model. The points represent the observed data $(X_i, Y_i)$. The blue curve represents the function $f$ and the dotted lines represent the error associated with each observation."
+//| warning: false
+//| eval: true
+//| echo:false
+
+Plot.plot({ 
+grid:true, 
+x:{ 
+domain: [0, 1], 
+label: "X", 
+}, 
+y: { 
+domain: [0, 3], 
+label: "Y", 
+}, 
+marks: [ 
+Plot.dot(filtered, {x: "x", y: "y", fill: "#444444", r: 3}), 
+Plot.line(true_curve, {x: "x", y: "y", stroke: "#B0E1FA", strokeWidth: 5}), 
+Plot.link(errors, { 
+x1: "x", 
+x2: "x", 
+y1: "y", 
+y2: "y_end", 
+stroke: "#AAAAAA", 
+strokeDasharray: "5,5", 
+}) 
+]
+})
+
+```
+:::
+
+In the rest of the course, we will examine different methods for estimating the function f from data. However, before examining how to construct a \widehat{f} estimator of f, we will examine the quality of such an estimator: what does it mean to "properly estimate" f? And how can we evaluate the quality of the estimate?
+
+::: {.callout-note icon=false}
+## Example: Simple Linear Regression
+
+In this very simple framework, we assume that the function f is of the form: f(x) = a x + b. In this case, estimating the function f is reduced to estimating the coefficients a and b.
+
+:::
+
+::: {.callout-tip icon=false}
+## Note: Tradeoff between accuracy and interpretability
+
+Depending on the objective of the study, we generally have to make a choice between the accuracy of our predictions and the interpretability of our model. A simple model, such as linear regression, will be easy to interpret but will poorly capture complex relationships. Conversely, a more flexible model, such as a random forest, will have better predictions but will be more difficult to interpret. The choice therefore depends on the objective of the analysis: understanding or predictive performance?
+
+:::
+
+::: {.callout-tip icon=false}
+## Note: *No free lunch in statistics*
+
+Why not simply use the "ultimate" model, the one that would always be optimal regardless of the dataset? Because such a model doesn't exist! There is no universally best method for all datasets and all objectives. A method that performs well in a given context may fail elsewhere. It is therefore always necessary to adapt the approach to the problem (explanation, prediction, classification, etc.).
+
+:::
+
+## How to measure the quality of an estimator?
+
+Once we have an estimator $\widehat{f}$ of the function $f$, obtained from $n$ observations $(y_1, x_1), \dots, (y_n, x_n)$, we seek to evaluate the accuracy of the predictions $\widehat{Y} = \widehat{f}(X)$. The idea is to verify how close $\widehat{Y}$ is to the true value of $Y$.
+
+::: {.callout-warning icon=false}
+## Definition: Mean Square Error
+
+When $Y$ is a quantitative variable, a classic measure of the quality of $\widehat{f}$ is the **mean square error** (*MSE*):
+$$MSE(Y, \widehat{Y}) = \frac{1}{n} \sum_{i = 1}^{n} \left( y_i - \widehat{y}_i\right)^2 = \frac{1}{n} \sum_{i = 1}^{n} \left( y_i - \widehat{f}(x_i) \right)^2,$$
+where $\widehat{y}_i = \widehat{f}(x_i)$ is the prediction that $\widehat{f}$ gives for observation $x_i$.
+
+:::
+
+A low MSE indicates that the predictions are close to the observations. We can also interpret it as the average distance between the observed values ​​and the predicted values. We therefore aim for a low average distance.
+
+When $Y$ is a qualitative variable, e.g., a class or a label, we use another measure: the error rate.
+
+::: {.callout-warning icon=false}
+## Definition: Error Rate
+
+When $Y$ is a qualitative variable, a classic measure of the quality of $\widehat{f}$ is the **error rate** (*ER):
+$$ER(Y, \widehat{Y}) = \frac{1}{n} \sum_{i = 1}^{n} \mathbb{1}(y_i \neq \widehat{y}_i) = \frac{1}{n} \sum_{i = 1}^{n} \mathbb{1}(y_i \neq \widehat{f}(x_i)).$$
+where $\widehat{y}_i = \widehat{f}(x_i)$ is the prediction that $\widehat{f}$ gives for observation $x_i$.
+
+:::
+
+The error rate measures the proportion of incorrect predictions. It is, again, a measure of the average distance between $Y$ and $\widehat{Y}$, suitable for qualitative variables.
+
+## The bias/variance trade-off
+
+Our goal is often to minimize the prediction error, not only on observed data, but especially on new data (recovered after estimating the model). To do this, we focus on the prediction error:
+$$\mathbb{E}\left[ \left( Y - \widehat{Y} \right)^2 \right] = \mathbb{E}\left[ \left( Y - \widehat{f}(X) \right)^2 \right].$$
+
+This error can be broken down into three components:
+
+* Bias: the error due to a systematic approximation, e.g., if we impose a linear model when the relationship is nonlinear.
+
+* Variance: the sensitivity of the estimator to fluctuations in the training sample.
+
+* Irreducible error: the intrinsic variance of the noise $\varepsilon$, denoted $\sigma^2$.
+
+::: {.callout-important icon=false}
+## Décomposition bias/variance
+
+On to:
+$$\mathbb{E}\left[ (Y - \widehat{Y})^2 \right] = \mathbb{E}\left[ (Y - \widehat{f}(X))^2 \right] = \mathrm{Biais}(\widehat{f}(X))^2 + \mathrm{Var}(\widehat{f}(X)) + \sigma^2.$$
+:::
+
+::: {.callout-note icon=false collapse=true}
+## Preuve
+
+On the other hand, we point out that the hope of the estimator's error is broken down into a reductible part and an irreductible part.
+
+\begin{align*}
+\mathbb{E}\left[ \left( Y - \widehat{Y} \right)^2 \right] 
+&= \mathbb{E}\left[ \left( Y - \widehat{f}(X) \right)^2 \right] \\ 
+&= \mathbb{E}\left[ \left( f(X) + \varepsilon - \widehat{f}(X) \right)^2 \right] \\ 
+&= \mathbb{E}\left[ \left( f(X) - \widehat{f}(X) \right)^2 \right] + 2\mathbb{E}\left[ \left( f(X) - \widehat{f}(X) \right)\varepsilon \right] + \mathbb{E}[\varepsilon^2] \\ 
+&= \mathbb{E}\left[ \left( f(X) - \widehat{f}(X) \right)^2 \right] + 2\mathbb{E}\left[ \left( f(X) - \widehat{f}(X) \right) \right] \underbrace{\mathbb{E}\left[ \varepsilon \right]}_{= 0} + \sigma^2 \\ 
+&= \underbrace{\mathbb{E}\left[ \left( f(X) - \widehat{f}(X) \right)^2 \right]}_{\text{réductible}} + \underbrace{\sigma^2}_{\text{irréductible}}.
+\end{align*}
+
+Use the linearity of hope and make sure that $X$ and $\varepsilon$ are independent. He is interested in maintaining the "reductible" party. The trick is to make apparatus $\mathbb{E}\left[ \widehat{f}(X) \right]$.
+
+\begin{align*}
+\mathbb{E}\left[ \left( f(X) - \widehat{f}(X) \right)^2 \right] 
+&= \mathbb{E}\left[ \left( f(X) - \mathbb{E}\left[ \widehat{f}(X) \right] + \mathbb{E}\left[ \widehat{f}(X) \right] - \widehat{f}(X) \right)^2 \right] \\ 
+&= \underbrace{\mathbb{E}\left[ \left( f(X) - \mathbb{E}\left[ \widehat{f}(X) \right] \right)^2 \right]}_{\text{A}} \\ 
+&\quad - 2 \underbrace{\mathbb{E}\left[ \left( f(X) - \mathbb{E}\left[ \widehat{f}(X) \right] \right) \left( \widehat{f}(X) - \mathbb{E}\left[ \widehat{f}(X) \right] \right) \right]}_{\text{B}} \\ 
+&\quad + \underbrace{\mathbb{E}\left[ \left( \widehat{f}(X) - \mathbb{E}\left[ \widehat{f}(X) \right] \right)^2 \right]}_{\text{C}}.
+\end{align*}
+
+
+A. The $f(X)$ function is not aléatoire, on a $\mathbb{E}\left[ f(X) \right] = f(X)$ et donc
+
+\begin{align*}
+\mathbb{E}\left[ \left( f(X) - \mathbb{E}\left[ \widehat{f}(X) \right] \right)^2 \right] 
+&= \mathbb{E}\left[ \left( \mathbb{E}\left[ f(X) - \widehat{f}(X) \right] \right)^2 \right] \\ 
+&= \mathbb{E}\left[ f(X) - \widehat{f}(X) \right]^2 \\ 
+&= \text{Biais}(\widehat{f}(X))^2.
+\end{align*}
+
+B. To develop the expression and use the independence of the variables, on finding that $B = 0$.
+
+C. Using the definition of variance,
+
+$$\mathbb{E}\left[ \left( \widehat{f}(X) - \mathbb{E}\left[ \widehat{f}(X) \right] \right)^2 \right] = \mathrm{Var}(\widehat{f}).$$
+
+Finally, hon a
+
+$$\mathbb{E}\left[ \left( f(X) - \widehat{f}(X) \right)^2 \right] = \text{Biais}(\widehat{f}(X))^2 + \mathrm{Var}(\widehat{f}(X)).$$
+
+Hence the results.
+
+:::
+
+
+This breakdown before a fundamental compromise in analyzing women:
+
+* If you choose a more flexible model, the bias will be higher, but the variance will be easier.
+
+* If you choose a flexible model, the bias will be easy, but the variance will be too high.
+
+
+
+::: {.content-visible when-format="pdf"}
+Our objective is to find a just balance between bias and variance, i.e. a model here predicted correctly, tout en étant généralisable à de new women. The @fig-plot-pdf presents a number of women and different estimateurs $\widehat{f}$. Simply vary the $\lambda$ parameters, making the models more or less flexible (for example $\lambda = 0.15$, the model is flexible and for example $\lambda = 1$, the models are rigid). The @fig-bias-variance-pdf shows the value of the bias, the variance and the MSE for the models estimated for the @fig-plot-pdf. On the other hand, it should be noted that the more $\lambda$ is smaller, the more the variance is larger, but the bias is smaller (the model is flexible). Inversely, plus $\lambda$ is large, plus the bias is large and the variance is small (the models are rigid). The MSE panel in function of the parameters is a U panel. How to minimize the MSE, i.e. To make a compromise between the bias and the variance, you can take $\lambda = 0.5$.
+
+```{r}
+#| label: fig-plot-pdf
+#| fig-cap: "Différents estimateurs de la fonction $f$."
+#| warning: false
+#| eval: true
+#| echo: false
+
+# Load packages
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(latex2exp)
+
+set.seed(42)
+
+# 1. Simulate a single dataset
+n <- 100
+sigma <- 0.3
+x <- sort(runif(n, 0, 1))
+y <- 4 * x * (1 - x) * log(x) + 2 + rnorm(n, 0, sigma)
+df <- data.frame(x = x, y = y)
+
+# 2. Define grid and spans to compare
+x_grid <- seq(0, 1, length.out = 300)
+spans_to_plot <- c(0.15, 0.3, 0.5, 0.75, 1.0)
+
+# 3. Compute loess fits for each span
+fits <- lapply(spans_to_plot, function(s) {
+loess_model <- loess(y ~ x, data = df, span = s)
+y_hat <- predict(loess_model, newdata = data.frame(x = x_grid))
+data.frame(x = x_grid, y_hat = y_hat, span = paste0(TeX(r"($\lambda$ = )"), s))
+})
+
+fit_df <- bind_rows(fits)
+
+# 4. Plot
+ggplot(data = fit_df, aes(x, y_hat, color = as.factor(span))) +
+geom_point(data = df, aes(x, y), color = "black", alpha = 0.5, size = 2) +
+geom_line(size = 1.1) +
+labs(
+x = "X", y = "Y",
+color = "Paramètre"
+) +
+scale_color_discrete(labels = lapply(sprintf(r'($\lambda = %g$)', spans_to_plot), TeX)) +
+theme_minimal(base_size = 14)
+```
+
+
+
+```{r}
+#| label: fig-bias-variance-pdf
+#| fig-cap: "Compromis biais/variance."
+#| warning: false
+#| eval: true
+#| echo: false
+
+# Load packages
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(latex2exp)
+
+set.seed(42)
+
+# Parameters
+n <- 100              # number of observations per dataset
+n_sim <- 100          # number of simulated datasets
+spans <- seq(0.1, 1, length.out = 15)  # LOESS smoothing parameters
+sigma <- 0.1          # noise standard deviation
+x_grid <- seq(0.1, 1, length.out = 200)
+f_true <- 4 * x_grid * (1 - x_grid) * log(x_grid) + 2
+
+# Storage for predictions
+results <- list()
+
+for (s in spans) {
+pred_matrix <- matrix(NA, nrow = length(x_grid), ncol = n_sim)
+
+for (sim in 1:n_sim) {
+x <- sort(runif(n, 0.01, 1.1))
+y <- 4 * x * (1 - x) * log(x) + 2 + rnorm(n, 0, sigma)
+df <- data.frame(x = x, y = y)
+
+# Fit loess model with span = s
+model <- loess(y ~ x, data = df, span = s, degree = 2)
+pred <- predict(model, newdata = data.frame(x = x_grid), )
+
+pred_matrix[, sim] <- pred
+}
+
+# For each point in x_grid, compute bias², variance, MSE
+mean_pred <- rowMeans(pred_matrix, na.rm = TRUE)
+bias2 <- (mean_pred - f_true)^2
+var_pred <- apply(pred_matrix, 1, var, na.rm = TRUE)
+mse <- bias2 + var_pred
+
+results[[as.character(s)]] <- data.frame(
+span = s,
+Biais2 = mean(bias2),
+Variance = mean(var_pred),
+MSE = mean(mse)
+)
+}
+
+# Combine and reshape results
+results_df <- bind_rows(results)
+results_long <- pivot_longer(
+results_df,
+cols = c("Biais2", "Variance", "MSE"),
+names_to = "component", values_to = "value"
+)
+
+# Plot
+ggplot(results_long, aes(x = span, y = value, color = component)) +
+geom_line(size = 1.2) +
+geom_point(size = 2) +
+scale_color_manual(
+values = c("Biais2" = "#0D0887FF", "Variance" = "#9C179EFF", "MSE" = "#ED7953FF")
+) +
+labs(
+x = TeX(r"(Paramètre de lissage $\lambda$)"),
+y = "",
+color = ""
+) +
+theme_minimal(base_size = 14)
+
+```
+:::
+
+
+::: {.content-visible when-format="html"}
+
+Notre objectif est donc de trouver un juste équilibre entre biais et variance, i.e. un modèle qui prédit correctement, tout en étant généralisable à de nouvelles données. La @fig-plot-html-1 présente un jeu de données et différents estimateurs $\widehat{f}$. En faisant varier le paramètre $\lambda$, on obtient des modèles plus ou moins flexible (lorsque $\lambda = 0.15$, le modèle est flexible et lorsque $\lambda = 1$, le modèle est rigide). La @fig-plot-html-2 montre la valeur du biais, de la variance et de la MSE pour les modèles estimés pour la @fig-plot-html-1. On remarque que plus $\lambda$ est petit, plus la variance est grande, mais le biais est petit (le modèle est flexible). Inversement, plus $\lambda$ est grand, plus le biais est grand et la variance petite (le modèle est rigide). La courbe de MSE en fonction du paramètre est une courbe en U. Comme on cherche à minimiser la MSE, i.e. à faire un compromis entre le biais et la variance, on peut prendre $\lambda = 0.5$.
+
+
+```{r}
+#| eval: false
+
+# Load packages
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+
+set.seed(42)
+
+# 1. Simulate a single dataset
+n <- 100
+sigma2 <- 0.1
+x <- sort(runif(n, 0.05, 1))
+y <- 4 * x * (1 - x) * log(x) + 2 + rnorm(n, 0, sqrt(sigma2))
+df <- data.frame(x = x, y = y, span = 0)
+
+# 2. Define grid and spans to compare
+x_grid <- seq(0.05, 1, length.out = 300)
+spans_to_plot <- seq(0.1, 1, by = 0.1)
+
+# 3. Compute loess fits for each span
+fits <- lapply(spans_to_plot, function(s) {
+  loess_model <- loess(y ~ x, data = df, span = s)
+  y_hat <- predict(loess_model, newdata = data.frame(x = x_grid))
+  data.frame(x = x_grid, y = y_hat, span = s)
+})
+
+fit_df <- bind_rows(fits)
+fit_df <- fit_df |> add_row(df)  # Add data points
+ 
+write.csv(fit_df, './data_fit.csv')
+
+
+# Parameters
+n_sim <- 100          # number of simulated datasets
+spans <- seq(0.1, 1, by = 0.05)  # LOESS smoothing parameters
+x_grid <- seq(0.1, 1, length.out = 200)
+f_true <- 4 * x_grid * (1 - x_grid) * log(x_grid) + 2
+
+# Storage for predictions
+results <- list()
+
+for (s in spans) {
+  pred_matrix <- matrix(NA, nrow = length(x_grid), ncol = n_sim)
+  
+  for (sim in 1:n_sim) {
+    x <- sort(runif(n, 0.01, 1.1))
+    y <- 4 * x * (1 - x) * log(x) + 2 + rnorm(n, 0, sqrt(sigma2))
+    df <- data.frame(x = x, y = y)
+    
+    # Fit loess model with span = s
+    model <- loess(y ~ x, data = df, span = s, degree = 2)
+    pred <- predict(model, newdata = data.frame(x = x_grid), )
+    
+    pred_matrix[, sim] <- pred
+  }
+  
+  # For each point in x_grid, compute bias², variance, MSE
+  mean_pred <- rowMeans(pred_matrix, na.rm = TRUE)
+  bias2 <- (mean_pred - f_true)^2
+  var_pred <- apply(pred_matrix, 1, var, na.rm = TRUE)
+  mse <- bias2 + var_pred
+  
+  results[[as.character(s)]] <- data.frame(
+    span = s,
+    Biais2 = mean(bias2),
+    Variance = mean(var_pred),
+    MSE = mean(mse)
+  )
+}
+
+# Combine and reshape results
+results_df <- bind_rows(results)
+results_long <- pivot_longer(
+  results_df,
+  cols = c("Biais2", "Variance", "MSE"),
+  names_to = "component", values_to = "value"
+)
+
+write.csv(results_long, './data_mse.csv')
+```
+
+```{ojs}
+//| warning: false
+//| eval:true
+//| echo:false
+
+data_fit = FileAttachment("../../include/data/bias-variance/data_fit.csv").csv({ typed: true })
+data_mse = FileAttachment("../../include/data/bias-variance/data_mse.csv").csv({ typed: true })
+
+viewof span = Inputs.range( 
+[0.1, 1], 
+{value: 0.5, step: 0.1, label: tex`\lambda`}
+)
+
+filtered_fit = data_fit.filter(function(df) { 
+return df.span == span;
+})
+
+points = data_fit.filter(function(df) { 
+return df.span == 0;
+})
+
+current_mse = data_mse.filter(function(df) {
+return df.span == span;
+})
+```
+
+```{ojs}
+//| label: fig-plot-html
+//| fig-cap: Illustration of the bias/variance tradeoff. The $\lambda$ parameter controls the flexibility of the model; the smaller $\lambda$, the more flexible the model.
+//| fig-subcap:
+//| - "Different $\\widehat{f}$ estimators."
+//| - "Different parts of the error."
+//| warning: false
+//| eval: true
+//| echo:false
+
+Plot.plot({ 
+grid:true, 
+x:{ 
+domain: [0, 1], 
+label: "X", 
+}, 
+y: { 
+domain: [0, 3], 
+label: "Y", 
+}, 
+marks: [ 
+Plot.dot( 
+points, 
+{x: "x", y: "y", fill: "#444444", r: 3} 
+), 
+Plot.line( 
+filtered_fit, 
+{x: "x", y: "y", stroke: "#B0E1FA", strokeWidth: 5} 
+), 
+
+]
+})
+
+Plot.plot({ 
+grid:true, 
+color: { 
+legend: true, 
+}, 
+x:{ 
+domain: [0, 1], 
+label: "λ", 
+}, 
+y: { 
+domain: [0, 0.04], 
+label: "Y",
+},
+marks: [
+Plot.line(
+data_mse,
+{x: "span", y: "value", stroke: "component", strokeWidth: 5}
+),
+Plot.dot(
+current_mse,
+{x: "span", y: "value", fill: "component", r: 10}
+),
+]
+})
+```
+
+:::
+
+Generally speaking, as flexibility increases, the decrease in bias is greater than the increase in variance, resulting in a decrease in prediction error. However, beyond a certain level of flexibility, the bias becomes negligible, and any further decrease is offset by the rapid increase in variance. Prediction error therefore begins to increase. This results in a U-shaped curve of prediction error as a function of model flexibility: a model that is too rigid generates a high bias, while a model that is too flexible leads to too much variance.
+
+::: {.callout-tip icon=false}
+## Note: Why compromise?
+
+It is always possible to build a very flexible model with zero bias, e.g., a model that passes through all observation points, but which will have enormous variance. Conversely, a model that is too rigid, e.g., a constant, will have a very large bias but almost zero variance. The bias/variance compromise consists of choosing a model that controls both of these quantities.
+
+:::
+
+::: {.content-visible when-format="pdf"}
+## References
+
+:::
