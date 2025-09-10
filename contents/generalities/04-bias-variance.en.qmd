@@ -33,7 +33,7 @@ The @fig-model-html illustrates the different elements of the model: the observe
 #| fig-cap: "The different elements of the model. The points represent the observed data $(X_i, Y_i)$. The blue curve represents the function $f$ and the dotted lines represent the error associated with each observation."
 #| warning: false
 #| eval: true
-#| echo:false
+#| echo: false
 
 #Load required package
 library(ggplot2)
@@ -110,8 +110,8 @@ write.csv(df, './data.csv')
 
 ```{ojs}
 //| warning: false
-//| eval:true
-//| echo:false
+//| eval: true
+//| echo: false
 
 data = FileAttachment("../../include/data/bias-variance/data.csv").csv({ typed: true })
 
@@ -140,7 +140,7 @@ return { ...f, y_end: location?.y };
 //| fig-cap: "The different elements of the model. The points represent the observed data $(X_i, Y_i)$. The blue curve represents the function $f$ and the dotted lines represent the error associated with each observation."
 //| warning: false
 //| eval: true
-//| echo:false
+//| echo: false
 
 Plot.plot({ 
 grid:true, 
@@ -520,8 +520,8 @@ write.csv(results_long, './data_mse.csv')
 
 ```{ojs}
 //| warning: false
-//| eval:true
-//| echo:false
+//| eval: true
+//| echo: false
 
 data_fit = FileAttachment("../../include/data/bias-variance/data_fit.csv").csv({ typed: true })
 data_mse = FileAttachment("../../include/data/bias-variance/data_mse.csv").csv({ typed: true })
@@ -552,7 +552,7 @@ return df.span == span;
 //| - "Different parts of the error."
 //| warning: false
 //| eval: true
-//| echo:false
+//| echo: false
 
 Plot.plot({ 
 grid:true, 
