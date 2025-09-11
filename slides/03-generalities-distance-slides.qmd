@@ -1,6 +1,6 @@
 --- 
 title: "Généralités"
-subtitle: "Data"
+subtitle: "Distances"
 author: "Steven Golovkine"
 lang: fr
 date: "12 sept. 2024"
@@ -355,3 +355,24 @@ Questions à se poser :
 
 → Le choix de distance influence directement les résultats !
 
+
+## Conclusion
+
+<br>
+
+::: {.incremental}
+1. Distance → mesure de dissemblance (4 propriétés mathématiques)
+
+2. Similarité → mesure de ressemblance (concept opposé)  
+
+3. Variables numériques → Distance euclidienne (standardisée)
+
+4. Variables qualitatives → Encodage + distance adaptée
+
+5. Variables binaires → Distance de Jaccard
+
+:::
+
+. . .
+
+**La suite :** Comment utiliser ces distances dans des modèles ?
