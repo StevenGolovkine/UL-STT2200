@@ -145,38 +145,28 @@ Steven Golovkine
 </div>
 </div>
 
-  <p class="date">08 sept. 2025</p>
+  <p class="date">12 sept. 2024</p>
   <figure>
     <center>
       <img src="../include/logo-ul.png" alt="logo" width="40%">
     </center>
   </figure>
 </section>
-<section id="plan-de-la-présentation" class="slide level2">
-<h2>Plan de la présentation</h2>
-<ol type="1">
-<li>Structure d’un projet d’analyse</li>
-<li>Définition des objectifs</li>
-<li>Collecte et préparation des données</li>
-<li>Élaboration et validation des modèles</li>
-<li>Mise en production</li>
-<li>Suivi et amélioration</li>
-</ol>
-</section>
-<section id="structure-dun-projet" class="slide level2 smaller">
+<section id="structure-dun-projet" class="slide level2">
 <h2>Structure d’un projet</h2>
-<p><strong>5 étapes principales :</strong></p>
+<p><br></p>
+<p>5 étapes principales :</p>
 <ol type="1">
-<li><strong>Définition des objectifs</strong></li>
-<li><strong>Collecte et préparation des données</strong><br>
-</li>
-<li><strong>Élaboration et validation des modèles</strong></li>
-<li><strong>Implémentation et mise en production</strong></li>
-<li><strong>Suivi de la performance et amélioration continue</strong></li>
+<li><p>Définition des objectifs</p></li>
+<li><p>Collecte et préparation des données</p></li>
+<li><p>Élaboration et validation des modèles</p></li>
+<li><p>Implémentation et mise en production</p></li>
+<li><p>Suivi de la performance et amélioration continue</p></li>
 </ol>
 </section>
-<section id="répartition-temps-vs-importance" class="slide level2">
-<h2>Répartition temps vs importance</h2>
+<section id="répartition-temps-vs-importance-pyle-1999" class="slide level2">
+<h2>Répartition temps vs importance (Pyle, 1999)</h2>
+<p><br></p>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -207,7 +197,7 @@ Steven Golovkine
 <td style="text-align: center;"><strong>15%</strong></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Analyser les données</td>
+<td style="text-align: left;">Analyse descriptive des données</td>
 <td style="text-align: center;">15%</td>
 <td style="text-align: center;">3%</td>
 </tr>
@@ -219,66 +209,87 @@ Steven Golovkine
 </tbody>
 </table>
 <div class="fragment">
-<p><strong>Constat :</strong> L’importance ≠ temps passé !</p>
+<p><strong>Constat</strong>: importance ≠ temps passé !</p>
 </div>
 </section>
 <section id="définition-des-objectifs" class="slide level2">
 <h2>1. Définition des objectifs</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
+<p><br></p>
 <p><strong>Pourquoi c’est crucial ?</strong></p>
 <ul>
-<li>Guide la collecte des données</li>
-<li>Définit le modèle adéquat</li>
-<li>Facilite l’interprétation</li>
-<li>Évite les explorations aveugles</li>
+<li><p>Guide la collecte des données.</p></li>
+<li><p>Définit le modèle adéquat.</p></li>
+<li><p>Facilite l’interprétation.</p></li>
+<li><p>Évite les explorations aveugles.</p></li>
 </ul>
-</div><div class="column" style="width:50%;">
+</section>
+<section id="définition-des-objectifs-1" class="slide level2">
+<h2>1. Définition des objectifs</h2>
+<p><br></p>
 <p><strong>Comment bien formuler ?</strong></p>
 <ul>
-<li>Clarifier les termes</li>
-<li>Identifier les utilisateurs</li>
-<li>Définir la population cible</li>
-<li>Préciser les décisions qui dépendent des résultats</li>
+<li><p>Clarifier les termes.</p></li>
+<li><p>Identifier les utilisateurs.</p></li>
+<li><p>Définir la population cible.</p></li>
+<li><p>Préciser les décisions qui dépendent des résultats.</p></li>
 </ul>
-</div></div>
 </section>
 <section id="exemples-dobjectifs" class="slide level2">
-<h2>Exemples d’objectifs</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>❌ Mauvais objectifs</strong> - Analyser les données clients - Analyser les données des adversaires<br>
-- Analyser les données du médicament</p>
-</div><div class="column" style="width:50%;">
-<p><strong>✅ Bons objectifs</strong> - Prédire quels clients achèteront le produit d’épargne - Caractériser le style de jeu pour identifier les faiblesses - Concevoir un protocole pour tester l’efficacité</p>
-</div></div>
+<h2>1. Exemples d’objectifs</h2>
+<p><br></p>
+<p><strong>❌ Mauvais objectifs</strong></p>
+<ul>
+<li><p>Analyser les données clients.</p></li>
+<li><p>Analyser les données des adversaires.</p></li>
+<li><p>Analyser les données du médicament.</p></li>
+</ul>
+<div class="fragment">
+<p><strong>✅ Bons objectifs</strong></p>
+<ul>
+<li><p>Prédire quels clients achèteront le produit d’épargne.</p></li>
+<li><p>Caractériser le style de jeu pour identifier les faiblesses d’une équipe.</p></li>
+<li><p>Concevoir un protocole pour tester l’efficacité d’un médicament.</p></li>
+</ul>
+</div>
 </section>
 <section id="sources-de-données" class="slide level2">
 <h2>2. Sources de données</h2>
-<p><strong>Plateformes génériques :</strong> - <a href="https://datasetsearch.research.google.com/">Google datasets</a> - <a href="https://www.kaggle.com">Kaggle</a> - <a href="https://archive-beta.ics.uci.edu">UC Irvine ML Repository</a></p>
-<p><strong>Sources officielles :</strong> - Canada: <a href="https://www.statcan.gc.ca/fr/debut">StatCan</a> - France: <a href="https://www.data.gouv.fr/fr/">data.gouv.fr</a> - USA: <a href="https://data.gov">data.gov</a></p>
+<p><strong>Plateformes génériques :</strong></p>
+<ul>
+<li><p><a href="https://datasetsearch.research.google.com/">Google datasets</a></p></li>
+<li><p><a href="https://www.kaggle.com">Kaggle</a></p></li>
+<li><p><a href="https://archive-beta.ics.uci.edu">UC Irvine ML Repository</a></p></li>
+</ul>
+<p><strong>Sources officielles :</strong></p>
+<ul>
+<li><p>Canada: <a href="https://www.statcan.gc.ca/fr/debut">StatCan</a></p></li>
+<li><p>France: <a href="https://www.data.gouv.fr/fr/">data.gouv.fr</a></p></li>
+<li><p>USA: <a href="https://data.gov">data.gov</a></p></li>
+</ul>
 <p><strong>Sources internes :</strong> bases clients, transactions, production, web analytics</p>
 </section>
 <section id="qualité-des-données" class="slide level2">
-<h2>Qualité des données</h2>
+<h2>2. Qualité des données</h2>
+<p><br></p>
 <blockquote>
 <p><strong>“Garbage in, garbage out”</strong></p>
 </blockquote>
-<p><strong>Questions essentielles :</strong></p>
+<p><br></p>
+<p>Quelques questions importantes :</p>
 <ul>
-<li>Les données sont-elles <strong>représentatives</strong> ?</li>
-<li>Sont-elles <strong>exactes, complètes, pertinentes</strong> ?</li>
-<li>Y a-t-il des <strong>valeurs manquantes, doublons, incohérences</strong> ?</li>
+<li><p>Les données sont-elles <strong>représentatives</strong> ?</p></li>
+<li><p>Sont-elles <strong>exactes, complètes, pertinentes</strong> ?</p></li>
+<li><p>Y a-t-il des <strong>valeurs manquantes, doublons, incohérences</strong> ?</p></li>
 </ul>
 </section>
 <section id="format-tidy-data" class="slide level2">
-<h2>Format “Tidy Data”</h2>
-<p><strong>3 principes fondamentaux :</strong></p>
+<h2>2. Format “Tidy Data”</h2>
+<p><br></p>
+<p>3 principes fondamentaux :</p>
 <ol type="1">
-<li><strong>Chaque variable</strong> = une colonne</li>
-<li><strong>Chaque observation</strong> = une ligne<br>
-</li>
-<li><strong>Chaque cellule</strong> = une valeur unique</li>
+<li><p>Chaque variable = une colonne.</p></li>
+<li><p>Chaque observation = une ligne.</p></li>
+<li><p>Chaque cellule = une valeur unique.</p></li>
 </ol>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -287,45 +298,142 @@ Steven Golovkine
 <p><strong>Python :</strong> <code>pandas</code>, <code>polars</code></p>
 </div></div>
 </section>
-<section id="exploration-préliminaire" class="slide level2">
-<h2>Exploration préliminaire</h2>
-<p><strong>Nettoyage :</strong> - Supprimer les doublons - Uniformiser les modalités - Vérifier les formats</p>
-<p><strong>Exploration :</strong> - Modalités rares/nombreuses - Valeurs extrêmes - Corrélations fortes - Classes déséquilibrées - Valeurs manquantes</p>
+<section id="exploration-préliminaire---nettoyage" class="slide level2">
+<h2>2. Exploration préliminaire - Nettoyage</h2>
+<p><br></p>
+<ul>
+<li><p>Supprimer les doublons.</p></li>
+<li><p>Uniformiser les modalités.</p></li>
+<li><p>Vérifier les formats des valeurs spéciales.</p></li>
+</ul>
+</section>
+<section id="exploration-préliminaire---exploration" class="slide level2">
+<h2>2. Exploration préliminaire - Exploration</h2>
+<p><br></p>
+<ul>
+<li><p>Modalités rares/nombreuses.</p></li>
+<li><p>Valeurs extrêmes ou aberrantes.</p></li>
+<li><p>Corrélations fortes.</p></li>
+<li><p>Classes déséquilibrées.</p></li>
+<li><p>Valeurs manquantes.</p></li>
+</ul>
+</section>
+<section id="exploration-préliminaire---exploration-1" class="slide level2">
+<h2>2. Exploration préliminaire - Exploration</h2>
+<p><br></p>
+<p>Pour faire l’exploration, on peut utiliser :</p>
+<ul>
+<li><p>des statistiques descriptives unidimensionnelles</p>
+<ul>
+<li><p>numérique: moyenne, extremum, tableau de fréquences, …</p></li>
+<li><p>graphique: histogramme, boxplot</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="exploration-préliminaire---exploration-2" class="slide level2">
+<h2>2. Exploration préliminaire - Exploration</h2>
+<p><br></p>
+<p>Pour faire l’exploration, on peut utiliser :</p>
+<ul>
+<li><p>des statistiques descriptives bidimensionnelles</p>
+<ul>
+<li><p>numérique: tableaux croisés, corrélation, …</p></li>
+<li><p>graphique: diagramme de dispersion, …</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="exploration-préliminaire---exploration-3" class="slide level2">
+<h2>2. Exploration préliminaire - Exploration</h2>
+<p><br></p>
+<p>Pour faire l’exploration, on peut utiliser :</p>
+<ul>
+<li><p>des transformations de variables</p>
+<ul>
+<li><p>transformation simple: passer au <span class="math inline">\(\log\)</span>, standardisation, …</p></li>
+<li><p>regrouper des modalités</p></li>
+<li><p>combiner des variables</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="exploration-préliminaire---exploration-4" class="slide level2">
+<h2>2. Exploration préliminaire - Exploration</h2>
+<p><br></p>
+<p>Une <strong>valeur extrême</strong> est une valeur éloignée des autres valeurs de la population.</p>
+<p>🚨 Peut correspondre à un profil particulier et plus rare dans la population.</p>
+<div class="fragment">
+<p>Que faire ?</p>
+</div>
+<div class="fragment">
+<ul>
+<li><p>Utiliser des méthodes robustes</p></li>
+<li><p>Transformer la variable, e.g.&nbsp;avec un <span class="math inline">\(\log\)</span>.</p></li>
+</ul>
+</div>
+</section>
+<section id="exploration-préliminaire---exploration-5" class="slide level2">
+<h2>2. Exploration préliminaire - Exploration</h2>
+<p><br></p>
+<p>Une <strong>valeur aberrantes</strong> est une valeur erronée causée par une erreur de saisie, une erreur de calcul, une mauvaise mesure ou une fausse déclaration.</p>
+<div class="fragment">
+<p>Que faire ?</p>
+</div>
+<div class="fragment">
+<ul>
+<li><p>Les remplacer par la bonne valeur.</p></li>
+<li><p>Les traiter comme des valeurs manquantes</p></li>
+<li><p>Retirer l’individu.</p></li>
+</ul>
+</div>
 </section>
 <section id="modélisation-4-composantes" class="slide level2">
 <h2>3. Modélisation : 4 composantes</h2>
+<p><br></p>
+<div class="fragment">
 <ol type="1">
-<li><p><strong>Espace</strong> de représentation (cadre mathématique)</p></li>
-<li><p><strong>Distance</strong> ou similarité (comparer les observations)</p></li>
-<li><p><strong>Modèle</strong> ou algorithme (méthode d’apprentissage)</p></li>
-<li><p><strong>Fonction de coût</strong> (mesure de qualité)</p></li>
+<li><p><strong>Espace</strong> de représentation (cadre mathématique).</p></li>
+<li><p><strong>Distance</strong> ou similarité (comparer les observations).</p></li>
+<li><p><strong>Modèle</strong> ou algorithme (méthode d’apprentissage).</p></li>
+<li><p><strong>Fonction de coût</strong> (mesure de qualité).</p></li>
 </ol>
+</div>
 </section>
-<section id="mise-en-production" class="slide level2">
-<h2>4. Mise en production</h2>
-<p><strong>Data Engineering :</strong></p>
+<section id="mise-en-production-data-engineering" class="slide level2">
+<h2>4. Mise en production : Data Engineering</h2>
+<p><br></p>
 <ul>
-<li>Automatiser la collecte et le nettoyage</li>
-<li>Intégrer le modèle dans l’application</li>
-<li>Générer rapports/prédictions en temps réel</li>
-<li>Maintenir la <em>pipeline</em> de données</li>
+<li><p>Automatiser la collecte et le nettoyage.</p></li>
+<li><p>Intégrer le modèle dans l’application.</p></li>
+<li><p>Générer rapports/prédictions en temps réel.</p></li>
+<li><p>Maintenir la <em>pipeline</em> de données.</p></li>
 </ul>
-<p><strong>Rôle du Data Engineer :</strong> conception et maintenance de bout en bout</p>
+<p><strong>Rôle du Data Engineer :</strong> conception et maintenance de bout en bout.</p>
 </section>
 <section id="suivi-et-amélioration" class="slide level2">
 <h2>5. Suivi et amélioration</h2>
-<p><strong>Défis :</strong> - Evolution des données (<em>data drift</em>) - Hypothèses initiales invalidées - Nouvelles variables disponibles</p>
-<p><strong>Solutions :</strong> - <strong>Monitoring</strong> régulier des performances - Réentraînement avec données récentes - Amélioration continue du modèle</p>
+<p><br></p>
+<p><strong>Défis :</strong></p>
+<ul>
+<li><p>Evolution des données (<em>data drift</em>).</p></li>
+<li><p>Hypothèses initiales invalidées.</p></li>
+<li><p>Nouvelles variables disponibles.</p></li>
+</ul>
+<div class="fragment">
+<p><strong>Solutions :</strong></p>
+<ul>
+<li><p><strong>Monitoring</strong> régulier des performances.</p></li>
+<li><p>Réentraînement avec données récentes.</p></li>
+<li><p>Amélioration continue du modèle.</p></li>
+</ul>
+</div>
 </section>
 <section id="conclusion" class="slide level2">
 <h2>Conclusion</h2>
-<p><strong>Un bon modèle :</strong></p>
-<ul>
-<li>✅ Performant à un instant donné</li>
-<li>✅ <strong>Robuste</strong> dans le temps</li>
-<li>✅ <strong>Adaptable</strong> aux changements</li>
-</ul>
-<p><strong>Clé du succès :</strong> Équilibre entre toutes les étapes, pas seulement la modélisation !</p>
+<p><br></p>
+<p>Un bon modèle :</p>
+<p>✅ Performant à un instant donné.</p>
+<p>✅ Robuste dans le temps.</p>
+<p>✅ Adaptable aux changements.</p>
+<p>→ Équilibre entre toutes les étapes, pas seulement la modélisation !</p>
 
 
 </section>

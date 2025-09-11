@@ -3431,95 +3431,137 @@
     "text": "Conclusion\nLe compromis biais/variance est au cœur de l’apprentissage statistique\n\nProchaines étapes : - Comment mesurer ce compromis en pratique ? - Quelles méthodes pour l’optimiser ? - Comment valider nos choix ?\n\n\n→ Validation et sélection de modèles"
   },
   {
-    "objectID": "slides/03-generalities-stat-slides.html#plan-de-la-présentation",
-    "href": "slides/03-generalities-stat-slides.html#plan-de-la-présentation",
-    "title": "Généralités",
-    "section": "Plan de la présentation",
-    "text": "Plan de la présentation\n\nStructure d’un projet d’analyse\nDéfinition des objectifs\nCollecte et préparation des données\nÉlaboration et validation des modèles\nMise en production\nSuivi et amélioration"
-  },
-  {
     "objectID": "slides/03-generalities-stat-slides.html#structure-dun-projet",
     "href": "slides/03-generalities-stat-slides.html#structure-dun-projet",
     "title": "Généralités",
     "section": "Structure d’un projet",
-    "text": "Structure d’un projet\n5 étapes principales :\n\nDéfinition des objectifs\nCollecte et préparation des données\n\nÉlaboration et validation des modèles\nImplémentation et mise en production\nSuivi de la performance et amélioration continue"
+    "text": "Structure d’un projet\n\n5 étapes principales :\n\nDéfinition des objectifs\nCollecte et préparation des données\nÉlaboration et validation des modèles\nImplémentation et mise en production\nSuivi de la performance et amélioration continue"
   },
   {
-    "objectID": "slides/03-generalities-stat-slides.html#répartition-temps-vs-importance",
-    "href": "slides/03-generalities-stat-slides.html#répartition-temps-vs-importance",
+    "objectID": "slides/03-generalities-stat-slides.html#répartition-temps-vs-importance-pyle-1999",
+    "href": "slides/03-generalities-stat-slides.html#répartition-temps-vs-importance-pyle-1999",
     "title": "Généralités",
-    "section": "Répartition temps vs importance",
-    "text": "Répartition temps vs importance\n\n\n\nÉtape\nTemps\nImportance\n\n\n\n\nComprendre le problème\n10%\n15%\n\n\nExplorer la solution\n9%\n14%\n\n\nImplementer la solution\n1%\n51%\n\n\nPréparer les données\n60%\n15%\n\n\nAnalyser les données\n15%\n3%\n\n\nModéliser les données\n5%\n2%\n\n\n\n\nConstat : L’importance ≠ temps passé !"
+    "section": "Répartition temps vs importance (Pyle, 1999)",
+    "text": "Répartition temps vs importance (Pyle, 1999)\n\n\n\n\nÉtape\nTemps\nImportance\n\n\n\n\nComprendre le problème\n10%\n15%\n\n\nExplorer la solution\n9%\n14%\n\n\nImplementer la solution\n1%\n51%\n\n\nPréparer les données\n60%\n15%\n\n\nAnalyse descriptive des données\n15%\n3%\n\n\nModéliser les données\n5%\n2%\n\n\n\n\nConstat: importance ≠ temps passé !"
   },
   {
     "objectID": "slides/03-generalities-stat-slides.html#définition-des-objectifs",
     "href": "slides/03-generalities-stat-slides.html#définition-des-objectifs",
     "title": "Généralités",
     "section": "1. Définition des objectifs",
-    "text": "1. Définition des objectifs\n\n\nPourquoi c’est crucial ?\n\nGuide la collecte des données\nDéfinit le modèle adéquat\nFacilite l’interprétation\nÉvite les explorations aveugles\n\n\nComment bien formuler ?\n\nClarifier les termes\nIdentifier les utilisateurs\nDéfinir la population cible\nPréciser les décisions qui dépendent des résultats"
+    "text": "1. Définition des objectifs\n\nPourquoi c’est crucial ?\n\nGuide la collecte des données.\nDéfinit le modèle adéquat.\nFacilite l’interprétation.\nÉvite les explorations aveugles."
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#définition-des-objectifs-1",
+    "href": "slides/03-generalities-stat-slides.html#définition-des-objectifs-1",
+    "title": "Généralités",
+    "section": "1. Définition des objectifs",
+    "text": "1. Définition des objectifs\n\nComment bien formuler ?\n\nClarifier les termes.\nIdentifier les utilisateurs.\nDéfinir la population cible.\nPréciser les décisions qui dépendent des résultats."
   },
   {
     "objectID": "slides/03-generalities-stat-slides.html#exemples-dobjectifs",
     "href": "slides/03-generalities-stat-slides.html#exemples-dobjectifs",
     "title": "Généralités",
-    "section": "Exemples d’objectifs",
-    "text": "Exemples d’objectifs\n\n\n❌ Mauvais objectifs - Analyser les données clients - Analyser les données des adversaires\n- Analyser les données du médicament\n\n✅ Bons objectifs - Prédire quels clients achèteront le produit d’épargne - Caractériser le style de jeu pour identifier les faiblesses - Concevoir un protocole pour tester l’efficacité"
+    "section": "1. Exemples d’objectifs",
+    "text": "1. Exemples d’objectifs\n\n❌ Mauvais objectifs\n\nAnalyser les données clients.\nAnalyser les données des adversaires.\nAnalyser les données du médicament.\n\n\n✅ Bons objectifs\n\nPrédire quels clients achèteront le produit d’épargne.\nCaractériser le style de jeu pour identifier les faiblesses d’une équipe.\nConcevoir un protocole pour tester l’efficacité d’un médicament."
   },
   {
     "objectID": "slides/03-generalities-stat-slides.html#sources-de-données",
     "href": "slides/03-generalities-stat-slides.html#sources-de-données",
     "title": "Généralités",
     "section": "2. Sources de données",
-    "text": "2. Sources de données\nPlateformes génériques : - Google datasets - Kaggle - UC Irvine ML Repository\nSources officielles : - Canada: StatCan - France: data.gouv.fr - USA: data.gov\nSources internes : bases clients, transactions, production, web analytics"
+    "text": "2. Sources de données\nPlateformes génériques :\n\nGoogle datasets\nKaggle\nUC Irvine ML Repository\n\nSources officielles :\n\nCanada: StatCan\nFrance: data.gouv.fr\nUSA: data.gov\n\nSources internes : bases clients, transactions, production, web analytics"
   },
   {
     "objectID": "slides/03-generalities-stat-slides.html#qualité-des-données",
     "href": "slides/03-generalities-stat-slides.html#qualité-des-données",
     "title": "Généralités",
-    "section": "Qualité des données",
-    "text": "Qualité des données\n\n“Garbage in, garbage out”\n\nQuestions essentielles :\n\nLes données sont-elles représentatives ?\nSont-elles exactes, complètes, pertinentes ?\nY a-t-il des valeurs manquantes, doublons, incohérences ?"
+    "section": "2. Qualité des données",
+    "text": "2. Qualité des données\n\n\n“Garbage in, garbage out”\n\n\nQuelques questions importantes :\n\nLes données sont-elles représentatives ?\nSont-elles exactes, complètes, pertinentes ?\nY a-t-il des valeurs manquantes, doublons, incohérences ?"
   },
   {
     "objectID": "slides/03-generalities-stat-slides.html#format-tidy-data",
     "href": "slides/03-generalities-stat-slides.html#format-tidy-data",
     "title": "Généralités",
-    "section": "Format “Tidy Data”",
-    "text": "Format “Tidy Data”\n3 principes fondamentaux :\n\nChaque variable = une colonne\nChaque observation = une ligne\n\nChaque cellule = une valeur unique\n\n\n\nR : tidyr, readr, readxl, haven\n\nPython : pandas, polars"
+    "section": "2. Format “Tidy Data”",
+    "text": "2. Format “Tidy Data”\n\n3 principes fondamentaux :\n\nChaque variable = une colonne.\nChaque observation = une ligne.\nChaque cellule = une valeur unique.\n\n\n\nR : tidyr, readr, readxl, haven\n\nPython : pandas, polars"
   },
   {
-    "objectID": "slides/03-generalities-stat-slides.html#exploration-préliminaire",
-    "href": "slides/03-generalities-stat-slides.html#exploration-préliminaire",
+    "objectID": "slides/03-generalities-stat-slides.html#exploration-préliminaire---nettoyage",
+    "href": "slides/03-generalities-stat-slides.html#exploration-préliminaire---nettoyage",
     "title": "Généralités",
-    "section": "Exploration préliminaire",
-    "text": "Exploration préliminaire\nNettoyage : - Supprimer les doublons - Uniformiser les modalités - Vérifier les formats\nExploration : - Modalités rares/nombreuses - Valeurs extrêmes - Corrélations fortes - Classes déséquilibrées - Valeurs manquantes"
+    "section": "2. Exploration préliminaire - Nettoyage",
+    "text": "2. Exploration préliminaire - Nettoyage\n\n\nSupprimer les doublons.\nUniformiser les modalités.\nVérifier les formats des valeurs spéciales."
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration",
+    "href": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration",
+    "title": "Généralités",
+    "section": "2. Exploration préliminaire - Exploration",
+    "text": "2. Exploration préliminaire - Exploration\n\n\nModalités rares/nombreuses.\nValeurs extrêmes ou aberrantes.\nCorrélations fortes.\nClasses déséquilibrées.\nValeurs manquantes."
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-1",
+    "href": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-1",
+    "title": "Généralités",
+    "section": "2. Exploration préliminaire - Exploration",
+    "text": "2. Exploration préliminaire - Exploration\n\nPour faire l’exploration, on peut utiliser :\n\ndes statistiques descriptives unidimensionnelles\n\nnumérique: moyenne, extremum, tableau de fréquences, …\ngraphique: histogramme, boxplot"
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-2",
+    "href": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-2",
+    "title": "Généralités",
+    "section": "2. Exploration préliminaire - Exploration",
+    "text": "2. Exploration préliminaire - Exploration\n\nPour faire l’exploration, on peut utiliser :\n\ndes statistiques descriptives bidimensionnelles\n\nnumérique: tableaux croisés, corrélation, …\ngraphique: diagramme de dispersion, …"
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-3",
+    "href": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-3",
+    "title": "Généralités",
+    "section": "2. Exploration préliminaire - Exploration",
+    "text": "2. Exploration préliminaire - Exploration\n\nPour faire l’exploration, on peut utiliser :\n\ndes transformations de variables\n\ntransformation simple: passer au \\(\\log\\), standardisation, …\nregrouper des modalités\ncombiner des variables"
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-4",
+    "href": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-4",
+    "title": "Généralités",
+    "section": "2. Exploration préliminaire - Exploration",
+    "text": "2. Exploration préliminaire - Exploration\n\nUne valeur extrême est une valeur éloignée des autres valeurs de la population.\n🚨 Peut correspondre à un profil particulier et plus rare dans la population.\n\nQue faire ?\n\n\n\nUtiliser des méthodes robustes\nTransformer la variable, e.g. avec un \\(\\log\\)."
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-5",
+    "href": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-5",
+    "title": "Généralités",
+    "section": "2. Exploration préliminaire - Exploration",
+    "text": "2. Exploration préliminaire - Exploration\n\nUne valeur aberrantes est une valeur erronée causée par une erreur de saisie, une erreur de calcul, une mauvaise mesure ou une fausse déclaration.\n\nQue faire ?\n\n\n\nLes remplacer par la bonne valeur.\nLes traiter comme des valeurs manquantes\nRetirer l’individu."
   },
   {
     "objectID": "slides/03-generalities-stat-slides.html#modélisation-4-composantes",
     "href": "slides/03-generalities-stat-slides.html#modélisation-4-composantes",
     "title": "Généralités",
     "section": "3. Modélisation : 4 composantes",
-    "text": "3. Modélisation : 4 composantes\n\nEspace de représentation (cadre mathématique)\nDistance ou similarité (comparer les observations)\nModèle ou algorithme (méthode d’apprentissage)\nFonction de coût (mesure de qualité)"
+    "text": "3. Modélisation : 4 composantes\n\n\n\nEspace de représentation (cadre mathématique).\nDistance ou similarité (comparer les observations).\nModèle ou algorithme (méthode d’apprentissage).\nFonction de coût (mesure de qualité)."
   },
   {
-    "objectID": "slides/03-generalities-stat-slides.html#mise-en-production",
-    "href": "slides/03-generalities-stat-slides.html#mise-en-production",
+    "objectID": "slides/03-generalities-stat-slides.html#mise-en-production-data-engineering",
+    "href": "slides/03-generalities-stat-slides.html#mise-en-production-data-engineering",
     "title": "Généralités",
-    "section": "4. Mise en production",
-    "text": "4. Mise en production\nData Engineering :\n\nAutomatiser la collecte et le nettoyage\nIntégrer le modèle dans l’application\nGénérer rapports/prédictions en temps réel\nMaintenir la pipeline de données\n\nRôle du Data Engineer : conception et maintenance de bout en bout"
+    "section": "4. Mise en production : Data Engineering",
+    "text": "4. Mise en production : Data Engineering\n\n\nAutomatiser la collecte et le nettoyage.\nIntégrer le modèle dans l’application.\nGénérer rapports/prédictions en temps réel.\nMaintenir la pipeline de données.\n\nRôle du Data Engineer : conception et maintenance de bout en bout."
   },
   {
     "objectID": "slides/03-generalities-stat-slides.html#suivi-et-amélioration",
     "href": "slides/03-generalities-stat-slides.html#suivi-et-amélioration",
     "title": "Généralités",
     "section": "5. Suivi et amélioration",
-    "text": "5. Suivi et amélioration\nDéfis : - Evolution des données (data drift) - Hypothèses initiales invalidées - Nouvelles variables disponibles\nSolutions : - Monitoring régulier des performances - Réentraînement avec données récentes - Amélioration continue du modèle"
+    "text": "5. Suivi et amélioration\n\nDéfis :\n\nEvolution des données (data drift).\nHypothèses initiales invalidées.\nNouvelles variables disponibles.\n\n\nSolutions :\n\nMonitoring régulier des performances.\nRéentraînement avec données récentes.\nAmélioration continue du modèle."
   },
   {
     "objectID": "slides/03-generalities-stat-slides.html#conclusion",
     "href": "slides/03-generalities-stat-slides.html#conclusion",
     "title": "Généralités",
     "section": "Conclusion",
-    "text": "Conclusion\nUn bon modèle :\n\n✅ Performant à un instant donné\n✅ Robuste dans le temps\n✅ Adaptable aux changements\n\nClé du succès : Équilibre entre toutes les étapes, pas seulement la modélisation !"
+    "text": "Conclusion\n\nUn bon modèle :\n✅ Performant à un instant donné.\n✅ Robuste dans le temps.\n✅ Adaptable aux changements.\n→ Équilibre entre toutes les étapes, pas seulement la modélisation !"
   },
   {
     "objectID": "slides/04-dimension-mca-slides.html#introduction-à-lacm",

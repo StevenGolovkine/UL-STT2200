@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.34">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Distance – STT-2200: Data Analysis</title>
+<title>Distances – STT-2200: Data Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -84,7 +84,8 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script><meta property="og:title" content="Distance – STT-2200: Data Analysis">
+</script><meta property="og:title" content="Distances – STT-2200: Data Analysis">
+<meta property="og:description" content="Website for STT-2200">
 <meta property="og:site_name" content="STT-2200: Data Analysis">
 </head>
 <body class="nav-sidebar floating quarto-light">
@@ -258,7 +259,7 @@ window.Quarto = {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/03-generalities.html">03 - Généralités</a></li>
-<li class="breadcrumb-item"><a href="../../contents/generalities/03-distance.html">Distance</a></li>
+<li class="breadcrumb-item"><a href="../../contents/generalities/03-distance.html">Distances</a></li>
 </ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -405,25 +406,25 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/generalities/02-spaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Space</span></a>
+ <span class="menu-text">Spaces</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/generalities/03-distance.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Distance</span></a>
+ <span class="menu-text">Distances</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/generalities/04-bias-variance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bias-variance</span></a>
+ <span class="menu-text">Bias/Variance</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/generalities/05-model-evaluation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Model evaluation</span></a>
+ <span class="menu-text">Models evaluation</span></a>
   </div>
 </li>
       </ul>
@@ -534,19 +535,36 @@ window.Quarto = {
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#concept-of-distance" id="toc-concept-of-distance" class="nav-link active" data-scroll-target="#concept-of-distance">Concept of distance</a></li>
+  <li><a href="#notion-of-similarity" id="toc-notion-of-similarity" class="nav-link" data-scroll-target="#notion-of-similarity">Notion of Similarity</a></li>
+  <li>
+<a href="#case-of-qualitative-variables" id="toc-case-of-qualitative-variables" class="nav-link" data-scroll-target="#case-of-qualitative-variables">Case of qualitative variables</a>
+  <ul class="collapse">
+<li><a href="#one-of-k-encoding" id="toc-one-of-k-encoding" class="nav-link" data-scroll-target="#one-of-k-encoding">One-of-K Encoding</a></li>
+  <li><a href="#define-an-appropriate-distance" id="toc-define-an-appropriate-distance" class="nav-link" data-scroll-target="#define-an-appropriate-distance">Define an appropriate distance</a></li>
+  <li><a href="#jaccard-distance" id="toc-jaccard-distance" class="nav-link" data-scroll-target="#jaccard-distance">Jaccard Distance</a></li>
+  </ul>
+</li>
+  </ul>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/generalities/03-distance.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li>
+</ul></div>
+<div class="quarto-alternate-formats">
 <h2>Other Formats</h2>
 <ul><li><a href="03-distance.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
-</div>
+</div></nav>
 </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/03-generalities.html">03 - Généralités</a></li>
-<li class="breadcrumb-item"><a href="../../contents/generalities/03-distance.html">Distance</a></li>
+<li class="breadcrumb-item"><a href="../../contents/generalities/03-distance.html">Distances</a></li>
 </ol></nav><div class="quarto-title">
-<h1 class="title">Distance</h1>
+<h1 class="title">Distances</h1>
 </div>
 
 
@@ -560,7 +578,361 @@ window.Quarto = {
   
 
 
-</header></main><!-- /main --><script>
+</header><p>In any data analysis project, it is necessary to be able to quantify the similarity (or dissimilarity) between two observations. To do this, we use the concept of <strong>distance</strong> (or <strong>similarity</strong>) between observations. The choice of this distance directly influences the results of learning, clustering, and visualization algorithms.</p>
+<section id="concept-of-distance" class="level2"><h2 class="anchored" data-anchor-id="concept-of-distance">Concept of distance</h2>
+<p>A <strong>distance</strong> is a mathematical function that measures how far two objects are from each other in a given space. The greater the distance, the further apart the observations are.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition of distance measurement
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A function <span class="math inline">\(d: \mathcal{X} \times \mathcal{X} \to \mathbb{R}\)</span> is a distance on a set <span class="math inline">\(\mathcal{X}\)</span> if, for all <span class="math inline">\(x, y, z \in \mathcal{X}\)</span>, the following conditions are satisfied:</p>
+<ol type="1">
+<li><p>non-negativity: <span class="math inline">\(d(x, y) \geq 0\)</span>;</p></li>
+<li><p>separation: <span class="math inline">\(d(x, y) = 0 \Leftrightarrow x = y\)</span>;</p></li>
+<li><p>symmetry: <span class="math inline">\(d(x, y) = d(y, x)\)</span>;</p></li>
+<li><p>triangle inequality: <span class="math inline">\(d(x, y) \leq d(x, z) + d(y, z)\)</span>.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Euclidean distance
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When observations are represented by numerical vectors in <span class="math inline">\(\mathbb{R}^p\)</span> of the same order of magnitude, <strong>Euclidean distance</strong> is often a good choice.</p>
+<p>Let <span class="math inline">\(x, y \in \mathbb{R}^p\)</span>, the Euclidean distance is given by: <span class="math display">\[d(x, y) = \left\| x - y \right\|_2 = \left( \sum_{i = 1}^{p} (x_i - y_i)^2 \right)^{1/2}.\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The <span class="math inline">\(L_q\)</span> (or Minkowski) distance
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(x, y \in \mathbb{R}^p\)</span>, the distance <span class="math inline">\(L_q\)</span> is given, for <span class="math inline">\(q &gt; 0\)</span>, by: <span class="math display">\[d(x, y) = \left\| x - y \right\|_q = \left( \sum_{i = 1}^{p} |x_i - y_i|^q \right)^{1 / q}.\]</span></p>
+<p>Special cases:</p>
+<ul>
+<li><p>For <span class="math inline">\(q = 1\)</span>, we obtain the Manhattan distance: <span class="math display">\[d(x, y) = \left\| x - y \right\|_1 = \sum_{i = 1}^{p} |x_i - y_i|.\]</span></p></li>
+<li><p>For <span class="math inline">\(q = 2\)</span>, we obtain the Euclidean distance.</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider the following dataset:</p>
+<table class="caption-top table">
+<caption>Average height and weight in Canada (Source: Statistics Canada, Canadian Community Health Survey (2008)).</caption>
+<thead><tr class="header">
+<th style="text-align: center;">Name</th>
+<th style="text-align: right;">Height</th>
+<th style="text-align: right;">Weight</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Alice</td>
+<td style="text-align: right;">162.1</td>
+<td style="text-align: right;">66.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Bob</td>
+<td style="text-align: right;">175.8</td>
+<td style="text-align: right;">81.6</td>
+</tr>
+</tbody>
+</table>
+<p>The Euclidean distance between Alice and Bob is <span class="math display">\[d(\text{Alice}, \text{Bob}) = \sqrt{(162.1 - 175.8)^2 + (66.8 - 81.6)^2} = 20.16.\]</span></p>
+<p>The Manhattan distance between Alice and Bob is <span class="math display">\[d(\text{Alice}, \text{Bob}) = |162.1 - 175.8| + |66.8 - 81.6| = 28.5.\]</span></p>
+</div>
+</div>
+<p>The distance L_q is not invariant to changes in scale. For example, if we multiply all the components of a vector by a factor of , the distance between two vectors changes by a factor of .</p>
+<p>In practice, we prefer to work with standardized variables. Thus, denoting <span class="math inline">\(\mu_i\)</span> as the mean, and <span class="math inline">\(\sigma_i\)</span> as the standard deviation of variable <span class="math inline">\(i\)</span>, the Euclidean distance with standardized variables is given by: <span class="math display">\[d(x, y) = \sum_{i = 1}^{p} \left\{ \frac{x_i - \mu_i}{\sigma_i} - \frac{y_i - \mu_i}{\sigma_i} \right\}^2 = \sum_{i = 1}^{p} \left( \frac{x_i - y_i}{\sigma_i} \right)^2.\]</span></p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Property
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Euclidean distance with standardized variables is invariant under changes in scale.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(\lambda \neq 0\)</span> and let <span class="math inline">\(X\)</span> be a random variable. We have <span class="math inline">\(\mathbb{E}(\lambda X) = \lambda \mathbb{E}(X)\)</span> and <span class="math inline">\(\mathrm{Var}(\lambda X) = \lambda^2 \mathrm{Var}(X)\)</span>. So</p>
+<p><span class="math display">\[d(\lambda x, \lambda y) = \sum_{i = 1}^{p} \left\{ \frac{\lambda x_i - \lambda \mu_i}{\lambda \sigma_i} - \frac{\lambda y_i - \lambda \mu_i}{\lambda \sigma_i} \right\}^2 = \sum_{i = 1}^{p} \left( \frac{x_i - y_i}{\sigma_i} \right)^2 = d(x, y).\]</span></p>
+</div>
+</div>
+</div>
+</section><section id="notion-of-similarity" class="level2"><h2 class="anchored" data-anchor-id="notion-of-similarity">Notion of Similarity</h2>
+<p>In contrast to the notion of distance, a <strong>similarity measure</strong> quantifies how close two observations are in a given space. Thus, the greater the similarity, the closer the observations are.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Similarity Measure Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A function <span class="math inline">\(s: \mathcal{X} \times \mathcal{X} \to \mathbb{R}\)</span> is a similarity measure on a set <span class="math inline">\(\mathcal{X}\)</span> if, for all <span class="math inline">\(x, y \in \mathcal{X}\)</span>, the following conditions hold:</p>
+<ol type="1">
+<li><p><span class="math inline">\(s(x, y) \geq 0\)</span>;</p></li>
+<li><p><span class="math inline">\(s(x, y) = s(y, x)\)</span>;</p></li>
+<li><p><span class="math inline">\(s(x, x) = 1 \geq s(x, y)\)</span>.</p></li>
+</ol>
+</div>
+</div>
+<p>A distance can be transformed into a similarity by setting <span class="math display">\[s(x, y) = \frac{1}{1 + d(x, y)}.\]</span></p>
+<p>This transformation ensures that the greater the distance, the lower the similarity. However, the reverse is not always possible because a similarity measure does not necessarily respect the triangle inequality. We can also define the dissimilarity between two objects: <span class="math display">\[d^\star(x, y) = 1 - s(x, y).\]</span></p>
+</section><section id="case-of-qualitative-variables" class="level2"><h2 class="anchored" data-anchor-id="case-of-qualitative-variables">Case of qualitative variables</h2>
+<p>When working with qualitative variables, the usual numerical distances (such as <span class="math inline">\(L_p\)</span> distances) are generally meaningless. For example, if a variable takes its values ​​from the set <span class="math display">\[\mathcal{X} = \{ \text{Red}, \text{Green}, \text{Blue} \},\]</span> then it makes no sense to calculate the difference between <span class="math inline">\(\text{Blue}\)</span> and <span class="math inline">\(\text{Red}\)</span>, because these categories carry no intrinsic numerical structure and have no notion of order or distance.</p>
+<p>Bad practice would be to arbitrarily assign numerical values ​​to the variables (e.g., <span class="math inline">\(\text{Red} = 1\)</span>, <span class="math inline">\(\text{Green} = 2\)</span>, <span class="math inline">\(\text{Blue} = 3\)</span>), which would introduce an artificial order between them. This could significantly bias the analyses.</p>
+<section id="one-of-k-encoding" class="level3"><h3 class="anchored" data-anchor-id="one-of-k-encoding">One-of-K Encoding</h3>
+<p>When we want to use a model based on a notion of distance between observations (i.e., most models), we must use a suitable encoding. One-of-K encoding (<em>one-hot encoding</em>) consists of encoding a categorical variable with <span class="math inline">\(K\)</span> categories as a binary vector of dimension <span class="math inline">\(K\)</span>, in which only one entry is <span class="math inline">\(1\)</span>, the others are <span class="math inline">\(0\)</span>. Thus, for the example of <span class="math inline">\(\mathcal{X} = \{ \text{Red, Green, Blue} \}\)</span>, we will obtain the following encoding: “Red” gives <span class="math inline">\((1, 0, 0)\)</span>, “Green” gives <span class="math inline">\((0, 1, 0)\)</span>, and “Blue” gives <span class="math inline">\((0, 0, 1)\)</span>.</p>
+<p>This encoding method has the advantage of not introducing an artificial order between the modalities. However, if the variable has many modalities, the representation space will be large, which can hinder the effectiveness of some analysis methods.</p>
+</section><section id="define-an-appropriate-distance" class="level3"><h3 class="anchored" data-anchor-id="define-an-appropriate-distance">Define an appropriate distance</h3>
+<p>Once the modalities have been encoded, we can define a distance between two observations of qualitative variables.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Discrete Distance (or Hamming Distance)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(\mathcal{X}\)</span> be a discrete set and let <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> be two observations of <span class="math inline">\(X\)</span>. The <strong>discrete distance</strong> is given by <span class="math display">\[d(x, y) = \begin{cases}
+0, &amp; \text{if } x = y,\\
+1, &amp; \text{if } x \neq y
+\end{cases}.\]</span></p>
+</div>
+</div>
+<p>For vectors of qualitative variables (e.g., the comparison of several individuals described by several characteristics), the discrete distance is the <strong>sum of disagreements</strong> between the components: <span class="math display">\[d(x, y) = \sum_{i = 1}^{p} \mathbb{1}(x_i \neq y_i),\]</span> where <span class="math inline">\(p\)</span> is the number of variables.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider the characteristics of three people.</p>
+<div id="tbl-carac" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-carac-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table 1: Characteristics of three people.
+</figcaption><div aria-describedby="tbl-carac-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead><tr class="header">
+<th style="text-align: center;">Name</th>
+<th style="text-align: right;">Color</th>
+<th style="text-align: right;">Eyes</th>
+<th style="text-align: right;">Hair</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Alice</td>
+<td style="text-align: right;">Red</td>
+<td style="text-align: right;">Blue</td>
+<td style="text-align: right;">Blonde</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Bob</td>
+<td style="text-align: right;">Green</td>
+<td style="text-align: right;">Blue</td>
+<td style="text-align: right;">Red</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Chris</td>
+<td style="text-align: right;">Red</td>
+<td style="text-align: right;">Green</td>
+<td style="text-align: right;">Blonde</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>The distance between two people is calculated as the number of different characteristics. Thus,</p>
+<p><span class="math display">\[d(\text{Alice}, \text{Bob}) = 1 + 0 + 1 = 2,\]</span></p>
+<p><span class="math display">\[d(\text{Alice}, \text{Chris}) = 0 + 1 + 0 = 1,\]</span></p>
+<p><span class="math display">\[d(\text{Bob}, \text{Chris}) = 1 + 1 + 1 = 3.\]</span></p>
+</div>
+</div>
+<p>Rather than counting the differences, we can also count the agreements and normalize them:</p>
+<p><span class="math display">\[s(x, y) = \frac{1}{p}\sum_{i = 1}^{p} \mathbb{1}(x_i = y_i),\]</span></p>
+<p>which gives a similarity measure between <span class="math inline">\(0\)</span> (no agreement) and <span class="math inline">\(1\)</span> (identical).</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Continuing the previous example (see <a href="#tbl-carac" class="quarto-xref">Table 1</a>), we find the following similarities:</p>
+<p><span class="math display">\[s(\text{Alice}, \text{Bob}) = \frac{0 + 1 + 0}{3} = \frac{1}{3},\]</span></p>
+<p><span class="math display">\[s(\text{Alice}, \text{Chris}) = \frac{1 + 0 + 1}{3} = \frac{2}{3},\]</span></p>
+<p><span class="math display">\[s(\text{Bob}, \text{Chris}) = \frac{0 + 0 + 0}{3} = 0.\]</span></p>
+</div>
+</div>
+</section><section id="jaccard-distance" class="level3"><h3 class="anchored" data-anchor-id="jaccard-distance">Jaccard Distance</h3>
+<p>When the number of binary variables is large (e.g., in the case where a 1 out of K encoding has been performed on p qualitative variables), the discrete distance is not necessarily very suitable because the number of agreements is likely to be small compared to the total number of variables ($K × p in the previous example), which will result in small distances in all cases. One solution is to focus only on attributes that equal 1, because generally, a binary variable equal to 0 does not provide any particular information (at least, less than a binary variable equal to 1). The Jaccard index (Intersection over Union, IoU) was introduced to take this into account.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition: Jaccard Index
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider two observations x and y of K binary variables. All variables can take the values ​​<span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>.</p>
+<p>Let’s define the following quantities:</p>
+<ul>
+<li><p><span class="math inline">\(M_{11}\)</span>, the number of <span class="math inline">\(1\)</span> variables for <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>;</p></li>
+<li><p><span class="math inline">\(M_{10}\)</span>, the number of <span class="math inline">\(1\)</span> variables for <span class="math inline">\(x\)</span> and <span class="math inline">\(0\)</span> for <span class="math inline">\(y\)</span>;</p></li>
+<li><p><span class="math inline">\(M_{01}\)</span>, the number of <span class="math inline">\(0\)</span> variables for <span class="math inline">\(x\)</span> and <span class="math inline">\(1\)</span> for <span class="math inline">\(y\)</span>;</p></li>
+<li><p><span class="math inline">\(M_{00}\)</span>, the number of <span class="math inline">\(0\)</span> variables for <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</p></li>
+</ul>
+<p>Since each binary variable is necessarily counted in either <span class="math inline">\(M_{11}\)</span>, <span class="math inline">\(M_{10}\)</span>, <span class="math inline">\(M_{01}\)</span>, or <span class="math inline">\(M_{00}\)</span>, their sum is therefore equal to <span class="math inline">\(K\)</span>.</p>
+<p>The <strong>Jaccard index</strong> is defined as <span class="math display">\[J(x, y) = \frac{M_{11}}{M_{10} + M_{01} + M_{11}} = \frac{M_{11}}{K - M_{00}}.\]</span></p>
+</div>
+</div>
+<p>Paying attention to the case where the two observations consist only of <span class="math inline">\(0\)</span> (we take <span class="math inline">\(J(x, y) = 1\)</span> in this case), the Jaccard index is a measure of similarity.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Property: Jaccard Distance
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For two observations <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> of <span class="math inline">\(K\)</span> binary variables, the <strong>Jaccard distance</strong> is given by <span class="math display">\[d(x, y) = 1 - J(x, y).\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To show that the Jaccard distance is indeed a distance, we must demonstrate the four properties of distances. First, note that the Jaccard distance can be rewritten as <span class="math display">\[d(x, y) = \frac{M_{10} + M_{01}}{M_{01} + M_{10} + M_{11}}.\]</span></p>
+<ol type="1">
+<li><p>All terms in the numerator and denominator are positive, so <span class="math inline">\(d(x, y) \geq 0\)</span>.</p></li>
+<li><p>Let us show that <span class="math inline">\(d(x, y) = 0 \Leftrightarrow x = y\)</span>.</p></li>
+</ol>
+<p>Suppose that <span class="math inline">\(d(x, y) = 0\)</span>. Then <span class="math inline">\(M_{01} + M_{10} = 0\)</span>. Therefore, there are no variables that equal <span class="math inline">\(0\)</span> for <span class="math inline">\(x\)</span> and <span class="math inline">\(1\)</span> for <span class="math inline">\(y\)</span>, and vice versa. Since <span class="math inline">\(M_{01} + M_{10} + M_{11} &gt; 0\)</span>, we have <span class="math inline">\(x = y\)</span>.</p>
+<p>Now, suppose that <span class="math inline">\(x = y\)</span>. Then <span class="math inline">\(M_{01} = M_{10} = 0\)</span>. Therefore <span class="math inline">\(d(x, y) = 0\)</span>.</p>
+<ol start="3" type="1">
+<li><p>We have that <span class="math inline">\(d(x, y) = d(y, x)\)</span> because the Jaccard index is symmetric.</p></li>
+<li><p>The proof of the triangle inequality will be done in an exercise (see <a href="../../td/03-generalities-td.qmd">TD</a>)).</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider a questionnaire with 5 closed questions. Suppose the answer “Yes” is coded as 1 and the answer “No” is coded as 0.</p>
+<div id="tbl-carac2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-carac2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table 2: Characteristics of two people.
+</figcaption><div aria-describedby="tbl-carac2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead><tr class="header">
+<th style="text-align: center;">Name</th>
+<th style="text-align: right;">Q1</th>
+<th style="text-align: right;">Q2</th>
+<th style="text-align: right;">Q3</th>
+<th style="text-align: right;">Q4</th>
+<th style="text-align: right;">Q5</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Alice</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Bob</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>For the distance between Alice and Bob, we have <span class="math inline">\(M_{11} = 1\)</span>, <span class="math inline">\(M_{10} = 1\)</span>, <span class="math inline">\(M_{01} = 1\)</span>, and <span class="math inline">\(M_{00} = 2\)</span>. Therefore, the Jaccard similarity is given by <span class="math inline">\(J(\text{Alice}, \text{Bob}) = \frac{1}{3}\)</span>. Thus, the Jaccard distance is <span class="math inline">\(d(\text{Alice}, \text{Bob}) = 1 - J(x, y) = \frac{2}{3}\)</span>.</p>
+</div>
+</div>
+
+
+</section></section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -1182,13 +1554,13 @@ window.onload = function() {
     }
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../../contents/generalities/02-spaces.html" class="pagination-link" aria-label="Space">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Space</span>
+      <a href="../../contents/generalities/02-spaces.html" class="pagination-link" aria-label="Spaces">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Spaces</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../contents/generalities/04-bias-variance.html" class="pagination-link" aria-label="Bias-variance">
-        <span class="nav-page-text">Bias-variance</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../contents/generalities/04-bias-variance.html" class="pagination-link" aria-label="Bias/Variance">
+        <span class="nav-page-text">Bias/Variance</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1199,7 +1571,7 @@ window.onload = function() {
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions"><ul>
+<div class="toc-actions d-sm-block d-md-none"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/generalities/03-distance.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li>
 </ul></div>

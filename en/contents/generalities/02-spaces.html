@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.34">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Space – STT-2200: Data Analysis</title>
+<title>Spaces – STT-2200: Data Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -84,7 +84,8 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script><meta property="og:title" content="Space – STT-2200: Data Analysis">
+</script><meta property="og:title" content="Spaces – STT-2200: Data Analysis">
+<meta property="og:description" content="Website for STT-2200">
 <meta property="og:site_name" content="STT-2200: Data Analysis">
 </head>
 <body class="nav-sidebar floating quarto-light">
@@ -258,7 +259,7 @@ window.Quarto = {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/03-generalities.html">03 - Généralités</a></li>
-<li class="breadcrumb-item"><a href="../../contents/generalities/02-spaces.html">Space</a></li>
+<li class="breadcrumb-item"><a href="../../contents/generalities/02-spaces.html">Spaces</a></li>
 </ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -405,25 +406,25 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/generalities/02-spaces.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Space</span></a>
+ <span class="menu-text">Spaces</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/generalities/03-distance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Distance</span></a>
+ <span class="menu-text">Distances</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/generalities/04-bias-variance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bias-variance</span></a>
+ <span class="menu-text">Bias/Variance</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/generalities/05-model-evaluation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Model evaluation</span></a>
+ <span class="menu-text">Models evaluation</span></a>
   </div>
 </li>
       </ul>
@@ -534,19 +535,29 @@ window.Quarto = {
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#statistical-unit" id="toc-statistical-unit" class="nav-link active" data-scroll-target="#statistical-unit">Statistical unit</a></li>
+  <li><a href="#types-of-variables" id="toc-types-of-variables" class="nav-link" data-scroll-target="#types-of-variables">Types of variables</a></li>
+  <li><a href="#associated-spaces" id="toc-associated-spaces" class="nav-link" data-scroll-target="#associated-spaces">Associated spaces</a></li>
+  </ul>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/generalities/02-spaces.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li>
+</ul></div>
+<div class="quarto-alternate-formats">
 <h2>Other Formats</h2>
 <ul><li><a href="02-spaces.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
-</div>
+</div></nav>
 </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/03-generalities.html">03 - Généralités</a></li>
-<li class="breadcrumb-item"><a href="../../contents/generalities/02-spaces.html">Space</a></li>
+<li class="breadcrumb-item"><a href="../../contents/generalities/02-spaces.html">Spaces</a></li>
 </ol></nav><div class="quarto-title">
-<h1 class="title">Space</h1>
+<h1 class="title">Spaces</h1>
 </div>
 
 
@@ -560,7 +571,137 @@ window.Quarto = {
   
 
 
-</header></main><!-- /main --><script>
+</header><p>Before modeling or analyzing data, it is essential to fully understand the nature of the variables being manipulated. The <strong>type of variable</strong> determines:</p>
+<ul>
+<li><p>the mathematical space in which it exists;</p></li>
+<li><p>the distance measures that can be used to compare it to others;</p></li>
+<li><p>and the relevant models to use.</p></li>
+</ul>
+<p>In this section, we present the most common types of variables, as well as the associated spaces.</p>
+<section id="statistical-unit" class="level2"><h2 class="anchored" data-anchor-id="statistical-unit">Statistical unit</h2>
+<p>A <strong>statistical unit</strong> is the basic element on which an observation is made. Morally, it is the “carrier” of the information that is used to determine the level of aggregation of the analysis. The statistical unit is a <strong>choice</strong> made by the modeler.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Examples
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>In the case of an income survey, the individual can be chosen as the unit.</p></li>
+<li><p>In the case of a study of high school classes, the class can be chosen as the unit.</p></li>
+<li><p>In the case of a medical imaging database, the image can be chosen as the unit.</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Sometimes, the same database can be analyzed at several levels.
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>An image is made up of pixels, each of which can be described by numerical variables (e.g., RGB values, opacity, etc.). You can choose to analyze each pixel, and therefore take the pixel as the unit, or analyze each image as a whole, and therefore take the image as the unit.</p>
+</div>
+</div>
+</section><section id="types-of-variables" class="level2"><h2 class="anchored" data-anchor-id="types-of-variables">Types of variables</h2>
+<p>There are generally four types of variables, which are identified at the level of the smallest statistical unit in the dataset.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Numerical (or quantitative) variable
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A numerical (or quantitative) variable is a variable whose values are numbers representing a measurable quantity.</p>
+<p>Examples: income in dollars, weight, age, etc.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ordinal variable
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>An ordinal variable is a qualitative (or categorical) variable whose categories can be ordered naturally, without the difference between the categories being quantifiable.</p>
+<p>Examples: income level (low, medium, or high), satisfaction level (“strongly disagree,” “disagree,” “no opinion,” “agree,” “strongly agree”), etc.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Symmetric nominal variable
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A symmetric nominal variable is a qualitative (or categorical) variable in which all categories are equally informative.</p>
+<p>Examples: nationality, field of study, etc.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Asymmetric nominal variable
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>An asymmetric nominal variable is a qualitative (or categorical) variable in which one of the categories has a special status, often being more frequent or considered the “default” value. Thus, having two observations with the “default” value of this asymmetric nominal variable does not tell us much about them, whereas we can glean much more information from two observations that do not have the “default” value.</p>
+<p>Examples: presence or absence of a symptom, fraudulent transaction or not, etc.</p>
+</div>
+</div>
+<p>Although these types of variables are the most common, there are many other types of variables. For example, we may be interested in comparing curves, texts, images, networks, etc. In these situations, the choice of representation depends on the level at which we wish to place ourselves, and therefore on the statistical unit.</p>
+</section><section id="associated-spaces" class="level2"><h2 class="anchored" data-anchor-id="associated-spaces">Associated spaces</h2>
+<p>Once our data has been collected, the first step in statistical analysis is to choose a mathematical space in which to work. This space, sometimes called the <strong>observation space</strong> and denoted by <span class="math inline">\(\mathcal{X}\)</span>, depends on the type of data observed. It constitutes the formal framework in which our variables take their values, and it guides the methodological choices that follow.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Case of a numerical variable
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When observing a numerical variable (e.g., the temperature of a country), the natural space in which to work is the set of real numbers, <span class="math inline">\(\mathcal{X} = \mathbb{R}\)</span>. In some cases, this space can be restricted to a specific interval. For example, if we are interested in a person’s height, we can take <span class="math inline">\(\mathcal{X} = [0, +\infty)\)</span> because the variable in question cannot be negative.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Case of a nominal (or qualitative, or categorical) variable
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For a nominal variable, the space is a finite set of modalities, the set of modalities taken by the variable. For example, if we study the results of a dice roll, the variable can take values from <span class="math inline">\(1\)</span> to <span class="math inline">\(6\)</span>, and the associated space will therefore be <span class="math inline">\(\mathcal{X} = \{ 1, 2, 3, 4, 5, 6 \}\)</span>.</p>
+</div>
+</div>
+<p>When the data is more complex, more suitable spaces must be chosen. For curve or signal analysis, we can work in a function space. For example, we can consider the space of continuous functions on a closed interval <span class="math inline">\([a, b]\)</span>, denoted <span class="math inline">\(\mathcal{X} = \mathcal{C}([a, b])\)</span>. For text analysis (viewed as a sequence of characters), the workspace can be an alphabet. For example, we can consider <span class="math inline">\(\mathcal{X} = \{ \text{A}, \text{B}, \dots, \text{Z} \}\)</span>.</p>
+<p>Often, several variables are observed at the same time, e.g., the height, weight, and gender of an individual. In this case, the observation space will be the Cartesian product (also called the product set) of the spaces associated with each variable: <span class="math display">\[\mathcal{X} = \mathcal{X}_1 \times \mathcal{X}_2 \times \dots \mathcal{X}_p,\]</span> where <span class="math inline">\(p\)</span> is the number of variables. In the case where we observe <span class="math inline">\(p\)</span> numerical variables, we will simply write <span class="math inline">\(\mathcal{X} = \mathbb{R}^p\)</span>.</p>
+
+
+</section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -1187,8 +1328,8 @@ window.onload = function() {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../contents/generalities/03-distance.html" class="pagination-link" aria-label="Distance">
-        <span class="nav-page-text">Distance</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../contents/generalities/03-distance.html" class="pagination-link" aria-label="Distances">
+        <span class="nav-page-text">Distances</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1199,7 +1340,7 @@ window.onload = function() {
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions"><ul>
+<div class="toc-actions d-sm-block d-md-none"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/generalities/02-spaces.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li>
 </ul></div>
