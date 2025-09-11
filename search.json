@@ -665,6 +665,13 @@
     "text": "Choix pratique de la distance\n\nQuestions à se poser :\n\nQuel type de variables ? (numériques/qualitatives)\nMême échelle ou standardisation nécessaire ?\nBeaucoup de variables binaires ?\nLes double-absences sont-elles informatives ?\n\n\n→ Le choix de distance influence directement les résultats !"
   },
   {
+    "objectID": "slides/03-generalities-distance-slides.html#conclusion",
+    "href": "slides/03-generalities-distance-slides.html#conclusion",
+    "title": "Généralités",
+    "section": "Conclusion",
+    "text": "Conclusion\n\n\nDistance → mesure de dissemblance (4 propriétés mathématiques)\nSimilarité → mesure de ressemblance (concept opposé)\nVariables numériques → Distance euclidienne (standardisée)\nVariables qualitatives → Encodage + distance adaptée\nVariables binaires → Distance de Jaccard\n\n\nLa suite : Comment utiliser ces distances dans des modèles ?"
+  },
+  {
     "objectID": "slides/06-unsupervised-kmeans-slides.html#objectif-de-la-classification-non-supervisée",
     "href": "slides/06-unsupervised-kmeans-slides.html#objectif-de-la-classification-non-supervisée",
     "title": "Non-supervisée",
