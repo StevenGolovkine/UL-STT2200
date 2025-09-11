@@ -169,7 +169,7 @@ strokeDasharray: "5,5",
 ```
 :::
 
-In the rest of the course, we will examine different methods for estimating the function f from data. However, before examining how to construct a \widehat{f} estimator of f, we will examine the quality of such an estimator: what does it mean to "properly estimate" f? And how can we evaluate the quality of the estimate?
+In the rest of the course, we will examine different methods for estimating the function f from data. However, before examining how to construct a $\widehat{f}$ estimator of $f$, we will examine the quality of such an estimator: what does it mean to "properly estimate" f? And how can we evaluate the quality of the estimate?
 
 ::: {.callout-note icon=false}
 ## Example: Simple Linear Regression
