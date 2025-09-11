@@ -2976,130 +2976,130 @@
     "text": "Lien avec le déterminant et la trace : exemple\n\nSoit \\(A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}\\). On a vu que ses valeurs propres sont \\(\\lambda_1 = 3\\) et \\(\\lambda_2 = 1\\).\nOn peut donc vérifier les formules pour le déterminant et la trace :\n\\[\\det(A) = 4 - 1 = 3 = 3 \\times 1 = \\lambda_1 \\lambda_2,\\]\n\\[\\text{tr}(A) = 2 + 2 = 4 = 3 + 1 = \\lambda_1 + \\lambda_2.\\]"
   },
   {
-    "objectID": "slides/03-generalities-space-slides.html#pourquoi-étudier-les-espaces",
-    "href": "slides/03-generalities-space-slides.html#pourquoi-étudier-les-espaces",
+    "objectID": "slides/03-generalities-space-slides.html#pourquoi-sintéresser-à-lespace-mathématique",
+    "href": "slides/03-generalities-space-slides.html#pourquoi-sintéresser-à-lespace-mathématique",
     "title": "Généralités",
-    "section": "Pourquoi étudier les espaces ?",
-    "text": "Pourquoi étudier les espaces ?\nLe type de variables détermine :\n\nL’espace mathématique dans lequel elle vit\nLes mesures de distance qu’on peut utiliser\nLes modèles pertinents à utiliser\n\n\n→ Fondamental avant toute modélisation !"
+    "section": "Pourquoi s’intéresser à l’espace mathématique ?",
+    "text": "Pourquoi s’intéresser à l’espace mathématique ?\n\nLe type de variables détermine :\n\nL’espace mathématique dans lequel elle vit.\nLes mesures de distance qu’on peut utiliser.\nLes modèles pertinents à utiliser.\n\n\n→ Il est donc fondamental de connaître l’espace mathématique avant toute modélisation !"
   },
   {
     "objectID": "slides/03-generalities-space-slides.html#plan",
     "href": "slides/03-generalities-space-slides.html#plan",
     "title": "Généralités",
     "section": "Plan",
-    "text": "Plan\n\nUnité statistique - Le choix du niveau d’analyse\nTypes de variables - 4 catégories principales\n\nEspaces associés - Le cadre mathématique \\(\\mathcal{X}\\)"
+    "text": "Plan\n\n\nUnité statistique - Le choix du niveau d’analyse.\nTypes de variables - 4 catégories principales.\nEspaces associés - Le cadre mathématique \\(\\mathcal{X}\\)."
   },
   {
     "objectID": "slides/03-generalities-space-slides.html#unité-statistique",
     "href": "slides/03-generalities-space-slides.html#unité-statistique",
     "title": "Généralités",
     "section": "Unité statistique",
-    "text": "Unité statistique\n\n\nDéfinition : L’élément de base sur lequel une observation est effectuée.\nC’est un choix du modélisateur qui détermine le niveau d’agrégation de l’analyse.\n\nExemples : - Enquête revenus → individu - Étude lycée → classe\n- Imagerie médicale → image"
+    "text": "Unité statistique\n\nDéfinition : Élément de base définissant une observation.\n\nC’est un choix du modélisateur qui détermine le niveau d’agrégation de l’analyse.\n\n\nExemples :\n\nEnquête sur les revenus\nÉtude d’un lycée\nImagerie médicale"
   },
   {
     "objectID": "slides/03-generalities-space-slides.html#attention-niveaux-danalyse-multiples",
     "href": "slides/03-generalities-space-slides.html#attention-niveaux-danalyse-multiples",
     "title": "Généralités",
     "section": "Attention : Niveaux d’analyse multiples",
-    "text": "Attention : Niveaux d’analyse multiples\n\n\n\n\n\n\nMise en garde\n\n\nExemple : Image médicale\nUne image = collection de pixels\nChoix 1 : Pixel comme unité → Variables : RVB, opacité par pixel\nChoix 2 : Image comme unité\n→ Variables : caractéristiques globales"
+    "text": "Attention : Niveaux d’analyse multiples\n\n\n\n\nExemple : Image médicale\n\n\nUne image = collection de pixels\nChoix 1 :\nPixel comme unité → Variables : RVB, opacité par pixel.\nChoix 2 :\nImage comme unité → Variables : caractéristiques globales."
   },
   {
     "objectID": "slides/03-generalities-space-slides.html#types-de-variables-vue-densemble",
     "href": "slides/03-generalities-space-slides.html#types-de-variables-vue-densemble",
     "title": "Généralités",
     "section": "Types de variables : Vue d’ensemble",
-    "text": "Types de variables : Vue d’ensemble\n4 types principaux :\n\nNumérique (quantitative)\nOrdinale\nNominale symétrique\nNominale asymétrique"
+    "text": "Types de variables : Vue d’ensemble\n\n4 types principaux pour les scalaires :\n\nNumérique (quantitative)\nOrdinale\nNominale symétrique\nNominale asymétrique"
   },
   {
     "objectID": "slides/03-generalities-space-slides.html#variable-numérique",
     "href": "slides/03-generalities-space-slides.html#variable-numérique",
     "title": "Généralités",
     "section": "1. Variable numérique",
-    "text": "1. Variable numérique\n\n\n\n\n\n\nAvertissement\n\n\nDéfinition : Valeurs numériques représentant une quantité mesurable\nExemples : - Revenu en dollars - Masse corporelle\n- Âge en années - Température\n\n\n\nEspace naturel : \\(\\mathcal{X} = \\mathbb{R}\\) (ou sous-ensemble)"
+    "text": "1. Variable numérique\n\n\n\nDéfinition\n\n\nUne variable numérique représente une quantité mesurable.\nExemples :\n\nRevenu en dollars\nMasse corporelle\nTempérature"
   },
   {
     "objectID": "slides/03-generalities-space-slides.html#variable-ordinale",
     "href": "slides/03-generalities-space-slides.html#variable-ordinale",
     "title": "Généralités",
     "section": "2. Variable ordinale",
-    "text": "2. Variable ordinale\n\n\n\n\n\n\nAvertissement\n\n\nDéfinition : Variable qualitative dont les modalités peuvent être ordonnées naturellement, sans que l’écart soit quantifiable\nExemples : - Niveau de revenu : faible &lt; moyen &lt; élevé - Satisfaction : pas du tout &lt; peu &lt; moyennement &lt; très &lt; tout à fait"
+    "text": "2. Variable ordinale\n\n\n\nDéfinition\n\n\nUne variable qualitative dont les modalités peuvent être ordonnées naturellement, sans que l’écart ne soit quantifiable.\nExemples :\n\nNiveau de revenu : faible &lt; moyen &lt; élevé\nSatisfaction : pas du tout &lt; peu &lt; moyennement &lt; très &lt; tout à fait"
   },
   {
     "objectID": "slides/03-generalities-space-slides.html#variable-nominale-symétrique",
     "href": "slides/03-generalities-space-slides.html#variable-nominale-symétrique",
     "title": "Généralités",
     "section": "3. Variable nominale symétrique",
-    "text": "3. Variable nominale symétrique\n\n\n\n\n\n\nAvertissement\n\n\nDéfinition : Variable qualitative où toutes les modalités sont aussi informatives les unes que les autres\nExemples : - Nationalité : française, canadienne, allemande… - Filière : mathématiques, physique, biologie… - Couleur : rouge, vert, bleu…"
+    "text": "3. Variable nominale symétrique\n\n\n\nDéfinition\n\n\nUne variable qualitative où toutes les modalités sont aussi informatives les unes que les autres.\nExemples :\n\nNationalité : française, canadienne, allemande…\nFilière : mathématiques, physique, biologie…\nCouleur : rouge, vert, bleu…"
   },
   {
     "objectID": "slides/03-generalities-space-slides.html#variable-nominale-asymétrique",
     "href": "slides/03-generalities-space-slides.html#variable-nominale-asymétrique",
     "title": "Généralités",
     "section": "4. Variable nominale asymétrique",
-    "text": "4. Variable nominale asymétrique\n\n\n\n\n\n\nAvertissement\n\n\nDéfinition : Variable qualitative où une modalité a un statut particulier (souvent “par défaut” ou plus fréquente)\nExemples : - Présence/absence de symptôme - Transaction frauduleuse/normale - Défaut/bon fonctionnement\n\n\n\nPrincipe : 2 observations “par défaut” → peu d’information\n2 observations “non par défaut” → beaucoup d’information"
+    "text": "4. Variable nominale asymétrique\n\n\n\nDéfinition\n\n\nUne variable qualitative où une modalité a un statut particulier (souvent “par défaut” ou plus fréquente).\nExemples :\n\nPrésence/absence de symptôme\nTransaction frauduleuse/normale\nDéfaut/bon fonctionnement"
   },
   {
     "objectID": "slides/03-generalities-space-slides.html#au-delà-des-variables-classiques",
     "href": "slides/03-generalities-space-slides.html#au-delà-des-variables-classiques",
     "title": "Généralités",
     "section": "Au-delà des variables classiques",
-    "text": "Au-delà des variables classiques\nAutres types de données : - Courbes et signaux - Textes et séquences - Images et vidéos\n- Réseaux et graphes - Données géospatiales\n→ Le choix de représentation dépend de l’unité statistique"
+    "text": "Au-delà des variables classiques\n\nCourbes et signaux\nTextes et séquences de caractères\nImages et vidéos\nRéseaux et graphes\nDonnées géospatiales\n\n→ Le choix de représentation dépend de l’unité statistique."
   },
   {
     "objectID": "slides/03-generalities-space-slides.html#espaces-dobservation-mathcalx",
     "href": "slides/03-generalities-space-slides.html#espaces-dobservation-mathcalx",
     "title": "Généralités",
     "section": "Espaces d’observation \\(\\mathcal{X}\\)",
-    "text": "Espaces d’observation \\(\\mathcal{X}\\)\n\n\nDéfinition : Espace mathématique dans lequel nos variables prennent leurs valeurs.\nRôle : - Cadre formel de travail - Guide les choix méthodologiques\n\nNotation : \\(\\mathcal{X}\\) = espace d’observation"
+    "text": "Espaces d’observation \\(\\mathcal{X}\\)\n\n\n\nDéfinition\n\n\nEspace mathématique dans lequel nos variables prennent leurs valeurs.\n\nCadre formel de travail.\nGuide les choix méthodologiques.\n\n\n\n\nNotation : \\(\\mathcal{X}\\) = espace d’observation"
   },
   {
     "objectID": "slides/03-generalities-space-slides.html#variable-numérique-mathbbr",
     "href": "slides/03-generalities-space-slides.html#variable-numérique-mathbbr",
     "title": "Généralités",
     "section": "Variable numérique → \\(\\mathbb{R}\\)",
-    "text": "Variable numérique → \\(\\mathbb{R}\\)\n\n\n\n\n\n\nNote\n\n\nCas général : \\(\\mathcal{X} = \\mathbb{R}\\)\nCas restreints : - Taille d’une personne : \\(\\mathcal{X} = [0, +\\infty)\\) - Probabilité : \\(\\mathcal{X} = [0, 1]\\)\n- Pourcentage : \\(\\mathcal{X} = [0, 100]\\)"
+    "text": "Variable numérique → \\(\\mathbb{R}\\)\n\nCas général : \\(\\mathcal{X} = \\mathbb{R}\\)\n\nCas restreints :\n\nTaille d’une personne : \\(\\mathcal{X} = [0, +\\infty)\\)\nProbabilité : \\(\\mathcal{X} = [0, 1]\\)\nPourcentage : \\(\\mathcal{X} = [0, 100]\\)"
   },
   {
     "objectID": "slides/03-generalities-space-slides.html#variable-nominale-ensemble-fini",
     "href": "slides/03-generalities-space-slides.html#variable-nominale-ensemble-fini",
     "title": "Généralités",
     "section": "Variable nominale → Ensemble fini",
-    "text": "Variable nominale → Ensemble fini\n\n\n\n\n\n\nNote\n\n\nExemple : Lancer de dé \\[\\mathcal{X} = \\{1, 2, 3, 4, 5, 6\\}\\]\nExemple : Filière d’étude \\[\\mathcal{X} = \\{\\text{Math}, \\text{Physique}, \\text{Bio}, \\text{Info}\\}\\]"
+    "text": "Variable nominale → Ensemble fini\n\nExemple : Lancer de dé\n\\[\\mathcal{X} = \\{1, 2, 3, 4, 5, 6\\}\\]\nExemple : Filière d’étude\n\\[\\mathcal{X} = \\{\\text{Math}, \\text{Physique}, \\text{Bio}, \\text{Info}\\}\\]"
   },
   {
     "objectID": "slides/03-generalities-space-slides.html#espaces-plus-complexes",
     "href": "slides/03-generalities-space-slides.html#espaces-plus-complexes",
     "title": "Généralités",
     "section": "Espaces plus complexes",
-    "text": "Espaces plus complexes\nAnalyse de courbes : \\[\\mathcal{X} = \\mathcal{C}([a,b])\\] (fonctions continues sur \\([a,b]\\))\nAnalyse de texte : \\[\\mathcal{X} = \\{A, B, C, \\ldots, Z\\}\\] (alphabet)"
+    "text": "Espaces plus complexes\n\nAnalyse de courbes : fonctions continues sur \\([a,b]\\)\n\\[\\mathcal{X} = \\mathcal{C}([a,b])\\]\nAnalyse de texte : alphabet\n\\[\\mathcal{X} = \\{A, B, C, \\ldots, Z\\}\\]"
   },
   {
     "objectID": "slides/03-generalities-space-slides.html#variables-multiples-produit-cartésien",
     "href": "slides/03-generalities-space-slides.html#variables-multiples-produit-cartésien",
     "title": "Généralités",
     "section": "Variables multiples : Produit cartésien",
-    "text": "Variables multiples : Produit cartésien\nObservation simultanée : taille + poids + sexe\n\\[\\mathcal{X} = \\mathcal{X}_1 \\times \\mathcal{X}_2 \\times \\mathcal{X}_3\\]\nCas particulier : \\(p\\) variables numériques \\[\\mathcal{X} = \\mathbb{R}^p\\]"
+    "text": "Variables multiples : Produit cartésien\n\nObservation simultanée : taille + poids + sexe\n\\[\\mathcal{X} = \\mathcal{X}_1 \\times \\mathcal{X}_2 \\times \\mathcal{X}_3\\]\nCas particulier : \\(p\\) variables numériques \\[\\mathcal{X} = \\mathbb{R}^p\\]"
   },
   {
-    "objectID": "slides/03-generalities-space-slides.html#exemple-concret",
-    "href": "slides/03-generalities-space-slides.html#exemple-concret",
+    "objectID": "slides/03-generalities-space-slides.html#exemple-concret-étude-détudiants",
+    "href": "slides/03-generalities-space-slides.html#exemple-concret-étude-détudiants",
     "title": "Généralités",
-    "section": "Exemple concret",
-    "text": "Exemple concret\nÉtude d’étudiants : - Age (numérique) : \\(\\mathcal{X}_1 = [16, 30]\\) - Filière (nominale symétrique) : \\(\\mathcal{X}_2 = \\{\\text{Math}, \\text{Physique}\\}\\)\n- Satisfaction (ordinale) : \\(\\mathcal{X}_3 = \\{\\text{Faible}, \\text{Moyen}, \\text{Élevé}\\}\\)\nEspace d’observation : \\[\\mathcal{X} = [16, 30] \\times \\{\\text{Math}, \\text{Physique}\\} \\times \\{\\text{Faible}, \\text{Moyen}, \\text{Élevé}\\}\\]"
+    "section": "Exemple concret : étude d’étudiants",
+    "text": "Exemple concret : étude d’étudiants\n\n\nAge (numérique) : \\(\\mathcal{X}_1 = [16, 30]\\).\nFilière (nominale symétrique) : \\(\\mathcal{X}_2 = \\{\\text{Math}, \\text{Physique}\\}\\).\nSatisfaction (ordinale) : \\(\\mathcal{X}_3 = \\{\\text{Faible}, \\text{Moyen}, \\text{Élevé}\\}\\).\n\n\n\nEspace d’observation :\n\n\\[\\mathcal{X} = [16, 30] \\times \\{\\text{Math}, \\text{Physique}\\} \\times \\{\\text{Faible}, \\text{Moyen}, \\text{Élevé}\\}\\]"
   },
   {
     "objectID": "slides/03-generalities-space-slides.html#récapitulatif",
     "href": "slides/03-generalities-space-slides.html#récapitulatif",
     "title": "Généralités",
     "section": "Récapitulatif",
-    "text": "Récapitulatif\n\n\n\nType de variable\nExemple\nEspace typique\n\n\n\n\nNumérique\nÂge, revenu\n\\(\\mathbb{R}\\), \\([0,+\\infty)\\)\n\n\nOrdinale\nSatisfaction\nEnsemble ordonné fini\n\n\nNominale symétrique\nNationalité\nEnsemble fini\n\n\nNominale asymétrique\nPrésence/absence\n\\(\\{0, 1\\}\\)"
+    "text": "Récapitulatif\n\n\n\n\n\nType de variable\nExemple\nEspace typique\n\n\n\n\nNumérique\nÂge, revenu\n\\(\\mathbb{R}\\), \\([0,+\\infty)\\)\n\n\nOrdinale\nSatisfaction\nEnsemble ordonné fini\n\n\nNominale symétrique\nNationalité\nEnsemble fini\n\n\nNominale asymétrique\nPrésence/absence\n\\(\\{0, 1\\}\\)"
   },
   {
     "objectID": "slides/03-generalities-space-slides.html#conclusion",
     "href": "slides/03-generalities-space-slides.html#conclusion",
     "title": "Généralités",
     "section": "Conclusion",
-    "text": "Conclusion\n\nL’unité statistique définit le niveau d’analyse\nLe type de variable guide le choix de l’espace\nL’espace d’observation \\(\\mathcal{X}\\) est le cadre mathématique\nVariables multiples → produit cartésien\n\n\nProchaine étape : Définir des distances dans ces espaces !"
+    "text": "Conclusion\n\n\nL’unité statistique définit le niveau d’analyse.\nLe type de variable guide le choix de l’espace.\nL’espace d’observation \\(\\mathcal{X}\\) est le cadre mathématique.\nVariables multiples → produit cartésien d’ensemble.\n\n\n→ Prochaine étape : Définir des distances dans ces espaces !"
   },
   {
     "objectID": "slides/03-generalities-model-evaluation-slides.html#introduction",
