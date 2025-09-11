@@ -73,7 +73,7 @@ theme_minimal()
 
 ::: {.content-visible when-format="html"}
 ```{r}
-#| eval:false
+#| eval: false
 
 library(tibble)
 library(dplyr)
