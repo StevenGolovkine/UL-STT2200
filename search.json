@@ -522,119 +522,126 @@
     "href": "slides/03-generalities-distance-slides.html#pourquoi-les-distances",
     "title": "Généralités",
     "section": "Pourquoi les distances ?",
-    "text": "Pourquoi les distances ?\nDans tout projet d’analyse de données, il faut pouvoir quantifier la ressemblance ou la dissemblance entre observations.\n\nImpact direct sur : - Algorithmes d’apprentissage - Méthodes de regroupement\n- Techniques de visualisation"
+    "text": "Pourquoi les distances ?\n\nDans tout projet d’analyse de données, il faut pouvoir quantifier la ressemblance ou la dissemblance entre observations.\n\nImpact direct sur :\n\nAlgorithmes d’apprentissage\nMéthodes de regroupement\nTechniques de visualisation"
   },
   {
     "objectID": "slides/03-generalities-distance-slides.html#plan",
     "href": "slides/03-generalities-distance-slides.html#plan",
     "title": "Généralités",
     "section": "Plan",
-    "text": "Plan\n\nNotion de distance - Définition mathématique\nDistances numériques - \\(L_q\\), euclidienne, Manhattan\nNotion de similarité - Concept opposé\nVariables qualitatives - Encodages et distances adaptées\nDistance de Jaccard - Cas des variables binaires"
+    "text": "Plan\n\n\nNotion de distance - Définition mathématique\nDistances numériques - \\(L_q\\), euclidienne, Manhattan\nNotion de similarité - Concept opposé\nVariables qualitatives - Encodages et distances adaptées\nDistance de Jaccard - Cas des variables binaires"
   },
   {
     "objectID": "slides/03-generalities-distance-slides.html#définition-mathématique",
     "href": "slides/03-generalities-distance-slides.html#définition-mathématique",
     "title": "Généralités",
     "section": "Définition mathématique",
-    "text": "Définition mathématique\n\n\n\n\n\n\nAvertissement\n\n\nDistance sur \\(\\mathcal{X}\\)\nUne fonction \\(d: \\mathcal{X} \\times \\mathcal{X} \\to \\mathbb{R}\\) est une distance si :\n\nNon-négativité : \\(d(x, y) \\geq 0\\)\nSéparation : \\(d(x, y) = 0 \\Leftrightarrow x = y\\)\n\nSymétrie : \\(d(x, y) = d(y, x)\\)\nInégalité triangulaire : \\(d(x, y) \\leq d(x, z) + d(y, z)\\)"
+    "text": "Définition mathématique\n\n\n\nDistance sur \\(\\mathcal{X}\\)\n\n\nUne fonction \\(d: \\mathcal{X} \\times \\mathcal{X} \\to \\mathbb{R}\\) est une distance si :\n\nNon-négativité : \\(d(x, y) \\geq 0\\)\nSéparation : \\(d(x, y) = 0 \\Leftrightarrow x = y\\)\nSymétrie : \\(d(x, y) = d(y, x)\\)\nInégalité triangulaire : \\(d(x, y) \\leq d(x, z) + d(y, z)\\)"
   },
   {
     "objectID": "slides/03-generalities-distance-slides.html#distance-euclidienne",
     "href": "slides/03-generalities-distance-slides.html#distance-euclidienne",
     "title": "Généralités",
     "section": "Distance euclidienne",
-    "text": "Distance euclidienne\n\n\n\n\n\n\nNote\n\n\nPour \\(x, y \\in \\mathbb{R}^p\\) : \\[d(x, y) = \\left\\| x - y \\right\\|_2 = \\sqrt{\\sum_{i=1}^{p} (x_i - y_i)^2}\\]\nQuand l’utiliser : Variables numériques de même ordre de grandeur"
+    "text": "Distance euclidienne\n\n\n\nDéfinition\n\n\nPour \\(x, y \\in \\mathbb{R}^p\\) :\n\\[d(x, y) = \\left\\| x - y \\right\\|_2 = \\sqrt{\\sum_{i=1}^{p} (x_i - y_i)^2}\\]\nQuand l’utiliser : Variables numériques de même ordre de grandeur."
   },
   {
     "objectID": "slides/03-generalities-distance-slides.html#distance-l_q-minkowski",
     "href": "slides/03-generalities-distance-slides.html#distance-l_q-minkowski",
     "title": "Généralités",
     "section": "Distance \\(L_q\\) (Minkowski)",
-    "text": "Distance \\(L_q\\) (Minkowski)\n\n\n\n\n\n\nNote\n\n\nFormule générale : \\[d(x, y) = \\left( \\sum_{i=1}^{p} |x_i - y_i|^q \\right)^{1/q}\\]\nCas particuliers : - \\(q = 1\\) : Distance de Manhattan \\(\\sum_{i=1}^{p} |x_i - y_i|\\) - \\(q = 2\\) : Distance euclidienne"
+    "text": "Distance \\(L_q\\) (Minkowski)\n\n\n\nFormule générale :\n\n\n\\[d(x, y) = \\left( \\sum_{i=1}^{p} |x_i - y_i|^q \\right)^{1/q}\\]\nCas particuliers :\n\n\\(q = 1\\) : Distance de Manhattan → \\(d(x, y) = \\sum_{i=1}^{p} |x_i - y_i|\\)\n\\(q = 2\\) : Distance euclidienne"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides.html#exemple-concret",
-    "href": "slides/03-generalities-distance-slides.html#exemple-concret",
+    "objectID": "slides/03-generalities-distance-slides.html#exemple-concret-wooclap-kffpdj",
+    "href": "slides/03-generalities-distance-slides.html#exemple-concret-wooclap-kffpdj",
     "title": "Généralités",
-    "section": "Exemple concret",
-    "text": "Exemple concret\n\n\n\nNom\nTaille (cm)\nPoids (kg)\n\n\n\n\nAlice\n162.1\n66.8\n\n\nBob\n175.8\n81.6\n\n\n\n\nDistance euclidienne : \\[d = \\sqrt{(162.1-175.8)^2 + (66.8-81.6)^2} = 20.16\\]\n\n\nDistance de Manhattan : \\[d = |162.1-175.8| + |66.8-81.6| = 28.5\\]"
+    "section": "Exemple concret (WOOCLAP: KFFPDJ)",
+    "text": "Exemple concret (WOOCLAP: KFFPDJ)\n\n\n\nNom\nTaille (cm)\nPoids (kg)\n\n\n\n\nAlice\n170\n69\n\n\nBob\n174\n72\n\n\n\n\nDistance euclidienne :\n\\[d(\\text{Alice}, \\text{Bob}) = \\sqrt{(170 - 174)^2 + (69 - 72)^2} = 5.\\]\n\n\nDistance de Manhattan :\n\\[d(\\text{Alice}, \\text{Bob}) = |170 - 174| + |69 - 72| = 7.\\]"
   },
   {
     "objectID": "slides/03-generalities-distance-slides.html#problème-déchelle",
     "href": "slides/03-generalities-distance-slides.html#problème-déchelle",
     "title": "Généralités",
     "section": "Problème d’échelle",
-    "text": "Problème d’échelle\n\n\n\n\n\n\nImportant\n\n\nAttention ! Les distances \\(L_q\\) ne sont pas invariantes aux changements d’échelle.\nSolution : Standardiser les variables \\[d(x, y) = \\sum_{i=1}^{p} \\left( \\frac{x_i - y_i}{\\sigma_i} \\right)^2\\]\noù \\(\\sigma_i\\) = écart-type de la variable \\(i\\)"
+    "text": "Problème d’échelle\n\n\n\nAttention !\n\n\nLes distances \\(L_q\\) ne sont pas invariantes aux changements d’échelle."
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides.html#problème-déchelle---solution",
+    "href": "slides/03-generalities-distance-slides.html#problème-déchelle---solution",
+    "title": "Généralités",
+    "section": "Problème d’échelle - solution",
+    "text": "Problème d’échelle - solution\n\nStandardiser les variables !\n\nDistance euclidienne standardisée :\n\\[d(x, y) = \\sum_{i=1}^{p} \\left( \\frac{x_i - y_i}{\\sigma_i} \\right)^2\\]\noù \\(\\sigma_i\\) = écart-type de la variable \\(i\\)."
   },
   {
     "objectID": "slides/03-generalities-distance-slides.html#notion-de-similarité",
     "href": "slides/03-generalities-distance-slides.html#notion-de-similarité",
     "title": "Généralités",
     "section": "Notion de similarité",
-    "text": "Notion de similarité\n\n\n\n\n\n\nAvertissement\n\n\nMesure de similarité sur \\(\\mathcal{X}\\)\nUne fonction \\(s: \\mathcal{X} \\times \\mathcal{X} \\to \\mathbb{R}\\) telle que :\n\n\\(s(x, y) \\geq 0\\)\n\\(s(x, y) = s(y, x)\\) (symétrie)\n\\(s(x, x) = 1 \\geq s(x, y)\\) (maximum pour soi-même)\n\n\n\n\nPlus la similarité est grande → plus les observations sont proches"
+    "text": "Notion de similarité\n\n\n\n\nMesure de similarité sur \\(\\mathcal{X}\\)\n\n\nUne fonction \\(s: \\mathcal{X} \\times \\mathcal{X} \\to \\mathbb{R}\\) telle que :\n\n\\(s(x, y) \\geq 0\\)\n\\(s(x, y) = s(y, x)\\) (symétrie)\n\\(s(x, x) = 1 \\geq s(x, y)\\) (maximum pour soi-même)"
   },
   {
     "objectID": "slides/03-generalities-distance-slides.html#conversion-distance-similarité",
     "href": "slides/03-generalities-distance-slides.html#conversion-distance-similarité",
     "title": "Généralités",
     "section": "Conversion distance ↔︎ similarité",
-    "text": "Conversion distance ↔︎ similarité\nDistance → Similarité : \\[s(x, y) = \\frac{1}{1 + d(x, y)}\\]\nSimilarité → Dissemblance : \\[d^*(x, y) = 1 - s(x, y)\\]\n\n⚠️ Attention : Similarité ne respecte pas toujours l’inégalité triangulaire"
+    "text": "Conversion distance ↔︎ similarité\n\nDistance → Similarité :\n\\[s(x, y) = \\frac{1}{1 + d(x, y)}\\]\n\n⚠️ Une mesure de similarité ne respecte généralement pas l’inégalité triangulaire.\n\n\nSimilarité → Dissemblance :\n\\[d^*(x, y) = 1 - s(x, y)\\]"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides.html#variables-qualitatives-le-défi",
-    "href": "slides/03-generalities-distance-slides.html#variables-qualitatives-le-défi",
+    "objectID": "slides/03-generalities-distance-slides.html#variables-qualitatives",
+    "href": "slides/03-generalities-distance-slides.html#variables-qualitatives",
     "title": "Généralités",
-    "section": "Variables qualitatives : Le défi",
-    "text": "Variables qualitatives : Le défi\nProblème : Pour \\(\\mathcal{X} = \\{\\text{Rouge}, \\text{Vert}, \\text{Bleu}\\}\\)\n❌ Mauvaise pratique : Rouge=1, Vert=2, Bleu=3 → Introduit un ordre artificiel !\n✅ Bonne pratique : Encodage adapté"
+    "section": "Variables qualitatives",
+    "text": "Variables qualitatives\n\nProblème : pour \\(\\mathcal{X} = \\{\\text{Rouge}, \\text{Vert}, \\text{Bleu}\\}\\).\n\n\n❌ Mauvaise pratique :\nRouge = 1, Vert = 2, Bleu = 3 → Introduit un ordre artificiel !\n\n\n\n✅ Bonne pratique : Encodage adapté"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides.html#encodage-1-parmi-k",
-    "href": "slides/03-generalities-distance-slides.html#encodage-1-parmi-k",
+    "objectID": "slides/03-generalities-distance-slides.html#encodage-1-parmi-k-one-hot-encoding",
+    "href": "slides/03-generalities-distance-slides.html#encodage-1-parmi-k-one-hot-encoding",
     "title": "Généralités",
-    "section": "Encodage “1 parmi K”",
-    "text": "Encodage “1 parmi K”\nOne-hot encoding : - Rouge → \\((1, 0, 0)\\) - Vert → \\((0, 1, 0)\\)\n- Bleu → \\((0, 0, 1)\\)\n\nAvantages : Pas d’ordre artificiel\nInconvénients : Grande dimension si beaucoup de modalités"
+    "section": "Encodage “1 parmi K” (One-hot encoding)",
+    "text": "Encodage “1 parmi K” (One-hot encoding)\n\n\nRouge → \\((1, 0, 0)\\)\nVert → \\((0, 1, 0)\\)\nBleu → \\((0, 0, 1)\\)\n\n\nAvantages : Pas d’ordre artificiel\nInconvénients : Grande dimension si beaucoup de modalités"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides.html#distance-discrète-hamming",
-    "href": "slides/03-generalities-distance-slides.html#distance-discrète-hamming",
+    "objectID": "slides/03-generalities-distance-slides.html#distance-discrète",
+    "href": "slides/03-generalities-distance-slides.html#distance-discrète",
     "title": "Généralités",
-    "section": "Distance discrète (Hamming)",
-    "text": "Distance discrète (Hamming)\n\n\n\n\n\n\nNote\n\n\nPour deux observations qualitatives : \\[d(x, y) = \\begin{cases}\n0, & \\text{si } x = y \\\\\n1, & \\text{si } x \\neq y\n\\end{cases}\\]\nPour des vecteurs : \\[d(x, y) = \\sum_{i=1}^{p} \\mathbb{1}(x_i \\neq y_i)\\]"
+    "section": "Distance discrète",
+    "text": "Distance discrète\n\n\n\nDistance de Hamming\n\n\nPour des vecteurs :\n\\[d(x, y) = \\sum_{i=1}^{p} \\mathbb{1}(x_i \\neq y_i)\\]"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides.html#exemple-distance-discrète",
-    "href": "slides/03-generalities-distance-slides.html#exemple-distance-discrète",
+    "objectID": "slides/03-generalities-distance-slides.html#exemple-distance-discrète-wooclap-kffpdj",
+    "href": "slides/03-generalities-distance-slides.html#exemple-distance-discrète-wooclap-kffpdj",
     "title": "Généralités",
-    "section": "Exemple : Distance discrète",
-    "text": "Exemple : Distance discrète\n\n\n\nNom\nCouleur\nYeux\nCheveux\n\n\n\n\nAlice\nRouge\nBleu\nBlond\n\n\nBob\nVert\nBleu\nRoux\n\n\nChris\nRouge\nVert\nBlond\n\n\n\n\n\\[d(\\text{Alice}, \\text{Bob}) = 1 + 0 + 1 = 2\\] \\[d(\\text{Alice}, \\text{Chris}) = 0 + 1 + 0 = 1\\] \\[d(\\text{Bob}, \\text{Chris}) = 1 + 1 + 1 = 3\\]"
+    "section": "Exemple : Distance discrète (WOOCLAP: KFFPDJ)",
+    "text": "Exemple : Distance discrète (WOOCLAP: KFFPDJ)\n\n\n\nNom\nCouleur\nYeux\nCheveux\n\n\n\n\nAlice\nRouge\nBleu\nBlond\n\n\nBob\nVert\nBleu\nRoux\n\n\nChris\nRouge\nVert\nBlond\n\n\n\n\n\\[d(\\text{Alice}, \\text{Bob}) = 1 + 0 + 1 = 2\\] \\[d(\\text{Alice}, \\text{Chris}) = 0 + 1 + 0 = 1\\] \\[d(\\text{Bob}, \\text{Chris}) = 1 + 1 + 1 = 3\\]"
   },
   {
     "objectID": "slides/03-generalities-distance-slides.html#similarité-par-accords",
     "href": "slides/03-generalities-distance-slides.html#similarité-par-accords",
     "title": "Généralités",
     "section": "Similarité par accords",
-    "text": "Similarité par accords\nCompter les accords normalisés : \\[s(x, y) = \\frac{1}{p}\\sum_{i=1}^{p} \\mathbb{1}(x_i = y_i)\\]\n\nExemple précédent : - \\(s(\\text{Alice}, \\text{Bob}) = \\frac{1}{3}\\) - \\(s(\\text{Alice}, \\text{Chris}) = \\frac{2}{3}\\)\n- \\(s(\\text{Bob}, \\text{Chris}) = 0\\)"
+    "text": "Similarité par accords\n\nCompter les accords normalisés :\n\\[s(x, y) = \\frac{1}{p}\\sum_{i=1}^{p} \\mathbb{1}(x_i = y_i)\\]\n\nExemple précédent :\n\n\\(s(\\text{Alice}, \\text{Bob}) = \\frac{1}{3}\\)\n\\(s(\\text{Alice}, \\text{Chris}) = \\frac{2}{3}\\)\n\\(s(\\text{Bob}, \\text{Chris}) = 0\\)"
   },
   {
     "objectID": "slides/03-generalities-distance-slides.html#problème-des-variables-binaires",
     "href": "slides/03-generalities-distance-slides.html#problème-des-variables-binaires",
     "title": "Généralités",
     "section": "Problème des variables binaires",
-    "text": "Problème des variables binaires\nAvec encodage “1 parmi K” : - Beaucoup de variables binaires - Beaucoup de 0, peu de 1 - Distance discrète peu informative\n\nSolution : Se concentrer sur les attributs à 1 → Distance de Jaccard"
+    "text": "Problème des variables binaires\n\nAvec l’encodage “1 parmi K” :\n\nBeaucoup de variables binaires\nBeaucoup de 0, peu de 1\nDistance discrète peu informative\n\n\nSolution : Se concentrer sur les attributs à 1 → Distance de Jaccard"
   },
   {
     "objectID": "slides/03-generalities-distance-slides.html#indice-de-jaccard-définition",
     "href": "slides/03-generalities-distance-slides.html#indice-de-jaccard-définition",
     "title": "Généralités",
     "section": "Indice de Jaccard : Définition",
-    "text": "Indice de Jaccard : Définition\nPour deux observations de K variables binaires :\n\n\\(M_{11}\\) : nombre de variables à 1 pour x et y\n\\(M_{10}\\) : nombre de variables à 1 pour x, 0 pour y\n\n\\(M_{01}\\) : nombre de variables à 0 pour x, 1 pour y\n\\(M_{00}\\) : nombre de variables à 0 pour x et y\n\n\n\\[J(x, y) = \\frac{M_{11}}{M_{10} + M_{01} + M_{11}} = \\frac{M_{11}}{K - M_{00}}\\]"
+    "text": "Indice de Jaccard : Définition\n\nPour deux observations de \\(K\\) variables binaires :\n\n\\(M_{11}\\) : nombre de variables à 1 pour x et y\n\\(M_{10}\\) : nombre de variables à 1 pour x, 0 pour y\n\\(M_{01}\\) : nombre de variables à 0 pour x, 1 pour y\n\\(M_{00}\\) : nombre de variables à 0 pour x et y\n\n\n\\[J(x, y) = \\frac{M_{11}}{M_{10} + M_{01} + M_{11}} = \\frac{M_{11}}{K - M_{00}}\\]"
   },
   {
     "objectID": "slides/03-generalities-distance-slides.html#distance-de-jaccard",
     "href": "slides/03-generalities-distance-slides.html#distance-de-jaccard",
     "title": "Généralités",
     "section": "Distance de Jaccard",
-    "text": "Distance de Jaccard\n\n\n\n\n\n\nImportant\n\n\nDistance de Jaccard : \\[d(x, y) = 1 - J(x, y) = \\frac{M_{10} + M_{01}}{M_{01} + M_{10} + M_{11}}\\]\nIntuition : Proportion de désaccords parmi les variables “actives”"
+    "text": "Distance de Jaccard\n\n\n\n\nDistance de Jaccard :\n\n\n\\[d(x, y) = 1 - J(x, y) = \\frac{M_{10} + M_{01}}{M_{01} + M_{10} + M_{11}}\\]\n\n\n\nIntuition : Proportion de désaccords parmi les variables “actives”."
   },
   {
     "objectID": "slides/03-generalities-distance-slides.html#exemple-distance-de-jaccard",
@@ -648,28 +655,14 @@
     "href": "slides/03-generalities-distance-slides.html#récapitulatif-des-distances",
     "title": "Généralités",
     "section": "Récapitulatif des distances",
-    "text": "Récapitulatif des distances\n\n\n\nType de données\nDistance recommandée\n\n\n\n\nNumériques\nEuclidienne (standardisée)\n\n\nQualitatives\nDiscrète (Hamming)\n\n\nBinaires nombreuses\nJaccard\n\n\nMixtes\nCombinaison adaptée"
-  },
-  {
-    "objectID": "slides/03-generalities-distance-slides.html#propriétés-importantes",
-    "href": "slides/03-generalities-distance-slides.html#propriétés-importantes",
-    "title": "Généralités",
-    "section": "Propriétés importantes",
-    "text": "Propriétés importantes\n✅ Distance euclidienne standardisée : Invariante par changement d’échelle\n✅ Distance de Jaccard : Ignore les double-absences (00)\n✅ Toutes respectent : Les 4 propriétés mathématiques des distances"
+    "text": "Récapitulatif des distances\n\n\n\n\nType de données\nDistance utilisable\n\n\n\n\nNumériques\nEuclidienne (standardisée)\n\n\nQualitatives\nDiscrète (Hamming)\n\n\nBinaires nombreuses\nJaccard\n\n\nMixtes\nCombinaison adaptée"
   },
   {
     "objectID": "slides/03-generalities-distance-slides.html#choix-pratique-de-la-distance",
     "href": "slides/03-generalities-distance-slides.html#choix-pratique-de-la-distance",
     "title": "Généralités",
     "section": "Choix pratique de la distance",
-    "text": "Choix pratique de la distance\nQuestions à se poser :\n\nQuel type de variables ? (numériques/qualitatives)\nMême échelle ou standardisation nécessaire ?\nBeaucoup de variables binaires ?\nLes double-absences sont-elles informatives ?\n\n\n→ Le choix de distance influence directement les résultats !"
-  },
-  {
-    "objectID": "slides/03-generalities-distance-slides.html#conclusion",
-    "href": "slides/03-generalities-distance-slides.html#conclusion",
-    "title": "Généralités",
-    "section": "Conclusion",
-    "text": "Conclusion\n\nDistance = mesure de dissemblance (4 propriétés mathématiques)\nSimilarité = mesure de ressemblance (concept opposé)\n\nVariables numériques → Distance euclidienne (standardisée)\nVariables qualitatives → Encodage + distance adaptée\nVariables binaires → Distance de Jaccard pour ignorer les 00\n\n\nNext: Comment utiliser ces distances dans des modèles ?"
+    "text": "Choix pratique de la distance\n\nQuestions à se poser :\n\nQuel type de variables ? (numériques/qualitatives)\nMême échelle ou standardisation nécessaire ?\nBeaucoup de variables binaires ?\nLes double-absences sont-elles informatives ?\n\n\n→ Le choix de distance influence directement les résultats !"
   },
   {
     "objectID": "slides/06-unsupervised-kmeans-slides.html#objectif-de-la-classification-non-supervisée",
