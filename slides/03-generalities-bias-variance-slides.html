@@ -126,7 +126,7 @@
     }
   </style>
 <meta property="og:title" content="Généralités – STT-2200: Analyse de données">
-<meta property="og:description" content="Data">
+<meta property="og:description" content="Biais et Variance">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
 <body class="quarto-light">
@@ -135,7 +135,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Généralités</h1>
-  <p class="subtitle">Data</p>
+  <p class="subtitle">Biais et Variance</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -145,309 +145,223 @@ Steven Golovkine
 </div>
 </div>
 
-  <p class="date">15 sept. 2025</p>
+  <p class="date">19 sept. 2024</p>
   <figure>
     <center>
       <img src="../include/logo-ul.png" alt="logo" width="40%">
     </center>
   </figure>
 </section>
-<section id="notre-objectif-de-modélisation" class="slide level2">
-<h2>Notre objectif de modélisation</h2>
-<p><strong>Modéliser la relation entre :</strong> - Variable réponse <span class="math inline">\(Y\)</span> (quantitative, qualitative, etc.) - Variables explicatives <span class="math inline">\(X = (X_1, \ldots, X_p)\)</span></p>
-<div class="fragment">
-<p><strong>Modèle général :</strong> <span class="math display">\[Y = f(X) + \varepsilon\]</span></p>
+<section id="objectif-de-modélisation" class="slide level2">
+<h2>Objectif de modélisation</h2>
+<p><br></p>
+<p>Modéliser la relation entre :</p>
 <ul>
-<li><span class="math inline">\(f\)</span> : fonction déterministe (information systématique)</li>
-<li><span class="math inline">\(\varepsilon\)</span> : terme d’erreur aléatoire</li>
+<li><p>Variable réponse <span class="math inline">\(Y\)</span> (quantitative, qualitative, etc.).</p></li>
+<li><p>Variables explicatives <span class="math inline">\(X = (X_1, \ldots, X_p)\)</span>.</p></li>
 </ul>
-</div>
+</section>
+<section id="modèle-général" class="slide level2">
+<h2>Modèle général</h2>
+<p><br></p>
+<p><span class="math display">\[Y = f(X) + \varepsilon\]</span></p>
+<ul>
+<li><p><span class="math inline">\(f\)</span> : fonction déterministe (information systématique).</p></li>
+<li><p><span class="math inline">\(\varepsilon\)</span> : terme d’erreur aléatoire.</p></li>
+</ul>
 </section>
 <section id="hypothèses-du-modèle" class="slide level2">
 <h2>Hypothèses du modèle</h2>
-<p><strong>Sur le terme d’erreur <span class="math inline">\(\varepsilon\)</span> :</strong></p>
+<p><br></p>
+<p>Sur le terme d’erreur <span class="math inline">\(\varepsilon\)</span> :</p>
 <ul>
-<li class="fragment">Indépendant des variables explicatives <span class="math inline">\(X\)</span></li>
-<li class="fragment"><span class="math inline">\(\mathbb{E}[\varepsilon] = 0\)</span> (espérance nulle)</li>
-<li class="fragment"><span class="math inline">\(\mathrm{Var}(\varepsilon) = \sigma^2\)</span> (variance constante)</li>
+<li><p>Indépendant des variables explicatives <span class="math inline">\(X\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathbb{E}[\varepsilon] = 0\)</span> (espérance nulle).</p></li>
+<li><p><span class="math inline">\(\mathrm{Var}(\varepsilon) = \sigma^2\)</span> (variance constante).</p></li>
 </ul>
 <div class="fragment">
-<p><strong>→ Cadre général pour toutes les méthodes du cours</strong></p>
+<p>→ Cadre général pour toutes les méthodes du cours.</p>
 </div>
 </section>
 <section id="plan" class="slide level2">
 <h2>Plan</h2>
+<p><br></p>
 <ol type="1">
-<li><strong>Mesures de qualité</strong> - MSE et taux d’erreur</li>
-<li><strong>Compromis biais/variance</strong> - Décomposition fondamentale</li>
-<li><strong>Flexibilité des modèles</strong> - Rigidité vs adaptabilité</li>
-<li><strong>Optimisation pratique</strong> - Trouver l’équilibre</li>
+<li><p>Mesures de qualité - MSE et taux d’erreur</p></li>
+<li><p>Compromis biais/variance - Décomposition fondamentale</p></li>
+<li><p>Flexibilité des modèles - Rigidité vs adaptabilité</p></li>
+<li><p>Optimisation pratique - Trouver l’équilibre</p></li>
 </ol>
 </section>
 <section id="comment-mesurer-la-qualité" class="slide level2">
 <h2>Comment mesurer la qualité ?</h2>
-<p><strong>Une fois <span class="math inline">\(\widehat{f}\)</span> estimé, comment évaluer <span class="math inline">\(\widehat{Y} = \widehat{f}(X)\)</span> ?</strong></p>
+<p><br></p>
+<p>Une fois <span class="math inline">\(\hat{f}\)</span> estimé, comment évaluer <span class="math inline">\(\hat{Y} = \hat{f}(X)\)</span> ?</p>
 <div class="fragment">
-<p><strong>Idée :</strong> Mesurer à quel point <span class="math inline">\(\widehat{Y}\)</span> est proche de la vraie valeur <span class="math inline">\(Y\)</span></p>
+<p><br></p>
+<p>Idée : Mesurer à quel point <span class="math inline">\(\hat{Y}\)</span> est proche de la vraie valeur <span class="math inline">\(Y\)</span>.</p>
 </div>
 </section>
-<section id="variables-quantitatives-mse" class="slide level2">
-<h2>Variables quantitatives : MSE</h2>
-<div class="callout callout-warning callout-titled callout-style-default">
+<section id="variables-quantitatives-eqm-mse" class="slide level2">
+<h2>Variables quantitatives : EQM (MSE)</h2>
+<div class="callout callout-warning no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Avertissement</strong></p>
+<p><strong>Erreur Quadratique Moyenne (MSE)</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Erreur Quadratique Moyenne (MSE) :</strong> <span class="math display">\[MSE(Y, \widehat{Y}) = \frac{1}{n} \sum_{i=1}^{n} (y_i - \widehat{f}(x_i))^2\]</span></p>
-<p><strong>Interprétation :</strong> Distance moyenne entre valeurs observées et prédites</p>
+<p><span class="math display">\[\text{MSE}(Y, \hat{Y}) = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{f}(x_i))^2\]</span></p>
 </div>
 </div>
 </div>
 <div class="fragment">
-<p><strong>MSE faible → Prédictions proches des observations</strong></p>
+<p>Interprétation → Distance moyenne entre valeurs observées et prédites.</p>
+</div>
+<div class="fragment">
+<p>MSE faible → Prédictions proches des observations.</p>
 </div>
 </section>
-<section id="variables-qualitatives-taux-derreur" class="slide level2">
-<h2>Variables qualitatives : Taux d’erreur</h2>
-<div class="callout callout-warning callout-titled callout-style-default">
+<section id="variables-qualitatives-taux-derreur-er" class="slide level2">
+<h2>Variables qualitatives : Taux d’erreur (ER)</h2>
+<div class="callout callout-warning no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Avertissement</strong></p>
+<p><strong>Taux d’erreur (ER)</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Taux d’erreur (ER) :</strong> <span class="math display">\[ER(Y, \widehat{Y}) = \frac{1}{n} \sum_{i=1}^{n} \mathbb{1}(y_i \neq \widehat{f}(x_i))\]</span></p>
-<p><strong>Interprétation :</strong> Proportion de mauvaises prédictions</p>
+<p><span class="math display">\[\text{ER}(Y, \hat{Y}) = \frac{1}{n} \sum_{i=1}^{n} \mathbb{1}(y_i \neq \hat{f}(x_i))\]</span></p>
 </div>
 </div>
+</div>
+<div class="fragment">
+<p>Interprétation → Proportion de mauvaises prédictions.</p>
+</div>
+<div class="fragment">
+<p>ER faible → Prédictions proches des observations.</p>
 </div>
 </section>
 <section id="exactitude-vs-interprétabilité" class="slide level2">
 <h2>Exactitude vs Interprétabilité</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Modèles simples</strong> - Faciles à interpréter - Relations complexes mal captées - Ex: régression linéaire</p>
-</div><div class="column" style="width:50%;">
-<p><strong>Modèles flexibles</strong><br>
-- Meilleures prédictions - Difficiles à interpréter - Ex: forêt aléatoire</p>
-</div></div>
+<p><br></p>
+<p>Modèles simples (ex: régression linéaire) :</p>
+<ul>
+<li><p>Faciles à interpréter</p></li>
+<li><p>Relations complexes mal captées</p></li>
+</ul>
+<p>Modèles flexibles (ex: forêt aléatoire) :</p>
+<ul>
+<li><p>Meilleures prédictions</p></li>
+<li><p>Difficiles à interpréter</p></li>
+</ul>
 <div class="fragment">
-<p><strong>Le choix dépend de l’objectif :</strong> compréhension ou performance ?</p>
+<p>Le choix dépend de l’objectif : compréhension ou performance ?</p>
 </div>
 </section>
 <section id="no-free-lunch-in-statistics" class="slide level2">
 <h2>“No Free Lunch in Statistics”</h2>
-<div class="callout callout-tip callout-titled callout-style-default">
+<p><br></p>
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Astuce</strong></p>
+<p><strong>Il n’existe pas de méthode universellement optimale !</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Il n’existe pas de méthode universellement optimale !</strong></p>
 <p>Une méthode performante dans un contexte peut échouer ailleurs.</p>
-<p><strong>→ Toujours adapter l’approche au problème</strong></p>
+<p>→ Toujours adapter l’approche au problème.</p>
 </div>
 </div>
 </div>
 </section>
 <section id="erreur-de-prédiction" class="slide level2">
 <h2>Erreur de prédiction</h2>
-<p><strong>Notre vrai objectif :</strong> Minimiser l’erreur sur de <strong>nouvelles données</strong></p>
-<p><span class="math display">\[\mathbb{E}[(Y - \widehat{Y})^2] = \mathbb{E}[(Y - \widehat{f}(X))^2]\]</span></p>
+<p><br></p>
+<p>Notre vrai objectif : Minimiser l’erreur sur de <strong>nouvelles données</strong></p>
+<p><span class="math display">\[\mathbb{E}[(Y - \hat{Y})^2] = \mathbb{E}[(Y - \hat{f}(X))^2]\]</span></p>
 <div class="fragment">
-<p><strong>Cette erreur se décompose en 3 parties…</strong></p>
+<p><br></p>
+<p>Cette erreur se décompose en 3 parties…</p>
 </div>
 </section>
 <section id="décomposition-biaisvariance" class="slide level2">
 <h2>Décomposition biais/variance</h2>
-<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout callout-important no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Important</strong></p>
+<p><strong>Décomposition biais/variance</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Théorème fondamental :</strong> <span class="math display">\[\mathbb{E}[(Y - \widehat{f}(X))^2] = \text{Biais}(\widehat{f}(X))^2 + \text{Var}(\widehat{f}(X)) + \sigma^2\]</span></p>
+<p><span class="math display">\[\mathbb{E}[(Y - \hat{f}(X))^2] = \text{Biais}(\hat{f}(X))^2 + \text{Var}(\hat{f}(X)) + \sigma^2\]</span></p>
 </div>
 </div>
 </div>
-<p><strong>Trois composantes :</strong></p>
+<p>Trois composantes :</p>
 <ol type="1">
-<li class="fragment"><strong>Biais²</strong> : Erreur systématique d’approximation</li>
-<li class="fragment"><strong>Variance</strong> : Sensibilité aux fluctuations d’échantillon<br>
-</li>
-<li class="fragment"><strong><span class="math inline">\(\sigma^2\)</span></strong> : Erreur irréductible (bruit intrinsèque)</li>
+<li class="fragment"><p>Biais<span class="math inline">\(^2\)</span> → Erreur systématique d’approximation.</p></li>
+<li class="fragment"><p>Variance → Sensibilité aux fluctuations d’échantillon.</p></li>
+<li class="fragment"><p><span class="math inline">\(\sigma^2\)</span> → Erreur irréductible (bruit intrinsèque).</p></li>
 </ol>
 </section>
-<section id="interprétation-des-composantes" class="slide level2">
-<h2>Interprétation des composantes</h2>
-<p><strong>Biais :</strong> - Erreur due à une approximation systématique - Ex: modèle linéaire pour relation non-linéaire</p>
-<p><strong>Variance :</strong> - Variabilité de <span class="math inline">\(\widehat{f}\)</span> selon l’échantillon d’apprentissage - Mesure la “stabilité” de l’estimateur</p>
-<p><strong>Erreur irréductible :</strong> - Bruit <span class="math inline">\(\varepsilon\)</span> qu’aucun modèle ne peut éliminer</p>
-</section>
-<section id="le-compromis-fondamental" class="slide level2">
-<h2>Le compromis fondamental</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Modèle peu flexible</strong> - ✅ Variance faible - ❌ Biais élevé - Ex: droite de régression</p>
-</div><div class="column" style="width:50%;">
-<p><strong>Modèle très flexible</strong> - ❌ Variance élevée<br>
-- ✅ Biais faible - Ex: interpolation parfaite</p>
-</div></div>
+<section id="décomposition-biaisvariance-2" class="slide level2">
+<h2>Décomposition biais/variance</h2>
+<p><br></p>
+<p>Modèle peu flexible (ex: régression linéaire)</p>
+<ul>
+<li><p>✅ Variance faible</p></li>
+<li><p>❌ Biais élevé</p></li>
+</ul>
+<p>Modèle très flexible (ex: régression avec beaucoup de polynômes)</p>
+<ul>
+<li><p>❌ Variance élevée</p></li>
+<li><p>✅ Biais faible</p></li>
+</ul>
 <div class="fragment">
-<p><strong>→ Besoin d’un équilibre optimal !</strong></p>
+<p>→ Besoin d’un équilibre optimal !</p>
 </div>
 </section>
-<section id="exemple-régression-linéaire-simple" class="slide level2">
-<h2>Exemple : Régression linéaire simple</h2>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Note</strong></p>
-</div>
-<div class="callout-content">
-<p><strong>Hypothèse :</strong> <span class="math inline">\(f(x) = ax + b\)</span></p>
-<p><strong>Estimation :</strong> Se résume à estimer les coefficients <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span></p>
-<p><strong>Caractéristique :</strong> Modèle rigide, faible variance, biais potentiellement élevé</p>
-</div>
-</div>
-</div>
-</section>
-<section id="courbe-en-u-de-lerreur" class="slide level2">
-<h2>Courbe en U de l’erreur</h2>
-<p><strong>Comportement typique :</strong></p>
-<ol type="1">
-<li class="fragment"><strong>Flexibilité faible</strong> → Biais élevé, variance faible</li>
-<li class="fragment"><strong>Flexibilité augmente</strong> → Biais diminue plus vite que variance augmente</li>
-<li class="fragment"><strong>Optimum</strong> → Minimum de l’erreur totale</li>
-<li class="fragment"><strong>Flexibilité excessive</strong> → Variance explose, biais négligeable</li>
-</ol>
-<div class="fragment">
-<p><strong>→ Courbe en U caractéristique</strong></p>
-</div>
-</section>
-<section id="exemple-visuel-paramètre-lambda" class="slide level2">
-<h2>Exemple visuel : Paramètre <span class="math inline">\(\lambda\)</span></h2>
-<p><strong>Contrôle de flexibilité :</strong> - <span class="math inline">\(\lambda\)</span> petit → Modèle flexible (faible biais, forte variance) - <span class="math inline">\(\lambda\)</span> grand → Modèle rigide (fort biais, faible variance)</p>
-<p><strong>Optimum :</strong> <span class="math inline">\(\lambda\)</span> intermédiaire minimisant MSE totale</p>
-</section>
-<section id="pourquoi-ce-compromis" class="slide level2">
-<h2>Pourquoi ce compromis ?</h2>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Astuce</strong></p>
-</div>
-<div class="callout-content">
-<p><strong>Cas extrêmes :</strong></p>
-<p><strong>Biais nul possible</strong> → Modèle passant par tous les points <strong>Problème :</strong> Variance énorme !</p>
-<p><strong>Variance nulle possible</strong> → Modèle constant<br>
-<strong>Problème :</strong> Biais énorme !</p>
-<p><strong>→ Il faut contrôler les deux simultanément</strong></p>
-</div>
-</div>
-</div>
-</section>
-<section id="applications-pratiques" class="slide level2">
-<h2>Applications pratiques</h2>
-<p><strong>Exemples de méthodes :</strong></p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Méthode</th>
-<th style="text-align: center;">Flexibilité</th>
-<th style="text-align: center;">Biais</th>
-<th style="text-align: center;">Variance</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Régression linéaire</td>
-<td style="text-align: center;">Faible</td>
-<td style="text-align: center;">Élevé</td>
-<td style="text-align: center;">Faible</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">k-NN (k grand)</td>
-<td style="text-align: center;">Faible</td>
-<td style="text-align: center;">Élevé</td>
-<td style="text-align: center;">Faible</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">k-NN (k petit)</td>
-<td style="text-align: center;">Élevée</td>
-<td style="text-align: center;">Faible</td>
-<td style="text-align: center;">Élevée</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Splines</td>
-<td style="text-align: center;">Variable</td>
-<td style="text-align: center;">Variable</td>
-<td style="text-align: center;">Variable</td>
-</tr>
-</tbody>
-</table>
+<section id="décomposition-biaisvariance-3" class="slide level2">
+<h2>Décomposition biais/variance</h2>
+<center>
+<p><img src="./img/Bias_and_variance_contributing_to_total_error.svg" alt="Décomposition biais/variance" width="1080" height="540"></p>
+Par <a href="//commons.wikimedia.org/wiki/User:Bigbossfarin" title="User:Bigbossfarin">Bigbossfarin</a> - <span class="int-own-work" lang="en">Own work</span>, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en" title="Creative Commons Zero, Public Domain Dedication">CC0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=105307219">Link</a>.
+</center>
 </section>
 <section id="stratégies-doptimisation" class="slide level2">
 <h2>Stratégies d’optimisation</h2>
-<p><strong>Comment trouver l’équilibre ?</strong></p>
+<p><br></p>
+<p>Comment trouver l’équilibre ?</p>
 <ol type="1">
-<li class="fragment"><strong>Validation croisée</strong> → Estimer erreur de prédiction</li>
-<li class="fragment"><strong>Régularisation</strong> → Contrôler la complexité du modèle</li>
-<li class="fragment"><strong>Sélection de modèle</strong> → Comparer différentes flexibilités</li>
-<li class="fragment"><strong>Ensemble methods</strong> → Combiner plusieurs modèles</li>
+<li class="fragment"><p>Validation croisée → Estimation de l’erreur de prédiction.</p></li>
+<li class="fragment"><p>Sélection de modèle → Comparer différentes des modèles avec différentes flexibilités.</p></li>
+<li class="fragment"><p>Méthodes d’ensembles → Combiner plusieurs modèles.</p></li>
+<li class="fragment"><p>Régularisation → Contrôler la complexité du modèle.</p></li>
 </ol>
 </section>
 <section id="implications-pour-la-pratique" class="slide level2">
 <h2>Implications pour la pratique</h2>
-<p><strong>Questions à se poser :</strong></p>
+<p><br></p>
+<p>Questions à se poser :</p>
 <ul>
-<li class="fragment">Ai-je assez de données pour un modèle flexible ?</li>
-<li class="fragment">Mon objectif est-il la prédiction ou la compréhension ?</li>
-<li class="fragment">Quelle est la complexité réelle du phénomène ?</li>
-<li class="fragment">Comment évaluer la performance sur nouvelles données ?</li>
+<li class="fragment"><p>Ai-je assez de données pour un modèle flexible ?</p></li>
+<li class="fragment"><p>Mon objectif est-il la prédiction ou la compréhension ?</p></li>
+<li class="fragment"><p>Quelle est la complexité réelle du phénomène étudié ?</p></li>
+<li class="fragment"><p>Comment évaluer la performance sur nouvelles données ?</p></li>
 </ul>
-</section>
-<section id="récapitulatif" class="slide level2">
-<h2>Récapitulatif</h2>
-<ol type="1">
-<li class="fragment"><strong>Erreur totale</strong> = Biais² + Variance + Bruit irréductible</li>
-<li class="fragment"><strong>Compromis fondamental</strong> entre biais et variance</li>
-<li class="fragment"><strong>Modèles rigides</strong> → Fort biais, faible variance</li>
-<li class="fragment"><strong>Modèles flexibles</strong> → Faible biais, forte variance<br>
-</li>
-<li class="fragment"><strong>Optimum</strong> → Équilibre minimisant l’erreur totale</li>
-<li class="fragment"><strong>Pas de solution universelle</strong> → Adapter au contexte</li>
-</ol>
 </section>
 <section id="conclusion" class="slide level2">
 <h2>Conclusion</h2>
-<p><strong>Le compromis biais/variance est au cœur de l’apprentissage statistique</strong></p>
+<ol type="1">
+<li class="fragment"><p>Erreur totale = Biais<span class="math inline">\(^2\)</span> + Variance + Bruit irréductible.</p></li>
+<li class="fragment"><p>Compromis entre biais et variance.</p></li>
+<li class="fragment"><p>Modèles rigides → Fort biais, faible variance.</p></li>
+<li class="fragment"><p>Modèles flexibles → Faible biais, forte variance.</p></li>
+<li class="fragment"><p>Optimum → Équilibre minimisant l’erreur totale.</p></li>
+<li class="fragment"><p>Pas de solution universelle → Il faut s’adapter au contexte.</p></li>
+</ol>
 <div class="fragment">
-<p><strong>Prochaines étapes :</strong> - Comment mesurer ce compromis en pratique ? - Quelles méthodes pour l’optimiser ? - Comment valider nos choix ?</p>
-</div>
-<div class="fragment">
-<p><strong>→ Validation et sélection de modèles</strong></p>
-</div>
+<p>Prochaine étape → Validation et sélection de modèles.</p>
 
 
+</div>
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">

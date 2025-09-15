@@ -546,6 +546,13 @@
     "text": "Distance euclidienne\n\n\n\nDéfinition\n\n\nPour \\(x, y \\in \\mathbb{R}^p\\) :\n\\[d(x, y) = \\left\\| x - y \\right\\|_2 = \\sqrt{\\sum_{i=1}^{p} (x_i - y_i)^2}\\]\nQuand l’utiliser : Variables numériques de même ordre de grandeur."
   },
   {
+    "objectID": "slides/03-generalities-distance-slides.html#distance-euclidienne-preuve",
+    "href": "slides/03-generalities-distance-slides.html#distance-euclidienne-preuve",
+    "title": "Généralités",
+    "section": "Distance euclidienne (preuve)",
+    "text": "Distance euclidienne (preuve)"
+  },
+  {
     "objectID": "slides/03-generalities-distance-slides.html#distance-l_q-minkowski",
     "href": "slides/03-generalities-distance-slides.html#distance-l_q-minkowski",
     "title": "Généralités",
@@ -669,7 +676,7 @@
     "href": "slides/03-generalities-distance-slides.html#conclusion",
     "title": "Généralités",
     "section": "Conclusion",
-    "text": "Conclusion\n\n\nDistance → mesure de dissemblance (4 propriétés mathématiques)\nSimilarité → mesure de ressemblance (concept opposé)\nVariables numériques → Distance euclidienne (standardisée)\nVariables qualitatives → Encodage + distance adaptée\nVariables binaires → Distance de Jaccard\n\n\nLa suite : Comment utiliser ces distances dans des modèles ?"
+    "text": "Conclusion\n\n\nDistance → mesure de dissemblance (4 propriétés mathématiques)\nSimilarité → mesure de ressemblance (concept opposé)\nVariables numériques → Distance euclidienne (standardisée)\nVariables qualitatives → Encodage + distance adaptée\nVariables binaires → Distance de Jaccard\n\n\nProchaine étape → Compromis biais/variance"
   },
   {
     "objectID": "slides/06-unsupervised-kmeans-slides.html#objectif-de-la-classification-non-supervisée",
@@ -3291,151 +3298,116 @@
     "text": "Pour finir l’introduction\n\n\nStatistics courses […] tend to resemble horoscopes.\n\nR. McElreath - Statistical Rethinking"
   },
   {
-    "objectID": "slides/03-generalities-bias-variance-slides.html#notre-objectif-de-modélisation",
-    "href": "slides/03-generalities-bias-variance-slides.html#notre-objectif-de-modélisation",
+    "objectID": "slides/03-generalities-bias-variance-slides.html#objectif-de-modélisation",
+    "href": "slides/03-generalities-bias-variance-slides.html#objectif-de-modélisation",
     "title": "Généralités",
-    "section": "Notre objectif de modélisation",
-    "text": "Notre objectif de modélisation\nModéliser la relation entre : - Variable réponse \\(Y\\) (quantitative, qualitative, etc.) - Variables explicatives \\(X = (X_1, \\ldots, X_p)\\)\n\nModèle général : \\[Y = f(X) + \\varepsilon\\]\n\n\\(f\\) : fonction déterministe (information systématique)\n\\(\\varepsilon\\) : terme d’erreur aléatoire"
+    "section": "Objectif de modélisation",
+    "text": "Objectif de modélisation\n\nModéliser la relation entre :\n\nVariable réponse \\(Y\\) (quantitative, qualitative, etc.).\nVariables explicatives \\(X = (X_1, \\ldots, X_p)\\)."
+  },
+  {
+    "objectID": "slides/03-generalities-bias-variance-slides.html#modèle-général",
+    "href": "slides/03-generalities-bias-variance-slides.html#modèle-général",
+    "title": "Généralités",
+    "section": "Modèle général",
+    "text": "Modèle général\n\n\\[Y = f(X) + \\varepsilon\\]\n\n\\(f\\) : fonction déterministe (information systématique).\n\\(\\varepsilon\\) : terme d’erreur aléatoire."
   },
   {
     "objectID": "slides/03-generalities-bias-variance-slides.html#hypothèses-du-modèle",
     "href": "slides/03-generalities-bias-variance-slides.html#hypothèses-du-modèle",
     "title": "Généralités",
     "section": "Hypothèses du modèle",
-    "text": "Hypothèses du modèle\nSur le terme d’erreur \\(\\varepsilon\\) :\n\nIndépendant des variables explicatives \\(X\\)\n\\(\\mathbb{E}[\\varepsilon] = 0\\) (espérance nulle)\n\\(\\mathrm{Var}(\\varepsilon) = \\sigma^2\\) (variance constante)\n\n\n→ Cadre général pour toutes les méthodes du cours"
+    "text": "Hypothèses du modèle\n\nSur le terme d’erreur \\(\\varepsilon\\) :\n\nIndépendant des variables explicatives \\(X\\).\n\\(\\mathbb{E}[\\varepsilon] = 0\\) (espérance nulle).\n\\(\\mathrm{Var}(\\varepsilon) = \\sigma^2\\) (variance constante).\n\n\n→ Cadre général pour toutes les méthodes du cours."
   },
   {
     "objectID": "slides/03-generalities-bias-variance-slides.html#plan",
     "href": "slides/03-generalities-bias-variance-slides.html#plan",
     "title": "Généralités",
     "section": "Plan",
-    "text": "Plan\n\nMesures de qualité - MSE et taux d’erreur\nCompromis biais/variance - Décomposition fondamentale\nFlexibilité des modèles - Rigidité vs adaptabilité\nOptimisation pratique - Trouver l’équilibre"
+    "text": "Plan\n\n\nMesures de qualité - MSE et taux d’erreur\nCompromis biais/variance - Décomposition fondamentale\nFlexibilité des modèles - Rigidité vs adaptabilité\nOptimisation pratique - Trouver l’équilibre"
   },
   {
     "objectID": "slides/03-generalities-bias-variance-slides.html#comment-mesurer-la-qualité",
     "href": "slides/03-generalities-bias-variance-slides.html#comment-mesurer-la-qualité",
     "title": "Généralités",
     "section": "Comment mesurer la qualité ?",
-    "text": "Comment mesurer la qualité ?\nUne fois \\(\\widehat{f}\\) estimé, comment évaluer \\(\\widehat{Y} = \\widehat{f}(X)\\) ?\n\nIdée : Mesurer à quel point \\(\\widehat{Y}\\) est proche de la vraie valeur \\(Y\\)"
+    "text": "Comment mesurer la qualité ?\n\nUne fois \\(\\hat{f}\\) estimé, comment évaluer \\(\\hat{Y} = \\hat{f}(X)\\) ?\n\n\nIdée : Mesurer à quel point \\(\\hat{Y}\\) est proche de la vraie valeur \\(Y\\)."
   },
   {
-    "objectID": "slides/03-generalities-bias-variance-slides.html#variables-quantitatives-mse",
-    "href": "slides/03-generalities-bias-variance-slides.html#variables-quantitatives-mse",
+    "objectID": "slides/03-generalities-bias-variance-slides.html#variables-quantitatives-eqm-mse",
+    "href": "slides/03-generalities-bias-variance-slides.html#variables-quantitatives-eqm-mse",
     "title": "Généralités",
-    "section": "Variables quantitatives : MSE",
-    "text": "Variables quantitatives : MSE\n\n\n\n\n\n\nAvertissement\n\n\nErreur Quadratique Moyenne (MSE) : \\[MSE(Y, \\widehat{Y}) = \\frac{1}{n} \\sum_{i=1}^{n} (y_i - \\widehat{f}(x_i))^2\\]\nInterprétation : Distance moyenne entre valeurs observées et prédites\n\n\n\n\nMSE faible → Prédictions proches des observations"
+    "section": "Variables quantitatives : EQM (MSE)",
+    "text": "Variables quantitatives : EQM (MSE)\n\n\n\nErreur Quadratique Moyenne (MSE)\n\n\n\\[\\text{MSE}(Y, \\hat{Y}) = \\frac{1}{n} \\sum_{i=1}^{n} (y_i - \\hat{f}(x_i))^2\\]\n\n\n\n\nInterprétation → Distance moyenne entre valeurs observées et prédites.\n\n\nMSE faible → Prédictions proches des observations."
   },
   {
-    "objectID": "slides/03-generalities-bias-variance-slides.html#variables-qualitatives-taux-derreur",
-    "href": "slides/03-generalities-bias-variance-slides.html#variables-qualitatives-taux-derreur",
+    "objectID": "slides/03-generalities-bias-variance-slides.html#variables-qualitatives-taux-derreur-er",
+    "href": "slides/03-generalities-bias-variance-slides.html#variables-qualitatives-taux-derreur-er",
     "title": "Généralités",
-    "section": "Variables qualitatives : Taux d’erreur",
-    "text": "Variables qualitatives : Taux d’erreur\n\n\n\n\n\n\nAvertissement\n\n\nTaux d’erreur (ER) : \\[ER(Y, \\widehat{Y}) = \\frac{1}{n} \\sum_{i=1}^{n} \\mathbb{1}(y_i \\neq \\widehat{f}(x_i))\\]\nInterprétation : Proportion de mauvaises prédictions"
+    "section": "Variables qualitatives : Taux d’erreur (ER)",
+    "text": "Variables qualitatives : Taux d’erreur (ER)\n\n\n\nTaux d’erreur (ER)\n\n\n\\[\\text{ER}(Y, \\hat{Y}) = \\frac{1}{n} \\sum_{i=1}^{n} \\mathbb{1}(y_i \\neq \\hat{f}(x_i))\\]\n\n\n\n\nInterprétation → Proportion de mauvaises prédictions.\n\n\nER faible → Prédictions proches des observations."
   },
   {
     "objectID": "slides/03-generalities-bias-variance-slides.html#exactitude-vs-interprétabilité",
     "href": "slides/03-generalities-bias-variance-slides.html#exactitude-vs-interprétabilité",
     "title": "Généralités",
     "section": "Exactitude vs Interprétabilité",
-    "text": "Exactitude vs Interprétabilité\n\n\nModèles simples - Faciles à interpréter - Relations complexes mal captées - Ex: régression linéaire\n\nModèles flexibles\n- Meilleures prédictions - Difficiles à interpréter - Ex: forêt aléatoire\n\n\nLe choix dépend de l’objectif : compréhension ou performance ?"
+    "text": "Exactitude vs Interprétabilité\n\nModèles simples (ex: régression linéaire) :\n\nFaciles à interpréter\nRelations complexes mal captées\n\nModèles flexibles (ex: forêt aléatoire) :\n\nMeilleures prédictions\nDifficiles à interpréter\n\n\nLe choix dépend de l’objectif : compréhension ou performance ?"
   },
   {
     "objectID": "slides/03-generalities-bias-variance-slides.html#no-free-lunch-in-statistics",
     "href": "slides/03-generalities-bias-variance-slides.html#no-free-lunch-in-statistics",
     "title": "Généralités",
     "section": "“No Free Lunch in Statistics”",
-    "text": "“No Free Lunch in Statistics”\n\n\n\n\n\n\nAstuce\n\n\nIl n’existe pas de méthode universellement optimale !\nUne méthode performante dans un contexte peut échouer ailleurs.\n→ Toujours adapter l’approche au problème"
+    "text": "“No Free Lunch in Statistics”\n\n\n\n\nIl n’existe pas de méthode universellement optimale !\n\n\nUne méthode performante dans un contexte peut échouer ailleurs.\n→ Toujours adapter l’approche au problème."
   },
   {
     "objectID": "slides/03-generalities-bias-variance-slides.html#erreur-de-prédiction",
     "href": "slides/03-generalities-bias-variance-slides.html#erreur-de-prédiction",
     "title": "Généralités",
     "section": "Erreur de prédiction",
-    "text": "Erreur de prédiction\nNotre vrai objectif : Minimiser l’erreur sur de nouvelles données\n\\[\\mathbb{E}[(Y - \\widehat{Y})^2] = \\mathbb{E}[(Y - \\widehat{f}(X))^2]\\]\n\nCette erreur se décompose en 3 parties…"
+    "text": "Erreur de prédiction\n\nNotre vrai objectif : Minimiser l’erreur sur de nouvelles données\n\\[\\mathbb{E}[(Y - \\hat{Y})^2] = \\mathbb{E}[(Y - \\hat{f}(X))^2]\\]\n\n\nCette erreur se décompose en 3 parties…"
   },
   {
     "objectID": "slides/03-generalities-bias-variance-slides.html#décomposition-biaisvariance",
     "href": "slides/03-generalities-bias-variance-slides.html#décomposition-biaisvariance",
     "title": "Généralités",
     "section": "Décomposition biais/variance",
-    "text": "Décomposition biais/variance\n\n\n\n\n\n\nImportant\n\n\nThéorème fondamental : \\[\\mathbb{E}[(Y - \\widehat{f}(X))^2] = \\text{Biais}(\\widehat{f}(X))^2 + \\text{Var}(\\widehat{f}(X)) + \\sigma^2\\]\n\n\n\nTrois composantes :\n\nBiais² : Erreur systématique d’approximation\nVariance : Sensibilité aux fluctuations d’échantillon\n\n\\(\\sigma^2\\) : Erreur irréductible (bruit intrinsèque)"
+    "text": "Décomposition biais/variance\n\n\n\nDécomposition biais/variance\n\n\n\\[\\mathbb{E}[(Y - \\hat{f}(X))^2] = \\text{Biais}(\\hat{f}(X))^2 + \\text{Var}(\\hat{f}(X)) + \\sigma^2\\]\n\n\n\nTrois composantes :\n\nBiais\\(^2\\) → Erreur systématique d’approximation.\nVariance → Sensibilité aux fluctuations d’échantillon.\n\\(\\sigma^2\\) → Erreur irréductible (bruit intrinsèque)."
   },
   {
-    "objectID": "slides/03-generalities-bias-variance-slides.html#interprétation-des-composantes",
-    "href": "slides/03-generalities-bias-variance-slides.html#interprétation-des-composantes",
+    "objectID": "slides/03-generalities-bias-variance-slides.html#décomposition-biaisvariance-2",
+    "href": "slides/03-generalities-bias-variance-slides.html#décomposition-biaisvariance-2",
     "title": "Généralités",
-    "section": "Interprétation des composantes",
-    "text": "Interprétation des composantes\nBiais : - Erreur due à une approximation systématique - Ex: modèle linéaire pour relation non-linéaire\nVariance : - Variabilité de \\(\\widehat{f}\\) selon l’échantillon d’apprentissage - Mesure la “stabilité” de l’estimateur\nErreur irréductible : - Bruit \\(\\varepsilon\\) qu’aucun modèle ne peut éliminer"
+    "section": "Décomposition biais/variance",
+    "text": "Décomposition biais/variance\n\nModèle peu flexible (ex: régression linéaire)\n\n✅ Variance faible\n❌ Biais élevé\n\nModèle très flexible (ex: régression avec beaucoup de polynômes)\n\n❌ Variance élevée\n✅ Biais faible\n\n\n→ Besoin d’un équilibre optimal !"
   },
   {
-    "objectID": "slides/03-generalities-bias-variance-slides.html#le-compromis-fondamental",
-    "href": "slides/03-generalities-bias-variance-slides.html#le-compromis-fondamental",
+    "objectID": "slides/03-generalities-bias-variance-slides.html#décomposition-biaisvariance-3",
+    "href": "slides/03-generalities-bias-variance-slides.html#décomposition-biaisvariance-3",
     "title": "Généralités",
-    "section": "Le compromis fondamental",
-    "text": "Le compromis fondamental\n\n\nModèle peu flexible - ✅ Variance faible - ❌ Biais élevé - Ex: droite de régression\n\nModèle très flexible - ❌ Variance élevée\n- ✅ Biais faible - Ex: interpolation parfaite\n\n\n→ Besoin d’un équilibre optimal !"
-  },
-  {
-    "objectID": "slides/03-generalities-bias-variance-slides.html#exemple-régression-linéaire-simple",
-    "href": "slides/03-generalities-bias-variance-slides.html#exemple-régression-linéaire-simple",
-    "title": "Généralités",
-    "section": "Exemple : Régression linéaire simple",
-    "text": "Exemple : Régression linéaire simple\n\n\n\n\n\n\nNote\n\n\nHypothèse : \\(f(x) = ax + b\\)\nEstimation : Se résume à estimer les coefficients \\(a\\) et \\(b\\)\nCaractéristique : Modèle rigide, faible variance, biais potentiellement élevé"
-  },
-  {
-    "objectID": "slides/03-generalities-bias-variance-slides.html#courbe-en-u-de-lerreur",
-    "href": "slides/03-generalities-bias-variance-slides.html#courbe-en-u-de-lerreur",
-    "title": "Généralités",
-    "section": "Courbe en U de l’erreur",
-    "text": "Courbe en U de l’erreur\nComportement typique :\n\nFlexibilité faible → Biais élevé, variance faible\nFlexibilité augmente → Biais diminue plus vite que variance augmente\nOptimum → Minimum de l’erreur totale\nFlexibilité excessive → Variance explose, biais négligeable\n\n\n→ Courbe en U caractéristique"
-  },
-  {
-    "objectID": "slides/03-generalities-bias-variance-slides.html#exemple-visuel-paramètre-lambda",
-    "href": "slides/03-generalities-bias-variance-slides.html#exemple-visuel-paramètre-lambda",
-    "title": "Généralités",
-    "section": "Exemple visuel : Paramètre \\(\\lambda\\)",
-    "text": "Exemple visuel : Paramètre \\(\\lambda\\)\nContrôle de flexibilité : - \\(\\lambda\\) petit → Modèle flexible (faible biais, forte variance) - \\(\\lambda\\) grand → Modèle rigide (fort biais, faible variance)\nOptimum : \\(\\lambda\\) intermédiaire minimisant MSE totale"
-  },
-  {
-    "objectID": "slides/03-generalities-bias-variance-slides.html#pourquoi-ce-compromis",
-    "href": "slides/03-generalities-bias-variance-slides.html#pourquoi-ce-compromis",
-    "title": "Généralités",
-    "section": "Pourquoi ce compromis ?",
-    "text": "Pourquoi ce compromis ?\n\n\n\n\n\n\nAstuce\n\n\nCas extrêmes :\nBiais nul possible → Modèle passant par tous les points Problème : Variance énorme !\nVariance nulle possible → Modèle constant\nProblème : Biais énorme !\n→ Il faut contrôler les deux simultanément"
-  },
-  {
-    "objectID": "slides/03-generalities-bias-variance-slides.html#applications-pratiques",
-    "href": "slides/03-generalities-bias-variance-slides.html#applications-pratiques",
-    "title": "Généralités",
-    "section": "Applications pratiques",
-    "text": "Applications pratiques\nExemples de méthodes :\n\n\n\nMéthode\nFlexibilité\nBiais\nVariance\n\n\n\n\nRégression linéaire\nFaible\nÉlevé\nFaible\n\n\nk-NN (k grand)\nFaible\nÉlevé\nFaible\n\n\nk-NN (k petit)\nÉlevée\nFaible\nÉlevée\n\n\nSplines\nVariable\nVariable\nVariable"
+    "section": "Décomposition biais/variance",
+    "text": "Décomposition biais/variance\n\n\nPar Bigbossfarin - Own work, CC0, Link."
   },
   {
     "objectID": "slides/03-generalities-bias-variance-slides.html#stratégies-doptimisation",
     "href": "slides/03-generalities-bias-variance-slides.html#stratégies-doptimisation",
     "title": "Généralités",
     "section": "Stratégies d’optimisation",
-    "text": "Stratégies d’optimisation\nComment trouver l’équilibre ?\n\nValidation croisée → Estimer erreur de prédiction\nRégularisation → Contrôler la complexité du modèle\nSélection de modèle → Comparer différentes flexibilités\nEnsemble methods → Combiner plusieurs modèles"
+    "text": "Stratégies d’optimisation\n\nComment trouver l’équilibre ?\n\nValidation croisée → Estimation de l’erreur de prédiction.\nSélection de modèle → Comparer différentes des modèles avec différentes flexibilités.\nMéthodes d’ensembles → Combiner plusieurs modèles.\nRégularisation → Contrôler la complexité du modèle."
   },
   {
     "objectID": "slides/03-generalities-bias-variance-slides.html#implications-pour-la-pratique",
     "href": "slides/03-generalities-bias-variance-slides.html#implications-pour-la-pratique",
     "title": "Généralités",
     "section": "Implications pour la pratique",
-    "text": "Implications pour la pratique\nQuestions à se poser :\n\nAi-je assez de données pour un modèle flexible ?\nMon objectif est-il la prédiction ou la compréhension ?\nQuelle est la complexité réelle du phénomène ?\nComment évaluer la performance sur nouvelles données ?"
-  },
-  {
-    "objectID": "slides/03-generalities-bias-variance-slides.html#récapitulatif",
-    "href": "slides/03-generalities-bias-variance-slides.html#récapitulatif",
-    "title": "Généralités",
-    "section": "Récapitulatif",
-    "text": "Récapitulatif\n\nErreur totale = Biais² + Variance + Bruit irréductible\nCompromis fondamental entre biais et variance\nModèles rigides → Fort biais, faible variance\nModèles flexibles → Faible biais, forte variance\n\nOptimum → Équilibre minimisant l’erreur totale\nPas de solution universelle → Adapter au contexte"
+    "text": "Implications pour la pratique\n\nQuestions à se poser :\n\nAi-je assez de données pour un modèle flexible ?\nMon objectif est-il la prédiction ou la compréhension ?\nQuelle est la complexité réelle du phénomène étudié ?\nComment évaluer la performance sur nouvelles données ?"
   },
   {
     "objectID": "slides/03-generalities-bias-variance-slides.html#conclusion",
     "href": "slides/03-generalities-bias-variance-slides.html#conclusion",
     "title": "Généralités",
     "section": "Conclusion",
-    "text": "Conclusion\nLe compromis biais/variance est au cœur de l’apprentissage statistique\n\nProchaines étapes : - Comment mesurer ce compromis en pratique ? - Quelles méthodes pour l’optimiser ? - Comment valider nos choix ?\n\n\n→ Validation et sélection de modèles"
+    "text": "Conclusion\n\nErreur totale = Biais\\(^2\\) + Variance + Bruit irréductible.\nCompromis entre biais et variance.\nModèles rigides → Fort biais, faible variance.\nModèles flexibles → Faible biais, forte variance.\nOptimum → Équilibre minimisant l’erreur totale.\nPas de solution universelle → Il faut s’adapter au contexte.\n\n\nProchaine étape → Validation et sélection de modèles."
   },
   {
     "objectID": "slides/03-generalities-stat-slides.html#structure-dun-projet",
