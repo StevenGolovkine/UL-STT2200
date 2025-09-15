@@ -81,6 +81,10 @@ Quand l'utiliser : Variables numériques de même ordre de grandeur.
 
 :::
 
+## Distance euclidienne (preuve)
+
+
+
 ## Distance $L_q$ (Minkowski)
 
 ::: {.callout-note icon=false}
@@ -375,4 +379,4 @@ Questions à se poser :
 
 . . .
 
-**La suite :** Comment utiliser ces distances dans des modèles ?
+Prochaine étape → Compromis biais/variance
