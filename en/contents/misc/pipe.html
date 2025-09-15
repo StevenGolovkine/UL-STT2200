@@ -5,7 +5,7 @@
 <link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/contents/misc/pipe.en.html" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.8.24">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Pipe operator in R – STT-2200: Data Analysis</title>
 <style>
@@ -57,14 +57,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script><script src="../../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../../site_libs/quarto-search/fuse.min.js"></script><script src="../../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script><script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../../site_libs/quarto-html/popper.min.js"></script><script src="../../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../../site_libs/quarto-html/anchor.min.js"></script><link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-befe23ebd2f54d8af2c8a89d1a1611f1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script><script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script><script src="../../site_libs/quarto-html/popper.min.js"></script><script src="../../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../../site_libs/quarto-html/anchor.min.js"></script><link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script><link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-b420ac954380e4740449581a2c04d24f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-85aa8710f531c79c6a1b6dbea0b67299.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-b420ac954380e4740449581a2c04d24f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-e82d229c0ce9f26e18be7e528ebfaede.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-14633c6173d11ae2422085e82a060846.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-e82d229c0ce9f26e18be7e528ebfaede.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -103,7 +103,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -300,7 +300,7 @@ window.Quarto = {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-center sidebar-header">
       <a href="../../index.html" class="sidebar-logo-link">
-      <img src="../.././include/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
+      <img src="../.././include/logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none"><img src="../.././include/logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none"></a>
       <div class="sidebar-tools-main">
     <a href="https://github.com/StevenGolovkine/UL-STT2200" title="Github organization" class="quarto-navigation-tool px-1" aria-label="Github organization"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
@@ -596,7 +596,7 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Keyboard shortcuts
+<span class="screen-reader-only">Note</span>Keyboard shortcuts
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -622,35 +622,50 @@ Keyboard shortcuts
 </ol>
 <p>If we want to write code that correctly reflects the order of evaluation, we could write:</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>res1 <span class="ot">&lt;-</span> <span class="fu">f</span>(x)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>res2 <span class="ot">&lt;-</span> <span class="fu">g</span>(res1)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">h</span>(res2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">h</span>(res2)</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
 </div>
 <p>However, this code has the disadvantage of creating objects that we do not necessarily want to keep. The <code>|&gt;</code> operator does not have this disadvantage! In fact, an instruction written using the <code>|&gt;</code> operator allows us to follow the order of evaluations without creating unnecessary objects in memory.</p>
 <p>For even greater clarity, it is possible to extend an instruction containing several <code>|&gt;</code> operators over several lines so that there is one function per line:</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="sc">|&gt;</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">f</span>() <span class="sc">|&gt;</span> </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">g</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">h</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">h</span>()</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
 </div>
 <p>If the argument we want to pass with the <code>|&gt;</code> operator is not the first one, we must use <code>_</code> as follows with a named argument: <code>f(y, z = x)</code> becomes <code>x |&gt; f(y, z = _)</code>.</p>
 <p>Let’s take an example to illustrate the use of the <code>|&gt;</code> operator. Suppose we have the following character string:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>text <span class="ot">&lt;-</span> <span class="st">"This is an example"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>text <span class="ot">&lt;-</span> <span class="st">"This is an example"</span></span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
 </div>
 <p>and we want to correct it—replace “example” with “example” and add a period at the end—with the following instruction:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="fu">gsub</span>(<span class="at">pattern =</span> <span class="st">"example"</span>, <span class="at">replacement =</span> <span class="st">"example"</span>, <span class="at">x =</span> text), <span class="st">"."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="fu">gsub</span>(<span class="at">pattern =</span> <span class="st">"example"</span>, <span class="at">replacement =</span> <span class="st">"example"</span>, <span class="at">x =</span> text), <span class="st">"."</span>)</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "This is an example."</code></pre>
 </div>
 </div>
 <p>This instruction is a little difficult to read because of the call to the <code>gsub</code> function nested within a call to the <code>paste0</code> function. We could rewrite it as follows using the <code>|&gt;</code> operator:</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>text <span class="sc">|&gt;</span> </span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gsub</span>(<span class="at">pattern =</span> <span class="st">"example"</span>, <span class="at">replacement =</span> <span class="st">"example"</span>, <span class="at">x =</span> _) <span class="sc">|&gt;</span> </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(<span class="st">"."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(<span class="st">"."</span>)</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "This is an example."</code></pre>
 </div>
@@ -658,6 +673,7 @@ Keyboard shortcuts
 <p>Let’s take another numerical example. We want to perform the following calculation: <span class="math display">\[\frac{(2 + 4) \times 8}{2}.\]</span></p>
 <p>To do this, we need a few mathematical functions.</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>add <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">+</span> y</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>}</span>
@@ -668,30 +684,41 @@ Keyboard shortcuts
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>div <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">/</span> y</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
 </div>
 <p>We can perform the calculation in three different ways:</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># By creating different objects </span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>res1 <span class="ot">&lt;-</span> <span class="fu">add</span>(<span class="dv">2</span>, <span class="dv">4</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>res2 <span class="ot">&lt;-</span> <span class="fu">mul</span>(res1, <span class="dv">8</span>)</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>res3 <span class="ot">&lt;-</span> <span class="fu">div</span>(res2, <span class="dv">2</span>)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(res3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(res3)</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 24</code></pre>
 </div>
+<div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># By nesting functions</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">div</span>(<span class="fu">mul</span>(<span class="fu">add</span>(<span class="dv">2</span>, <span class="dv">4</span>), <span class="dv">8</span>), <span class="dv">2</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(res)</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 24</code></pre>
 </div>
+<div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># With the pipe operator </span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">|&gt;</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add</span>(<span class="dv">4</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mul</span>(<span class="dv">8</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">div</span>(<span class="dv">2</span>)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(res)</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 24</code></pre>
 </div>
@@ -968,13 +995,14 @@ window.onload = function() {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

@@ -4,7 +4,7 @@
 <link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/tp/02-revision-tp.html" />
 <link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/tp/02-revision-tp.en.html" />
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -68,18 +68,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-befe23ebd2f54d8af2c8a89d1a1611f1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-b420ac954380e4740449581a2c04d24f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-85aa8710f531c79c6a1b6dbea0b67299.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-b420ac954380e4740449581a2c04d24f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e82d229c0ce9f26e18be7e528ebfaede.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-14633c6173d11ae2422085e82a060846.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-e82d229c0ce9f26e18be7e528ebfaede.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -123,7 +124,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -330,7 +331,8 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src=".././include/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src=".././include/logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src=".././include/logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main">
     <a href="https://github.com/StevenGolovkine/UL-STT2200" title="Github organization" class="quarto-navigation-tool px-1" aria-label="Github organization"><i class="bi bi-github"></i></a>
@@ -661,7 +663,7 @@ window.Quarto = {
 </ul>
 <p>On conduit une expérience consistant à chauffer une quantité <strong>fixe</strong> de gaz dans un récipient fermé de volume <strong>fixé</strong>. La température <span class="math inline">\(T\)</span> en Kelvin et la pression <span class="math inline">\(P\)</span> en kPa sont enregistrées. On trouve les résultats suivants :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>temperature <span class="ot">=</span> [</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>temperature <span class="ot">=</span> [</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dv">406</span>, <span class="dv">296</span>, <span class="dv">272</span>, <span class="dv">449</span>, <span class="dv">483</span>, <span class="dv">439</span>, <span class="dv">460</span>, <span class="dv">276</span>, <span class="dv">321</span>, <span class="dv">462</span>, <span class="dv">408</span>, <span class="dv">322</span>, <span class="dv">285</span>,</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">411</span>, <span class="dv">491</span>, <span class="dv">359</span>, <span class="dv">453</span>, <span class="dv">486</span>, <span class="dv">413</span>, <span class="dv">350</span>, <span class="dv">263</span>, <span class="dv">456</span>, <span class="dv">390</span>, <span class="dv">462</span>, <span class="dv">389</span>, <span class="dv">494</span>,</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">303</span>, <span class="dv">496</span>, <span class="dv">336</span>, <span class="dv">460</span></span>
@@ -671,7 +673,7 @@ window.Quarto = {
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1365</span>, <span class="dv">982</span>, <span class="dv">898</span>, <span class="dv">1486</span>, <span class="dv">1596</span>, <span class="dv">1481</span>, <span class="dv">1506</span>, <span class="dv">906</span>, <span class="dv">1085</span>, <span class="dv">1542</span>, <span class="dv">1367</span>,</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1072</span>, <span class="dv">955</span>, <span class="dv">1379</span>, <span class="dv">1633</span>, <span class="dv">1186</span>, <span class="dv">1499</span>, <span class="dv">1606</span>, <span class="dv">1378</span>, <span class="dv">1156</span>, <span class="dv">867</span>, <span class="dv">1514</span>,</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1306</span>, <span class="dv">1525</span>, <span class="dv">1287</span>, <span class="dv">1665</span>, <span class="dv">1020</span>, <span class="dv">1635</span>, <span class="dv">1118</span>, <span class="dv">1529</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>]</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol type="1">
 <li><p>Tracer la pression en fonction de la température. Est-ce que le graphique est linéaire ?</p></li>
@@ -956,13 +958,14 @@ window.onload = function() {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

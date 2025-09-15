@@ -5,7 +5,7 @@
 <link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/contents/remainders/02-probabilities.en.html" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.8.24">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Probabilities and Statistics – STT-2200: Data Analysis</title>
 <style>
@@ -44,14 +44,14 @@ div.csl-indent {
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script><script src="../../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../../site_libs/quarto-search/fuse.min.js"></script><script src="../../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../../">
 <link href="../../contents/remainders/03-programming.html" rel="next">
 <link href="../../contents/remainders/01-linear-algebra.html" rel="prev">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script><script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../../site_libs/quarto-html/popper.min.js"></script><script src="../../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../../site_libs/quarto-html/anchor.min.js"></script><link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-befe23ebd2f54d8af2c8a89d1a1611f1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script><script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script><script src="../../site_libs/quarto-html/popper.min.js"></script><script src="../../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../../site_libs/quarto-html/anchor.min.js"></script><link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script><link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-b420ac954380e4740449581a2c04d24f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-85aa8710f531c79c6a1b6dbea0b67299.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-b420ac954380e4740449581a2c04d24f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-e82d229c0ce9f26e18be7e528ebfaede.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-14633c6173d11ae2422085e82a060846.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-e82d229c0ce9f26e18be7e528ebfaede.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -90,7 +90,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -290,7 +290,7 @@ window.Quarto = {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-center sidebar-header">
       <a href="../../index.html" class="sidebar-logo-link">
-      <img src="../.././include/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
+      <img src="../.././include/logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none"><img src="../.././include/logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none"></a>
       <div class="sidebar-tools-main">
     <a href="https://github.com/StevenGolovkine/UL-STT2200" title="Github organization" class="quarto-navigation-tool px-1" aria-label="Github organization"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
@@ -601,7 +601,7 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Definition
+<span class="screen-reader-only">Warning</span>Definition
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -614,7 +614,7 @@ Definition
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Examples
+<span class="screen-reader-only">Note</span>Examples
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -631,7 +631,7 @@ Examples
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Definition
+<span class="screen-reader-only">Warning</span>Definition
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -651,7 +651,7 @@ Definition
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Definition
+<span class="screen-reader-only">Warning</span>Definition
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -664,7 +664,7 @@ Definition
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Definition
+<span class="screen-reader-only">Warning</span>Definition
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -680,7 +680,7 @@ Definition
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Definition
+<span class="screen-reader-only">Warning</span>Definition
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -693,7 +693,7 @@ Definition
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Definition
+<span class="screen-reader-only">Warning</span>Definition
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -706,7 +706,7 @@ Definition
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Definition
+<span class="screen-reader-only">Warning</span>Definition
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -719,7 +719,7 @@ Definition
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Definition
+<span class="screen-reader-only">Warning</span>Definition
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -733,7 +733,7 @@ Definition
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Transfer theorem
+<span class="screen-reader-only">Caution</span>Transfer theorem
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -750,7 +750,7 @@ Transfer theorem
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Properties: Linearity of expectation
+<span class="screen-reader-only">Important</span>Properties: Linearity of expectation
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -762,12 +762,12 @@ Properties: Linearity of expectation
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Proof
+<span class="screen-reader-only">Note</span>Proof
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -783,7 +783,7 @@ Proof
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Definition
+<span class="screen-reader-only">Warning</span>Definition
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -797,7 +797,7 @@ Definition
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Definition
+<span class="screen-reader-only">Warning</span>Definition
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -815,7 +815,7 @@ Definition
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Definition
+<span class="screen-reader-only">Warning</span>Definition
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -830,7 +830,7 @@ Definition
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Example of the multivariate normal distribution
+<span class="screen-reader-only">Note</span>Example of the multivariate normal distribution
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -845,7 +845,7 @@ Example of the multivariate normal distribution
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Definition
+<span class="screen-reader-only">Warning</span>Definition
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -860,7 +860,7 @@ Definition
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Properties
+<span class="screen-reader-only">Important</span>Properties
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -878,7 +878,7 @@ Properties
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Proof
+<span class="screen-reader-only">Note</span>Proof
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1175,13 +1175,14 @@ window.onload = function() {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

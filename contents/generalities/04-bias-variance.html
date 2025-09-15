@@ -5,7 +5,7 @@
 <link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/contents/generalities/04-bias-variance.en.html" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.8.24">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Biais/Variance – STT-2200: Analyse de données</title>
 <style>
@@ -79,14 +79,14 @@ div.csl-indent {
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script><script src="../../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../../site_libs/quarto-search/fuse.min.js"></script><script src="../../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../../">
 <link href="../../contents/generalities/05-model-evaluation.html" rel="next">
 <link href="../../contents/generalities/03-distance.html" rel="prev">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script><script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../../site_libs/quarto-html/popper.min.js"></script><script src="../../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../../site_libs/quarto-html/anchor.min.js"></script><link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-befe23ebd2f54d8af2c8a89d1a1611f1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script><script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script><script src="../../site_libs/quarto-html/popper.min.js"></script><script src="../../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../../site_libs/quarto-html/anchor.min.js"></script><link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script><link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-b420ac954380e4740449581a2c04d24f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-85aa8710f531c79c6a1b6dbea0b67299.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-b420ac954380e4740449581a2c04d24f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-e82d229c0ce9f26e18be7e528ebfaede.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-14633c6173d11ae2422085e82a060846.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-e82d229c0ce9f26e18be7e528ebfaede.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -126,7 +126,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -326,7 +326,7 @@ window.Quarto = {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-center sidebar-header">
       <a href="../../index.html" class="sidebar-logo-link">
-      <img src="../.././include/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
+      <img src="../.././include/logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none"><img src="../.././include/logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none"></a>
       <div class="sidebar-tools-main">
     <a href="https://github.com/StevenGolovkine/UL-STT2200" title="Github organization" class="quarto-navigation-tool px-1" aria-label="Github organization"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Basculer le mode sombre"><i class="bi"></i></a>
@@ -634,7 +634,8 @@ window.Quarto = {
 <p>Ici, <span class="math inline">\(f\)</span> est une fonction déterministe (non-aléatoire) représentant l’information systématique que les variables explicatives <span class="math inline">\(X_{1}, \dots, X_{p}\)</span> apportent sur <span class="math inline">\(Y\)</span>, et <span class="math inline">\(\varepsilon\)</span> est un terme d’erreur aléatoire, modélisant les variations de <span class="math inline">\(Y\)</span> non expliquées par <span class="math inline">\(X\)</span>. Dans le cadre de ce cours, nous ferons les hypothèses suivantes : la variable aléatoire <span class="math inline">\(\varepsilon\)</span> est indépendente de des variables explicatives <span class="math inline">\(X\)</span>, <span class="math inline">\(\mathbb{E}[\varepsilon] = 0\)</span> et <span class="math inline">\(\mathrm{Var}(\varepsilon) = \sigma^2\)</span>. Le modèle <a href="#eq-model" class="quarto-xref">Équation 1</a> est général. Il sert de cadre pour l’ensemble des méthodes que nous allons étudier, même lorsque la forme explicite de <span class="math inline">\(f\)</span> n’est pas connue.</p>
 <p>La <a href="#fig-model-html" class="quarto-xref">Figure 1</a> illustre les différents éléments du modèle: les données observées <span class="math inline">\((X_i, Y_i)\)</span>, la fonction <span class="math inline">\(f\)</span> (en bleu) et les écarts aléatoires <span class="math inline">\(\varepsilon_i\)</span> représentés par des lignes pointillées.</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>generate_noisy_data <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">noise_levels =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.1</span>, <span class="fl">0.3</span>, <span class="fl">0.5</span>)) {</span>
@@ -664,11 +665,14 @@ window.Quarto = {
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>noise_levels <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="at">by=</span><span class="fl">0.01</span>)</span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">generate_noisy_data</span>(<span class="at">noise_levels =</span> noise_levels)</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(df, <span class="st">'./data.csv'</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(df, <span class="st">'./data.csv'</span>)</span></code></pre></div>
+<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
+</div>
 </details>
 </div>
 <div class="cell" data-warning="false" data-eval="true">
-<details class="code-fold hidden"><summary>Code</summary><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="117" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 116;"><span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"../../include/data/bias-variance/data.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({ <span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span> })</span>
+<details class="code-fold hidden"><summary>Code</summary><div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="117" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 116;"><span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"../../include/data/bias-variance/data.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({ <span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span> })</span>
 <span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>viewof noise <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>(</span>
 <span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>  [<span class="fl">0.01</span><span class="op">,</span> <span class="fl">0.5</span>]<span class="op">,</span> </span>
@@ -686,7 +690,9 @@ window.Quarto = {
 <span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>errors <span class="op">=</span> filtered<span class="op">.</span><span class="fu">map</span>(f <span class="kw">=&gt;</span> {</span>
 <span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> location <span class="op">=</span> true_curve<span class="op">.</span><span class="fu">find</span>(loc <span class="kw">=&gt;</span> loc<span class="op">.</span><span class="at">x</span> <span class="op">===</span> f<span class="op">.</span><span class="at">x</span>)<span class="op">;</span></span>
 <span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> { <span class="op">...</span>f<span class="op">,</span> <span class="dt">y_end</span><span class="op">:</span> location<span class="op">?.</span><span class="at">y</span> }<span class="op">;</span></span>
-<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
+</div>
 </details><div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-1" data-nodetype="declaration">
@@ -724,7 +730,8 @@ window.Quarto = {
 </div>
 </div>
 <div class="cell" data-warning="false" data-eval="true">
-<details class="code-fold hidden"><summary>Code</summary><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="145" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 144;"><span id="cb3-145"><a href="#cb3-145" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<details class="code-fold hidden"><summary>Code</summary><div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="145" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 144;"><span id="cb3-145"><a href="#cb3-145" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
 <span id="cb3-146"><a href="#cb3-146" aria-hidden="true" tabindex="-1"></a>  <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
 <span id="cb3-147"><a href="#cb3-147" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {</span>
 <span id="cb3-148"><a href="#cb3-148" aria-hidden="true" tabindex="-1"></a>    <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span></span>
@@ -746,7 +753,9 @@ window.Quarto = {
 <span id="cb3-164"><a href="#cb3-164" aria-hidden="true" tabindex="-1"></a>      <span class="dt">strokeDasharray</span><span class="op">:</span> <span class="st">"5,5"</span><span class="op">,</span></span>
 <span id="cb3-165"><a href="#cb3-165" aria-hidden="true" tabindex="-1"></a>    })</span>
 <span id="cb3-166"><a href="#cb3-166" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb3-167"><a href="#cb3-167" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-167"><a href="#cb3-167" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
+</div>
 </details><div id="fig-model-html" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-model-html-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div id="ojs-cell-2" data-nodetype="expression">
@@ -765,7 +774,7 @@ Figure 1: Les différents éléments du modèle. Les points représentent les d
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exemple : Régression linéaire simple
+<span class="screen-reader-only">Note</span>Exemple : Régression linéaire simple
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -778,7 +787,7 @@ Exemple : Régression linéaire simple
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Remarque : Compromis entre exactitude et interprétabilité
+<span class="screen-reader-only">Astuce</span>Remarque : Compromis entre exactitude et interprétabilité
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -791,7 +800,7 @@ Remarque : Compromis entre exactitude et interprétabilité
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Remarque : <em>No free lunch in statistics</em>
+<span class="screen-reader-only">Astuce</span>Remarque : <em>No free lunch in statistics</em>
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -806,7 +815,7 @@ Remarque : <em>No free lunch in statistics</em>
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Définition : Erreur quadratique moyenne
+<span class="screen-reader-only">Avertissement</span>Définition : Erreur quadratique moyenne
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -821,7 +830,7 @@ Définition : Erreur quadratique moyenne
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Définition: Taux d’erreur
+<span class="screen-reader-only">Avertissement</span>Définition: Taux d’erreur
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -843,7 +852,7 @@ Définition: Taux d’erreur
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Décomposition biais/variance
+<span class="screen-reader-only">Important</span>Décomposition biais/variance
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -851,12 +860,12 @@ Décomposition biais/variance
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Preuve
+<span class="screen-reader-only">Note</span>Preuve
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -902,7 +911,8 @@ Preuve
 </ul>
 <p>Notre objectif est donc de trouver un juste équilibre entre biais et variance, i.e. un modèle qui prédit correctement, tout en étant généralisable à de nouvelles données. La <a href="#fig-plot-html-1" class="quarto-xref">Figure 2 (a)</a> présente un jeu de données et différents estimateurs <span class="math inline">\(\widehat{f}\)</span>. En faisant varier le paramètre <span class="math inline">\(\lambda\)</span>, on obtient des modèles plus ou moins flexible (lorsque <span class="math inline">\(\lambda = 0.15\)</span>, le modèle est flexible et lorsque <span class="math inline">\(\lambda = 1\)</span>, le modèle est rigide). La <a href="#fig-plot-html-2" class="quarto-xref">Figure 2 (b)</a> montre la valeur du biais, de la variance et de la MSE pour les modèles estimés pour la <a href="#fig-plot-html-1" class="quarto-xref">Figure 2 (a)</a>. On remarque que plus <span class="math inline">\(\lambda\)</span> est petit, plus la variance est grande, mais le biais est petit (le modèle est flexible). Inversement, plus <span class="math inline">\(\lambda\)</span> est grand, plus le biais est grand et la variance petite (le modèle est rigide). La courbe de MSE en fonction du paramètre est une courbe en U. Comme on cherche à minimiser la MSE, i.e. à faire un compromis entre le biais et la variance, on peut prendre <span class="math inline">\(\lambda = 0.5\)</span>.</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
+<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
@@ -979,11 +989,14 @@ Preuve
 <span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>  <span class="at">names_to =</span> <span class="st">"component"</span>, <span class="at">values_to =</span> <span class="st">"value"</span></span>
 <span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(results_long, <span class="st">'./data_mse.csv'</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(results_long, <span class="st">'./data_mse.csv'</span>)</span></code></pre></div>
+<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
+</div>
 </details>
 </div>
 <div class="cell" data-warning="false" data-eval="true">
-<details class="code-fold hidden"><summary>Code</summary><div class="sourceCode cell-code hidden" id="cb5" data-startfrom="532" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 531;"><span id="cb5-532"><a href="#cb5-532" aria-hidden="true" tabindex="-1"></a>data_fit <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"../../include/data/bias-variance/data_fit.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({ <span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span> })</span>
+<details class="code-fold hidden"><summary>Code</summary><div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="532" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 531;"><span id="cb5-532"><a href="#cb5-532" aria-hidden="true" tabindex="-1"></a>data_fit <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"../../include/data/bias-variance/data_fit.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({ <span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span> })</span>
 <span id="cb5-533"><a href="#cb5-533" aria-hidden="true" tabindex="-1"></a>data_mse <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"../../include/data/bias-variance/data_mse.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({ <span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span> })</span>
 <span id="cb5-534"><a href="#cb5-534" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-535"><a href="#cb5-535" aria-hidden="true" tabindex="-1"></a>viewof span <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>(</span>
@@ -1001,7 +1014,9 @@ Preuve
 <span id="cb5-547"><a href="#cb5-547" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-548"><a href="#cb5-548" aria-hidden="true" tabindex="-1"></a>current_mse <span class="op">=</span> data_mse<span class="op">.</span><span class="fu">filter</span>(<span class="kw">function</span>(df) {</span>
 <span id="cb5-549"><a href="#cb5-549" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df<span class="op">.</span><span class="at">span</span> <span class="op">==</span> span<span class="op">;</span></span>
-<span id="cb5-550"><a href="#cb5-550" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-550"><a href="#cb5-550" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
+</div>
 </details><div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-3-1" data-nodetype="declaration">
@@ -1046,7 +1061,8 @@ Preuve
 </div>
 </div>
 <div class="cell" data-warning="false" data-eval="true">
-<details class="code-fold hidden"><summary>Code</summary><div class="sourceCode cell-code hidden" id="cb6" data-startfrom="563" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 562;"><span id="cb6-563"><a href="#cb6-563" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<details class="code-fold hidden"><summary>Code</summary><div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="563" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 562;"><span id="cb6-563"><a href="#cb6-563" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
 <span id="cb6-564"><a href="#cb6-564" aria-hidden="true" tabindex="-1"></a>  <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
 <span id="cb6-565"><a href="#cb6-565" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {</span>
 <span id="cb6-566"><a href="#cb6-566" aria-hidden="true" tabindex="-1"></a>    <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span></span>
@@ -1067,8 +1083,11 @@ Preuve
 <span id="cb6-581"><a href="#cb6-581" aria-hidden="true" tabindex="-1"></a>    )<span class="op">,</span></span>
 <span id="cb6-582"><a href="#cb6-582" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-583"><a href="#cb6-583" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb6-584"><a href="#cb6-584" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><details class="code-fold hidden"><summary>Code</summary><div class="sourceCode cell-code hidden" id="cb7" data-startfrom="586" data-source-offset="-325"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 585;"><span id="cb7-586"><a href="#cb7-586" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb6-584"><a href="#cb6-584" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
+</div>
+</details><details class="code-fold hidden"><summary>Code</summary><div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="586" data-source-offset="-325"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 585;"><span id="cb7-586"><a href="#cb7-586" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
 <span id="cb7-587"><a href="#cb7-587" aria-hidden="true" tabindex="-1"></a>  <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
 <span id="cb7-588"><a href="#cb7-588" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> {</span>
 <span id="cb7-589"><a href="#cb7-589" aria-hidden="true" tabindex="-1"></a>    <span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
@@ -1091,7 +1110,9 @@ Preuve
 <span id="cb7-606"><a href="#cb7-606" aria-hidden="true" tabindex="-1"></a>      {<span class="dt">x</span><span class="op">:</span> <span class="st">"span"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"value"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"component"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">10</span>}</span>
 <span id="cb7-607"><a href="#cb7-607" aria-hidden="true" tabindex="-1"></a>    )<span class="op">,</span></span>
 <span id="cb7-608"><a href="#cb7-608" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb7-609"><a href="#cb7-609" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-609"><a href="#cb7-609" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button>
+</div>
 </details><div id="fig-plot-html" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-warning="false" data-eval="true">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-plot-html-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display">
@@ -1131,7 +1152,7 @@ Figure 2: Illustration du compromis biais/variance. Le paramètre <span class="
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Remarque : Pourquoi un compromis ?
+<span class="screen-reader-only">Astuce</span>Remarque : Pourquoi un compromis ?
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1424,13 +1445,14 @@ window._ojs.runtime.interpretFromScriptTags();
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

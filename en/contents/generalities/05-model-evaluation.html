@@ -5,7 +5,7 @@
 <link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/contents/generalities/05-model-evaluation.en.html" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.8.24">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Models evaluation – STT-2200: Data Analysis</title>
 <style>
@@ -79,14 +79,14 @@ div.csl-indent {
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script><script src="../../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../../site_libs/quarto-search/fuse.min.js"></script><script src="../../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../../">
 <link href="../../contents/04-dimension.html" rel="next">
 <link href="../../contents/generalities/04-bias-variance.html" rel="prev">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script><script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../../site_libs/quarto-html/popper.min.js"></script><script src="../../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../../site_libs/quarto-html/anchor.min.js"></script><link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-befe23ebd2f54d8af2c8a89d1a1611f1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script><script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script><script src="../../site_libs/quarto-html/popper.min.js"></script><script src="../../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../../site_libs/quarto-html/anchor.min.js"></script><link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script><link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-b420ac954380e4740449581a2c04d24f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-85aa8710f531c79c6a1b6dbea0b67299.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-b420ac954380e4740449581a2c04d24f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-e82d229c0ce9f26e18be7e528ebfaede.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-14633c6173d11ae2422085e82a060846.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-e82d229c0ce9f26e18be7e528ebfaede.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -126,7 +126,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -329,7 +329,7 @@ window.Quarto = {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-center sidebar-header">
       <a href="../../index.html" class="sidebar-logo-link">
-      <img src="../.././include/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
+      <img src="../.././include/logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none"><img src="../.././include/logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none"></a>
       <div class="sidebar-tools-main">
     <a href="https://github.com/StevenGolovkine/UL-STT2200" title="Github organization" class="quarto-navigation-tool px-1" aria-label="Github organization"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
@@ -639,7 +639,7 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note: Overfitting and Underfitting
+<span class="screen-reader-only">Tip</span>Note: Overfitting and Underfitting
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -659,7 +659,8 @@ Figure 1: Diagram of the validation set approach.
 </figcaption></figure>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
+<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -750,11 +751,14 @@ Figure 1: Diagram of the validation set approach.
 <span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> results <span class="sc">|&gt;</span> <span class="fu">bind_rows</span>()</span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(results, <span class="st">'./splits_mse.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(results, <span class="st">'./splits_mse.csv'</span>)</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
 </details>
 </div>
 <div class="cell" data-warning="false" data-eval="true">
-<details class="code-fold hidden"><summary>Code</summary><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="283" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 282;"><span id="cb2-283"><a href="#cb2-283" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"../../include/data/model-evaluation/splits.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({ <span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span> })</span>
+<details class="code-fold hidden"><summary>Code</summary><div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="283" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 282;"><span id="cb2-283"><a href="#cb2-283" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"../../include/data/model-evaluation/splits.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({ <span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span> })</span>
 <span id="cb2-284"><a href="#cb2-284" aria-hidden="true" tabindex="-1"></a>data_mse <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"../../include/data/model-evaluation/splits_mse.csv"</span>)<span class="op">.</span><span class="fu">csv</span>({ <span class="dt">typed</span><span class="op">:</span> <span class="kw">true</span> })</span>
 <span id="cb2-285"><a href="#cb2-285" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-286"><a href="#cb2-286" aria-hidden="true" tabindex="-1"></a>viewof split <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>(</span>
@@ -768,7 +772,9 @@ Figure 1: Diagram of the validation set approach.
 <span id="cb2-294"><a href="#cb2-294" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-295"><a href="#cb2-295" aria-hidden="true" tabindex="-1"></a>current_mse <span class="op">=</span> data_mse<span class="op">.</span><span class="fu">filter</span>(<span class="kw">function</span>(df) {</span>
 <span id="cb2-296"><a href="#cb2-296" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> df<span class="op">.</span><span class="at">split</span> <span class="op">==</span> split<span class="op">;</span></span>
-<span id="cb2-297"><a href="#cb2-297" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-297"><a href="#cb2-297" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
 </details><div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-1" data-nodetype="declaration">
@@ -806,7 +812,8 @@ Figure 1: Diagram of the validation set approach.
 </div>
 </div>
 <div class="cell" data-warning="false" data-eval="true">
-<details class="code-fold hidden"><summary>Code</summary><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="310" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 309;"><span id="cb3-310"><a href="#cb3-310" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<details class="code-fold hidden"><summary>Code</summary><div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="310" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 309;"><span id="cb3-310"><a href="#cb3-310" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
 <span id="cb3-311"><a href="#cb3-311" aria-hidden="true" tabindex="-1"></a>  <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
 <span id="cb3-312"><a href="#cb3-312" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {</span>
 <span id="cb3-313"><a href="#cb3-313" aria-hidden="true" tabindex="-1"></a>    <span class="dt">domain</span><span class="op">:</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span></span>
@@ -827,8 +834,11 @@ Figure 1: Diagram of the validation set approach.
 <span id="cb3-328"><a href="#cb3-328" aria-hidden="true" tabindex="-1"></a>      {<span class="dt">x</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"set"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">5</span>}</span>
 <span id="cb3-329"><a href="#cb3-329" aria-hidden="true" tabindex="-1"></a>    )<span class="op">,</span></span>
 <span id="cb3-330"><a href="#cb3-330" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb3-331"><a href="#cb3-331" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><details class="code-fold hidden"><summary>Code</summary><div class="sourceCode cell-code hidden" id="cb4" data-startfrom="333" data-source-offset="-326"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 332;"><span id="cb4-333"><a href="#cb4-333" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb3-331"><a href="#cb3-331" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
+</details><details class="code-fold hidden"><summary>Code</summary><div class="code-copy-outer-scaffold">
+<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="333" data-source-offset="-326"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 332;"><span id="cb4-333"><a href="#cb4-333" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
 <span id="cb4-334"><a href="#cb4-334" aria-hidden="true" tabindex="-1"></a>  <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
 <span id="cb4-335"><a href="#cb4-335" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> {</span>
 <span id="cb4-336"><a href="#cb4-336" aria-hidden="true" tabindex="-1"></a>    <span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
@@ -854,8 +864,10 @@ Figure 1: Diagram of the validation set approach.
 <span id="cb4-356"><a href="#cb4-356" aria-hidden="true" tabindex="-1"></a>      {<span class="dt">x</span><span class="op">:</span> <span class="st">"span"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"MSE"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"#e30513"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">5</span>}</span>
 <span id="cb4-357"><a href="#cb4-357" aria-hidden="true" tabindex="-1"></a>    )<span class="op">,</span></span>
 <span id="cb4-358"><a href="#cb4-358" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb4-359"><a href="#cb4-359" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div id="fig-trainval-html" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-warning="false" data-eval="true">
+<span id="cb4-359"><a href="#cb4-359" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button>
+</div>
+</details><div id="fig-trainval-html" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-eval="true" data-warning="false">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-trainval-html-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display">
 <div id="fig-trainval-html-1" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -893,7 +905,7 @@ Figure 2: Illustration de l’approche par jeu de données de validation.
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-How to choose the size of the subsets?
+<span class="screen-reader-only">Tip</span>How to choose the size of the subsets?
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -923,7 +935,7 @@ Figure 3: Diagram of the cross-validation approach
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-How to choose the number of subsets <span class="math inline">\(K\)</span>?
+<span class="screen-reader-only">Tip</span>How to choose the number of subsets <span class="math inline">\(K\)</span>?
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1220,13 +1232,14 @@ window._ojs.runtime.interpretFromScriptTags();
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
