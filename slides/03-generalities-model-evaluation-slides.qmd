@@ -3,7 +3,7 @@ title: "Généralités"
 subtitle: "Évaluation de modèles"
 author: "Steven Golovkine"
 lang: fr
-date: today
+date: "19 sept. 2024"
 date-format: "DD MMM YYYY"
 slide-number: c/t
 title-logo: ../include/logo-ul.png
@@ -20,123 +20,173 @@ format:
 
 ## Introduction
 
-L'évaluation de modèles est cruciale pour mesurer la performance prédictive réelle.
+<br>
 
-Les métriques classiques incluent l'erreur quadratique moyenne (MSE) pour les variables quantitatives et le taux d'erreur (ER) pour les variables qualitatives.
+Comment mesurer la performance prédictive réelle de nos modèles ?
 
-Cependant, évaluer uniquement sur les données d'entraînement pose des problèmes fondamentaux.
+Métriques classiques :
+
+* Erreur quadratique moyenne (EQM / MSE) → variables quantitatives.
+
+* Taux d'erreur (ER) → variables qualitatives.
+
+
+→ Cependant, évaluer uniquement sur les données d'entraînement pose des problèmes fondamentaux.
+
+
+## Plan
+
+<br>
+
+1. Le sur-ajustement
+
+2. Le sous-ajustement
+
+3. Approche par jeu de validation
+
+4. Validation croisée 
+
 
 ## Le problème du sur-ajustement
 
-**Définition**: Un modèle s'adapte trop aux données d'entraînement, y compris au bruit aléatoire.
+<br>
 
-**Conséquences**:
-- Erreur faible sur les données d'entraînement
-- Erreur élevée sur de nouvelles observations
-- Mauvaise capacité de généralisation
+Notre modèle s'adapte trop aux données d'entraînement, y compris au bruit aléatoire.
 
-**Cause**: L'estimateur $\widehat{f}$ a été ajusté pour minimiser l'erreur sur ces mêmes données.
+. . .
+
+**Donc**:
+
+- Erreur faible sur les données d'entraînement.
+
+- Erreur élevée sur de nouvelles observations.
+
+- Mauvaise capacité de généralisation.
+
+. . .
+
+**Pourquoi**: L'estimateur $\hat{f}$ a été ajusté pour minimiser l'erreur sur ces mêmes données.
+
+## Le problème du sous-ajustement
+
+
+<br>
+
+Notre modèle ne s'adapte pas aux données d'entraînement.
+
+. . .
+
+**Donc**:
+
+- Erreur élevée sur les données d'entraînement.
+
+- Erreur élevée sur de nouvelles observations.
+
+- Ne prend pas en compte les données.
+
+. . .
+
+**Pourquoi**: L'estimateur $\hat{f}$ a été implémenté sans prendre en compte les données.
+
 
 ## Sur-ajustement vs Sous-ajustement
 
+<br>
+
 **Sur-ajustement** (*overfitting*):
-- Modèle trop flexible
-- Capture le bruit plutôt que le signal
-- Bonne performance sur l'entraînement, mauvaise sur de nouvelles données
+
+- Modèle trop flexible.
+
+- Capture le bruit plutôt que le signal.
 
 **Sous-ajustement** (*underfitting*):
-- Modèle trop rigide
-- Ne capture pas la structure des données
-- Mauvaise performance même sur l'entraînement
 
-**Objectif**: Trouver le bon compromis entre flexibilité et généralisation.
+- Modèle trop rigide.
+
+- Ne capture pas la structure des données.
+
+Objectif → Trouver le bon compromis entre les deux.
+
 
 ## Approche idéale
 
-**Principe**: Séparer complètement les données d'entraînement et d'évaluation.
+<br>
 
-**Jeu d'entraînement**: Utilisé pour ajuster le modèle
+Séparer complètement les données d'entraînement et d'évaluation.
 
-**Jeu de test**: Utilisé pour évaluer la performance prédictive
+. . .
 
-**Problème pratique**: Nous n'avons généralement pas accès à un jeu de test indépendant.
+Jeu d'entraînement : Utilisé pour ajuster le modèle.
 
-**Solution**: Utiliser des méthodes de validation.
+Jeu de test : Utilisé pour évaluer la performance prédictive.
+
+. . .
+
+Problème pratique : Nous n'avons généralement pas accès à un jeu de test indépendant.
+
+. . .
+
+Solution → Utiliser des méthodes de validation.
 
 ## Approche par jeu de validation
 
-**Principe**: Diviser aléatoirement le jeu de données en deux sous-ensembles.
+<br>
 
-**Jeu d'entraînement**: Pour ajuster le modèle
-
-**Jeu de validation**: Pour estimer l'erreur de prédiction
-
-**Proportions recommandées**:
-- Grand nombre d'observations: division 50-50
-- Petit nombre d'observations: division 70-30 ou 80-20
+![Approche par jeu de validation.](./img/validation-set.png)
 
 ## Limites du jeu de validation
 
-**Estimation instable**: L'erreur dépend fortement des observations dans le jeu de validation.
+<br>
 
-**Perte d'information**: Moins de données pour ajuster le modèle, ce qui peut surestimer l'erreur réelle.
+Estimation instable : L'erreur dépend fortement des observations dans le jeu de validation.
 
-**Variabilité**: Différents jeux de validation peuvent donner des résultats très différents.
+. . .
 
-**Solution**: Validation croisée pour une approche plus robuste.
+Perte d'information : Moins de données pour ajuster le modèle, ce qui peut surestimer l'erreur réelle.
 
-## Validation croisée - Principe
+. . .
 
-**Objectif**: Méthode plus robuste et stable que le simple jeu de validation.
+Variabilité : Différents jeux de validation peuvent donner des résultats très différents.
 
-**Principe**: Répéter l'approche par jeu de validation plusieurs fois sur différents sous-ensembles.
+. . .
 
-**Méthode**:
-1. Découper aléatoirement en $K$ sous-ensembles (*folds*)
-2. Utiliser chaque *fold* comme validation
-3. Entraîner sur les $K-1$ *folds* restants
-4. Calculer la moyenne des $K$ erreurs
+Solution → Validation croisée pour une approche plus robuste.
+
+## Approche par validation croisée
+
+![Approche par validation croisée.](./img/cross-validation.png)
 
 ## Choix du paramètre K
 
-**Valeurs courantes**: $K = 5$ ou $K = 10$
+<br>
 
-**Compromis à considérer**:
-- **Coût computationnel**: Plus $K$ est grand, plus c'est coûteux
-- **Précision de l'estimation**: Plus $K$ est grand, moins de biais
-- **Stabilité**: Valeurs modérées de $K$ réduisent la variance
+Règle du pouce: $K = 5$ ou $K = 10$.
 
-**Cas limite**: $K = n$ (Leave-One-Out Cross-Validation - LOOCV)
+Compromis à considérer :
 
-## Leave-One-Out Cross-Validation
+- Coût computationnel : Plus $K$ est grand, plus c'est coûteux en temps de calcul.
 
-**Principe**: $K = n$ où $n$ est le nombre d'observations
+- Précision de l'estimation : Plus $K$ est grand, moins de biais.
 
-**Avantages**:
-- Biais minimal dans l'estimation
-- Utilise presque toutes les données pour l'entraînement
+- Stabilité : Valeurs modérées de $K$ réduisent la variance
 
-**Inconvénients**:
-- Variance élevée (erreurs très corrélées)
-- Coût computationnel très élevé
-- Estimation instable
+. . .
 
-## Recommandations pratiques
-
-**Choix de $K$**: Privilégier $K = 5$ ou $K = 10$ pour un bon compromis biais-variance.
-
-**Taille des données**: Adapter la stratégie selon le volume de données disponibles.
-
-**Généralité**: La validation croisée s'applique à la plupart des modèles.
-
-**Objectif**: Obtenir une estimation fiable de la performance de généralisation.
+Cas limite: $K = n$ (Leave-One-Out Cross-Validation - LOOCV).
 
 ## Conclusion
 
-La validation appropriée des modèles est essentielle pour éviter les illusions de performance.
+::: {.incremental}
+1. La validation appropriée des modèles est essentielle pour éviter une illusion de performance.
 
-Le sur-ajustement est un piège courant qui nécessite une évaluation rigoureuse.
+2. Le sur-ajustement est un piège courant qui nécessite une évaluation rigoureuse.
 
-La validation croisée offre une solution robuste et pratique pour estimer la performance réelle.
+3. La validation croisée offre une solution robuste et pratique pour estimer la performance réelle.
 
-Le choix des paramètres de validation doit équilibrer précision, stabilité et coût computationnel.
+4. Le choix des paramètres de validation doit équilibrer précision, stabilité et coût computationnel.
+
+:::
+
+. . .
+
+Prochaine étape → Réduction de dimension.
