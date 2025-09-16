@@ -15,15 +15,17 @@ Dans cette exercice, on se propose de finir la preuve que la distance de Jaccard
 
 Considérons deux observations $x$ et $y$ de $K$ variables binaires. Notons $X = \{ i \in \{ 1, \dots, K \} \mid x_i = 1 \}$ et $Y = \{ i \in \{ 1, \dots, K \} \mid y_i = 1 \}$. 
 
+0. Montrer les trois premières propriétés des distances pour la distance de Jaccard.
+
 1. Faire un dessin montrant $M_{11}$, $M_{10}$ et $M_{01}$ à l'aide des ensembles $X$ et $Y$.
 
-2. Écrire l'indice de Jaccard entre $x$ et $y$ à l'aide des ensembles $X$ et $Y$. En déduire la distance de Jaccard en fonction des ensembles $X$ et $Y$. On pourra noter $X \Delta Y = (X \ Y) \cup (B \ A)$.
+2. Écrire l'indice de Jaccard entre $x$ et $y$ à l'aide des ensembles $X$ et $Y$. En déduire la distance de Jaccard en fonction des ensembles $X$ et $Y$. On pourra noter $X \Delta Y = (X \backslash Y) \cup (Y \backslash X)$.
 
 3. Soit $A = \{ 1, 2 \}$, $B = \{ 2, 3 \}$ et $C = \{ 3, 4 \}$. Calculer les distances de Jaccard entre $A$ et $B$, $B$ et $C$ et $A$ et $C$ en utilisant la définition ensembliste de cette distance.
 
 4. Soit une troisième observation $z$, notons $Z = \{ i \in \{ 1, \dots, K \} \mid z_i = 1 \}$. Réécrire l'inégalité triangulaire pour la distance de Jaccard en utilisant la définition ensembliste.
 
-5. Montrer que $X \Delta Y \subseteq (X \Delta Z) \cup (Y \Delta Z$.
+5. Montrer que $X \Delta Y \subseteq (X \Delta Z) \cup (Y \Delta Z)$.
 
 6. Montrer que $X \cup Y \subseteq (X \cup Z) \cup (Y \cup Z)$.
 
