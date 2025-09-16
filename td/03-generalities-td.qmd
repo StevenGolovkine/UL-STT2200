@@ -44,8 +44,20 @@ Pour chacun des scénarios suivants, dire si c'est un problème de classificatio
 
 5. On veut identifier l'espèce d'un animal à partir de mesures morphologiques (longeur des pattes, poids, longueur du museau) collectées dans les parcs nationaux. On observe des castors, des ours noirs, des cerfs et des wapitis. En tout, on observe $1000$ animaux.
 
+## Exercice 3 : Une mise en situation 
 
-## Exercice 3 : Validation croisée *leave-one-out*
+Une chercheuse en sciences politiques souhaite étudier les caractéristiques de certains élus canadiens. Elle a monté une base de données avec $151$ élus. Pour chaque élus, la base de données contient des variables qualitatives (genre, langue, parti politique, ...) et ordinales (niveau de scolarité, tranche d'âge au moment de l'élection, ...). Elle souhaite visualiser ses données pour mieux comprendre les caractéristiques des élus et les regrouper selon leurs caractéristiques.
 
+Proposer un plan de travail : identifier toutes les étapes de l'analyse (en commençant par la définition de l'objectif) et associer un nombre d'heures approximatif à chaque étape.
 
-Preuve de la formule (5.2) de ISLR
+## Exercice 4 : Calcul de distance
+
+1. Un robot commence à la position $(0, 0)$. Calculer la distance la plus courte que le robot doive parcourir pour aller à la position $(8, 6)$.
+
+2. Un taxi New-Yorkais dois aller de l'angle de la 5th avenue et 42nd street (New York public library) à l'angle de la 1st avenue et 114th street (Thomas Jefferson park). Calculer la distance que le taxi va faire. 
+
+3. Une entreprise de transport utilise les coordonnées GPS pour calculer les distances entre son entrepôt et deux de ses clients. Les coordonnées de l'entrepôt sont $(10, 15)$, les coordonnées du premier client sont $(18, 22)$ et les coordonnées du deuxième client sont $(5, 8)$. Quel est le client le plus proche de l'entrepôt à vol d'oiseau. Est-ce le même client qui est le plus proche de l'entrepôt pour un camion qui suivrait des routes, réparties en grille.
+
+4. Considérons un système de communication qui envoie des messages encodés sur 4 bits. Ce système envoie les messages suivants: "1001" et "1101". Quelle est la distance de Hamming entre ces deux messages ? Si un système de détection d'erreurs peut détecter des erreurs de 2 bits, est-ce que la différence entre les deux messages est détectable ?
+
+5. Trois utilisateurs ont aimé les films suivants: $\{ \text{Titanic}, \text{Avatar}, \text{Star Wars}, \text{Matrix}, \text{Inception} \}$, $\{ \text{Avatar}, \text{Matrix}, \text{Batman}, \text{Superman}, \text{Inception} \}$ et $\{ \text{Inception}, \text{Avengers}, \text{Spiderman}, \text{Superman}, \text{Batman} \}$. Quels sont les utilisateurs les plus proches basés sur la distance de Hamming ?

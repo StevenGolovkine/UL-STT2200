@@ -45,3 +45,38 @@ Vous pouvez faire les exercices dans le langage de votre choix.
 * tableaux de fréquences pour les variables qualitatives;
 
 * etc.
+
+## Exercice 2 : Compromis biais-variance
+
+Dans cet exercice, on se propose d'illustrer le compromis biais-variance à l'aide de données simulées et d'un modèle de régression. On fait l'hypothèse que le vrai modèle de nos données est 
+$$f(x) = 3 + 8 x + 2 x^2.$$
+
+1. Simuler un ensemble de données $(X, Y)$ tel que $Y = f(X) + \epsilon$, avec $X \sim \mathcal{N}(0, 1)$, $\epsilon \sim \mathcal{N}(0, \sigma^2)$ et $\sigma^2 = 5$.
+
+2. Ajuster un modèle linéaire de la forme $Y = \beta_{0} + \beta_{1} X$. En R, la fonction standard est `lm`. En Python, vous pouvez utiliser la fonction `ols` du package `statsmodels`.
+
+3. Calculer $\widehat{Y}$ en utilisant $X$ généré à la question 1.
+
+4. Calculer l'erreur quadratique moyenne sur le jeu d'entraînement. 
+
+5. Simuler un jeu de données de validation et calculer l'erreur quadratique moyenne, le biais et la variance du modèle sur ce jeu de validation.
+
+6. Refaire les questions 2 à 5, mais avec en ajustant un modèle linéaire avec un polynôme d'ordre 2.
+
+7. Refaire les questions 2 à 5, mais avec en ajustant un modèle linéaire avec un polynôme d'ordre 10.
+
+8. Conclure quant au compromis biais-variance et la complexité du modèle.
+
+## Exercice 3 : Validation croisée 
+
+En pratique, nous ne connaissons pas la vraie fonction $f(x)$. Pour évaluer la qualité de notre modèle, on peut utiliser la validation croisée. Notez que le but de cet exercice est de faire votre propre code et non d'utiliser des fonctions déjà faites.
+
+1. Simuler un jeu de données en utilisant le modèle de l'exercice 2.
+
+2. Faire une validation croisée avec $K = 3$ pour évaluer le modèle de régression linéaire simple (sans polynôme d'ordre supérieur) en utilisant l'erreur quadratique moyenne.
+
+3. Faire la même chose avec le modèle de régression linéaire avec un polynôme d'ordre 2.
+
+4. Faire la même chose avec le modèle de régression linéaire avec un polynôme d'ordre 10.
+
+5. Conclure quant à l'utilisation de la validation croisée.
