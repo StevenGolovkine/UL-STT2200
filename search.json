@@ -1148,6 +1148,20 @@
     "text": "Exercice 1 : Nettoyage et exploration de données\n\nTélécharger le jeu de données suivant: lien\nNettoyer le jeu de données. En particulier, on s’intéressera aux points suivant :\n\n\nencodage des valeurs manquantes;\ngestion des valeurs extrêmes;\ngestion des valeurs abberantes;\ngestion des doublons;\nharmonisation des dates;\nsuppression des tirets, points, … dans les numéros de téléphone.\ngestion des titres (Mr., Ms., Dr., …) dans les noms;\nharmonisation des pays;\nconversion des Oui/Non en TRUE/FALSE;\netc.\n\n\nFaire une exploration unidimensionelle/bidimensionelle. En particulier, on pourra faire :\n\n\ngraphiques des données quantitatives;\ncalcul de corrélations;\ntableaux de fréquences pour les variables qualitatives;\netc."
   },
   {
+    "objectID": "tp/03-generalities-tp.html#exercice-2-compromis-biais-variance",
+    "href": "tp/03-generalities-tp.html#exercice-2-compromis-biais-variance",
+    "title": "TP: Généralités",
+    "section": "Exercice 2 : Compromis biais-variance",
+    "text": "Exercice 2 : Compromis biais-variance\nDans cet exercice, on se propose d’illustrer le compromis biais-variance à l’aide de données simulées et d’un modèle de régression. On fait l’hypothèse que le vrai modèle de nos données est \\[f(x) = 3 + 8 x + 2 x^2.\\]\n\nSimuler un ensemble de données \\((X, Y)\\) tel que \\(Y = f(X) + \\epsilon\\), avec \\(X \\sim \\mathcal{N}(0, 1)\\), \\(\\epsilon \\sim \\mathcal{N}(0, \\sigma^2)\\) et \\(\\sigma^2 = 5\\).\nAjuster un modèle linéaire de la forme \\(Y = \\beta_{0} + \\beta_{1} X\\). En R, la fonction standard est lm. En Python, vous pouvez utiliser la fonction ols du package statsmodels.\nCalculer \\(\\widehat{Y}\\) en utilisant \\(X\\) généré à la question 1.\nCalculer l’erreur quadratique moyenne sur le jeu d’entraînement.\nSimuler un jeu de données de validation et calculer l’erreur quadratique moyenne, le biais et la variance du modèle sur ce jeu de validation.\nRefaire les questions 2 à 5, mais avec en ajustant un modèle linéaire avec un polynôme d’ordre 2.\nRefaire les questions 2 à 5, mais avec en ajustant un modèle linéaire avec un polynôme d’ordre 10.\nConclure quant au compromis biais-variance et la complexité du modèle."
+  },
+  {
+    "objectID": "tp/03-generalities-tp.html#exercice-3-validation-croisée",
+    "href": "tp/03-generalities-tp.html#exercice-3-validation-croisée",
+    "title": "TP: Généralités",
+    "section": "Exercice 3 : Validation croisée",
+    "text": "Exercice 3 : Validation croisée\nEn pratique, nous ne connaissons pas la vraie fonction \\(f(x)\\). Pour évaluer la qualité de notre modèle, on peut utiliser la validation croisée. Notez que le but de cet exercice est de faire votre propre code et non d’utiliser des fonctions déjà faites.\n\nSimuler un jeu de données en utilisant le modèle de l’exercice 2.\nFaire une validation croisée avec \\(K = 3\\) pour évaluer le modèle de régression linéaire simple (sans polynôme d’ordre supérieur) en utilisant l’erreur quadratique moyenne.\nFaire la même chose avec le modèle de régression linéaire avec un polynôme d’ordre 2.\nFaire la même chose avec le modèle de régression linéaire avec un polynôme d’ordre 10.\nConclure quant à l’utilisation de la validation croisée."
+  },
+  {
     "objectID": "tp/04-dimension-tp.html",
     "href": "tp/04-dimension-tp.html",
     "title": "TP: Dimension",
@@ -1176,11 +1190,18 @@
     "text": "Exercice 2 : Différent scénarios\nPour chacun des scénarios suivants, dire si c’est un problème de classification ou de régression et si c’est un problème d’inférence ou de prédiction, donner le nombre d’observations et l’ensemble mathématique dans lequel ces observations vivent, donner une distance possible pour comparer les observations.\n\nOn voudrait savoir si une personne hospitalisée au Québec à une chance de développer une complication respiratoire. Pour cela, on se rend dans 5 hôpitaux de la province et on demande à 100 patients dans chacun des hôpitaux s’ils ont eu une complication respiratoire, ainsi que leur âge, leur IMC et leur statut vaccinal.\nOn cherche à modéliser le prix de vente des maisons à Québec en fonction de leur surface, du nombres de chambres et de la présence d’un garage. Il y a \\(2000\\) ventes dans la base de données.\nOn s’intéresse à la concentration quotidienne de particules fines (PM2.5) dans l’air à Québec sur une année. De plus, on mesure la température, le vent et l’humidité.\nUn sondage est mené auprès de \\(2000\\) résidents canadiens pour évaluer leur niveau de satisfaction vis-à-vis des services publics (santé, éducation, transport, etc.). On recueille les réponses sur une échelle de 1 (très insatisfait) à 5 (très satisfait), ainsi que des informations démographiques comme l’âge, la province de résidence, le revenu et le niveau d’éducation.\nOn veut identifier l’espèce d’un animal à partir de mesures morphologiques (longeur des pattes, poids, longueur du museau) collectées dans les parcs nationaux. On observe des castors, des ours noirs, des cerfs et des wapitis. En tout, on observe \\(1000\\) animaux."
   },
   {
-    "objectID": "td/03-generalities-td.html#exercice-3-validation-croisée-leave-one-out",
-    "href": "td/03-generalities-td.html#exercice-3-validation-croisée-leave-one-out",
+    "objectID": "td/03-generalities-td.html#exercice-3-une-mise-en-situation",
+    "href": "td/03-generalities-td.html#exercice-3-une-mise-en-situation",
     "title": "TD: Généralités",
-    "section": "Exercice 3 : Validation croisée leave-one-out",
-    "text": "Exercice 3 : Validation croisée leave-one-out\nPreuve de la formule (5.2) de ISLR"
+    "section": "Exercice 3 : Une mise en situation",
+    "text": "Exercice 3 : Une mise en situation\nUne chercheuse en sciences politiques souhaite étudier les caractéristiques de certains élus canadiens. Elle a monté une base de données avec \\(151\\) élus. Pour chaque élus, la base de données contient des variables qualitatives (genre, langue, parti politique, …) et ordinales (niveau de scolarité, tranche d’âge au moment de l’élection, …). Elle souhaite visualiser ses données pour mieux comprendre les caractéristiques des élus et les regrouper selon leurs caractéristiques.\nProposer un plan de travail : identifier toutes les étapes de l’analyse (en commençant par la définition de l’objectif) et associer un nombre d’heures approximatif à chaque étape."
+  },
+  {
+    "objectID": "td/03-generalities-td.html#exercice-4-calcul-de-distance",
+    "href": "td/03-generalities-td.html#exercice-4-calcul-de-distance",
+    "title": "TD: Généralités",
+    "section": "Exercice 4 : Calcul de distance",
+    "text": "Exercice 4 : Calcul de distance\n\nUn robot commence à la position \\((0, 0)\\). Calculer la distance la plus courte que le robot doive parcourir pour aller à la position \\((8, 6)\\).\nUn taxi New-Yorkais dois aller de l’angle de la 5th avenue et 42nd street (New York public library) à l’angle de la 1st avenue et 114th street (Thomas Jefferson park). Calculer la distance que le taxi va faire.\nUne entreprise de transport utilise les coordonnées GPS pour calculer les distances entre son entrepôt et deux de ses clients. Les coordonnées de l’entrepôt sont \\((10, 15)\\), les coordonnées du premier client sont \\((18, 22)\\) et les coordonnées du deuxième client sont \\((5, 8)\\). Quel est le client le plus proche de l’entrepôt à vol d’oiseau. Est-ce le même client qui est le plus proche de l’entrepôt pour un camion qui suivrait des routes, réparties en grille.\nConsidérons un système de communication qui envoie des messages encodés sur 4 bits. Ce système envoie les messages suivants: “1001” et “1101”. Quelle est la distance de Hamming entre ces deux messages ? Si un système de détection d’erreurs peut détecter des erreurs de 2 bits, est-ce que la différence entre les deux messages est détectable ?\nTrois utilisateurs ont aimé les films suivants: \\(\\{ \\text{Titanic}, \\text{Avatar}, \\text{Star Wars}, \\text{Matrix}, \\text{Inception} \\}\\), \\(\\{ \\text{Avatar}, \\text{Matrix}, \\text{Batman}, \\text{Superman}, \\text{Inception} \\}\\) et \\(\\{ \\text{Inception}, \\text{Avengers}, \\text{Spiderman}, \\text{Superman}, \\text{Batman} \\}\\). Quels sont les utilisateurs les plus proches basés sur la distance de Hamming ?"
   },
   {
     "objectID": "index.html",

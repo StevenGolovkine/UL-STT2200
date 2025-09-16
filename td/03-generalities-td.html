@@ -567,7 +567,8 @@ window.Quarto = {
   <ul>
   <li><a href="#exercice-1-preuve-de-la-distance-de-jaccard" id="toc-exercice-1-preuve-de-la-distance-de-jaccard" class="nav-link active" data-scroll-target="#exercice-1-preuve-de-la-distance-de-jaccard">Exercice 1 : Preuve de la distance de Jaccard</a></li>
   <li><a href="#exercice-2-différent-scénarios" id="toc-exercice-2-différent-scénarios" class="nav-link" data-scroll-target="#exercice-2-différent-scénarios">Exercice 2 : Différent scénarios</a></li>
-  <li><a href="#exercice-3-validation-croisée-leave-one-out" id="toc-exercice-3-validation-croisée-leave-one-out" class="nav-link" data-scroll-target="#exercice-3-validation-croisée-leave-one-out">Exercice 3 : Validation croisée <em>leave-one-out</em></a></li>
+  <li><a href="#exercice-3-une-mise-en-situation" id="toc-exercice-3-une-mise-en-situation" class="nav-link" data-scroll-target="#exercice-3-une-mise-en-situation">Exercice 3 : Une mise en situation</a></li>
+  <li><a href="#exercice-4-calcul-de-distance" id="toc-exercice-4-calcul-de-distance" class="nav-link" data-scroll-target="#exercice-4-calcul-de-distance">Exercice 4 : Calcul de distance</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/td/03-generalities-td.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="03-generalities-td.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -619,9 +620,20 @@ window.Quarto = {
 <li><p>On veut identifier l’espèce d’un animal à partir de mesures morphologiques (longeur des pattes, poids, longueur du museau) collectées dans les parcs nationaux. On observe des castors, des ours noirs, des cerfs et des wapitis. En tout, on observe <span class="math inline">\(1000\)</span> animaux.</p></li>
 </ol>
 </section>
-<section id="exercice-3-validation-croisée-leave-one-out" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-3-validation-croisée-leave-one-out">Exercice 3 : Validation croisée <em>leave-one-out</em></h2>
-<p>Preuve de la formule (5.2) de ISLR</p>
+<section id="exercice-3-une-mise-en-situation" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-3-une-mise-en-situation">Exercice 3 : Une mise en situation</h2>
+<p>Une chercheuse en sciences politiques souhaite étudier les caractéristiques de certains élus canadiens. Elle a monté une base de données avec <span class="math inline">\(151\)</span> élus. Pour chaque élus, la base de données contient des variables qualitatives (genre, langue, parti politique, …) et ordinales (niveau de scolarité, tranche d’âge au moment de l’élection, …). Elle souhaite visualiser ses données pour mieux comprendre les caractéristiques des élus et les regrouper selon leurs caractéristiques.</p>
+<p>Proposer un plan de travail : identifier toutes les étapes de l’analyse (en commençant par la définition de l’objectif) et associer un nombre d’heures approximatif à chaque étape.</p>
+</section>
+<section id="exercice-4-calcul-de-distance" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-4-calcul-de-distance">Exercice 4 : Calcul de distance</h2>
+<ol type="1">
+<li><p>Un robot commence à la position <span class="math inline">\((0, 0)\)</span>. Calculer la distance la plus courte que le robot doive parcourir pour aller à la position <span class="math inline">\((8, 6)\)</span>.</p></li>
+<li><p>Un taxi New-Yorkais dois aller de l’angle de la 5th avenue et 42nd street (New York public library) à l’angle de la 1st avenue et 114th street (Thomas Jefferson park). Calculer la distance que le taxi va faire.</p></li>
+<li><p>Une entreprise de transport utilise les coordonnées GPS pour calculer les distances entre son entrepôt et deux de ses clients. Les coordonnées de l’entrepôt sont <span class="math inline">\((10, 15)\)</span>, les coordonnées du premier client sont <span class="math inline">\((18, 22)\)</span> et les coordonnées du deuxième client sont <span class="math inline">\((5, 8)\)</span>. Quel est le client le plus proche de l’entrepôt à vol d’oiseau. Est-ce le même client qui est le plus proche de l’entrepôt pour un camion qui suivrait des routes, réparties en grille.</p></li>
+<li><p>Considérons un système de communication qui envoie des messages encodés sur 4 bits. Ce système envoie les messages suivants: “1001” et “1101”. Quelle est la distance de Hamming entre ces deux messages ? Si un système de détection d’erreurs peut détecter des erreurs de 2 bits, est-ce que la différence entre les deux messages est détectable ?</p></li>
+<li><p>Trois utilisateurs ont aimé les films suivants: <span class="math inline">\(\{ \text{Titanic}, \text{Avatar}, \text{Star Wars}, \text{Matrix}, \text{Inception} \}\)</span>, <span class="math inline">\(\{ \text{Avatar}, \text{Matrix}, \text{Batman}, \text{Superman}, \text{Inception} \}\)</span> et <span class="math inline">\(\{ \text{Inception}, \text{Avengers}, \text{Spiderman}, \text{Superman}, \text{Batman} \}\)</span>. Quels sont les utilisateurs les plus proches basés sur la distance de Hamming ?</p></li>
+</ol>
 
 
 </section>
