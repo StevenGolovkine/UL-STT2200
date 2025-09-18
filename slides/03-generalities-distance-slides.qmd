@@ -244,9 +244,9 @@ $$s(x, y) = \frac{1}{p}\sum_{i=1}^{p} \mathbb{1}(x_i = y_i)$$
 
 Exemple précédent :
 
-- $s(\text{Alice}, \text{Bob}) = \frac{1}{3}$
+- $s(\text{Alice}, \text{Bob}) = 0$
 
-- $s(\text{Alice}, \text{Chris}) = \frac{2}{3}$  
+- $s(\text{Alice}, \text{Chris}) = 1$  
 
 - $s(\text{Bob}, \text{Chris}) = 0$
 
