@@ -103,20 +103,10 @@ Cas particuliers :
 
 | Nom | Taille (cm) | Poids (kg) |
 |:---:|:----------:|:---------:|
-| Alice | 170 | 69 |
-| Bob | 174 | 72 |
+| Alice | 165 | 70 |
+| Bob | 177 | 75 |
 
-. . .
 
-Distance euclidienne :
-
-$$d(\text{Alice}, \text{Bob}) = \sqrt{(170 - 174)^2 + (69 - 72)^2} = 5.$$
-
-. . .
-
-Distance de Manhattan :
-
-$$d(\text{Alice}, \text{Bob}) = |170 - 174| + |69 - 72| = 7.$$
 
 
 ## Problème d'échelle
@@ -235,15 +225,11 @@ $$d(x, y) = \sum_{i=1}^{p} \mathbb{1}(x_i \neq y_i)$$
 
 | Nom | Couleur | Yeux | Cheveux |
 |:---:|:-------:|:----:|:-------:|
-| Alice | Rouge | Bleu | Blond |
+| Alice | Rouge | Vert | Blond |
 | Bob | Vert | Bleu | Roux |
 | Chris | Rouge | Vert | Blond |
 
-. . .
 
-$$d(\text{Alice}, \text{Bob}) = 1 + 0 + 1 = 2$$
-$$d(\text{Alice}, \text{Chris}) = 0 + 1 + 0 = 1$$
-$$d(\text{Bob}, \text{Chris}) = 1 + 1 + 1 = 3$$
 
 
 ## Similarité par accords
@@ -317,16 +303,10 @@ Intuition : Proportion de désaccords parmi les variables "actives".
 
 | Nom | Q1 | Q2 | Q3 | Q4 | Q5 |
 |:---:|:--:|:--:|:--:|:--:|:--:|
-| Alice | 1 | 0 | 1 | 0 | 0 |
+| Alice | 1 | 0 | 1 | 0 | 1 |
 | Bob | 1 | 0 | 0 | 1 | 0 |
 
-. . .
 
-- $M_{11} = 1$, $M_{10} = 1$, $M_{01} = 1$, $M_{00} = 2$
-
-- $J(\text{Alice}, \text{Bob}) = \frac{1}{3}$
-
-- $d(\text{Alice}, \text{Bob}) = \frac{2}{3}$
 
 
 ## Récapitulatif des distances
