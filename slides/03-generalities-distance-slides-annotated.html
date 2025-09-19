@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr"><head>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/slides/06-unsupervised-kmeans-slides.html" />
-<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/slides/06-unsupervised-kmeans-slides.en.html" />
+<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/slides/03-generalities-distance-slides-annotated.html" />
+<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/slides/03-generalities-distance-slides-annotated.en.html" />
 <script src="../site_libs/quarto-html/tabby.min.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -12,7 +12,7 @@
   <meta name="generator" content="quarto-1.8.24">
 
   <meta name="author" content="Steven Golovkine">
-  <title>STT-2200: Analyse de données – Non-supervisée</title>
+  <title>STT-2200: Analyse de données – Généralités</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -125,8 +125,8 @@
       margin-right: 0; 
     }
   </style>
-<meta property="og:title" content="Non-supervisée – STT-2200: Analyse de données">
-<meta property="og:description" content="\(k\)-moyennes">
+<meta property="og:title" content="Généralités – STT-2200: Analyse de données">
+<meta property="og:description" content="Distances">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
 <body class="quarto-light">
@@ -134,8 +134,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Non-supervisée</h1>
-  <p class="subtitle"><span class="math inline">\(k\)</span>-moyennes</p>
+  <h1 class="title">Généralités</h1>
+  <p class="subtitle">Distances</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -145,256 +145,394 @@ Steven Golovkine
 </div>
 </div>
 
-  <p class="date">19 sept. 2025</p>
+  <p class="date">12 sept. 2024</p>
   <figure>
     <center>
       <img src="../include/logo-ul.png" alt="logo" width="40%">
     </center>
   </figure>
 </section>
-<section>
-<section id="classification-non-supervisée" class="title-slide slide level1 center">
-<h1>Classification non-supervisée</h1>
-
-</section>
-<section id="objectif-de-la-classification-non-supervisée" class="slide level2">
-<h2>Objectif de la classification non-supervisée</h2>
+<section id="pourquoi-les-distances" class="slide level2">
+<h2>Pourquoi les distances ?</h2>
+<p><br></p>
+<p>Dans tout projet d’analyse de données, il faut pouvoir quantifier la <strong>ressemblance</strong> ou la <strong>dissemblance</strong> entre observations.</p>
 <div class="fragment">
-<p><strong>Données</strong> <span class="math inline">\(n\)</span> observations <span class="math inline">\(X_1, \ldots, X_n\)</span> décrites par <span class="math inline">\(p\)</span> variables numériques</p>
-</div>
-<div class="fragment">
-<p><strong>Préparation</strong> Variables généralement standardisées pour éviter les effets d’échelle</p>
-</div>
-<div class="fragment">
-<p><strong>Objectif</strong> Regrouper en <span class="math inline">\(K\)</span> groupes tels que : 1. <strong>Intra-groupe</strong> : Observations similaires 2. <strong>Inter-groupe</strong> : Groupes distincts</p>
+<p>Impact direct sur :</p>
+<ul>
+<li><p>Algorithmes d’apprentissage</p></li>
+<li><p>Méthodes de regroupement</p></li>
+<li><p>Techniques de visualisation</p></li>
+</ul>
 </div>
 </section>
-<section id="fonction-de-classification" class="slide level2">
-<h2>Fonction de classification</h2>
-<div class="fragment">
-<p><strong>Définition</strong> <span class="math display">\[C: \{1, \ldots, n\} \to \{1, \ldots, K\}\]</span> Associe à chaque observation <span class="math inline">\(i\)</span> une étiquette de groupe <span class="math inline">\(C(i)\)</span></p>
-</div>
-<div class="fragment">
-<p><strong>Fonction de coût</strong> <span class="math display">\[W(C) = \sum_{k=1}^{K} \sum_{i: C(i)=k} \sum_{j: C(j)=k} d(X_i, X_j)\]</span> où <span class="math inline">\(d(X_i, X_j)\)</span> mesure la dissimilarité entre observations</p>
-</div>
-<div class="fragment">
-<p><strong>Objectif</strong> : Minimiser <span class="math inline">\(W(C)\)</span> (cohésion intra-groupe)</p>
-</div>
-</section>
-<section id="complexité-du-problème" class="slide level2">
-<h2>Complexité du problème</h2>
-<div class="fragment">
-<p><strong>Problème d’optimisation combinatoire</strong> - <span class="math inline">\(K^n\)</span> combinaisons possibles - Exploration exhaustive impossible même pour petites valeurs</p>
-</div>
-<div class="fragment">
-<p><strong>Solution pratique : Algorithmes gloutons</strong> - Exploration d’un sous-ensemble restreint - Amélioration itérative progressive - Convergence vers un <strong>minimum local</strong></p>
-</div>
-<div class="fragment">
-<p><strong>Hypothèses</strong> 1. Variables numériques, souvent centrées-réduites 2. Nombre de groupes <span class="math inline">\(K\)</span> fixé à l’avance</p>
-</div>
-</section></section>
-<section>
-<section id="algorithme-k-moyennes" class="title-slide slide level1 center">
-<h1>Algorithme <span class="math inline">\(k\)</span>-moyennes</h1>
-
-</section>
-<section id="principe-général" class="slide level2">
-<h2>Principe général</h2>
-<div class="fragment">
-<p><strong>Objectif</strong> Regrouper <span class="math inline">\(n\)</span> observations en <span class="math inline">\(K\)</span> groupes homogènes</p>
-</div>
-<div class="fragment">
-<p><strong>Mesure de dissimilarité</strong> Généralement la <strong>distance euclidienne</strong> pour données quantitatives</p>
-</div>
-<div class="fragment">
-<p><strong>Stratégie</strong> - Observations proches au sein d’un groupe - Groupes éloignés entre eux</p>
-</div>
-</section>
-<section id="algorithme-détaillé" class="slide level2">
-<h2>Algorithme détaillé</h2>
+<section id="plan" class="slide level2">
+<h2>Plan</h2>
+<p><br></p>
 <ol type="1">
-<li class="fragment"><p><strong>Choix de <span class="math inline">\(K\)</span></strong> : Nombre de groupes fixé à l’avance</p></li>
-<li class="fragment"><p><strong>Initialisation</strong> : Partition aléatoire ou centres initiaux aléatoires</p></li>
-<li class="fragment"><p><strong>Calcul des centroïdes</strong> : <span class="math display">\[\mu_k = \frac{1}{N_k} \sum_{i: C(i)=k} X_i\]</span></p></li>
-<li class="fragment"><p><strong>Réaffectation</strong> : Chaque observation au centre le plus proche</p></li>
-<li class="fragment"><p><strong>Itération</strong> : Répéter 3-4 jusqu’à stabilisation</p></li>
+<li><p>Notion de distance - Définition mathématique</p></li>
+<li><p>Distances numériques - <span class="math inline">\(L_q\)</span>, euclidienne, Manhattan</p></li>
+<li><p>Notion de similarité - Concept opposé</p></li>
+<li><p>Variables qualitatives - Encodages et distances adaptées</p></li>
+<li><p>Distance de Jaccard - Cas des variables binaires</p></li>
 </ol>
 </section>
-<section id="convergence" class="slide level2">
-<h2>Convergence</h2>
-<div class="fragment">
-<p><strong>Garantie de convergence</strong> En nombre fini d’itérations</p>
+<section id="définition-mathématique" class="slide level2">
+<h2>Définition mathématique</h2>
+<div class="callout callout-warning no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Distance sur <span class="math inline">\(\mathcal{X}\)</span></strong></p>
 </div>
-<div class="fragment">
-<p><strong>Mécanisme</strong> Chaque étape réduit l’<strong>inertie intra-groupe</strong> (somme des distances observations ↔︎ centroïdes)</p>
-</div>
-<div class="fragment">
-<p><strong>⚠️ Limitation importante</strong> Convergence vers un <strong>minimum local</strong>, pas nécessairement global</p>
-</div>
-</section>
-<section id="limites-des-k-moyennes" class="slide level2">
-<h2>Limites des <span class="math inline">\(k\)</span>-moyennes</h2>
+<div class="callout-content">
+<p>Une fonction <span class="math inline">\(d: \mathcal{X} \times \mathcal{X} \to \mathbb{R}\)</span> est une distance si :</p>
 <ol type="1">
-<li class="fragment"><strong>Sensibilité à l’initialisation</strong>
-<ul>
-<li class="fragment">Résultats variables selon centres initiaux</li>
-<li class="fragment">Solution : Algorithme <span class="math inline">\(k\)</span>-means++</li>
-</ul></li>
-<li class="fragment"><strong>Choix de <span class="math inline">\(K\)</span> à l’avance</strong>
-<ul>
-<li class="fragment">Pas toujours évident</li>
-<li class="fragment">Critères : Silhouette, méthode du coude, BIC/AIC</li>
-</ul></li>
-<li class="fragment"><strong>Coût computationnel</strong>
-<ul>
-<li class="fragment">Recalcul de toutes les distances à chaque itération</li>
-<li class="fragment">Problématique pour grand <span class="math inline">\(n\)</span> ou <span class="math inline">\(p\)</span></li>
-</ul></li>
-</ol>
-</section>
-<section id="limites-suite" class="slide level2">
-<h2>Limites (suite)</h2>
-<div class="fragment">
-<ol start="4" type="1">
-<li><strong>Sensibilité aux valeurs extrêmes</strong>
-<ul>
-<li>La moyenne influencée par observations atypiques</li>
-<li>Centroïdes faussés</li>
-<li>Regroupements incohérents</li>
-</ul></li>
+<li><p>Non-négativité : <span class="math inline">\(d(x, y) \geq 0\)</span></p></li>
+<li><p>Séparation : <span class="math inline">\(d(x, y) = 0 \Leftrightarrow x = y\)</span></p></li>
+<li><p>Symétrie : <span class="math inline">\(d(x, y) = d(y, x)\)</span></p></li>
+<li><p>Inégalité triangulaire : <span class="math inline">\(d(x, y) \leq d(x, z) + d(y, z)\)</span></p></li>
 </ol>
 </div>
-<div class="fragment">
-<p><strong>Conséquence</strong> Nécessité de prétraiter les données (détection d’outliers)</p>
 </div>
-</section></section>
-<section>
-<section id="algorithme-k-médoïdes" class="title-slide slide level1 center">
-<h1>Algorithme <span class="math inline">\(k\)</span>-médoïdes</h1>
-
-</section>
-<section id="principe-des-k-médoïdes" class="slide level2">
-<h2>Principe des <span class="math inline">\(k\)</span>-médoïdes</h2>
-<div class="fragment">
-<p><strong>Différence fondamentale</strong> Utilise des <strong>observations réelles</strong> comme représentants (pas des moyennes)</p>
-</div>
-<div class="fragment">
-<p><strong>Médoïde</strong> Observation qui minimise la somme des distances aux autres observations du même groupe</p>
-</div>
-<div class="fragment">
-<p><strong>Avantage conceptuel</strong> Représentants concrets et interprétables</p>
 </div>
 </section>
-<section id="avantages-des-k-médoïdes" class="slide level2">
-<h2>Avantages des <span class="math inline">\(k\)</span>-médoïdes</h2>
-<ol type="1">
-<li class="fragment"><strong>Robustesse aux valeurs extrêmes</strong>
+<section id="distance-euclidienne" class="slide level2">
+<h2>Distance euclidienne</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Définition</strong></p>
+</div>
+<div class="callout-content">
+<p>Pour <span class="math inline">\(x, y \in \mathbb{R}^p\)</span> :</p>
+<p><span class="math display">\[d(x, y) = \left\| x - y \right\|_2 = \sqrt{\sum_{i=1}^{p} (x_i - y_i)^2}\]</span></p>
+<p>Quand l’utiliser : Variables numériques de même ordre de grandeur.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="distance-euclidienne-preuve" class="slide level2">
+<h2>Distance euclidienne (preuve)</h2>
+</section>
+<section id="distance-l_q-minkowski" class="slide level2">
+<h2>Distance <span class="math inline">\(L_q\)</span> (Minkowski)</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Formule générale :</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[d(x, y) = \left( \sum_{i=1}^{p} |x_i - y_i|^q \right)^{1/q}\]</span></p>
+<p>Cas particuliers :</p>
 <ul>
-<li class="fragment">Médoïdes moins sensibles que moyennes</li>
-<li class="fragment">Meilleure résistance aux outliers</li>
-</ul></li>
-<li class="fragment"><strong>Compatibilité étendue</strong>
-<ul>
-<li class="fragment">Variables ordinales ou catégorielles</li>
-<li class="fragment">Mesures de dissimilarité personnalisées</li>
-</ul></li>
-<li class="fragment"><strong>Flexibilité</strong>
-<ul>
-<li class="fragment">Matrice de dissimilarité sur mesure</li>
-<li class="fragment">Adaptée à la nature des données</li>
-</ul></li>
-</ol>
-</section>
-<section id="inconvénients-des-k-médoïdes" class="slide level2">
-<h2>Inconvénients des <span class="math inline">\(k\)</span>-médoïdes</h2>
-<div class="fragment">
-<p><strong>Problèmes partagés avec <span class="math inline">\(k\)</span>-moyennes</strong> - Choix de <span class="math inline">\(K\)</span> à l’avance - Convergence vers minimum local</p>
+<li><p><span class="math inline">\(q = 1\)</span> : Distance de Manhattan → <span class="math inline">\(d(x, y) = \sum_{i=1}^{p} |x_i - y_i|\)</span></p></li>
+<li><p><span class="math inline">\(q = 2\)</span> : Distance euclidienne</p></li>
+</ul>
 </div>
-<div class="fragment">
-<p><strong>Coût computationnel plus élevé</strong> - Calculs plus complexes pour identifier médoïdes - Particulièrement avec distances non-euclidiennes - Problématique pour grands jeux de données</p>
+</div>
 </div>
 </section>
-<section id="comparaison-des-méthodes" class="slide level2">
-<h2>Comparaison des méthodes</h2>
-<div class="fragment">
+<section id="exemple-concret-wooclap-kffpdj" class="slide level2">
+<h2>Exemple concret (WOOCLAP: KFFPDJ)</h2>
 <table class="caption-top">
 <thead>
 <tr class="header">
-<th>Aspect</th>
-<th><span class="math inline">\(k\)</span>-moyennes</th>
-<th><span class="math inline">\(k\)</span>-médoïdes</th>
+<th style="text-align: center;">Nom</th>
+<th style="text-align: center;">Taille (cm)</th>
+<th style="text-align: center;">Poids (kg)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Représentants</strong></td>
-<td>Centroïdes (moyennes)</td>
-<td>Observations réelles</td>
+<td style="text-align: center;">Alice</td>
+<td style="text-align: center;">165</td>
+<td style="text-align: center;">70</td>
 </tr>
 <tr class="even">
-<td><strong>Robustesse</strong></td>
-<td>Sensible aux outliers</td>
-<td>Plus robuste</td>
-</tr>
-<tr class="odd">
-<td><strong>Types de variables</strong></td>
-<td>Numériques</td>
-<td>Numériques + ordinales</td>
-</tr>
-<tr class="even">
-<td><strong>Coût computationnel</strong></td>
-<td>Modéré</td>
-<td>Plus élevé</td>
-</tr>
-<tr class="odd">
-<td><strong>Interprétabilité</strong></td>
-<td>Abstraite</td>
-<td>Concrète</td>
+<td style="text-align: center;">Bob</td>
+<td style="text-align: center;">177</td>
+<td style="text-align: center;">75</td>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="problème-déchelle" class="slide level2">
+<h2>Problème d’échelle</h2>
+<div class="callout callout-important no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Attention !</strong></p>
+</div>
+<div class="callout-content">
+<p>Les distances <span class="math inline">\(L_q\)</span> ne sont <strong>pas invariantes</strong> aux changements d’échelle.</p>
+</div>
+</div>
 </div>
 </section>
-<section id="critères-de-choix-de-k" class="slide level2">
-<h2>Critères de choix de <span class="math inline">\(K\)</span></h2>
-<ol type="1">
-<li class="fragment"><strong>Méthode du coude (Elbow method)</strong>
-<ul>
-<li class="fragment">Graphique inertie vs <span class="math inline">\(K\)</span></li>
-<li class="fragment">Recherche du “coude”</li>
-</ul></li>
-<li class="fragment"><strong>Coefficient de silhouette</strong>
-<ul>
-<li class="fragment">Mesure qualité des groupes</li>
-<li class="fragment">Valeurs entre -1 et 1</li>
-</ul></li>
-<li class="fragment"><strong>Critères d’information</strong>
-<ul>
-<li class="fragment">BIC, AIC en cadre probabiliste</li>
-<li class="fragment">Pénalisent la complexité</li>
-</ul></li>
-</ol>
-</section>
-<section id="points-clés-à-retenir" class="slide level2">
-<h2>Points clés à retenir</h2>
-<ul>
-<li class="fragment"><strong>Classification non-supervisée</strong> : Découverte de structure sans étiquettes</li>
-<li class="fragment"><strong><span class="math inline">\(k\)</span>-moyennes</strong> : Méthode classique, efficace mais limitations</li>
-<li class="fragment"><strong><span class="math inline">\(k\)</span>-médoïdes</strong> : Alternative robuste, coût plus élevé</li>
-<li class="fragment"><strong>Choix de <span class="math inline">\(K\)</span></strong> : Crucial, plusieurs critères disponibles</li>
-<li class="fragment"><strong>Initialisation</strong> : Importante pour éviter minima locaux</li>
-<li class="fragment"><strong>Prétraitement</strong> : Standardisation et gestion des outliers essentielles</li>
-</ul>
-</section>
-<section id="merci-pour-votre-attention" class="slide level2">
-<h2>Merci pour votre attention</h2>
-<p><strong>Questions ?</strong></p>
+<section id="problème-déchelle---solution" class="slide level2">
+<h2>Problème d’échelle - solution</h2>
+<p><br></p>
+<p>Standardiser les variables !</p>
 <div class="fragment">
-<p><em>Classification non-supervisée : découvrir la structure cachée des données</em></p>
+<p>Distance euclidienne standardisée :</p>
+<p><span class="math display">\[d(x, y) = \sum_{i=1}^{p} \left( \frac{x_i - y_i}{\sigma_i} \right)^2\]</span></p>
+<p>où <span class="math inline">\(\sigma_i\)</span> = écart-type de la variable <span class="math inline">\(i\)</span>.</p>
 </div>
+</section>
+<section id="notion-de-similarité" class="slide level2">
+<h2>Notion de similarité</h2>
+<p><br></p>
+<div class="callout callout-warning no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Mesure de similarité sur <span class="math inline">\(\mathcal{X}\)</span></strong></p>
+</div>
+<div class="callout-content">
+<p>Une fonction <span class="math inline">\(s: \mathcal{X} \times \mathcal{X} \to \mathbb{R}\)</span> telle que :</p>
+<ol type="1">
+<li><p><span class="math inline">\(s(x, y) \geq 0\)</span></p></li>
+<li><p><span class="math inline">\(s(x, y) = s(y, x)\)</span> (symétrie)</p></li>
+<li><p><span class="math inline">\(s(x, x) = 1 \geq s(x, y)\)</span> (maximum pour soi-même)</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="conversion-distance-similarité" class="slide level2">
+<h2>Conversion distance ↔︎ similarité</h2>
+<p><br></p>
+<p>Distance → Similarité :</p>
+<p><span class="math display">\[s(x, y) = \frac{1}{1 + d(x, y)}\]</span></p>
+<div class="fragment">
+<p>⚠️ Une mesure de similarité ne respecte généralement pas l’inégalité triangulaire.</p>
+</div>
+<div class="fragment">
+<p>Similarité → Dissemblance :</p>
+<p><span class="math display">\[d^*(x, y) = 1 - s(x, y)\]</span></p>
+</div>
+</section>
+<section id="variables-qualitatives" class="slide level2">
+<h2>Variables qualitatives</h2>
+<p><br></p>
+<p>Problème : pour <span class="math inline">\(\mathcal{X} = \{\text{Rouge}, \text{Vert}, \text{Bleu}\}\)</span>.</p>
+<div class="fragment">
+<p><br></p>
+<p>❌ Mauvaise pratique :</p>
+<p>Rouge = 1, Vert = 2, Bleu = 3 → Introduit un ordre artificiel !</p>
+</div>
+<div class="fragment">
+<p><br></p>
+<p>✅ Bonne pratique : Encodage adapté</p>
+</div>
+</section>
+<section id="encodage-1-parmi-k-one-hot-encoding" class="slide level2">
+<h2>Encodage “1 parmi K” (<em>One-hot encoding</em>)</h2>
+<p><br></p>
+<ul>
+<li><p>Rouge → <span class="math inline">\((1, 0, 0)\)</span></p></li>
+<li><p>Vert → <span class="math inline">\((0, 1, 0)\)</span></p></li>
+<li><p>Bleu → <span class="math inline">\((0, 0, 1)\)</span></p></li>
+</ul>
+<div class="fragment">
+<p>Avantages : Pas d’ordre artificiel</p>
+<p>Inconvénients : Grande dimension si beaucoup de modalités</p>
+</div>
+</section>
+<section id="distance-discrète" class="slide level2">
+<h2>Distance discrète</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Distance de Hamming</strong></p>
+</div>
+<div class="callout-content">
+<p>Pour des vecteurs :</p>
+<p><span class="math display">\[d(x, y) = \sum_{i=1}^{p} \mathbb{1}(x_i \neq y_i)\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="exemple-distance-discrète-wooclap-kffpdj" class="slide level2">
+<h2>Exemple : Distance discrète (WOOCLAP: KFFPDJ)</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Nom</th>
+<th style="text-align: center;">Couleur</th>
+<th style="text-align: center;">Yeux</th>
+<th style="text-align: center;">Cheveux</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Alice</td>
+<td style="text-align: center;">Rouge</td>
+<td style="text-align: center;">Vert</td>
+<td style="text-align: center;">Blond</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Bob</td>
+<td style="text-align: center;">Vert</td>
+<td style="text-align: center;">Bleu</td>
+<td style="text-align: center;">Roux</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Chris</td>
+<td style="text-align: center;">Rouge</td>
+<td style="text-align: center;">Vert</td>
+<td style="text-align: center;">Blond</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="similarité-par-accords" class="slide level2">
+<h2>Similarité par accords</h2>
+<p><br></p>
+<p>Compter les accords normalisés :</p>
+<p><span class="math display">\[s(x, y) = \frac{1}{p}\sum_{i=1}^{p} \mathbb{1}(x_i = y_i)\]</span></p>
+<div class="fragment">
+<p>Exemple précédent :</p>
+<ul>
+<li><p><span class="math inline">\(s(\text{Alice}, \text{Bob}) = 0\)</span></p></li>
+<li><p><span class="math inline">\(s(\text{Alice}, \text{Chris}) = 1\)</span></p></li>
+<li><p><span class="math inline">\(s(\text{Bob}, \text{Chris}) = 0\)</span></p></li>
+</ul>
+</div>
+</section>
+<section id="problème-des-variables-binaires" class="slide level2">
+<h2>Problème des variables binaires</h2>
+<p><br></p>
+<p>Avec l’encodage “1 parmi K” :</p>
+<ul>
+<li><p>Beaucoup de variables binaires</p></li>
+<li><p>Beaucoup de 0, peu de 1</p></li>
+<li><p>Distance discrète peu informative</p></li>
+</ul>
+<div class="fragment">
+<p><strong>Solution :</strong> Se concentrer sur les attributs à 1 → Distance de Jaccard</p>
+</div>
+</section>
+<section id="indice-de-jaccard-définition" class="slide level2">
+<h2>Indice de Jaccard : Définition</h2>
+<p><br></p>
+<p>Pour deux observations de <span class="math inline">\(K\)</span> variables binaires :</p>
+<ul>
+<li><p><span class="math inline">\(M_{11}\)</span> : nombre de variables à 1 pour x et y</p></li>
+<li><p><span class="math inline">\(M_{10}\)</span> : nombre de variables à 1 pour x, 0 pour y</p></li>
+<li><p><span class="math inline">\(M_{01}\)</span> : nombre de variables à 0 pour x, 1 pour y</p></li>
+<li><p><span class="math inline">\(M_{00}\)</span> : nombre de variables à 0 pour x et y</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[J(x, y) = \frac{M_{11}}{M_{10} + M_{01} + M_{11}} = \frac{M_{11}}{K - M_{00}}\]</span></p>
+</div>
+</section>
+<section id="distance-de-jaccard" class="slide level2">
+<h2>Distance de Jaccard</h2>
+<p><br></p>
+<div class="callout callout-important no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Distance de Jaccard :</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[d(x, y) = 1 - J(x, y) = \frac{M_{10} + M_{01}}{M_{01} + M_{10} + M_{11}}\]</span></p>
+</div>
+</div>
+</div>
+<p>Intuition : Proportion de désaccords parmi les variables “actives”.</p>
+</section>
+<section id="exemple-distance-de-jaccard" class="slide level2">
+<h2>Exemple : Distance de Jaccard</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Nom</th>
+<th style="text-align: center;">Q1</th>
+<th style="text-align: center;">Q2</th>
+<th style="text-align: center;">Q3</th>
+<th style="text-align: center;">Q4</th>
+<th style="text-align: center;">Q5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Alice</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Bob</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="récapitulatif-des-distances" class="slide level2">
+<h2>Récapitulatif des distances</h2>
+<p><br></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Type de données</th>
+<th style="text-align: left;">Distance utilisable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Numériques</td>
+<td style="text-align: left;">Euclidienne (standardisée)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Qualitatives</td>
+<td style="text-align: left;">Discrète (Hamming)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Binaires nombreuses</td>
+<td style="text-align: left;">Jaccard</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mixtes</td>
+<td style="text-align: left;">Combinaison adaptée</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="choix-pratique-de-la-distance" class="slide level2">
+<h2>Choix pratique de la distance</h2>
+<p><br></p>
+<p>Questions à se poser :</p>
+<ol type="1">
+<li><p>Quel type de variables ? (numériques/qualitatives)</p></li>
+<li><p>Même échelle ou standardisation nécessaire ?</p></li>
+<li><p>Beaucoup de variables binaires ?</p></li>
+<li><p>Les double-absences sont-elles informatives ?</p></li>
+</ol>
+<div class="fragment">
+<p>→ Le choix de distance influence directement les résultats !</p>
+</div>
+</section>
+<section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
+<p><br></p>
+<ol type="1">
+<li class="fragment"><p>Distance → mesure de dissemblance (4 propriétés mathématiques)</p></li>
+<li class="fragment"><p>Similarité → mesure de ressemblance (concept opposé)</p></li>
+<li class="fragment"><p>Variables numériques → Distance euclidienne (standardisée)</p></li>
+<li class="fragment"><p>Variables qualitatives → Encodage + distance adaptée</p></li>
+<li class="fragment"><p>Variables binaires → Distance de Jaccard</p></li>
+</ol>
+<div class="fragment">
+<p>Prochaine étape → Compromis biais/variance</p>
 
 
-</section></section>
+</div>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -432,7 +570,7 @@ Steven Golovkine
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'chalkboard': {"buttons":true},
+'chalkboard': {"buttons":true,"src":"annotation/03-generalities-distance-slides-annotation.json"},
 'smaller': false,
  
         // Display controls in the bottom right corner
