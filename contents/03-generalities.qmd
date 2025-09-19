@@ -13,9 +13,9 @@ format:
   
   - [Espaces](../slides/03-generalities-space-slides.qmd)
   
-  - [Distances](../slides/03-generalities-distance-slides.qmd)
+  - [Distances](../slides/03-generalities-distance-slides.qmd) - [annoté](../slides/03-generalities-distance-slides-annotated.qmd)
   
-  - [Biais / Variance](../slides/03-generalities-bias-variance-slides.qmd)
+  - [Biais / Variance](../slides/03-generalities-bias-variance-slides.qmd) - [annoté](../slides/03-generalities-bias-variance-slides-annotated.qmd)
   
   - [Évaluation de modèles](../slides/03-generalities-model-evaluation-slides.qmd)
 
