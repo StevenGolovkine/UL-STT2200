@@ -30,8 +30,74 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-1d55db965d2df8ded49302b1f546e199.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-61cb6bcdcb66a6a6ea8a61dd05d6a15c.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -145,7 +211,7 @@ Steven Golovkine
 </div>
 </div>
 
-  <p class="date">19 sept. 2025</p>
+  <p class="date">26 sept. 2024</p>
   <figure>
     <center>
       <img src="../include/logo-ul.png" alt="logo" width="40%">
@@ -154,126 +220,4018 @@ Steven Golovkine
 </section>
 <section id="pourquoi-réduire-la-dimension" class="slide level2">
 <h2>Pourquoi réduire la dimension ?</h2>
+<p><br></p>
 <p>Travailler avec un grand nombre de variables pose plusieurs défis :</p>
 <ul>
-<li><strong>Visualisation compliquée</strong> : impossible de représenter au-delà de 3 dimensions</li>
-<li><strong>Séparation des classes difficile</strong> : structure cachée dans des combinaisons</li>
-<li><strong>Coût computationnel élevé</strong> : modèles complexes difficiles à ajuster</li>
-<li><strong>Corrélations fortes</strong> : variables redondantes, modèles instables</li>
+<li class="fragment"><p>Visualisation compliquée : impossible de représenter au-delà de 3 dimensions.</p></li>
+<li class="fragment"><p>Séparation des classes difficile : structure cachée dans des combinaisons.</p></li>
+<li class="fragment"><p>Coût computationnel élevé : modèles complexes difficiles à ajuster.</p></li>
+<li class="fragment"><p>Corrélations fortes : variables redondantes, modèles instables.</p></li>
 </ul>
-<p><strong>Question centrale</strong> : Peut-on réduire la dimension sans perdre trop d’information ?</p>
+<div class="fragment">
+<p>→ Peut-on réduire la dimension sans perdre trop d’information ?</p>
+</div>
+</section>
+<section id="plan" class="slide level2">
+<h2>Plan</h2>
+<p><br></p>
+<ol type="1">
+<li><p>La théorie de l’analyse en composantes principales</p></li>
+<li><p>L’ACP en pratique</p></li>
+<li><p>Exemple : Le top 10 des artistes Spotify</p></li>
+</ol>
 </section>
 <section id="lapproche-pca" class="slide level2">
 <h2>L’approche PCA</h2>
-<p><strong>Principe</strong> : Ne pas simplement supprimer des variables, mais construire de nouvelles variables.</p>
-<p><strong>Méthode</strong> : Créer des combinaisons linéaires des variables initiales qui résument l’information essentielle.</p>
-<p><strong>Analyse en Composantes Principales (ACP)</strong> : Méthode non-supervisée pour réduire la dimension tout en conservant le maximum d’information.</p>
-<p>Introduite par Hotelling (1933).</p>
+<p><br></p>
+<p>Principe → Ne pas simplement supprimer des variables, mais construire de nouvelles variables.</p>
+<p><br></p>
+<p>Méthode → Créer des combinaisons linéaires des variables initiales qui résument l’information essentielle.</p>
+</section>
+<section id="lapproche-pca-1" class="slide level2">
+<h2>L’approche PCA</h2>
+<p><br></p>
+<p>Analyse en Composantes Principales (ACP) → Méthode non-supervisée pour réduire la dimension tout en conservant le maximum d’information.</p>
+<p><br></p>
+<p>→ Introduite par Hotelling (1933).</p>
 </section>
 <section id="applications-courantes" class="slide level2">
 <h2>Applications courantes</h2>
-<ol type="1">
-<li><p><strong>Visualisation</strong> : Représenter des données multidimensionnelles</p></li>
-<li><p><strong>Réduction dimensionnelle</strong> : Passer de <span class="math inline">\(p\)</span> à <span class="math inline">\(k \ll p\)</span> variables</p></li>
-<li><p><strong>Compression</strong> : Images ou signaux</p></li>
-<li><p><strong>Exploration</strong> : Données biologiques, textuelles, environnementales</p></li>
-</ol>
+<p><br></p>
+<ul>
+<li><p>Visualisation : Représenter des données multidimensionnelles.</p></li>
+<li><p>Réduction dimensionnelle : Passer de <span class="math inline">\(p\)</span> à <span class="math inline">\(k \ll p\)</span> variables.</p></li>
+<li><p>Compression : Images ou signaux.</p></li>
+<li><p>Exploration : Données biologiques, textuelles, environnementales, …</p></li>
+</ul>
 </section>
 <section id="exemples-concrets" class="slide level2">
 <h2>Exemples concrets</h2>
+<p><br></p>
 <ul>
-<li><strong>Sport</strong> : Comparer des équipes de hockey sur 6 statistiques</li>
-<li><strong>Criminologie</strong> : Résumer la criminalité entre provinces sur 7 types de crimes</li>
-<li><strong>Imagerie</strong> : Compresser des images de <span class="math inline">\(1084 \times 1084\)</span> pixels</li>
-<li><strong>Biologie</strong> : Identifier des variants de tumeurs à partir de millions de gènes</li>
+<li><p>Sport : Comparer des équipes de hockey sur 6 statistiques.</p></li>
+<li><p>Criminologie : Résumer la criminalité entre provinces sur 7 types de crimes.</p></li>
+<li><p>Imagerie : Compresser des images de <span class="math inline">\(1084 \times 1084\)</span> pixels.</p></li>
+<li><p>Biologie : Identifier des variants de tumeurs à partir de millions de gènes.</p></li>
 </ul>
 </section>
 <section id="formulation-mathématique" class="slide level2">
 <h2>Formulation mathématique</h2>
-<p>Soit <span class="math inline">\(X = (X_1, \ldots, X_p)^{\top}\)</span> un vecteur aléatoire centré avec matrice de covariance <span class="math inline">\(\Sigma\)</span>.</p>
-<p>On cherche une combinaison linéaire : <span class="math display">\[Y_1 = \alpha_1^{\top} X = \sum_{k=1}^p \alpha_{1k} X_k\]</span></p>
-<p><strong>Objectif</strong> : Maximiser <span class="math inline">\(\text{Var}(Y_1)\)</span> sous contrainte <span class="math inline">\(\|\alpha_1\| = 1\)</span></p>
+<p><br></p>
+<p>Soit <span class="math inline">\(X = (X_1, \ldots, X_p)^{\top}\)</span> un vecteur aléatoire <strong>centré</strong> avec matrice de covariance <span class="math inline">\(\Sigma\)</span>.</p>
+<p>On cherche une combinaison linéaire des variables <span class="math inline">\(X_k\)</span> : <span class="math display">\[Y_1 = \alpha_1^{\top} X = \sum_{k=1}^p \alpha_{1k} X_k.\]</span></p>
+<p><strong>Objectif</strong> → Maximiser <span class="math inline">\(\text{Var}(Y_1)\)</span> sous contrainte <span class="math inline">\(\|\alpha_1\| = 1\)</span>.</p>
 </section>
 <section id="problème-doptimisation" class="slide level2">
 <h2>Problème d’optimisation</h2>
-<p><span class="math display">\[\max_{\alpha_1^{\top} \alpha_1 = 1} \text{Var}(Y_1) = \max_{\alpha_1^{\top} \alpha_1 = 1} \alpha_1^{\top} \Sigma \alpha_1\]</span></p>
-<p><strong>Solution</strong> (multiplicateurs de Lagrange) : <span class="math display">\[\Sigma \alpha_1 = \lambda_1 \alpha_1\]</span></p>
+<p><br></p>
+<p>Le problème d’optimisation s’écrit : <span class="math display">\[\max_{\alpha_1^{\top} \alpha_1 = 1} \text{Var}(Y_1) = \max_{\alpha_1^{\top} \alpha_1 = 1} \alpha_1^{\top} \Sigma \alpha_1.\]</span></p>
+</section>
+<section id="problème-doptimisation-1" class="slide level2">
+<h2>Problème d’optimisation</h2>
+</section>
+<section id="problème-doptimisation-2" class="slide level2">
+<h2>Problème d’optimisation</h2>
+<p><br></p>
+<p>Solution (multiplicateurs de Lagrange) : <span class="math display">\[\Sigma \alpha_1 = \lambda_1 \alpha_1\]</span></p>
 <p>où <span class="math inline">\(\lambda_1\)</span> est la plus grande valeur propre de <span class="math inline">\(\Sigma\)</span> et <span class="math inline">\(\alpha_1\)</span> le vecteur propre associé.</p>
 </section>
 <section id="construction-des-composantes" class="slide level2">
 <h2>Construction des composantes</h2>
+<p><br></p>
 <p>Les composantes suivantes sont construites par orthogonalité :</p>
 <p><span class="math display">\[\Sigma \alpha_k = \lambda_k \alpha_k, \quad \lambda_1 \geq \lambda_2 \geq \ldots \geq \lambda_p\]</span></p>
-<p><strong>Composantes principales</strong> : <span class="math display">\[Y_k = \alpha_k^{\top} X\]</span></p>
+<p>Composantes principales : <span class="math display">\[Y_k = \alpha_k^{\top} X\]</span></p>
 <p>où <span class="math inline">\(\alpha_k\)</span> est le vecteur propre associé à <span class="math inline">\(\lambda_k\)</span>.</p>
 </section>
 <section id="représentation-matricielle" class="slide level2">
 <h2>Représentation matricielle</h2>
+<p><br></p>
 <p>Soit <span class="math inline">\(A = (\alpha_1, \ldots, \alpha_p) \in \mathbb{R}^{p \times p}\)</span> la matrice des vecteurs propres.</p>
 <p><span class="math display">\[Y = A^{\top} X\]</span></p>
-<p><strong>Propriétés de <span class="math inline">\(A\)</span></strong> : - <span class="math inline">\(A^{\top} A = AA^{\top} = I_p\)</span> (orthogonale) - <span class="math inline">\(A^{\top} = A^{-1}\)</span> - <span class="math inline">\(\Sigma A = A \Lambda\)</span> où <span class="math inline">\(\Lambda = \text{diag}(\lambda_1, \ldots, \lambda_p)\)</span></p>
+<p>Propriétés de <span class="math inline">\(A\)</span> :</p>
+<ul>
+<li><p><span class="math inline">\(A^{\top} A = AA^{\top} = I_p\)</span> (orthogonale)</p></li>
+<li><p><span class="math inline">\(A^{\top} = A^{-1}\)</span></p></li>
+<li><p><span class="math inline">\(\Sigma A = A \Lambda\)</span> où <span class="math inline">\(\Lambda = \text{diag}(\lambda_1, \ldots, \lambda_p)\)</span></p></li>
+</ul>
 </section>
 <section id="variance-des-composantes" class="slide level2">
 <h2>Variance des composantes</h2>
+<p><br></p>
 <p><span class="math display">\[\text{Var}(Y) = A^{\top} \Sigma A = \Lambda\]</span></p>
-<p><strong>Conséquences</strong> : - <span class="math inline">\(\text{Cov}(Y_k, Y_l) = 0\)</span> si <span class="math inline">\(k \neq l\)</span> (orthogonalité) - <span class="math inline">\(\text{Var}(Y_k) = \lambda_k\)</span> (variance décroissante) - <span class="math inline">\(\text{Var}(Y_1) \geq \text{Var}(Y_2) \geq \ldots \geq \text{Var}(Y_p)\)</span></p>
+<p>Conséquences :</p>
+<ul>
+<li><p><span class="math inline">\(\text{Cov}(Y_k, Y_l) = 0\)</span> si <span class="math inline">\(k \neq l\)</span> (orthogonalité)</p></li>
+<li><p><span class="math inline">\(\text{Var}(Y_k) = \lambda_k\)</span> (variance décroissante)</p></li>
+<li><p><span class="math inline">\(\text{Var}(Y_1) \geq \text{Var}(Y_2) \geq \ldots \geq \text{Var}(Y_p)\)</span></p></li>
+</ul>
 </section>
-<section id="proportion-de-variance-expliquée" class="slide level2">
-<h2>Proportion de variance expliquée</h2>
-<p><strong>Variation totale</strong> : <span class="math display">\[\text{tr}(\Sigma) = \sum_{i=1}^p \lambda_i = \sum_{k=1}^p \text{Var}(Y_k)\]</span></p>
-<p><strong>Proportion expliquée par <span class="math inline">\(Y_k\)</span></strong> : <span class="math display">\[\frac{\lambda_k}{\lambda_1 + \cdots + \lambda_p} = \frac{\text{Var}(Y_k)}{\text{tr}(\Sigma)}\]</span></p>
-<p><strong>Proportion expliquée par les <span class="math inline">\(m\)</span> premières</strong> : <span class="math display">\[100\% \times \frac{\sum_{k=1}^m \lambda_k}{\sum_{k=1}^p \lambda_k}\]</span></p>
+<section id="variation-totale" class="slide level2">
+<h2>Variation totale</h2>
+<p><br></p>
+<p>La trace de Pillai est une mesure globale de la variation présente dans les données :</p>
+<p><span class="math display">\[\text{tr}(\Sigma) = \sum_{i=1}^p \lambda_i = \sum_{k=1}^p \text{Var}(Y_k).\]</span></p>
+</section>
+<section id="proportion-expliquée-par-y_k" class="slide level2">
+<h2>Proportion expliquée par <span class="math inline">\(Y_k\)</span></h2>
+<p><br></p>
+<p>La proportion de variance expliquée par la composante principale <span class="math inline">\(Y_k\)</span> est</p>
+<p><span class="math display">\[\frac{\lambda_k}{\lambda_1 + \cdots + \lambda_p} = \frac{\text{Var}(Y_k)}{\text{tr}(\Sigma)}.\]</span></p>
+</section>
+<section id="proportion-expliquée-par-les-m-premières" class="slide level2">
+<h2>Proportion expliquée par les <span class="math inline">\(m\)</span> premières</h2>
+<p><br></p>
+<p>La variabilité des données expliquée par les <span class="math inline">\(m\)</span> premières composantes est :</p>
+<p><span class="math display">\[100\% \times \frac{\sum_{k=1}^m \lambda_k}{\sum_{k=1}^p \lambda_k}.\]</span></p>
 </section>
 <section id="estimation-pratique" class="slide level2">
 <h2>Estimation pratique</h2>
-<p>En pratique, <span class="math inline">\(\Sigma\)</span> est inconnue. On estime par :</p>
-<p><span class="math display">\[\widehat{\Sigma} = \frac{1}{n-1} \sum_{i=1}^n (X_i - \overline{X})(X_i - \overline{X})^{\top}\]</span></p>
-<p><strong>Décomposition spectrale</strong> : <span class="math display">\[\widehat{\Sigma} = \widehat{A} \widehat{\Lambda} \widehat{A}^{\top}\]</span></p>
-<p><strong>Composantes estimées</strong> : <span class="math display">\[Y_i = \widehat{A}^{\top} X_i\]</span></p>
+<p><br></p>
+<ol type="1">
+<li class="fragment"><p>En pratique, <span class="math inline">\(\Sigma\)</span> est inconnue. On l’estime par : <span class="math display">\[\hat{\Sigma} = \frac{1}{n-1} \sum_{i=1}^n (X_i - \overline{X})(X_i - \overline{X})^{\top}.\]</span></p></li>
+<li class="fragment"><p>Décomposition spectrale : <span class="math inline">\(\hat{\Sigma} = \hat{A} \hat{\Lambda} \hat{A}^{\top}.\)</span></p></li>
+<li class="fragment"><p>Composantes estimées : <span class="math inline">\(Y_i = \hat{A}^{\top} X_i.\)</span></p></li>
+</ol>
 </section>
 <section id="sensibilité-à-léchelle" class="slide level2">
 <h2>Sensibilité à l’échelle</h2>
-<p><strong>Problème</strong> : Variables avec grandes variances dominent l’ACP.</p>
-<p><strong>Exemple</strong> : Distance en mètres vs kilomètres multiplie la variance par <span class="math inline">\(10^6\)</span>.</p>
-<p><strong>Solution</strong> : Standardiser les variables si elles ont des unités différentes.</p>
-<p><strong>Équivalence</strong> : ACP sur matrice de corrélations au lieu de covariances.</p>
+<p><br></p>
+<p>Problème → Variables avec grandes variances dominent l’ACP.</p>
+<p>Exemple → Distance en m vs km multiplie la variance par <span class="math inline">\(10^6\)</span>.</p>
+<p>Solution → Standardiser les variables si elles ont des unités différentes.</p>
+<p>Équivalence → ACP sur matrice de corrélations au lieu de covariances.</p>
 </section>
 <section id="interprétation-géométrique" class="slide level2">
 <h2>Interprétation géométrique</h2>
-<p><strong>Rotation des axes</strong> : <span class="math inline">\(Y = A^{\top}X\)</span> représente une rotation orthogonale.</p>
-<p><strong>Nouveaux axes</strong> : Directions de variation maximale successive.</p>
-<p><strong>Scores</strong> : <span class="math inline">\(Y_{ik} = \alpha_k^{\top} X_i\)</span> (coordonnées dans le nouveau système).</p>
-<p><strong>Qualité de représentation</strong> : <span class="math display">\[Q_{ik} = \frac{Y_{ik}^2}{\sum_{j=1}^p Y_{ij}^2}\]</span></p>
+<p><br></p>
+<ul>
+<li class="fragment"><p>Rotation des axes → <span class="math inline">\(Y = A^{\top}X\)</span> représente une rotation orthogonale.</p></li>
+<li class="fragment"><p>Nouveaux axes → Directions de variation maximale successive.</p></li>
+<li class="fragment"><p>Scores → <span class="math inline">\(Y_{ik} = \alpha_k^{\top} X_i\)</span> (coordonnées dans le nouveau système).</p></li>
+<li class="fragment"><p>Qualité de représentation <span class="math display">\[Q_{ik} = \frac{Y_{ik}^2}{\sum_{j=1}^p Y_{ij}^2}\]</span></p></li>
+</ul>
 </section>
 <section id="choix-du-nombre-de-composantes" class="slide level2">
 <h2>Choix du nombre de composantes</h2>
-<p><strong>1. Règle des 80%</strong> : Retenir assez de composantes pour expliquer 80% de la variance.</p>
-<p><strong>2. Règle de Kaiser</strong> : Conserver les composantes avec <span class="math inline">\(\lambda_k &gt; 1\)</span> (si matrice de corrélations).</p>
-<p><strong>3. Règle de Joliffe</strong> : Variante plus stricte, <span class="math inline">\(\lambda_k &gt; 0.7\)</span>.</p>
-<p><strong>4. Règle de Cattell (coude)</strong> : Chercher un point de rupture dans le graphique des valeurs propres.</p>
-</section>
-<section id="règles-de-choix---détails" class="slide level2">
-<h2>Règles de choix - Détails</h2>
-<p><strong>Règle des 80%</strong> : - Seuil arbitraire mais pratique - Bon équilibre information/simplicité</p>
-<p><strong>Règle de Kaiser</strong> : - Basée sur la moyenne des valeurs propres = 1 - Applicable uniquement avec standardisation</p>
-<p><strong>Règle du coude</strong> : - Graphique <span class="math inline">\(\lambda_k\)</span> vs rang <span class="math inline">\(k\)</span> - Chercher changement de pente - Plus subjective mais intuitive</p>
+<p><br></p>
+<ol type="1">
+<li class="fragment"><p>Règle des 80% : Retenir assez de composantes pour expliquer 80% de la variance.</p></li>
+<li class="fragment"><p>Règle de Kaiser : Conserver les composantes avec <span class="math inline">\(\lambda_k &gt; 1\)</span> (si matrice de corrélations).</p></li>
+<li class="fragment"><p>Règle de Joliffe : Variante plus stricte, <span class="math inline">\(\lambda_k &gt; 0.7\)</span>.</p></li>
+<li class="fragment"><p>Règle de Cattell (coude) : Chercher un point de rupture dans le graphique des valeurs propres.</p></li>
+</ol>
 </section>
 <section id="considérations-pratiques" class="slide level2">
 <h2>Considérations pratiques</h2>
-<p><strong>Usage en prédiction</strong> : Utiliser les <span class="math inline">\(k\)</span> premières composantes comme prédicteurs.</p>
-<p><strong>Avantages</strong> : - Réduit la dimension - Élimine la multicolinéarité - Conserve l’information essentielle</p>
-<p><strong>Compromis</strong> : - Trop de composantes : pas de simplification - Trop peu : perte d’information pertinente</p>
+<p><br></p>
+<p>Usage dans les modèles : Utiliser les <span class="math inline">\(k\)</span> premières composantes comme prédicteurs.</p>
+<div class="fragment">
+<p>Avantages :</p>
+<ul>
+<li><p>Élimine la multicolinéarité</p></li>
+<li><p>Conserve l’information essentielle</p></li>
+</ul>
+</div>
+<div class="fragment">
+<p>Compromis :</p>
+<ul>
+<li><p>Trop de composantes : pas de simplification</p></li>
+<li><p>Trop peu : perte d’information pertinente</p></li>
+</ul>
+</div>
+</section>
+<section id="exemple-le-top-10-spotify" class="slide level2 smaller scrollable">
+<h2>Exemple : le top 10 Spotify</h2>
+<p>On considère le jeu de données suivant :</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<colgroup>
+<col style="width: 39%">
+<col style="width: 7%">
+<col style="width: 9%">
+<col style="width: 7%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 6%">
+<col style="width: 7%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">track_name</th>
+<th style="text-align: left;">track_artist</th>
+<th style="text-align: right;">track_popularity</th>
+<th style="text-align: right;">danceability</th>
+<th style="text-align: right;">energy</th>
+<th style="text-align: right;">loudness</th>
+<th style="text-align: right;">speechiness</th>
+<th style="text-align: right;">acousticness</th>
+<th style="text-align: right;">liveness</th>
+<th style="text-align: right;">valence</th>
+<th style="text-align: right;">tempo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">I Don’t Care (with Justin Bieber) - Loud Luxury Remix</td>
+<td style="text-align: left;">Ed Sheeran</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">0.748</td>
+<td style="text-align: right;">0.9160</td>
+<td style="text-align: right;">-2.634</td>
+<td style="text-align: right;">0.0583</td>
+<td style="text-align: right;">0.102000</td>
+<td style="text-align: right;">0.0653</td>
+<td style="text-align: right;">0.5180</td>
+<td style="text-align: right;">122.036</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Beautiful People (feat. Khalid) - Jack Wins Remix</td>
+<td style="text-align: left;">Ed Sheeran</td>
+<td style="text-align: right;">67</td>
+<td style="text-align: right;">0.675</td>
+<td style="text-align: right;">0.9190</td>
+<td style="text-align: right;">-5.385</td>
+<td style="text-align: right;">0.1270</td>
+<td style="text-align: right;">0.079900</td>
+<td style="text-align: right;">0.1430</td>
+<td style="text-align: right;">0.5850</td>
+<td style="text-align: right;">124.982</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Cross Me (feat. Chance the Rapper &amp; PnB Rock) - M-22 Remix</td>
+<td style="text-align: left;">Ed Sheeran</td>
+<td style="text-align: right;">58</td>
+<td style="text-align: right;">0.679</td>
+<td style="text-align: right;">0.9230</td>
+<td style="text-align: right;">-6.500</td>
+<td style="text-align: right;">0.1810</td>
+<td style="text-align: right;">0.146000</td>
+<td style="text-align: right;">0.1240</td>
+<td style="text-align: right;">0.7520</td>
+<td style="text-align: right;">121.984</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">South of the Border (feat. Camila Cabello &amp; Cardi B) - Andy Jarvis Remix</td>
+<td style="text-align: left;">Ed Sheeran</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">0.805</td>
+<td style="text-align: right;">0.8350</td>
+<td style="text-align: right;">-4.603</td>
+<td style="text-align: right;">0.0896</td>
+<td style="text-align: right;">0.130000</td>
+<td style="text-align: right;">0.3650</td>
+<td style="text-align: right;">0.7220</td>
+<td style="text-align: right;">125.028</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">bad guy (with Justin Bieber)</td>
+<td style="text-align: left;">Billie Eilish</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: right;">0.670</td>
+<td style="text-align: right;">0.4530</td>
+<td style="text-align: right;">-11.265</td>
+<td style="text-align: right;">0.2950</td>
+<td style="text-align: right;">0.252000</td>
+<td style="text-align: right;">0.1170</td>
+<td style="text-align: right;">0.6800</td>
+<td style="text-align: right;">135.055</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">South of the Border (feat. Camila Cabello &amp; Cardi B) - Sam Feldt Remix</td>
+<td style="text-align: left;">Ed Sheeran</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">0.789</td>
+<td style="text-align: right;">0.8580</td>
+<td style="text-align: right;">-4.388</td>
+<td style="text-align: right;">0.0404</td>
+<td style="text-align: right;">0.220000</td>
+<td style="text-align: right;">0.3350</td>
+<td style="text-align: right;">0.4910</td>
+<td style="text-align: right;">110.012</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Friends (with BloodPop®)</td>
+<td style="text-align: left;">Justin Bieber</td>
+<td style="text-align: right;">76</td>
+<td style="text-align: right;">0.743</td>
+<td style="text-align: right;">0.7330</td>
+<td style="text-align: right;">-5.337</td>
+<td style="text-align: right;">0.0375</td>
+<td style="text-align: right;">0.004020</td>
+<td style="text-align: right;">0.3040</td>
+<td style="text-align: right;">0.6220</td>
+<td style="text-align: right;">104.977</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sorry</td>
+<td style="text-align: left;">Justin Bieber</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">0.654</td>
+<td style="text-align: right;">0.7600</td>
+<td style="text-align: right;">-3.669</td>
+<td style="text-align: right;">0.0450</td>
+<td style="text-align: right;">0.079700</td>
+<td style="text-align: right;">0.2990</td>
+<td style="text-align: right;">0.4100</td>
+<td style="text-align: right;">99.945</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Poker Face</td>
+<td style="text-align: left;">Lady Gaga</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: right;">0.851</td>
+<td style="text-align: right;">0.8060</td>
+<td style="text-align: right;">-4.618</td>
+<td style="text-align: right;">0.0786</td>
+<td style="text-align: right;">0.120000</td>
+<td style="text-align: right;">0.1210</td>
+<td style="text-align: right;">0.7760</td>
+<td style="text-align: right;">119.001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">South of the Border (feat. Camila Cabello &amp; Cardi B) - Cheat Codes Remix</td>
+<td style="text-align: left;">Ed Sheeran</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: right;">0.845</td>
+<td style="text-align: right;">0.7660</td>
+<td style="text-align: right;">-5.727</td>
+<td style="text-align: right;">0.0658</td>
+<td style="text-align: right;">0.212000</td>
+<td style="text-align: right;">0.1110</td>
+<td style="text-align: right;">0.7820</td>
+<td style="text-align: right;">114.054</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Happier - Tiësto’s AFTR:HRS Remix</td>
+<td style="text-align: left;">Ed Sheeran</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">0.684</td>
+<td style="text-align: right;">0.8230</td>
+<td style="text-align: right;">-4.881</td>
+<td style="text-align: right;">0.0296</td>
+<td style="text-align: right;">0.005760</td>
+<td style="text-align: right;">0.2010</td>
+<td style="text-align: right;">0.3840</td>
+<td style="text-align: right;">117.993</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">bad guy</td>
+<td style="text-align: left;">Billie Eilish</td>
+<td style="text-align: right;">95</td>
+<td style="text-align: right;">0.701</td>
+<td style="text-align: right;">0.4250</td>
+<td style="text-align: right;">-10.965</td>
+<td style="text-align: right;">0.3750</td>
+<td style="text-align: right;">0.328000</td>
+<td style="text-align: right;">0.1000</td>
+<td style="text-align: right;">0.5620</td>
+<td style="text-align: right;">135.128</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A Sky Full of Stars</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">0.551</td>
+<td style="text-align: right;">0.6360</td>
+<td style="text-align: right;">-7.125</td>
+<td style="text-align: right;">0.0281</td>
+<td style="text-align: right;">0.007130</td>
+<td style="text-align: right;">0.2170</td>
+<td style="text-align: right;">0.1530</td>
+<td style="text-align: right;">124.996</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">everything i wanted</td>
+<td style="text-align: left;">Billie Eilish</td>
+<td style="text-align: right;">97</td>
+<td style="text-align: right;">0.704</td>
+<td style="text-align: right;">0.2250</td>
+<td style="text-align: right;">-14.454</td>
+<td style="text-align: right;">0.0994</td>
+<td style="text-align: right;">0.902000</td>
+<td style="text-align: right;">0.1060</td>
+<td style="text-align: right;">0.2430</td>
+<td style="text-align: right;">120.006</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Yummy</td>
+<td style="text-align: left;">Justin Bieber</td>
+<td style="text-align: right;">95</td>
+<td style="text-align: right;">0.662</td>
+<td style="text-align: right;">0.5190</td>
+<td style="text-align: right;">-6.554</td>
+<td style="text-align: right;">0.1060</td>
+<td style="text-align: right;">0.404000</td>
+<td style="text-align: right;">0.1210</td>
+<td style="text-align: right;">0.4950</td>
+<td style="text-align: right;">145.841</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Blinding Lights</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">98</td>
+<td style="text-align: right;">0.513</td>
+<td style="text-align: right;">0.7960</td>
+<td style="text-align: right;">-4.075</td>
+<td style="text-align: right;">0.0629</td>
+<td style="text-align: right;">0.001470</td>
+<td style="text-align: right;">0.0938</td>
+<td style="text-align: right;">0.3450</td>
+<td style="text-align: right;">171.017</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Heartless</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: right;">0.531</td>
+<td style="text-align: right;">0.7500</td>
+<td style="text-align: right;">-5.831</td>
+<td style="text-align: right;">0.1110</td>
+<td style="text-align: right;">0.006320</td>
+<td style="text-align: right;">0.1170</td>
+<td style="text-align: right;">0.1980</td>
+<td style="text-align: right;">169.954</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Lover (Remix) [feat. Shawn Mendes]</td>
+<td style="text-align: left;">Taylor Swift</td>
+<td style="text-align: right;">85</td>
+<td style="text-align: right;">0.448</td>
+<td style="text-align: right;">0.6030</td>
+<td style="text-align: right;">-7.176</td>
+<td style="text-align: right;">0.0640</td>
+<td style="text-align: right;">0.433000</td>
+<td style="text-align: right;">0.0862</td>
+<td style="text-align: right;">0.4220</td>
+<td style="text-align: right;">205.272</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The Morning</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">0.652</td>
+<td style="text-align: right;">0.5490</td>
+<td style="text-align: right;">-7.555</td>
+<td style="text-align: right;">0.0390</td>
+<td style="text-align: right;">0.317000</td>
+<td style="text-align: right;">0.1040</td>
+<td style="text-align: right;">0.1860</td>
+<td style="text-align: right;">120.073</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Shape of You</td>
+<td style="text-align: left;">Ed Sheeran</td>
+<td style="text-align: right;">86</td>
+<td style="text-align: right;">0.825</td>
+<td style="text-align: right;">0.6520</td>
+<td style="text-align: right;">-3.183</td>
+<td style="text-align: right;">0.0802</td>
+<td style="text-align: right;">0.581000</td>
+<td style="text-align: right;">0.0931</td>
+<td style="text-align: right;">0.9310</td>
+<td style="text-align: right;">95.977</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Beautiful People (feat. Khalid)</td>
+<td style="text-align: left;">Ed Sheeran</td>
+<td style="text-align: right;">85</td>
+<td style="text-align: right;">0.640</td>
+<td style="text-align: right;">0.6480</td>
+<td style="text-align: right;">-8.113</td>
+<td style="text-align: right;">0.1870</td>
+<td style="text-align: right;">0.124000</td>
+<td style="text-align: right;">0.0802</td>
+<td style="text-align: right;">0.5480</td>
+<td style="text-align: right;">92.977</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">South of the Border (feat. Camila Cabello &amp; Cardi B)</td>
+<td style="text-align: left;">Ed Sheeran</td>
+<td style="text-align: right;">91</td>
+<td style="text-align: right;">0.857</td>
+<td style="text-align: right;">0.6210</td>
+<td style="text-align: right;">-6.376</td>
+<td style="text-align: right;">0.0824</td>
+<td style="text-align: right;">0.148000</td>
+<td style="text-align: right;">0.0865</td>
+<td style="text-align: right;">0.6680</td>
+<td style="text-align: right;">97.986</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">I Don’t Care (with Justin Bieber)</td>
+<td style="text-align: left;">Ed Sheeran</td>
+<td style="text-align: right;">84</td>
+<td style="text-align: right;">0.798</td>
+<td style="text-align: right;">0.6750</td>
+<td style="text-align: right;">-5.041</td>
+<td style="text-align: right;">0.0442</td>
+<td style="text-align: right;">0.091200</td>
+<td style="text-align: right;">0.0894</td>
+<td style="text-align: right;">0.8420</td>
+<td style="text-align: right;">101.956</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Orphans</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">0.503</td>
+<td style="text-align: right;">0.8080</td>
+<td style="text-align: right;">-5.051</td>
+<td style="text-align: right;">0.0450</td>
+<td style="text-align: right;">0.025400</td>
+<td style="text-align: right;">0.5570</td>
+<td style="text-align: right;">0.2830</td>
+<td style="text-align: right;">107.975</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Applause</td>
+<td style="text-align: left;">Lady Gaga</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">0.669</td>
+<td style="text-align: right;">0.7800</td>
+<td style="text-align: right;">-4.287</td>
+<td style="text-align: right;">0.0530</td>
+<td style="text-align: right;">0.026500</td>
+<td style="text-align: right;">0.1430</td>
+<td style="text-align: right;">0.7380</td>
+<td style="text-align: right;">139.945</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Judas</td>
+<td style="text-align: left;">Lady Gaga</td>
+<td style="text-align: right;">56</td>
+<td style="text-align: right;">0.661</td>
+<td style="text-align: right;">0.9370</td>
+<td style="text-align: right;">-3.830</td>
+<td style="text-align: right;">0.0744</td>
+<td style="text-align: right;">0.000967</td>
+<td style="text-align: right;">0.3550</td>
+<td style="text-align: right;">0.5350</td>
+<td style="text-align: right;">131.001</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Blank Space</td>
+<td style="text-align: left;">Taylor Swift</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">0.760</td>
+<td style="text-align: right;">0.7030</td>
+<td style="text-align: right;">-5.412</td>
+<td style="text-align: right;">0.0540</td>
+<td style="text-align: right;">0.103000</td>
+<td style="text-align: right;">0.0913</td>
+<td style="text-align: right;">0.5700</td>
+<td style="text-align: right;">95.997</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The Cure</td>
+<td style="text-align: left;">Lady Gaga</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">0.697</td>
+<td style="text-align: right;">0.5060</td>
+<td style="text-align: right;">-4.863</td>
+<td style="text-align: right;">0.0325</td>
+<td style="text-align: right;">0.079200</td>
+<td style="text-align: right;">0.0893</td>
+<td style="text-align: right;">0.5160</td>
+<td style="text-align: right;">100.002</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Umbrella</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">0.583</td>
+<td style="text-align: right;">0.8290</td>
+<td style="text-align: right;">-4.603</td>
+<td style="text-align: right;">0.1340</td>
+<td style="text-align: right;">0.008640</td>
+<td style="text-align: right;">0.0426</td>
+<td style="text-align: right;">0.5750</td>
+<td style="text-align: right;">174.028</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Just The Way You Are</td>
+<td style="text-align: left;">Bruno Mars</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">0.637</td>
+<td style="text-align: right;">0.8430</td>
+<td style="text-align: right;">-5.413</td>
+<td style="text-align: right;">0.0432</td>
+<td style="text-align: right;">0.015100</td>
+<td style="text-align: right;">0.0876</td>
+<td style="text-align: right;">0.4340</td>
+<td style="text-align: right;">109.012</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Don’t Stop The Music</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">0.835</td>
+<td style="text-align: right;">0.6690</td>
+<td style="text-align: right;">-5.582</td>
+<td style="text-align: right;">0.0643</td>
+<td style="text-align: right;">0.033600</td>
+<td style="text-align: right;">0.0535</td>
+<td style="text-align: right;">0.5420</td>
+<td style="text-align: right;">122.668</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Photograph</td>
+<td style="text-align: left;">Ed Sheeran</td>
+<td style="text-align: right;">84</td>
+<td style="text-align: right;">0.614</td>
+<td style="text-align: right;">0.3790</td>
+<td style="text-align: right;">-10.480</td>
+<td style="text-align: right;">0.0476</td>
+<td style="text-align: right;">0.607000</td>
+<td style="text-align: right;">0.0986</td>
+<td style="text-align: right;">0.2010</td>
+<td style="text-align: right;">107.989</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">You Need To Calm Down</td>
+<td style="text-align: left;">Taylor Swift</td>
+<td style="text-align: right;">86</td>
+<td style="text-align: right;">0.771</td>
+<td style="text-align: right;">0.6710</td>
+<td style="text-align: right;">-5.617</td>
+<td style="text-align: right;">0.0553</td>
+<td style="text-align: right;">0.009290</td>
+<td style="text-align: right;">0.0637</td>
+<td style="text-align: right;">0.7140</td>
+<td style="text-align: right;">85.026</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">22</td>
+<td style="text-align: left;">Taylor Swift</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.661</td>
+<td style="text-align: right;">0.7240</td>
+<td style="text-align: right;">-6.548</td>
+<td style="text-align: right;">0.0373</td>
+<td style="text-align: right;">0.002880</td>
+<td style="text-align: right;">0.0631</td>
+<td style="text-align: right;">0.6760</td>
+<td style="text-align: right;">104.011</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Baby</td>
+<td style="text-align: left;">Justin Bieber</td>
+<td style="text-align: right;">76</td>
+<td style="text-align: right;">0.728</td>
+<td style="text-align: right;">0.8600</td>
+<td style="text-align: right;">-5.237</td>
+<td style="text-align: right;">0.1370</td>
+<td style="text-align: right;">0.040100</td>
+<td style="text-align: right;">0.1110</td>
+<td style="text-align: right;">0.5350</td>
+<td style="text-align: right;">65.043</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Viva La Vida</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">0.485</td>
+<td style="text-align: right;">0.6190</td>
+<td style="text-align: right;">-7.115</td>
+<td style="text-align: right;">0.0289</td>
+<td style="text-align: right;">0.094100</td>
+<td style="text-align: right;">0.1090</td>
+<td style="text-align: right;">0.4160</td>
+<td style="text-align: right;">138.017</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bad Romance</td>
+<td style="text-align: left;">Lady Gaga</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">0.696</td>
+<td style="text-align: right;">0.9210</td>
+<td style="text-align: right;">-3.755</td>
+<td style="text-align: right;">0.0363</td>
+<td style="text-align: right;">0.003140</td>
+<td style="text-align: right;">0.0842</td>
+<td style="text-align: right;">0.7140</td>
+<td style="text-align: right;">119.001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">I Knew You Were Trouble.</td>
+<td style="text-align: left;">Taylor Swift</td>
+<td style="text-align: right;">76</td>
+<td style="text-align: right;">0.622</td>
+<td style="text-align: right;">0.4690</td>
+<td style="text-align: right;">-6.798</td>
+<td style="text-align: right;">0.0363</td>
+<td style="text-align: right;">0.004540</td>
+<td style="text-align: right;">0.0335</td>
+<td style="text-align: right;">0.6790</td>
+<td style="text-align: right;">77.019</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Our Song</td>
+<td style="text-align: left;">Taylor Swift</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">0.667</td>
+<td style="text-align: right;">0.6590</td>
+<td style="text-align: right;">-4.932</td>
+<td style="text-align: right;">0.0298</td>
+<td style="text-align: right;">0.113000</td>
+<td style="text-align: right;">0.3250</td>
+<td style="text-align: right;">0.5750</td>
+<td style="text-align: right;">89.128</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mean</td>
+<td style="text-align: left;">Taylor Swift</td>
+<td style="text-align: right;">62</td>
+<td style="text-align: right;">0.570</td>
+<td style="text-align: right;">0.7470</td>
+<td style="text-align: right;">-3.978</td>
+<td style="text-align: right;">0.0426</td>
+<td style="text-align: right;">0.445000</td>
+<td style="text-align: right;">0.2190</td>
+<td style="text-align: right;">0.8080</td>
+<td style="text-align: right;">164.004</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The Lazy Song</td>
+<td style="text-align: left;">Bruno Mars</td>
+<td style="text-align: right;">73</td>
+<td style="text-align: right;">0.738</td>
+<td style="text-align: right;">0.8040</td>
+<td style="text-align: right;">-3.851</td>
+<td style="text-align: right;">0.0621</td>
+<td style="text-align: right;">0.332000</td>
+<td style="text-align: right;">0.2790</td>
+<td style="text-align: right;">0.9490</td>
+<td style="text-align: right;">174.943</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Love The Way You Lie (Part II) - Pt. 2</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">0.472</td>
+<td style="text-align: right;">0.8330</td>
+<td style="text-align: right;">-4.486</td>
+<td style="text-align: right;">0.1620</td>
+<td style="text-align: right;">0.297000</td>
+<td style="text-align: right;">0.0560</td>
+<td style="text-align: right;">0.4130</td>
+<td style="text-align: right;">166.271</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Just Dance</td>
+<td style="text-align: left;">Lady Gaga</td>
+<td style="text-align: right;">73</td>
+<td style="text-align: right;">0.822</td>
+<td style="text-align: right;">0.7390</td>
+<td style="text-align: right;">-4.541</td>
+<td style="text-align: right;">0.0311</td>
+<td style="text-align: right;">0.026400</td>
+<td style="text-align: right;">0.1810</td>
+<td style="text-align: right;">0.7450</td>
+<td style="text-align: right;">118.992</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Paparazzi</td>
+<td style="text-align: left;">Lady Gaga</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: right;">0.762</td>
+<td style="text-align: right;">0.6920</td>
+<td style="text-align: right;">-3.973</td>
+<td style="text-align: right;">0.0438</td>
+<td style="text-align: right;">0.113000</td>
+<td style="text-align: right;">0.0940</td>
+<td style="text-align: right;">0.3970</td>
+<td style="text-align: right;">114.906</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Alejandro</td>
+<td style="text-align: left;">Lady Gaga</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.626</td>
+<td style="text-align: right;">0.7990</td>
+<td style="text-align: right;">-6.612</td>
+<td style="text-align: right;">0.0460</td>
+<td style="text-align: right;">0.000358</td>
+<td style="text-align: right;">0.3600</td>
+<td style="text-align: right;">0.3690</td>
+<td style="text-align: right;">98.992</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hotline Bling</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.905</td>
+<td style="text-align: right;">0.6170</td>
+<td style="text-align: right;">-8.039</td>
+<td style="text-align: right;">0.0596</td>
+<td style="text-align: right;">0.002870</td>
+<td style="text-align: right;">0.0484</td>
+<td style="text-align: right;">0.5720</td>
+<td style="text-align: right;">134.972</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Adventure of a Lifetime</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">74</td>
+<td style="text-align: right;">0.638</td>
+<td style="text-align: right;">0.9240</td>
+<td style="text-align: right;">-3.887</td>
+<td style="text-align: right;">0.0359</td>
+<td style="text-align: right;">0.002050</td>
+<td style="text-align: right;">0.1490</td>
+<td style="text-align: right;">0.5290</td>
+<td style="text-align: right;">111.995</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hymn for the Weekend</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">77</td>
+<td style="text-align: right;">0.490</td>
+<td style="text-align: right;">0.7430</td>
+<td style="text-align: right;">-5.155</td>
+<td style="text-align: right;">0.0409</td>
+<td style="text-align: right;">0.255000</td>
+<td style="text-align: right;">0.3000</td>
+<td style="text-align: right;">0.3630</td>
+<td style="text-align: right;">89.974</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">I Feel It Coming</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">0.773</td>
+<td style="text-align: right;">0.8190</td>
+<td style="text-align: right;">-5.946</td>
+<td style="text-align: right;">0.1180</td>
+<td style="text-align: right;">0.426000</td>
+<td style="text-align: right;">0.0679</td>
+<td style="text-align: right;">0.5850</td>
+<td style="text-align: right;">92.990</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Paradise</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">77</td>
+<td style="text-align: right;">0.449</td>
+<td style="text-align: right;">0.5850</td>
+<td style="text-align: right;">-6.762</td>
+<td style="text-align: right;">0.0268</td>
+<td style="text-align: right;">0.052200</td>
+<td style="text-align: right;">0.0833</td>
+<td style="text-align: right;">0.2030</td>
+<td style="text-align: right;">139.627</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Look What You Made Me Do</td>
+<td style="text-align: left;">Taylor Swift</td>
+<td style="text-align: right;">74</td>
+<td style="text-align: right;">0.766</td>
+<td style="text-align: right;">0.7090</td>
+<td style="text-align: right;">-6.471</td>
+<td style="text-align: right;">0.1230</td>
+<td style="text-align: right;">0.204000</td>
+<td style="text-align: right;">0.1260</td>
+<td style="text-align: right;">0.5060</td>
+<td style="text-align: right;">128.070</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">That’s What I Like</td>
+<td style="text-align: left;">Bruno Mars</td>
+<td style="text-align: right;">82</td>
+<td style="text-align: right;">0.853</td>
+<td style="text-align: right;">0.5600</td>
+<td style="text-align: right;">-4.961</td>
+<td style="text-align: right;">0.0406</td>
+<td style="text-align: right;">0.013000</td>
+<td style="text-align: right;">0.0944</td>
+<td style="text-align: right;">0.8600</td>
+<td style="text-align: right;">134.066</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Gorgeous</td>
+<td style="text-align: left;">Taylor Swift</td>
+<td style="text-align: right;">67</td>
+<td style="text-align: right;">0.800</td>
+<td style="text-align: right;">0.5350</td>
+<td style="text-align: right;">-6.684</td>
+<td style="text-align: right;">0.1350</td>
+<td style="text-align: right;">0.071300</td>
+<td style="text-align: right;">0.2130</td>
+<td style="text-align: right;">0.4510</td>
+<td style="text-align: right;">92.027</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Starboy</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">84</td>
+<td style="text-align: right;">0.678</td>
+<td style="text-align: right;">0.5880</td>
+<td style="text-align: right;">-7.015</td>
+<td style="text-align: right;">0.2760</td>
+<td style="text-align: right;">0.141000</td>
+<td style="text-align: right;">0.1370</td>
+<td style="text-align: right;">0.4860</td>
+<td style="text-align: right;">186.005</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">We Are Never Ever Getting Back Together</td>
+<td style="text-align: left;">Taylor Swift</td>
+<td style="text-align: right;">74</td>
+<td style="text-align: right;">0.628</td>
+<td style="text-align: right;">0.6760</td>
+<td style="text-align: right;">-5.911</td>
+<td style="text-align: right;">0.0916</td>
+<td style="text-align: right;">0.009570</td>
+<td style="text-align: right;">0.1210</td>
+<td style="text-align: right;">0.7500</td>
+<td style="text-align: right;">85.984</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">As Long As You Love Me</td>
+<td style="text-align: left;">Justin Bieber</td>
+<td style="text-align: right;">72</td>
+<td style="text-align: right;">0.571</td>
+<td style="text-align: right;">0.8730</td>
+<td style="text-align: right;">-3.382</td>
+<td style="text-align: right;">0.0997</td>
+<td style="text-align: right;">0.080700</td>
+<td style="text-align: right;">0.3610</td>
+<td style="text-align: right;">0.6130</td>
+<td style="text-align: right;">139.691</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mistletoe</td>
+<td style="text-align: left;">Justin Bieber</td>
+<td style="text-align: right;">84</td>
+<td style="text-align: right;">0.658</td>
+<td style="text-align: right;">0.5600</td>
+<td style="text-align: right;">-9.049</td>
+<td style="text-align: right;">0.0467</td>
+<td style="text-align: right;">0.498000</td>
+<td style="text-align: right;">0.0794</td>
+<td style="text-align: right;">0.8540</td>
+<td style="text-align: right;">161.994</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Just the Way You Are</td>
+<td style="text-align: left;">Bruno Mars</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">0.637</td>
+<td style="text-align: right;">0.8430</td>
+<td style="text-align: right;">-5.413</td>
+<td style="text-align: right;">0.0432</td>
+<td style="text-align: right;">0.015100</td>
+<td style="text-align: right;">0.0876</td>
+<td style="text-align: right;">0.4340</td>
+<td style="text-align: right;">109.012</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Thinking out Loud</td>
+<td style="text-align: left;">Ed Sheeran</td>
+<td style="text-align: right;">67</td>
+<td style="text-align: right;">0.781</td>
+<td style="text-align: right;">0.4450</td>
+<td style="text-align: right;">-6.061</td>
+<td style="text-align: right;">0.0295</td>
+<td style="text-align: right;">0.474000</td>
+<td style="text-align: right;">0.1840</td>
+<td style="text-align: right;">0.5910</td>
+<td style="text-align: right;">78.998</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Diamonds</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">0.564</td>
+<td style="text-align: right;">0.7100</td>
+<td style="text-align: right;">-4.920</td>
+<td style="text-align: right;">0.0461</td>
+<td style="text-align: right;">0.001250</td>
+<td style="text-align: right;">0.1090</td>
+<td style="text-align: right;">0.3930</td>
+<td style="text-align: right;">91.972</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Can’t Feel My Face</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">0.705</td>
+<td style="text-align: right;">0.7690</td>
+<td style="text-align: right;">-5.526</td>
+<td style="text-align: right;">0.0426</td>
+<td style="text-align: right;">0.112000</td>
+<td style="text-align: right;">0.1050</td>
+<td style="text-align: right;">0.5900</td>
+<td style="text-align: right;">107.939</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">One Dance</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">0.791</td>
+<td style="text-align: right;">0.6190</td>
+<td style="text-align: right;">-5.886</td>
+<td style="text-align: right;">0.0532</td>
+<td style="text-align: right;">0.007840</td>
+<td style="text-align: right;">0.3510</td>
+<td style="text-align: right;">0.3710</td>
+<td style="text-align: right;">103.989</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The Hills</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.587</td>
+<td style="text-align: right;">0.5660</td>
+<td style="text-align: right;">-7.017</td>
+<td style="text-align: right;">0.0528</td>
+<td style="text-align: right;">0.084300</td>
+<td style="text-align: right;">0.1450</td>
+<td style="text-align: right;">0.1550</td>
+<td style="text-align: right;">113.025</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Versace On The Floor (Bruno Mars vs.&nbsp;David Guetta)</td>
+<td style="text-align: left;">Bruno Mars</td>
+<td style="text-align: right;">63</td>
+<td style="text-align: right;">0.747</td>
+<td style="text-align: right;">0.7010</td>
+<td style="text-align: right;">-4.902</td>
+<td style="text-align: right;">0.0429</td>
+<td style="text-align: right;">0.108000</td>
+<td style="text-align: right;">0.0712</td>
+<td style="text-align: right;">0.5890</td>
+<td style="text-align: right;">100.012</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Too Good</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0.804</td>
+<td style="text-align: right;">0.6480</td>
+<td style="text-align: right;">-7.805</td>
+<td style="text-align: right;">0.1170</td>
+<td style="text-align: right;">0.057300</td>
+<td style="text-align: right;">0.1020</td>
+<td style="text-align: right;">0.3920</td>
+<td style="text-align: right;">117.983</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Shake It Off</td>
+<td style="text-align: left;">Taylor Swift</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">0.648</td>
+<td style="text-align: right;">0.7850</td>
+<td style="text-align: right;">-5.414</td>
+<td style="text-align: right;">0.1650</td>
+<td style="text-align: right;">0.056100</td>
+<td style="text-align: right;">0.1480</td>
+<td style="text-align: right;">0.9430</td>
+<td style="text-align: right;">160.020</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Locked Out of Heaven</td>
+<td style="text-align: left;">Bruno Mars</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">0.726</td>
+<td style="text-align: right;">0.6980</td>
+<td style="text-align: right;">-4.165</td>
+<td style="text-align: right;">0.0431</td>
+<td style="text-align: right;">0.049000</td>
+<td style="text-align: right;">0.3090</td>
+<td style="text-align: right;">0.8670</td>
+<td style="text-align: right;">143.994</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Best I Ever Had</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">72</td>
+<td style="text-align: right;">0.431</td>
+<td style="text-align: right;">0.8940</td>
+<td style="text-align: right;">-2.673</td>
+<td style="text-align: right;">0.3300</td>
+<td style="text-align: right;">0.095100</td>
+<td style="text-align: right;">0.1880</td>
+<td style="text-align: right;">0.6040</td>
+<td style="text-align: right;">162.193</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hymn for the Weekend - Seeb Remix</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: right;">0.565</td>
+<td style="text-align: right;">0.8490</td>
+<td style="text-align: right;">-3.516</td>
+<td style="text-align: right;">0.0517</td>
+<td style="text-align: right;">0.008680</td>
+<td style="text-align: right;">0.1200</td>
+<td style="text-align: right;">0.4270</td>
+<td style="text-align: right;">102.034</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FourFiveSeconds</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">0.579</td>
+<td style="text-align: right;">0.2680</td>
+<td style="text-align: right;">-5.650</td>
+<td style="text-align: right;">0.0442</td>
+<td style="text-align: right;">0.868000</td>
+<td style="text-align: right;">0.1200</td>
+<td style="text-align: right;">0.3210</td>
+<td style="text-align: right;">205.903</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Galway Girl</td>
+<td style="text-align: left;">Ed Sheeran</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">0.624</td>
+<td style="text-align: right;">0.8760</td>
+<td style="text-align: right;">-3.374</td>
+<td style="text-align: right;">0.1000</td>
+<td style="text-align: right;">0.073500</td>
+<td style="text-align: right;">0.3270</td>
+<td style="text-align: right;">0.7810</td>
+<td style="text-align: right;">99.943</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Only Girl (In The World)</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.768</td>
+<td style="text-align: right;">0.7380</td>
+<td style="text-align: right;">-3.017</td>
+<td style="text-align: right;">0.0406</td>
+<td style="text-align: right;">0.052400</td>
+<td style="text-align: right;">0.0561</td>
+<td style="text-align: right;">0.6850</td>
+<td style="text-align: right;">125.928</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">We Found Love</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">0.734</td>
+<td style="text-align: right;">0.7660</td>
+<td style="text-align: right;">-4.485</td>
+<td style="text-align: right;">0.0383</td>
+<td style="text-align: right;">0.025000</td>
+<td style="text-align: right;">0.1080</td>
+<td style="text-align: right;">0.6000</td>
+<td style="text-align: right;">127.986</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">In My Feelings</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: right;">0.835</td>
+<td style="text-align: right;">0.6260</td>
+<td style="text-align: right;">-5.833</td>
+<td style="text-align: right;">0.1250</td>
+<td style="text-align: right;">0.058900</td>
+<td style="text-align: right;">0.3960</td>
+<td style="text-align: right;">0.3500</td>
+<td style="text-align: right;">91.030</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">God’s Plan</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">86</td>
+<td style="text-align: right;">0.754</td>
+<td style="text-align: right;">0.4490</td>
+<td style="text-align: right;">-9.211</td>
+<td style="text-align: right;">0.1090</td>
+<td style="text-align: right;">0.033200</td>
+<td style="text-align: right;">0.5520</td>
+<td style="text-align: right;">0.3570</td>
+<td style="text-align: right;">77.169</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Passionfruit</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">0.809</td>
+<td style="text-align: right;">0.4630</td>
+<td style="text-align: right;">-11.377</td>
+<td style="text-align: right;">0.0396</td>
+<td style="text-align: right;">0.256000</td>
+<td style="text-align: right;">0.1090</td>
+<td style="text-align: right;">0.3640</td>
+<td style="text-align: right;">111.980</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Yellow</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">0.429</td>
+<td style="text-align: right;">0.6610</td>
+<td style="text-align: right;">-7.227</td>
+<td style="text-align: right;">0.0281</td>
+<td style="text-align: right;">0.002390</td>
+<td style="text-align: right;">0.2340</td>
+<td style="text-align: right;">0.2850</td>
+<td style="text-align: right;">173.365</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fix You</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">0.209</td>
+<td style="text-align: right;">0.4180</td>
+<td style="text-align: right;">-8.740</td>
+<td style="text-align: right;">0.0338</td>
+<td style="text-align: right;">0.163000</td>
+<td style="text-align: right;">0.1130</td>
+<td style="text-align: right;">0.1230</td>
+<td style="text-align: right;">138.265</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Controlla</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">73</td>
+<td style="text-align: right;">0.611</td>
+<td style="text-align: right;">0.4680</td>
+<td style="text-align: right;">-11.084</td>
+<td style="text-align: right;">0.1790</td>
+<td style="text-align: right;">0.078100</td>
+<td style="text-align: right;">0.1010</td>
+<td style="text-align: right;">0.3490</td>
+<td style="text-align: right;">92.092</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ocean Eyes - Blackbear Remix</td>
+<td style="text-align: left;">Billie Eilish</td>
+<td style="text-align: right;">73</td>
+<td style="text-align: right;">0.661</td>
+<td style="text-align: right;">0.4190</td>
+<td style="text-align: right;">-9.807</td>
+<td style="text-align: right;">0.0404</td>
+<td style="text-align: right;">0.114000</td>
+<td style="text-align: right;">0.0848</td>
+<td style="text-align: right;">0.1450</td>
+<td style="text-align: right;">144.980</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The Scientist</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: right;">0.560</td>
+<td style="text-align: right;">0.4420</td>
+<td style="text-align: right;">-7.224</td>
+<td style="text-align: right;">0.0243</td>
+<td style="text-align: right;">0.727000</td>
+<td style="text-align: right;">0.1100</td>
+<td style="text-align: right;">0.2120</td>
+<td style="text-align: right;">146.448</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Clocks</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">0.577</td>
+<td style="text-align: right;">0.7490</td>
+<td style="text-align: right;">-7.215</td>
+<td style="text-align: right;">0.0279</td>
+<td style="text-align: right;">0.599000</td>
+<td style="text-align: right;">0.1830</td>
+<td style="text-align: right;">0.2610</td>
+<td style="text-align: right;">130.969</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">In My Place</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">0.425</td>
+<td style="text-align: right;">0.5870</td>
+<td style="text-align: right;">-5.453</td>
+<td style="text-align: right;">0.0278</td>
+<td style="text-align: right;">0.056500</td>
+<td style="text-align: right;">0.2980</td>
+<td style="text-align: right;">0.1940</td>
+<td style="text-align: right;">144.642</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">A Sky Full of Stars - Robin Schulz Edit</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">0.638</td>
+<td style="text-align: right;">0.8470</td>
+<td style="text-align: right;">-5.648</td>
+<td style="text-align: right;">0.0338</td>
+<td style="text-align: right;">0.004050</td>
+<td style="text-align: right;">0.4000</td>
+<td style="text-align: right;">0.3330</td>
+<td style="text-align: right;">123.042</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">What Do You Mean?</td>
+<td style="text-align: left;">Justin Bieber</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">0.845</td>
+<td style="text-align: right;">0.5670</td>
+<td style="text-align: right;">-8.118</td>
+<td style="text-align: right;">0.0956</td>
+<td style="text-align: right;">0.590000</td>
+<td style="text-align: right;">0.0811</td>
+<td style="text-align: right;">0.7930</td>
+<td style="text-align: right;">125.020</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Treasure</td>
+<td style="text-align: left;">Bruno Mars</td>
+<td style="text-align: right;">76</td>
+<td style="text-align: right;">0.874</td>
+<td style="text-align: right;">0.6920</td>
+<td style="text-align: right;">-5.280</td>
+<td style="text-align: right;">0.0431</td>
+<td style="text-align: right;">0.041200</td>
+<td style="text-align: right;">0.3240</td>
+<td style="text-align: right;">0.9370</td>
+<td style="text-align: right;">116.017</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Work</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">77</td>
+<td style="text-align: right;">0.725</td>
+<td style="text-align: right;">0.5340</td>
+<td style="text-align: right;">-6.238</td>
+<td style="text-align: right;">0.0946</td>
+<td style="text-align: right;">0.075200</td>
+<td style="text-align: right;">0.0919</td>
+<td style="text-align: right;">0.5580</td>
+<td style="text-align: right;">91.974</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">What’s My Name?</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">0.690</td>
+<td style="text-align: right;">0.7860</td>
+<td style="text-align: right;">-2.959</td>
+<td style="text-align: right;">0.0692</td>
+<td style="text-align: right;">0.229000</td>
+<td style="text-align: right;">0.0797</td>
+<td style="text-align: right;">0.5830</td>
+<td style="text-align: right;">100.049</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">24K Magic</td>
+<td style="text-align: left;">Bruno Mars</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">0.818</td>
+<td style="text-align: right;">0.8030</td>
+<td style="text-align: right;">-4.282</td>
+<td style="text-align: right;">0.0797</td>
+<td style="text-align: right;">0.034000</td>
+<td style="text-align: right;">0.1530</td>
+<td style="text-align: right;">0.6320</td>
+<td style="text-align: right;">106.970</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ME! (feat. Brendon Urie of Panic! At The Disco)</td>
+<td style="text-align: left;">Taylor Swift</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">0.614</td>
+<td style="text-align: right;">0.8390</td>
+<td style="text-align: right;">-4.143</td>
+<td style="text-align: right;">0.0702</td>
+<td style="text-align: right;">0.029100</td>
+<td style="text-align: right;">0.1120</td>
+<td style="text-align: right;">0.6570</td>
+<td style="text-align: right;">182.123</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">my boy</td>
+<td style="text-align: left;">Billie Eilish</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">0.692</td>
+<td style="text-align: right;">0.3940</td>
+<td style="text-align: right;">-8.745</td>
+<td style="text-align: right;">0.2070</td>
+<td style="text-align: right;">0.472000</td>
+<td style="text-align: right;">0.1170</td>
+<td style="text-align: right;">0.3240</td>
+<td style="text-align: right;">89.936</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">party favor</td>
+<td style="text-align: left;">Billie Eilish</td>
+<td style="text-align: right;">76</td>
+<td style="text-align: right;">0.826</td>
+<td style="text-align: right;">0.1880</td>
+<td style="text-align: right;">-12.181</td>
+<td style="text-align: right;">0.0883</td>
+<td style="text-align: right;">0.882000</td>
+<td style="text-align: right;">0.1030</td>
+<td style="text-align: right;">0.2050</td>
+<td style="text-align: right;">130.022</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Shallow - Radio Edit</td>
+<td style="text-align: left;">Lady Gaga</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">0.575</td>
+<td style="text-align: right;">0.3300</td>
+<td style="text-align: right;">-6.557</td>
+<td style="text-align: right;">0.0310</td>
+<td style="text-align: right;">0.416000</td>
+<td style="text-align: right;">0.0872</td>
+<td style="text-align: right;">0.2770</td>
+<td style="text-align: right;">95.801</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">bury a friend</td>
+<td style="text-align: left;">Billie Eilish</td>
+<td style="text-align: right;">87</td>
+<td style="text-align: right;">0.905</td>
+<td style="text-align: right;">0.3890</td>
+<td style="text-align: right;">-14.505</td>
+<td style="text-align: right;">0.3320</td>
+<td style="text-align: right;">0.740000</td>
+<td style="text-align: right;">0.1060</td>
+<td style="text-align: right;">0.1960</td>
+<td style="text-align: right;">120.046</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">you should see me in a crown</td>
+<td style="text-align: left;">Billie Eilish</td>
+<td style="text-align: right;">84</td>
+<td style="text-align: right;">0.678</td>
+<td style="text-align: right;">0.5330</td>
+<td style="text-align: right;">-10.485</td>
+<td style="text-align: right;">0.1860</td>
+<td style="text-align: right;">0.462000</td>
+<td style="text-align: right;">0.1390</td>
+<td style="text-align: right;">0.3230</td>
+<td style="text-align: right;">150.455</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">all the good girls go to hell</td>
+<td style="text-align: left;">Billie Eilish</td>
+<td style="text-align: right;">86</td>
+<td style="text-align: right;">0.726</td>
+<td style="text-align: right;">0.4440</td>
+<td style="text-align: right;">-8.922</td>
+<td style="text-align: right;">0.3720</td>
+<td style="text-align: right;">0.283000</td>
+<td style="text-align: right;">0.1770</td>
+<td style="text-align: right;">0.5690</td>
+<td style="text-align: right;">185.044</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Behind Barz - Bonus</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">77</td>
+<td style="text-align: right;">0.854</td>
+<td style="text-align: right;">0.5540</td>
+<td style="text-align: right;">-4.684</td>
+<td style="text-align: right;">0.1720</td>
+<td style="text-align: right;">0.769000</td>
+<td style="text-align: right;">0.0749</td>
+<td style="text-align: right;">0.2720</td>
+<td style="text-align: right;">142.069</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Over</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">63</td>
+<td style="text-align: right;">0.350</td>
+<td style="text-align: right;">0.8450</td>
+<td style="text-align: right;">-5.614</td>
+<td style="text-align: right;">0.2000</td>
+<td style="text-align: right;">0.010700</td>
+<td style="text-align: right;">0.1230</td>
+<td style="text-align: right;">0.4500</td>
+<td style="text-align: right;">99.643</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Money In The Grave (Drake ft. Rick Ross)</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">88</td>
+<td style="text-align: right;">0.831</td>
+<td style="text-align: right;">0.5020</td>
+<td style="text-align: right;">-4.045</td>
+<td style="text-align: right;">0.0460</td>
+<td style="text-align: right;">0.101000</td>
+<td style="text-align: right;">0.1220</td>
+<td style="text-align: right;">0.1010</td>
+<td style="text-align: right;">100.541</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nice For What</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">0.567</td>
+<td style="text-align: right;">0.9130</td>
+<td style="text-align: right;">-6.471</td>
+<td style="text-align: right;">0.0736</td>
+<td style="text-align: right;">0.093400</td>
+<td style="text-align: right;">0.1140</td>
+<td style="text-align: right;">0.7920</td>
+<td style="text-align: right;">93.350</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Back To Back</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: right;">0.893</td>
+<td style="text-align: right;">0.4800</td>
+<td style="text-align: right;">-3.728</td>
+<td style="text-align: right;">0.3560</td>
+<td style="text-align: right;">0.008540</td>
+<td style="text-align: right;">0.1160</td>
+<td style="text-align: right;">0.3820</td>
+<td style="text-align: right;">86.976</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Jumpman</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">0.852</td>
+<td style="text-align: right;">0.5530</td>
+<td style="text-align: right;">-7.286</td>
+<td style="text-align: right;">0.1870</td>
+<td style="text-align: right;">0.056300</td>
+<td style="text-align: right;">0.3320</td>
+<td style="text-align: right;">0.6560</td>
+<td style="text-align: right;">142.072</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Forever</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">67</td>
+<td style="text-align: right;">0.415</td>
+<td style="text-align: right;">0.9260</td>
+<td style="text-align: right;">-1.304</td>
+<td style="text-align: right;">0.3740</td>
+<td style="text-align: right;">0.253000</td>
+<td style="text-align: right;">0.2560</td>
+<td style="text-align: right;">0.5420</td>
+<td style="text-align: right;">158.423</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nonstop</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0.909</td>
+<td style="text-align: right;">0.4050</td>
+<td style="text-align: right;">-8.133</td>
+<td style="text-align: right;">0.1400</td>
+<td style="text-align: right;">0.030600</td>
+<td style="text-align: right;">0.1050</td>
+<td style="text-align: right;">0.4550</td>
+<td style="text-align: right;">154.984</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bitch Better Have My Money</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">0.781</td>
+<td style="text-align: right;">0.7280</td>
+<td style="text-align: right;">-4.981</td>
+<td style="text-align: right;">0.0621</td>
+<td style="text-align: right;">0.050900</td>
+<td style="text-align: right;">0.2570</td>
+<td style="text-align: right;">0.3950</td>
+<td style="text-align: right;">102.990</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Swine</td>
+<td style="text-align: left;">Lady Gaga</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.712</td>
+<td style="text-align: right;">0.8610</td>
+<td style="text-align: right;">-3.625</td>
+<td style="text-align: right;">0.1360</td>
+<td style="text-align: right;">0.006200</td>
+<td style="text-align: right;">0.6340</td>
+<td style="text-align: right;">0.2090</td>
+<td style="text-align: right;">127.890</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Needed Me</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0.671</td>
+<td style="text-align: right;">0.3140</td>
+<td style="text-align: right;">-8.091</td>
+<td style="text-align: right;">0.2440</td>
+<td style="text-align: right;">0.110000</td>
+<td style="text-align: right;">0.0825</td>
+<td style="text-align: right;">0.2960</td>
+<td style="text-align: right;">110.898</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rude Boy</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0.563</td>
+<td style="text-align: right;">0.7500</td>
+<td style="text-align: right;">-4.496</td>
+<td style="text-align: right;">0.1270</td>
+<td style="text-align: right;">0.113000</td>
+<td style="text-align: right;">0.0788</td>
+<td style="text-align: right;">0.8120</td>
+<td style="text-align: right;">173.906</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Portland</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">74</td>
+<td style="text-align: right;">0.925</td>
+<td style="text-align: right;">0.4430</td>
+<td style="text-align: right;">-8.216</td>
+<td style="text-align: right;">0.2640</td>
+<td style="text-align: right;">0.017200</td>
+<td style="text-align: right;">0.2760</td>
+<td style="text-align: right;">0.3500</td>
+<td style="text-align: right;">136.078</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gyalchester</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">0.877</td>
+<td style="text-align: right;">0.3910</td>
+<td style="text-align: right;">-8.196</td>
+<td style="text-align: right;">0.0630</td>
+<td style="text-align: right;">0.031700</td>
+<td style="text-align: right;">0.0945</td>
+<td style="text-align: right;">0.1220</td>
+<td style="text-align: right;">131.018</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Can’t Have Everything</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">0.856</td>
+<td style="text-align: right;">0.5720</td>
+<td style="text-align: right;">-8.429</td>
+<td style="text-align: right;">0.3730</td>
+<td style="text-align: right;">0.013600</td>
+<td style="text-align: right;">0.1210</td>
+<td style="text-align: right;">0.4540</td>
+<td style="text-align: right;">82.445</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sacrifices</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.903</td>
+<td style="text-align: right;">0.4390</td>
+<td style="text-align: right;">-11.813</td>
+<td style="text-align: right;">0.3970</td>
+<td style="text-align: right;">0.040700</td>
+<td style="text-align: right;">0.1380</td>
+<td style="text-align: right;">0.5320</td>
+<td style="text-align: right;">139.112</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Uptown (feat. Bun B &amp; Lil Wayne)</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">62</td>
+<td style="text-align: right;">0.416</td>
+<td style="text-align: right;">0.8240</td>
+<td style="text-align: right;">-3.075</td>
+<td style="text-align: right;">0.3430</td>
+<td style="text-align: right;">0.003910</td>
+<td style="text-align: right;">0.1040</td>
+<td style="text-align: right;">0.4170</td>
+<td style="text-align: right;">85.433</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Started From the Bottom</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.790</td>
+<td style="text-align: right;">0.5400</td>
+<td style="text-align: right;">-6.959</td>
+<td style="text-align: right;">0.1830</td>
+<td style="text-align: right;">0.039100</td>
+<td style="text-align: right;">0.2660</td>
+<td style="text-align: right;">0.4590</td>
+<td style="text-align: right;">86.308</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The Motto</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.774</td>
+<td style="text-align: right;">0.4310</td>
+<td style="text-align: right;">-8.407</td>
+<td style="text-align: right;">0.3460</td>
+<td style="text-align: right;">0.000146</td>
+<td style="text-align: right;">0.1120</td>
+<td style="text-align: right;">0.3530</td>
+<td style="text-align: right;">201.843</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hold On, We’re Going Home</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.765</td>
+<td style="text-align: right;">0.4520</td>
+<td style="text-align: right;">-6.644</td>
+<td style="text-align: right;">0.0680</td>
+<td style="text-align: right;">0.003300</td>
+<td style="text-align: right;">0.0916</td>
+<td style="text-align: right;">0.3310</td>
+<td style="text-align: right;">100.002</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">KMT</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">64</td>
+<td style="text-align: right;">0.875</td>
+<td style="text-align: right;">0.6000</td>
+<td style="text-align: right;">-6.818</td>
+<td style="text-align: right;">0.0435</td>
+<td style="text-align: right;">0.018900</td>
+<td style="text-align: right;">0.1320</td>
+<td style="text-align: right;">0.0906</td>
+<td style="text-align: right;">119.987</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The Hills - RL Grime Remix</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">0.571</td>
+<td style="text-align: right;">0.8970</td>
+<td style="text-align: right;">-2.463</td>
+<td style="text-align: right;">0.0432</td>
+<td style="text-align: right;">0.113000</td>
+<td style="text-align: right;">0.1580</td>
+<td style="text-align: right;">0.4460</td>
+<td style="text-align: right;">139.996</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MyBoi - TroyBoi Remix</td>
+<td style="text-align: left;">Billie Eilish</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: right;">0.879</td>
+<td style="text-align: right;">0.5800</td>
+<td style="text-align: right;">-4.797</td>
+<td style="text-align: right;">0.0883</td>
+<td style="text-align: right;">0.006260</td>
+<td style="text-align: right;">0.0653</td>
+<td style="text-align: right;">0.3120</td>
+<td style="text-align: right;">92.004</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Grammys</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.711</td>
+<td style="text-align: right;">0.4400</td>
+<td style="text-align: right;">-9.509</td>
+<td style="text-align: right;">0.4710</td>
+<td style="text-align: right;">0.001750</td>
+<td style="text-align: right;">0.0798</td>
+<td style="text-align: right;">0.1210</td>
+<td style="text-align: right;">145.116</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Digital Dash</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.889</td>
+<td style="text-align: right;">0.5430</td>
+<td style="text-align: right;">-7.666</td>
+<td style="text-align: right;">0.1280</td>
+<td style="text-align: right;">0.003110</td>
+<td style="text-align: right;">0.2340</td>
+<td style="text-align: right;">0.3140</td>
+<td style="text-align: right;">140.029</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Always in My Head</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">0.499</td>
+<td style="text-align: right;">0.5020</td>
+<td style="text-align: right;">-9.307</td>
+<td style="text-align: right;">0.0254</td>
+<td style="text-align: right;">0.012800</td>
+<td style="text-align: right;">0.0680</td>
+<td style="text-align: right;">0.0397</td>
+<td style="text-align: right;">97.544</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Magic</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">72</td>
+<td style="text-align: right;">0.738</td>
+<td style="text-align: right;">0.4830</td>
+<td style="text-align: right;">-8.915</td>
+<td style="text-align: right;">0.0403</td>
+<td style="text-align: right;">0.026200</td>
+<td style="text-align: right;">0.1060</td>
+<td style="text-align: right;">0.3550</td>
+<td style="text-align: right;">93.458</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ink</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">62</td>
+<td style="text-align: right;">0.688</td>
+<td style="text-align: right;">0.7060</td>
+<td style="text-align: right;">-7.310</td>
+<td style="text-align: right;">0.0324</td>
+<td style="text-align: right;">0.066100</td>
+<td style="text-align: right;">0.1180</td>
+<td style="text-align: right;">0.6890</td>
+<td style="text-align: right;">112.019</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">True Love</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">58</td>
+<td style="text-align: right;">0.482</td>
+<td style="text-align: right;">0.5740</td>
+<td style="text-align: right;">-7.963</td>
+<td style="text-align: right;">0.0280</td>
+<td style="text-align: right;">0.003820</td>
+<td style="text-align: right;">0.1230</td>
+<td style="text-align: right;">0.1840</td>
+<td style="text-align: right;">119.994</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Midnight</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">64</td>
+<td style="text-align: right;">0.548</td>
+<td style="text-align: right;">0.4750</td>
+<td style="text-align: right;">-12.420</td>
+<td style="text-align: right;">0.0355</td>
+<td style="text-align: right;">0.615000</td>
+<td style="text-align: right;">0.0944</td>
+<td style="text-align: right;">0.0349</td>
+<td style="text-align: right;">126.976</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Another’s Arms</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">57</td>
+<td style="text-align: right;">0.518</td>
+<td style="text-align: right;">0.5720</td>
+<td style="text-align: right;">-9.037</td>
+<td style="text-align: right;">0.0291</td>
+<td style="text-align: right;">0.007150</td>
+<td style="text-align: right;">0.1390</td>
+<td style="text-align: right;">0.3470</td>
+<td style="text-align: right;">160.005</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oceans</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: right;">0.194</td>
+<td style="text-align: right;">0.1320</td>
+<td style="text-align: right;">-15.783</td>
+<td style="text-align: right;">0.0349</td>
+<td style="text-align: right;">0.919000</td>
+<td style="text-align: right;">0.1590</td>
+<td style="text-align: right;">0.0400</td>
+<td style="text-align: right;">74.848</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">O</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">63</td>
+<td style="text-align: right;">0.230</td>
+<td style="text-align: right;">0.2160</td>
+<td style="text-align: right;">-14.727</td>
+<td style="text-align: right;">0.0376</td>
+<td style="text-align: right;">0.911000</td>
+<td style="text-align: right;">0.0934</td>
+<td style="text-align: right;">0.0618</td>
+<td style="text-align: right;">92.022</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">All Your Friends</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">0.507</td>
+<td style="text-align: right;">0.3170</td>
+<td style="text-align: right;">-12.177</td>
+<td style="text-align: right;">0.0283</td>
+<td style="text-align: right;">0.183000</td>
+<td style="text-align: right;">0.1120</td>
+<td style="text-align: right;">0.2010</td>
+<td style="text-align: right;">74.980</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ghost Story</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">0.595</td>
+<td style="text-align: right;">0.6380</td>
+<td style="text-align: right;">-7.941</td>
+<td style="text-align: right;">0.0307</td>
+<td style="text-align: right;">0.104000</td>
+<td style="text-align: right;">0.0699</td>
+<td style="text-align: right;">0.5100</td>
+<td style="text-align: right;">122.005</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">O - Reprise</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">0.201</td>
+<td style="text-align: right;">0.3270</td>
+<td style="text-align: right;">-11.975</td>
+<td style="text-align: right;">0.0285</td>
+<td style="text-align: right;">0.869000</td>
+<td style="text-align: right;">0.1170</td>
+<td style="text-align: right;">0.0945</td>
+<td style="text-align: right;">107.019</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Talk</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">62</td>
+<td style="text-align: right;">0.413</td>
+<td style="text-align: right;">0.5570</td>
+<td style="text-align: right;">-10.841</td>
+<td style="text-align: right;">0.0335</td>
+<td style="text-align: right;">0.005480</td>
+<td style="text-align: right;">0.1550</td>
+<td style="text-align: right;">0.1580</td>
+<td style="text-align: right;">120.318</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Trouble</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: right;">0.561</td>
+<td style="text-align: right;">0.5470</td>
+<td style="text-align: right;">-7.496</td>
+<td style="text-align: right;">0.0321</td>
+<td style="text-align: right;">0.189000</td>
+<td style="text-align: right;">0.1700</td>
+<td style="text-align: right;">0.1900</td>
+<td style="text-align: right;">139.755</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Lost!</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">52</td>
+<td style="text-align: right;">0.359</td>
+<td style="text-align: right;">0.7790</td>
+<td style="text-align: right;">-7.520</td>
+<td style="text-align: right;">0.0412</td>
+<td style="text-align: right;">0.005700</td>
+<td style="text-align: right;">0.3790</td>
+<td style="text-align: right;">0.5820</td>
+<td style="text-align: right;">86.951</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Beautiful People (feat. Khalid) - NOTD Remix</td>
+<td style="text-align: left;">Ed Sheeran</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">0.702</td>
+<td style="text-align: right;">0.7940</td>
+<td style="text-align: right;">-5.913</td>
+<td style="text-align: right;">0.0562</td>
+<td style="text-align: right;">0.007150</td>
+<td style="text-align: right;">0.1100</td>
+<td style="text-align: right;">0.3700</td>
+<td style="text-align: right;">103.972</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Starboy - Kygo Remix</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.751</td>
+<td style="text-align: right;">0.6230</td>
+<td style="text-align: right;">-7.215</td>
+<td style="text-align: right;">0.0939</td>
+<td style="text-align: right;">0.209000</td>
+<td style="text-align: right;">0.1680</td>
+<td style="text-align: right;">0.3830</td>
+<td style="text-align: right;">93.010</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Galway Girl - Martin Jensen Remix</td>
+<td style="text-align: left;">Ed Sheeran</td>
+<td style="text-align: right;">58</td>
+<td style="text-align: right;">0.726</td>
+<td style="text-align: right;">0.7480</td>
+<td style="text-align: right;">-4.576</td>
+<td style="text-align: right;">0.0438</td>
+<td style="text-align: right;">0.024500</td>
+<td style="text-align: right;">0.1410</td>
+<td style="text-align: right;">0.7310</td>
+<td style="text-align: right;">100.055</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Photograph - Felix Jaehn Remix</td>
+<td style="text-align: left;">Ed Sheeran</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.733</td>
+<td style="text-align: right;">0.8210</td>
+<td style="text-align: right;">-4.982</td>
+<td style="text-align: right;">0.0407</td>
+<td style="text-align: right;">0.081500</td>
+<td style="text-align: right;">0.1220</td>
+<td style="text-align: right;">0.3970</td>
+<td style="text-align: right;">120.011</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Thinking out Loud - Alex Adair Remix</td>
+<td style="text-align: left;">Ed Sheeran</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">0.828</td>
+<td style="text-align: right;">0.7450</td>
+<td style="text-align: right;">-6.717</td>
+<td style="text-align: right;">0.1520</td>
+<td style="text-align: right;">0.210000</td>
+<td style="text-align: right;">0.0870</td>
+<td style="text-align: right;">0.5170</td>
+<td style="text-align: right;">117.008</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Often - Kygo Remix</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">0.523</td>
+<td style="text-align: right;">0.4910</td>
+<td style="text-align: right;">-9.876</td>
+<td style="text-align: right;">0.0491</td>
+<td style="text-align: right;">0.123000</td>
+<td style="text-align: right;">0.3310</td>
+<td style="text-align: right;">0.4080</td>
+<td style="text-align: right;">80.156</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Marry You</td>
+<td style="text-align: left;">Bruno Mars</td>
+<td style="text-align: right;">72</td>
+<td style="text-align: right;">0.620</td>
+<td style="text-align: right;">0.8320</td>
+<td style="text-align: right;">-4.848</td>
+<td style="text-align: right;">0.0360</td>
+<td style="text-align: right;">0.332000</td>
+<td style="text-align: right;">0.1040</td>
+<td style="text-align: right;">0.4810</td>
+<td style="text-align: right;">144.926</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Princess of China - Acoustic</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">52</td>
+<td style="text-align: right;">0.245</td>
+<td style="text-align: right;">0.4710</td>
+<td style="text-align: right;">-7.952</td>
+<td style="text-align: right;">0.0313</td>
+<td style="text-align: right;">0.652000</td>
+<td style="text-align: right;">0.1260</td>
+<td style="text-align: right;">0.2870</td>
+<td style="text-align: right;">165.996</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The A Team - Acoustic</td>
+<td style="text-align: left;">Ed Sheeran</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">0.649</td>
+<td style="text-align: right;">0.2640</td>
+<td style="text-align: right;">-9.899</td>
+<td style="text-align: right;">0.2800</td>
+<td style="text-align: right;">0.727000</td>
+<td style="text-align: right;">0.2920</td>
+<td style="text-align: right;">0.4240</td>
+<td style="text-align: right;">121.815</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Magic - Live at the Enmore Theatre, Sydney</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">0.500</td>
+<td style="text-align: right;">0.5020</td>
+<td style="text-align: right;">-11.775</td>
+<td style="text-align: right;">0.0424</td>
+<td style="text-align: right;">0.180000</td>
+<td style="text-align: right;">0.7290</td>
+<td style="text-align: right;">0.3620</td>
+<td style="text-align: right;">93.361</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">A Sky Full of Stars - Live at the Royal Albert Hall, London</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">0.467</td>
+<td style="text-align: right;">0.7650</td>
+<td style="text-align: right;">-7.846</td>
+<td style="text-align: right;">0.0311</td>
+<td style="text-align: right;">0.004160</td>
+<td style="text-align: right;">0.7080</td>
+<td style="text-align: right;">0.1860</td>
+<td style="text-align: right;">125.013</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nothing On You (feat. Paulo Londra &amp; Dave)</td>
+<td style="text-align: left;">Ed Sheeran</td>
+<td style="text-align: right;">59</td>
+<td style="text-align: right;">0.747</td>
+<td style="text-align: right;">0.6490</td>
+<td style="text-align: right;">-6.218</td>
+<td style="text-align: right;">0.2190</td>
+<td style="text-align: right;">0.333000</td>
+<td style="text-align: right;">0.1720</td>
+<td style="text-align: right;">0.8400</td>
+<td style="text-align: right;">88.011</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Somebody To Love Remix</td>
+<td style="text-align: left;">Justin Bieber</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">0.704</td>
+<td style="text-align: right;">0.8360</td>
+<td style="text-align: right;">-4.619</td>
+<td style="text-align: right;">0.0283</td>
+<td style="text-align: right;">0.003880</td>
+<td style="text-align: right;">0.1600</td>
+<td style="text-align: right;">0.5530</td>
+<td style="text-align: right;">129.989</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Eenie Meenie</td>
+<td style="text-align: left;">Justin Bieber</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.718</td>
+<td style="text-align: right;">0.6050</td>
+<td style="text-align: right;">-4.240</td>
+<td style="text-align: right;">0.0307</td>
+<td style="text-align: right;">0.044300</td>
+<td style="text-align: right;">0.0962</td>
+<td style="text-align: right;">0.8180</td>
+<td style="text-align: right;">121.236</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">One Time</td>
+<td style="text-align: left;">Justin Bieber</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">0.691</td>
+<td style="text-align: right;">0.8530</td>
+<td style="text-align: right;">-2.528</td>
+<td style="text-align: right;">0.0372</td>
+<td style="text-align: right;">0.063100</td>
+<td style="text-align: right;">0.0820</td>
+<td style="text-align: right;">0.7620</td>
+<td style="text-align: right;">145.999</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">One Less Lonely Girl</td>
+<td style="text-align: left;">Justin Bieber</td>
+<td style="text-align: right;">67</td>
+<td style="text-align: right;">0.580</td>
+<td style="text-align: right;">0.7500</td>
+<td style="text-align: right;">-4.421</td>
+<td style="text-align: right;">0.1940</td>
+<td style="text-align: right;">0.159000</td>
+<td style="text-align: right;">0.2740</td>
+<td style="text-align: right;">0.7280</td>
+<td style="text-align: right;">86.938</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Love Me</td>
+<td style="text-align: left;">Justin Bieber</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">0.729</td>
+<td style="text-align: right;">0.8680</td>
+<td style="text-align: right;">-3.319</td>
+<td style="text-align: right;">0.0609</td>
+<td style="text-align: right;">0.009390</td>
+<td style="text-align: right;">0.2830</td>
+<td style="text-align: right;">0.6320</td>
+<td style="text-align: right;">124.957</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Stupid In Love</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">0.738</td>
+<td style="text-align: right;">0.5620</td>
+<td style="text-align: right;">-5.435</td>
+<td style="text-align: right;">0.0347</td>
+<td style="text-align: right;">0.633000</td>
+<td style="text-align: right;">0.1020</td>
+<td style="text-align: right;">0.4760</td>
+<td style="text-align: right;">127.452</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Grenade</td>
+<td style="text-align: left;">Bruno Mars</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">0.706</td>
+<td style="text-align: right;">0.5580</td>
+<td style="text-align: right;">-7.237</td>
+<td style="text-align: right;">0.0593</td>
+<td style="text-align: right;">0.146000</td>
+<td style="text-align: right;">0.1180</td>
+<td style="text-align: right;">0.2270</td>
+<td style="text-align: right;">110.443</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hard</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">56</td>
+<td style="text-align: right;">0.310</td>
+<td style="text-align: right;">0.7460</td>
+<td style="text-align: right;">-3.599</td>
+<td style="text-align: right;">0.1110</td>
+<td style="text-align: right;">0.012100</td>
+<td style="text-align: right;">0.6490</td>
+<td style="text-align: right;">0.1630</td>
+<td style="text-align: right;">182.032</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Russian Roulette</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">0.480</td>
+<td style="text-align: right;">0.4860</td>
+<td style="text-align: right;">-5.754</td>
+<td style="text-align: right;">0.0447</td>
+<td style="text-align: right;">0.046000</td>
+<td style="text-align: right;">0.1070</td>
+<td style="text-align: right;">0.2650</td>
+<td style="text-align: right;">80.051</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">S&amp;M</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">72</td>
+<td style="text-align: right;">0.766</td>
+<td style="text-align: right;">0.6820</td>
+<td style="text-align: right;">-5.020</td>
+<td style="text-align: right;">0.0419</td>
+<td style="text-align: right;">0.011300</td>
+<td style="text-align: right;">0.1040</td>
+<td style="text-align: right;">0.8330</td>
+<td style="text-align: right;">127.966</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Complicated</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">0.710</td>
+<td style="text-align: right;">0.8970</td>
+<td style="text-align: right;">-3.802</td>
+<td style="text-align: right;">0.0372</td>
+<td style="text-align: right;">0.175000</td>
+<td style="text-align: right;">0.0918</td>
+<td style="text-align: right;">0.3300</td>
+<td style="text-align: right;">137.972</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pop Style</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">0.713</td>
+<td style="text-align: right;">0.4620</td>
+<td style="text-align: right;">-10.027</td>
+<td style="text-align: right;">0.1230</td>
+<td style="text-align: right;">0.192000</td>
+<td style="text-align: right;">0.1050</td>
+<td style="text-align: right;">0.0595</td>
+<td style="text-align: right;">133.054</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fake Love</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.924</td>
+<td style="text-align: right;">0.5430</td>
+<td style="text-align: right;">-7.474</td>
+<td style="text-align: right;">0.2980</td>
+<td style="text-align: right;">0.182000</td>
+<td style="text-align: right;">0.1030</td>
+<td style="text-align: right;">0.7360</td>
+<td style="text-align: right;">133.907</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">When I Was Your Man</td>
+<td style="text-align: left;">Bruno Mars</td>
+<td style="text-align: right;">82</td>
+<td style="text-align: right;">0.612</td>
+<td style="text-align: right;">0.2800</td>
+<td style="text-align: right;">-8.648</td>
+<td style="text-align: right;">0.0434</td>
+<td style="text-align: right;">0.932000</td>
+<td style="text-align: right;">0.0880</td>
+<td style="text-align: right;">0.3870</td>
+<td style="text-align: right;">72.795</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">You Belong With Me</td>
+<td style="text-align: left;">Taylor Swift</td>
+<td style="text-align: right;">52</td>
+<td style="text-align: right;">0.688</td>
+<td style="text-align: right;">0.7750</td>
+<td style="text-align: right;">-4.436</td>
+<td style="text-align: right;">0.0381</td>
+<td style="text-align: right;">0.151000</td>
+<td style="text-align: right;">0.1040</td>
+<td style="text-align: right;">0.4690</td>
+<td style="text-align: right;">129.969</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">I Knew You Were Trouble</td>
+<td style="text-align: left;">Taylor Swift</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0.499</td>
+<td style="text-align: right;">0.4670</td>
+<td style="text-align: right;">-6.744</td>
+<td style="text-align: right;">0.0461</td>
+<td style="text-align: right;">0.005930</td>
+<td style="text-align: right;">0.0361</td>
+<td style="text-align: right;">0.6370</td>
+<td style="text-align: right;">76.760</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Wildest Dreams</td>
+<td style="text-align: left;">Taylor Swift</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">0.553</td>
+<td style="text-align: right;">0.6640</td>
+<td style="text-align: right;">-7.417</td>
+<td style="text-align: right;">0.0741</td>
+<td style="text-align: right;">0.070900</td>
+<td style="text-align: right;">0.1060</td>
+<td style="text-align: right;">0.4670</td>
+<td style="text-align: right;">140.060</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pon de Replay - Radio Edit</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">0.750</td>
+<td style="text-align: right;">0.6320</td>
+<td style="text-align: right;">-8.681</td>
+<td style="text-align: right;">0.2150</td>
+<td style="text-align: right;">0.000147</td>
+<td style="text-align: right;">0.1080</td>
+<td style="text-align: right;">0.5320</td>
+<td style="text-align: right;">98.997</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Perfect</td>
+<td style="text-align: left;">Ed Sheeran</td>
+<td style="text-align: right;">86</td>
+<td style="text-align: right;">0.599</td>
+<td style="text-align: right;">0.4480</td>
+<td style="text-align: right;">-6.312</td>
+<td style="text-align: right;">0.0232</td>
+<td style="text-align: right;">0.163000</td>
+<td style="text-align: right;">0.1060</td>
+<td style="text-align: right;">0.1680</td>
+<td style="text-align: right;">95.050</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pray For Me (with Kendrick Lamar)</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">76</td>
+<td style="text-align: right;">0.735</td>
+<td style="text-align: right;">0.6770</td>
+<td style="text-align: right;">-4.979</td>
+<td style="text-align: right;">0.0930</td>
+<td style="text-align: right;">0.076200</td>
+<td style="text-align: right;">0.1110</td>
+<td style="text-align: right;">0.1880</td>
+<td style="text-align: right;">100.584</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cross Me (feat. Chance the Rapper &amp; PnB Rock)</td>
+<td style="text-align: left;">Ed Sheeran</td>
+<td style="text-align: right;">73</td>
+<td style="text-align: right;">0.746</td>
+<td style="text-align: right;">0.7870</td>
+<td style="text-align: right;">-6.373</td>
+<td style="text-align: right;">0.1200</td>
+<td style="text-align: right;">0.214000</td>
+<td style="text-align: right;">0.0669</td>
+<td style="text-align: right;">0.6070</td>
+<td style="text-align: right;">95.005</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The Zone</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">0.619</td>
+<td style="text-align: right;">0.5210</td>
+<td style="text-align: right;">-8.092</td>
+<td style="text-align: right;">0.0744</td>
+<td style="text-align: right;">0.260000</td>
+<td style="text-align: right;">0.1010</td>
+<td style="text-align: right;">0.2540</td>
+<td style="text-align: right;">139.886</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Till Dawn (Here Comes The Sun)</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">0.697</td>
+<td style="text-align: right;">0.5420</td>
+<td style="text-align: right;">-8.946</td>
+<td style="text-align: right;">0.0437</td>
+<td style="text-align: right;">0.821000</td>
+<td style="text-align: right;">0.1340</td>
+<td style="text-align: right;">0.5470</td>
+<td style="text-align: right;">99.988</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Same Old Song</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: right;">0.771</td>
+<td style="text-align: right;">0.5600</td>
+<td style="text-align: right;">-5.636</td>
+<td style="text-align: right;">0.0692</td>
+<td style="text-align: right;">0.415000</td>
+<td style="text-align: right;">0.5360</td>
+<td style="text-align: right;">0.3890</td>
+<td style="text-align: right;">109.978</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Echoes Of Silence</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: right;">0.214</td>
+<td style="text-align: right;">0.1560</td>
+<td style="text-align: right;">-17.515</td>
+<td style="text-align: right;">0.0443</td>
+<td style="text-align: right;">0.951000</td>
+<td style="text-align: right;">0.1010</td>
+<td style="text-align: right;">0.1320</td>
+<td style="text-align: right;">75.654</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Valerie</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">62</td>
+<td style="text-align: right;">0.641</td>
+<td style="text-align: right;">0.5390</td>
+<td style="text-align: right;">-6.351</td>
+<td style="text-align: right;">0.0463</td>
+<td style="text-align: right;">0.346000</td>
+<td style="text-align: right;">0.0837</td>
+<td style="text-align: right;">0.4360</td>
+<td style="text-align: right;">148.004</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gone</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">0.494</td>
+<td style="text-align: right;">0.6970</td>
+<td style="text-align: right;">-7.232</td>
+<td style="text-align: right;">0.3090</td>
+<td style="text-align: right;">0.708000</td>
+<td style="text-align: right;">0.0602</td>
+<td style="text-align: right;">0.3440</td>
+<td style="text-align: right;">107.669</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The Party &amp; The After Party</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">0.438</td>
+<td style="text-align: right;">0.6340</td>
+<td style="text-align: right;">-7.456</td>
+<td style="text-align: right;">0.3370</td>
+<td style="text-align: right;">0.476000</td>
+<td style="text-align: right;">0.1130</td>
+<td style="text-align: right;">0.3970</td>
+<td style="text-align: right;">203.585</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Losers</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">62</td>
+<td style="text-align: right;">0.666</td>
+<td style="text-align: right;">0.4850</td>
+<td style="text-align: right;">-9.850</td>
+<td style="text-align: right;">0.0527</td>
+<td style="text-align: right;">0.035500</td>
+<td style="text-align: right;">0.5040</td>
+<td style="text-align: right;">0.2880</td>
+<td style="text-align: right;">91.009</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tell Your Friends</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">0.565</td>
+<td style="text-align: right;">0.4540</td>
+<td style="text-align: right;">-11.091</td>
+<td style="text-align: right;">0.0461</td>
+<td style="text-align: right;">0.265000</td>
+<td style="text-align: right;">0.1810</td>
+<td style="text-align: right;">0.3120</td>
+<td style="text-align: right;">74.809</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Often</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">76</td>
+<td style="text-align: right;">0.569</td>
+<td style="text-align: right;">0.6290</td>
+<td style="text-align: right;">-9.837</td>
+<td style="text-align: right;">0.0485</td>
+<td style="text-align: right;">0.218000</td>
+<td style="text-align: right;">0.1350</td>
+<td style="text-align: right;">0.0726</td>
+<td style="text-align: right;">134.035</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dark Times</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: right;">0.501</td>
+<td style="text-align: right;">0.4030</td>
+<td style="text-align: right;">-9.607</td>
+<td style="text-align: right;">0.0752</td>
+<td style="text-align: right;">0.114000</td>
+<td style="text-align: right;">0.1240</td>
+<td style="text-align: right;">0.2700</td>
+<td style="text-align: right;">132.608</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Prisoner</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">64</td>
+<td style="text-align: right;">0.550</td>
+<td style="text-align: right;">0.4040</td>
+<td style="text-align: right;">-12.755</td>
+<td style="text-align: right;">0.0398</td>
+<td style="text-align: right;">0.441000</td>
+<td style="text-align: right;">0.1100</td>
+<td style="text-align: right;">0.3290</td>
+<td style="text-align: right;">135.016</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Secrets</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: right;">0.665</td>
+<td style="text-align: right;">0.7710</td>
+<td style="text-align: right;">-5.779</td>
+<td style="text-align: right;">0.0533</td>
+<td style="text-align: right;">0.015500</td>
+<td style="text-align: right;">0.4600</td>
+<td style="text-align: right;">0.7640</td>
+<td style="text-align: right;">109.945</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">True Colors</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: right;">0.624</td>
+<td style="text-align: right;">0.4240</td>
+<td style="text-align: right;">-8.237</td>
+<td style="text-align: right;">0.2400</td>
+<td style="text-align: right;">0.284000</td>
+<td style="text-align: right;">0.1730</td>
+<td style="text-align: right;">0.5840</td>
+<td style="text-align: right;">76.669</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sidewalks</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">0.542</td>
+<td style="text-align: right;">0.7210</td>
+<td style="text-align: right;">-5.136</td>
+<td style="text-align: right;">0.0625</td>
+<td style="text-align: right;">0.147000</td>
+<td style="text-align: right;">0.3480</td>
+<td style="text-align: right;">0.6230</td>
+<td style="text-align: right;">149.831</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Six Feet Under</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: right;">0.772</td>
+<td style="text-align: right;">0.5040</td>
+<td style="text-align: right;">-8.219</td>
+<td style="text-align: right;">0.0761</td>
+<td style="text-align: right;">0.129000</td>
+<td style="text-align: right;">0.1250</td>
+<td style="text-align: right;">0.2440</td>
+<td style="text-align: right;">140.035</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Die For You</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">76</td>
+<td style="text-align: right;">0.586</td>
+<td style="text-align: right;">0.5250</td>
+<td style="text-align: right;">-7.163</td>
+<td style="text-align: right;">0.0615</td>
+<td style="text-align: right;">0.111000</td>
+<td style="text-align: right;">0.1340</td>
+<td style="text-align: right;">0.5080</td>
+<td style="text-align: right;">133.629</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Call Out My Name</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">0.449</td>
+<td style="text-align: right;">0.5990</td>
+<td style="text-align: right;">-4.892</td>
+<td style="text-align: right;">0.0369</td>
+<td style="text-align: right;">0.211000</td>
+<td style="text-align: right;">0.3270</td>
+<td style="text-align: right;">0.1650</td>
+<td style="text-align: right;">134.144</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Try Me</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">0.466</td>
+<td style="text-align: right;">0.6720</td>
+<td style="text-align: right;">-5.777</td>
+<td style="text-align: right;">0.0680</td>
+<td style="text-align: right;">0.622000</td>
+<td style="text-align: right;">0.1470</td>
+<td style="text-align: right;">0.1080</td>
+<td style="text-align: right;">91.673</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Wasted Times</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">0.562</td>
+<td style="text-align: right;">0.6740</td>
+<td style="text-align: right;">-6.049</td>
+<td style="text-align: right;">0.0851</td>
+<td style="text-align: right;">0.622000</td>
+<td style="text-align: right;">0.1110</td>
+<td style="text-align: right;">0.2930</td>
+<td style="text-align: right;">122.699</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">I Was Never There</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">0.324</td>
+<td style="text-align: right;">0.7350</td>
+<td style="text-align: right;">-4.054</td>
+<td style="text-align: right;">0.0337</td>
+<td style="text-align: right;">0.135000</td>
+<td style="text-align: right;">0.1690</td>
+<td style="text-align: right;">0.1690</td>
+<td style="text-align: right;">113.923</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hurt You</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">0.484</td>
+<td style="text-align: right;">0.7160</td>
+<td style="text-align: right;">-7.193</td>
+<td style="text-align: right;">0.1670</td>
+<td style="text-align: right;">0.300000</td>
+<td style="text-align: right;">0.1120</td>
+<td style="text-align: right;">0.3650</td>
+<td style="text-align: right;">184.131</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Privilege</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0.391</td>
+<td style="text-align: right;">0.5950</td>
+<td style="text-align: right;">-7.094</td>
+<td style="text-align: right;">0.0411</td>
+<td style="text-align: right;">0.913000</td>
+<td style="text-align: right;">0.1450</td>
+<td style="text-align: right;">0.3790</td>
+<td style="text-align: right;">93.780</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Twenty Eight</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">0.639</td>
+<td style="text-align: right;">0.6330</td>
+<td style="text-align: right;">-7.338</td>
+<td style="text-align: right;">0.0352</td>
+<td style="text-align: right;">0.574000</td>
+<td style="text-align: right;">0.1110</td>
+<td style="text-align: right;">0.2430</td>
+<td style="text-align: right;">129.996</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Crew Love</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">0.418</td>
+<td style="text-align: right;">0.5460</td>
+<td style="text-align: right;">-9.057</td>
+<td style="text-align: right;">0.2380</td>
+<td style="text-align: right;">0.227000</td>
+<td style="text-align: right;">0.2290</td>
+<td style="text-align: right;">0.2940</td>
+<td style="text-align: right;">160.152</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Get It Together</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: right;">0.781</td>
+<td style="text-align: right;">0.7210</td>
+<td style="text-align: right;">-9.133</td>
+<td style="text-align: right;">0.0514</td>
+<td style="text-align: right;">0.094500</td>
+<td style="text-align: right;">0.1040</td>
+<td style="text-align: right;">0.8490</td>
+<td style="text-align: right;">123.011</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Summers Over Interlude</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">57</td>
+<td style="text-align: right;">0.698</td>
+<td style="text-align: right;">0.2550</td>
+<td style="text-align: right;">-8.647</td>
+<td style="text-align: right;">0.0303</td>
+<td style="text-align: right;">0.405000</td>
+<td style="text-align: right;">0.0985</td>
+<td style="text-align: right;">0.2430</td>
+<td style="text-align: right;">132.036</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tears In The Rain</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">0.655</td>
+<td style="text-align: right;">0.6360</td>
+<td style="text-align: right;">-7.840</td>
+<td style="text-align: right;">0.0453</td>
+<td style="text-align: right;">0.109000</td>
+<td style="text-align: right;">0.0842</td>
+<td style="text-align: right;">0.1850</td>
+<td style="text-align: right;">160.010</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Adaptation</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">0.642</td>
+<td style="text-align: right;">0.7900</td>
+<td style="text-align: right;">-6.800</td>
+<td style="text-align: right;">0.0681</td>
+<td style="text-align: right;">0.151000</td>
+<td style="text-align: right;">0.3050</td>
+<td style="text-align: right;">0.6130</td>
+<td style="text-align: right;">114.960</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Jaded</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">0.766</td>
+<td style="text-align: right;">0.2710</td>
+<td style="text-align: right;">-5.697</td>
+<td style="text-align: right;">0.0412</td>
+<td style="text-align: right;">0.037000</td>
+<td style="text-align: right;">0.1750</td>
+<td style="text-align: right;">0.0371</td>
+<td style="text-align: right;">116.020</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dreams Money Can Buy</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">0.423</td>
+<td style="text-align: right;">0.5870</td>
+<td style="text-align: right;">-6.635</td>
+<td style="text-align: right;">0.5290</td>
+<td style="text-align: right;">0.765000</td>
+<td style="text-align: right;">0.1140</td>
+<td style="text-align: right;">0.3300</td>
+<td style="text-align: right;">180.331</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Feels (feat. Young Thug &amp; J Hus)</td>
+<td style="text-align: left;">Ed Sheeran</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">0.665</td>
+<td style="text-align: right;">0.6800</td>
+<td style="text-align: right;">-4.899</td>
+<td style="text-align: right;">0.2900</td>
+<td style="text-align: right;">0.112000</td>
+<td style="text-align: right;">0.0960</td>
+<td style="text-align: right;">0.6900</td>
+<td style="text-align: right;">91.670</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">How Bout Now</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">0.789</td>
+<td style="text-align: right;">0.4040</td>
+<td style="text-align: right;">-8.364</td>
+<td style="text-align: right;">0.2300</td>
+<td style="text-align: right;">0.205000</td>
+<td style="text-align: right;">0.2190</td>
+<td style="text-align: right;">0.4720</td>
+<td style="text-align: right;">122.062</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Jodeci Freestyle (feat. J. Cole)</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">57</td>
+<td style="text-align: right;">0.498</td>
+<td style="text-align: right;">0.8440</td>
+<td style="text-align: right;">-2.834</td>
+<td style="text-align: right;">0.2680</td>
+<td style="text-align: right;">0.011100</td>
+<td style="text-align: right;">0.1020</td>
+<td style="text-align: right;">0.2820</td>
+<td style="text-align: right;">88.435</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Shallow</td>
+<td style="text-align: left;">Lady Gaga</td>
+<td style="text-align: right;">88</td>
+<td style="text-align: right;">0.572</td>
+<td style="text-align: right;">0.3850</td>
+<td style="text-align: right;">-6.362</td>
+<td style="text-align: right;">0.0308</td>
+<td style="text-align: right;">0.371000</td>
+<td style="text-align: right;">0.2310</td>
+<td style="text-align: right;">0.3230</td>
+<td style="text-align: right;">95.799</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">I See Fire</td>
+<td style="text-align: left;">Ed Sheeran</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">0.641</td>
+<td style="text-align: right;">0.1760</td>
+<td style="text-align: right;">-11.692</td>
+<td style="text-align: right;">0.0349</td>
+<td style="text-align: right;">0.638000</td>
+<td style="text-align: right;">0.2520</td>
+<td style="text-align: right;">0.2970</td>
+<td style="text-align: right;">76.031</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">Billie Eilish</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">0.735</td>
+<td style="text-align: right;">0.2350</td>
+<td style="text-align: right;">-13.239</td>
+<td style="text-align: right;">0.3150</td>
+<td style="text-align: right;">0.698000</td>
+<td style="text-align: right;">0.1070</td>
+<td style="text-align: right;">0.4620</td>
+<td style="text-align: right;">62.446</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">i love you</td>
+<td style="text-align: left;">Billie Eilish</td>
+<td style="text-align: right;">85</td>
+<td style="text-align: right;">0.421</td>
+<td style="text-align: right;">0.1310</td>
+<td style="text-align: right;">-18.435</td>
+<td style="text-align: right;">0.0382</td>
+<td style="text-align: right;">0.952000</td>
+<td style="text-align: right;">0.1090</td>
+<td style="text-align: right;">0.1200</td>
+<td style="text-align: right;">137.446</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">goodbye</td>
+<td style="text-align: left;">Billie Eilish</td>
+<td style="text-align: right;">77</td>
+<td style="text-align: right;">0.153</td>
+<td style="text-align: right;">0.1380</td>
+<td style="text-align: right;">-21.877</td>
+<td style="text-align: right;">0.0503</td>
+<td style="text-align: right;">0.837000</td>
+<td style="text-align: right;">0.2540</td>
+<td style="text-align: right;">0.0503</td>
+<td style="text-align: right;">74.318</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">xanny</td>
+<td style="text-align: left;">Billie Eilish</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: right;">0.521</td>
+<td style="text-align: right;">0.1250</td>
+<td style="text-align: right;">-17.832</td>
+<td style="text-align: right;">0.2390</td>
+<td style="text-align: right;">0.751000</td>
+<td style="text-align: right;">0.2650</td>
+<td style="text-align: right;">0.0528</td>
+<td style="text-align: right;">111.554</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ocean eyes</td>
+<td style="text-align: left;">Billie Eilish</td>
+<td style="text-align: right;">85</td>
+<td style="text-align: right;">0.511</td>
+<td style="text-align: right;">0.3630</td>
+<td style="text-align: right;">-7.650</td>
+<td style="text-align: right;">0.0410</td>
+<td style="text-align: right;">0.816000</td>
+<td style="text-align: right;">0.0840</td>
+<td style="text-align: right;">0.1690</td>
+<td style="text-align: right;">144.892</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Best Part of Me (feat. YEBBA)</td>
+<td style="text-align: left;">Ed Sheeran</td>
+<td style="text-align: right;">74</td>
+<td style="text-align: right;">0.565</td>
+<td style="text-align: right;">0.2420</td>
+<td style="text-align: right;">-8.367</td>
+<td style="text-align: right;">0.0318</td>
+<td style="text-align: right;">0.762000</td>
+<td style="text-align: right;">0.2850</td>
+<td style="text-align: right;">0.2370</td>
+<td style="text-align: right;">81.657</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">hostage</td>
+<td style="text-align: left;">Billie Eilish</td>
+<td style="text-align: right;">79</td>
+<td style="text-align: right;">0.427</td>
+<td style="text-align: right;">0.1230</td>
+<td style="text-align: right;">-15.228</td>
+<td style="text-align: right;">0.0497</td>
+<td style="text-align: right;">0.868000</td>
+<td style="text-align: right;">0.0732</td>
+<td style="text-align: right;">0.0394</td>
+<td style="text-align: right;">129.565</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">&amp;burn (with Vince Staples)</td>
+<td style="text-align: left;">Billie Eilish</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">0.776</td>
+<td style="text-align: right;">0.3790</td>
+<td style="text-align: right;">-9.351</td>
+<td style="text-align: right;">0.3310</td>
+<td style="text-align: right;">0.213000</td>
+<td style="text-align: right;">0.0969</td>
+<td style="text-align: right;">0.3460</td>
+<td style="text-align: right;">82.531</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Summer Games</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.776</td>
+<td style="text-align: right;">0.4820</td>
+<td style="text-align: right;">-11.268</td>
+<td style="text-align: right;">0.0356</td>
+<td style="text-align: right;">0.481000</td>
+<td style="text-align: right;">0.1100</td>
+<td style="text-align: right;">0.1280</td>
+<td style="text-align: right;">136.015</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Jungle</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">0.690</td>
+<td style="text-align: right;">0.2350</td>
+<td style="text-align: right;">-8.651</td>
+<td style="text-align: right;">0.0541</td>
+<td style="text-align: right;">0.618000</td>
+<td style="text-align: right;">0.1070</td>
+<td style="text-align: right;">0.3780</td>
+<td style="text-align: right;">99.906</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Take Care</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: right;">0.629</td>
+<td style="text-align: right;">0.5150</td>
+<td style="text-align: right;">-10.358</td>
+<td style="text-align: right;">0.2650</td>
+<td style="text-align: right;">0.026700</td>
+<td style="text-align: right;">0.0888</td>
+<td style="text-align: right;">0.2990</td>
+<td style="text-align: right;">121.845</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Marvins Room</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">74</td>
+<td style="text-align: right;">0.492</td>
+<td style="text-align: right;">0.2600</td>
+<td style="text-align: right;">-17.341</td>
+<td style="text-align: right;">0.0921</td>
+<td style="text-align: right;">0.646000</td>
+<td style="text-align: right;">0.0705</td>
+<td style="text-align: right;">0.3120</td>
+<td style="text-align: right;">111.519</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">lovely (with Khalid)</td>
+<td style="text-align: left;">Billie Eilish</td>
+<td style="text-align: right;">89</td>
+<td style="text-align: right;">0.351</td>
+<td style="text-align: right;">0.2960</td>
+<td style="text-align: right;">-10.109</td>
+<td style="text-align: right;">0.0333</td>
+<td style="text-align: right;">0.934000</td>
+<td style="text-align: right;">0.0950</td>
+<td style="text-align: right;">0.1200</td>
+<td style="text-align: right;">115.284</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Man Down</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">59</td>
+<td style="text-align: right;">0.479</td>
+<td style="text-align: right;">0.9060</td>
+<td style="text-align: right;">-4.030</td>
+<td style="text-align: right;">0.1880</td>
+<td style="text-align: right;">0.040600</td>
+<td style="text-align: right;">0.0510</td>
+<td style="text-align: right;">0.5360</td>
+<td style="text-align: right;">155.887</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">idontwannabeyouanymore</td>
+<td style="text-align: left;">Billie Eilish</td>
+<td style="text-align: right;">85</td>
+<td style="text-align: right;">0.483</td>
+<td style="text-align: right;">0.4120</td>
+<td style="text-align: right;">-8.461</td>
+<td style="text-align: right;">0.0402</td>
+<td style="text-align: right;">0.737000</td>
+<td style="text-align: right;">0.1160</td>
+<td style="text-align: right;">0.2470</td>
+<td style="text-align: right;">170.163</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">when the party’s over</td>
+<td style="text-align: left;">Billie Eilish</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">0.498</td>
+<td style="text-align: right;">0.1040</td>
+<td style="text-align: right;">-14.080</td>
+<td style="text-align: right;">0.0621</td>
+<td style="text-align: right;">0.979000</td>
+<td style="text-align: right;">0.0895</td>
+<td style="text-align: right;">0.2050</td>
+<td style="text-align: right;">124.001</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">0 To 100 / The Catch Up</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.559</td>
+<td style="text-align: right;">0.7160</td>
+<td style="text-align: right;">-3.964</td>
+<td style="text-align: right;">0.3900</td>
+<td style="text-align: right;">0.737000</td>
+<td style="text-align: right;">0.2520</td>
+<td style="text-align: right;">0.5040</td>
+<td style="text-align: right;">176.618</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The Language</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">0.823</td>
+<td style="text-align: right;">0.6620</td>
+<td style="text-align: right;">-8.426</td>
+<td style="text-align: right;">0.3180</td>
+<td style="text-align: right;">0.011800</td>
+<td style="text-align: right;">0.0805</td>
+<td style="text-align: right;">0.5330</td>
+<td style="text-align: right;">120.117</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6 Man</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.812</td>
+<td style="text-align: right;">0.5350</td>
+<td style="text-align: right;">-9.306</td>
+<td style="text-align: right;">0.4490</td>
+<td style="text-align: right;">0.217000</td>
+<td style="text-align: right;">0.1140</td>
+<td style="text-align: right;">0.3210</td>
+<td style="text-align: right;">78.974</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Used To</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.926</td>
+<td style="text-align: right;">0.4270</td>
+<td style="text-align: right;">-7.584</td>
+<td style="text-align: right;">0.1070</td>
+<td style="text-align: right;">0.070300</td>
+<td style="text-align: right;">0.0818</td>
+<td style="text-align: right;">0.3050</td>
+<td style="text-align: right;">96.023</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">No Tellin’</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.823</td>
+<td style="text-align: right;">0.4670</td>
+<td style="text-align: right;">-10.394</td>
+<td style="text-align: right;">0.3010</td>
+<td style="text-align: right;">0.543000</td>
+<td style="text-align: right;">0.1350</td>
+<td style="text-align: right;">0.6180</td>
+<td style="text-align: right;">95.024</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Purpose</td>
+<td style="text-align: left;">Justin Bieber</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: right;">0.481</td>
+<td style="text-align: right;">0.2850</td>
+<td style="text-align: right;">-10.848</td>
+<td style="text-align: right;">0.0424</td>
+<td style="text-align: right;">0.900000</td>
+<td style="text-align: right;">0.1230</td>
+<td style="text-align: right;">0.3160</td>
+<td style="text-align: right;">130.029</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bellyache - Marian Hill Remix</td>
+<td style="text-align: left;">Billie Eilish</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: right;">0.832</td>
+<td style="text-align: right;">0.3680</td>
+<td style="text-align: right;">-8.627</td>
+<td style="text-align: right;">0.1330</td>
+<td style="text-align: right;">0.200000</td>
+<td style="text-align: right;">0.3530</td>
+<td style="text-align: right;">0.2000</td>
+<td style="text-align: right;">100.045</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">my strange addiction</td>
+<td style="text-align: left;">Billie Eilish</td>
+<td style="text-align: right;">82</td>
+<td style="text-align: right;">0.939</td>
+<td style="text-align: right;">0.3050</td>
+<td style="text-align: right;">-10.952</td>
+<td style="text-align: right;">0.3540</td>
+<td style="text-align: right;">0.350000</td>
+<td style="text-align: right;">0.1050</td>
+<td style="text-align: right;">0.5630</td>
+<td style="text-align: right;">100.029</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ilomilo</td>
+<td style="text-align: left;">Billie Eilish</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">0.855</td>
+<td style="text-align: right;">0.4230</td>
+<td style="text-align: right;">-15.044</td>
+<td style="text-align: right;">0.0585</td>
+<td style="text-align: right;">0.724000</td>
+<td style="text-align: right;">0.0896</td>
+<td style="text-align: right;">0.5720</td>
+<td style="text-align: right;">120.020</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">listen before i go</td>
+<td style="text-align: left;">Billie Eilish</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">0.319</td>
+<td style="text-align: right;">0.0561</td>
+<td style="text-align: right;">-23.023</td>
+<td style="text-align: right;">0.0450</td>
+<td style="text-align: right;">0.935000</td>
+<td style="text-align: right;">0.3880</td>
+<td style="text-align: right;">0.0820</td>
+<td style="text-align: right;">79.764</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bored</td>
+<td style="text-align: left;">Billie Eilish</td>
+<td style="text-align: right;">76</td>
+<td style="text-align: right;">0.614</td>
+<td style="text-align: right;">0.3180</td>
+<td style="text-align: right;">-12.695</td>
+<td style="text-align: right;">0.0478</td>
+<td style="text-align: right;">0.896000</td>
+<td style="text-align: right;">0.0795</td>
+<td style="text-align: right;">0.1120</td>
+<td style="text-align: right;">119.959</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sex With Me</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: right;">0.580</td>
+<td style="text-align: right;">0.5320</td>
+<td style="text-align: right;">-5.668</td>
+<td style="text-align: right;">0.0424</td>
+<td style="text-align: right;">0.294000</td>
+<td style="text-align: right;">0.0948</td>
+<td style="text-align: right;">0.3900</td>
+<td style="text-align: right;">112.049</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pour It Up</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">62</td>
+<td style="text-align: right;">0.785</td>
+<td style="text-align: right;">0.4780</td>
+<td style="text-align: right;">-8.735</td>
+<td style="text-align: right;">0.0419</td>
+<td style="text-align: right;">0.025400</td>
+<td style="text-align: right;">0.0901</td>
+<td style="text-align: right;">0.3900</td>
+<td style="text-align: right;">134.002</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Finesse - Remix; feat. Cardi B</td>
+<td style="text-align: left;">Bruno Mars</td>
+<td style="text-align: right;">77</td>
+<td style="text-align: right;">0.704</td>
+<td style="text-align: right;">0.8590</td>
+<td style="text-align: right;">-4.877</td>
+<td style="text-align: right;">0.0996</td>
+<td style="text-align: right;">0.018500</td>
+<td style="text-align: right;">0.0215</td>
+<td style="text-align: right;">0.9260</td>
+<td style="text-align: right;">105.115</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Emotionless</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.413</td>
+<td style="text-align: right;">0.6760</td>
+<td style="text-align: right;">-5.124</td>
+<td style="text-align: right;">0.2130</td>
+<td style="text-align: right;">0.023900</td>
+<td style="text-align: right;">0.0811</td>
+<td style="text-align: right;">0.0827</td>
+<td style="text-align: right;">173.478</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">I Forgot That You Existed</td>
+<td style="text-align: left;">Taylor Swift</td>
+<td style="text-align: right;">79</td>
+<td style="text-align: right;">0.664</td>
+<td style="text-align: right;">0.3160</td>
+<td style="text-align: right;">-10.345</td>
+<td style="text-align: right;">0.5190</td>
+<td style="text-align: right;">0.298000</td>
+<td style="text-align: right;">0.0812</td>
+<td style="text-align: right;">0.5410</td>
+<td style="text-align: right;">92.875</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">End Game</td>
+<td style="text-align: left;">Taylor Swift</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">0.649</td>
+<td style="text-align: right;">0.5890</td>
+<td style="text-align: right;">-6.237</td>
+<td style="text-align: right;">0.0558</td>
+<td style="text-align: right;">0.008450</td>
+<td style="text-align: right;">0.1080</td>
+<td style="text-align: right;">0.1510</td>
+<td style="text-align: right;">159.073</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Perfect Duet (Ed Sheeran &amp; Beyoncé)</td>
+<td style="text-align: left;">Ed Sheeran</td>
+<td style="text-align: right;">77</td>
+<td style="text-align: right;">0.587</td>
+<td style="text-align: right;">0.2990</td>
+<td style="text-align: right;">-7.365</td>
+<td style="text-align: right;">0.0263</td>
+<td style="text-align: right;">0.779000</td>
+<td style="text-align: right;">0.1230</td>
+<td style="text-align: right;">0.3560</td>
+<td style="text-align: right;">94.992</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Signs</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">0.794</td>
+<td style="text-align: right;">0.7350</td>
+<td style="text-align: right;">-4.204</td>
+<td style="text-align: right;">0.0540</td>
+<td style="text-align: right;">0.108000</td>
+<td style="text-align: right;">0.1120</td>
+<td style="text-align: right;">0.2230</td>
+<td style="text-align: right;">107.374</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Love Yourself</td>
+<td style="text-align: left;">Justin Bieber</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: right;">0.609</td>
+<td style="text-align: right;">0.3780</td>
+<td style="text-align: right;">-9.828</td>
+<td style="text-align: right;">0.4380</td>
+<td style="text-align: right;">0.835000</td>
+<td style="text-align: right;">0.2800</td>
+<td style="text-align: right;">0.5150</td>
+<td style="text-align: right;">100.418</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kiss It Better - KAYTRANADA Edition</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">0.854</td>
+<td style="text-align: right;">0.4980</td>
+<td style="text-align: right;">-7.922</td>
+<td style="text-align: right;">0.3320</td>
+<td style="text-align: right;">0.022900</td>
+<td style="text-align: right;">0.3000</td>
+<td style="text-align: right;">0.3430</td>
+<td style="text-align: right;">108.049</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Higher</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.292</td>
+<td style="text-align: right;">0.5670</td>
+<td style="text-align: right;">-4.191</td>
+<td style="text-align: right;">0.0416</td>
+<td style="text-align: right;">0.112000</td>
+<td style="text-align: right;">0.1190</td>
+<td style="text-align: right;">0.3920</td>
+<td style="text-align: right;">153.199</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">James Joint</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.399</td>
+<td style="text-align: right;">0.2030</td>
+<td style="text-align: right;">-11.649</td>
+<td style="text-align: right;">0.0298</td>
+<td style="text-align: right;">0.660000</td>
+<td style="text-align: right;">0.2700</td>
+<td style="text-align: right;">0.4050</td>
+<td style="text-align: right;">134.202</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Can’t Feel My Face - Martin Garrix Remix</td>
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.607</td>
+<td style="text-align: right;">0.7070</td>
+<td style="text-align: right;">-5.509</td>
+<td style="text-align: right;">0.1060</td>
+<td style="text-align: right;">0.008420</td>
+<td style="text-align: right;">0.3480</td>
+<td style="text-align: right;">0.1170</td>
+<td style="text-align: right;">128.014</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">She Don’t Like The Lights - Acoustic Version</td>
+<td style="text-align: left;">Justin Bieber</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">0.612</td>
+<td style="text-align: right;">0.4280</td>
+<td style="text-align: right;">-8.520</td>
+<td style="text-align: right;">0.0292</td>
+<td style="text-align: right;">0.750000</td>
+<td style="text-align: right;">0.0921</td>
+<td style="text-align: right;">0.6850</td>
+<td style="text-align: right;">123.822</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Work - R3hab Remix</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.715</td>
+<td style="text-align: right;">0.8000</td>
+<td style="text-align: right;">-5.488</td>
+<td style="text-align: right;">0.0555</td>
+<td style="text-align: right;">0.010400</td>
+<td style="text-align: right;">0.3190</td>
+<td style="text-align: right;">0.2640</td>
+<td style="text-align: right;">100.004</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bitch Better Have My Money - R3hab Remix</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.788</td>
+<td style="text-align: right;">0.9210</td>
+<td style="text-align: right;">-3.210</td>
+<td style="text-align: right;">0.0550</td>
+<td style="text-align: right;">0.006000</td>
+<td style="text-align: right;">0.1050</td>
+<td style="text-align: right;">0.5510</td>
+<td style="text-align: right;">128.007</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bitch Better Have My Money - GTA Remix</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.768</td>
+<td style="text-align: right;">0.8770</td>
+<td style="text-align: right;">-3.114</td>
+<td style="text-align: right;">0.1510</td>
+<td style="text-align: right;">0.000768</td>
+<td style="text-align: right;">0.0739</td>
+<td style="text-align: right;">0.4800</td>
+<td style="text-align: right;">103.036</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">You Need To Calm Down - Clean Bandit Remix</td>
+<td style="text-align: left;">Taylor Swift</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">0.726</td>
+<td style="text-align: right;">0.8800</td>
+<td style="text-align: right;">-4.137</td>
+<td style="text-align: right;">0.0581</td>
+<td style="text-align: right;">0.072000</td>
+<td style="text-align: right;">0.0906</td>
+<td style="text-align: right;">0.7390</td>
+<td style="text-align: right;">95.037</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…Ready For It? - BloodPop® Remix</td>
+<td style="text-align: left;">Taylor Swift</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">0.582</td>
+<td style="text-align: right;">0.8350</td>
+<td style="text-align: right;">-4.899</td>
+<td style="text-align: right;">0.2220</td>
+<td style="text-align: right;">0.133000</td>
+<td style="text-align: right;">0.1020</td>
+<td style="text-align: right;">0.4960</td>
+<td style="text-align: right;">160.090</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">24K Magic - R3hab Remix</td>
+<td style="text-align: left;">Bruno Mars</td>
+<td style="text-align: right;">59</td>
+<td style="text-align: right;">0.763</td>
+<td style="text-align: right;">0.7080</td>
+<td style="text-align: right;">-5.692</td>
+<td style="text-align: right;">0.2090</td>
+<td style="text-align: right;">0.146000</td>
+<td style="text-align: right;">0.3300</td>
+<td style="text-align: right;">0.5660</td>
+<td style="text-align: right;">106.175</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Perfect - Mike Perry Remix</td>
+<td style="text-align: left;">Ed Sheeran</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">0.732</td>
+<td style="text-align: right;">0.7560</td>
+<td style="text-align: right;">-4.309</td>
+<td style="text-align: right;">0.0324</td>
+<td style="text-align: right;">0.260000</td>
+<td style="text-align: right;">0.1300</td>
+<td style="text-align: right;">0.3430</td>
+<td style="text-align: right;">113.980</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kiss It Better - R3hab Remix</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.728</td>
+<td style="text-align: right;">0.7380</td>
+<td style="text-align: right;">-3.939</td>
+<td style="text-align: right;">0.0455</td>
+<td style="text-align: right;">0.050500</td>
+<td style="text-align: right;">0.1040</td>
+<td style="text-align: right;">0.4580</td>
+<td style="text-align: right;">102.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Needed Me - R3hab Remix</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">0.659</td>
+<td style="text-align: right;">0.6830</td>
+<td style="text-align: right;">-5.485</td>
+<td style="text-align: right;">0.0488</td>
+<td style="text-align: right;">0.008350</td>
+<td style="text-align: right;">0.6250</td>
+<td style="text-align: right;">0.2780</td>
+<td style="text-align: right;">99.987</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Paradise - Tiësto Remix</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">0.637</td>
+<td style="text-align: right;">0.7360</td>
+<td style="text-align: right;">-6.003</td>
+<td style="text-align: right;">0.0404</td>
+<td style="text-align: right;">0.012300</td>
+<td style="text-align: right;">0.0798</td>
+<td style="text-align: right;">0.6430</td>
+<td style="text-align: right;">130.015</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">California King Bed - Bassjackers Radio</td>
+<td style="text-align: left;">Rihanna</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.589</td>
+<td style="text-align: right;">0.8210</td>
+<td style="text-align: right;">-3.385</td>
+<td style="text-align: right;">0.0413</td>
+<td style="text-align: right;">0.000318</td>
+<td style="text-align: right;">0.3900</td>
+<td style="text-align: right;">0.1590</td>
+<td style="text-align: right;">127.986</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Shape of You - Galantis Remix</td>
+<td style="text-align: left;">Ed Sheeran</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">0.838</td>
+<td style="text-align: right;">0.7650</td>
+<td style="text-align: right;">-2.332</td>
+<td style="text-align: right;">0.0462</td>
+<td style="text-align: right;">0.051400</td>
+<td style="text-align: right;">0.0297</td>
+<td style="text-align: right;">0.9050</td>
+<td style="text-align: right;">100.021</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">That’s What I Like - Alan Walker Remix</td>
+<td style="text-align: left;">Bruno Mars</td>
+<td style="text-align: right;">63</td>
+<td style="text-align: right;">0.692</td>
+<td style="text-align: right;">0.8960</td>
+<td style="text-align: right;">-4.017</td>
+<td style="text-align: right;">0.0502</td>
+<td style="text-align: right;">0.012100</td>
+<td style="text-align: right;">0.1990</td>
+<td style="text-align: right;">0.7980</td>
+<td style="text-align: right;">134.056</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bad Blood</td>
+<td style="text-align: left;">Taylor Swift</td>
+<td style="text-align: right;">62</td>
+<td style="text-align: right;">0.652</td>
+<td style="text-align: right;">0.8020</td>
+<td style="text-align: right;">-6.114</td>
+<td style="text-align: right;">0.1810</td>
+<td style="text-align: right;">0.087100</td>
+<td style="text-align: right;">0.1480</td>
+<td style="text-align: right;">0.2950</td>
+<td style="text-align: right;">170.157</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Beauty And A Beat</td>
+<td style="text-align: left;">Justin Bieber</td>
+<td style="text-align: right;">72</td>
+<td style="text-align: right;">0.601</td>
+<td style="text-align: right;">0.8430</td>
+<td style="text-align: right;">-4.870</td>
+<td style="text-align: right;">0.0593</td>
+<td style="text-align: right;">0.000704</td>
+<td style="text-align: right;">0.0681</td>
+<td style="text-align: right;">0.5340</td>
+<td style="text-align: right;">128.002</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Delicate</td>
+<td style="text-align: left;">Taylor Swift</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: right;">0.750</td>
+<td style="text-align: right;">0.4040</td>
+<td style="text-align: right;">-10.178</td>
+<td style="text-align: right;">0.0682</td>
+<td style="text-align: right;">0.216000</td>
+<td style="text-align: right;">0.0911</td>
+<td style="text-align: right;">0.0499</td>
+<td style="text-align: right;">95.045</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Finesse</td>
+<td style="text-align: left;">Bruno Mars</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">0.741</td>
+<td style="text-align: right;">0.7980</td>
+<td style="text-align: right;">-5.342</td>
+<td style="text-align: right;">0.0718</td>
+<td style="text-align: right;">0.007810</td>
+<td style="text-align: right;">0.0232</td>
+<td style="text-align: right;">0.9390</td>
+<td style="text-align: right;">104.953</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A Sky Full of Stars - Hardwell Remix</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">0.439</td>
+<td style="text-align: right;">0.6480</td>
+<td style="text-align: right;">-3.643</td>
+<td style="text-align: right;">0.0325</td>
+<td style="text-align: right;">0.019000</td>
+<td style="text-align: right;">0.3430</td>
+<td style="text-align: right;">0.0546</td>
+<td style="text-align: right;">127.954</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="exemple-le-top-10-spotify-1" class="slide level2 smaller">
+<h2>Exemple : le top 10 Spotify</h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a></a></span>
+<span id="cb1-3"><a></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> danceability, <span class="at">y =</span> energy, <span class="at">color =</span> track_artist)) <span class="sc">+</span></span>
+<span id="cb1-4"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb1-5"><a></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="04-dimension-pca-slides_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="exemple-le-top-10-spotify-2" class="slide level2 smaller">
+<h2>Exemple : le top 10 Spotify</h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-2"><a></a></span>
+<span id="cb2-3"><a></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> loudness, <span class="at">y =</span> speechiness, <span class="at">color =</span> track_artist)) <span class="sc">+</span></span>
+<span id="cb2-4"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb2-5"><a></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="04-dimension-pca-slides_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="exemple-le-top-10-spotify-3" class="slide level2 smaller">
+<h2>Exemple : le top 10 Spotify</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Code</a></li><li><a href="#tabset-1-2">Plot</a></li><li><a href="#tabset-1-3">Valeurs propres</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(FactoMineR)</span>
+<span id="cb3-2"><a></a><span class="fu">library</span>(factoextra)</span>
+<span id="cb3-3"><a></a>pca_not_scaled <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">select</span>(</span>
+<span id="cb3-4"><a></a>    danceability, energy, loudness, speechiness,</span>
+<span id="cb3-5"><a></a>    acousticness, liveness, valence, tempo</span>
+<span id="cb3-6"><a></a>  ) <span class="sc">|&gt;</span> <span class="fu">PCA</span>(<span class="at">scale.unit =</span> <span class="cn">FALSE</span>, <span class="at">graph =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb3-7"><a></a><span class="fu">fviz_eig</span>(pca_not_scaled)</span>
+<span id="cb3-8"><a></a><span class="fu">get_eigenvalue</span>(pca_scaled)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="tabset-1-2">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-dimension-pca-slides_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-3">
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">eigenvalue</th>
+<th style="text-align: right;">variance.percent</th>
+<th style="text-align: right;">cumulative.variance.percent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Dim.1</td>
+<td style="text-align: right;">810.6332465</td>
+<td style="text-align: right;">98.6720169</td>
+<td style="text-align: right;">98.67202</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dim.2</td>
+<td style="text-align: right;">10.7552317</td>
+<td style="text-align: right;">1.3091499</td>
+<td style="text-align: right;">99.98117</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dim.3</td>
+<td style="text-align: right;">0.0567231</td>
+<td style="text-align: right;">0.0069045</td>
+<td style="text-align: right;">99.98807</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dim.4</td>
+<td style="text-align: right;">0.0441830</td>
+<td style="text-align: right;">0.0053781</td>
+<td style="text-align: right;">99.99345</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dim.5</td>
+<td style="text-align: right;">0.0210597</td>
+<td style="text-align: right;">0.0025634</td>
+<td style="text-align: right;">99.99601</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dim.6</td>
+<td style="text-align: right;">0.0134860</td>
+<td style="text-align: right;">0.0016415</td>
+<td style="text-align: right;">99.99765</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dim.7</td>
+<td style="text-align: right;">0.0100835</td>
+<td style="text-align: right;">0.0012274</td>
+<td style="text-align: right;">99.99888</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dim.8</td>
+<td style="text-align: right;">0.0091876</td>
+<td style="text-align: right;">0.0011183</td>
+<td style="text-align: right;">100.00000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exemple-le-top-10-spotify-4" class="slide level2 smaller">
+<h2>Exemple : le top 10 Spotify</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Code</a></li><li><a href="#tabset-2-2">Plot</a></li><li><a href="#tabset-2-3">Valeurs propres</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">library</span>(FactoMineR)</span>
+<span id="cb4-2"><a></a><span class="fu">library</span>(factoextra)</span>
+<span id="cb4-3"><a></a>pca_scaled <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">select</span>(</span>
+<span id="cb4-4"><a></a>    danceability, energy, loudness, speechiness,</span>
+<span id="cb4-5"><a></a>    acousticness, liveness, valence, tempo</span>
+<span id="cb4-6"><a></a>  ) <span class="sc">|&gt;</span> <span class="fu">PCA</span>(<span class="at">scale.unit =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb4-7"><a></a><span class="fu">fviz_eig</span>(pca_scaled)</span>
+<span id="cb4-8"><a></a><span class="fu">get_eigenvalue</span>(pca_scaled)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="tabset-2-2">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-dimension-pca-slides_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-3">
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">eigenvalue</th>
+<th style="text-align: right;">variance.percent</th>
+<th style="text-align: right;">cumulative.variance.percent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Dim.1</td>
+<td style="text-align: right;">2.8090242</td>
+<td style="text-align: right;">35.112803</td>
+<td style="text-align: right;">35.11280</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dim.2</td>
+<td style="text-align: right;">1.3209372</td>
+<td style="text-align: right;">16.511715</td>
+<td style="text-align: right;">51.62452</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dim.3</td>
+<td style="text-align: right;">1.1505090</td>
+<td style="text-align: right;">14.381362</td>
+<td style="text-align: right;">66.00588</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dim.4</td>
+<td style="text-align: right;">0.9610515</td>
+<td style="text-align: right;">12.013144</td>
+<td style="text-align: right;">78.01902</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dim.5</td>
+<td style="text-align: right;">0.6455193</td>
+<td style="text-align: right;">8.068991</td>
+<td style="text-align: right;">86.08801</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dim.6</td>
+<td style="text-align: right;">0.5897927</td>
+<td style="text-align: right;">7.372408</td>
+<td style="text-align: right;">93.46042</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dim.7</td>
+<td style="text-align: right;">0.3466595</td>
+<td style="text-align: right;">4.333244</td>
+<td style="text-align: right;">97.79367</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dim.8</td>
+<td style="text-align: right;">0.1765066</td>
+<td style="text-align: right;">2.206333</td>
+<td style="text-align: right;">100.00000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exemple-le-top-10-spotify-5" class="slide level2 smaller">
+<h2>Exemple : le top 10 Spotify</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Code</a></li><li><a href="#tabset-3-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">fviz_pca_var</span>(</span>
+<span id="cb5-2"><a></a>  pca_scaled,</span>
+<span id="cb5-3"><a></a>  <span class="at">col.var =</span> <span class="st">"cos2"</span>,</span>
+<span id="cb5-4"><a></a>  <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span>), </span>
+<span id="cb5-5"><a></a>  <span class="at">repel =</span> <span class="cn">TRUE</span> <span class="co"># Avoid text overlapping</span></span>
+<span id="cb5-6"><a></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="tabset-3-2">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-dimension-pca-slides_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exemple-le-top-10-spotify-6" class="slide level2 smaller">
+<h2>Exemple : le top 10 Spotify</h2>
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Code</a></li><li><a href="#tabset-4-2">Contribution à la première composante</a></li><li><a href="#tabset-4-3">Contribution à la deuxième composante</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">fviz_contrib</span>(pca_scaled, <span class="at">choice =</span> <span class="st">"var"</span>, <span class="at">axes =</span> <span class="dv">1</span>)</span>
+<span id="cb6-2"><a></a><span class="fu">fviz_contrib</span>(pca_scaled, <span class="at">choice =</span> <span class="st">"var"</span>, <span class="at">axes =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="tabset-4-2">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-dimension-pca-slides_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-4-3">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-dimension-pca-slides_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exemple-le-top-10-spotify-7" class="slide level2 smaller">
+<h2>Exemple : le top 10 Spotify</h2>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Code</a></li><li><a href="#tabset-5-2">Graphique des individus</a></li><li><a href="#tabset-5-3">Avec ellipse</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">fviz_pca_ind</span>(</span>
+<span id="cb7-2"><a></a>  pca_scaled,</span>
+<span id="cb7-3"><a></a>  <span class="at">geom.ind =</span> <span class="st">"point"</span>, <span class="co"># show points only (nbut not "text")</span></span>
+<span id="cb7-4"><a></a>  <span class="at">col.ind =</span> df<span class="sc">$</span>track_artist, <span class="co"># color by groups</span></span>
+<span id="cb7-5"><a></a>  <span class="at">legend.title =</span> <span class="st">"Artists"</span>,</span>
+<span id="cb7-6"><a></a>) <span class="sc">+</span> <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">rep</span>(<span class="dv">19</span>, <span class="dv">10</span>))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="tabset-5-2">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-dimension-pca-slides_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-5-3">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-dimension-pca-slides_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exemple-le-top-10-spotify-8" class="slide level2 smaller">
+<h2>Exemple : le top 10 Spotify</h2>
+<div class="panel-tabset">
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Code</a></li><li><a href="#tabset-6-2">Biplot</a></li><li><a href="#tabset-6-3">Clean</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1">
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">fviz_pca_biplot</span>(</span>
+<span id="cb8-2"><a></a>  pca_scaled,</span>
+<span id="cb8-3"><a></a>  <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb8-4"><a></a>  <span class="at">col.var =</span> <span class="st">"#2E9FDF"</span>, <span class="co"># Variables color</span></span>
+<span id="cb8-5"><a></a>  <span class="at">col.ind =</span> <span class="st">"#696969"</span>  <span class="co"># Individuals color</span></span>
+<span id="cb8-6"><a></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="tabset-6-2">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-dimension-pca-slides_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-6-3">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-dimension-pca-slides_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="conclusion" class="slide level2">
 <h2>Conclusion</h2>
+<p><br></p>
 <p>L’ACP est un outil puissant pour la réduction de dimension qui :</p>
 <ul>
-<li><strong>Préserve</strong> l’information maximale</li>
-<li><strong>Élimine</strong> la redondance</li>
-<li><strong>Facilite</strong> la visualisation et la modélisation</li>
-<li><strong>Nécessite</strong> des choix méthodologiques importants</li>
+<li><p>Préserve l’information maximale.</p></li>
+<li><p>Élimine la redondance d’information.</p></li>
+<li><p>Facilite la visualisation et la modélisation.</p></li>
+<li><p>Nécessite des <strong>choix</strong> méthodologiques.</p></li>
 </ul>
-<p>Le succès dépend du choix approprié du nombre de composantes selon le contexte d’application.</p>
+<p>Prochaine étape → Que faire si les données ne sont pas qualitatives ?</p>
 
 
 </section>
@@ -494,6 +4452,44 @@ Steven Golovkine
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
