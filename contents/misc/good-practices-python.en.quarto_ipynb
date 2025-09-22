@@ -1,0 +1,128 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "--- \n",
+        "title: \"Good practices in Python\"\n",
+        "format: \n",
+        "  html: default\n",
+        "  pdf:\n",
+        "    number-sections: true\n",
+        "    header-includes:\n",
+        "      - \\usepackage{mathtools} \n",
+        "---\n",
+        "\n",
+        "\n",
+        "This page is inspired by this [document](https://gist.github.com/ruimaranhao/4e18cbe3dad6f68040c32ed6709090a3).\n",
+        "\n",
+        "Like R, Python is \"just\" a programming language, so it is possible to write Python code in a text editor and run it via a terminal. Although this is feasible, it is easier to use a code editor. While it is technically possible to use RStudio as an editor for Python, I would recommend using a specialized editor such as *PyCharm*. The *notebook* format is also very popular in Python. In this case, I would recommend the `marimo` library, which allows you to convert your `.py` files into notebooks. \n",
+        "\n",
+        "In addition, it is best to make sure you are working with the latest stable version of Python that is compatible with the packages you are using (e.g., `numpy`, `matplotlib`, `sklearn`). Very often, there is a delay before the latest versions of packages are compatible with the latest version of Python. It is therefore important to share the version of the packages used with the analysis.\n",
+        "\n",
+        "Regarding documentation, the standard in Python is to follow the recommendations of [PEP 257](https://peps.python.org/pep-0257/). The [`Sphinx`](https://www.sphinx-doc.org/en/master/) library allows you to generate documentation from *docstrings*.\n",
+        "\n",
+        "A uniform syntax makes code much easier to read and understand. A style guide sets out standards for uniform syntax. The [PEP 8](https://peps.python.org/pep-0008/) style guide is recommended in Python.\n",
+        "\n",
+        "**Line breaks and indentation**\n",
+        "\n",
+        "Indentation is part of Python, i.e. `if...else` and `for` blocks are defined using indentation. You can use either *tabs* or *spaces*. The choice is yours, but it is important to be consistent in your code.\n",
+        "\n",
+        "**Naming convention**\n",
+        "\n",
+        "The use of single-character variable names should be avoided. Otherwise, variables, functions, methods, packages, and modules are named with lowercase letters, numbers, and the underscore `_`. Classes and exceptions should be named with uppercase letters to separate words (`UneClasse`). Constants are in uppercase.\n",
+        "\n",
+        "**Code organization**\n",
+        "\n",
+        "As with R, when the code starts to get long, it is advantageous to split it into several files. For example, you can have one file per part of the analysis (one for data cleaning, one for analysis, one for visualization, etc.). You can also create several subfolders.\n",
+        "\n",
+        "**Some things to do**\n",
+        "\n",
+        "1. Do not make comparisons to `True`, `False`, or `None`.\n"
+      ],
+      "id": "d8fd3f54"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| eval: false\n",
+        "if attr:\n",
+        "    print(\"True!\")\n",
+        "\n",
+        "if not attr:\n",
+        "    print(\"False!\")\n",
+        "\n",
+        "if attr is None:\n",
+        "    print(\"None!\")"
+      ],
+      "id": "a5d5c00e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "2. Use list comprehension when possible.\n"
+      ],
+      "id": "e212ee62"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| eval: false\n",
+        "a = [3, 4, 5]\n",
+        "b = [i for i in a if i > 4]"
+      ],
+      "id": "dc260ede",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "3. Load a file with `with`. This ensures that the connection to the file is closed once it has been read.\n"
+      ],
+      "id": "77b51320"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: true\n",
+        "#| eval: false\n",
+        "with open(\"file.txt\") as f:\n",
+        "    read(f)"
+      ],
+      "id": "ddc1ae24",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "4. Use a maximum of 80 characters per line.\n",
+        "\n",
+        "5. Use parentheses to wrap long strings."
+      ],
+      "id": "d493154d"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "test_pyspline_venv",
+      "language": "python",
+      "display_name": "Python 3.13 (test_pyspline_venv)",
+      "path": "/Users/steven/Library/Jupyter/kernels/test_pyspline_venv"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

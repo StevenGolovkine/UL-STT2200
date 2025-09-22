@@ -27,6 +27,8 @@ jobs:
           packages: |
             github::ropensci-review-tools/babelquarto
             any::tidyverse
+            any::FactoMineR
+            any::factoextra
             any::latex2exp
 
       - name: Install Python and Dependencies
