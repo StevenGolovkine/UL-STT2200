@@ -1,0 +1,630 @@
+--- 
+title: "Dimension"
+subtitle: "Analyse en composantes principales"
+author: "Steven Golovkine"
+lang: fr
+date: "26 sept. 2024"
+date-format: "DD MMM YYYY"
+slide-number: c/t
+title-logo: ../include/logo-ul.png
+format:
+  revealjs:
+    theme: [default, ../include/ulaval-slide.scss]
+    chalkboard:
+      src: annotation/04-dimension-pca-slides-annotation.json
+    width: 1280
+    height: 720
+    template-partials:
+      - title-slide.html
+--- 
+
+## Pourquoi réduire la dimension ?
+
+<br>
+
+Travailler avec un grand nombre de variables pose plusieurs défis :
+
+::: {.incremental}
+- Visualisation compliquée : impossible de représenter au-delà de 3 dimensions.
+
+- Séparation des classes difficile : structure cachée dans des combinaisons.
+
+- Coût computationnel élevé : modèles complexes difficiles à ajuster.
+
+- Corrélations fortes : variables redondantes, modèles instables.
+:::
+
+. . .
+
+→ Peut-on réduire la dimension sans perdre trop d'information ?
+
+
+## Plan
+
+<br>
+
+1. La théorie de l'analyse en composantes principales
+
+2. L'ACP en pratique
+
+3. Exemple : Le top 10 des artistes Spotify
+
+
+## L'approche PCA
+
+<br>
+
+Principe → Ne pas simplement supprimer des variables, mais construire de nouvelles variables.
+
+<br>
+
+Méthode → Créer des combinaisons linéaires des variables initiales qui résument l'information essentielle.
+
+## L'approche PCA
+
+<br>
+
+Analyse en Composantes Principales (ACP) → Méthode non-supervisée pour réduire la dimension tout en conservant le maximum d'information.
+
+<br>
+
+→ Introduite par Hotelling (1933).
+
+## Applications courantes
+
+<br>
+
+- Visualisation : Représenter des données multidimensionnelles.
+
+- Réduction dimensionnelle : Passer de $p$ à $k \ll p$ variables.
+
+- Compression : Images ou signaux.
+
+- Exploration : Données biologiques, textuelles, environnementales, ...
+
+## Exemples concrets
+
+<br>
+
+- Sport : Comparer des équipes de hockey sur 6 statistiques.
+
+- Criminologie : Résumer la criminalité entre provinces sur 7 types de crimes.
+
+- Imagerie : Compresser des images de $1084 \times 1084$ pixels.
+
+- Biologie : Identifier des variants de tumeurs à partir de millions de gènes.
+
+
+## Formulation mathématique
+
+<br>
+
+Soit $X = (X_1, \ldots, X_p)^{\top}$ un vecteur aléatoire **centré** avec matrice de covariance $\Sigma$.
+
+On cherche une combinaison linéaire des variables $X_k$ :
+$$Y_1 = \alpha_1^{\top} X = \sum_{k=1}^p \alpha_{1k} X_k.$$
+
+**Objectif** → Maximiser $\text{Var}(Y_1)$ sous contrainte $\|\alpha_1\| = 1$.
+
+## Problème d'optimisation
+
+<br>
+
+Le problème d'optimisation s'écrit :
+$$\max_{\alpha_1^{\top} \alpha_1 = 1} \text{Var}(Y_1) = \max_{\alpha_1^{\top} \alpha_1 = 1} \alpha_1^{\top} \Sigma \alpha_1.$$
+
+## Problème d'optimisation
+
+## Problème d'optimisation
+
+<br>
+
+Solution (multiplicateurs de Lagrange) :
+$$\Sigma \alpha_1 = \lambda_1 \alpha_1$$
+
+où $\lambda_1$ est la plus grande valeur propre de $\Sigma$ et $\alpha_1$ le vecteur propre associé.
+
+## Construction des composantes
+
+<br>
+
+Les composantes suivantes sont construites par orthogonalité :
+
+$$\Sigma \alpha_k = \lambda_k \alpha_k, \quad \lambda_1 \geq \lambda_2 \geq \ldots \geq \lambda_p$$
+
+Composantes principales :
+$$Y_k = \alpha_k^{\top} X$$
+
+où $\alpha_k$ est le vecteur propre associé à $\lambda_k$.
+
+## Représentation matricielle
+
+<br>
+
+Soit $A = (\alpha_1, \ldots, \alpha_p) \in \mathbb{R}^{p \times p}$ la matrice des vecteurs propres.
+
+$$Y = A^{\top} X$$
+
+Propriétés de $A$ :
+
+- $A^{\top} A = AA^{\top} = I_p$ (orthogonale)
+
+- $A^{\top} = A^{-1}$
+
+- $\Sigma A = A \Lambda$ où $\Lambda = \text{diag}(\lambda_1, \ldots, \lambda_p)$
+
+## Variance des composantes
+
+<br>
+
+$$\text{Var}(Y) = A^{\top} \Sigma A = \Lambda$$
+
+Conséquences :
+
+- $\text{Cov}(Y_k, Y_l) = 0$ si $k \neq l$ (orthogonalité)
+
+- $\text{Var}(Y_k) = \lambda_k$ (variance décroissante)
+
+- $\text{Var}(Y_1) \geq \text{Var}(Y_2) \geq \ldots \geq \text{Var}(Y_p)$
+
+
+## Variation totale
+
+<br>
+
+La trace de Pillai est une mesure globale de la variation présente dans les données :
+
+$$\text{tr}(\Sigma) = \sum_{i=1}^p \lambda_i = \sum_{k=1}^p \text{Var}(Y_k).$$
+
+## Proportion expliquée par $Y_k$
+
+<br>
+
+La proportion de variance expliquée par la composante principale $Y_k$ est
+
+$$\frac{\lambda_k}{\lambda_1 + \cdots + \lambda_p} = \frac{\text{Var}(Y_k)}{\text{tr}(\Sigma)}.$$
+
+## Proportion expliquée par les $m$ premières
+
+<br>
+
+La variabilité des données expliquée par les $m$ premières composantes est :
+
+$$100\% \times \frac{\sum_{k=1}^m \lambda_k}{\sum_{k=1}^p \lambda_k}.$$
+
+## Estimation pratique
+
+<br>
+
+::: {.incremental}
+1. En pratique, $\Sigma$ est inconnue. On l'estime par :
+$$\hat{\Sigma} = \frac{1}{n-1} \sum_{i=1}^n (X_i - \overline{X})(X_i - \overline{X})^{\top}.$$
+2. Décomposition spectrale : $\hat{\Sigma} = \hat{A} \hat{\Lambda} \hat{A}^{\top}.$
+
+3. Composantes estimées : $Y_i = \hat{A}^{\top} X_i.$
+:::
+
+## Sensibilité à l'échelle
+
+<br>
+
+Problème → Variables avec grandes variances dominent l'ACP.
+
+Exemple → Distance en m vs km multiplie la variance par $10^6$.
+
+Solution → Standardiser les variables si elles ont des unités différentes.
+
+Équivalence → ACP sur matrice de corrélations au lieu de covariances.
+
+
+## Interprétation géométrique
+
+<br>
+
+::: {.incremental}
+- Rotation des axes → $Y = A^{\top}X$ représente une rotation orthogonale.
+
+- Nouveaux axes → Directions de variation maximale successive.
+
+- Scores → $Y_{ik} = \alpha_k^{\top} X_i$ (coordonnées dans le nouveau système).
+
+- Qualité de représentation
+$$Q_{ik} = \frac{Y_{ik}^2}{\sum_{j=1}^p Y_{ij}^2}$$
+:::
+
+## Choix du nombre de composantes
+
+<br>
+
+::: {.incremental}
+1. Règle des 80% : Retenir assez de composantes pour expliquer 80% de la variance.
+
+2. Règle de Kaiser : Conserver les composantes avec $\lambda_k > 1$ (si matrice de corrélations).
+
+3. Règle de Joliffe : Variante plus stricte, $\lambda_k > 0.7$.
+
+4. Règle de Cattell (coude) : Chercher un point de rupture dans le graphique des valeurs propres.
+:::
+
+
+## Considérations pratiques
+
+<br>
+
+Usage dans les modèles : Utiliser les $k$ premières composantes comme prédicteurs.
+
+. . .
+
+Avantages :
+
+- Élimine la multicolinéarité
+
+- Conserve l'information essentielle
+
+. . .
+
+Compromis :
+
+- Trop de composantes : pas de simplification
+
+- Trop peu : perte d'information pertinente
+
+## Exemple : le top 10 Spotify {.smaller .scrollable}
+
+On considère le jeu de données suivant :
+
+```{r warning=FALSE}
+library(FactoMineR)
+library(factoextra)
+library(tidyverse)
+
+df <- read_csv('../include/data/pca/music_top10.csv')
+knitr::kable(df)
+
+```
+
+## Exemple : le top 10 Spotify {.smaller}
+
+
+```{r warning=FALSE}
+#| echo: true
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+library(tidyverse)
+
+ggplot(df, aes(x = danceability, y = energy, color = track_artist)) +
+  geom_point() +
+  theme_bw()
+
+```
+
+## Exemple : le top 10 Spotify {.smaller}
+
+
+```{r warning=FALSE}
+#| echo: true
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+library(tidyverse)
+
+ggplot(df, aes(x = loudness, y = speechiness, color = track_artist)) +
+  geom_point() +
+  theme_bw()
+
+```
+
+## Exemple : le top 10 Spotify {.smaller}
+
+::: panel-tabset
+### Code
+
+```{r warning=FALSE}
+#| echo: true
+#| eval: false
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+library(FactoMineR)
+library(factoextra)
+pca_not_scaled <- df |> select(
+    danceability, energy, loudness, speechiness,
+    acousticness, liveness, valence, tempo
+  ) |> PCA(scale.unit = FALSE, graph = FALSE)
+fviz_eig(pca_not_scaled)
+get_eigenvalue(pca_scaled)
+```
+
+### Plot
+
+```{r warning=FALSE}
+#| echo: false
+#| eval: true
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+library(FactoMineR)
+library(factoextra)
+pca_not_scaled <- df |> select(
+    danceability, energy, loudness, speechiness,
+    acousticness, liveness, valence, tempo
+  ) |> PCA(scale.unit = FALSE, graph = FALSE)
+fviz_eig(pca_not_scaled)
+
+```
+
+### Valeurs propres
+
+```{r}
+#| echo: false
+#| eval: true
+knitr::kable(get_eigenvalue(pca_not_scaled))
+```
+
+:::
+
+## Exemple : le top 10 Spotify {.smaller}
+
+::: panel-tabset
+### Code
+
+```{r warning=FALSE}
+#| echo: true
+#| eval: false
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+library(FactoMineR)
+library(factoextra)
+pca_scaled <- df |> select(
+    danceability, energy, loudness, speechiness,
+    acousticness, liveness, valence, tempo
+  ) |> PCA(scale.unit = TRUE, graph = FALSE)
+fviz_eig(pca_scaled)
+get_eigenvalue(pca_scaled)
+```
+
+### Plot
+
+```{r warning=FALSE}
+#| echo: false
+#| eval: true
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+library(FactoMineR)
+library(factoextra)
+pca_scaled <- df |> select(
+    danceability, energy, loudness, speechiness,
+    acousticness, liveness, valence, tempo
+  ) |> PCA(scale.unit = TRUE, graph = FALSE)
+fviz_eig(pca_scaled)
+
+```
+
+### Valeurs propres
+
+```{r}
+#| echo: false
+#| eval: true
+knitr::kable(get_eigenvalue(pca_scaled))
+```
+:::
+
+
+## Exemple : le top 10 Spotify {.smaller}
+
+::: panel-tabset
+### Code
+
+```{r warning=FALSE}
+#| echo: true
+#| eval: false
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+fviz_pca_var(
+  pca_scaled,
+  col.var = "cos2",
+  gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), 
+  repel = TRUE # Avoid text overlapping
+)
+```
+
+### Plot
+
+```{r warning=FALSE}
+#| echo: false
+#| eval: true
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+fviz_pca_var(
+  pca_scaled,
+  col.var = "cos2",
+  gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), 
+  repel = TRUE # Avoid text overlapping
+)
+
+```
+:::
+
+
+## Exemple : le top 10 Spotify {.smaller}
+
+::: panel-tabset
+### Code
+
+```{r warning=FALSE}
+#| echo: true
+#| eval: false
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+fviz_contrib(pca_scaled, choice = "var", axes = 1)
+fviz_contrib(pca_scaled, choice = "var", axes = 2)
+
+```
+
+### Contribution à la première composante
+
+```{r warning=FALSE}
+#| echo: false
+#| eval: true
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+fviz_contrib(pca_scaled, choice = "var", axes = 1)
+```
+
+### Contribution à la deuxième composante
+
+```{r warning=FALSE}
+#| echo: false
+#| eval: true
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+fviz_contrib(pca_scaled, choice = "var", axes = 2)
+```
+:::
+
+## Exemple : le top 10 Spotify {.smaller}
+
+::: panel-tabset
+### Code
+
+```{r warning=FALSE}
+#| echo: true
+#| eval: false
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+fviz_pca_ind(
+  pca_scaled,
+  geom.ind = "point", # show points only (nbut not "text")
+  col.ind = df$track_artist, # color by groups
+  legend.title = "Artists",
+) + scale_shape_manual(values = rep(19, 10))
+
+
+```
+
+### Graphique des individus
+
+```{r warning=FALSE}
+#| echo: false
+#| eval: true
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+fviz_pca_ind(
+  pca_scaled,
+  geom.ind = "point", # show points only (nbut not "text")
+  col.ind = df$track_artist, # color by groups
+  legend.title = "Artists",
+  mean.point = FALSE
+) + scale_shape_manual(values = rep(19, 10))
+
+```
+
+### Avec ellipse
+
+```{r warning=FALSE}
+#| echo: false
+#| eval: true
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+fviz_pca_ind(
+  pca_scaled,
+  geom.ind = "point", # show points only (nbut not "text")
+  col.ind = df$track_artist, # color by groups
+  legend.title = "Artists",
+  addEllipses = TRUE,
+  mean.point = FALSE
+) + scale_shape_manual(values = rep(19, 10))
+
+```
+:::
+
+
+## Exemple : le top 10 Spotify {.smaller}
+
+::: panel-tabset
+### Code
+
+```{r warning=FALSE}
+#| echo: true
+#| eval: false
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+fviz_pca_biplot(
+  pca_scaled,
+  repel = TRUE,
+  col.var = "#2E9FDF", # Variables color
+  col.ind = "#696969"  # Individuals color
+)
+
+```
+
+### Biplot
+
+```{r warning=FALSE}
+#| echo: false
+#| eval: true
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+fviz_pca_biplot(
+  pca_scaled,
+  repel = TRUE,
+  geom.ind = "point", # show points only (nbut not "text")
+  col.var = "#2E9FDF", # Variables color
+  col.ind = "#696969"  # Individuals color
+)
+
+```
+
+### Clean
+
+```{r warning=FALSE}
+#| echo: false
+#| eval: true
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+fviz_pca_biplot(
+  pca_scaled,
+  repel = TRUE,
+  geom.ind = "point", # show points only (nbut not "text")
+  col.ind = df$track_artist, # color by groups
+  legend.title = "Artists",
+  select.ind = list(cos2 = 0.75),
+  col.var = "#2E9FDF", # Variables color
+  mean.point = FALSE
+) + scale_shape_manual(values = rep(19, 10))
+
+
+```
+
+:::
+
+
+## Conclusion
+
+<br>
+
+L'ACP est un outil puissant pour la réduction de dimension qui :
+
+- Préserve l'information maximale.
+
+- Élimine la redondance d'information.
+
+- Facilite la visualisation et la modélisation.
+
+- Nécessite des **choix** méthodologiques.
+
+Prochaine étape → Que faire si les données ne sont pas qualitatives ?

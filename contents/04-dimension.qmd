@@ -9,9 +9,9 @@ format:
 
 * Slides: 
 
-  - [Analyse en composantes principales](../slides/04-dimension-pca-slides.qmd)
+  - [Analyse en composantes principales](../slides/04-dimension-pca-slides.qmd) - [annoté](../slides/04-dimension-pca-slides-annotated.qmd)
 
-  - [Analyse factorielle des correspondances](../slides/04-dimension-mca-slides.qmd)
+  - [Analyse factorielle des correspondances](../slides/04-dimension-ca-slides.qmd)
 
   - [Analyse des correspondances multiples](../slides/04-dimension-mca-slides.qmd)
 

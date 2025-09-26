@@ -7,3 +7,27 @@ format:
       - \usepackage{mathtools}
 --- 
 
+
+* Slides: 
+
+  - [Principal componens analysis ](../slides/04-dimension-pca-slides.qmd) - [annotated](../slides/04-dimension-pca-slides-annotated.qmd)
+
+  - [Correspondance analysis](../slides/04-dimension-ca-slides.qmd)
+
+  - [Multiple correspondance analysis](../slides/04-dimension-mca-slides.qmd)
+
+* TD: [link](../td/04-dimension-td.qmd)
+
+* TP: [link](../tp/04-dimension-tp.qmd)
+
+## Outline
+
+1. [Principal componens analysis](./dimension/01-pca.qmd)
+
+2. [Correspondance analysis](./dimension/02-ca.qmd)
+
+3. [Multiple correspondance analysis](./dimension/03-mca.qmd)
+
+
+![Flatland ([xkcd:721](https://xkcd.com/721/)).](../include/flatland.png)
+

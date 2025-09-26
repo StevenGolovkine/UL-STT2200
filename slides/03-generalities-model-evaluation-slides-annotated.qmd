@@ -1,0 +1,193 @@
+--- 
+title: "Généralités"
+subtitle: "Évaluation de modèles"
+author: "Steven Golovkine"
+lang: fr
+date: "26 sept. 2024"
+date-format: "DD MMM YYYY"
+slide-number: c/t
+title-logo: ../include/logo-ul.png
+format:
+  revealjs:
+    theme: [default, ../include/ulaval-slide.scss]
+    chalkboard:
+      src: annotation/03-generalities-validation-slides-annotation.json
+    width: 1280
+    height: 720
+    template-partials:
+      - title-slide.html
+--- 
+
+
+## Introduction
+
+<br>
+
+Comment mesurer la performance prédictive réelle de nos modèles ?
+
+Métriques classiques :
+
+* Erreur quadratique moyenne (EQM / MSE) → variables quantitatives.
+
+* Taux d'erreur (ER) → variables qualitatives.
+
+
+→ Cependant, évaluer uniquement sur les données d'entraînement pose des problèmes fondamentaux.
+
+
+## Plan
+
+<br>
+
+1. Le sur-ajustement
+
+2. Le sous-ajustement
+
+3. Approche par jeu de validation
+
+4. Validation croisée 
+
+
+## Le problème du sur-ajustement
+
+<br>
+
+Notre modèle s'adapte trop aux données d'entraînement, y compris au bruit aléatoire.
+
+. . .
+
+**Donc**:
+
+- Erreur faible sur les données d'entraînement.
+
+- Erreur élevée sur de nouvelles observations.
+
+- Mauvaise capacité de généralisation.
+
+. . .
+
+**Pourquoi**: L'estimateur $\hat{f}$ a été ajusté pour minimiser l'erreur sur ces mêmes données.
+
+## Le problème du sous-ajustement
+
+
+<br>
+
+Notre modèle ne s'adapte pas aux données d'entraînement.
+
+. . .
+
+**Donc**:
+
+- Erreur élevée sur les données d'entraînement.
+
+- Erreur élevée sur de nouvelles observations.
+
+- Ne prend pas en compte les données.
+
+. . .
+
+**Pourquoi**: L'estimateur $\hat{f}$ a été implémenté sans prendre en compte les données.
+
+
+## Sur-ajustement vs Sous-ajustement
+
+<br>
+
+**Sur-ajustement** (*overfitting*):
+
+- Modèle trop flexible.
+
+- Capture le bruit plutôt que le signal.
+
+**Sous-ajustement** (*underfitting*):
+
+- Modèle trop rigide.
+
+- Ne capture pas la structure des données.
+
+Objectif → Trouver le bon compromis entre les deux.
+
+
+## Approche idéale
+
+<br>
+
+Séparer complètement les données d'entraînement et d'évaluation.
+
+. . .
+
+Jeu d'entraînement : Utilisé pour ajuster le modèle.
+
+Jeu de test : Utilisé pour évaluer la performance prédictive.
+
+. . .
+
+Problème pratique : Nous n'avons généralement pas accès à un jeu de test indépendant.
+
+. . .
+
+Solution → Utiliser des méthodes de validation.
+
+## Approche par jeu de validation
+
+<br>
+
+![Approche par jeu de validation.](./img/validation-set.png)
+
+## Limites du jeu de validation
+
+<br>
+
+Estimation instable : L'erreur dépend fortement des observations dans le jeu de validation.
+
+. . .
+
+Perte d'information : Moins de données pour ajuster le modèle, ce qui peut surestimer l'erreur réelle.
+
+. . .
+
+Variabilité : Différents jeux de validation peuvent donner des résultats très différents.
+
+. . .
+
+Solution → Validation croisée pour une approche plus robuste.
+
+## Approche par validation croisée
+
+![Approche par validation croisée.](./img/cross-validation.png)
+
+## Choix du paramètre K
+
+<br>
+
+Règle du pouce: $K = 5$ ou $K = 10$.
+
+Compromis à considérer :
+
+- Coût computationnel : Plus $K$ est grand, plus c'est coûteux en temps de calcul.
+
+- Précision de l'estimation : Plus $K$ est grand, moins de biais.
+
+- Stabilité : Valeurs modérées de $K$ réduisent la variance
+
+. . .
+
+Cas limite: $K = n$ (Leave-One-Out Cross-Validation - LOOCV).
+
+## Conclusion
+
+::: {.incremental}
+1. La validation appropriée des modèles est essentielle pour éviter une illusion de performance.
+
+2. Le sur-ajustement est un piège courant qui nécessite une évaluation rigoureuse.
+
+3. La validation croisée offre une solution robuste et pratique pour estimer la performance réelle.
+
+4. Le choix des paramètres de validation doit équilibrer précision, stabilité et coût computationnel.
+
+:::
+
+. . .
+
+Prochaine étape → Réduction de dimension.

@@ -17,7 +17,7 @@ format:
   
   - [Bias / Variance](../slides/03-generalities-bias-variance-slides.qmd) - [annotated](../slides/03-generalities-bias-variance-slides-annotated.qmd)
   
-  - [Model evaluation](../slides/03-generalities-model-evaluation-slides.qmd)
+  - [Model evaluation](../slides/03-generalities-model-evaluation-slides.qmd) - [annoté](../slides/03-generalities-model-evaluation-slides-annotated.qmd)
 
 * TD: [link](../td/03-generalites-td.qmd)
 
