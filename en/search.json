@@ -1,10 +1,73 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "STT-2200: Data Analysis",
+    "objectID": "contents/03-generalities.html",
+    "href": "contents/03-generalities.html",
+    "title": "Generalities",
     "section": "",
-    "text": "Welcome everyone to the class STT-2200 in Autumn 2025.\nYou will find on this website every necessary information for the modules, the practicals and the exams. The contents will be updated during the session with the answers to some work. I invite you to skim through the differents modules before classes.\nThis website has been created with the help of Aurélien Nicosia and Thierry Duchesne notes.\nThis website a been built using Quarto.\nMost of the contents has been translated using DeepL. Large languages models (LLM), ChatGPT et Claude, have been used to improve notes reading, check the typos and improve the formatting of the figures. All remaining errors are strictly and directly attributable to me.\n\n\n\nData trap (xkcd:2582)."
+    "text": "Slides:\n\nData analysis project\nSpaces\nDistances - annotated\nBias / Variance - annotated\nModel evaluation - annoté\n\nTD: link\nTP: link",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités"
+    ]
+  },
+  {
+    "objectID": "contents/03-generalities.html#outline",
+    "href": "contents/03-generalities.html#outline",
+    "title": "Generalities",
+    "section": "Outline",
+    "text": "Outline\n\nData analysis project\nSpaces\nDistances\nBias / Variance\nModel evaluation\n\n\n\n\nCorrelation (xkcd:552).",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités"
+    ]
+  },
+  {
+    "objectID": "contents/generalities/02-spaces.html",
+    "href": "contents/generalities/02-spaces.html",
+    "title": "Spaces",
+    "section": "",
+    "text": "Before modeling or analyzing data, it is essential to fully understand the nature of the variables being manipulated. The type of variable determines:\nIn this section, we present the most common types of variables, as well as the associated spaces.",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités",
+      "Spaces"
+    ]
+  },
+  {
+    "objectID": "contents/generalities/02-spaces.html#statistical-unit",
+    "href": "contents/generalities/02-spaces.html#statistical-unit",
+    "title": "Spaces",
+    "section": "Statistical unit",
+    "text": "Statistical unit\nA statistical unit is the basic element on which an observation is made. Morally, it is the “carrier” of the information that is used to determine the level of aggregation of the analysis. The statistical unit is a choice made by the modeler.\n\n\n\n\n\n\nNoteExamples\n\n\n\n\nIn the case of an income survey, the individual can be chosen as the unit.\nIn the case of a study of high school classes, the class can be chosen as the unit.\nIn the case of a medical imaging database, the image can be chosen as the unit.\n\n\n\n\n\n\n\n\n\nCautionSometimes, the same database can be analyzed at several levels.\n\n\n\nAn image is made up of pixels, each of which can be described by numerical variables (e.g., RGB values, opacity, etc.). You can choose to analyze each pixel, and therefore take the pixel as the unit, or analyze each image as a whole, and therefore take the image as the unit.",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités",
+      "Spaces"
+    ]
+  },
+  {
+    "objectID": "contents/generalities/02-spaces.html#types-of-variables",
+    "href": "contents/generalities/02-spaces.html#types-of-variables",
+    "title": "Spaces",
+    "section": "Types of variables",
+    "text": "Types of variables\nThere are generally four types of variables, which are identified at the level of the smallest statistical unit in the dataset.\n\n\n\n\n\n\nWarningNumerical (or quantitative) variable\n\n\n\nA numerical (or quantitative) variable is a variable whose values are numbers representing a measurable quantity.\nExamples: income in dollars, weight, age, etc.\n\n\n\n\n\n\n\n\nWarningOrdinal variable\n\n\n\nAn ordinal variable is a qualitative (or categorical) variable whose categories can be ordered naturally, without the difference between the categories being quantifiable.\nExamples: income level (low, medium, or high), satisfaction level (“strongly disagree,” “disagree,” “no opinion,” “agree,” “strongly agree”), etc.\n\n\n\n\n\n\n\n\nWarningSymmetric nominal variable\n\n\n\nA symmetric nominal variable is a qualitative (or categorical) variable in which all categories are equally informative.\nExamples: nationality, field of study, etc.\n\n\n\n\n\n\n\n\nWarningAsymmetric nominal variable\n\n\n\nAn asymmetric nominal variable is a qualitative (or categorical) variable in which one of the categories has a special status, often being more frequent or considered the “default” value. Thus, having two observations with the “default” value of this asymmetric nominal variable does not tell us much about them, whereas we can glean much more information from two observations that do not have the “default” value.\nExamples: presence or absence of a symptom, fraudulent transaction or not, etc.\n\n\nAlthough these types of variables are the most common, there are many other types of variables. For example, we may be interested in comparing curves, texts, images, networks, etc. In these situations, the choice of representation depends on the level at which we wish to place ourselves, and therefore on the statistical unit.",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités",
+      "Spaces"
+    ]
+  },
+  {
+    "objectID": "contents/generalities/02-spaces.html#associated-spaces",
+    "href": "contents/generalities/02-spaces.html#associated-spaces",
+    "title": "Spaces",
+    "section": "Associated spaces",
+    "text": "Associated spaces\nOnce our data has been collected, the first step in statistical analysis is to choose a mathematical space in which to work. This space, sometimes called the observation space and denoted by \\(\\mathcal{X}\\), depends on the type of data observed. It constitutes the formal framework in which our variables take their values, and it guides the methodological choices that follow.\n\n\n\n\n\n\nNoteCase of a numerical variable\n\n\n\nWhen observing a numerical variable (e.g., the temperature of a country), the natural space in which to work is the set of real numbers, \\(\\mathcal{X} = \\mathbb{R}\\). In some cases, this space can be restricted to a specific interval. For example, if we are interested in a person’s height, we can take \\(\\mathcal{X} = [0, +\\infty)\\) because the variable in question cannot be negative.\n\n\n\n\n\n\n\n\nNoteCase of a nominal (or qualitative, or categorical) variable\n\n\n\nFor a nominal variable, the space is a finite set of modalities, the set of modalities taken by the variable. For example, if we study the results of a dice roll, the variable can take values from \\(1\\) to \\(6\\), and the associated space will therefore be \\(\\mathcal{X} = \\{ 1, 2, 3, 4, 5, 6 \\}\\).\n\n\nWhen the data is more complex, more suitable spaces must be chosen. For curve or signal analysis, we can work in a function space. For example, we can consider the space of continuous functions on a closed interval \\([a, b]\\), denoted \\(\\mathcal{X} = \\mathcal{C}([a, b])\\). For text analysis (viewed as a sequence of characters), the workspace can be an alphabet. For example, we can consider \\(\\mathcal{X} = \\{ \\text{A}, \\text{B}, \\dots, \\text{Z} \\}\\).\nOften, several variables are observed at the same time, e.g., the height, weight, and gender of an individual. In this case, the observation space will be the Cartesian product (also called the product set) of the spaces associated with each variable: \\[\\mathcal{X} = \\mathcal{X}_1 \\times \\mathcal{X}_2 \\times \\dots \\mathcal{X}_p,\\] where \\(p\\) is the number of variables. In the case where we observe \\(p\\) numerical variables, we will simply write \\(\\mathcal{X} = \\mathbb{R}^p\\).",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités",
+      "Spaces"
+    ]
   },
   {
     "objectID": "contents/generalities/01-stat.html",
@@ -91,100 +154,73 @@
     ]
   },
   {
-    "objectID": "contents/generalities/04-bias-variance.html",
-    "href": "contents/generalities/04-bias-variance.html",
-    "title": "Bias/Variance",
+    "objectID": "contents/02-revisions.html",
+    "href": "contents/02-revisions.html",
+    "title": "Remainders",
     "section": "",
-    "text": "This section is based on James et al. (2021), Chapter 2.",
+    "text": "Slides:\n\nAlgèbre linéaire - annotated\nProbabilités et statistiques - annotated\nAlgorithmique / Programmation\n\nTD: link\nTP: link",
     "crumbs": [
       "Modules",
-      "03 - Généralités",
-      "Bias/Variance"
+      "02 - Révisions"
     ]
   },
   {
-    "objectID": "contents/generalities/04-bias-variance.html#what-is-our-objective",
-    "href": "contents/generalities/04-bias-variance.html#what-is-our-objective",
-    "title": "Bias/Variance",
-    "section": "What is our objective?",
-    "text": "What is our objective?\nWe want to model the relationship between a response variable \\(Y\\), which may be quantitative, qualitative, or of a different nature, and a set of \\(p\\) explanatory variables \\(X = (X_{1}, \\dots, X_{p})\\), also of (potentially) different types. The central idea is that there is a relationship between \\(Y\\) and the explanatory variables \\(X\\). Generally speaking, we model this relationship using the following model:\n\\[Y = f(X) + \\varepsilon. \\tag{1}\\]\nHere, \\(f\\) is a deterministic (non-random) function representing the systematic information that the explanatory variables \\(X_{1}, \\dots, X_{p}\\) provide about \\(Y\\), and \\(\\varepsilon\\) is a random error term, modeling the variations in \\(Y\\) not explained by \\(X\\). For the purposes of this course, we will make the following assumptions: the random variable \\(\\varepsilon\\) is independent of the explanatory variables \\(X\\), \\(\\mathbb{E}[\\varepsilon] = 0\\), and \\(\\mathrm{Var}(\\varepsilon) = \\sigma^2\\). The Equation 1 is general. It serves as a framework for all the methods we will study, even when the explicit form of \\(f\\) is not known.\nThe Figure 1 illustrates the different elements of the model: the observed data \\((X_i, Y_i)\\), the function \\(f\\) (in blue), and the random deviations \\(\\varepsilon_i\\) represented by dotted lines.\n\n\nCode\nlibrary(tibble)\nlibrary(dplyr)\n\ngenerate_noisy_data &lt;- function(n = 100, noise_levels = c(0, 0.1, 0.3, 0.5)) { \n# x values ​​(avoid 0 for log) \nx_vals &lt;- seq(0.01, 0.99, length.out = n) \n\n# True function \nf &lt;- function(x) 4 * x * (1 - x) * log(x) + 2 \n\n# Generate data for each noise level \ndata &lt;- lapply(noise_levels, function(sigma) { \ny_true &lt;- f(x_vals) \ny_noisy &lt;- y_true + rnorm(n, mean = 0, sd = sqrt(sigma)) \n\ntibble( \nx = x_vals, \ny = y_noisy, \nnoise = sigma \n) \n}) %&gt;% bind_rows() \n\nreturn(data)\n}\n\n# Example usage\nset.seed(123)\n\nnoise_levels &lt;- seq(0, 0.5, by=0.01)\ndf &lt;- generate_noisy_data(noise_levels = noise_levels)\nwrite.csv(df, './data.csv')\n\n\n\n\nCode\ndata = FileAttachment(\"../../include/data/bias-variance/data.csv\").csv({ typed: true })\n\nviewof noise = Inputs.range( \n[0.01, 0.5], \n{value: 0.25, step: 0.01, label: tex`\\sigma^2`}\n)\n\nfiltered = data.filter(function(df) { \nreturn df.noise == noise;\n})\n\ntrue_curve = data.filter(function(df) { \nreturn df.noise == 0;\n})\n\nerrors = filtered.map(f =&gt; { \nconst location = true_curve.find(loc =&gt; loc.x === f.x); \nreturn { ...f, y_end: location?.y };\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nPlot.plot({ \ngrid:true, \nx:{ \ndomain: [0, 1], \nlabel: \"X\", \n}, \ny: { \ndomain: [0, 3], \nlabel: \"Y\", \n}, \nmarks: [ \nPlot.dot(filtered, {x: \"x\", y: \"y\", fill: \"#444444\", r: 3}), \nPlot.line(true_curve, {x: \"x\", y: \"y\", stroke: \"#B0E1FA\", strokeWidth: 5}), \nPlot.link(errors, { \nx1: \"x\", \nx2: \"x\", \ny1: \"y\", \ny2: \"y_end\", \nstroke: \"#AAAAAA\", \nstrokeDasharray: \"5,5\", \n}) \n]\n})\n\n\n\n\n\n\n\n\n\nFigure 1: The different elements of the model. The points represent the observed data \\((X_i, Y_i)\\). The blue curve represents the function \\(f\\) and the dotted lines represent the error associated with each observation.\n\n\n\n\nIn the rest of the course, we will examine different methods for estimating the function f from data. However, before examining how to construct a \\(\\widehat{f}\\) estimator of \\(f\\), we will examine the quality of such an estimator: what does it mean to “properly estimate” f? And how can we evaluate the quality of the estimate?\n\n\n\n\n\n\nNoteExample: Simple Linear Regression\n\n\n\nIn this very simple framework, we assume that the function f is of the form: f(x) = a x + b. In this case, estimating the function f is reduced to estimating the coefficients a and b.\n\n\n\n\n\n\n\n\nTipNote: Tradeoff between accuracy and interpretability\n\n\n\nDepending on the objective of the study, we generally have to make a choice between the accuracy of our predictions and the interpretability of our model. A simple model, such as linear regression, will be easy to interpret but will poorly capture complex relationships. Conversely, a more flexible model, such as a random forest, will have better predictions but will be more difficult to interpret. The choice therefore depends on the objective of the analysis: understanding or predictive performance?\n\n\n\n\n\n\n\n\nTipNote: No free lunch in statistics\n\n\n\nWhy not simply use the “ultimate” model, the one that would always be optimal regardless of the dataset? Because such a model doesn’t exist! There is no universally best method for all datasets and all objectives. A method that performs well in a given context may fail elsewhere. It is therefore always necessary to adapt the approach to the problem (explanation, prediction, classification, etc.).",
+    "objectID": "contents/02-revisions.html#outline",
+    "href": "contents/02-revisions.html#outline",
+    "title": "Remainders",
+    "section": "Outline",
+    "text": "Outline\n\nLinear algebra\nProbabilities and statistics\nAlgorithmic / Programming\n\n\n\n\nPrediction (xkcd:2370).",
     "crumbs": [
       "Modules",
-      "03 - Généralités",
-      "Bias/Variance"
+      "02 - Révisions"
     ]
   },
   {
-    "objectID": "contents/generalities/04-bias-variance.html#how-to-measure-the-quality-of-an-estimator",
-    "href": "contents/generalities/04-bias-variance.html#how-to-measure-the-quality-of-an-estimator",
-    "title": "Bias/Variance",
-    "section": "How to measure the quality of an estimator?",
-    "text": "How to measure the quality of an estimator?\nOnce we have an estimator \\(\\widehat{f}\\) of the function \\(f\\), obtained from \\(n\\) observations \\((y_1, x_1), \\dots, (y_n, x_n)\\), we seek to evaluate the accuracy of the predictions \\(\\widehat{Y} = \\widehat{f}(X)\\). The idea is to verify how close \\(\\widehat{Y}\\) is to the true value of \\(Y\\).\n\n\n\n\n\n\nWarningDefinition: Mean Square Error\n\n\n\nWhen \\(Y\\) is a quantitative variable, a classic measure of the quality of \\(\\widehat{f}\\) is the mean square error (MSE): \\[MSE(Y, \\widehat{Y}) = \\frac{1}{n} \\sum_{i = 1}^{n} \\left( y_i - \\widehat{y}_i\\right)^2 = \\frac{1}{n} \\sum_{i = 1}^{n} \\left( y_i - \\widehat{f}(x_i) \\right)^2,\\] where \\(\\widehat{y}_i = \\widehat{f}(x_i)\\) is the prediction that \\(\\widehat{f}\\) gives for observation \\(x_i\\).\n\n\nA low MSE indicates that the predictions are close to the observations. We can also interpret it as the average distance between the observed values ​​and the predicted values. We therefore aim for a low average distance.\nWhen \\(Y\\) is a qualitative variable, e.g., a class or a label, we use another measure: the error rate.\n\n\n\n\n\n\nWarningDefinition: Error Rate\n\n\n\nWhen \\(Y\\) is a qualitative variable, a classic measure of the quality of \\(\\widehat{f}\\) is the error rate (*ER): \\[ER(Y, \\widehat{Y}) = \\frac{1}{n} \\sum_{i = 1}^{n} \\mathbb{1}(y_i \\neq \\widehat{y}_i) = \\frac{1}{n} \\sum_{i = 1}^{n} \\mathbb{1}(y_i \\neq \\widehat{f}(x_i)).\\] where \\(\\widehat{y}_i = \\widehat{f}(x_i)\\) is the prediction that \\(\\widehat{f}\\) gives for observation \\(x_i\\).\n\n\nThe error rate measures the proportion of incorrect predictions. It is, again, a measure of the average distance between \\(Y\\) and \\(\\widehat{Y}\\), suitable for qualitative variables.",
-    "crumbs": [
-      "Modules",
-      "03 - Généralités",
-      "Bias/Variance"
-    ]
-  },
-  {
-    "objectID": "contents/generalities/04-bias-variance.html#the-biasvariance-trade-off",
-    "href": "contents/generalities/04-bias-variance.html#the-biasvariance-trade-off",
-    "title": "Bias/Variance",
-    "section": "The bias/variance trade-off",
-    "text": "The bias/variance trade-off\nOur goal is often to minimize the prediction error, not only on observed data, but especially on new data (recovered after estimating the model). To do this, we focus on the prediction error: \\[\\mathbb{E}\\left[ \\left( Y - \\widehat{Y} \\right)^2 \\right] = \\mathbb{E}\\left[ \\left( Y - \\widehat{f}(X) \\right)^2 \\right].\\]\nThis error can be broken down into three components:\n\nBias: the error due to a systematic approximation, e.g., if we impose a linear model when the relationship is nonlinear.\nVariance: the sensitivity of the estimator to fluctuations in the training sample.\nIrreducible error: the intrinsic variance of the noise \\(\\varepsilon\\), denoted \\(\\sigma^2\\).\n\n\n\n\n\n\n\nImportantDécomposition bias/variance\n\n\n\nOn to: \\[\\mathbb{E}\\left[ (Y - \\widehat{Y})^2 \\right] = \\mathbb{E}\\left[ (Y - \\widehat{f}(X))^2 \\right] = \\mathrm{Biais}(\\widehat{f}(X))^2 + \\mathrm{Var}(\\widehat{f}(X)) + \\sigma^2.\\]\n\n\n\n\n\n\n\n\nNotePreuve\n\n\n\n\n\nOn the other hand, we point out that the hope of the estimator’s error is broken down into a reductible part and an irreductible part.\n\\[\\begin{align*}\n\\mathbb{E}\\left[ \\left( Y - \\widehat{Y} \\right)^2 \\right]\n&= \\mathbb{E}\\left[ \\left( Y - \\widehat{f}(X) \\right)^2 \\right] \\\\\n&= \\mathbb{E}\\left[ \\left( f(X) + \\varepsilon - \\widehat{f}(X) \\right)^2 \\right] \\\\\n&= \\mathbb{E}\\left[ \\left( f(X) - \\widehat{f}(X) \\right)^2 \\right] + 2\\mathbb{E}\\left[ \\left( f(X) - \\widehat{f}(X) \\right)\\varepsilon \\right] + \\mathbb{E}[\\varepsilon^2] \\\\\n&= \\mathbb{E}\\left[ \\left( f(X) - \\widehat{f}(X) \\right)^2 \\right] + 2\\mathbb{E}\\left[ \\left( f(X) - \\widehat{f}(X) \\right) \\right] \\underbrace{\\mathbb{E}\\left[ \\varepsilon \\right]}_{= 0} + \\sigma^2 \\\\\n&= \\underbrace{\\mathbb{E}\\left[ \\left( f(X) - \\widehat{f}(X) \\right)^2 \\right]}_{\\text{réductible}} + \\underbrace{\\sigma^2}_{\\text{irréductible}}.\n\\end{align*}\\]\nUse the linearity of hope and make sure that \\(X\\) and \\(\\varepsilon\\) are independent. He is interested in maintaining the “reductible” party. The trick is to make apparatus \\(\\mathbb{E}\\left[ \\widehat{f}(X) \\right]\\).\n\\[\\begin{align*}\n\\mathbb{E}\\left[ \\left( f(X) - \\widehat{f}(X) \\right)^2 \\right]\n&= \\mathbb{E}\\left[ \\left( f(X) - \\mathbb{E}\\left[ \\widehat{f}(X) \\right] + \\mathbb{E}\\left[ \\widehat{f}(X) \\right] - \\widehat{f}(X) \\right)^2 \\right] \\\\\n&= \\underbrace{\\mathbb{E}\\left[ \\left( f(X) - \\mathbb{E}\\left[ \\widehat{f}(X) \\right] \\right)^2 \\right]}_{\\text{A}} \\\\\n&\\quad - 2 \\underbrace{\\mathbb{E}\\left[ \\left( f(X) - \\mathbb{E}\\left[ \\widehat{f}(X) \\right] \\right) \\left( \\widehat{f}(X) - \\mathbb{E}\\left[ \\widehat{f}(X) \\right] \\right) \\right]}_{\\text{B}} \\\\\n&\\quad + \\underbrace{\\mathbb{E}\\left[ \\left( \\widehat{f}(X) - \\mathbb{E}\\left[ \\widehat{f}(X) \\right] \\right)^2 \\right]}_{\\text{C}}.\n\\end{align*}\\]\nA. The \\(f(X)\\) function is not aléatoire, on a \\(\\mathbb{E}\\left[ f(X) \\right] = f(X)\\) et donc\n\\[\\begin{align*}\n\\mathbb{E}\\left[ \\left( f(X) - \\mathbb{E}\\left[ \\widehat{f}(X) \\right] \\right)^2 \\right]\n&= \\mathbb{E}\\left[ \\left( \\mathbb{E}\\left[ f(X) - \\widehat{f}(X) \\right] \\right)^2 \\right] \\\\\n&= \\mathbb{E}\\left[ f(X) - \\widehat{f}(X) \\right]^2 \\\\\n&= \\text{Biais}(\\widehat{f}(X))^2.\n\\end{align*}\\]\nB. To develop the expression and use the independence of the variables, on finding that \\(B = 0\\).\nC. Using the definition of variance,\n\\[\\mathbb{E}\\left[ \\left( \\widehat{f}(X) - \\mathbb{E}\\left[ \\widehat{f}(X) \\right] \\right)^2 \\right] = \\mathrm{Var}(\\widehat{f}).\\]\nFinally, hon a\n\\[\\mathbb{E}\\left[ \\left( f(X) - \\widehat{f}(X) \\right)^2 \\right] = \\text{Biais}(\\widehat{f}(X))^2 + \\mathrm{Var}(\\widehat{f}(X)).\\]\nHence the results.\n\n\n\nThis breakdown before a fundamental compromise in analyzing women:\n\nIf you choose a more flexible model, the bias will be higher, but the variance will be easier.\nIf you choose a flexible model, the bias will be easy, but the variance will be too high.\n\nNotre objectif est donc de trouver un juste équilibre entre biais et variance, i.e. un modèle qui prédit correctement, tout en étant généralisable à de nouvelles données. La Figure 2 (a) présente un jeu de données et différents estimateurs \\(\\widehat{f}\\). En faisant varier le paramètre \\(\\lambda\\), on obtient des modèles plus ou moins flexible (lorsque \\(\\lambda = 0.15\\), le modèle est flexible et lorsque \\(\\lambda = 1\\), le modèle est rigide). La Figure 2 (b) montre la valeur du biais, de la variance et de la MSE pour les modèles estimés pour la Figure 2 (a). On remarque que plus \\(\\lambda\\) est petit, plus la variance est grande, mais le biais est petit (le modèle est flexible). Inversement, plus \\(\\lambda\\) est grand, plus le biais est grand et la variance petite (le modèle est rigide). La courbe de MSE en fonction du paramètre est une courbe en U. Comme on cherche à minimiser la MSE, i.e. à faire un compromis entre le biais et la variance, on peut prendre \\(\\lambda = 0.5\\).\n\n\nCode\n# Load packages\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(tidyr)\n\nset.seed(42)\n\n# 1. Simulate a single dataset\nn &lt;- 100\nsigma2 &lt;- 0.1\nx &lt;- sort(runif(n, 0.05, 1))\ny &lt;- 4 * x * (1 - x) * log(x) + 2 + rnorm(n, 0, sqrt(sigma2))\ndf &lt;- data.frame(x = x, y = y, span = 0)\n\n# 2. Define grid and spans to compare\nx_grid &lt;- seq(0.05, 1, length.out = 300)\nspans_to_plot &lt;- seq(0.1, 1, by = 0.1)\n\n# 3. Compute loess fits for each span\nfits &lt;- lapply(spans_to_plot, function(s) {\n  loess_model &lt;- loess(y ~ x, data = df, span = s)\n  y_hat &lt;- predict(loess_model, newdata = data.frame(x = x_grid))\n  data.frame(x = x_grid, y = y_hat, span = s)\n})\n\nfit_df &lt;- bind_rows(fits)\nfit_df &lt;- fit_df |&gt; add_row(df)  # Add data points\n \nwrite.csv(fit_df, './data_fit.csv')\n\n\n# Parameters\nn_sim &lt;- 100          # number of simulated datasets\nspans &lt;- seq(0.1, 1, by = 0.05)  # LOESS smoothing parameters\nx_grid &lt;- seq(0.1, 1, length.out = 200)\nf_true &lt;- 4 * x_grid * (1 - x_grid) * log(x_grid) + 2\n\n# Storage for predictions\nresults &lt;- list()\n\nfor (s in spans) {\n  pred_matrix &lt;- matrix(NA, nrow = length(x_grid), ncol = n_sim)\n  \n  for (sim in 1:n_sim) {\n    x &lt;- sort(runif(n, 0.01, 1.1))\n    y &lt;- 4 * x * (1 - x) * log(x) + 2 + rnorm(n, 0, sqrt(sigma2))\n    df &lt;- data.frame(x = x, y = y)\n    \n    # Fit loess model with span = s\n    model &lt;- loess(y ~ x, data = df, span = s, degree = 2)\n    pred &lt;- predict(model, newdata = data.frame(x = x_grid), )\n    \n    pred_matrix[, sim] &lt;- pred\n  }\n  \n  # For each point in x_grid, compute bias², variance, MSE\n  mean_pred &lt;- rowMeans(pred_matrix, na.rm = TRUE)\n  bias2 &lt;- (mean_pred - f_true)^2\n  var_pred &lt;- apply(pred_matrix, 1, var, na.rm = TRUE)\n  mse &lt;- bias2 + var_pred\n  \n  results[[as.character(s)]] &lt;- data.frame(\n    span = s,\n    Biais2 = mean(bias2),\n    Variance = mean(var_pred),\n    MSE = mean(mse)\n  )\n}\n\n# Combine and reshape results\nresults_df &lt;- bind_rows(results)\nresults_long &lt;- pivot_longer(\n  results_df,\n  cols = c(\"Biais2\", \"Variance\", \"MSE\"),\n  names_to = \"component\", values_to = \"value\"\n)\n\nwrite.csv(results_long, './data_mse.csv')\n\n\n\n\nCode\ndata_fit = FileAttachment(\"../../include/data/bias-variance/data_fit.csv\").csv({ typed: true })\ndata_mse = FileAttachment(\"../../include/data/bias-variance/data_mse.csv\").csv({ typed: true })\n\nviewof span = Inputs.range( \n[0.1, 1], \n{value: 0.5, step: 0.1, label: tex`\\lambda`}\n)\n\nfiltered_fit = data_fit.filter(function(df) { \nreturn df.span == span;\n})\n\npoints = data_fit.filter(function(df) { \nreturn df.span == 0;\n})\n\ncurrent_mse = data_mse.filter(function(df) {\nreturn df.span == span;\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nPlot.plot({ \ngrid:true, \nx:{ \ndomain: [0, 1], \nlabel: \"X\", \n}, \ny: { \ndomain: [0, 3], \nlabel: \"Y\", \n}, \nmarks: [ \nPlot.dot( \npoints, \n{x: \"x\", y: \"y\", fill: \"#444444\", r: 3} \n), \nPlot.line( \nfiltered_fit, \n{x: \"x\", y: \"y\", stroke: \"#B0E1FA\", strokeWidth: 5} \n), \n\n]\n})\n\n\nCode\nPlot.plot({ \ngrid:true, \ncolor: { \nlegend: true, \n}, \nx:{ \ndomain: [0, 1], \nlabel: \"λ\", \n}, \ny: { \ndomain: [0, 0.04], \nlabel: \"Y\",\n},\nmarks: [\nPlot.line(\ndata_mse,\n{x: \"span\", y: \"value\", stroke: \"component\", strokeWidth: 5}\n),\nPlot.dot(\ncurrent_mse,\n{x: \"span\", y: \"value\", fill: \"component\", r: 10}\n),\n]\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n(a) Different \\(\\widehat{f}\\) estimators.\n\n\n\n\n\n\n\n\n\n\n\n\n\n(b) Different parts of the error.\n\n\n\n\n\n\nFigure 2: Illustration of the bias/variance tradeoff. The \\(\\lambda\\) parameter controls the flexibility of the model; the smaller \\(\\lambda\\), the more flexible the model.\n\n\n\n\nGenerally speaking, as flexibility increases, the decrease in bias is greater than the increase in variance, resulting in a decrease in prediction error. However, beyond a certain level of flexibility, the bias becomes negligible, and any further decrease is offset by the rapid increase in variance. Prediction error therefore begins to increase. This results in a U-shaped curve of prediction error as a function of model flexibility: a model that is too rigid generates a high bias, while a model that is too flexible leads to too much variance.\n\n\n\n\n\n\nTipNote: Why compromise?\n\n\n\nIt is always possible to build a very flexible model with zero bias, e.g., a model that passes through all observation points, but which will have enormous variance. Conversely, a model that is too rigid, e.g., a constant, will have a very large bias but almost zero variance. The bias/variance compromise consists of choosing a model that controls both of these quantities.",
-    "crumbs": [
-      "Modules",
-      "03 - Généralités",
-      "Bias/Variance"
-    ]
-  },
-  {
-    "objectID": "contents/generalities/05-model-evaluation.html",
-    "href": "contents/generalities/05-model-evaluation.html",
-    "title": "Models evaluation",
+    "objectID": "contents/01-introduction.html",
+    "href": "contents/01-introduction.html",
+    "title": "Introduction",
     "section": "",
-    "text": "This section is based on James et al. (2021), Chapter 5.",
+    "text": "Data analysis is a set of methods for extracting information from a data set. It’s also known as statistical learning. The idea is to use statistical models to understand how data is structured and how it interacts with each other.\n\n\n\n\n\n\nNoteExample\n\n\n\nLet’s imagine you work for the United Nations (UN). Your mission is to analyze life expectancy around the world. To do this, you’ll have a measure of life expectancy in each UN member country, of course, but also GDP per capita, health expenditure, fertility rate, urbanization rate, education level of the country, and so on. The aim of data analysis is to find links between these different variables and the variable of interest, life expectancy, to visualize these data, and eventually to predict life expectancy from the other variables.",
     "crumbs": [
       "Modules",
-      "03 - Généralités",
-      "Models evaluation"
+      "01 - Introduction"
     ]
   },
   {
-    "objectID": "contents/generalities/05-model-evaluation.html#evaluating-the-performance-of-a-predictive-model",
-    "href": "contents/generalities/05-model-evaluation.html#evaluating-the-performance-of-a-predictive-model",
-    "title": "Models evaluation",
-    "section": "Evaluating the Performance of a Predictive Model",
-    "text": "Evaluating the Performance of a Predictive Model\nIn the previous section, we introduced tools for measuring the quality of an estimator: the mean square error (MSE) for quantitative variables and the error rate (ER) for qualitative variables. These measures compare the predicted values ​​\\(\\widehat{Y} = \\widehat{f}(X)\\) to the observed values ​​\\(Y\\). However, if we calculate these errors only from the data used to train the model, we risk underestimating the true prediction error. Why? Because the estimator \\(\\widehat{f}\\) was adjusted to minimize the error on these same data. It therefore fits them well, and generally, too well! This can lead to the illusion that our model is performing well. Indeed, a very flexible model can have a low error on the training data simply because it captures noise rather than signal. But if the model adapts too much to the training data, it risks generalizing poorly to new data, i.e., data it has never seen before. This phenomenon is called overfitting.\n\n\n\n\n\n\nTipNote: Overfitting and Underfitting\n\n\n\nAn overly flexible model can fit the training data perfectly, including random noise. It will have a low error on this data but a high error on new observations. This is called overfitting of the model. Conversely, a model that is too rigid (e.g., a constant straight line) will not be able to capture the structure of the data, even on the training set. This is called underfitting of the model.\nThe goal is to find the right balance between flexibility and generalization capacity.\n\n\nTo objectively evaluate a model, ideally, it would be best to test it on data completely independent of the data used for training. We therefore distinguish two sets: a training set, used to adjust the model, and a test set, used to evaluate the model’s predictive performance. In practice, we generally don’t have access to a test set to perform this evaluation. In this section, we will discuss two approaches to circumvent this problem.",
+    "objectID": "contents/01-introduction.html#what-is-data-analysis",
+    "href": "contents/01-introduction.html#what-is-data-analysis",
+    "title": "Introduction",
+    "section": "",
+    "text": "Data analysis is a set of methods for extracting information from a data set. It’s also known as statistical learning. The idea is to use statistical models to understand how data is structured and how it interacts with each other.\n\n\n\n\n\n\nNoteExample\n\n\n\nLet’s imagine you work for the United Nations (UN). Your mission is to analyze life expectancy around the world. To do this, you’ll have a measure of life expectancy in each UN member country, of course, but also GDP per capita, health expenditure, fertility rate, urbanization rate, education level of the country, and so on. The aim of data analysis is to find links between these different variables and the variable of interest, life expectancy, to visualize these data, and eventually to predict life expectancy from the other variables.",
     "crumbs": [
       "Modules",
-      "03 - Généralités",
-      "Models evaluation"
+      "01 - Introduction"
     ]
   },
   {
-    "objectID": "contents/generalities/05-model-evaluation.html#validation-dataset",
-    "href": "contents/generalities/05-model-evaluation.html#validation-dataset",
-    "title": "Models evaluation",
-    "section": "Validation Dataset",
-    "text": "Validation Dataset\nWhen we only have a single dataset, a simple solution is to randomly divide it into two subsets: a training set to adjust the model, and a validation set to estimate the prediction error. This is called a validation set approach. Figure 1 presents a schematic of this approach, and ?@fig-trainval-1-pdf and ?@fig-trainval-2-pdf present an example of a training and validation set, along with the associated MSE. Figure 2 presents several combinations of training and validation datasets, along with the associated MSE.\n\n\n\n\n\n\nFigure 1: Diagram of the validation set approach.\n\n\n\n\n\nCode\n# Load packages\nlibrary(tidyverse)\nlibrary(dplyr)\n\n# Set seed for reproducibility\nset.seed(42)\n\n# Function definition\nf &lt;- function(x) {\n  4 * x * (1 - x) * log(x) + 2\n}\n\ngenerate_splits &lt;- function(data, train_prop = 0.7, K = 10) {\n  rows &lt;- list()\n  \n  for (k in 1:K) {\n    idx_train &lt;- sample(nrow(data), size = floor(train_prop * nrow(data)))\n    train &lt;- data[idx_train, ]\n    validation &lt;- data[-idx_train, ]\n    \n    train_tbl &lt;- tibble(\n      split = k,\n      set = \"train\",\n      x = train$x,\n      y = train$y\n    )\n    \n    validation_tbl &lt;- tibble(\n      split = k,\n      set = \"validation\",\n      x = validation$x,\n      y = validation$y\n    )\n    \n    rows[[k]] &lt;- bind_rows(train_tbl, validation_tbl)\n  }\n  \n  bind_rows(rows)\n}\n\n# Generate N data points in the interval (0, 1]\nN &lt;- 200\nspans &lt;- seq(0.1, 1, by = 0.05)  # LOESS smoothing parameters\nx_all &lt;- runif(N, min = 0.01, max = 1)  # avoid 0 due to log(x)\ny_all &lt;- f(x_all) + rnorm(N, mean = 0, sd = 0.1)  # add Gaussian noise\n\n# Put everything in a data.frame\ndata &lt;- data.frame(x = x_all, y = y_all)\n\n# Generate 10 training/validation splits\nsplits &lt;- generate_splits(data, train_prop = 0.7, K = 10)\nwrite.csv(splits, './splits.csv')\n\n\n# Fit a model with different smoothing parameters on each split\nsplits_number &lt;- unique(splits$split)\n\nresults &lt;- list()\nfor (n_split in splits_number) {\n  \n  df_split &lt;- splits |&gt; dplyr::filter(split == n_split)\n  train &lt;- df_split |&gt; \n    dplyr::filter(set == 'train') |&gt; \n    dplyr::select(x, y)\n  validation &lt;- df_split |&gt; \n    dplyr::filter(set == 'validation') |&gt; \n    dplyr::select(x, y)\n  \n  results_splits &lt;- list()\n  for (s in spans) {\n\n    # Fit loess model with span = s on train and predict on validation\n    model &lt;- loess(y ~ x, data = train, span = s, degree = 2)\n    pred &lt;- predict(model, newdata = validation$x)\n      \n    # For each point in x_grid, compute bias², variance, MSE\n    bias2 &lt;- mean((pred - validation$y)^2, na.rm = TRUE)\n    var_pred &lt;- var(pred, na.rm = TRUE)\n    mse &lt;- bias2 + var_pred\n    \n    results_splits[[as.character(s)]] &lt;- data.frame(\n      split = n_split,\n      span = s,\n      MSE = mse\n    )\n  }\n  results_splits_df &lt;- bind_rows(results_splits)\n  results[[as.character(n_split)]] &lt;- results_splits_df\n}\n\nresults &lt;- results |&gt; bind_rows()\nwrite.csv(results, './splits_mse.csv')\n\n\n\n\nCode\ndata = FileAttachment(\"../../include/data/model-evaluation/splits.csv\").csv({ typed: true })\ndata_mse = FileAttachment(\"../../include/data/model-evaluation/splits_mse.csv\").csv({ typed: true })\n\nviewof split = Inputs.range(\n  [1, 10], \n  {value: 1, step: 1, label: \"Autre jeu de validation\"}\n)\n\nfiltered = data.filter(function(df) {\n  return df.split == split;\n})\n\ncurrent_mse = data_mse.filter(function(df) {\n  return df.split == split;\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nPlot.plot({\n  grid: true,\n  x: {\n    domain: [0, 1],\n    label: \"X\",\n  },\n  y: {\n    domain: [0, 3],\n    label: \"Y\",\n  },\n  color: {\n    domain: [\"train\", \"validation\"],\n    range: [\"#f7a941\", \"#e30513\"],\n    legend: true\n  },\n  marks: [\n    Plot.dot(\n      filtered,\n      {x: \"x\", y: \"y\", fill: \"set\", r: 5}\n    ),\n  ]\n})\n\n\nCode\nPlot.plot({\n  grid: true,\n  color: {\n    legend: true,\n  },\n  x: {\n    domain: [0, 1],\n    label: \"λ\",\n  },\n  y: {\n    domain: [0.1, 0.2],\n    label: \"Y\",\n  },\n  marks: [\n    Plot.line(\n      data_mse, \n      {\n        x: \"span\", y: \"MSE\", z: \"split\",\n        stroke: \"#AAAAAA\", strokeWidth: 2\n      }\n    ),\n    Plot.line(\n      current_mse,\n      {x: \"span\", y: \"MSE\", stroke: \"#e30513\", strokeWidth: 5}\n    ),\n  ]\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n(a) Différents jeux d’entraînement et validation.\n\n\n\n\n\n\n\n\n\n\n\n\n\n(b) MSE pour différents jeux de validation.\n\n\n\n\n\n\nFigure 2: Illustration de l’approche par jeu de données de validation.\n\n\n\n\n\n\n\n\n\n\nTipHow to choose the size of the subsets?\n\n\n\nIn general:\n\nIf we have a large number of observations (say, several thousand), we can do a 50-50 split.\nIf we have fewer observations, we would prefer to keep more observations for training. We can, for example, do a 70-30 or 80-20 split.\n\nHowever, there is no universal rule. The right choice depends on the context, the complexity of the model, and the amount of data available.\n\n\nHowever, this method has two drawbacks. The first is that the error estimate is unstable. Indeed, the value of the prediction error depends on the observations in the validation set. A different validation set may give a different result. The second is that there is less data to fit the model. Since part of the data is reserved for validation, the model is trained on a smaller set, and this may therefore overestimate its true error compared to if it had been trained on the full dataset.",
+    "objectID": "contents/01-introduction.html#course-objectives",
+    "href": "contents/01-introduction.html#course-objectives",
+    "title": "Introduction",
+    "section": "Course objectives",
+    "text": "Course objectives\nIn this course, we aim to introduce methods that allow us to study a “high-dimensional” dataset (in the sense that we can’t simply graph all the variables for each observation) without having to resort to a probabilistic model. The various techniques we’ll be looking at can be used to:\n\nvisualize data\nreduce data size;\nidentify certain relationships between variables;\ndivide the dataset into groups/classes.\n\nThis course is not intended to be exhaustive, in the sense of presenting all possible methods. Nor is it intended to be state-of-the-art, in the sense that it will not cover the latest developments in machine learning. Nor is it a programming course.\nTo finish this introduction, here is a quote from Statistical Rethinking by Richard McElreath (McElreath 2020) particularly accurate in this course.\n\nStatistics courses […] tend to resemble horoscopes. There are two senses to this resemblance. First, in order to remain plausibly correct, they must remain tremendously vague. This is because the targets of the advice, for both horoscopes and statistical advices, are diverse. But only the most general advice applies to all cases. A horoscope uses only the basic facts of birth to forecast life events, and a […] statistical guide uses only the basic facts of measurement and design to dictate a model. It is easy to do better, once more detail is available. In the case of statistical analysis, it is typically only the scientist who can provide that detail, not the statistician. Second, there are strong incentives for both astrologers and statisticians to exaggerate the power and importance of their advice. No one likes an astrologer who forecasts doom, and few want a statistician who admits the answers as desired are not in the data as collected. Scientists desire results, and they will buy and attend to statisticians and statistical procedures that promise them. What we end up with is too often horoscopic: vague and optimistic, but still claiming critical importance.\n\n\n\n\nMachine learning (xkcd:1838).",
     "crumbs": [
       "Modules",
-      "03 - Généralités",
-      "Models evaluation"
+      "01 - Introduction"
     ]
   },
   {
-    "objectID": "contents/generalities/05-model-evaluation.html#cross-validation",
-    "href": "contents/generalities/05-model-evaluation.html#cross-validation",
-    "title": "Models evaluation",
-    "section": "Cross-validation",
-    "text": "Cross-validation\nTo overcome the limitations of the previous approach, cross-validation is often used. This method is more robust and stable. The principle is to repeat the validation set approach several times on different subsets of the dataset.\nThe approach consists of randomly dividing the set of observations into K subsets of equal size (called folds). The first fold is used as the validation dataset and the model is fitted on the remaining K - 1 folds. The prediction error is calculated on the first fold. This procedure is repeated K times; each time, a different fold is used as the validation dataset. At the end, we have \\(K\\) values ​​for the prediction error. Finally, we calculate the average of the \\(K\\) prediction values. Figure 3 presents a diagram of this approach.\n\n\n\n\n\n\nFigure 3: Diagram of the cross-validation approach\n\n\n\n\n\n\n\n\n\nTipHow to choose the number of subsets \\(K\\)?\n\n\n\nThe choice of the number of subsets \\(K\\) has an impact on the quality of the prediction error estimation, as well as on the computational cost of the procedure. In practice, \\(K = 5\\) or \\(K = 10\\) are often used. This choice is based on a compromise between the accuracy of the error estimation and the required computational time. Indeed, for each value of \\(K\\), the model is fitted \\(K\\) times. Therefore, the larger \\(K\\) is, the greater the computational cost.\nIn the limiting case where \\(K = n\\), i.e. \\(K\\) is equal to the number of observations in the dataset, this is called leave-one-out cross-validation (LOOCV). In this case, each observation is used as validation once, and the model is trained on the other \\(n - 1\\) observations.\nThis choice of \\(K = n\\) minimizes bias in the prediction error estimate, because at each iteration, the model is fitted to almost all the observations in the dataset. However, this comes at the cost of high variance. Indeed, since the training sets are almost identical, the prediction errors are highly correlated, making the overall error estimate unstable.\nConversely, lower values ​​of \\(K\\) introduce a slight bias in the error estimate (because the models are fitted to sets containing fewer observations), but reduce the variance of this estimate. This bias/variance tradeoff, coupled with a significant reduction in computation time, explains why \\(K = 5\\) or \\(K = 10\\) are standard choices in practice.\n\n\nFinally, cross-validation is a general method that can be applied to most models.",
-    "crumbs": [
-      "Modules",
-      "03 - Généralités",
-      "Models evaluation"
-    ]
+    "objectID": "contents/misc/good-practices-python.html",
+    "href": "contents/misc/good-practices-python.html",
+    "title": "Good practices in Python",
+    "section": "",
+    "text": "This page is inspired by this document.\nLike R, Python is “just” a programming language, so it is possible to write Python code in a text editor and run it via a terminal. Although this is feasible, it is easier to use a code editor. While it is technically possible to use RStudio as an editor for Python, I would recommend using a specialized editor such as PyCharm. The notebook format is also very popular in Python. In this case, I would recommend the marimo library, which allows you to convert your .py files into notebooks.\nIn addition, it is best to make sure you are working with the latest stable version of Python that is compatible with the packages you are using (e.g., numpy, matplotlib, sklearn). Very often, there is a delay before the latest versions of packages are compatible with the latest version of Python. It is therefore important to share the version of the packages used with the analysis.\nRegarding documentation, the standard in Python is to follow the recommendations of PEP 257. The Sphinx library allows you to generate documentation from docstrings.\nA uniform syntax makes code much easier to read and understand. A style guide sets out standards for uniform syntax. The PEP 8 style guide is recommended in Python.\nLine breaks and indentation\nIndentation is part of Python, i.e. if...else and for blocks are defined using indentation. You can use either tabs or spaces. The choice is yours, but it is important to be consistent in your code.\nNaming convention\nThe use of single-character variable names should be avoided. Otherwise, variables, functions, methods, packages, and modules are named with lowercase letters, numbers, and the underscore _. Classes and exceptions should be named with uppercase letters to separate words (UneClasse). Constants are in uppercase.\nCode organization\nAs with R, when the code starts to get long, it is advantageous to split it into several files. For example, you can have one file per part of the analysis (one for data cleaning, one for analysis, one for visualization, etc.). You can also create several subfolders.\nSome things to do\n\nDo not make comparisons to True, False, or None.\n\n\nif attr:\n    print(\"True!\")\n\nif not attr:\n    print(\"False!\")\n\nif attr is None:\n    print(\"None!\")\n\n\nUse list comprehension when possible.\n\n\na = [3, 4, 5]\nb = [i for i in a if i &gt; 4]\n\n\nLoad a file with with. This ensures that the connection to the file is closed once it has been read.\n\n\nwith open(\"file.txt\") as f:\n    read(f)\n\n\nUse a maximum of 80 characters per line.\nUse parentheses to wrap long strings."
+  },
+  {
+    "objectID": "contents/misc/good-practices-R.html",
+    "href": "contents/misc/good-practices-R.html",
+    "title": "Good practices in R",
+    "section": "",
+    "text": "This page is based on a document created by Aurélien Nicosia (ULaval) in 2023 called “Bonnes pratiques de programmation en R.” It has been updated.\nSince R is “just” a programming language, it is technically possible to use a simple text editor to write R code and a terminal to run it. However, it is much more convenient—especially for beginners—to use a code editor such as RStudio to run your code. This allows you to run your code interactively, view your working environment, test your code, and more.\nIn addition, it is best to make sure you are working with the latest version of R and the packages you need. This reduces the risk of encountering bugs and allows you to take advantage of the latest features. One point to note, however, is that I would advise against changing the version of R or the packages once you have started working on something. This change could introduce bugs in the middle of the analysis (so always report the versions of the packages used for reproducibility). You can get a summary of the working environment with the systemInfo() and packageVersion(pkg) functions.\nRegarding documentation, the roxygen package allows you to convert comments in your functions and packages into clean documentation.\nA uniform syntax makes code much easier to read and understand. A style guide sets standards for uniform syntax. The tidyverse style guide (https://style.tidyverse.org) is recommended in R. Before presenting some style conventions, note that you can quickly change the formatting of a piece of R code in RStudio in the “Code -&gt; Reformat Selection” menu.\nLine breaks and indentation\nA simple way to make your code more readable is to insert appropriate line breaks and indentations. For example, suppose we have the following character string:\n\ntext &lt;- \"Ceci est un example\"\n\nWe want to correct two errors in this sentence: the word “example” written in English rather than French and the missing period at the end of the sentence. This can be done with the following instruction:\n\npaste0(gsub(pattern = \"example\", replacement = \"example\", x = text), \".\")\n\nThis instruction contains one function call nested within another. It is much easier to read as follows:\n\npaste0(\n  gsub(\n    pattern = \"example\",\n    replacement = \"exemple\",\n    x = text),\n  \".\")\n\nAssignment operator\nIn R, &lt;- is used to assign a value to a variable, and = is used to pass values to arguments in a function call.\nNaming conventions\nThe tydiverse style guide recommends using lowercase letters, numbers, and the underscore _ to name variables and functions. Underscores are used to separate words in a name. Although other conventions may be found, these should be avoided. In any case, it is important to choose a convention and stick to it. In addition, it is best to avoid accents in variable names.\nCode organization\nWhen the code starts to get long, it becomes advantageous to separate it into several files. For example, you can have one file per part of the analysis (one for data cleaning, one for analysis, one for visualization, etc.). In addition, a data analysis does not usually consist solely of R code, e.g., C++ code files, data files, configuration files, etc. It is therefore recommended to create subfolders grouping files of the same type. RStudio projects are ideal for gathering all project-related files in one place. In addition, they make it easier to work on several projects simultaneously by managing the transition from one working directory to another.\nA few things to do\n\nWrite your code in a script and save it frequently. This prevents you from losing track of important instructions because they were written directly in the console.\nIt is best to start every R work session with an empty work environment. To do this, disable automatic session image restoration in the settings. This allows you to be aware of the presence of different objects in the working environment.\nDo not use the load function when the working environment is not empty. This prevents you from modifying an object in the working environment by overwriting it.\nDo not use the attach function. This prevents you from modifying the file search path.\nSave the graphics options and settings before modifying them.\nDo not use T and F instead of TRUE and FALSE."
   },
   {
     "objectID": "contents/remainders/01-linear-algebra.html",
@@ -235,100 +271,64 @@
     ]
   },
   {
-    "objectID": "contents/remainders/03-programming.html",
-    "href": "contents/remainders/03-programming.html",
-    "title": "Programming",
+    "objectID": "contents/remainders/02-probabilities.html",
+    "href": "contents/remainders/02-probabilities.html",
+    "title": "Probabilities and Statistics",
     "section": "",
-    "text": "In this section, we present some references on the basics of programming in different languages. This course does not specify which language to use, so you are free to choose the one that suits you best for the various exercises and your project. In any case, there are a set of best practices that will help you write code that is readable, understandable, and reusable. You can find a (quick) guide to best practices in programming at this link.",
+    "text": "In this section, we present some results in probability and statistics within the framework of this course. For more information, you can refer to the STT-1000 course, Wasserman (2010) (in English) and Delmas (2013) (in French).",
     "crumbs": [
       "Modules",
       "02 - Révisions",
-      "Programming"
+      "Probabilities and Statistics"
     ]
   },
   {
-    "objectID": "contents/remainders/03-programming.html#r",
-    "href": "contents/remainders/03-programming.html#r",
-    "title": "Programming",
-    "section": "R",
-    "text": "R\nR is a programming language specialized in statistical analysis and data visualization. It is free, open-source, and available on Windows, macOS, and Linux. Regularly updated, new packages are available every day (see CRAN).\nHere is a guide that introduces the basics of R: Learn R in Y Minutes and a guide to good practices in R. Finally, an important feature of the R language is the pipe operator. This makes the code clearer. You can find an explanation of this operator here.",
+    "objectID": "contents/remainders/02-probabilities.html#modeling-randomness",
+    "href": "contents/remainders/02-probabilities.html#modeling-randomness",
+    "title": "Probabilities and Statistics",
+    "section": "Modeling randomness",
+    "text": "Modeling randomness\nMany real-world phenomena are unpredictable, and their outcomes generally contain a certain amount of variability. This variability is taken into account using a measure of uncertainty called probability measure.\n\n\n\n\n\n\nWarningDefinition\n\n\n\nThe sample space \\(S\\) is the set of all possible outcomes of a phenomenon. An event is a subset of the sample space \\(S\\).\n\n\n\n\n\n\n\n\nNoteExamples\n\n\n\n\nIf the experiment consists of tossing a coin, \\(S = \\{0, 1\\}\\). The result of this experiment cannot be known in advance. For example, \\(E = \\{1\\}\\) is an event of \\(S\\).\nIf we are interested in the lifespan of a phone, \\(S = \\mathbb{R}_{+}\\). We can also choose \\(S = [0, M]\\), because this lifespan is probably not infinite! The event \\(E = [10, \\infty)\\) represents the event “the lifespan of more than 10 time units.”\nFor the number of days without snow in Quebec City in a year, we can choose \\(S = \\mathbb{N}\\). The event \\(E = (0, 5]\\) represents the event “fewer than 5 days without snow in Quebec City in a year.”\n\n\n\n\n\n\n\n\n\nWarningDefinition\n\n\n\nA probability measure \\(\\mathbb{P}\\) on \\(S\\) is an application (function) defined on the sample space and satisfying the following properties:\n\nFor each event \\(E\\), \\(\\mathbb{P}(E) \\in [0, 1]\\).\n\\(\\mathbb{P}(S) = 1\\).\nLet \\(E_{1}, E_{2}, \\dots\\) be a sequence of mutually exclusive events (finite or infinite), i.e. \\(\\forall i \\neq j, E_{i} \\cap E_{j} = \\varnothing\\). We have \\[\\mathbb{P}(\\bigcup_{n = 1}^{\\infty} E_n) = \\sum_{n = 1}^{\\infty} \\mathbb{P}(E_n).\\]\n\nWe call \\(\\mathbb{P}(E)\\) the probability of event \\(E\\).\n\n\nThe definition of probability measures can be subjective and linked to the statistician’s experience. Let’s take example 3 on the number of days without snow in Quebec City during the year. Someone who has just arrived in Canada may want to give the same probability to each day, while a Quebecer will have more information and will be able to vary the probabilities based on this knowledge.\n\n\n\n\n\n\nWarningDefinition\n\n\n\nTwo events \\(E\\) and \\(F\\) are said to be independent if \\(\\mathbb{P}(E \\cap F) = \\mathbb{P}(E) \\times \\mathbb{P}(F)\\).\n\n\n\n\n\n\n\n\nWarningDefinition\n\n\n\nLet \\(E\\) and \\(F\\) be two events. The conditional probability that \\(E\\) occurs given that \\(F\\) has occurred is defined by: \\[\\mathbb{P}(E \\mid F) = \\frac{\\mathbb{P}(E \\cap F)} {\\mathbb{P}(F)}.\\]\n\n\nIntuitively, two events are independent if knowledge of one provides no information about the occurrence of the other. We also have \\(\\mathbb{P}(E \\mid F) = \\mathbb{P}(E)\\).",
     "crumbs": [
       "Modules",
       "02 - Révisions",
-      "Programming"
+      "Probabilities and Statistics"
     ]
   },
   {
-    "objectID": "contents/remainders/03-programming.html#python",
-    "href": "contents/remainders/03-programming.html#python",
-    "title": "Programming",
-    "section": "Python",
-    "text": "Python\nPython is a general-purpose programming language. It is free, open-source, and available on Windows, macOS, and Linux. Although it is a general-purpose language, there is a large community around data analysis and machine learning in Python. Thus, the usual methods have already been implemented, e.g. in the sklearn package, but if necessary, it is possible to view the code and modify it.\nHere is a guide that introduces the basics of Python: Learn Python in Y Minutes and a guide to good practices in Python.",
+    "objectID": "contents/remainders/02-probabilities.html#random-variables",
+    "href": "contents/remainders/02-probabilities.html#random-variables",
+    "title": "Probabilities and Statistics",
+    "section": "Random variables",
+    "text": "Random variables\nIn probability theory, it is customary to express the outcome of experiments as the value of a function called a random variable. This characterization is always possible.\n\n\n\n\n\n\nWarningDefinition\n\n\n\nLet \\(X\\) be a random variable. The distribution of this random variable is defined by the application \\(A \\mapsto \\mathbb{P}(X \\in A)\\).\n\n\n\n\n\n\n\n\nWarningDefinition\n\n\n\nLet \\(X\\) be a random variable. This random variable is discrete if it takes, at most, a countable number of values. In this case, the distribution of \\(X\\) is given by the probabilities \\(\\mathbb{P}(X = x)\\) for all outcomes \\(x\\).\n\n\n\n\n\n\n\n\nWarningDefinition\n\n\n\nLet \\(X\\) be a random variable. This random variable is continuous if the probabilities \\(\\mathbb{P}(X \\in A)\\) are given by integrals of the form \\(\\int_{A} f(x) dx\\) where \\(f: \\mathbb{R}^d \\to \\mathbb{R}_+\\) is an integrable function such that \\(\\int_{\\mathbb{R}^d} f(x) dx = 1\\). Note that, for a fixed outcome \\(x\\), \\(\\mathbb{P}(X = x) = 0\\).\n\n\n\n\n\n\n\n\nWarningDefinition\n\n\n\nLet \\(X\\) be a random variable. The mathematical expectation \\(\\mathbb{E}(X)\\) of \\(X\\) is the average value of the outcome of \\(X\\) with respect to its probability distribution. The expectation is usually denoted by \\(\\mu\\).\n\n\nLet \\(F\\) be a countable set. A discrete random variable \\(X\\) has an expectation \\(\\mathbb{E}(X) = \\sum_{x \\in F} x \\mathbb{P}(X = x)\\). Let \\(X\\) be a continuous random variable with density \\(f\\). Its expectation is given by \\(\\mathbb{E}(X) = \\int_{\\mathbb{R}^d} x f(x) dx\\).\n\n\n\n\n\n\nCautionTransfer theorem\n\n\n\nLet \\(X\\) be a random variable. Let \\(g: \\mathbb{R}^d \\mapsto \\mathbb{R}\\) be a function such that \\(\\mathbb{E}\\left[ g(X) \\right]\\) exists. We have:\n\nIf \\(X\\) is a discrete random variable, \\(\\mathbb{E}\\left[ g(X) \\right] = \\sum_{x \\in F} g(x) \\mathbb{P}(X = x)\\);\nIf \\(X\\) is a continuous random variable with density \\(f\\), \\(\\mathbb{E}\\left[ g(X) \\right] = \\int_{\\mathbb{R}^d} g(x)f(x) dx\\).\n\n\n\n\n\n\n\n\n\nImportantProperties: Linearity of expectation\n\n\n\nLet \\(X\\) and \\(Y\\) be two random variables whose expectations exist, and let \\(\\lambda \\in R\\). We have:\n\n\\(\\mathbb{E}(X + Y) = \\mathbb{E}(X) + \\mathbb{E}(Y)\\);\n\\(\\mathbb{E}(\\lambda X) = \\lambda \\mathbb{E}(X)\\).\n\n\n\n\n\n\n\n\n\nNoteProof\n\n\n\n\n\nThe proof is derived from the transfer theorem and the linearity of addition and integration.\n\n\n\n\n\n\n\n\n\nWarningDefinition\n\n\n\nLet \\(X\\) be a random variable such that the expectation of its square exists. The variance of \\(X\\) is defined by \\[\\mathrm{Var}(X) = \\mathbb{E}\\left[ \\left( X - \\mathbb{E}(X) \\right)^2 \\right] = \\mathbb{E}\\left[ X^2 \\right] - \\mathbb{E}\\left[ X \\right]^2.\\]\n\n\nThe variance measures the dispersion of a random variable around its mean. We can also look at the standard deviation, defined as the square root of the variance: \\(\\sigma(X) = \\sqrt{\\mathrm{Var}(X)}\\).\n\n\n\n\n\n\nWarningDefinition\n\n\n\nLet \\(X\\) and \\(Y\\) be two random variables and \\(A\\) and \\(B\\) be two events. If the events \\(\\left\\{ X \\in A \\right\\}\\) and \\(\\left\\{ Y \\in B \\right\\}\\) are independent, then we say that the random variables \\(X\\) and \\(Y\\) are independent.\n\n\nFrom this definition, we can deduce that:\n\nfor functions \\(f\\) and \\(g\\), the random variables \\(f(X)\\) and \\(g(Y)\\) are independent;\nif the random variables \\(X\\) and \\(Y\\) are real-valued and their expectation exists, then the expectation of the product \\(XY\\) exists and \\(\\mathbb{E}(XY) = \\mathbb{E}(X) \\times \\mathbb{E}(Y)\\).\n\n\n\n\n\n\n\nWarningDefinition\n\n\n\nLet \\(X\\) be a random variable. The distribution function \\(F: \\mathbb{R} \\mapsto [0, 1]\\) of \\(X\\) is defined by \\[F(t) = \\mathbb{P}(X \\leq t), \\quad t \\in \\mathbb{R}.\\]",
     "crumbs": [
       "Modules",
       "02 - Révisions",
-      "Programming"
+      "Probabilities and Statistics"
     ]
   },
   {
-    "objectID": "contents/remainders/03-programming.html#julia",
-    "href": "contents/remainders/03-programming.html#julia",
-    "title": "Programming",
-    "section": "Julia",
-    "text": "Julia\nJulia is also a general-purpose programming language. It is a much newer language than its two counterparts, R and Python (Julia was created in the early 2010s, while R and Python were created in the early 1990s). It may therefore seem less mature in some respects, but most traditional data analysis methods have been implemented. Like R and Python, this language is free, open-source, and available on all major operating systems. Julia has the advantage of being faster than R and Python. It also includes native support for calling libraries in C or Fortran, and non-native support for calling libraries in R and Python.\nHere is a guide that introduces the basics of Julia: Learn Julia in Y minutes and a guide to best practices in Julia.",
+    "objectID": "contents/remainders/02-probabilities.html#random-vectors",
+    "href": "contents/remainders/02-probabilities.html#random-vectors",
+    "title": "Probabilities and Statistics",
+    "section": "Random vectors",
+    "text": "Random vectors\nSuppose that \\(X = (X_{1}, X_{2})\\) is a random variable of dimension \\(2\\) with density \\(f_{X}\\). Random variables of dimension greater than \\(1\\) are generally referred to as random vectors. The densities of \\(X_{1}\\) and \\(X_{2}\\) are called marginal densities. When \\(X_{1}\\) and \\(X_{2}\\) are independent, we have: \\[f_X(x, y) = f_{X_{1}}(x) \\cdot f_{X_{2}}(y), \\quad (x, y) \\in \\mathbb{R}^2.\\]\n\n\n\n\n\n\nNoteExample of the multivariate normal distribution\n\n\n\nA random vector \\(X\\) of dimension \\(p\\) is said to follow a multivariate normal distribution with mean \\(\\mu\\) and variance \\(\\Sigma\\) if its density is given by \\[f_X(x) = \\frac{1}{(2 \\pi)^{p /2}} \\cdot \\frac{1}{(\\text{det} \\Sigma)^{1/2}} \\cdot \\exp\\left\\{ -\\frac{1}{2}\\left( x - \\mu \\right)^\\top \\Sigma^{-1} \\left( x - \\mu \\right) \\right\\}, \\quad x \\in \\mathbb{R}^p.\\]\nWe denote \\(X \\sim \\mathcal{N}_{p}(\\mu, \\Sigma)\\).\n\n\nIn statistics, an important quantity to measure is the linear dependence between \\(X_{1}\\) and \\(X_{2}\\). For this, we can use the covariance or the correlation.\n\n\n\n\n\n\nWarningDefinition\n\n\n\nLet \\(X = (X_{1}, X_{2})\\) be a random vector such that the expectation of the square of \\(X_{1}\\) and \\(X_{2}\\) exists. The covariance between \\(X_{1}\\) and \\(X_{2}\\) is given by \\[\\mathrm{Cov}(X_{1}, X_{2}) = \\mathbb{E}\\left[ (X_{1} - \\mathbb{E}(X_{1})) (X_{2} - \\mathbb{E}(X_{2}))\\right].\\]\nThe correlation between \\(X_{1}\\) and \\(X_{2}\\) is a version of the covariance normalized by the standard deviation of the random variables. It is given by \\[\\mathrm{Corr}(X_{1}, X_{2}) = \\frac{\\mathrm{Cov}(X_{1}, X_{2})}{\\sigma(X_{1}) \\sigma(X_{2})}.\\]\n\n\nThe sign of the covariance and correlation can be interpreted. If they are strictly positive, \\(X_{1}\\) and \\(X_{2}\\) tend to move in the same direction. If \\(X_{1}\\) increases, then \\(X_{2}\\) also increases, and vice versa. If they are strictly negative, \\(X_{1}\\) and \\(X_{2}\\) tend to move in opposite directions. If \\(X_{1}\\) increases, then \\(X_{2}\\) decreases, and vice versa. If the covariance is equal to \\(0\\), there are no rules and \\(X_{1}\\) and \\(X_{2}\\) are said to be orthogonal.\n\n\n\n\n\n\nImportantProperties\n\n\n\nLet \\(X = (X_{1}, X_{2})\\) be a random vector. We have\n\n\\(\\mathrm{Cov}(X_{1}, X_{2}) = \\mathbb{E}(X_{1}X_{2}) - \\mathbb{E}(X_{1})\\mathbb{E}(X_{2})\\);\n\\(\\mathrm{Cov}(X_{1}, X_{2}) = \\mathrm{Cov}(X_{2}, X_{1})\\);\n\\(\\mathrm{Cov}(X_{1} + \\lambda Y_{1}, X_{2}) = \\mathrm{Cov}(X_{1}, X_{2}) + \\lambda \\mathrm{Cov}(Y_{1}, X_{2})\\).\n\n\n\n\n\n\n\n\n\nNoteProof\n\n\n\n\nWe find the result by expanding the product in the definition of the covariance.\nUsing point 1. and the commutativity of multiplication.\nUsing point 1. and the linearity of expectation.",
     "crumbs": [
       "Modules",
       "02 - Révisions",
-      "Programming"
+      "Probabilities and Statistics"
     ]
   },
   {
-    "objectID": "contents/remainders/03-programming.html#sas",
-    "href": "contents/remainders/03-programming.html#sas",
-    "title": "Programming",
-    "section": "SAS",
-    "text": "SAS\nSAS is a proprietary programming language specialized in data analysis. Although used in certain industries, e.g. pharmaceuticals, its use is declining. Furthermore, the license must be renewed annually, there is no online community (apart from the official documentation, there is not much help available), and it is impossible to view the code for the various procedures. For these reasons, I do not recommend using SAS for this course. However, if you wish, the university can provide licenses for a fee.",
+    "objectID": "contents/remainders/02-probabilities.html#estimation",
+    "href": "contents/remainders/02-probabilities.html#estimation",
+    "title": "Probabilities and Statistics",
+    "section": "Estimation",
+    "text": "Estimation\nIn practice, we do not have perfect knowledge of our random vectors, but only some of their realizations (called samples). Let \\(x_{1}, \\dots, x_{n}\\) be \\(n\\) independent realizations of a random vector \\(X\\) with mean \\(\\mu\\) and variance \\(\\Sigma\\).\nThe estimator of the mean \\(\\mu\\) is given by \\[\\widehat{\\mu} = \\overline{X} \\coloneqq \\frac{1}{n} \\sum_{i = 1}^{n} x_i.\\]\nThe estimator of the variance \\(\\Sigma\\) is given by \\[\\widehat{\\Sigma} \\coloneqq \\frac{1}{n - 1}\\sum_{i = 1}^{n} (x_i - \\widehat{\\mu})(x_i - \\widehat{\\mu})^\\top.\\]\nWhy do we divide this sum by \\(n -1\\) and not by \\(n\\) to estimate the variance? If we divide by \\(n\\), \\(\\widehat{\\Sigma}\\) is a biased estimator of the variance. Indeed, we must take into account that we are using a biased estimator of the mean in the variance estimator and therefore correct for this estimate.\nLet \\(D = \\{\\text{diag}(\\widehat{\\Sigma})\\}^{1/2}\\) be the matrix of standard deviations calculated on the sample. We can estimate the correlation matrix on the sample by \\[\\widehat{R} = D^{-1} \\widehat{\\Sigma} D^{-1}.\\]",
     "crumbs": [
       "Modules",
       "02 - Révisions",
-      "Programming"
+      "Probabilities and Statistics"
     ]
-  },
-  {
-    "objectID": "contents/03-generalities.html",
-    "href": "contents/03-generalities.html",
-    "title": "Generalities",
-    "section": "",
-    "text": "Slides:\n\nData analysis project\nSpaces\nDistances - annotated\nBias / Variance - annotated\nModel evaluation\n\nTD: link\nTP: link",
-    "crumbs": [
-      "Modules",
-      "03 - Généralités"
-    ]
-  },
-  {
-    "objectID": "contents/03-generalities.html#outline",
-    "href": "contents/03-generalities.html#outline",
-    "title": "Generalities",
-    "section": "Outline",
-    "text": "Outline\n\nData analysis project\nSpaces\nDistances\nBias / Variance\nModel evaluation\n\n\n\n\nCorrelation (xkcd:552).",
-    "crumbs": [
-      "Modules",
-      "03 - Généralités"
-    ]
-  },
-  {
-    "objectID": "contents/misc/pipe.html",
-    "href": "contents/misc/pipe.html",
-    "title": "Pipe operator in R",
-    "section": "",
-    "text": "This page is based on a document created by Aurélien Nicosia (ULaval) in 2023 called “Pipe Operator.” It has been updated.\nSince version 4.1.0 of R, released in May 2021, the language has introduced the pipe operator |&gt;, inspired by what the magrittr package was doing. Starting with R 4.3.0, the style guide for the tidyverse recommends using the basic pipe operator, not the one from magrittr.\n\n\n\n\n\n\nNoteKeyboard shortcuts\n\n\n\nIn RStudio, the keyboard shortcut for inserting the pipe operator is:\n\nOn Windows: Ctrl + Shift + M\nOn macOS: ⌘ + ⇧ + M\n\n\n\nThis operator introduces a way to chain instructions and pass arguments to functions in a more readable way than the traditional method.\nTo summarize how this operator works, here is how it transforms a few function calls:\n\nf(x) becomes x |&gt; f();\nf(x, y) becomes x |&gt; f(y);\nh(g(f(x))) becomes x |&gt; f() |&gt; g() |&gt; h().\n\nThis operator allows you to highlight the sequence of actions rather than the object on which the sequence of actions is performed. This makes the code more readable (and having readable code is a good practice). Reading the instruction h(g(f(x))) from left to right, we first see the call to the function h, then the call to the function g, and finally the call to the function f. However, this instruction is evaluated in reverse order. In fact, R will first:\n\nevaluate f(x);\nthen pass the result to the function g and return the result;\nwhich will be passed to the function h and the final result will be returned.\n\nIf we want to write code that correctly reflects the order of evaluation, we could write:\n\nres1 &lt;- f(x)\nres2 &lt;- g(res1)\nh(res2)\n\nHowever, this code has the disadvantage of creating objects that we do not necessarily want to keep. The |&gt; operator does not have this disadvantage! In fact, an instruction written using the |&gt; operator allows us to follow the order of evaluations without creating unnecessary objects in memory.\nFor even greater clarity, it is possible to extend an instruction containing several |&gt; operators over several lines so that there is one function per line:\n\nx |&gt; \n  f() |&gt; \n  g() |&gt; \n  h()\n\nIf the argument we want to pass with the |&gt; operator is not the first one, we must use _ as follows with a named argument: f(y, z = x) becomes x |&gt; f(y, z = _).\nLet’s take an example to illustrate the use of the |&gt; operator. Suppose we have the following character string:\n\ntext &lt;- \"This is an example\"\n\nand we want to correct it—replace “example” with “example” and add a period at the end—with the following instruction:\n\npaste0(gsub(pattern = \"example\", replacement = \"example\", x = text), \".\")\n\n[1] \"This is an example.\"\n\n\nThis instruction is a little difficult to read because of the call to the gsub function nested within a call to the paste0 function. We could rewrite it as follows using the |&gt; operator:\n\ntext |&gt; \n  gsub(pattern = \"example\", replacement = \"example\", x = _) |&gt; \n  paste0(\".\")\n\n[1] \"This is an example.\"\n\n\nLet’s take another numerical example. We want to perform the following calculation: \\[\\frac{(2 + 4) \\times 8}{2}.\\]\nTo do this, we need a few mathematical functions.\n\nadd &lt;- function(x, y) {\n  x + y\n}\n\nmul &lt;- function(x, y) {\n  x * y\n}\n\ndiv &lt;- function(x, y) {\n  x / y\n}\n\nWe can perform the calculation in three different ways:\n\n# By creating different objects \nres1 &lt;- add(2, 4)\nres2 &lt;- mul(res1, 8)\nres3 &lt;- div(res2, 2)\nprint(res3)\n\n[1] 24\n\n# By nesting functions\nres &lt;- div(mul(add(2, 4), 8), 2)\nprint(res)\n\n[1] 24\n\n# With the pipe operator \nres &lt;- 2 |&gt;\n  add(4) |&gt; \n  mul(8) |&gt; \n  div(2)\nprint(res)\n\n[1] 24"
-  },
-  {
-    "objectID": "contents/misc/good-practices-R.html",
-    "href": "contents/misc/good-practices-R.html",
-    "title": "Good practices in R",
-    "section": "",
-    "text": "This page is based on a document created by Aurélien Nicosia (ULaval) in 2023 called “Bonnes pratiques de programmation en R.” It has been updated.\nSince R is “just” a programming language, it is technically possible to use a simple text editor to write R code and a terminal to run it. However, it is much more convenient—especially for beginners—to use a code editor such as RStudio to run your code. This allows you to run your code interactively, view your working environment, test your code, and more.\nIn addition, it is best to make sure you are working with the latest version of R and the packages you need. This reduces the risk of encountering bugs and allows you to take advantage of the latest features. One point to note, however, is that I would advise against changing the version of R or the packages once you have started working on something. This change could introduce bugs in the middle of the analysis (so always report the versions of the packages used for reproducibility). You can get a summary of the working environment with the systemInfo() and packageVersion(pkg) functions.\nRegarding documentation, the roxygen package allows you to convert comments in your functions and packages into clean documentation.\nA uniform syntax makes code much easier to read and understand. A style guide sets standards for uniform syntax. The tidyverse style guide (https://style.tidyverse.org) is recommended in R. Before presenting some style conventions, note that you can quickly change the formatting of a piece of R code in RStudio in the “Code -&gt; Reformat Selection” menu.\nLine breaks and indentation\nA simple way to make your code more readable is to insert appropriate line breaks and indentations. For example, suppose we have the following character string:\n\ntext &lt;- \"Ceci est un example\"\n\nWe want to correct two errors in this sentence: the word “example” written in English rather than French and the missing period at the end of the sentence. This can be done with the following instruction:\n\npaste0(gsub(pattern = \"example\", replacement = \"example\", x = text), \".\")\n\nThis instruction contains one function call nested within another. It is much easier to read as follows:\n\npaste0(\n  gsub(\n    pattern = \"example\",\n    replacement = \"exemple\",\n    x = text),\n  \".\")\n\nAssignment operator\nIn R, &lt;- is used to assign a value to a variable, and = is used to pass values to arguments in a function call.\nNaming conventions\nThe tydiverse style guide recommends using lowercase letters, numbers, and the underscore _ to name variables and functions. Underscores are used to separate words in a name. Although other conventions may be found, these should be avoided. In any case, it is important to choose a convention and stick to it. In addition, it is best to avoid accents in variable names.\nCode organization\nWhen the code starts to get long, it becomes advantageous to separate it into several files. For example, you can have one file per part of the analysis (one for data cleaning, one for analysis, one for visualization, etc.). In addition, a data analysis does not usually consist solely of R code, e.g., C++ code files, data files, configuration files, etc. It is therefore recommended to create subfolders grouping files of the same type. RStudio projects are ideal for gathering all project-related files in one place. In addition, they make it easier to work on several projects simultaneously by managing the transition from one working directory to another.\nA few things to do\n\nWrite your code in a script and save it frequently. This prevents you from losing track of important instructions because they were written directly in the console.\nIt is best to start every R work session with an empty work environment. To do this, disable automatic session image restoration in the settings. This allows you to be aware of the presence of different objects in the working environment.\nDo not use the load function when the working environment is not empty. This prevents you from modifying an object in the working environment by overwriting it.\nDo not use the attach function. This prevents you from modifying the file search path.\nSave the graphics options and settings before modifying them.\nDo not use T and F instead of TRUE and FALSE."
   },
   {
     "objectID": "informations/materials.html",
@@ -339,6 +339,116 @@
     "crumbs": [
       "Informations",
       "Matériel"
+    ]
+  },
+  {
+    "objectID": "informations/description.html",
+    "href": "informations/description.html",
+    "title": "Description",
+    "section": "",
+    "text": "In this course, we aim to introduce methods that will enable students to study a “high-dimensional” dataset (here, “high-dimensional” is taken in the sense that we can’t simply graph all the variables for all the observations) without resorting to a probabilistic model. The techniques we teach are used to reduce the dimension of the data, identify certain correlation between variables, visualize the data or divide the dataset into groups/classes.\nWithout neglecting the theory, the emphasis will be on the practical aspect of data analysis and the use of a programming language, whether R, Python or other.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#objectives",
+    "href": "informations/description.html#objectives",
+    "title": "Description",
+    "section": "",
+    "text": "In this course, we aim to introduce methods that will enable students to study a “high-dimensional” dataset (here, “high-dimensional” is taken in the sense that we can’t simply graph all the variables for all the observations) without resorting to a probabilistic model. The techniques we teach are used to reduce the dimension of the data, identify certain correlation between variables, visualize the data or divide the dataset into groups/classes.\nWithout neglecting the theory, the emphasis will be on the practical aspect of data analysis and the use of a programming language, whether R, Python or other.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#place-of-the-course-in-the-program",
+    "href": "informations/description.html#place-of-the-course-in-the-program",
+    "title": "Description",
+    "section": "Place of the course in the program",
+    "text": "Place of the course in the program\nThis course is generally taken by students in their second year of a bachelor’s degree in statistics. It is also an elective in actuarial science, mathematics and some engineering and business programs.\nAll students should ensure that they have taken at least one linear algebra course (e.g. MAT-1200) and one basic statistics course (e.g. STT-1000), as most data analysis methods are based on these concepts.\nStudents should also have some familiarity with basic algorithmic concepts, as well as with (at least) one programming language.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#specific-objectives",
+    "href": "informations/description.html#specific-objectives",
+    "title": "Description",
+    "section": "Specific objectives",
+    "text": "Specific objectives\nBy the end of the course, students should be able to:\n\nunderstand and describe the theoretical foundations of the data analysis methods studied;\ncorrectly identify situations where the use of these methods is indicated;\nuse a programming language effectively to implement these methods;\nanalyze and interpret the results of analysis;\nformulate the conclusions of the analysis in writing, within the limits of the methodology.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#computer-equipment",
+    "href": "informations/description.html#computer-equipment",
+    "title": "Description",
+    "section": "Computer equipment",
+    "text": "Computer equipment\nYou may need a computer, speakers or headphones, a microphone, a webcam and a wired broadband or wireless Internet connection. To check the minimum configuration parameters for your operating system, please visit this page.\nIn addition, this course may require specific software requirements, which will be described in other sections of the course outline as appropriate.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#how-it-works",
+    "href": "informations/description.html#how-it-works",
+    "title": "Description",
+    "section": "How it works",
+    "text": "How it works\nClasses and exams will take place face-to-face on Tuesday and Friday mornings, but materials will be available online. In general, the Friday session will be a lecture session, and the Tuesday session will be dedicated to practical exercises carried out independently by students with the support of the teacher.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/description.html#pedagogical-approaches",
+    "href": "informations/description.html#pedagogical-approaches",
+    "title": "Description",
+    "section": "Pedagogical approaches",
+    "text": "Pedagogical approaches\nThe preferred teaching approach is interactive lectures (Fridays) alternating with laboratory periods (Tuesdays). The pedagogical approach is very much geared to active learning and requires sustained commitment from students throughout the session.",
+    "crumbs": [
+      "Informations",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "informations/general.html",
+    "href": "informations/general.html",
+    "title": "General informations",
+    "section": "",
+    "text": "Faculté des sciences et de génie\nDépartement de mathématiques et de statistique",
+    "crumbs": [
+      "Informations",
+      "Générales"
+    ]
+  },
+  {
+    "objectID": "informations/general.html#stt-2200-data-analysis",
+    "href": "informations/general.html#stt-2200-data-analysis",
+    "title": "General informations",
+    "section": "STT-2200: Data Analysis",
+    "text": "STT-2200: Data Analysis\nTeaching format: Face-to-face\nTime spent:\n\nLecture: 2h\nLaboratory: 1h\nPersonal work: 6h\nTotal: 9h\n\nCredits: 3\nPrerequisites:\n\nACT-2000 or STT-1000 or STT-1300 or STT-1900\nMAT-1200 or ACT-2002\nSTT-1100 or IFT-4902 or ECN-2090 or GLO-1901 or IFT-1004\n\nTime range:\n\n\n\nType\nDay\nTime\nDates\n\n\n\n\nLab\nTuesday\n10h30-12h20\nPLT-3928\n\n\nClass\nFriday\n08h30-10h20\nVCH-3820",
+    "crumbs": [
+      "Informations",
+      "Générales"
+    ]
+  },
+  {
+    "objectID": "informations/general.html#contact-details-and-availability",
+    "href": "informations/general.html#contact-details-and-availability",
+    "title": "General informations",
+    "section": "Contact details and availability",
+    "text": "Contact details and availability\nTeacher: Steven Golovkine\nLocal: VCH-2209\nEmail: steven.golovkine@mat.ulaval.ca\nAvailability: I am available to meet with you by appointment by email or without appointment from Monday to Thursday between 8am and 10am.\n\nThe University recognizes the right to disconnect of professors, lecturers and other teaching staff. This means that they are not required to check messages sent to them (email, voicemail, forum messages, etc.) during evenings, weekends and vacations. The person who has sent a message during these periods should therefore expect to receive a reply within a reasonable time, calculated from the resumption of normal working hours.",
+    "crumbs": [
+      "Informations",
+      "Générales"
     ]
   },
   {
@@ -452,83 +562,6 @@
     ]
   },
   {
-    "objectID": "informations/description.html",
-    "href": "informations/description.html",
-    "title": "Description",
-    "section": "",
-    "text": "In this course, we aim to introduce methods that will enable students to study a “high-dimensional” dataset (here, “high-dimensional” is taken in the sense that we can’t simply graph all the variables for all the observations) without resorting to a probabilistic model. The techniques we teach are used to reduce the dimension of the data, identify certain correlation between variables, visualize the data or divide the dataset into groups/classes.\nWithout neglecting the theory, the emphasis will be on the practical aspect of data analysis and the use of a programming language, whether R, Python or other.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#objectives",
-    "href": "informations/description.html#objectives",
-    "title": "Description",
-    "section": "",
-    "text": "In this course, we aim to introduce methods that will enable students to study a “high-dimensional” dataset (here, “high-dimensional” is taken in the sense that we can’t simply graph all the variables for all the observations) without resorting to a probabilistic model. The techniques we teach are used to reduce the dimension of the data, identify certain correlation between variables, visualize the data or divide the dataset into groups/classes.\nWithout neglecting the theory, the emphasis will be on the practical aspect of data analysis and the use of a programming language, whether R, Python or other.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#place-of-the-course-in-the-program",
-    "href": "informations/description.html#place-of-the-course-in-the-program",
-    "title": "Description",
-    "section": "Place of the course in the program",
-    "text": "Place of the course in the program\nThis course is generally taken by students in their second year of a bachelor’s degree in statistics. It is also an elective in actuarial science, mathematics and some engineering and business programs.\nAll students should ensure that they have taken at least one linear algebra course (e.g. MAT-1200) and one basic statistics course (e.g. STT-1000), as most data analysis methods are based on these concepts.\nStudents should also have some familiarity with basic algorithmic concepts, as well as with (at least) one programming language.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#specific-objectives",
-    "href": "informations/description.html#specific-objectives",
-    "title": "Description",
-    "section": "Specific objectives",
-    "text": "Specific objectives\nBy the end of the course, students should be able to:\n\nunderstand and describe the theoretical foundations of the data analysis methods studied;\ncorrectly identify situations where the use of these methods is indicated;\nuse a programming language effectively to implement these methods;\nanalyze and interpret the results of analysis;\nformulate the conclusions of the analysis in writing, within the limits of the methodology.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#computer-equipment",
-    "href": "informations/description.html#computer-equipment",
-    "title": "Description",
-    "section": "Computer equipment",
-    "text": "Computer equipment\nYou may need a computer, speakers or headphones, a microphone, a webcam and a wired broadband or wireless Internet connection. To check the minimum configuration parameters for your operating system, please visit this page.\nIn addition, this course may require specific software requirements, which will be described in other sections of the course outline as appropriate.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#how-it-works",
-    "href": "informations/description.html#how-it-works",
-    "title": "Description",
-    "section": "How it works",
-    "text": "How it works\nClasses and exams will take place face-to-face on Tuesday and Friday mornings, but materials will be available online. In general, the Friday session will be a lecture session, and the Tuesday session will be dedicated to practical exercises carried out independently by students with the support of the teacher.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "informations/description.html#pedagogical-approaches",
-    "href": "informations/description.html#pedagogical-approaches",
-    "title": "Description",
-    "section": "Pedagogical approaches",
-    "text": "Pedagogical approaches\nThe preferred teaching approach is interactive lectures (Fridays) alternating with laboratory periods (Tuesdays). The pedagogical approach is very much geared to active learning and requires sustained commitment from students throughout the session.",
-    "crumbs": [
-      "Informations",
-      "Description"
-    ]
-  },
-  {
     "objectID": "informations/mcq.html",
     "href": "informations/mcq.html",
     "title": "MCQ",
@@ -553,17 +586,6 @@
     ]
   },
   {
-    "objectID": "informations/schedule.html",
-    "href": "informations/schedule.html",
-    "title": "Schedule",
-    "section": "",
-    "text": "The plan is given for information only.\n\n\n\nWeek\nPlan\nEvaluations\n\n\n\n\n1er september\nCourse presentation and remainders\n\n\n\n8 september\nRemainders\n\n\n\n15 september\nGeneralities\n\n\n\n22 september\nGeneralities\n\n\n\n29 september\nPCA\n\n\n\n6 october\nCA\n\n\n\n13 october\nMCA\n\n\n\n20 october\nDiscriminant analysis\nIntra exam\n\n\n27 october\nLecture week\nRetake exam\n\n\n3 november\nTrees\n\n\n\n10 november\nEnsemble models\n\n\n\n17 november\n\\(k\\)-means\n\n\n\n24 november\nHierarchical models + Mixture models\n\n\n\n1er décember\nRevision + University holidays\nPoster handoff\n\n\n8 décember\n\nPoster presentation + final exam\n\n\n15 décember\n\nRetake exam",
-    "crumbs": [
-      "Informations",
-      "Plan"
-    ]
-  },
-  {
     "objectID": "informations/cours.html",
     "href": "informations/cours.html",
     "title": "Classes",
@@ -575,37 +597,89 @@
     ]
   },
   {
-    "objectID": "informations/general.html",
-    "href": "informations/general.html",
-    "title": "General informations",
+    "objectID": "informations/schedule.html",
+    "href": "informations/schedule.html",
+    "title": "Schedule",
     "section": "",
-    "text": "Faculté des sciences et de génie\nDépartement de mathématiques et de statistique",
+    "text": "The plan is given for information only.\n\n\n\nWeek\nPlan\nEvaluations\n\n\n\n\n1er september\nCourse presentation and remainders\n\n\n\n8 september\nRemainders\n\n\n\n15 september\nGeneralities\n\n\n\n22 september\nGeneralities\n\n\n\n29 september\nPCA\n\n\n\n6 october\nCA\n\n\n\n13 october\nMCA\n\n\n\n20 october\nDiscriminant analysis\nIntra exam\n\n\n27 october\nLecture week\nRetake exam\n\n\n3 november\nTrees\n\n\n\n10 november\nEnsemble models\n\n\n\n17 november\n\\(k\\)-means\n\n\n\n24 november\nHierarchical models + Mixture models\n\n\n\n1er décember\nRevision + University holidays\nPoster handoff\n\n\n8 décember\n\nPoster presentation + final exam\n\n\n15 décember\n\nRetake exam",
     "crumbs": [
       "Informations",
-      "Générales"
+      "Plan"
     ]
   },
   {
-    "objectID": "informations/general.html#stt-2200-data-analysis",
-    "href": "informations/general.html#stt-2200-data-analysis",
-    "title": "General informations",
-    "section": "STT-2200: Data Analysis",
-    "text": "STT-2200: Data Analysis\nTeaching format: Face-to-face\nTime spent:\n\nLecture: 2h\nLaboratory: 1h\nPersonal work: 6h\nTotal: 9h\n\nCredits: 3\nPrerequisites:\n\nACT-2000 or STT-1000 or STT-1300 or STT-1900\nMAT-1200 or ACT-2002\nSTT-1100 or IFT-4902 or ECN-2090 or GLO-1901 or IFT-1004\n\nTime range:\n\n\n\nType\nDay\nTime\nDates\n\n\n\n\nLab\nTuesday\n10h30-12h20\nPLT-3928\n\n\nClass\nFriday\n08h30-10h20\nVCH-3820",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STT-2200: Data Analysis",
+    "section": "",
+    "text": "Welcome everyone to the class STT-2200 in Autumn 2025.\nYou will find on this website every necessary information for the modules, the practicals and the exams. The contents will be updated during the session with the answers to some work. I invite you to skim through the differents modules before classes.\nThis website has been created with the help of Aurélien Nicosia and Thierry Duchesne notes.\nThis website a been built using Quarto.\nMost of the contents has been translated using DeepL. Large languages models (LLM), ChatGPT et Claude, have been used to improve notes reading, check the typos and improve the formatting of the figures. All remaining errors are strictly and directly attributable to me.\n\n\n\nData trap (xkcd:2582)."
+  },
+  {
+    "objectID": "contents/remainders/03-programming.html",
+    "href": "contents/remainders/03-programming.html",
+    "title": "Programming",
+    "section": "",
+    "text": "In this section, we present some references on the basics of programming in different languages. This course does not specify which language to use, so you are free to choose the one that suits you best for the various exercises and your project. In any case, there are a set of best practices that will help you write code that is readable, understandable, and reusable. You can find a (quick) guide to best practices in programming at this link.",
     "crumbs": [
-      "Informations",
-      "Générales"
+      "Modules",
+      "02 - Révisions",
+      "Programming"
     ]
   },
   {
-    "objectID": "informations/general.html#contact-details-and-availability",
-    "href": "informations/general.html#contact-details-and-availability",
-    "title": "General informations",
-    "section": "Contact details and availability",
-    "text": "Contact details and availability\nTeacher: Steven Golovkine\nLocal: VCH-2209\nEmail: steven.golovkine@mat.ulaval.ca\nAvailability: I am available to meet with you by appointment by email or without appointment from Monday to Thursday between 8am and 10am.\n\nThe University recognizes the right to disconnect of professors, lecturers and other teaching staff. This means that they are not required to check messages sent to them (email, voicemail, forum messages, etc.) during evenings, weekends and vacations. The person who has sent a message during these periods should therefore expect to receive a reply within a reasonable time, calculated from the resumption of normal working hours.",
+    "objectID": "contents/remainders/03-programming.html#r",
+    "href": "contents/remainders/03-programming.html#r",
+    "title": "Programming",
+    "section": "R",
+    "text": "R\nR is a programming language specialized in statistical analysis and data visualization. It is free, open-source, and available on Windows, macOS, and Linux. Regularly updated, new packages are available every day (see CRAN).\nHere is a guide that introduces the basics of R: Learn R in Y Minutes and a guide to good practices in R. Finally, an important feature of the R language is the pipe operator. This makes the code clearer. You can find an explanation of this operator here.",
     "crumbs": [
-      "Informations",
-      "Générales"
+      "Modules",
+      "02 - Révisions",
+      "Programming"
     ]
+  },
+  {
+    "objectID": "contents/remainders/03-programming.html#python",
+    "href": "contents/remainders/03-programming.html#python",
+    "title": "Programming",
+    "section": "Python",
+    "text": "Python\nPython is a general-purpose programming language. It is free, open-source, and available on Windows, macOS, and Linux. Although it is a general-purpose language, there is a large community around data analysis and machine learning in Python. Thus, the usual methods have already been implemented, e.g. in the sklearn package, but if necessary, it is possible to view the code and modify it.\nHere is a guide that introduces the basics of Python: Learn Python in Y Minutes and a guide to good practices in Python.",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Programming"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/03-programming.html#julia",
+    "href": "contents/remainders/03-programming.html#julia",
+    "title": "Programming",
+    "section": "Julia",
+    "text": "Julia\nJulia is also a general-purpose programming language. It is a much newer language than its two counterparts, R and Python (Julia was created in the early 2010s, while R and Python were created in the early 1990s). It may therefore seem less mature in some respects, but most traditional data analysis methods have been implemented. Like R and Python, this language is free, open-source, and available on all major operating systems. Julia has the advantage of being faster than R and Python. It also includes native support for calling libraries in C or Fortran, and non-native support for calling libraries in R and Python.\nHere is a guide that introduces the basics of Julia: Learn Julia in Y minutes and a guide to best practices in Julia.",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Programming"
+    ]
+  },
+  {
+    "objectID": "contents/remainders/03-programming.html#sas",
+    "href": "contents/remainders/03-programming.html#sas",
+    "title": "Programming",
+    "section": "SAS",
+    "text": "SAS\nSAS is a proprietary programming language specialized in data analysis. Although used in certain industries, e.g. pharmaceuticals, its use is declining. Furthermore, the license must be renewed annually, there is no online community (apart from the official documentation, there is not much help available), and it is impossible to view the code for the various procedures. For these reasons, I do not recommend using SAS for this course. However, if you wish, the university can provide licenses for a fee.",
+    "crumbs": [
+      "Modules",
+      "02 - Révisions",
+      "Programming"
+    ]
+  },
+  {
+    "objectID": "contents/misc/pipe.html",
+    "href": "contents/misc/pipe.html",
+    "title": "Pipe operator in R",
+    "section": "",
+    "text": "This page is based on a document created by Aurélien Nicosia (ULaval) in 2023 called “Pipe Operator.” It has been updated.\nSince version 4.1.0 of R, released in May 2021, the language has introduced the pipe operator |&gt;, inspired by what the magrittr package was doing. Starting with R 4.3.0, the style guide for the tidyverse recommends using the basic pipe operator, not the one from magrittr.\n\n\n\n\n\n\nNoteKeyboard shortcuts\n\n\n\nIn RStudio, the keyboard shortcut for inserting the pipe operator is:\n\nOn Windows: Ctrl + Shift + M\nOn macOS: ⌘ + ⇧ + M\n\n\n\nThis operator introduces a way to chain instructions and pass arguments to functions in a more readable way than the traditional method.\nTo summarize how this operator works, here is how it transforms a few function calls:\n\nf(x) becomes x |&gt; f();\nf(x, y) becomes x |&gt; f(y);\nh(g(f(x))) becomes x |&gt; f() |&gt; g() |&gt; h().\n\nThis operator allows you to highlight the sequence of actions rather than the object on which the sequence of actions is performed. This makes the code more readable (and having readable code is a good practice). Reading the instruction h(g(f(x))) from left to right, we first see the call to the function h, then the call to the function g, and finally the call to the function f. However, this instruction is evaluated in reverse order. In fact, R will first:\n\nevaluate f(x);\nthen pass the result to the function g and return the result;\nwhich will be passed to the function h and the final result will be returned.\n\nIf we want to write code that correctly reflects the order of evaluation, we could write:\n\nres1 &lt;- f(x)\nres2 &lt;- g(res1)\nh(res2)\n\nHowever, this code has the disadvantage of creating objects that we do not necessarily want to keep. The |&gt; operator does not have this disadvantage! In fact, an instruction written using the |&gt; operator allows us to follow the order of evaluations without creating unnecessary objects in memory.\nFor even greater clarity, it is possible to extend an instruction containing several |&gt; operators over several lines so that there is one function per line:\n\nx |&gt; \n  f() |&gt; \n  g() |&gt; \n  h()\n\nIf the argument we want to pass with the |&gt; operator is not the first one, we must use _ as follows with a named argument: f(y, z = x) becomes x |&gt; f(y, z = _).\nLet’s take an example to illustrate the use of the |&gt; operator. Suppose we have the following character string:\n\ntext &lt;- \"This is an example\"\n\nand we want to correct it—replace “example” with “example” and add a period at the end—with the following instruction:\n\npaste0(gsub(pattern = \"example\", replacement = \"example\", x = text), \".\")\n\n[1] \"This is an example.\"\n\n\nThis instruction is a little difficult to read because of the call to the gsub function nested within a call to the paste0 function. We could rewrite it as follows using the |&gt; operator:\n\ntext |&gt; \n  gsub(pattern = \"example\", replacement = \"example\", x = _) |&gt; \n  paste0(\".\")\n\n[1] \"This is an example.\"\n\n\nLet’s take another numerical example. We want to perform the following calculation: \\[\\frac{(2 + 4) \\times 8}{2}.\\]\nTo do this, we need a few mathematical functions.\n\nadd &lt;- function(x, y) {\n  x + y\n}\n\nmul &lt;- function(x, y) {\n  x * y\n}\n\ndiv &lt;- function(x, y) {\n  x / y\n}\n\nWe can perform the calculation in three different ways:\n\n# By creating different objects \nres1 &lt;- add(2, 4)\nres2 &lt;- mul(res1, 8)\nres3 &lt;- div(res2, 2)\nprint(res3)\n\n[1] 24\n\n# By nesting functions\nres &lt;- div(mul(add(2, 4), 8), 2)\nprint(res)\n\n[1] 24\n\n# With the pipe operator \nres &lt;- 2 |&gt;\n  add(4) |&gt; \n  mul(8) |&gt; \n  div(2)\nprint(res)\n\n[1] 24"
   },
   {
     "objectID": "contents/misc/good-practices.html",
@@ -643,140 +717,73 @@
     "text": "In summary\nIn summary, to adopt good programming practices, you need to:\n\nTest your code frequently.\nUse version control software.\nDocument your code.\nFollow a style guide.\nFactorize your code by creating functions and packages.\nOptimize execution time."
   },
   {
-    "objectID": "contents/misc/good-practices-python.html",
-    "href": "contents/misc/good-practices-python.html",
-    "title": "Good practices in Python",
+    "objectID": "contents/04-dimension.html",
+    "href": "contents/04-dimension.html",
+    "title": "Dimension",
     "section": "",
-    "text": "This page is inspired by this document.\nLike R, Python is “just” a programming language, so it is possible to write Python code in a text editor and run it via a terminal. Although this is feasible, it is easier to use a code editor. While it is technically possible to use RStudio as an editor for Python, I would recommend using a specialized editor such as PyCharm. The notebook format is also very popular in Python. In this case, I would recommend the marimo library, which allows you to convert your .py files into notebooks.\nIn addition, it is best to make sure you are working with the latest stable version of Python that is compatible with the packages you are using (e.g., numpy, matplotlib, sklearn). Very often, there is a delay before the latest versions of packages are compatible with the latest version of Python. It is therefore important to share the version of the packages used with the analysis.\nRegarding documentation, the standard in Python is to follow the recommendations of PEP 257. The Sphinx library allows you to generate documentation from docstrings.\nA uniform syntax makes code much easier to read and understand. A style guide sets out standards for uniform syntax. The PEP 8 style guide is recommended in Python.\nLine breaks and indentation\nIndentation is part of Python, i.e. if...else and for blocks are defined using indentation. You can use either tabs or spaces. The choice is yours, but it is important to be consistent in your code.\nNaming convention\nThe use of single-character variable names should be avoided. Otherwise, variables, functions, methods, packages, and modules are named with lowercase letters, numbers, and the underscore _. Classes and exceptions should be named with uppercase letters to separate words (UneClasse). Constants are in uppercase.\nCode organization\nAs with R, when the code starts to get long, it is advantageous to split it into several files. For example, you can have one file per part of the analysis (one for data cleaning, one for analysis, one for visualization, etc.). You can also create several subfolders.\nSome things to do\n\nDo not make comparisons to True, False, or None.\n\n\nif attr:\n    print(\"True!\")\n\nif not attr:\n    print(\"False!\")\n\nif attr is None:\n    print(\"None!\")\n\n\nUse list comprehension when possible.\n\n\na = [3, 4, 5]\nb = [i for i in a if i &gt; 4]\n\n\nLoad a file with with. This ensures that the connection to the file is closed once it has been read.\n\n\nwith open(\"file.txt\") as f:\n    read(f)\n\n\nUse a maximum of 80 characters per line.\nUse parentheses to wrap long strings."
-  },
-  {
-    "objectID": "contents/02-revisions.html",
-    "href": "contents/02-revisions.html",
-    "title": "Remainders",
-    "section": "",
-    "text": "Slides:\n\nAlgèbre linéaire - annotated\nProbabilités et statistiques - annotated\nAlgorithmique / Programmation\n\nTD: link\nTP: link",
+    "text": "Slides:\n\nPrincipal componens analysis - annotated\nCorrespondance analysis\nMultiple correspondance analysis\n\nTD: link\nTP: link",
     "crumbs": [
       "Modules",
-      "02 - Révisions"
+      "04 - Dimension"
     ]
   },
   {
-    "objectID": "contents/02-revisions.html#outline",
-    "href": "contents/02-revisions.html#outline",
-    "title": "Remainders",
+    "objectID": "contents/04-dimension.html#outline",
+    "href": "contents/04-dimension.html#outline",
+    "title": "Dimension",
     "section": "Outline",
-    "text": "Outline\n\nLinear algebra\nProbabilities and statistics\nAlgorithmic / Programming\n\n\n\n\nPrediction (xkcd:2370).",
+    "text": "Outline\n\nPrincipal componens analysis\nCorrespondance analysis\nMultiple correspondance analysis\n\n\n\n\nFlatland (xkcd:721).",
     "crumbs": [
       "Modules",
-      "02 - Révisions"
+      "04 - Dimension"
     ]
   },
   {
-    "objectID": "contents/remainders/02-probabilities.html",
-    "href": "contents/remainders/02-probabilities.html",
-    "title": "Probabilities and Statistics",
+    "objectID": "contents/generalities/04-bias-variance.html",
+    "href": "contents/generalities/04-bias-variance.html",
+    "title": "Bias/Variance",
     "section": "",
-    "text": "In this section, we present some results in probability and statistics within the framework of this course. For more information, you can refer to the STT-1000 course, Wasserman (2010) (in English) and Delmas (2013) (in French).",
-    "crumbs": [
-      "Modules",
-      "02 - Révisions",
-      "Probabilities and Statistics"
-    ]
-  },
-  {
-    "objectID": "contents/remainders/02-probabilities.html#modeling-randomness",
-    "href": "contents/remainders/02-probabilities.html#modeling-randomness",
-    "title": "Probabilities and Statistics",
-    "section": "Modeling randomness",
-    "text": "Modeling randomness\nMany real-world phenomena are unpredictable, and their outcomes generally contain a certain amount of variability. This variability is taken into account using a measure of uncertainty called probability measure.\n\n\n\n\n\n\nWarningDefinition\n\n\n\nThe sample space \\(S\\) is the set of all possible outcomes of a phenomenon. An event is a subset of the sample space \\(S\\).\n\n\n\n\n\n\n\n\nNoteExamples\n\n\n\n\nIf the experiment consists of tossing a coin, \\(S = \\{0, 1\\}\\). The result of this experiment cannot be known in advance. For example, \\(E = \\{1\\}\\) is an event of \\(S\\).\nIf we are interested in the lifespan of a phone, \\(S = \\mathbb{R}_{+}\\). We can also choose \\(S = [0, M]\\), because this lifespan is probably not infinite! The event \\(E = [10, \\infty)\\) represents the event “the lifespan of more than 10 time units.”\nFor the number of days without snow in Quebec City in a year, we can choose \\(S = \\mathbb{N}\\). The event \\(E = (0, 5]\\) represents the event “fewer than 5 days without snow in Quebec City in a year.”\n\n\n\n\n\n\n\n\n\nWarningDefinition\n\n\n\nA probability measure \\(\\mathbb{P}\\) on \\(S\\) is an application (function) defined on the sample space and satisfying the following properties:\n\nFor each event \\(E\\), \\(\\mathbb{P}(E) \\in [0, 1]\\).\n\\(\\mathbb{P}(S) = 1\\).\nLet \\(E_{1}, E_{2}, \\dots\\) be a sequence of mutually exclusive events (finite or infinite), i.e. \\(\\forall i \\neq j, E_{i} \\cap E_{j} = \\varnothing\\). We have \\[\\mathbb{P}(\\bigcup_{n = 1}^{\\infty} E_n) = \\sum_{n = 1}^{\\infty} \\mathbb{P}(E_n).\\]\n\nWe call \\(\\mathbb{P}(E)\\) the probability of event \\(E\\).\n\n\nThe definition of probability measures can be subjective and linked to the statistician’s experience. Let’s take example 3 on the number of days without snow in Quebec City during the year. Someone who has just arrived in Canada may want to give the same probability to each day, while a Quebecer will have more information and will be able to vary the probabilities based on this knowledge.\n\n\n\n\n\n\nWarningDefinition\n\n\n\nTwo events \\(E\\) and \\(F\\) are said to be independent if \\(\\mathbb{P}(E \\cap F) = \\mathbb{P}(E) \\times \\mathbb{P}(F)\\).\n\n\n\n\n\n\n\n\nWarningDefinition\n\n\n\nLet \\(E\\) and \\(F\\) be two events. The conditional probability that \\(E\\) occurs given that \\(F\\) has occurred is defined by: \\[\\mathbb{P}(E \\mid F) = \\frac{\\mathbb{P}(E \\cap F)} {\\mathbb{P}(F)}.\\]\n\n\nIntuitively, two events are independent if knowledge of one provides no information about the occurrence of the other. We also have \\(\\mathbb{P}(E \\mid F) = \\mathbb{P}(E)\\).",
-    "crumbs": [
-      "Modules",
-      "02 - Révisions",
-      "Probabilities and Statistics"
-    ]
-  },
-  {
-    "objectID": "contents/remainders/02-probabilities.html#random-variables",
-    "href": "contents/remainders/02-probabilities.html#random-variables",
-    "title": "Probabilities and Statistics",
-    "section": "Random variables",
-    "text": "Random variables\nIn probability theory, it is customary to express the outcome of experiments as the value of a function called a random variable. This characterization is always possible.\n\n\n\n\n\n\nWarningDefinition\n\n\n\nLet \\(X\\) be a random variable. The distribution of this random variable is defined by the application \\(A \\mapsto \\mathbb{P}(X \\in A)\\).\n\n\n\n\n\n\n\n\nWarningDefinition\n\n\n\nLet \\(X\\) be a random variable. This random variable is discrete if it takes, at most, a countable number of values. In this case, the distribution of \\(X\\) is given by the probabilities \\(\\mathbb{P}(X = x)\\) for all outcomes \\(x\\).\n\n\n\n\n\n\n\n\nWarningDefinition\n\n\n\nLet \\(X\\) be a random variable. This random variable is continuous if the probabilities \\(\\mathbb{P}(X \\in A)\\) are given by integrals of the form \\(\\int_{A} f(x) dx\\) where \\(f: \\mathbb{R}^d \\to \\mathbb{R}_+\\) is an integrable function such that \\(\\int_{\\mathbb{R}^d} f(x) dx = 1\\). Note that, for a fixed outcome \\(x\\), \\(\\mathbb{P}(X = x) = 0\\).\n\n\n\n\n\n\n\n\nWarningDefinition\n\n\n\nLet \\(X\\) be a random variable. The mathematical expectation \\(\\mathbb{E}(X)\\) of \\(X\\) is the average value of the outcome of \\(X\\) with respect to its probability distribution. The expectation is usually denoted by \\(\\mu\\).\n\n\nLet \\(F\\) be a countable set. A discrete random variable \\(X\\) has an expectation \\(\\mathbb{E}(X) = \\sum_{x \\in F} x \\mathbb{P}(X = x)\\). Let \\(X\\) be a continuous random variable with density \\(f\\). Its expectation is given by \\(\\mathbb{E}(X) = \\int_{\\mathbb{R}^d} x f(x) dx\\).\n\n\n\n\n\n\nCautionTransfer theorem\n\n\n\nLet \\(X\\) be a random variable. Let \\(g: \\mathbb{R}^d \\mapsto \\mathbb{R}\\) be a function such that \\(\\mathbb{E}\\left[ g(X) \\right]\\) exists. We have:\n\nIf \\(X\\) is a discrete random variable, \\(\\mathbb{E}\\left[ g(X) \\right] = \\sum_{x \\in F} g(x) \\mathbb{P}(X = x)\\);\nIf \\(X\\) is a continuous random variable with density \\(f\\), \\(\\mathbb{E}\\left[ g(X) \\right] = \\int_{\\mathbb{R}^d} g(x)f(x) dx\\).\n\n\n\n\n\n\n\n\n\nImportantProperties: Linearity of expectation\n\n\n\nLet \\(X\\) and \\(Y\\) be two random variables whose expectations exist, and let \\(\\lambda \\in R\\). We have:\n\n\\(\\mathbb{E}(X + Y) = \\mathbb{E}(X) + \\mathbb{E}(Y)\\);\n\\(\\mathbb{E}(\\lambda X) = \\lambda \\mathbb{E}(X)\\).\n\n\n\n\n\n\n\n\n\nNoteProof\n\n\n\n\n\nThe proof is derived from the transfer theorem and the linearity of addition and integration.\n\n\n\n\n\n\n\n\n\nWarningDefinition\n\n\n\nLet \\(X\\) be a random variable such that the expectation of its square exists. The variance of \\(X\\) is defined by \\[\\mathrm{Var}(X) = \\mathbb{E}\\left[ \\left( X - \\mathbb{E}(X) \\right)^2 \\right] = \\mathbb{E}\\left[ X^2 \\right] - \\mathbb{E}\\left[ X \\right]^2.\\]\n\n\nThe variance measures the dispersion of a random variable around its mean. We can also look at the standard deviation, defined as the square root of the variance: \\(\\sigma(X) = \\sqrt{\\mathrm{Var}(X)}\\).\n\n\n\n\n\n\nWarningDefinition\n\n\n\nLet \\(X\\) and \\(Y\\) be two random variables and \\(A\\) and \\(B\\) be two events. If the events \\(\\left\\{ X \\in A \\right\\}\\) and \\(\\left\\{ Y \\in B \\right\\}\\) are independent, then we say that the random variables \\(X\\) and \\(Y\\) are independent.\n\n\nFrom this definition, we can deduce that:\n\nfor functions \\(f\\) and \\(g\\), the random variables \\(f(X)\\) and \\(g(Y)\\) are independent;\nif the random variables \\(X\\) and \\(Y\\) are real-valued and their expectation exists, then the expectation of the product \\(XY\\) exists and \\(\\mathbb{E}(XY) = \\mathbb{E}(X) \\times \\mathbb{E}(Y)\\).\n\n\n\n\n\n\n\nWarningDefinition\n\n\n\nLet \\(X\\) be a random variable. The distribution function \\(F: \\mathbb{R} \\mapsto [0, 1]\\) of \\(X\\) is defined by \\[F(t) = \\mathbb{P}(X \\leq t), \\quad t \\in \\mathbb{R}.\\]",
-    "crumbs": [
-      "Modules",
-      "02 - Révisions",
-      "Probabilities and Statistics"
-    ]
-  },
-  {
-    "objectID": "contents/remainders/02-probabilities.html#random-vectors",
-    "href": "contents/remainders/02-probabilities.html#random-vectors",
-    "title": "Probabilities and Statistics",
-    "section": "Random vectors",
-    "text": "Random vectors\nSuppose that \\(X = (X_{1}, X_{2})\\) is a random variable of dimension \\(2\\) with density \\(f_{X}\\). Random variables of dimension greater than \\(1\\) are generally referred to as random vectors. The densities of \\(X_{1}\\) and \\(X_{2}\\) are called marginal densities. When \\(X_{1}\\) and \\(X_{2}\\) are independent, we have: \\[f_X(x, y) = f_{X_{1}}(x) \\cdot f_{X_{2}}(y), \\quad (x, y) \\in \\mathbb{R}^2.\\]\n\n\n\n\n\n\nNoteExample of the multivariate normal distribution\n\n\n\nA random vector \\(X\\) of dimension \\(p\\) is said to follow a multivariate normal distribution with mean \\(\\mu\\) and variance \\(\\Sigma\\) if its density is given by \\[f_X(x) = \\frac{1}{(2 \\pi)^{p /2}} \\cdot \\frac{1}{(\\text{det} \\Sigma)^{1/2}} \\cdot \\exp\\left\\{ -\\frac{1}{2}\\left( x - \\mu \\right)^\\top \\Sigma^{-1} \\left( x - \\mu \\right) \\right\\}, \\quad x \\in \\mathbb{R}^p.\\]\nWe denote \\(X \\sim \\mathcal{N}_{p}(\\mu, \\Sigma)\\).\n\n\nIn statistics, an important quantity to measure is the linear dependence between \\(X_{1}\\) and \\(X_{2}\\). For this, we can use the covariance or the correlation.\n\n\n\n\n\n\nWarningDefinition\n\n\n\nLet \\(X = (X_{1}, X_{2})\\) be a random vector such that the expectation of the square of \\(X_{1}\\) and \\(X_{2}\\) exists. The covariance between \\(X_{1}\\) and \\(X_{2}\\) is given by \\[\\mathrm{Cov}(X_{1}, X_{2}) = \\mathbb{E}\\left[ (X_{1} - \\mathbb{E}(X_{1})) (X_{2} - \\mathbb{E}(X_{2}))\\right].\\]\nThe correlation between \\(X_{1}\\) and \\(X_{2}\\) is a version of the covariance normalized by the standard deviation of the random variables. It is given by \\[\\mathrm{Corr}(X_{1}, X_{2}) = \\frac{\\mathrm{Cov}(X_{1}, X_{2})}{\\sigma(X_{1}) \\sigma(X_{2})}.\\]\n\n\nThe sign of the covariance and correlation can be interpreted. If they are strictly positive, \\(X_{1}\\) and \\(X_{2}\\) tend to move in the same direction. If \\(X_{1}\\) increases, then \\(X_{2}\\) also increases, and vice versa. If they are strictly negative, \\(X_{1}\\) and \\(X_{2}\\) tend to move in opposite directions. If \\(X_{1}\\) increases, then \\(X_{2}\\) decreases, and vice versa. If the covariance is equal to \\(0\\), there are no rules and \\(X_{1}\\) and \\(X_{2}\\) are said to be orthogonal.\n\n\n\n\n\n\nImportantProperties\n\n\n\nLet \\(X = (X_{1}, X_{2})\\) be a random vector. We have\n\n\\(\\mathrm{Cov}(X_{1}, X_{2}) = \\mathbb{E}(X_{1}X_{2}) - \\mathbb{E}(X_{1})\\mathbb{E}(X_{2})\\);\n\\(\\mathrm{Cov}(X_{1}, X_{2}) = \\mathrm{Cov}(X_{2}, X_{1})\\);\n\\(\\mathrm{Cov}(X_{1} + \\lambda Y_{1}, X_{2}) = \\mathrm{Cov}(X_{1}, X_{2}) + \\lambda \\mathrm{Cov}(Y_{1}, X_{2})\\).\n\n\n\n\n\n\n\n\n\nNoteProof\n\n\n\n\nWe find the result by expanding the product in the definition of the covariance.\nUsing point 1. and the commutativity of multiplication.\nUsing point 1. and the linearity of expectation.",
-    "crumbs": [
-      "Modules",
-      "02 - Révisions",
-      "Probabilities and Statistics"
-    ]
-  },
-  {
-    "objectID": "contents/remainders/02-probabilities.html#estimation",
-    "href": "contents/remainders/02-probabilities.html#estimation",
-    "title": "Probabilities and Statistics",
-    "section": "Estimation",
-    "text": "Estimation\nIn practice, we do not have perfect knowledge of our random vectors, but only some of their realizations (called samples). Let \\(x_{1}, \\dots, x_{n}\\) be \\(n\\) independent realizations of a random vector \\(X\\) with mean \\(\\mu\\) and variance \\(\\Sigma\\).\nThe estimator of the mean \\(\\mu\\) is given by \\[\\widehat{\\mu} = \\overline{X} \\coloneqq \\frac{1}{n} \\sum_{i = 1}^{n} x_i.\\]\nThe estimator of the variance \\(\\Sigma\\) is given by \\[\\widehat{\\Sigma} \\coloneqq \\frac{1}{n - 1}\\sum_{i = 1}^{n} (x_i - \\widehat{\\mu})(x_i - \\widehat{\\mu})^\\top.\\]\nWhy do we divide this sum by \\(n -1\\) and not by \\(n\\) to estimate the variance? If we divide by \\(n\\), \\(\\widehat{\\Sigma}\\) is a biased estimator of the variance. Indeed, we must take into account that we are using a biased estimator of the mean in the variance estimator and therefore correct for this estimate.\nLet \\(D = \\{\\text{diag}(\\widehat{\\Sigma})\\}^{1/2}\\) be the matrix of standard deviations calculated on the sample. We can estimate the correlation matrix on the sample by \\[\\widehat{R} = D^{-1} \\widehat{\\Sigma} D^{-1}.\\]",
-    "crumbs": [
-      "Modules",
-      "02 - Révisions",
-      "Probabilities and Statistics"
-    ]
-  },
-  {
-    "objectID": "contents/generalities/02-spaces.html",
-    "href": "contents/generalities/02-spaces.html",
-    "title": "Spaces",
-    "section": "",
-    "text": "Before modeling or analyzing data, it is essential to fully understand the nature of the variables being manipulated. The type of variable determines:\nIn this section, we present the most common types of variables, as well as the associated spaces.",
+    "text": "This section is based on James et al. (2021), Chapter 2.",
     "crumbs": [
       "Modules",
       "03 - Généralités",
-      "Spaces"
+      "Bias/Variance"
     ]
   },
   {
-    "objectID": "contents/generalities/02-spaces.html#statistical-unit",
-    "href": "contents/generalities/02-spaces.html#statistical-unit",
-    "title": "Spaces",
-    "section": "Statistical unit",
-    "text": "Statistical unit\nA statistical unit is the basic element on which an observation is made. Morally, it is the “carrier” of the information that is used to determine the level of aggregation of the analysis. The statistical unit is a choice made by the modeler.\n\n\n\n\n\n\nNoteExamples\n\n\n\n\nIn the case of an income survey, the individual can be chosen as the unit.\nIn the case of a study of high school classes, the class can be chosen as the unit.\nIn the case of a medical imaging database, the image can be chosen as the unit.\n\n\n\n\n\n\n\n\n\nCautionSometimes, the same database can be analyzed at several levels.\n\n\n\nAn image is made up of pixels, each of which can be described by numerical variables (e.g., RGB values, opacity, etc.). You can choose to analyze each pixel, and therefore take the pixel as the unit, or analyze each image as a whole, and therefore take the image as the unit.",
+    "objectID": "contents/generalities/04-bias-variance.html#what-is-our-objective",
+    "href": "contents/generalities/04-bias-variance.html#what-is-our-objective",
+    "title": "Bias/Variance",
+    "section": "What is our objective?",
+    "text": "What is our objective?\nWe want to model the relationship between a response variable \\(Y\\), which may be quantitative, qualitative, or of a different nature, and a set of \\(p\\) explanatory variables \\(X = (X_{1}, \\dots, X_{p})\\), also of (potentially) different types. The central idea is that there is a relationship between \\(Y\\) and the explanatory variables \\(X\\). Generally speaking, we model this relationship using the following model:\n\\[Y = f(X) + \\varepsilon. \\tag{1}\\]\nHere, \\(f\\) is a deterministic (non-random) function representing the systematic information that the explanatory variables \\(X_{1}, \\dots, X_{p}\\) provide about \\(Y\\), and \\(\\varepsilon\\) is a random error term, modeling the variations in \\(Y\\) not explained by \\(X\\). For the purposes of this course, we will make the following assumptions: the random variable \\(\\varepsilon\\) is independent of the explanatory variables \\(X\\), \\(\\mathbb{E}[\\varepsilon] = 0\\), and \\(\\mathrm{Var}(\\varepsilon) = \\sigma^2\\). The Equation 1 is general. It serves as a framework for all the methods we will study, even when the explicit form of \\(f\\) is not known.\nThe Figure 1 illustrates the different elements of the model: the observed data \\((X_i, Y_i)\\), the function \\(f\\) (in blue), and the random deviations \\(\\varepsilon_i\\) represented by dotted lines.\n\n\nCode\nlibrary(tibble)\nlibrary(dplyr)\n\ngenerate_noisy_data &lt;- function(n = 100, noise_levels = c(0, 0.1, 0.3, 0.5)) { \n# x values ​​(avoid 0 for log) \nx_vals &lt;- seq(0.01, 0.99, length.out = n) \n\n# True function \nf &lt;- function(x) 4 * x * (1 - x) * log(x) + 2 \n\n# Generate data for each noise level \ndata &lt;- lapply(noise_levels, function(sigma) { \ny_true &lt;- f(x_vals) \ny_noisy &lt;- y_true + rnorm(n, mean = 0, sd = sqrt(sigma)) \n\ntibble( \nx = x_vals, \ny = y_noisy, \nnoise = sigma \n) \n}) %&gt;% bind_rows() \n\nreturn(data)\n}\n\n# Example usage\nset.seed(123)\n\nnoise_levels &lt;- seq(0, 0.5, by=0.01)\ndf &lt;- generate_noisy_data(noise_levels = noise_levels)\nwrite.csv(df, './data.csv')\n\n\n\n\nCode\ndata = FileAttachment(\"../../include/data/bias-variance/data.csv\").csv({ typed: true })\n\nviewof noise = Inputs.range( \n[0.01, 0.5], \n{value: 0.25, step: 0.01, label: tex`\\sigma^2`}\n)\n\nfiltered = data.filter(function(df) { \nreturn df.noise == noise;\n})\n\ntrue_curve = data.filter(function(df) { \nreturn df.noise == 0;\n})\n\nerrors = filtered.map(f =&gt; { \nconst location = true_curve.find(loc =&gt; loc.x === f.x); \nreturn { ...f, y_end: location?.y };\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nPlot.plot({ \ngrid:true, \nx:{ \ndomain: [0, 1], \nlabel: \"X\", \n}, \ny: { \ndomain: [0, 3], \nlabel: \"Y\", \n}, \nmarks: [ \nPlot.dot(filtered, {x: \"x\", y: \"y\", fill: \"#444444\", r: 3}), \nPlot.line(true_curve, {x: \"x\", y: \"y\", stroke: \"#B0E1FA\", strokeWidth: 5}), \nPlot.link(errors, { \nx1: \"x\", \nx2: \"x\", \ny1: \"y\", \ny2: \"y_end\", \nstroke: \"#AAAAAA\", \nstrokeDasharray: \"5,5\", \n}) \n]\n})\n\n\n\n\n\n\n\n\n\nFigure 1: The different elements of the model. The points represent the observed data \\((X_i, Y_i)\\). The blue curve represents the function \\(f\\) and the dotted lines represent the error associated with each observation.\n\n\n\n\nIn the rest of the course, we will examine different methods for estimating the function f from data. However, before examining how to construct a \\(\\widehat{f}\\) estimator of \\(f\\), we will examine the quality of such an estimator: what does it mean to “properly estimate” f? And how can we evaluate the quality of the estimate?\n\n\n\n\n\n\nNoteExample: Simple Linear Regression\n\n\n\nIn this very simple framework, we assume that the function f is of the form: f(x) = a x + b. In this case, estimating the function f is reduced to estimating the coefficients a and b.\n\n\n\n\n\n\n\n\nTipNote: Tradeoff between accuracy and interpretability\n\n\n\nDepending on the objective of the study, we generally have to make a choice between the accuracy of our predictions and the interpretability of our model. A simple model, such as linear regression, will be easy to interpret but will poorly capture complex relationships. Conversely, a more flexible model, such as a random forest, will have better predictions but will be more difficult to interpret. The choice therefore depends on the objective of the analysis: understanding or predictive performance?\n\n\n\n\n\n\n\n\nTipNote: No free lunch in statistics\n\n\n\nWhy not simply use the “ultimate” model, the one that would always be optimal regardless of the dataset? Because such a model doesn’t exist! There is no universally best method for all datasets and all objectives. A method that performs well in a given context may fail elsewhere. It is therefore always necessary to adapt the approach to the problem (explanation, prediction, classification, etc.).",
     "crumbs": [
       "Modules",
       "03 - Généralités",
-      "Spaces"
+      "Bias/Variance"
     ]
   },
   {
-    "objectID": "contents/generalities/02-spaces.html#types-of-variables",
-    "href": "contents/generalities/02-spaces.html#types-of-variables",
-    "title": "Spaces",
-    "section": "Types of variables",
-    "text": "Types of variables\nThere are generally four types of variables, which are identified at the level of the smallest statistical unit in the dataset.\n\n\n\n\n\n\nWarningNumerical (or quantitative) variable\n\n\n\nA numerical (or quantitative) variable is a variable whose values are numbers representing a measurable quantity.\nExamples: income in dollars, weight, age, etc.\n\n\n\n\n\n\n\n\nWarningOrdinal variable\n\n\n\nAn ordinal variable is a qualitative (or categorical) variable whose categories can be ordered naturally, without the difference between the categories being quantifiable.\nExamples: income level (low, medium, or high), satisfaction level (“strongly disagree,” “disagree,” “no opinion,” “agree,” “strongly agree”), etc.\n\n\n\n\n\n\n\n\nWarningSymmetric nominal variable\n\n\n\nA symmetric nominal variable is a qualitative (or categorical) variable in which all categories are equally informative.\nExamples: nationality, field of study, etc.\n\n\n\n\n\n\n\n\nWarningAsymmetric nominal variable\n\n\n\nAn asymmetric nominal variable is a qualitative (or categorical) variable in which one of the categories has a special status, often being more frequent or considered the “default” value. Thus, having two observations with the “default” value of this asymmetric nominal variable does not tell us much about them, whereas we can glean much more information from two observations that do not have the “default” value.\nExamples: presence or absence of a symptom, fraudulent transaction or not, etc.\n\n\nAlthough these types of variables are the most common, there are many other types of variables. For example, we may be interested in comparing curves, texts, images, networks, etc. In these situations, the choice of representation depends on the level at which we wish to place ourselves, and therefore on the statistical unit.",
+    "objectID": "contents/generalities/04-bias-variance.html#how-to-measure-the-quality-of-an-estimator",
+    "href": "contents/generalities/04-bias-variance.html#how-to-measure-the-quality-of-an-estimator",
+    "title": "Bias/Variance",
+    "section": "How to measure the quality of an estimator?",
+    "text": "How to measure the quality of an estimator?\nOnce we have an estimator \\(\\widehat{f}\\) of the function \\(f\\), obtained from \\(n\\) observations \\((y_1, x_1), \\dots, (y_n, x_n)\\), we seek to evaluate the accuracy of the predictions \\(\\widehat{Y} = \\widehat{f}(X)\\). The idea is to verify how close \\(\\widehat{Y}\\) is to the true value of \\(Y\\).\n\n\n\n\n\n\nWarningDefinition: Mean Square Error\n\n\n\nWhen \\(Y\\) is a quantitative variable, a classic measure of the quality of \\(\\widehat{f}\\) is the mean square error (MSE): \\[MSE(Y, \\widehat{Y}) = \\frac{1}{n} \\sum_{i = 1}^{n} \\left( y_i - \\widehat{y}_i\\right)^2 = \\frac{1}{n} \\sum_{i = 1}^{n} \\left( y_i - \\widehat{f}(x_i) \\right)^2,\\] where \\(\\widehat{y}_i = \\widehat{f}(x_i)\\) is the prediction that \\(\\widehat{f}\\) gives for observation \\(x_i\\).\n\n\nA low MSE indicates that the predictions are close to the observations. We can also interpret it as the average distance between the observed values ​​and the predicted values. We therefore aim for a low average distance.\nWhen \\(Y\\) is a qualitative variable, e.g., a class or a label, we use another measure: the error rate.\n\n\n\n\n\n\nWarningDefinition: Error Rate\n\n\n\nWhen \\(Y\\) is a qualitative variable, a classic measure of the quality of \\(\\widehat{f}\\) is the error rate (*ER): \\[ER(Y, \\widehat{Y}) = \\frac{1}{n} \\sum_{i = 1}^{n} \\mathbb{1}(y_i \\neq \\widehat{y}_i) = \\frac{1}{n} \\sum_{i = 1}^{n} \\mathbb{1}(y_i \\neq \\widehat{f}(x_i)).\\] where \\(\\widehat{y}_i = \\widehat{f}(x_i)\\) is the prediction that \\(\\widehat{f}\\) gives for observation \\(x_i\\).\n\n\nThe error rate measures the proportion of incorrect predictions. It is, again, a measure of the average distance between \\(Y\\) and \\(\\widehat{Y}\\), suitable for qualitative variables.",
     "crumbs": [
       "Modules",
       "03 - Généralités",
-      "Spaces"
+      "Bias/Variance"
     ]
   },
   {
-    "objectID": "contents/generalities/02-spaces.html#associated-spaces",
-    "href": "contents/generalities/02-spaces.html#associated-spaces",
-    "title": "Spaces",
-    "section": "Associated spaces",
-    "text": "Associated spaces\nOnce our data has been collected, the first step in statistical analysis is to choose a mathematical space in which to work. This space, sometimes called the observation space and denoted by \\(\\mathcal{X}\\), depends on the type of data observed. It constitutes the formal framework in which our variables take their values, and it guides the methodological choices that follow.\n\n\n\n\n\n\nNoteCase of a numerical variable\n\n\n\nWhen observing a numerical variable (e.g., the temperature of a country), the natural space in which to work is the set of real numbers, \\(\\mathcal{X} = \\mathbb{R}\\). In some cases, this space can be restricted to a specific interval. For example, if we are interested in a person’s height, we can take \\(\\mathcal{X} = [0, +\\infty)\\) because the variable in question cannot be negative.\n\n\n\n\n\n\n\n\nNoteCase of a nominal (or qualitative, or categorical) variable\n\n\n\nFor a nominal variable, the space is a finite set of modalities, the set of modalities taken by the variable. For example, if we study the results of a dice roll, the variable can take values from \\(1\\) to \\(6\\), and the associated space will therefore be \\(\\mathcal{X} = \\{ 1, 2, 3, 4, 5, 6 \\}\\).\n\n\nWhen the data is more complex, more suitable spaces must be chosen. For curve or signal analysis, we can work in a function space. For example, we can consider the space of continuous functions on a closed interval \\([a, b]\\), denoted \\(\\mathcal{X} = \\mathcal{C}([a, b])\\). For text analysis (viewed as a sequence of characters), the workspace can be an alphabet. For example, we can consider \\(\\mathcal{X} = \\{ \\text{A}, \\text{B}, \\dots, \\text{Z} \\}\\).\nOften, several variables are observed at the same time, e.g., the height, weight, and gender of an individual. In this case, the observation space will be the Cartesian product (also called the product set) of the spaces associated with each variable: \\[\\mathcal{X} = \\mathcal{X}_1 \\times \\mathcal{X}_2 \\times \\dots \\mathcal{X}_p,\\] where \\(p\\) is the number of variables. In the case where we observe \\(p\\) numerical variables, we will simply write \\(\\mathcal{X} = \\mathbb{R}^p\\).",
+    "objectID": "contents/generalities/04-bias-variance.html#the-biasvariance-trade-off",
+    "href": "contents/generalities/04-bias-variance.html#the-biasvariance-trade-off",
+    "title": "Bias/Variance",
+    "section": "The bias/variance trade-off",
+    "text": "The bias/variance trade-off\nOur goal is often to minimize the prediction error, not only on observed data, but especially on new data (recovered after estimating the model). To do this, we focus on the prediction error: \\[\\mathbb{E}\\left[ \\left( Y - \\widehat{Y} \\right)^2 \\right] = \\mathbb{E}\\left[ \\left( Y - \\widehat{f}(X) \\right)^2 \\right].\\]\nThis error can be broken down into three components:\n\nBias: the error due to a systematic approximation, e.g., if we impose a linear model when the relationship is nonlinear.\nVariance: the sensitivity of the estimator to fluctuations in the training sample.\nIrreducible error: the intrinsic variance of the noise \\(\\varepsilon\\), denoted \\(\\sigma^2\\).\n\n\n\n\n\n\n\nImportantDécomposition bias/variance\n\n\n\nOn to: \\[\\mathbb{E}\\left[ (Y - \\widehat{Y})^2 \\right] = \\mathbb{E}\\left[ (Y - \\widehat{f}(X))^2 \\right] = \\mathrm{Biais}(\\widehat{f}(X))^2 + \\mathrm{Var}(\\widehat{f}(X)) + \\sigma^2.\\]\n\n\n\n\n\n\n\n\nNotePreuve\n\n\n\n\n\nOn the other hand, we point out that the hope of the estimator’s error is broken down into a reductible part and an irreductible part.\n\\[\\begin{align*}\n\\mathbb{E}\\left[ \\left( Y - \\widehat{Y} \\right)^2 \\right]\n&= \\mathbb{E}\\left[ \\left( Y - \\widehat{f}(X) \\right)^2 \\right] \\\\\n&= \\mathbb{E}\\left[ \\left( f(X) + \\varepsilon - \\widehat{f}(X) \\right)^2 \\right] \\\\\n&= \\mathbb{E}\\left[ \\left( f(X) - \\widehat{f}(X) \\right)^2 \\right] + 2\\mathbb{E}\\left[ \\left( f(X) - \\widehat{f}(X) \\right)\\varepsilon \\right] + \\mathbb{E}[\\varepsilon^2] \\\\\n&= \\mathbb{E}\\left[ \\left( f(X) - \\widehat{f}(X) \\right)^2 \\right] + 2\\mathbb{E}\\left[ \\left( f(X) - \\widehat{f}(X) \\right) \\right] \\underbrace{\\mathbb{E}\\left[ \\varepsilon \\right]}_{= 0} + \\sigma^2 \\\\\n&= \\underbrace{\\mathbb{E}\\left[ \\left( f(X) - \\widehat{f}(X) \\right)^2 \\right]}_{\\text{réductible}} + \\underbrace{\\sigma^2}_{\\text{irréductible}}.\n\\end{align*}\\]\nUse the linearity of hope and make sure that \\(X\\) and \\(\\varepsilon\\) are independent. He is interested in maintaining the “reductible” party. The trick is to make apparatus \\(\\mathbb{E}\\left[ \\widehat{f}(X) \\right]\\).\n\\[\\begin{align*}\n\\mathbb{E}\\left[ \\left( f(X) - \\widehat{f}(X) \\right)^2 \\right]\n&= \\mathbb{E}\\left[ \\left( f(X) - \\mathbb{E}\\left[ \\widehat{f}(X) \\right] + \\mathbb{E}\\left[ \\widehat{f}(X) \\right] - \\widehat{f}(X) \\right)^2 \\right] \\\\\n&= \\underbrace{\\mathbb{E}\\left[ \\left( f(X) - \\mathbb{E}\\left[ \\widehat{f}(X) \\right] \\right)^2 \\right]}_{\\text{A}} \\\\\n&\\quad - 2 \\underbrace{\\mathbb{E}\\left[ \\left( f(X) - \\mathbb{E}\\left[ \\widehat{f}(X) \\right] \\right) \\left( \\widehat{f}(X) - \\mathbb{E}\\left[ \\widehat{f}(X) \\right] \\right) \\right]}_{\\text{B}} \\\\\n&\\quad + \\underbrace{\\mathbb{E}\\left[ \\left( \\widehat{f}(X) - \\mathbb{E}\\left[ \\widehat{f}(X) \\right] \\right)^2 \\right]}_{\\text{C}}.\n\\end{align*}\\]\nA. The \\(f(X)\\) function is not aléatoire, on a \\(\\mathbb{E}\\left[ f(X) \\right] = f(X)\\) et donc\n\\[\\begin{align*}\n\\mathbb{E}\\left[ \\left( f(X) - \\mathbb{E}\\left[ \\widehat{f}(X) \\right] \\right)^2 \\right]\n&= \\mathbb{E}\\left[ \\left( \\mathbb{E}\\left[ f(X) - \\widehat{f}(X) \\right] \\right)^2 \\right] \\\\\n&= \\mathbb{E}\\left[ f(X) - \\widehat{f}(X) \\right]^2 \\\\\n&= \\text{Biais}(\\widehat{f}(X))^2.\n\\end{align*}\\]\nB. To develop the expression and use the independence of the variables, on finding that \\(B = 0\\).\nC. Using the definition of variance,\n\\[\\mathbb{E}\\left[ \\left( \\widehat{f}(X) - \\mathbb{E}\\left[ \\widehat{f}(X) \\right] \\right)^2 \\right] = \\mathrm{Var}(\\widehat{f}).\\]\nFinally, hon a\n\\[\\mathbb{E}\\left[ \\left( f(X) - \\widehat{f}(X) \\right)^2 \\right] = \\text{Biais}(\\widehat{f}(X))^2 + \\mathrm{Var}(\\widehat{f}(X)).\\]\nHence the results.\n\n\n\nThis breakdown before a fundamental compromise in analyzing women:\n\nIf you choose a more flexible model, the bias will be higher, but the variance will be easier.\nIf you choose a flexible model, the bias will be easy, but the variance will be too high.\n\nNotre objectif est donc de trouver un juste équilibre entre biais et variance, i.e. un modèle qui prédit correctement, tout en étant généralisable à de nouvelles données. La Figure 2 (a) présente un jeu de données et différents estimateurs \\(\\widehat{f}\\). En faisant varier le paramètre \\(\\lambda\\), on obtient des modèles plus ou moins flexible (lorsque \\(\\lambda = 0.15\\), le modèle est flexible et lorsque \\(\\lambda = 1\\), le modèle est rigide). La Figure 2 (b) montre la valeur du biais, de la variance et de la MSE pour les modèles estimés pour la Figure 2 (a). On remarque que plus \\(\\lambda\\) est petit, plus la variance est grande, mais le biais est petit (le modèle est flexible). Inversement, plus \\(\\lambda\\) est grand, plus le biais est grand et la variance petite (le modèle est rigide). La courbe de MSE en fonction du paramètre est une courbe en U. Comme on cherche à minimiser la MSE, i.e. à faire un compromis entre le biais et la variance, on peut prendre \\(\\lambda = 0.5\\).\n\n\nCode\n# Load packages\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(tidyr)\n\nset.seed(42)\n\n# 1. Simulate a single dataset\nn &lt;- 100\nsigma2 &lt;- 0.1\nx &lt;- sort(runif(n, 0.05, 1))\ny &lt;- 4 * x * (1 - x) * log(x) + 2 + rnorm(n, 0, sqrt(sigma2))\ndf &lt;- data.frame(x = x, y = y, span = 0)\n\n# 2. Define grid and spans to compare\nx_grid &lt;- seq(0.05, 1, length.out = 300)\nspans_to_plot &lt;- seq(0.1, 1, by = 0.1)\n\n# 3. Compute loess fits for each span\nfits &lt;- lapply(spans_to_plot, function(s) {\n  loess_model &lt;- loess(y ~ x, data = df, span = s)\n  y_hat &lt;- predict(loess_model, newdata = data.frame(x = x_grid))\n  data.frame(x = x_grid, y = y_hat, span = s)\n})\n\nfit_df &lt;- bind_rows(fits)\nfit_df &lt;- fit_df |&gt; add_row(df)  # Add data points\n \nwrite.csv(fit_df, './data_fit.csv')\n\n\n# Parameters\nn_sim &lt;- 100          # number of simulated datasets\nspans &lt;- seq(0.1, 1, by = 0.05)  # LOESS smoothing parameters\nx_grid &lt;- seq(0.1, 1, length.out = 200)\nf_true &lt;- 4 * x_grid * (1 - x_grid) * log(x_grid) + 2\n\n# Storage for predictions\nresults &lt;- list()\n\nfor (s in spans) {\n  pred_matrix &lt;- matrix(NA, nrow = length(x_grid), ncol = n_sim)\n  \n  for (sim in 1:n_sim) {\n    x &lt;- sort(runif(n, 0.01, 1.1))\n    y &lt;- 4 * x * (1 - x) * log(x) + 2 + rnorm(n, 0, sqrt(sigma2))\n    df &lt;- data.frame(x = x, y = y)\n    \n    # Fit loess model with span = s\n    model &lt;- loess(y ~ x, data = df, span = s, degree = 2)\n    pred &lt;- predict(model, newdata = data.frame(x = x_grid), )\n    \n    pred_matrix[, sim] &lt;- pred\n  }\n  \n  # For each point in x_grid, compute bias², variance, MSE\n  mean_pred &lt;- rowMeans(pred_matrix, na.rm = TRUE)\n  bias2 &lt;- (mean_pred - f_true)^2\n  var_pred &lt;- apply(pred_matrix, 1, var, na.rm = TRUE)\n  mse &lt;- bias2 + var_pred\n  \n  results[[as.character(s)]] &lt;- data.frame(\n    span = s,\n    Biais2 = mean(bias2),\n    Variance = mean(var_pred),\n    MSE = mean(mse)\n  )\n}\n\n# Combine and reshape results\nresults_df &lt;- bind_rows(results)\nresults_long &lt;- pivot_longer(\n  results_df,\n  cols = c(\"Biais2\", \"Variance\", \"MSE\"),\n  names_to = \"component\", values_to = \"value\"\n)\n\nwrite.csv(results_long, './data_mse.csv')\n\n\n\n\nCode\ndata_fit = FileAttachment(\"../../include/data/bias-variance/data_fit.csv\").csv({ typed: true })\ndata_mse = FileAttachment(\"../../include/data/bias-variance/data_mse.csv\").csv({ typed: true })\n\nviewof span = Inputs.range( \n[0.1, 1], \n{value: 0.5, step: 0.1, label: tex`\\lambda`}\n)\n\nfiltered_fit = data_fit.filter(function(df) { \nreturn df.span == span;\n})\n\npoints = data_fit.filter(function(df) { \nreturn df.span == 0;\n})\n\ncurrent_mse = data_mse.filter(function(df) {\nreturn df.span == span;\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nPlot.plot({ \ngrid:true, \nx:{ \ndomain: [0, 1], \nlabel: \"X\", \n}, \ny: { \ndomain: [0, 3], \nlabel: \"Y\", \n}, \nmarks: [ \nPlot.dot( \npoints, \n{x: \"x\", y: \"y\", fill: \"#444444\", r: 3} \n), \nPlot.line( \nfiltered_fit, \n{x: \"x\", y: \"y\", stroke: \"#B0E1FA\", strokeWidth: 5} \n), \n\n]\n})\n\n\nCode\nPlot.plot({ \ngrid:true, \ncolor: { \nlegend: true, \n}, \nx:{ \ndomain: [0, 1], \nlabel: \"λ\", \n}, \ny: { \ndomain: [0, 0.04], \nlabel: \"Y\",\n},\nmarks: [\nPlot.line(\ndata_mse,\n{x: \"span\", y: \"value\", stroke: \"component\", strokeWidth: 5}\n),\nPlot.dot(\ncurrent_mse,\n{x: \"span\", y: \"value\", fill: \"component\", r: 10}\n),\n]\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n(a) Different \\(\\widehat{f}\\) estimators.\n\n\n\n\n\n\n\n\n\n\n\n\n\n(b) Different parts of the error.\n\n\n\n\n\n\nFigure 2: Illustration of the bias/variance tradeoff. The \\(\\lambda\\) parameter controls the flexibility of the model; the smaller \\(\\lambda\\), the more flexible the model.\n\n\n\n\nGenerally speaking, as flexibility increases, the decrease in bias is greater than the increase in variance, resulting in a decrease in prediction error. However, beyond a certain level of flexibility, the bias becomes negligible, and any further decrease is offset by the rapid increase in variance. Prediction error therefore begins to increase. This results in a U-shaped curve of prediction error as a function of model flexibility: a model that is too rigid generates a high bias, while a model that is too flexible leads to too much variance.\n\n\n\n\n\n\nTipNote: Why compromise?\n\n\n\nIt is always possible to build a very flexible model with zero bias, e.g., a model that passes through all observation points, but which will have enormous variance. Conversely, a model that is too rigid, e.g., a constant, will have a very large bias but almost zero variance. The bias/variance compromise consists of choosing a model that controls both of these quantities.",
     "crumbs": [
       "Modules",
       "03 - Généralités",
-      "Spaces"
+      "Bias/Variance"
     ]
   },
   {
@@ -828,36 +835,51 @@
     ]
   },
   {
-    "objectID": "contents/01-introduction.html",
-    "href": "contents/01-introduction.html",
-    "title": "Introduction",
+    "objectID": "contents/generalities/05-model-evaluation.html",
+    "href": "contents/generalities/05-model-evaluation.html",
+    "title": "Models evaluation",
     "section": "",
-    "text": "Data analysis is a set of methods for extracting information from a data set. It’s also known as statistical learning. The idea is to use statistical models to understand how data is structured and how it interacts with each other.\n\n\n\n\n\n\nNoteExample\n\n\n\nLet’s imagine you work for the United Nations (UN). Your mission is to analyze life expectancy around the world. To do this, you’ll have a measure of life expectancy in each UN member country, of course, but also GDP per capita, health expenditure, fertility rate, urbanization rate, education level of the country, and so on. The aim of data analysis is to find links between these different variables and the variable of interest, life expectancy, to visualize these data, and eventually to predict life expectancy from the other variables.",
+    "text": "This section is based on James et al. (2021), Chapter 5.",
     "crumbs": [
       "Modules",
-      "01 - Introduction"
+      "03 - Généralités",
+      "Models evaluation"
     ]
   },
   {
-    "objectID": "contents/01-introduction.html#what-is-data-analysis",
-    "href": "contents/01-introduction.html#what-is-data-analysis",
-    "title": "Introduction",
-    "section": "",
-    "text": "Data analysis is a set of methods for extracting information from a data set. It’s also known as statistical learning. The idea is to use statistical models to understand how data is structured and how it interacts with each other.\n\n\n\n\n\n\nNoteExample\n\n\n\nLet’s imagine you work for the United Nations (UN). Your mission is to analyze life expectancy around the world. To do this, you’ll have a measure of life expectancy in each UN member country, of course, but also GDP per capita, health expenditure, fertility rate, urbanization rate, education level of the country, and so on. The aim of data analysis is to find links between these different variables and the variable of interest, life expectancy, to visualize these data, and eventually to predict life expectancy from the other variables.",
+    "objectID": "contents/generalities/05-model-evaluation.html#evaluating-the-performance-of-a-predictive-model",
+    "href": "contents/generalities/05-model-evaluation.html#evaluating-the-performance-of-a-predictive-model",
+    "title": "Models evaluation",
+    "section": "Evaluating the Performance of a Predictive Model",
+    "text": "Evaluating the Performance of a Predictive Model\nIn the previous section, we introduced tools for measuring the quality of an estimator: the mean square error (MSE) for quantitative variables and the error rate (ER) for qualitative variables. These measures compare the predicted values ​​\\(\\widehat{Y} = \\widehat{f}(X)\\) to the observed values ​​\\(Y\\). However, if we calculate these errors only from the data used to train the model, we risk underestimating the true prediction error. Why? Because the estimator \\(\\widehat{f}\\) was adjusted to minimize the error on these same data. It therefore fits them well, and generally, too well! This can lead to the illusion that our model is performing well. Indeed, a very flexible model can have a low error on the training data simply because it captures noise rather than signal. But if the model adapts too much to the training data, it risks generalizing poorly to new data, i.e., data it has never seen before. This phenomenon is called overfitting.\n\n\n\n\n\n\nTipNote: Overfitting and Underfitting\n\n\n\nAn overly flexible model can fit the training data perfectly, including random noise. It will have a low error on this data but a high error on new observations. This is called overfitting of the model. Conversely, a model that is too rigid (e.g., a constant straight line) will not be able to capture the structure of the data, even on the training set. This is called underfitting of the model.\nThe goal is to find the right balance between flexibility and generalization capacity.\n\n\nTo objectively evaluate a model, ideally, it would be best to test it on data completely independent of the data used for training. We therefore distinguish two sets: a training set, used to adjust the model, and a test set, used to evaluate the model’s predictive performance. In practice, we generally don’t have access to a test set to perform this evaluation. In this section, we will discuss two approaches to circumvent this problem.",
     "crumbs": [
       "Modules",
-      "01 - Introduction"
+      "03 - Généralités",
+      "Models evaluation"
     ]
   },
   {
-    "objectID": "contents/01-introduction.html#course-objectives",
-    "href": "contents/01-introduction.html#course-objectives",
-    "title": "Introduction",
-    "section": "Course objectives",
-    "text": "Course objectives\nIn this course, we aim to introduce methods that allow us to study a “high-dimensional” dataset (in the sense that we can’t simply graph all the variables for each observation) without having to resort to a probabilistic model. The various techniques we’ll be looking at can be used to:\n\nvisualize data\nreduce data size;\nidentify certain relationships between variables;\ndivide the dataset into groups/classes.\n\nThis course is not intended to be exhaustive, in the sense of presenting all possible methods. Nor is it intended to be state-of-the-art, in the sense that it will not cover the latest developments in machine learning. Nor is it a programming course.\nTo finish this introduction, here is a quote from Statistical Rethinking by Richard McElreath (McElreath 2020) particularly accurate in this course.\n\nStatistics courses […] tend to resemble horoscopes. There are two senses to this resemblance. First, in order to remain plausibly correct, they must remain tremendously vague. This is because the targets of the advice, for both horoscopes and statistical advices, are diverse. But only the most general advice applies to all cases. A horoscope uses only the basic facts of birth to forecast life events, and a […] statistical guide uses only the basic facts of measurement and design to dictate a model. It is easy to do better, once more detail is available. In the case of statistical analysis, it is typically only the scientist who can provide that detail, not the statistician. Second, there are strong incentives for both astrologers and statisticians to exaggerate the power and importance of their advice. No one likes an astrologer who forecasts doom, and few want a statistician who admits the answers as desired are not in the data as collected. Scientists desire results, and they will buy and attend to statisticians and statistical procedures that promise them. What we end up with is too often horoscopic: vague and optimistic, but still claiming critical importance.\n\n\n\n\nMachine learning (xkcd:1838).",
+    "objectID": "contents/generalities/05-model-evaluation.html#validation-dataset",
+    "href": "contents/generalities/05-model-evaluation.html#validation-dataset",
+    "title": "Models evaluation",
+    "section": "Validation Dataset",
+    "text": "Validation Dataset\nWhen we only have a single dataset, a simple solution is to randomly divide it into two subsets: a training set to adjust the model, and a validation set to estimate the prediction error. This is called a validation set approach. Figure 1 presents a schematic of this approach, and ?@fig-trainval-1-pdf and ?@fig-trainval-2-pdf present an example of a training and validation set, along with the associated MSE. Figure 2 presents several combinations of training and validation datasets, along with the associated MSE.\n\n\n\n\n\n\nFigure 1: Diagram of the validation set approach.\n\n\n\n\n\nCode\n# Load packages\nlibrary(tidyverse)\nlibrary(dplyr)\n\n# Set seed for reproducibility\nset.seed(42)\n\n# Function definition\nf &lt;- function(x) {\n  4 * x * (1 - x) * log(x) + 2\n}\n\ngenerate_splits &lt;- function(data, train_prop = 0.7, K = 10) {\n  rows &lt;- list()\n  \n  for (k in 1:K) {\n    idx_train &lt;- sample(nrow(data), size = floor(train_prop * nrow(data)))\n    train &lt;- data[idx_train, ]\n    validation &lt;- data[-idx_train, ]\n    \n    train_tbl &lt;- tibble(\n      split = k,\n      set = \"train\",\n      x = train$x,\n      y = train$y\n    )\n    \n    validation_tbl &lt;- tibble(\n      split = k,\n      set = \"validation\",\n      x = validation$x,\n      y = validation$y\n    )\n    \n    rows[[k]] &lt;- bind_rows(train_tbl, validation_tbl)\n  }\n  \n  bind_rows(rows)\n}\n\n# Generate N data points in the interval (0, 1]\nN &lt;- 200\nspans &lt;- seq(0.1, 1, by = 0.05)  # LOESS smoothing parameters\nx_all &lt;- runif(N, min = 0.01, max = 1)  # avoid 0 due to log(x)\ny_all &lt;- f(x_all) + rnorm(N, mean = 0, sd = 0.1)  # add Gaussian noise\n\n# Put everything in a data.frame\ndata &lt;- data.frame(x = x_all, y = y_all)\n\n# Generate 10 training/validation splits\nsplits &lt;- generate_splits(data, train_prop = 0.7, K = 10)\nwrite.csv(splits, './splits.csv')\n\n\n# Fit a model with different smoothing parameters on each split\nsplits_number &lt;- unique(splits$split)\n\nresults &lt;- list()\nfor (n_split in splits_number) {\n  \n  df_split &lt;- splits |&gt; dplyr::filter(split == n_split)\n  train &lt;- df_split |&gt; \n    dplyr::filter(set == 'train') |&gt; \n    dplyr::select(x, y)\n  validation &lt;- df_split |&gt; \n    dplyr::filter(set == 'validation') |&gt; \n    dplyr::select(x, y)\n  \n  results_splits &lt;- list()\n  for (s in spans) {\n\n    # Fit loess model with span = s on train and predict on validation\n    model &lt;- loess(y ~ x, data = train, span = s, degree = 2)\n    pred &lt;- predict(model, newdata = validation$x)\n      \n    # For each point in x_grid, compute bias², variance, MSE\n    bias2 &lt;- mean((pred - validation$y)^2, na.rm = TRUE)\n    var_pred &lt;- var(pred, na.rm = TRUE)\n    mse &lt;- bias2 + var_pred\n    \n    results_splits[[as.character(s)]] &lt;- data.frame(\n      split = n_split,\n      span = s,\n      MSE = mse\n    )\n  }\n  results_splits_df &lt;- bind_rows(results_splits)\n  results[[as.character(n_split)]] &lt;- results_splits_df\n}\n\nresults &lt;- results |&gt; bind_rows()\nwrite.csv(results, './splits_mse.csv')\n\n\n\n\nCode\ndata = FileAttachment(\"../../include/data/model-evaluation/splits.csv\").csv({ typed: true })\ndata_mse = FileAttachment(\"../../include/data/model-evaluation/splits_mse.csv\").csv({ typed: true })\n\nviewof split = Inputs.range(\n  [1, 10], \n  {value: 1, step: 1, label: \"Autre jeu de validation\"}\n)\n\nfiltered = data.filter(function(df) {\n  return df.split == split;\n})\n\ncurrent_mse = data_mse.filter(function(df) {\n  return df.split == split;\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nPlot.plot({\n  grid: true,\n  x: {\n    domain: [0, 1],\n    label: \"X\",\n  },\n  y: {\n    domain: [0, 3],\n    label: \"Y\",\n  },\n  color: {\n    domain: [\"train\", \"validation\"],\n    range: [\"#f7a941\", \"#e30513\"],\n    legend: true\n  },\n  marks: [\n    Plot.dot(\n      filtered,\n      {x: \"x\", y: \"y\", fill: \"set\", r: 5}\n    ),\n  ]\n})\n\n\nCode\nPlot.plot({\n  grid: true,\n  color: {\n    legend: true,\n  },\n  x: {\n    domain: [0, 1],\n    label: \"λ\",\n  },\n  y: {\n    domain: [0.1, 0.2],\n    label: \"Y\",\n  },\n  marks: [\n    Plot.line(\n      data_mse, \n      {\n        x: \"span\", y: \"MSE\", z: \"split\",\n        stroke: \"#AAAAAA\", strokeWidth: 2\n      }\n    ),\n    Plot.line(\n      current_mse,\n      {x: \"span\", y: \"MSE\", stroke: \"#e30513\", strokeWidth: 5}\n    ),\n  ]\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n(a) Différents jeux d’entraînement et validation.\n\n\n\n\n\n\n\n\n\n\n\n\n\n(b) MSE pour différents jeux de validation.\n\n\n\n\n\n\nFigure 2: Illustration de l’approche par jeu de données de validation.\n\n\n\n\n\n\n\n\n\n\nTipHow to choose the size of the subsets?\n\n\n\nIn general:\n\nIf we have a large number of observations (say, several thousand), we can do a 50-50 split.\nIf we have fewer observations, we would prefer to keep more observations for training. We can, for example, do a 70-30 or 80-20 split.\n\nHowever, there is no universal rule. The right choice depends on the context, the complexity of the model, and the amount of data available.\n\n\nHowever, this method has two drawbacks. The first is that the error estimate is unstable. Indeed, the value of the prediction error depends on the observations in the validation set. A different validation set may give a different result. The second is that there is less data to fit the model. Since part of the data is reserved for validation, the model is trained on a smaller set, and this may therefore overestimate its true error compared to if it had been trained on the full dataset.",
     "crumbs": [
       "Modules",
-      "01 - Introduction"
+      "03 - Généralités",
+      "Models evaluation"
+    ]
+  },
+  {
+    "objectID": "contents/generalities/05-model-evaluation.html#cross-validation",
+    "href": "contents/generalities/05-model-evaluation.html#cross-validation",
+    "title": "Models evaluation",
+    "section": "Cross-validation",
+    "text": "Cross-validation\nTo overcome the limitations of the previous approach, cross-validation is often used. This method is more robust and stable. The principle is to repeat the validation set approach several times on different subsets of the dataset.\nThe approach consists of randomly dividing the set of observations into K subsets of equal size (called folds). The first fold is used as the validation dataset and the model is fitted on the remaining K - 1 folds. The prediction error is calculated on the first fold. This procedure is repeated K times; each time, a different fold is used as the validation dataset. At the end, we have \\(K\\) values ​​for the prediction error. Finally, we calculate the average of the \\(K\\) prediction values. Figure 3 presents a diagram of this approach.\n\n\n\n\n\n\nFigure 3: Diagram of the cross-validation approach\n\n\n\n\n\n\n\n\n\nTipHow to choose the number of subsets \\(K\\)?\n\n\n\nThe choice of the number of subsets \\(K\\) has an impact on the quality of the prediction error estimation, as well as on the computational cost of the procedure. In practice, \\(K = 5\\) or \\(K = 10\\) are often used. This choice is based on a compromise between the accuracy of the error estimation and the required computational time. Indeed, for each value of \\(K\\), the model is fitted \\(K\\) times. Therefore, the larger \\(K\\) is, the greater the computational cost.\nIn the limiting case where \\(K = n\\), i.e. \\(K\\) is equal to the number of observations in the dataset, this is called leave-one-out cross-validation (LOOCV). In this case, each observation is used as validation once, and the model is trained on the other \\(n - 1\\) observations.\nThis choice of \\(K = n\\) minimizes bias in the prediction error estimate, because at each iteration, the model is fitted to almost all the observations in the dataset. However, this comes at the cost of high variance. Indeed, since the training sets are almost identical, the prediction errors are highly correlated, making the overall error estimate unstable.\nConversely, lower values ​​of \\(K\\) introduce a slight bias in the error estimate (because the models are fitted to sets containing fewer observations), but reduce the variance of this estimate. This bias/variance tradeoff, coupled with a significant reduction in computation time, explains why \\(K = 5\\) or \\(K = 10\\) are standard choices in practice.\n\n\nFinally, cross-validation is a general method that can be applied to most models.",
+    "crumbs": [
+      "Modules",
+      "03 - Généralités",
+      "Models evaluation"
     ]
   }
 ]
