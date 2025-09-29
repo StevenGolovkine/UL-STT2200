@@ -5,7 +5,7 @@ format:
   pdf:
     number-sections: true
     header-includes:
-      - \usepackage{mathtools} 
+      - \usepackage{mathtools}
 ---
 
 
