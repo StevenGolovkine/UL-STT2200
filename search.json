@@ -2406,6 +2406,13 @@
     "text": "Vous pouvez faire les exercices dans le langage de votre choix."
   },
   {
+    "objectID": "tp/04-dimension-tp.html#exercice-1-des-coquillages",
+    "href": "tp/04-dimension-tp.html#exercice-1-des-coquillages",
+    "title": "TP: Dimension",
+    "section": "Exercice 1: Des coquillages",
+    "text": "Exercice 1: Des coquillages\nDans cette exercice, on se propose de faire une analyse de données de coquillages. Pour cela, on a accès à 7 mesures physiques des coquillages, ainsi que leur genre et leur âge.\n\nTélécharger le jeu de données suivant: lien. Des informations sur le jeu de données sont disponibles ici.\nFaire une rapide analyse descriptive des données.\nFaire une analyse en composantes principales.\nCombien gardez-vous d’axes factoriels en fonction des différentes règles vu en cours ?\nQuelles sont les deux variables qui contribuent le plus à la deuxième dimension ? Et quelles sont les deux observations qui contribuent le plus à la troisième dimension ?\nComment interprétez la première dimension ?\nQuelle est le pourcentage de la variabilité expliquée par les trois premiers axes factoriels ?\nDans ce contexte, était-il pertinent de standardiser les données pour faire l’analyse en composantes principales ? Justifiez."
+  },
+  {
     "objectID": "tp/03-generalities-tp.html",
     "href": "tp/03-generalities-tp.html",
     "title": "TP: Généralités",
