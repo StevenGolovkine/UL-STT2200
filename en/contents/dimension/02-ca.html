@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.24">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>MCA – STT-2200: Data Analysis</title>
+<title>Correspondence analysis – STT-2200: Data Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -84,7 +84,8 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script><meta property="og:title" content="MCA – STT-2200: Data Analysis">
+</script><meta property="og:title" content="Correspondence analysis – STT-2200: Data Analysis">
+<meta property="og:description" content="Website for STT-2200">
 <meta property="og:site_name" content="STT-2200: Data Analysis">
 </head>
 <body class="nav-sidebar floating quarto-light">
@@ -258,7 +259,7 @@ window.Quarto = {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/04-dimension.html">04 - Dimension</a></li>
-<li class="breadcrumb-item"><a href="../../contents/dimension/02-ca.html">MCA</a></li>
+<li class="breadcrumb-item"><a href="../../contents/dimension/02-ca.html">Correspondence analysis</a></li>
 </ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -440,19 +441,19 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/dimension/01-pca.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PCA</span></a>
+ <span class="menu-text">Principal components analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/dimension/02-ca.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">MCA</span></a>
+ <span class="menu-text">Correspondence analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/dimension/03-mca.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">MCA</span></a>
+ <span class="menu-text">Multiple correspondence analysis</span></a>
   </div>
 </li>
       </ul>
@@ -534,19 +535,31 @@ window.Quarto = {
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#notation" id="toc-notation" class="nav-link active" data-scroll-target="#notation">Notation</a></li>
+  <li><a href="#statistical-independence" id="toc-statistical-independence" class="nav-link" data-scroll-target="#statistical-independence">Statistical independence</a></li>
+  <li><a href="#row-profiles-and-column-profiles" id="toc-row-profiles-and-column-profiles" class="nav-link" data-scroll-target="#row-profiles-and-column-profiles">Row profiles and column profiles</a></li>
+  <li><a href="#estimation-of-eigenvalues" id="toc-estimation-of-eigenvalues" class="nav-link" data-scroll-target="#estimation-of-eigenvalues">Estimation of Eigenvalues</a></li>
+  <li><a href="#factor-coordinates" id="toc-factor-coordinates" class="nav-link" data-scroll-target="#factor-coordinates">Factor coordinates</a></li>
+  </ul>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/dimension/02-ca.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li>
+</ul></div>
+<div class="quarto-alternate-formats">
 <h2>Other Formats</h2>
 <ul><li><a href="02-ca.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
-</div>
+</div></nav>
 </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/04-dimension.html">04 - Dimension</a></li>
-<li class="breadcrumb-item"><a href="../../contents/dimension/02-ca.html">MCA</a></li>
+<li class="breadcrumb-item"><a href="../../contents/dimension/02-ca.html">Correspondence analysis</a></li>
 </ol></nav><div class="quarto-title">
-<h1 class="title">MCA</h1>
+<h1 class="title">Correspondence analysis</h1>
 </div>
 
 
@@ -560,7 +573,289 @@ window.Quarto = {
   
 
 
-</header></main><!-- /main --><script>
+</header><p>Correspondence analysis (CA) is an exploratory analysis method that aims to graphically represent the relationships between the modalities of two qualitative variables. It allows the <strong>row profiles</strong> (in <span class="math inline">\(\mathbb{R}^p\)</span>) and <strong>column profiles</strong> (in <span class="math inline">\(\mathbb{R}^n\)</span>) of a contingency table to be represented simultaneously in a low-dimensional space, while preserving the <span class="math inline">\(\chi^2\)</span> distance as closely as possible. The objective of AFC is to find a two-dimensional (or three-dimensional) representation in which the geometric proximity between points best reflects the similarities between the modalities.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>AFC can be seen as a double PCA: a weighted PCA applied to row profiles and column profiles, in their respective spaces with an appropriate metric.</p>
+</div>
+</div>
+<section id="notation" class="level2"><h2 class="anchored" data-anchor-id="notation">Notation</h2>
+<p>Consider a contingency table <span class="math inline">\(K = (k_{ij})\)</span>, where <span class="math inline">\(k_{ij}\)</span> is the number of individuals belonging to class <span class="math inline">\(i \in \{ 1, \dots, n \}\)</span> and category <span class="math inline">\(j \in \{ 1, \dots, p \}\)</span>. We then work with the relative frequency table by normalizing this table. Since the frequencies are proportional to the sample size <span class="math inline">\(n\)</span>, the relative frequency table contains more information. Let <span class="math inline">\(F = (f_{ij})\)</span>, where <span class="math display">\[f_{ij} = \frac{k_{ij}}{k_{\bullet\bullet}} = \frac{k_{ij}}{\sum_{l = 1}^{n} \sum_{m = 1}^{p} k_{lm}}.\]</span></p>
+<p>The row (resp. column) margins of the table correspond to the sum of the columns for each row (resp. the sum of the rows for each column): <span class="math display">\[\begin{align}
+f_{i \bullet} &amp;= \sum_{j = 1}^{p} f_{ij} = \frac{k_{i \bullet}}{k_{\bullet\bullet}}, \quad 1 \leq i \leq n; \\
+f_{\bullet j} &amp;= \sum_{i = 1}^{n} f_{ij} = \frac{k_{\bullet j}}{k_{\bullet\bullet}}, \quad 1 \leq j \leq p.
+\end{align}\]</span></p>
+<p>We have <span class="math inline">\(f_{\bullet \bullet} = \sum_{i = 1}^{n} f_{i \bullet} = \sum_{j = 1}^{p} f_{\bullet j} = 1\)</span>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As an example, let’s consider the major and admission type of students enrolled in the STT-2200 course in the fall of 2025.</p>
+<table class="caption-top table">
+<caption>Contingency table of students enrolled in the STT-2200 course (Fall 2025) cross-referencing their major and type of admission.</caption>
+<thead><tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: right;">College</th>
+<th style="text-align: right;">Laval University</th>
+<th style="text-align: right;">Other university</th>
+<th style="text-align: right;">Outside Quebec</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Actuarial Science</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Statistics</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Bioinformatics</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Finance</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Math</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Computer Science</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+<p>Here, we find <span class="math inline">\(k_{\bullet \bullet} = 25\)</span>. This is simply the number of students enrolled in the course. We therefore find the following frequency table:</p>
+<table class="caption-top table">
+<caption>Frequency table associated with the previous contingency table.</caption>
+<colgroup>
+<col style="width: 28%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: right;">College</th>
+<th style="text-align: right;">Laval University</th>
+<th style="text-align: right;">Other university</th>
+<th style="text-align: right;">Outside Quebec</th>
+<th style="text-align: right;"><span class="math inline">\(f_{i \bullet}\)</span></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Actuarial Science</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.12</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Statistics</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.28</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Bioinformatics</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.32</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Finance</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.08</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Math</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Info</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(f_{\bullet j}\)</span></td>
+<td style="text-align: right;">0.52</td>
+<td style="text-align: right;">0.28</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section><section id="statistical-independence" class="level2"><h2 class="anchored" data-anchor-id="statistical-independence">Statistical independence</h2>
+<p>The relative frequency table <span class="math inline">\(F = (f_{ij})\)</span> can be interpreted as an estimate of the joint probabilities of the modalities of the two qualitative variables. If the two variables are statistically independent, we expect the joint probability to approach the product of the marginal probabilities: <span class="math display">\[f_{ij} \approx f_{i \bullet} f_{\bullet j}, \quad i \in \{ 1, \dots, n \},~ j \in \{ 1, \dots, p \}.\]</span></p>
+<p>To test whether the observed differences between <span class="math inline">\(f_{ij}\)</span> and <span class="math inline">\(f_{i \bullet} f_{\bullet j}\)</span> are significant, we use the <span class="math inline">\(\chi^2\)</span> test of independence: <span class="math display">\[T = \sum_{i = 1}^{n} \sum_{j = 1}^{p} \frac{\left( k_ {ij} - \mathbb{E}(k_{ij}) \right)^2}{\mathbb{E}(k_{ij})} = \sum_{i = 1}^{n} \sum_{j = 1}^{p} \frac{\left( k_ {ij} - \frac{k_{i \bullet}k_{\bullet j}}{k_{\bullet\bullet}} \right)^2}{\left( \frac{k_{i \bullet} k_{\bullet j}}{k_{\bullet\bullet}} \right)}.\]</span> Under the assumption of independence, this statistic approximately follows a <span class="math inline">\(\chi^2\)</span> distribution. If the variables are independent, the statistic <span class="math inline">\(T\)</span> should be close to <span class="math inline">\(0\)</span>.</p>
+</section><section id="row-profiles-and-column-profiles" class="level2"><h2 class="anchored" data-anchor-id="row-profiles-and-column-profiles">Row profiles and column profiles</h2>
+<p>To analyze the structures in the contingency table, we introduce the concept of a profile. Each row of the table can be viewed as a row profile <span class="math display">\[L_i = \left( \frac{k_{i 1}}{k_{i \bullet}}, \dots, \frac{k_{i p}}{k_{i \bullet}} \right) = \left( \frac{f_{i 1}}{f_{i \bullet}}, \dots, \frac{f_{i p}}{f_{i \bullet}} \right).\]</span> The line profile represents the distribution of the modalities <span class="math inline">\(i\)</span> of the first variable among the modalities of the second.</p>
+<p>Similarly, each column of the table can be viewed as a column profile <span class="math display">\[C_j = \left( \frac{k_{1 j}}{k_{\bullet j}}, \dots, \frac{k_{n j}}{k_{\bullet j}} \right) = \left( \frac{f_{1 j}}{f_{\bullet j}}, \dots, \frac{f_{n j}}{f_{\bullet j}} \right)
+.\]</span> The column profile represents the distribution of the modalities <span class="math inline">\(j\)</span> of the second variable among the modalities of the first.</p>
+<p>We can then look at the mean row profile (resp. mean column profile) obtained as the weighted average of the row profiles (resp. column profiles). In other words, they correspond to the marginal frequencies of the columns (resp. marginal frequencies of the rows). The mean row profile is given by <span class="math display">\[\left( \sum_{i = 1}^{n} f_{i \bullet} \frac{f_{i 1}}{f_{i \bullet}}, \dots, \sum_{i = 1}^{n} f_{i \bullet} \frac{f_{i p}}{f_{i \bullet}} \right) = \left( f_{\bullet 1}, \dots, f_{\bullet p} \right),\]</span> and the average column profile is given by <span class="math display">\[\left( \sum_{j = 1}^{p} f_{{\bullet j}} \frac{f_{1 j}}{f_{\bullet j}}, \dots, \sum_{j = 1}^{p} f_{\bullet j} \frac{f_{n j}}{f_{\bullet j}} \right) = \left( f_{{1 \bullet}}, \dots, f_{n \bullet} \right).\]</span></p>
+<p>If the variables are independent, all profiles are equal to their respective average profiles. In other words, for all <span class="math inline">\(i \in \{ 1, \dots, n \}\)</span> and <span class="math inline">\(j \in \{ 1, \dots, p \}\)</span>, <span class="math display">\[\left( \frac{f_{i 1}}{f_{i ⊗}}, \dots, \frac{f_{i p}}{f_{i ⊗}} \right) = \left( f_{\bullet 1}, \dots, f_{\bullet p} \right) \quad\text{and}\quad
+\left( \frac{f_{1 j}}{f_{\bullet j}}, \dots, \frac{f_{n j}}{f_{\bullet j}} \right) = \left( f_{{1 \bullet}}, \dots, f_{n \bullet} \right).\]</span> Thus, the further the profiles deviate from their means, the more the variables show dependence.</p>
+<p>To measure the difference between two line profiles, we use the <span class="math inline">\(\chi^2\)</span> distance weighted by marginal frequencies: <span class="math display">\[d^2(L_i, L_{i^\prime}) = \sum_{j = 1}^{p} \frac{1}{f_{\bullet j}} \left( \frac{f_{ij}}{f_{i \bullet}} - \frac{f_{i^\prime j}}{f_{i^\prime \bullet}} \right)^2.\]</span> We can do the same for the difference between two column profiles: <span class="math display">\[d^2(C_j, C_{j^\prime}) = \sum_{i = 1}^{n} \frac{1}{f_{i \bullet}} \left( \frac{f_{ij}}{f_{\bullet j}} - \frac{f_{i j^\prime}}{f_{\bullet j^\prime}} \right)^2.\]</span></p>
+<p>This can be written in matrix form. Let <span class="math inline">\(D_n = \text{diag}(f_{i \bullet})\)</span> be the diagonal matrix of row weights and <span class="math inline">\(D_p = \text{diag}(f_{\bullet j})\)</span> be the diagonal matrix of column weights. The matrix <span class="math inline">\(D_n^{-1}F\)</span> has the row profiles as its rows, and the matrix <span class="math inline">\(D_p^{-1}F^{\top}\)</span> has the column profiles as its rows. The <span class="math inline">\(\chi^2\)</span> distance between two row profiles <span class="math inline">\(L_i\)</span> and <span class="math inline">\(L_{i^\prime}\)</span> is then written as <span class="math display">\[d^2(L_i, L_{i^\prime}) = (L_i - L_{i^\prime})^\top D_p^{-1} (L_i - L_{i^\prime}),\]</span> and similarly for two column profiles <span class="math inline">\(C_j\)</span> and <span class="math inline">\(C_{j^\prime}\)</span> <span class="math display">\[d^2(C_j, C_{j^\prime}) = (C_j - C_{j^\prime})^\top D_n^{-1} (C_j - C_{j^\prime}).\]</span></p>
+<p>These distances form the basis of geometric representation in correspondence analysis, where we seek a projection of the profiles into a low-dimensional space that best preserves these distances.</p>
+</section><section id="estimation-of-eigenvalues" class="level2"><h2 class="anchored" data-anchor-id="estimation-of-eigenvalues">Estimation of Eigenvalues</h2>
+<p>The analysis of line profiles is called direct analysis. We consider the line profiles contained in the matrix <span class="math inline">\(D_n^{-1}F \in \mathbb{R}^{n \times p}\)</span>. The row profiles are projected into a space equipped with the <span class="math inline">\(\chi^2\)</span> metric on the columns, defined by <span class="math display">\[\left\langle x, y \right\rangle = x^{\top} D_p^{-1} y.\]</span></p>
+<p>The analysis of the column profiles is called dual analysis. We consider the column profiles contained in the matrix <span class="math inline">\(D_p^{-1} F^{\top} \in \mathbb{R}^{p \times n}\)</span>. We project the column profiles into a space equipped with the <span class="math inline">\(\chi^2\)</span> metric on the rows, defined by <span class="math display">\[\left\langle x, y \right\rangle = x^{\top} D_n^{-1} y.\]</span></p>
+<p>For direct analysis, we seek the first factorial axis, i.e., the direction <span class="math inline">\(u \in R^p\)</span> that maximizes the projected variance of the row profiles, under the constraint that <span class="math inline">\(u\)</span> is normalized. We therefore seek <span class="math display">\[\max_{u} u^{\top} D_p^{-1} F^{\top} D_n^{-1} F D_p^{-1} u, \quad\text{s.c.}\quad u^{\top} D_p^{-1} u = 1.\]</span> This optimization problem is equivalent to finding the first eigenvector of the matrix <span class="math display">\[S = F^{\top} D_n^{-1} F D_p^{-1}.\]</span> The matrix <span class="math inline">\(S\)</span> plays a role analogous to the covariance matrix in PCA. The first eigenvector <span class="math inline">\(u_1\)</span> therefore satisfies the relation <span class="math display">\[S u_{1} = F^{\top} D_n^{-1} F D_p^{-1} u_1 = \lambda_{1} u_1,\]</span> where <span class="math inline">\(\lambda_1\)</span> is the eigenvalue associated with <span class="math inline">\(u_1\)</span>. The eigenvectors of the matrix <span class="math inline">\(S\)</span> give the factorial axes in the column space. The coordinates of the line profiles on the first factorial axis are obtained by the relation <span class="math display">\[\Phi_1 = D_n^{-1} F D_p^{-1} u_1.\]</span> The other pairs of eigenvalues and eigenvectors, as well as the coordinates of the line profiles on the associated factorial axes, are obtained in a similar manner.</p>
+<p>The dual analysis is performed in a similar way. We seek the first eigenvector of the matrix <span class="math display">\[T = F D_p^{-1} F^{\top} D_n^{-1}.\]</span> The first eigenvector <span class="math inline">\(v_1\)</span> therefore satisfies the relation <span class="math display">\[T v_{1} = F D_p^{-1} F^{\top} D_n^{-1} v_1 = \mu_1 v_1,\]</span> where <span class="math inline">\(\mu_{1}\)</span> is the eigenvalue associated with <span class="math inline">\(v_{1}\)</span>. The eigenvectors of the matrix <span class="math inline">\(T\)</span> give the factorial axes in the row space. The coordinates of the column profiles on the first factorial axis are obtained by the relation <span class="math display">\[\Psi_1 = D_p^{-1} F^{\top} D_n^{-1} v_1 .\]</span> The other pairs of eigenvalues and eigenvectors, as well as the coordinates of the column profiles on the associated factorial axes, are obtained in a similar manner.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Property
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The matrices <span class="math inline">\(S\)</span> and <span class="math inline">\(T\)</span> have the same <span class="math inline">\(r = \min(n - 1, p - 1)\)</span> first positive eigenvalues. This guarantees a consistent representation of the rows and columns in the same reduced space. For <span class="math inline">\(k = 1, \dots, r\)</span>, the relationships between the eigenvectors <span class="math inline">\(u_k\)</span> and <span class="math inline">\(v_k\)</span> are <span class="math display">\[u_k = \frac{1}{\sqrt{\lambda_k}} F^{\top} D_n^{-1} v_k \quad \text{and} \quad v_k = \frac{1}{\sqrt{\lambda_k}} F D_p^{-1} u_k.\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Starting from the equation <span class="math display">\[T v_{1} = F D_p^{-1} F^{\top} D_n^{-1} v_1 = \mu_1 v_1,\]</span> multiplying on the left by <span class="math inline">\(F^{\top} D_n^{-1}\)</span>, we obtain: <span class="math display">\[F^{\top} D_n^{-1} F D_p^{-1} F^{\top} D_n^{-1} v_1 = \mu_1 F^{\top} D_n^{-1} v_1.\]</span> Thus, the vector <span class="math inline">\(F^{\top} D_n^{-1} v_1\)</span> is an eigenvector of the matrix <span class="math inline">\(F^{\top} D_n^{-1} F D_p^{-1}\)</span> associated with the eigenvalue <span class="math inline">\(\mu_1\)</span>. Since <span class="math inline">\(\lambda_1\)</span> is the largest eigenvalue of <span class="math inline">\(F^{\top} D_n^{-1} F D_p^{-1}\)</span>, we can deduce that <span class="math inline">\(\mu_1 \leq \lambda_{1}\)</span>. Proceeding in the same way, starting from <span class="math inline">\(S u_1 = \lambda_{1} u_{1}\)</span>, we deduce that <span class="math inline">\(\lambda_{1} \leq \mu_{1}\)</span>. Therefore, <span class="math inline">\(\lambda_{1} = \mu_{1}\)</span>. We can then do the same for the first <span class="math inline">\(r\)</span> eigenvalues. We can also deduce the relationships between the eigenvalues.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>By centering the profiles, we can project the line profiles and column profiles onto the same coordinate system, thus facilitating joint geometric interpretation.</p>
+</div>
+</div>
+<p>Center of gravity and inertia</p>
+<p>In statistical software outputs, the scatter plot generated by an AFC is generally centered at (0, 0). This convention reflects an analysis relative to the centers of gravity of the line profiles and column profiles. This centering is both practical and interpretable. It shows the distances between the modalities relative to their weighted mean, i.e., relative to the average behavior in the population.</p>
+<p>Each modality (row or column) is associated with a weight corresponding to its marginal frequency: the weight of the <span class="math inline">\(i\)</span>th row is <span class="math inline">\(f_{i \bullet}\)</span> and the weight of the <span class="math inline">\(j\)</span>th column is <span class="math inline">\(f_{\bullet j}\)</span>. The center of gravity of the rows is the weighted average of the row profiles:</p>
+<p><span class="math display">\[G_L = \left( g_{1}, \dots, g_{p} \right)^{\top}, \quad \text{where}\quad g_j = \sum_{i = 1}^{n} f_{i \bullet} \frac{f_{i j}}{f_{i \bullet}} = \sum_{i = 1}^{n} f_{i j} = f_{\bullet j}, j \in \{ 1, \dots, p \}.\]</span></p>
+<p>Similarly, the center of gravity of the columns is <span class="math display">\[G_C = \left( f_{1 \bullet}, \dots, f_{n \bullet} \right)^{\top}.\]</span></p>
+<p>To re-center the profiles around the center of gravity, we subtract their mean value: <span class="math display">\[\frac{f_{i j}}{f_{i \bullet}} - g_{j} = \frac{f_{i j}}{f_{i \bullet}} - f_{\bullet j} = \frac{f_{i j} - f_{i \bullet} f_{\bullet j}}{f_{i \bullet}}.\]</span> This centering ensures that each line profile <span class="math inline">\(i \in \{ 1, \dots, n \}\)</span> is averaged to zero: <span class="math display">\[\sum_{j = 1}^{p} \frac{f_{i j} - f_{i \bullet}f_{\bullet j}}{f_{i \bullet}} = 0.\]</span></p>
+<p>AFC is therefore no longer performed on matrix <span class="math inline">\(S\)</span> but rather on a centered matrix <span class="math inline">\(S^\star = (s_{j j^\prime}^\star),\)</span> where <span class="math display">\[s_{j j^\prime}^\star = \sum_{i = 1}^{n} \frac{\left( f_{i j} - f_{i \bullet} f_{\bullet j} \right) \left( f_{i j^\prime} - f_{i \bullet} f_{\bullet j^\prime} \right)}{f_{i \bullet} f_{\bullet j^\prime}}.\]</span></p>
+<p>By definition, the trace of the matrix <span class="math inline">\(S^\star\)</span> gives the total inertia: <span class="math display">\[\text{tr}(S^\star) = \sum_{j = 1}^{p} \sum_{i = 1}^{n} \frac{\left( f_{i j} - f_{i \bullet}f_{\bullet j} \right)^2}{f_{i \bullet} f_{\bullet j}}.\]</span> This corresponds to the normalized <span class="math inline">\(\chi^2\)</span> statistic used to test the independence between variables.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Property
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We have that, for all <span class="math inline">\(j, j^\prime \in \{ 1, \dots, p \}\)</span>, <span class="math inline">\(s_{j j^\prime}^\star = s_{j j^\prime} - f_{\bullet j},\)</span> where <span class="math display">\[s_{j j^\prime} = \sum_{i = 1}^{n} \frac{f_{i j}f_{i j^\prime}}{f_{i \bullet} f_{\bullet j^\prime}}.\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-empty-content callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<p>The previous property implies that the matrices <span class="math inline">\(S\)</span> and <span class="math inline">\(S^\star\)</span> have the same eigenvectors for the first <span class="math inline">\(p\)</span> dimensions, which allows us to perform factorial analysis on the centered version.</p>
+</section><section id="factor-coordinates" class="level2"><h2 class="anchored" data-anchor-id="factor-coordinates">Factor coordinates</h2>
+<p>We have that, for all <span class="math inline">\(k = 1, \dots, r\)</span>, <span class="math display">\[\Phi_k = D_n^{-1} F D_p^{-1} u_k \quad \text{and} \quad \Psi_k = D_p^{-1} F^{\top} D_n^{-1} v_k.\]</span> However, we have also seen the relationships between the eigenvectors <span class="math inline">\(u_k\)</span> and <span class="math inline">\(v_k\)</span>, <span class="math display">\[u_k = \frac{1}{\sqrt{\lambda_k}} F^{\top} D_n^{-1} v_k \quad \text{and} \quad v_k = \frac{1}{\sqrt{\lambda_k}} F D_p^{-1} u_k.\]</span> We can therefore deduce the relationships between the factorial coordinates of the row profiles and those of the column profiles: <span class="math display">\[\Phi_k = \frac{1}{\sqrt{\lambda_k}} D_n^{-1} F \Psi_k \quad \text{and} \quad \Psi_k = \frac{1}{\sqrt{\lambda_k}} D_p^{-1} F^{\top} \Phi_k.\]</span></p>
+<p>We can now examine these relationships on each of the components: <span class="math display">\[\left[ \Phi_k \right]_i = \frac{1}{\sqrt{\lambda_k}} \sum_{j = 1}^{p} \frac{f_{ij}}{f_{i \bullet}} \left[ \Psi_k \right]_j \quad \text{and} \quad \left[ \Psi_k \right]_j = \frac{1}{\sqrt{\lambda_k}} \sum_{i = 1}^{n} \frac{f_{ij}}{f_{\bullet j}} \left[ \Phi_k \right]_i,\]</span> where <span class="math inline">\(\left[ \Phi_k \right]_i\)</span> denotes the coordinate of the line profile <span class="math inline">\(L_i\)</span> on the <span class="math inline">\(k\)</span>th factorial axis and <span class="math inline">\(\left[ \Psi_k \right]_j\)</span> denotes the coordinate of the column profile <span class="math inline">\(C_j\)</span> on the same factorial axis. These relations express, to within a factor of <span class="math inline">\(1 / \sqrt{\lambda_k}\)</span>, that each line profile is at the barycenter of the projections of the column profiles assigned the weight of column <span class="math inline">\(j\)</span> in line <span class="math inline">\(i\)</span> and that each column profile is at the barycenter of the projections of the line profiles assigned the weight of line <span class="math inline">\(i\)</span> in column <span class="math inline">\(j\)</span>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Thus, in AFC, we have a double barycentric representation. On the factorial axes, each point in one cloud is at the barycenter of the points in the other cloud.</p>
+</div>
+</div>
+
+
+</section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -1183,13 +1478,13 @@ window.onload = function() {
     }
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../../contents/dimension/01-pca.html" class="pagination-link" aria-label="PCA">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">PCA</span>
+      <a href="../../contents/dimension/01-pca.html" class="pagination-link" aria-label="Principal components analysis">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Principal components analysis</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../contents/dimension/03-mca.html" class="pagination-link" aria-label="MCA">
-        <span class="nav-page-text">MCA</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../contents/dimension/03-mca.html" class="pagination-link" aria-label="Multiple correspondence analysis">
+        <span class="nav-page-text">Multiple correspondence analysis</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1200,7 +1495,7 @@ window.onload = function() {
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions"><ul>
+<div class="toc-actions d-sm-block d-md-none"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/dimension/02-ca.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li>
 </ul></div>

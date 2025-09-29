@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.24">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>PCA – STT-2200: Data Analysis</title>
+<title>Principal components analysis – STT-2200: Data Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -84,7 +84,8 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script><meta property="og:title" content="PCA – STT-2200: Data Analysis">
+</script><meta property="og:title" content="Principal components analysis – STT-2200: Data Analysis">
+<meta property="og:description" content="Website for STT-2200">
 <meta property="og:site_name" content="STT-2200: Data Analysis">
 </head>
 <body class="nav-sidebar floating quarto-light">
@@ -258,7 +259,7 @@ window.Quarto = {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/04-dimension.html">04 - Dimension</a></li>
-<li class="breadcrumb-item"><a href="../../contents/dimension/01-pca.html">PCA</a></li>
+<li class="breadcrumb-item"><a href="../../contents/dimension/01-pca.html">Principal components analysis</a></li>
 </ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -440,19 +441,19 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/dimension/01-pca.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">PCA</span></a>
+ <span class="menu-text">Principal components analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/dimension/02-ca.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">MCA</span></a>
+ <span class="menu-text">Correspondence analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/dimension/03-mca.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">MCA</span></a>
+ <span class="menu-text">Multiple correspondence analysis</span></a>
   </div>
 </li>
       </ul>
@@ -534,19 +535,41 @@ window.Quarto = {
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#why-change-dimensions" id="toc-why-change-dimensions" class="nav-link active" data-scroll-target="#why-change-dimensions">Why change dimensions?</a></li>
+  <li>
+<a href="#principal-component-analysis" id="toc-principal-component-analysis" class="nav-link" data-scroll-target="#principal-component-analysis">Principal Component Analysis</a>
+  <ul class="collapse">
+<li><a href="#mathematical-formulation" id="toc-mathematical-formulation" class="nav-link" data-scroll-target="#mathematical-formulation">Mathematical formulation</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#practice-of-pca" id="toc-practice-of-pca" class="nav-link" data-scroll-target="#practice-of-pca">Practice of PCA</a>
+  <ul class="collapse">
+<li><a href="#estimation-of-the-variance-covariance-matrix" id="toc-estimation-of-the-variance-covariance-matrix" class="nav-link" data-scroll-target="#estimation-of-the-variance-covariance-matrix">Estimation of the variance-covariance matrix</a></li>
+  <li><a href="#some-remarks" id="toc-some-remarks" class="nav-link" data-scroll-target="#some-remarks">Some remarks</a></li>
+  <li><a href="#choosing-the-number-of-components" id="toc-choosing-the-number-of-components" class="nav-link" data-scroll-target="#choosing-the-number-of-components">Choosing the number of components</a></li>
+  </ul>
+</li>
+  </ul>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/dimension/01-pca.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li>
+</ul></div>
+<div class="quarto-alternate-formats">
 <h2>Other Formats</h2>
 <ul><li><a href="01-pca.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
-</div>
+</div></nav>
 </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/04-dimension.html">04 - Dimension</a></li>
-<li class="breadcrumb-item"><a href="../../contents/dimension/01-pca.html">PCA</a></li>
+<li class="breadcrumb-item"><a href="../../contents/dimension/01-pca.html">Principal components analysis</a></li>
 </ol></nav><div class="quarto-title">
-<h1 class="title">PCA</h1>
+<h1 class="title">Principal components analysis</h1>
 </div>
 
 
@@ -560,7 +583,244 @@ window.Quarto = {
   
 
 
-</header></main><!-- /main --><script>
+</header><section id="why-change-dimensions" class="level2"><h2 class="anchored" data-anchor-id="why-change-dimensions">Why change dimensions?</h2>
+<p>Working with a large number of variables can pose several practical and theoretical problems:</p>
+<ul>
+<li><p>Complicated visualization: it is impossible to visually represent data beyond 3 dimensions.</p></li>
+<li><p>Difficult class separation: in classification problems, the separation between groups may be hidden in a combination of variables rather than in the variables taken individually.</p></li>
+<li><p>High computational cost: complex models can become difficult to adjust when the number of variables is large.</p></li>
+<li><p>Strong correlations: redundant variables make models unstable or difficult to interpret.</p></li>
+</ul>
+<p>The natural question to ask is therefore: can we reduce the dimension of the dataset without losing too much information?</p>
+<p>Reducing the size does not simply mean removing variables. Doing so could result in the loss of information that may be useful to the model. A better approach is to construct new variables, obtained as linear combinations of the initial variables, which summarize the essential information in the dataset. One possible method for doing this is <strong>Principal Component Analysis</strong> (PCA).</p>
+</section><section id="principal-component-analysis" class="level2"><h2 class="anchored" data-anchor-id="principal-component-analysis">Principal Component Analysis</h2>
+<p>PCA is an unsupervised method (without variables to explain) that reduces the dimension of a dataset while retaining as much information as possible. This method is used when there are <span class="math inline">\(n\)</span> observations of <span class="math inline">\(p\)</span> continuous numerical variables with <span class="math inline">\(p\)</span> too “large” to allow for effective modeling or visualization. The method was introduced by Hotelling in Analysis of Complex Statistical Data in 1933.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Common applications
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Visualization of a multidimensional dataset.</p></li>
+<li><p>Reduction of the number of variables from <span class="math inline">\(p\)</span> to <span class="math inline">\(k \ll p\)</span> to facilitate model construction.</p></li>
+<li><p>Compressing images or signals.</p></li>
+<li><p>Exploring biological, textual, or environmental data.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Examples
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Compare hockey teams based on six end-of-season statistics.</p></li>
+<li><p>Summarize crime rates among Canadian provinces based on rates for seven different types of crimes.</p></li>
+<li><p>Compress images consisting of <span class="math inline">\(1084 \times 1084\)</span> pixels into a few variables.</p></li>
+<li><p>Identify the number of variants of a tumor type based on the expression levels of millions of genes.</p></li>
+</ol>
+</div>
+</div>
+<section id="mathematical-formulation" class="level3"><h3 class="anchored" data-anchor-id="mathematical-formulation">Mathematical formulation</h3>
+<p>Let <span class="math inline">\(X = \left( X_{1}, \dots, X_p \right)^{\top}\)</span> be a random vector composed of <span class="math inline">\(p\)</span> variables, centered and having variance-covariance matrix <span class="math inline">\(\Sigma\)</span>. Let <span class="math inline">\(\alpha_{1} = \left( \alpha_{11}, \dots, \alpha_{1p} \right)^{\top}\)</span> be a vector of coefficients. We are looking for a linear combination</p>
+<p><span class="math display">\[Y_{1} = \alpha_{1}^{\top} X = \sum_{k = 1}^{p} \alpha_{1k}X_k,\]</span></p>
+<p>such that the variance of <span class="math inline">\(Y_{1}\)</span> is maximized. The idea is simple: we want to combine <span class="math inline">\(p\)</span> variables into a single one, but while “capturing” as much of the variability as possible.</p>
+<p>First, we must add a constraint on <span class="math inline">\(\alpha_{1}\)</span>, since otherwise we would only have to take <span class="math inline">\(\alpha_{1k} = \pm \infty\)</span> and we would have <span class="math inline">\(\mathrm{Var}(Y_{1}) = +\infty\)</span>, which is definitely maximal! We therefore constrain <span class="math inline">\(\alpha_{1}\)</span> so that it has a norm equal to <span class="math inline">\(1\)</span>.</p>
+<p>This amounts to calculating: <span class="math display">\[\max_{\alpha_1^\top \alpha_1 = 1} \mathrm{Var}(Y_1) = \max_{\alpha_1^\top \alpha_1 = 1} \alpha_1^\top \Sigma \alpha_{1}.\]</span></p>
+<p>This problem is solved using Lagrange multipliers. It leads to the equation <span class="math display">\[\Sigma \alpha_1 = \lambda_{1} \alpha_{1},\]</span> where <span class="math inline">\(\lambda_{1}\)</span> is the largest eigenvalue of <span class="math inline">\(\Sigma\)</span> and <span class="math inline">\(\alpha_{1}\)</span> is the associated eigenvector.</p>
+<p>This defines the first principal component. The following components are constructed by imposing orthogonality conditions (linear independence) with the previous ones, which amounts to finding the following eigenvectors: <span class="math display">\[\Sigma \alpha_k = \lambda_k \alpha_k, \quad \text{with}\quad \lambda_{1} \geq \lambda_2 \geq \dots \lambda_p.\]</span> The principal components are therefore given by <span class="math display">\[Y_k = \alpha_k^\top X, \quad\text{with } \alpha_k \text{ being the eigenvector associated with } \lambda_k.\]</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\(\lambda_{1} &gt; \dots &gt; \lambda_{p}\)</span>, then the principal components are unique, up to sign.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We seek to calculate <span class="math display">\[\max_{\alpha_1^\top \alpha_1 = 1} \mathrm{Var}(Y_1) = \max_{\alpha_1^\top \alpha_1 = 1} \alpha_1^\top \Sigma \alpha_{1}.\]</span></p>
+<p>The problem is therefore to maximize <span class="math display">\[F(\alpha_{1}) = \alpha_{1}^\top \Sigma \alpha_1, \quad\text{s.c.}\quad \alpha_1^\top \alpha_1 = 1.\]</span></p>
+<p>This problem can be rewritten using Lagrange multipliers, i.e., maximize <span class="math display">\[F(\alpha_1, \lambda) = \alpha_1^\top \Sigma \alpha_1 - \lambda (\alpha_1^\top \alpha_1 -1 ),\]</span> where <span class="math inline">\(\lambda\)</span> is a Lagrange multiplier.</p>
+<p>To solve this problem, we differentiate <span class="math inline">\(F\)</span> with respect to <span class="math inline">\(\alpha_{1}\)</span> and <span class="math inline">\(\lambda\)</span>.</p>
+<p><span class="math display">\[\begin{cases}
+\frac{\partial F(\alpha_{1}, \lambda)} {\partial \alpha_{1}} = 2 \Sigma \alpha_{1} - 2 \lambda \alpha_{1},\\
+\frac{\partial F(\alpha_{1}, \lambda)} {\partial \lambda} = 1 - \alpha_{1}^\top \alpha_{1}.
+\end{cases}
+\]</span></p>
+<p>Then, we set equal to <span class="math inline">\(0\)</span>, which gives: <span class="math display">\[\begin{cases}
+\Sigma \alpha_{1} = \lambda \alpha_{1} \\
+\alpha_{1}^\top \alpha_{1} = 1
+\end{cases}
+.\]</span> The second equation is, of course, our constraint. The first equation is the one we are interested in. Using this equation and the definition of eigenelements, we deduce that</p>
+<ol type="1">
+<li><p><span class="math inline">\(\alpha_{1}\)</span> is an eigenvector (normed) of <span class="math inline">\(\Sigma\)</span>;</p></li>
+<li><p><span class="math inline">\(\lambda\)</span> is the corresponding eigenvalue.</p></li>
+</ol>
+<p>We therefore have that <span class="math display">\[\mathrm{Var}(Y_{1}) = \alpha_{1}^\top \Sigma \alpha_{1} = \lambda \alpha_{1}^\top \alpha_1 = \lambda.\]</span> Since we want to maximize this quantity, we conclude that:</p>
+<ol type="1">
+<li><p><span class="math inline">\(\lambda = \lambda_{1}\)</span>, the largest eigenvalue of <span class="math inline">\(\Sigma\)</span>;</p></li>
+<li><p><span class="math inline">\(\alpha_{1}\)</span>, the corresponding normalized eigenvector.</p></li>
+</ol>
+<p>We then continue with the calculation of the second component. Here, we pursue two objectives simultaneously:</p>
+<ol type="1">
+<li><p>Preserve the maximum variation present in <span class="math inline">\(X\)</span>;</p></li>
+<li><p>Simplify the dependency structure to facilitate interpretation and ensure the numerical stability of any methods that will use the principal components obtained.</p></li>
+</ol>
+<p>Given <span class="math inline">\(Y_{1}\)</span>, the second principal component <span class="math inline">\(Y_{2} = \alpha_{2}^\top X\)</span> is defined such that</p>
+<ol type="1">
+<li><p><span class="math inline">\(\mathrm{Var}(Y_{2}) = \alpha_{2}^\top \Sigma \alpha_{2}\)</span> is maximized;</p></li>
+<li><p><span class="math inline">\(\alpha_{2}^\top \alpha_{2} = 1\)</span>;</p></li>
+<li><p><span class="math inline">\(\mathrm{Cov}(Y_{1}, Y_{2}) = 0\)</span>.</p></li>
+</ol>
+<p>However, we have that <span class="math display">\[\mathrm{Cov}(Y_{1}, Y_{2}) = \mathrm{Cov}(\alpha_{1}^\top X, \alpha_{2}^\top X) = \alpha_{1}^\top \Sigma \alpha_{2} = \alpha_{2}^\top \Sigma \alpha_{1} = \lambda_{1} \alpha_{2}^\top \alpha_{1}.\]</span></p>
+<p>We are therefore looking for the vector <span class="math inline">\(\alpha_{2}\)</span> that maximizes: <span class="math display">\[F(\alpha_{2}, \lambda, \kappa) = \alpha_{2}^\top \Sigma \alpha_{2} - \lambda (\alpha_{2}^\top \alpha_{2} - 1) - \kappa (\alpha_{2}^\top \alpha_{1} - 0).\]</span></p>
+<p>As with the first component, we differentiate <span class="math inline">\(F\)</span> with respect to <span class="math inline">\(\alpha_{2}\)</span>, <span class="math inline">\(\lambda\)</span>, and <span class="math inline">\(\kappa\)</span>.</p>
+<p><span class="math display">\[\begin{cases}
+\frac{\partial F(\alpha_{2}, \lambda, \kappa)}{\partial \alpha_{2}} = 2 \Sigma \alpha_{2} - 2 \lambda \alpha_{2} - \kappa \alpha_1 \\
+\frac{\partial F(\alpha_{2}, \lambda, \kappa)} {\partial \lambda} = 1 - \alpha_{2}^\top \alpha_{2} \\
+\frac{\partial F(\alpha_{2}, \lambda, \kappa)} {\partial \kappa} = - \alpha_2^\top \alpha_1
+\end{cases}
+\]</span></p>
+<p>By setting the equations equal to <span class="math inline">\(0\)</span>, we find the two constraint equations, as well as</p>
+<p><span class="math display">\[2 \Sigma \alpha_{2} - 2 \lambda \alpha_{2} - \kappa \alpha_{1} = 0.\]</span></p>
+<p>Multiplying this equation on the left and right by <span class="math inline">\(\alpha_{1}^\top\)</span>, we find</p>
+<p><span class="math display">\[2 \alpha_{1}^\top \Sigma \alpha_{2} - 2 \alpha_{1}^\top \lambda \alpha_{2} - \kappa \alpha_{1}^\top \alpha_{1} = 0.\]</span></p>
+<p>Now, <span class="math inline">\(\alpha_{1}^\top \Sigma = \lambda_{1} \alpha_{1}^\top\)</span>, and <span class="math inline">\(\alpha_{1}^\top \alpha_{1} = 1\)</span>, so <span class="math display">\[2 \alpha_{1}^\top \lambda \alpha_{2} - 2 \alpha_{1}^\top \lambda \alpha_{2} - \kappa \alpha_{1}^\top \alpha_{1} = 0 \implies - \kappa = 0.\]</span></p>
+<p>Substituting this result, we obtain <span class="math display">\[\Sigma \alpha_{2} = \lambda \alpha_{2}.\]</span></p>
+<p>and therefore <span class="math inline">\(\lambda\)</span> is another eigenvalue of <span class="math inline">\(\Sigma\)</span>. Since <span class="math display">\[\mathrm{Var}(Y_{2}) = \alpha_{2}^\top \Sigma \alpha_{2} = \alpha_{2}^\top \lambda \alpha_{2} = \lambda,\]</span> we have that this variance is maximal if <span class="math inline">\(\lambda = \lambda_{2}\)</span>, the second largest eigenvalue of <span class="math inline">\(\Sigma\)</span>, and consequently <span class="math inline">\(\alpha_{2}\)</span> is the corresponding normalized eigenvector.</p>
+<p>We can generalize this result using successive maximizations. We conclude that <span class="math display">\[Y_k = \alpha_k^\top X,\]</span> where <span class="math inline">\(\alpha_k\)</span> is the normalized eigenvector associated with <span class="math inline">\(\lambda_k\)</span>, the <span class="math inline">\(k\)</span>th largest eigenvalue of <span class="math inline">\(\Sigma\)</span>.</p>
+</div>
+</div>
+</div>
+<p>It is possible to have a more compact representation of PCA using matrices. Let <span class="math inline">\(A = \left( \alpha_{1}, \dots, \alpha_p \right) \in \mathbb{R}^{p \times p}\)</span> be the matrix whose columns are the eigenvectors. We have <span class="math inline">\(Y = AX\)</span> and the covariance of the principal components is written as <span class="math display">\[\mathrm{Var}(Y) = A^\top \Sigma A.\]</span></p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Properties of <span class="math inline">\(A\)</span>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p><span class="math inline">\(A^{\top} A = A A^{\top} = I_p\)</span>;</p></li>
+<li><p><span class="math inline">\(A^{\top} = A^{-1}\)</span>;</p></li>
+<li><p><span class="math inline">\(\Sigma A = A \Lambda\)</span>, where <span class="math inline">\(\Lambda = \text{diag}(\lambda_{1}, \dots, \lambda_p)\)</span>;</p></li>
+<li><p><span class="math inline">\(\mathrm{Var}(Y) = A^{\top} \Sigma A = \Lambda \implies \mathrm{Cov}(Y_k, Y_l) = 0\)</span> if <span class="math inline">\(k \neq l\)</span> and <span class="math inline">\(\mathrm{Var}(Y_k) = \lambda_k \geq \mathrm{Var}(Y_l) = \lambda_l\)</span> if and only if <span class="math inline">\(k \geq l\)</span>.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proofs
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>By construction, the columns of <span class="math inline">\(A\)</span> are pairwise orthogonal and have norm <span class="math inline">\(1\)</span> (see constraints on eigenvectors). The matrix <span class="math inline">\(A\)</span> is therefore an orthogonal matrix. And so <span class="math inline">\(A^{\top} A = A A^{\top} = I_p\)</span>.</p></li>
+<li><p>Similarly, since <span class="math inline">\(A\)</span> is orthogonal, we have <span class="math inline">\(A^{\top} = A^{-1}\)</span>.</p></li>
+<li><p>The result is immediate by multiplying the matrices.</p></li>
+<li><p>We have <span class="math inline">\(\mathrm{Var}(Y) = A^{\top} \Sigma A = A^{\top} A \Lambda = \Lambda\)</span>. Since <span class="math inline">\(\Lambda\)</span> is a diagonal matrix, <span class="math inline">\(\mathrm{Cov}(Y_k, Y_l) = 0\)</span> if <span class="math inline">\(k \neq l\)</span> (because it is not on the diagonal) and since <span class="math inline">\(\lambda_{1} \geq \dots \geq \lambda_p\)</span>, we have <span class="math inline">\(\mathrm{Var}(Y_1) \geq \dots \geq \mathrm{Var}(Y_p)\)</span>.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<p>An overall measure of the variation present in the data is given by the trace of the matrix <span class="math inline">\(\Sigma\)</span>: <span class="math display">\[\text{tr}(\Sigma) = \text{tr}(\Lambda) = \sum_{i = 1}^{p} \lambda_i = \sum_{k = 1}^{p} \mathrm{Var}(Y_k).\]</span></p>
+<p>The proportion of variation explained by the principal component <span class="math inline">\(Y_k\)</span> is therefore given by the ratio between the eigenvalue <span class="math inline">\(k\)</span> and the sum of the eigenvalues: <span class="math display">\[\frac{\lambda_k}{\lambda_{1} + \cdots + \lambda_p} = \frac{\mathrm{Var}(Y_k)} {\text{tr}(\Sigma)}.\]</span></p>
+<p>Similarly, the first <span class="math inline">\(m\)</span> components explain <span class="math display">\[100\% \times \frac{\sum_{k = 1}^{m} \lambda_k}{\sum_{k = 1}^{p} \lambda_k} = 100\% \times \frac{\sum_{k = 1}^{m} \mathrm{Var}(Y_k)} {\sum_{k = 1}^{p} \mathrm{Var}(Y_k)}\]</span> of the variability in the variables.</p>
+</section></section><section id="practice-of-pca" class="level2"><h2 class="anchored" data-anchor-id="practice-of-pca">Practice of PCA</h2>
+<section id="estimation-of-the-variance-covariance-matrix" class="level3"><h3 class="anchored" data-anchor-id="estimation-of-the-variance-covariance-matrix">Estimation of the variance-covariance matrix</h3>
+<p>In practice, the variance-covariance matrix <span class="math inline">\(\Sigma\)</span> is unknown. To perform PCA, it is necessary to estimate <span class="math inline">\(\Sigma\)</span> from a random sample <span class="math inline">\(X_{1}, \dots, X_n\)</span> of independent realizations of <span class="math inline">\(X\)</span>. An (unbiased) estimator of <span class="math inline">\(\Sigma\)</span> is given by <span class="math display">\[\widehat{\Sigma} = \frac{1}{n - 1} \sum_{i = 1}^{n} \left( X_i - \overline{X} \right)\left( X_i - \widehat{X} \right)^{\top},\]</span> where <span class="math inline">\(\overline{X}\)</span> is the empirical mean of the sample.</p>
+<p>The matrix <span class="math inline">\(\widehat{\Sigma}\)</span> thus obtained is symmetric with real coefficients and therefore diagonalizable. It admits a spectral decomposition of the form <span class="math display">\[\widehat{\Sigma} = \widehat{A} \widehat{\Lambda} \widehat{A}^{\top},\]</span> where <span class="math inline">\(\widehat{A}\)</span> is an orthogonal matrix whose columns are the estimators of the eigenvectors of <span class="math inline">\(\Sigma\)</span> and <span class="math inline">\(\widehat{\Lambda}\)</span> is a diagonal matrix containing the estimators of the eigenvalues of <span class="math inline">\(\Sigma\)</span>, assumed to be ordered in descending order.</p>
+<p>The principal components are obtained by projecting the observations <span class="math inline">\(X_i\)</span> onto the basis of eigenvectors: <span class="math display">\[Y_i = \widehat{A}^{\top} X_i.\]</span></p>
+</section><section id="some-remarks" class="level3"><h3 class="anchored" data-anchor-id="some-remarks">Some remarks</h3>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Sensitivity to the scale of <span class="math inline">\(X_1, \dots, X_p\)</span>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Since we are looking for a linear combination of <span class="math inline">\(X_{1}, \dots, X_p\)</span> that maximizes the variance, a variable <span class="math inline">\(X_k\)</span> with a large variance will have a disproportionate weight in the principal components, which can distort the interpretation. One example is distance measurement. Expressing distance in meters rather than kilometers would multiply the variance of this variable by <span class="math inline">\(1\)</span> million <span class="math inline">\((10^3)^2\)</span>. This variable would therefore have a major weight in all components.</p>
+<p>Thus, if the variables are expressed in different units or have very different orders of magnitude, it is recommended to standardize the variables before performing PCA. This is equivalent to performing PCA on the correlation matrix.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>First step in predictive analysis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sometimes PCA is performed because we want to predict the value of variable <span class="math inline">\(Z\)</span> from the values of variables <span class="math inline">\(X_{1}, \dots, X_p\)</span>, but <span class="math inline">\(p\)</span> is simply too large. In this case, PCA is applied to obtain the first <span class="math inline">\(k \ll p\)</span> principal components <span class="math inline">\(Y_1, \dots, Y_k\)</span> and these are used to predict <span class="math inline">\(Z\)</span>.</p>
+<p>Since the principal components retain most of the information contained in the original variables, this is generally a reasonable approach.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Axis rotation and representation quality
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Since the matrix <span class="math inline">\(A\)</span> is orthogonal, the matrix product <span class="math inline">\(Y = A^{\top}X\)</span> represents a rotation of the variable space. The new axes correspond to the successive orthogonal directions of maximum variation, assuming that <span class="math inline">\(\lambda_{1} &gt; \dots &gt; \lambda_p\)</span>. Thus, <span class="math inline">\(Y_i = A^{\top} X_i\)</span> gives the coordinates of the observation <span class="math inline">\(X_i\)</span> in the new axis system. We call <span class="math inline">\(Y_{ik}\)</span> the score of the observation <span class="math inline">\(X_i\)</span> on the principal axis <span class="math inline">\(k\)</span> and calculate it as <span class="math display">\[Y_{ik} = \alpha_k^\top X_i = \sum_{l = 1}^{p} \alpha_{kl}X_{il}.\]</span></p>
+<p>The quality of the representation of observation <span class="math inline">\(i\)</span> on axis <span class="math inline">\(k\)</span> is given by <span class="math display">\[Q_{ik} = \frac{Y_{ik}^2}{d^2(0, Y_i)} = \frac{Y_{ik}^2}{\sqrt{Y_{i1}^2 + \dots + Y_{i p}^2}}.\]</span></p>
+</div>
+</div>
+</section><section id="choosing-the-number-of-components" class="level3"><h3 class="anchored" data-anchor-id="choosing-the-number-of-components">Choosing the number of components</h3>
+<p>A key issue in PCA is choosing how many principal components to retain. Retaining too many does not reduce the dimension, and retaining too few can result in the loss of relevant information. Here are the main rules of thumb used:</p>
+<ol type="1">
+<li><p><strong>80% rule</strong>: Retain the minimum number of components necessary to explain at least 80% of the total variance. This threshold is arbitrary, but it often provides a good intuition.</p></li>
+<li><p><strong>Kaiser’s rule</strong>: If PCA is performed using the correlation matrix, then the average eigenvalue is 1. It is recommended to keep only those components with an eigenvalue greater than the average eigenvalue, i.e., <span class="math inline">\(1\)</span>.</p></li>
+<li><p><strong>Joliffe’s rule</strong>: A stricter variant of Kaiser’s rule, which suggests keeping components with an eigenvalue greater than <span class="math inline">\(0.7\)</span> for PCA performed using the correlation matrix.</p></li>
+<li><p><strong>Cattell’s rule (or elbow rule)</strong>: Plot the eigenvalues <span class="math inline">\(\lambda_k\)</span> as a function of their rank <span class="math inline">\(k\)</span> and look for a breakpoint in the decline. Beyond this point, additional components explain little additional variance.</p></li>
+</ol>
+<p>These rules are decision-making tools, but the choice of the number of components also depends on the context, the objectives of the analysis, and ease of interpretation.</p>
+
+
+</section></section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -1188,8 +1448,8 @@ window.onload = function() {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../contents/dimension/02-ca.html" class="pagination-link" aria-label="MCA">
-        <span class="nav-page-text">MCA</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../contents/dimension/02-ca.html" class="pagination-link" aria-label="Correspondence analysis">
+        <span class="nav-page-text">Correspondence analysis</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1200,7 +1460,7 @@ window.onload = function() {
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions"><ul>
+<div class="toc-actions d-sm-block d-md-none"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/dimension/01-pca.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li>
 </ul></div>

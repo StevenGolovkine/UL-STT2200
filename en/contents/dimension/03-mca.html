@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.24">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>MCA – STT-2200: Data Analysis</title>
+<title>Multiple correspondence analysis – STT-2200: Data Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -84,7 +84,8 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script><meta property="og:title" content="MCA – STT-2200: Data Analysis">
+</script><meta property="og:title" content="Multiple correspondence analysis – STT-2200: Data Analysis">
+<meta property="og:description" content="Website for STT-2200">
 <meta property="og:site_name" content="STT-2200: Data Analysis">
 </head>
 <body class="nav-sidebar floating quarto-light">
@@ -258,7 +259,7 @@ window.Quarto = {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/04-dimension.html">04 - Dimension</a></li>
-<li class="breadcrumb-item"><a href="../../contents/dimension/03-mca.html">MCA</a></li>
+<li class="breadcrumb-item"><a href="../../contents/dimension/03-mca.html">Multiple correspondence analysis</a></li>
 </ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -440,19 +441,19 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/dimension/01-pca.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PCA</span></a>
+ <span class="menu-text">Principal components analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/dimension/02-ca.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">MCA</span></a>
+ <span class="menu-text">Correspondence analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/dimension/03-mca.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">MCA</span></a>
+ <span class="menu-text">Multiple correspondence analysis</span></a>
   </div>
 </li>
       </ul>
@@ -534,19 +535,31 @@ window.Quarto = {
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#notation" id="toc-notation" class="nav-link active" data-scroll-target="#notation">Notation</a></li>
+  <li><a href="#burts-table" id="toc-burts-table" class="nav-link" data-scroll-target="#burts-table">Burt’s Table</a></li>
+  <li><a href="#eigenelements-of-the-table-z" id="toc-eigenelements-of-the-table-z" class="nav-link" data-scroll-target="#eigenelements-of-the-table-z">Eigenelements of the table <span class="math inline">\(Z\)</span></a></li>
+  <li><a href="#eigenelements-of-burts-table-b" id="toc-eigenelements-of-burts-table-b" class="nav-link" data-scroll-target="#eigenelements-of-burts-table-b">Eigenelements of Burt’s table <span class="math inline">\(B\)</span></a></li>
+  <li><a href="#variable-encoding" id="toc-variable-encoding" class="nav-link" data-scroll-target="#variable-encoding">Variable encoding</a></li>
+  </ul>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/dimension/03-mca.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li>
+</ul></div>
+<div class="quarto-alternate-formats">
 <h2>Other Formats</h2>
 <ul><li><a href="03-mca.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
-</div>
+</div></nav>
 </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
 <li class="breadcrumb-item"><a href="../../contents/01-introduction.html">Modules</a></li>
 <li class="breadcrumb-item"><a href="../../contents/04-dimension.html">04 - Dimension</a></li>
-<li class="breadcrumb-item"><a href="../../contents/dimension/03-mca.html">MCA</a></li>
+<li class="breadcrumb-item"><a href="../../contents/dimension/03-mca.html">Multiple correspondence analysis</a></li>
 </ol></nav><div class="quarto-title">
-<h1 class="title">MCA</h1>
+<h1 class="title">Multiple correspondence analysis</h1>
 </div>
 
 
@@ -560,7 +573,182 @@ window.Quarto = {
   
 
 
-</header></main><!-- /main --><script>
+</header><p>Multiple correspondence analysis (MCA) can be presented as an extension of PCA. It allows for the graphical representation of frequency tables containing more than two variables. A classic example of a frequency table with more than two qualitative variables is a table presenting individuals’ responses to a questionnaire containing <span class="math inline">\(Q\)</span> multiple-choice questions. MCA is therefore very useful for visualizing the results of a questionnaire-based study.</p>
+<p>MCA can also be seen as a version of PCA when the variables are mixed, i.e., comprising both quantitative and qualitative variables. The joint processing of these two types of data is based on their prior transformation called <strong>complete disjunctive coding</strong>.</p>
+<section id="notation" class="level2"><h2 class="anchored" data-anchor-id="notation">Notation</h2>
+<p>Let <span class="math inline">\(n\)</span> be the number of individuals (or observations) and <span class="math inline">\(Q\)</span> the number of variables (or questions in the case of a questionnaire). Each variable has <span class="math inline">\(J_q\)</span> modalities and the total number of modalities is equal to <span class="math inline">\(J\)</span>.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The binary table, i.e., containing only <span class="math inline">\(0\)</span>s and <span class="math inline">\(1\)</span>s, with <span class="math inline">\(n\)</span> rows and <span class="math inline">\(J\)</span> columns is called a <strong>complete disjointive coding table</strong>. We denote it by <span class="math inline">\(Z\)</span>.</p>
+</div>
+</div>
+<p>Thus, a variable is not treated as such but through its modalities. It is divided into modalities, and each individual is then coded <span class="math inline">\(1\)</span> for the modality they possess and <span class="math inline">\(0\)</span> for the others (i.e., those they do not possess, as the modalities are exclusive). This coding is immediate for qualitative variables. However, for a qualitative variable, we first divide the variable into classes. Thus, each individual belongs to only one class. This process of transforming information is called <strong>complete disjunctive coding</strong>. It is indeed coding, because the initial information is transformed; disjunctive, because each individual has at most one modality; and complete, because each individual has at least one modality.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let’s take, for example, a set of products with different types (Hoodie, Joggers, and Sneakers) and different prices. We have <span class="math inline">\(7\)</span> observations (<span class="math inline">\(7\)</span> products). The variable <code>Type</code> is a qualitative variable and the variable <code>Price</code> is a quantitative variable.</p>
+<table class="caption-top table">
+<caption>Product dataset.</caption>
+<thead><tr class="header">
+<th style="text-align: right;">Product</th>
+<th style="text-align: right;">Type</th>
+<th style="text-align: center;">Price ($)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">Nike Tech Fleece</td>
+<td style="text-align: right;">Hoodie</td>
+<td style="text-align: center;">256.72</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Puma Joggers</td>
+<td style="text-align: right;">Joggers</td>
+<td style="text-align: center;">221.26</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">Off-White Hoodie</td>
+<td style="text-align: right;">Hoodie</td>
+<td style="text-align: center;">198.45</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Supreme Hoodie</td>
+<td style="text-align: right;">Hoodie</td>
+<td style="text-align: center;">235.50</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">Jordan 1 High</td>
+<td style="text-align: right;">Sneakers</td>
+<td style="text-align: center;">298.22</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Nike Dunk Low</td>
+<td style="text-align: right;">Sneakers</td>
+<td style="text-align: center;">273.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">Nike Tech Fleece</td>
+<td style="text-align: right;">Hoodie</td>
+<td style="text-align: center;">162.38</td>
+</tr>
+</tbody>
+</table>
+<p>To encode the information in a complete disjunctive coding table, we define three price classes (price below $200, price between $200 and $250, and price above $250). This allows us to encode the variable <code>Price</code> using the above classes. The complete disjunctive table is given in the following table.</p>
+<div class="line-block">Product | Hoodie | Joggers | Sneakers | $&lt;$200 | between $200 and $250 | $&gt;$250 |</div>
+<p>|——–:|:—– -:|:——-:|:——–:|:——:|:-:|:-:| |Nike Tech Fleece |1 | 0 | 0 | 0 | 0 | 1 | |Puma Joggers |0 | 1 | 0 | 0 | 1 | 1 | |Off-White Hoodie |1 | 0 | 0 | 1 | 0 | 0 | |Supreme Hoodie |1 | 0 | 0 | 0 | 1 | 0 | |Jordan 1 High |0 | 0 | 1 | 0 | 0 | 1 | |Nike Dunk Low |0 | 0 | 1 | 0 | 0 | 1 | |Nike Tech Fleece |1 | 0 | 0 | 1 | 0 | 0 |</p>
+<p>: Product dataset in complete disjunctive coding.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When transforming quantitative variables into a complete disjunctive coding table, information is lost. This is because qualitative variables must be divided into classes, and class membership is less informative than a specific variable value. In the previous example, information about price is lost.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Properties
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>The sum of the elements in the same row is constant and equals <span class="math inline">\(Q\)</span>.</p></li>
+<li><p>The sum of all the elements in the table equals <span class="math inline">\(nQ\)</span>.</p></li>
+<li><p>The sum of the elements in the same column equals the count <span class="math inline">\(n_j\)</span> with modality <span class="math inline">\(j\)</span> of variable <span class="math inline">\(q\)</span>.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Since <span class="math inline">\(Z\)</span> is a complete disjunctive array, we have <span class="math display">\[\sum_{j = 1}^{J_q} z_{ij} = 1.\]</span> Therefore, we find that <span class="math display">\[z_{i \bullet} = \sum_{j = 1}^{J} z_{ij} = \sum_{q = 1}^{Q} \sum_{j = 1}^{J_q} z_{ij} = Q, \]</span></p>
+<p><span class="math display">\[z_{\bullet j} = \sum_{i = 1}^{n} z_{ij} = n_j,\]</span></p>
+<p><span class="math display">\[z_{\bullet \bullet} = \sum_{i = 1}^{n} \sum_{j = 1}^{J} z_{ij} = nQ.\]</span></p>
+</div>
+</div>
+</div>
+</section><section id="burts-table" class="level2"><h2 class="anchored" data-anchor-id="burts-table">Burt’s Table</h2>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <strong>Burt’s table</strong>, denoted <span class="math inline">\(B\)</span>, is the product of the transpose of <span class="math inline">\(Z\)</span> by <span class="math inline">\(Z\)</span>: <span class="math display">\[B = Z^{\top} Z.\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Properties of <span class="math inline">\(B\)</span>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Burt’s table is square and its size is equal to the total number of modalities <span class="math inline">\(J\)</span> possessed by the <span class="math inline">\(Q\)</span> variables.</p></li>
+<li><p>The diagonal blocks of <span class="math inline">\(B\)</span> are themselves diagonal matrices. They are given by <span class="math inline">\(B_{qq} = Z^{\top}_q Z_q\)</span> and their diagonal elements correspond to the frequency of each modality for variable <span class="math inline">\(q\)</span>.</p></li>
+<li><p>The non-diagonal blocks of <span class="math inline">\(B\)</span> are given by <span class="math inline">\(B_{qq^\prime} = Z^{\top}_q Z_{q^\prime}, q \neq q^\prime\)</span>. They correspond to the contingency tables crossing the variables <span class="math inline">\(q\)</span> and <span class="math inline">\(q^\prime\)</span>.</p></li>
+<li><p>Burt’s table is symmetric because <span class="math inline">\(B_{q^\prime q} = Z^{\top}_{q^\prime} Z_{q}\)</span> is the transpose of <span class="math inline">\(B_{q q^\prime} = Z^{\top}_q Z_{q^\prime}\)</span>.</p></li>
+</ol>
+</div>
+</div>
+<p>From a mathematical point of view, ACM is an AFC performed on the logical matrix <span class="math inline">\(Z\)</span> or on Burt’s table <span class="math inline">\(B\)</span>. It can be shown that the same factors are obtained, regardless of the matrix used for the analysis.</p>
+</section><section id="eigenelements-of-the-table-z" class="level2"><h2 class="anchored" data-anchor-id="eigenelements-of-the-table-z">Eigenelements of the table <span class="math inline">\(Z\)</span>
+</h2>
+<p>The eigenelements of the table <span class="math inline">\(Z\)</span> can be calculated using the same method as for PCA. By analogy with PCA, we therefore seek the eigenvectors of the matrix <span class="math display">\[S = \frac{1}{Q} Z^{\top} Z D_J^{-1},\]</span> where <span class="math inline">\(D_J\)</span> is the diagonal matrix of term <span class="math inline">\(n_j, j = 1, \dots, J\)</span>. We can calculate the coordinates of the line profiles on the factorial axes in the same way: <span class="math display">\[\Phi_k = n Z D_J^{-1} u_k,\]</span> where <span class="math inline">\(u_k\)</span> is the <span class="math inline">\(k\)</span>th eigenvector associated with the eigenvalue <span class="math inline">\(\lambda_k\)</span> of the matrix <span class="math inline">\(S\)</span>.</p>
+<p>We can also look at the dual analysis of the table <span class="math inline">\(Z\)</span>. Again, by analogy with PCA, we look for the eigenvectors of the matrix <span class="math display">\[T = \frac{1}{Q} Z D_J^{-1} Z^{\top}.\]</span> Similarly, we can calculate the coordinates of the column profiles on the factorial axes: <span class="math display">\[\Psi_k = n D_J^{-1} Z^{\top} v_k.\]</span></p>
+</section><section id="eigenelements-of-burts-table-b" class="level2"><h2 class="anchored" data-anchor-id="eigenelements-of-burts-table-b">Eigenelements of Burt’s table <span class="math inline">\(B\)</span>
+</h2>
+<p>Since Burt’s table is symmetric, the direct analysis and the dual analysis coincide. We can also analyze it in analogy with PCA. The sum of the elements of the same row (or the same column) of <span class="math inline">\(B\)</span> is <span class="math inline">\(Q n_j\)</span> and the sum of the elements of <span class="math inline">\(B\)</span> is <span class="math inline">\(n Q^2\)</span>. We are looking for the eigenvectors of the matrix <span class="math display">\[S^\prime = \frac{1}{Q^2} B^{\top} D_J^{-1} B D_J^{-1}.\]</span></p>
+<p>We then notice that this matrix <span class="math inline">\(S^\prime\)</span> has the same eigenvectors as the matrix <span class="math inline">\(S\)</span>. Indeed, <span class="math display">\[S^\prime = \frac{1}{Q^2} B^{\top} D_J^{-1} B D_J^{-1} = \frac{1}{Q^2} Z^{\top} Z D_J^{-1} Z^{\top} Z D_J^{-1}.\]</span> And let <span class="math inline">\(u\)</span> and <span class="math inline">\(\lambda\)</span> satisfy <span class="math inline">\(Z^{\top} Z D_J^{-1} = \lambda u\)</span>, then <span class="math display">\[ Z^{\top} Z D_J^{-1} Z^{\top} Z D_J^{-1} u = Z^{\top} Z D_J^{-1} \lambda u = \lambda^2 u.\]</span></p>
+<p>Finally, the analysis of <span class="math inline">\(Z\)</span> or <span class="math inline">\(B\)</span> provides the same eigenvectors, and for all <span class="math inline">\(k = 1, \dots, Q\)</span>, the <span class="math inline">\(k\)</span>th eigenvalue of <span class="math inline">\(B\)</span> is the square of the <span class="math inline">\(k\)</span>th eigenvalue of <span class="math inline">\(Z\)</span>.</p>
+</section><section id="variable-encoding" class="level2"><h2 class="anchored" data-anchor-id="variable-encoding">Variable encoding</h2>
+<p>Variable encoding, and in particular the choice of class boundaries, is essential in ACM. For continuous variables, the boundaries should be relevant to the problem being studied. For example, we would not define a class <span class="math inline">\(&gt; 1000\)</span> in the previous example. To obtain relevant bounds, we can look at the distributions of the variables, e.g., with a histogram. In some specific cases, it is possible to divide the variable into equal-sized categories. However, this approach can lead to irrelevant categories.</p>
+<p>In the case of qualitative variables, the choice of classes does not arise; it is given by the variable. However, “natural” modalities can lead to (very) unbalanced frequencies. In this case, we generally need to proceed with groupings. Here again, a good knowledge of the field being studied is necessary. In any case, it is preferable to group modalities rather than randomly distribute modalities with low frequencies among the other modalities (which is sometimes proposed in software).</p>
+
+
+</section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -1183,8 +1371,8 @@ window.onload = function() {
     }
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../../contents/dimension/02-ca.html" class="pagination-link" aria-label="MCA">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">MCA</span>
+      <a href="../../contents/dimension/02-ca.html" class="pagination-link" aria-label="Correspondence analysis">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Correspondence analysis</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -1200,7 +1388,7 @@ window.onload = function() {
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions"><ul>
+<div class="toc-actions d-sm-block d-md-none"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/dimension/03-mca.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li>
 </ul></div>
