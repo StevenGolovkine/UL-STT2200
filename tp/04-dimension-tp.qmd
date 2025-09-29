@@ -9,3 +9,23 @@ format:
 ---
 
 Vous pouvez faire les exercices dans le langage de votre choix.
+
+## Exercice 1: Des coquillages
+
+Dans cette exercice, on se propose de faire une analyse de données de coquillages. Pour cela, on a accès à 7 mesures physiques des coquillages, ainsi que leur genre et leur âge. 
+
+1. Télécharger le jeu de données suivant: [lien](../include/data/tp/abalone.csv). Des informations sur le jeu de données sont disponibles [ici](https://www.kaggle.com/datasets/farkhod77/abalone-age-predict).
+
+2. Faire une rapide analyse descriptive des données.
+
+3. Faire une analyse en composantes principales.
+
+4. Combien gardez-vous d'axes factoriels en fonction des différentes règles vu en cours ?
+
+5. Quelles sont les deux variables qui contribuent le plus à la deuxième dimension ? Et quelles sont les deux observations qui contribuent le plus à la troisième dimension ?
+
+6. Comment interprétez la première dimension ?
+
+7. Quelle est le pourcentage de la variabilité expliquée par les trois premiers axes factoriels ?
+
+8. Dans ce contexte, était-il pertinent de standardiser les données pour faire l'analyse en composantes principales ? Justifiez.
