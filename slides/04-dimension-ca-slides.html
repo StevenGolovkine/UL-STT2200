@@ -8,8 +8,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.24">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.25">
 
   <meta name="author" content="Steven Golovkine">
   <title>STT-2200: Analyse de données – Dimension</title>
@@ -30,6 +30,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-61cb6bcdcb66a6a6ea8a61dd05d6a15c.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -145,17 +211,233 @@ Steven Golovkine
 </div>
 </div>
 
-  <p class="date">29 sept. 2025</p>
+  <p class="date">01 oct. 2025</p>
   <figure>
     <center>
       <img src="../include/logo-ul.png" alt="logo" width="40%">
     </center>
   </figure>
 </section>
-<section id="introduction-à-lafc" class="slide level2">
-<h2>Introduction à l’AFC</h2>
-<p>L’<strong>Analyse Factorielle des Correspondances (AFC)</strong> est une méthode d’analyse exploratoire pour représenter graphiquement les relations entre les modalités de <strong>deux variables qualitatives</strong>.</p>
-<p><strong>Objectifs</strong> : - Représenter simultanément les profils-lignes et profils-colonnes - Préserver la distance du <span class="math inline">\(\chi^2\)</span> - Trouver une représentation en faible dimension (2D-3D) - Révéler les proximités géométriques = similarités entre modalités</p>
+<section id="limite-de-lacp" class="slide level2">
+<h2>Limite de l’ACP</h2>
+<p><br></p>
+<p>L’analyse en composantes principales est restreinte à des données quantitatives.</p>
+<p><br></p>
+<p>→ Comment faire lorsque l’on a des données qualitatives ?</p>
+</section>
+<section id="plan" class="slide level2">
+<h2>Plan</h2>
+<p><br></p>
+<ol type="1">
+<li><p>La théorie de l’analyse factorielle des correspondances</p></li>
+<li><p>L’AFC en pratique</p></li>
+<li><p>Exemple : le taux d’emploi au Canada</p></li>
+</ol>
+</section>
+<section id="analyse-factorielle-des-correspondances" class="slide level2">
+<h2>Analyse factorielle des correspondances</h2>
+<p><br></p>
+<p>L’Analyse Factorielle des Correspondances (AFC) est une méthode d’analyse exploratoire pour représenter graphiquement les relations entre les modalités de <strong>deux</strong> variables qualitatives.</p>
+<p><br></p>
+<p>Objectif → Trouver une représentation en faible dimension tout en gardant le maximum d’information possible.</p>
+</section>
+<section id="notation" class="slide level2">
+<h2>Notation</h2>
+<p><br></p>
+<p>Tableau de contingence:</p>
+<p><span class="math display">\[K = (k_{ij}) \text{ avec } k_{ij} = \text{ effectif classe } i \in \{1, \dots, n\}, \text{ catégorie } j \in \{1, \dots, p\}.\]</span></p>
+</section>
+<section id="notation-1" class="slide level2">
+<h2>Notation</h2>
+<p><br></p>
+<p>Tableau de fréquences relatives :</p>
+<p><span class="math display">\[F = (f_{ij}) \text{ où } f_{ij} = \frac{k_{ij}}{k_{\bullet\bullet}}.\]</span></p>
+</section>
+<section id="notation-2" class="slide level2">
+<h2>Notation</h2>
+<p><br></p>
+<p>Marges :</p>
+<ul>
+<li><p>Ligne : <span class="math inline">\(f_{i\bullet} = \sum_{j=1}^p f_{ij}\)</span></p></li>
+<li><p>Colonne : <span class="math inline">\(f_{\bullet j} = \sum_{i=1}^n f_{ij}\)</span></p></li>
+<li><p>Total : <span class="math inline">\(f_{\bullet\bullet} = 1\)</span></p></li>
+</ul>
+</section>
+<section id="exemple-concret" class="slide level2">
+<h2>Exemple concret</h2>
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: right;">Collège</th>
+<th style="text-align: right;">Université Laval</th>
+<th style="text-align: right;">Autre université</th>
+<th style="text-align: right;">Hors Québec</th>
+<th style="text-align: right;"><span class="math inline">\(f_{i \bullet}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Actuariat</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.12</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Statistique</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.28</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Bio-info</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.32</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Finance</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.08</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Maths</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Info</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(f_{\bullet j}\)</span></td>
+<td style="text-align: right;">0.52</td>
+<td style="text-align: right;">0.28</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="indépendance-statistique" class="slide level2">
+<h2>Indépendance statistique</h2>
+<p><br></p>
+<p>Test d’indépendance : Si les variables sont indépendantes, <span class="math display">\[f_{ij} \approx f_{i\bullet} f_{\bullet j}\]</span></p>
+</section>
+<section id="indépendance-statistique-1" class="slide level2">
+<h2>Indépendance statistique</h2>
+<p><br></p>
+<p>Test du <span class="math inline">\(\chi^2\)</span> :</p>
+<p><span class="math display">\[T = \sum_{i,j} \frac{(k_{ij} - \mathbb{E}(k_{ij}))^2}{\mathbb{E}(k_{ij})} = \sum_{i,j} \frac{(k_{ij} - \frac{k_{i\bullet}k_{\bullet j}}{k_{\bullet\bullet}})^2}{\frac{k_{i\bullet}k_{\bullet j}}{k_{\bullet\bullet}}}\]</span></p>
+<p>Si <span class="math inline">\(T \approx 0\)</span> → indépendance<br>
+Si <span class="math inline">\(T\)</span> grand → dépendance (intéressant pour l’AFC)</p>
+</section>
+<section id="profils-lignes-et-profils-colonnes" class="slide level2">
+<h2>Profils-lignes et profils-colonnes</h2>
+<p>Profil-ligne <span class="math inline">\(i\)</span> : Répartition de la modalité <span class="math inline">\(i\)</span> parmi les colonnes <span class="math display">\[L_i = \left(\frac{f_{i1}}{f_{i\bullet}}, \ldots, \frac{f_{ip}}{f_{i\bullet}}\right).\]</span></p>
+<div class="fragment">
+<p>Profil-colonne <span class="math inline">\(j\)</span> : Répartition de la modalité <span class="math inline">\(j\)</span> parmi les lignes <span class="math display">\[C_j = \left(\frac{f_{1j}}{f_{\bullet j}}, \ldots, \frac{f_{nj}}{f_{\bullet j}}\right).\]</span></p>
+</div>
+<div class="fragment">
+<p>Les profils sont des distributions conditionnelles.</p>
+</div>
+</section>
+<section id="profils-moyens" class="slide level2">
+<h2>Profils moyens</h2>
+<p><br></p>
+<p>Profil-ligne moyen = fréquences marginales colonnes : <span class="math display">\[\text{Profil moyen} = (f_{\bullet 1}, \ldots, f_{\bullet p})\]</span></p>
+<p>Profil-colonne moyen = fréquences marginales lignes : <span class="math display">\[\text{Profil moyen} = (f_{1\bullet}, \ldots, f_{n\bullet})\]</span></p>
+<p>Indépendance <span class="math inline">\(\Longleftrightarrow\)</span> Tous les profils <span class="math inline">\(\approx\)</span> profils moyens.</p>
+</section>
+<section id="distance-du-chi2" class="slide level2">
+<h2>Distance du <span class="math inline">\(\chi^2\)</span></h2>
+<p>Distance entre profils-lignes : <span class="math display">\[d^2(L_i, L_{i'}) = \sum_{j=1}^p \frac{1}{f_{\bullet j}} \left(\frac{f_{ij}}{f_{i\bullet}} - \frac{f_{i'j}}{f_{i'\bullet}}\right)^2\]</span></p>
+<p>Distance entre profils-colonnes : <span class="math display">\[d^2(C_j, C_{j'}) = \sum_{i=1}^n \frac{1}{f_{i\bullet}} \left(\frac{f_{ij}}{f_{\bullet j}} - \frac{f_{ij'}}{f_{\bullet j'}}\right)^2\]</span></p>
+</section>
+<section id="formulation-matricielle" class="slide level2">
+<h2>Formulation matricielle</h2>
+<p>Matrices de poids :</p>
+<ul>
+<li><p><span class="math inline">\(D_n = \text{diag}(f_{i\bullet})\)</span> → poids des lignes</p></li>
+<li><p><span class="math inline">\(D_p = \text{diag}(f_{\bullet j})\)</span> → poids des colonnes</p></li>
+</ul>
+<div class="fragment">
+<p>Distance du <span class="math inline">\(\chi^2\)</span> matricielle :</p>
+<ul>
+<li><p>Profils-lignes : <span class="math inline">\(d^2(L_i, L_{i'}) = (L_i - L_{i'})^\top D_p^{-1} (L_i - L_{i'})\)</span></p></li>
+<li><p>Profils-colonnes : <span class="math inline">\(d^2(C_j, C_{j'}) = (C_j - C_{j'})^\top D_n^{-1} (C_j - C_{j'})\)</span></p></li>
+</ul>
+</div>
+</section>
+<section id="analyse-directe-profils-lignes" class="slide level2">
+<h2>Analyse directe (profils-lignes)</h2>
+<p>Objectif : Maximiser la variance projetée des profils-lignes</p>
+<div class="fragment">
+<p>Problème d’optimisation : <span class="math display">\[\max_u u^\top D_p^{-1} F^\top D_n^{-1} F D_p^{-1} u \quad \text{s.c.} \quad u^\top D_p^{-1} u = 1\]</span></p>
+</div>
+<div class="fragment">
+<p>Solution : Vecteurs propres de la matrice <span class="math display">\[S = F^\top D_n^{-1} F D_p^{-1}\]</span></p>
+</div>
+<div class="fragment">
+<p>Premier axe factoriel : <span class="math inline">\(S u_1 = \lambda_1 u_1\)</span></p>
+</div>
+</section>
+<section id="analyse-duale-profils-colonnes" class="slide level2">
+<h2>Analyse duale (profils-colonnes)</h2>
+<p>Objectif : Maximiser la variance projetée des profils-colonnes</p>
+<div class="fragment">
+<p>Problème d’optimisation similaire avec matrice : <span class="math display">\[T = F D_p^{-1} F^\top D_n^{-1}\]</span></p>
+</div>
+<div class="fragment">
+<p>Premier axe factoriel : <span class="math inline">\(T v_1 = \mu_1 v_1\)</span></p>
+</div>
+</section>
+<section id="propriété" class="slide level2">
+<h2>Propriété</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Propriété</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math inline">\(S\)</span> et <span class="math inline">\(T\)</span> ont les mêmes <span class="math inline">\(r = \min(n-1, p-1)\)</span> valeurs propres positives !</p>
+</div>
+</div>
+</div>
+</section>
+<section id="relations-entre-analyses" class="slide level2">
+<h2>Relations entre analyses</h2>
+<p>Cohérence des représentations : <span class="math inline">\(\lambda_k = \mu_k\)</span> pour <span class="math inline">\(k = 1, \ldots, r\)</span></p>
+<p>Relations entre vecteurs propres : <span class="math display">\[u_k = \frac{1}{\sqrt{\lambda_k}} F^\top D_n^{-1} v_k.\]</span> <span class="math display">\[v_k = \frac{1}{\sqrt{\lambda_k}} F D_p^{-1} u_k.\]</span></p>
+<p>Cette propriété garantit une représentation cohérente dans le même espace réduit.</p>
 </section>
 <section id="afc-comme-double-acp" class="slide level2">
 <h2>AFC comme double ACP</h2>
@@ -165,154 +447,62 @@ Steven Golovkine
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Astuce</strong></p>
+<p><strong>Remarque</strong></p>
 </div>
 <div class="callout-content">
-<p>L’AFC peut être vue comme une <strong>double ACP pondérée</strong> : - ACP des profils-lignes dans <span class="math inline">\(\mathbb{R}^p\)</span> - ACP des profils-colonnes dans <span class="math inline">\(\mathbb{R}^n\)</span> - Avec métriques du <span class="math inline">\(\chi^2\)</span> adaptées à chaque espace</p>
+<p>L’AFC peut être vue comme une <strong>double ACP pondérée</strong> :</p>
+<ul>
+<li><p>ACP des profils-lignes dans <span class="math inline">\(\mathbb{R}^p\)</span>,</p></li>
+<li><p>ACP des profils-colonnes dans <span class="math inline">\(\mathbb{R}^n\)</span>,</p></li>
+<li><p>Avec métriques du <span class="math inline">\(\chi^2\)</span> adaptées à chaque espace.</p></li>
+</ul>
 </div>
 </div>
 </div>
-<p>Cette dualité permet une représentation cohérente des lignes et colonnes dans le même espace réduit.</p>
-</section>
-<section id="notation-de-base" class="slide level2">
-<h2>Notation de base</h2>
-<p><strong>Tableau de contingence</strong> : <span class="math inline">\(K = (k_{ij})\)</span> avec <span class="math inline">\(k_{ij}\)</span> = effectif classe <span class="math inline">\(i\)</span>, catégorie <span class="math inline">\(j\)</span></p>
-<p><strong>Tableau de fréquences relatives</strong> : <span class="math inline">\(F = (f_{ij})\)</span> où <span class="math display">\[f_{ij} = \frac{k_{ij}}{k_{\bullet\bullet}}\]</span></p>
-<p><strong>Marges</strong> : - Ligne : <span class="math inline">\(f_{i\bullet} = \sum_{j=1}^p f_{ij}\)</span> - Colonne : <span class="math inline">\(f_{\bullet j} = \sum_{i=1}^n f_{ij}\)</span> - Total : <span class="math inline">\(f_{\bullet\bullet} = 1\)</span></p>
-</section>
-<section id="exemple-concret" class="slide level2">
-<h2>Exemple concret</h2>
-<p><strong>Étudiants STT-2200 (Automne 2025)</strong> : Majeure × Type d’admission</p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Majeure</th>
-<th>Collège</th>
-<th>ULaval</th>
-<th>Autre univ.</th>
-<th>Hors QC</th>
-<th>Total</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Actuariat</td>
-<td>0.08</td>
-<td>0</td>
-<td>0</td>
-<td>0.04</td>
-<td>0.12</td>
-</tr>
-<tr class="even">
-<td>Statistique</td>
-<td>0.08</td>
-<td>0.16</td>
-<td>0.04</td>
-<td>0</td>
-<td>0.28</td>
-</tr>
-<tr class="odd">
-<td>Bio-info</td>
-<td>0.16</td>
-<td>0.08</td>
-<td>0</td>
-<td>0.08</td>
-<td>0.32</td>
-</tr>
-<tr class="even">
-<td>Finance</td>
-<td>0.08</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0.08</td>
-</tr>
-<tr class="odd">
-<td><strong>Total</strong></td>
-<td><strong>0.52</strong></td>
-<td><strong>0.28</strong></td>
-<td><strong>0.04</strong></td>
-<td><strong>0.16</strong></td>
-<td><strong>1</strong></td>
-</tr>
-</tbody>
-</table>
-<p>25 étudiants au total, convertis en fréquences relatives.</p>
-</section>
-<section id="indépendance-statistique" class="slide level2">
-<h2>Indépendance statistique</h2>
-<p><strong>Test d’indépendance</strong> : Si les variables sont indépendantes, <span class="math display">\[f_{ij} \approx f_{i\bullet} f_{\bullet j}\]</span></p>
-<p><strong>Test du <span class="math inline">\(\chi^2\)</span></strong> : <span class="math display">\[T = \sum_{i,j} \frac{(k_{ij} - \mathbb{E}(k_{ij}))^2}{\mathbb{E}(k_{ij})} = \sum_{i,j} \frac{(k_{ij} - \frac{k_{i\bullet}k_{\bullet j}}{k_{\bullet\bullet}})^2}{\frac{k_{i\bullet}k_{\bullet j}}{k_{\bullet\bullet}}}\]</span></p>
-<p>Si <span class="math inline">\(T \approx 0\)</span> → indépendance<br>
-Si <span class="math inline">\(T\)</span> grand → dépendance (intéressant pour l’AFC)</p>
-</section>
-<section id="profils-lignes-et-profils-colonnes" class="slide level2">
-<h2>Profils-lignes et profils-colonnes</h2>
-<p><strong>Profil-ligne <span class="math inline">\(i\)</span></strong> : Répartition de la modalité <span class="math inline">\(i\)</span> parmi les colonnes <span class="math display">\[L_i = \left(\frac{f_{i1}}{f_{i\bullet}}, \ldots, \frac{f_{ip}}{f_{i\bullet}}\right)\]</span></p>
-<p><strong>Profil-colonne <span class="math inline">\(j\)</span></strong> : Répartition de la modalité <span class="math inline">\(j\)</span> parmi les lignes <span class="math display">\[C_j = \left(\frac{f_{1j}}{f_{\bullet j}}, \ldots, \frac{f_{nj}}{f_{\bullet j}}\right)\]</span></p>
-<p>Les profils sont des <strong>distributions conditionnelles</strong>.</p>
-</section>
-<section id="profils-moyens" class="slide level2">
-<h2>Profils moyens</h2>
-<p><strong>Profil-ligne moyen</strong> = fréquences marginales colonnes : <span class="math display">\[\text{Profil moyen} = (f_{\bullet 1}, \ldots, f_{\bullet p})\]</span></p>
-<p><strong>Profil-colonne moyen</strong> = fréquences marginales lignes : <span class="math display">\[\text{Profil moyen} = (f_{1\bullet}, \ldots, f_{n\bullet})\]</span></p>
-<p><strong>Indépendance</strong> ⟺ Tous les profils = profils moyens</p>
-</section>
-<section id="distance-du-chi2" class="slide level2">
-<h2>Distance du <span class="math inline">\(\chi^2\)</span></h2>
-<p><strong>Distance entre profils-lignes</strong> : <span class="math display">\[d^2(L_i, L_{i'}) = \sum_{j=1}^p \frac{1}{f_{\bullet j}} \left(\frac{f_{ij}}{f_{i\bullet}} - \frac{f_{i'j}}{f_{i'\bullet}}\right)^2\]</span></p>
-<p><strong>Distance entre profils-colonnes</strong> : <span class="math display">\[d^2(C_j, C_{j'}) = \sum_{i=1}^n \frac{1}{f_{i\bullet}} \left(\frac{f_{ij}}{f_{\bullet j}} - \frac{f_{ij'}}{f_{\bullet j'}}\right)^2\]</span></p>
-<p><strong>Pondération</strong> par l’inverse des fréquences marginales.</p>
-</section>
-<section id="formulation-matricielle" class="slide level2">
-<h2>Formulation matricielle</h2>
-<p><strong>Matrices de poids</strong> : - <span class="math inline">\(D_n = \text{diag}(f_{i\bullet})\)</span> (poids des lignes) - <span class="math inline">\(D_p = \text{diag}(f_{\bullet j})\)</span> (poids des colonnes)</p>
-<p><strong>Distance du <span class="math inline">\(\chi^2\)</span> matricielle</strong> : - Profils-lignes : <span class="math inline">\(d^2(L_i, L_{i'}) = (L_i - L_{i'})^\top D_p^{-1} (L_i - L_{i'})\)</span> - Profils-colonnes : <span class="math inline">\(d^2(C_j, C_{j'}) = (C_j - C_{j'})^\top D_n^{-1} (C_j - C_{j'})\)</span></p>
-</section>
-<section id="analyse-directe-profils-lignes" class="slide level2">
-<h2>Analyse directe (profils-lignes)</h2>
-<p><strong>Objectif</strong> : Maximiser la variance projetée des profils-lignes</p>
-<p><strong>Problème d’optimisation</strong> : <span class="math display">\[\max_u u^\top D_p^{-1} F^\top D_n^{-1} F D_p^{-1} u \quad \text{s.c.} \quad u^\top D_p^{-1} u = 1\]</span></p>
-<p><strong>Solution</strong> : Vecteurs propres de la matrice <span class="math display">\[S = F^\top D_n^{-1} F D_p^{-1}\]</span></p>
-<p><strong>Premier axe factoriel</strong> : <span class="math inline">\(S u_1 = \lambda_1 u_1\)</span></p>
-</section>
-<section id="analyse-duale-profils-colonnes" class="slide level2">
-<h2>Analyse duale (profils-colonnes)</h2>
-<p><strong>Objectif</strong> : Maximiser la variance projetée des profils-colonnes</p>
-<p><strong>Problème d’optimisation</strong> similaire avec matrice : <span class="math display">\[T = F D_p^{-1} F^\top D_n^{-1}\]</span></p>
-<p><strong>Premier axe factoriel</strong> : <span class="math inline">\(T v_1 = \mu_1 v_1\)</span></p>
-<p><strong>Propriété fondamentale</strong> : <span class="math inline">\(S\)</span> et <span class="math inline">\(T\)</span> ont les mêmes <span class="math inline">\(r = \min(n-1, p-1)\)</span> valeurs propres positives !</p>
-</section>
-<section id="relations-entre-analyses" class="slide level2">
-<h2>Relations entre analyses</h2>
-<p><strong>Cohérence des représentations</strong> : <span class="math inline">\(\lambda_k = \mu_k\)</span> pour <span class="math inline">\(k = 1, \ldots, r\)</span></p>
-<p><strong>Relations entre vecteurs propres</strong> : <span class="math display">\[u_k = \frac{1}{\sqrt{\lambda_k}} F^\top D_n^{-1} v_k\]</span> <span class="math display">\[v_k = \frac{1}{\sqrt{\lambda_k}} F D_p^{-1} u_k\]</span></p>
-<p>Cette propriété garantit une représentation cohérente dans le même espace réduit.</p>
 </section>
 <section id="coordonnées-factorielles" class="slide level2">
 <h2>Coordonnées factorielles</h2>
-<p><strong>Coordonnées des profils-lignes</strong> sur l’axe <span class="math inline">\(k\)</span> : <span class="math display">\[\Phi_k = D_n^{-1} F D_p^{-1} u_k\]</span></p>
-<p><strong>Coordonnées des profils-colonnes</strong> sur l’axe <span class="math inline">\(k\)</span> : <span class="math display">\[\Psi_k = D_p^{-1} F^\top D_n^{-1} v_k\]</span></p>
-<p><strong>Relations entre coordonnées</strong> : <span class="math display">\[\Phi_k = \frac{1}{\sqrt{\lambda_k}} D_n^{-1} F \Psi_k\]</span></p>
+<p>Coordonnées des profils-lignes sur l’axe <span class="math inline">\(k\)</span> :</p>
+<p><span class="math display">\[\Phi_k = D_n^{-1} F D_p^{-1} u_k.\]</span></p>
+<p>Coordonnées des profils-colonnes sur l’axe <span class="math inline">\(k\)</span> :</p>
+<p><span class="math display">\[\Psi_k = D_p^{-1} F^\top D_n^{-1} v_k.\]</span></p>
+<p>Relations entre coordonnées : <span class="math display">\[\Phi_k = \frac{1}{\sqrt{\lambda_k}} D_n^{-1} F \Psi_k.\]</span></p>
 </section>
 <section id="centrage-et-centre-de-gravité" class="slide level2">
 <h2>Centrage et centre de gravité</h2>
-<p><strong>Convention</strong> : Représentation centrée en <span class="math inline">\((0,0)\)</span> dans les logiciels</p>
-<p><strong>Centres de gravité</strong> : - Lignes : <span class="math inline">\(G_L = (f_{\bullet 1}, \ldots, f_{\bullet p})^\top\)</span> - Colonnes : <span class="math inline">\(G_C = (f_{1\bullet}, \ldots, f_{n\bullet})^\top\)</span></p>
-<p><strong>Centrage</strong> : Soustraire les profils moyens <span class="math display">\[\frac{f_{ij}}{f_{i\bullet}} - f_{\bullet j} = \frac{f_{ij} - f_{i\bullet}f_{\bullet j}}{f_{i\bullet}}\]</span></p>
+<p><br></p>
+<p>Convention : Représentation centrée en <span class="math inline">\((0,0)\)</span> dans les logiciels.</p>
+<div class="fragment">
+<p>Centres de gravité :</p>
+<ul>
+<li><p>Lignes : <span class="math inline">\(G_L = (f_{\bullet 1}, \ldots, f_{\bullet p})^\top\)</span>.</p></li>
+<li><p>Colonnes : <span class="math inline">\(G_C = (f_{1\bullet}, \ldots, f_{n\bullet})^\top\)</span>.</p></li>
+</ul>
+</div>
+<div class="fragment">
+<p>Centrage : Soustraire les profils moyens</p>
+<p><span class="math display">\[\frac{f_{ij}}{f_{i\bullet}} - f_{\bullet j} = \frac{f_{ij} - f_{i\bullet}f_{\bullet j}}{f_{i\bullet}}.\]</span></p>
+</div>
+</section>
+<section id="afc-sur-matrice-centrée" class="slide level2">
+<h2>AFC sur matrice centrée</h2>
+<p><br></p>
+<p>Matrice centrée : <span class="math inline">\(S^* = (s_{jj'}^*)\)</span> avec</p>
+<p><span class="math display">\[s_{jj'}^* = \sum_{i=1}^n \frac{(f_{ij} - f_{i\bullet}f_{\bullet j})(f_{ij'} - f_{i\bullet}f_{\bullet j'})}{f_{i\bullet}f_{\bullet j'}}.\]</span></p>
 </section>
 <section id="inertie-totale" class="slide level2">
 <h2>Inertie totale</h2>
-<p><strong>Matrice centrée</strong> : <span class="math inline">\(S^* = (s_{jj'}^*)\)</span> avec <span class="math display">\[s_{jj'}^* = \sum_{i=1}^n \frac{(f_{ij} - f_{i\bullet}f_{\bullet j})(f_{ij'} - f_{i\bullet}f_{\bullet j'})}{f_{i\bullet}f_{\bullet j'}}\]</span></p>
-<p><strong>Inertie totale</strong> : <span class="math display">\[\text{tr}(S^*) = \sum_{j=1}^p \sum_{i=1}^n \frac{(f_{ij} - f_{i\bullet}f_{\bullet j})^2}{f_{i\bullet}f_{\bullet j}}\]</span></p>
+<p><br></p>
+<p>Inertie totale :</p>
+<p><span class="math display">\[\text{tr}(S^*) = \sum_{j=1}^p \sum_{i=1}^n \frac{(f_{ij} - f_{i\bullet}f_{\bullet j})^2}{f_{i\bullet}f_{\bullet j}}\]</span></p>
 <p>Cette inertie correspond à la <strong>statistique du <span class="math inline">\(\chi^2\)</span> normalisée</strong>.</p>
 </section>
 <section id="représentation-barycentrique" class="slide level2">
 <h2>Représentation barycentrique</h2>
-<p><strong>Propriété remarquable</strong> : Sur chaque axe factoriel,</p>
-<p><span class="math display">\[[\Phi_k]_i = \frac{1}{\sqrt{\lambda_k}} \sum_{j=1}^p \frac{f_{ij}}{f_{i\bullet}} [\Psi_k]_j\]</span></p>
-<p><span class="math display">\[[\Psi_k]_j = \frac{1}{\sqrt{\lambda_k}} \sum_{i=1}^n \frac{f_{ij}}{f_{\bullet j}} [\Phi_k]_i\]</span></p>
-<p><strong>Interprétation</strong> : Chaque profil-ligne est au <strong>barycentre</strong> des profils-colonnes (et vice versa).</p>
+<p>Sur chaque axe factoriel,</p>
+<p><span class="math display">\[[\Phi_k]_i = \frac{1}{\sqrt{\lambda_k}} \sum_{j=1}^p \frac{f_{ij}}{f_{i\bullet}} [\Psi_k]_j,\]</span></p>
+<p><span class="math display">\[[\Psi_k]_j = \frac{1}{\sqrt{\lambda_k}} \sum_{i=1}^n \frac{f_{ij}}{f_{\bullet j}} [\Phi_k]_i.\]</span></p>
+<p>Interprétation : Chaque profil-ligne est au barycentre des profils-colonnes (et vice versa).</p>
 </section>
 <section id="double-représentation-barycentrique" class="slide level2">
 <h2>Double représentation barycentrique</h2>
@@ -322,41 +512,274 @@ Si <span class="math inline">\(T\)</span> grand → dépendance (intéressant po
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Astuce</strong></p>
+<p><strong>Propriété fondamentale de l’AFC :</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Propriété fondamentale de l’AFC</strong> :</p>
 <p>Sur les axes factoriels, chaque point d’un nuage est au barycentre des points de l’autre nuage, pondéré par les contributions respectives.</p>
 </div>
 </div>
 </div>
-<p>Cette propriété permet une <strong>interprétation conjointe</strong> des modalités des deux variables dans le même graphique.</p>
-</section>
-<section id="applications-pratiques" class="slide level2">
-<h2>Applications pratiques</h2>
-<p><strong>Domaines d’application</strong> : - Marketing : Préférences × Segments de clientèle - Sociologie : Catégories sociales × Comportements<br>
-- Biologie : Espèces × Environnements - Linguistique : Mots × Contextes</p>
-<p><strong>Avantages</strong> : - Visualisation intuitive des associations - Identification des profils similaires - Détection de structures cachées</p>
+<p>Cette propriété permet une interprétation conjointe des modalités des deux variables dans le même graphique.</p>
 </section>
 <section id="interprétation-des-résultats" class="slide level2">
 <h2>Interprétation des résultats</h2>
-<p><strong>Proximité géométrique</strong> = <strong>Similarité des profils</strong></p>
-<p><strong>Axes factoriels</strong> : Directions de variation maximale</p>
-<p><strong>Contribution des modalités</strong> : Importance dans la construction des axes</p>
-<p><strong>Inertie expliquée</strong> : <span class="math inline">\(\frac{\lambda_k}{\sum_{j=1}^r \lambda_j} \times 100\%\)</span></p>
-<p><strong>Qualité de représentation</strong> : Proportion de l’inertie d’un point expliquée par les axes retenus.</p>
+<ul>
+<li><p>Proximité géométrique = Similarité des profils</p></li>
+<li><p>Axes factoriels : Directions de variation maximale.</p></li>
+<li><p>Contribution des modalités : Importance dans la construction des axes.</p></li>
+<li><p>Qualité de représentation : Proportion de l’inertie d’un point expliquée par les axes retenus.</p></li>
+</ul>
+</section>
+<section id="exemple-le-taux-demploi-au-canada" class="slide level2 smaller scrollable">
+<h2>Exemple : le taux d’emploi au Canada</h2>
+<p>On considère le jeu de données suivant :</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">province</th>
+<th style="text-align: right;">full-time</th>
+<th style="text-align: right;">part-time</th>
+<th style="text-align: right;">unemployed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Newfoundland and Labrador</td>
+<td style="text-align: right;">205.0</td>
+<td style="text-align: right;">39.3</td>
+<td style="text-align: right;">27.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Prince Edward Island</td>
+<td style="text-align: right;">82.1</td>
+<td style="text-align: right;">11.9</td>
+<td style="text-align: right;">7.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nova Scotia</td>
+<td style="text-align: right;">437.7</td>
+<td style="text-align: right;">87.2</td>
+<td style="text-align: right;">34.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">New Brunswick</td>
+<td style="text-align: right;">346.8</td>
+<td style="text-align: right;">54.8</td>
+<td style="text-align: right;">30.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Quebec</td>
+<td style="text-align: right;">3762.6</td>
+<td style="text-align: right;">864.7</td>
+<td style="text-align: right;">279.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ontario</td>
+<td style="text-align: right;">6721.8</td>
+<td style="text-align: right;">1508.0</td>
+<td style="text-align: right;">667.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Manitoba</td>
+<td style="text-align: right;">608.4</td>
+<td style="text-align: right;">122.6</td>
+<td style="text-align: right;">46.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Saskatchewan</td>
+<td style="text-align: right;">498.1</td>
+<td style="text-align: right;">115.4</td>
+<td style="text-align: right;">31.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Alberta</td>
+<td style="text-align: right;">2084.6</td>
+<td style="text-align: right;">466.2</td>
+<td style="text-align: right;">195.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">British Columbia</td>
+<td style="text-align: right;">2357.1</td>
+<td style="text-align: right;">587.8</td>
+<td style="text-align: right;">190.1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="exemple-le-taux-demploi-au-canada-1" class="slide level2 smaller">
+<h2>Exemple : le taux d’emploi au Canada</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Code</a></li><li><a href="#tabset-1-2">Plot</a></li><li><a href="#tabset-1-3">Valeurs propres</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(FactoMineR)</span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(factoextra)</span>
+<span id="cb1-3"><a></a>res_ca <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb1-4"><a></a>  <span class="fu">column_to_rownames</span>(<span class="at">var =</span> <span class="st">'province'</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-5"><a></a>  <span class="fu">CA</span>(<span class="at">graph =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-6"><a></a><span class="fu">fviz_eig</span>(res_ca)</span>
+<span id="cb1-7"><a></a><span class="fu">get_eigenvalue</span>(res_ca)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="tabset-1-2">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-dimension-ca-slides_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-3">
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">eigenvalue</th>
+<th style="text-align: right;">variance.percent</th>
+<th style="text-align: right;">cumulative.variance.percent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Dim.1</td>
+<td style="text-align: right;">0.0014335</td>
+<td style="text-align: right;">70.77104</td>
+<td style="text-align: right;">70.77104</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dim.2</td>
+<td style="text-align: right;">0.0005921</td>
+<td style="text-align: right;">29.22896</td>
+<td style="text-align: right;">100.00000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exemple-le-taux-demploi-au-canada-2" class="slide level2 smaller">
+<h2>Exemple : le taux d’emploi au Canada</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Code</a></li><li><a href="#tabset-2-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># Résultat pour les lignes</span></span>
+<span id="cb2-2"><a></a><span class="fu">fviz_ca_row</span>(res_ca, <span class="at">repel =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="tabset-2-2">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-dimension-ca-slides_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exemple-le-taux-demploi-au-canada-3" class="slide level2 smaller">
+<h2>Exemple : le taux d’emploi au Canada</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Code</a></li><li><a href="#tabset-3-2">Contribution à la première composante</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># Visualisation des lignes sur l'axe 1</span></span>
+<span id="cb3-2"><a></a><span class="fu">fviz_contrib</span>(res_ca, <span class="at">choice =</span><span class="st">"row"</span>, <span class="at">axes =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="tabset-3-2">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-dimension-ca-slides_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exemple-le-taux-demploi-au-canada-4" class="slide level2 smaller">
+<h2>Exemple : le taux d’emploi au Canada</h2>
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Code</a></li><li><a href="#tabset-4-2">Contribution à la première composante</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co"># Visualisation des lignes sur l'axe 2</span></span>
+<span id="cb4-2"><a></a><span class="fu">fviz_contrib</span>(res_ca, <span class="at">choice =</span><span class="st">"row"</span>, <span class="at">axes =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="tabset-4-2">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-dimension-ca-slides_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exemple-le-taux-demploi-au-canada-5" class="slide level2 smaller">
+<h2>Exemple : le taux d’emploi au Canada</h2>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Code</a></li><li><a href="#tabset-5-2">Biplot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">fviz_ca_biplot</span>(res_ca, <span class="at">repel =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="tabset-5-2">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-dimension-ca-slides_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="conclusion" class="slide level2">
 <h2>Conclusion</h2>
-<p>L’AFC est un outil puissant pour :</p>
+<p><br></p>
+<p>L’AFC est un outil pour :</p>
 <ul>
-<li><strong>Explorer</strong> les relations entre variables qualitatives</li>
-<li><strong>Visualiser</strong> des structures complexes en 2D/3D<br>
-</li>
-<li><strong>Identifier</strong> des associations non évidentes</li>
-<li><strong>Interpréter</strong> conjointement lignes et colonnes</li>
+<li><p>Explorer les relations entre variables qualitatives</p></li>
+<li><p>Visualiser des structures complexes en 2D/3D</p></li>
+<li><p>Identifier des associations non évidentes</p></li>
+<li><p>Interpréter conjointement lignes et colonnes</p></li>
 </ul>
-<p>La <strong>dualité ligne-colonne</strong> et la <strong>représentation barycentrique</strong> en font une méthode unique pour l’analyse de tableaux de contingence.</p>
+<p>Prochaine étape → Que faire si on a plus que deux variables qualitatives ?</p>
 
 
 </section>
@@ -577,6 +1000,44 @@ Si <span class="math inline">\(T\)</span> grand → dépendance (intéressant po
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

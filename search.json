@@ -3327,144 +3327,228 @@
     "text": "Conclusion\n\nUn bon modèle :\n✅ Performant à un instant donné.\n✅ Robuste dans le temps.\n✅ Adaptable aux changements.\n→ Équilibre entre toutes les étapes, pas seulement la modélisation !"
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#introduction-à-lafc",
-    "href": "slides/04-dimension-ca-slides.html#introduction-à-lafc",
+    "objectID": "slides/04-dimension-ca-slides.html#limite-de-lacp",
+    "href": "slides/04-dimension-ca-slides.html#limite-de-lacp",
     "title": "Dimension",
-    "section": "Introduction à l’AFC",
-    "text": "Introduction à l’AFC\nL’Analyse Factorielle des Correspondances (AFC) est une méthode d’analyse exploratoire pour représenter graphiquement les relations entre les modalités de deux variables qualitatives.\nObjectifs : - Représenter simultanément les profils-lignes et profils-colonnes - Préserver la distance du \\(\\chi^2\\) - Trouver une représentation en faible dimension (2D-3D) - Révéler les proximités géométriques = similarités entre modalités"
+    "section": "Limite de l’ACP",
+    "text": "Limite de l’ACP\n\nL’analyse en composantes principales est restreinte à des données quantitatives.\n\n→ Comment faire lorsque l’on a des données qualitatives ?"
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#afc-comme-double-acp",
-    "href": "slides/04-dimension-ca-slides.html#afc-comme-double-acp",
+    "objectID": "slides/04-dimension-ca-slides.html#plan",
+    "href": "slides/04-dimension-ca-slides.html#plan",
     "title": "Dimension",
-    "section": "AFC comme double ACP",
-    "text": "AFC comme double ACP\n\n\n\n\n\n\nAstuce\n\n\nL’AFC peut être vue comme une double ACP pondérée : - ACP des profils-lignes dans \\(\\mathbb{R}^p\\) - ACP des profils-colonnes dans \\(\\mathbb{R}^n\\) - Avec métriques du \\(\\chi^2\\) adaptées à chaque espace\n\n\n\nCette dualité permet une représentation cohérente des lignes et colonnes dans le même espace réduit."
+    "section": "Plan",
+    "text": "Plan\n\n\nLa théorie de l’analyse factorielle des correspondances\nL’AFC en pratique\nExemple : le taux d’emploi au Canada"
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#notation-de-base",
-    "href": "slides/04-dimension-ca-slides.html#notation-de-base",
+    "objectID": "slides/04-dimension-ca-slides.html#analyse-factorielle-des-correspondances",
+    "href": "slides/04-dimension-ca-slides.html#analyse-factorielle-des-correspondances",
     "title": "Dimension",
-    "section": "Notation de base",
-    "text": "Notation de base\nTableau de contingence : \\(K = (k_{ij})\\) avec \\(k_{ij}\\) = effectif classe \\(i\\), catégorie \\(j\\)\nTableau de fréquences relatives : \\(F = (f_{ij})\\) où \\[f_{ij} = \\frac{k_{ij}}{k_{\\bullet\\bullet}}\\]\nMarges : - Ligne : \\(f_{i\\bullet} = \\sum_{j=1}^p f_{ij}\\) - Colonne : \\(f_{\\bullet j} = \\sum_{i=1}^n f_{ij}\\) - Total : \\(f_{\\bullet\\bullet} = 1\\)"
+    "section": "Analyse factorielle des correspondances",
+    "text": "Analyse factorielle des correspondances\n\nL’Analyse Factorielle des Correspondances (AFC) est une méthode d’analyse exploratoire pour représenter graphiquement les relations entre les modalités de deux variables qualitatives.\n\nObjectif → Trouver une représentation en faible dimension tout en gardant le maximum d’information possible."
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#notation",
+    "href": "slides/04-dimension-ca-slides.html#notation",
+    "title": "Dimension",
+    "section": "Notation",
+    "text": "Notation\n\nTableau de contingence:\n\\[K = (k_{ij}) \\text{ avec } k_{ij} = \\text{ effectif classe } i \\in \\{1, \\dots, n\\}, \\text{ catégorie } j \\in \\{1, \\dots, p\\}.\\]"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#notation-1",
+    "href": "slides/04-dimension-ca-slides.html#notation-1",
+    "title": "Dimension",
+    "section": "Notation",
+    "text": "Notation\n\nTableau de fréquences relatives :\n\\[F = (f_{ij}) \\text{ où } f_{ij} = \\frac{k_{ij}}{k_{\\bullet\\bullet}}.\\]"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#notation-2",
+    "href": "slides/04-dimension-ca-slides.html#notation-2",
+    "title": "Dimension",
+    "section": "Notation",
+    "text": "Notation\n\nMarges :\n\nLigne : \\(f_{i\\bullet} = \\sum_{j=1}^p f_{ij}\\)\nColonne : \\(f_{\\bullet j} = \\sum_{i=1}^n f_{ij}\\)\nTotal : \\(f_{\\bullet\\bullet} = 1\\)"
   },
   {
     "objectID": "slides/04-dimension-ca-slides.html#exemple-concret",
     "href": "slides/04-dimension-ca-slides.html#exemple-concret",
     "title": "Dimension",
     "section": "Exemple concret",
-    "text": "Exemple concret\nÉtudiants STT-2200 (Automne 2025) : Majeure × Type d’admission\n\n\n\nMajeure\nCollège\nULaval\nAutre univ.\nHors QC\nTotal\n\n\n\n\nActuariat\n0.08\n0\n0\n0.04\n0.12\n\n\nStatistique\n0.08\n0.16\n0.04\n0\n0.28\n\n\nBio-info\n0.16\n0.08\n0\n0.08\n0.32\n\n\nFinance\n0.08\n0\n0\n0\n0.08\n\n\nTotal\n0.52\n0.28\n0.04\n0.16\n1\n\n\n\n25 étudiants au total, convertis en fréquences relatives."
+    "text": "Exemple concret\n\n\n\n\n\n\n\n\n\n\n\n\nCollège\nUniversité Laval\nAutre université\nHors Québec\n\\(f_{i \\bullet}\\)\n\n\n\n\nActuariat\n0.08\n0\n0\n0.04\n0.12\n\n\nStatistique\n0.08\n0.16\n0.04\n0\n0.28\n\n\nBio-info\n0.16\n0.08\n0\n0.08\n0.32\n\n\nFinance\n0.08\n0\n0\n0\n0.08\n\n\nMaths\n0.04\n0\n0\n0\n0.04\n\n\nInfo\n0.08\n0.04\n0\n0.04\n0.16\n\n\n\\(f_{\\bullet j}\\)\n0.52\n0.28\n0.04\n0.16\n1"
   },
   {
     "objectID": "slides/04-dimension-ca-slides.html#indépendance-statistique",
     "href": "slides/04-dimension-ca-slides.html#indépendance-statistique",
     "title": "Dimension",
     "section": "Indépendance statistique",
-    "text": "Indépendance statistique\nTest d’indépendance : Si les variables sont indépendantes, \\[f_{ij} \\approx f_{i\\bullet} f_{\\bullet j}\\]\nTest du \\(\\chi^2\\) : \\[T = \\sum_{i,j} \\frac{(k_{ij} - \\mathbb{E}(k_{ij}))^2}{\\mathbb{E}(k_{ij})} = \\sum_{i,j} \\frac{(k_{ij} - \\frac{k_{i\\bullet}k_{\\bullet j}}{k_{\\bullet\\bullet}})^2}{\\frac{k_{i\\bullet}k_{\\bullet j}}{k_{\\bullet\\bullet}}}\\]\nSi \\(T \\approx 0\\) → indépendance\nSi \\(T\\) grand → dépendance (intéressant pour l’AFC)"
+    "text": "Indépendance statistique\n\nTest d’indépendance : Si les variables sont indépendantes, \\[f_{ij} \\approx f_{i\\bullet} f_{\\bullet j}\\]"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#indépendance-statistique-1",
+    "href": "slides/04-dimension-ca-slides.html#indépendance-statistique-1",
+    "title": "Dimension",
+    "section": "Indépendance statistique",
+    "text": "Indépendance statistique\n\nTest du \\(\\chi^2\\) :\n\\[T = \\sum_{i,j} \\frac{(k_{ij} - \\mathbb{E}(k_{ij}))^2}{\\mathbb{E}(k_{ij})} = \\sum_{i,j} \\frac{(k_{ij} - \\frac{k_{i\\bullet}k_{\\bullet j}}{k_{\\bullet\\bullet}})^2}{\\frac{k_{i\\bullet}k_{\\bullet j}}{k_{\\bullet\\bullet}}}\\]\nSi \\(T \\approx 0\\) → indépendance\nSi \\(T\\) grand → dépendance (intéressant pour l’AFC)"
   },
   {
     "objectID": "slides/04-dimension-ca-slides.html#profils-lignes-et-profils-colonnes",
     "href": "slides/04-dimension-ca-slides.html#profils-lignes-et-profils-colonnes",
     "title": "Dimension",
     "section": "Profils-lignes et profils-colonnes",
-    "text": "Profils-lignes et profils-colonnes\nProfil-ligne \\(i\\) : Répartition de la modalité \\(i\\) parmi les colonnes \\[L_i = \\left(\\frac{f_{i1}}{f_{i\\bullet}}, \\ldots, \\frac{f_{ip}}{f_{i\\bullet}}\\right)\\]\nProfil-colonne \\(j\\) : Répartition de la modalité \\(j\\) parmi les lignes \\[C_j = \\left(\\frac{f_{1j}}{f_{\\bullet j}}, \\ldots, \\frac{f_{nj}}{f_{\\bullet j}}\\right)\\]\nLes profils sont des distributions conditionnelles."
+    "text": "Profils-lignes et profils-colonnes\nProfil-ligne \\(i\\) : Répartition de la modalité \\(i\\) parmi les colonnes \\[L_i = \\left(\\frac{f_{i1}}{f_{i\\bullet}}, \\ldots, \\frac{f_{ip}}{f_{i\\bullet}}\\right).\\]\n\nProfil-colonne \\(j\\) : Répartition de la modalité \\(j\\) parmi les lignes \\[C_j = \\left(\\frac{f_{1j}}{f_{\\bullet j}}, \\ldots, \\frac{f_{nj}}{f_{\\bullet j}}\\right).\\]\n\n\nLes profils sont des distributions conditionnelles."
   },
   {
     "objectID": "slides/04-dimension-ca-slides.html#profils-moyens",
     "href": "slides/04-dimension-ca-slides.html#profils-moyens",
     "title": "Dimension",
     "section": "Profils moyens",
-    "text": "Profils moyens\nProfil-ligne moyen = fréquences marginales colonnes : \\[\\text{Profil moyen} = (f_{\\bullet 1}, \\ldots, f_{\\bullet p})\\]\nProfil-colonne moyen = fréquences marginales lignes : \\[\\text{Profil moyen} = (f_{1\\bullet}, \\ldots, f_{n\\bullet})\\]\nIndépendance ⟺ Tous les profils = profils moyens"
+    "text": "Profils moyens\n\nProfil-ligne moyen = fréquences marginales colonnes : \\[\\text{Profil moyen} = (f_{\\bullet 1}, \\ldots, f_{\\bullet p})\\]\nProfil-colonne moyen = fréquences marginales lignes : \\[\\text{Profil moyen} = (f_{1\\bullet}, \\ldots, f_{n\\bullet})\\]\nIndépendance \\(\\Longleftrightarrow\\) Tous les profils \\(\\approx\\) profils moyens."
   },
   {
     "objectID": "slides/04-dimension-ca-slides.html#distance-du-chi2",
     "href": "slides/04-dimension-ca-slides.html#distance-du-chi2",
     "title": "Dimension",
     "section": "Distance du \\(\\chi^2\\)",
-    "text": "Distance du \\(\\chi^2\\)\nDistance entre profils-lignes : \\[d^2(L_i, L_{i'}) = \\sum_{j=1}^p \\frac{1}{f_{\\bullet j}} \\left(\\frac{f_{ij}}{f_{i\\bullet}} - \\frac{f_{i'j}}{f_{i'\\bullet}}\\right)^2\\]\nDistance entre profils-colonnes : \\[d^2(C_j, C_{j'}) = \\sum_{i=1}^n \\frac{1}{f_{i\\bullet}} \\left(\\frac{f_{ij}}{f_{\\bullet j}} - \\frac{f_{ij'}}{f_{\\bullet j'}}\\right)^2\\]\nPondération par l’inverse des fréquences marginales."
+    "text": "Distance du \\(\\chi^2\\)\nDistance entre profils-lignes : \\[d^2(L_i, L_{i'}) = \\sum_{j=1}^p \\frac{1}{f_{\\bullet j}} \\left(\\frac{f_{ij}}{f_{i\\bullet}} - \\frac{f_{i'j}}{f_{i'\\bullet}}\\right)^2\\]\nDistance entre profils-colonnes : \\[d^2(C_j, C_{j'}) = \\sum_{i=1}^n \\frac{1}{f_{i\\bullet}} \\left(\\frac{f_{ij}}{f_{\\bullet j}} - \\frac{f_{ij'}}{f_{\\bullet j'}}\\right)^2\\]"
   },
   {
     "objectID": "slides/04-dimension-ca-slides.html#formulation-matricielle",
     "href": "slides/04-dimension-ca-slides.html#formulation-matricielle",
     "title": "Dimension",
     "section": "Formulation matricielle",
-    "text": "Formulation matricielle\nMatrices de poids : - \\(D_n = \\text{diag}(f_{i\\bullet})\\) (poids des lignes) - \\(D_p = \\text{diag}(f_{\\bullet j})\\) (poids des colonnes)\nDistance du \\(\\chi^2\\) matricielle : - Profils-lignes : \\(d^2(L_i, L_{i'}) = (L_i - L_{i'})^\\top D_p^{-1} (L_i - L_{i'})\\) - Profils-colonnes : \\(d^2(C_j, C_{j'}) = (C_j - C_{j'})^\\top D_n^{-1} (C_j - C_{j'})\\)"
+    "text": "Formulation matricielle\nMatrices de poids :\n\n\\(D_n = \\text{diag}(f_{i\\bullet})\\) → poids des lignes\n\\(D_p = \\text{diag}(f_{\\bullet j})\\) → poids des colonnes\n\n\nDistance du \\(\\chi^2\\) matricielle :\n\nProfils-lignes : \\(d^2(L_i, L_{i'}) = (L_i - L_{i'})^\\top D_p^{-1} (L_i - L_{i'})\\)\nProfils-colonnes : \\(d^2(C_j, C_{j'}) = (C_j - C_{j'})^\\top D_n^{-1} (C_j - C_{j'})\\)"
   },
   {
     "objectID": "slides/04-dimension-ca-slides.html#analyse-directe-profils-lignes",
     "href": "slides/04-dimension-ca-slides.html#analyse-directe-profils-lignes",
     "title": "Dimension",
     "section": "Analyse directe (profils-lignes)",
-    "text": "Analyse directe (profils-lignes)\nObjectif : Maximiser la variance projetée des profils-lignes\nProblème d’optimisation : \\[\\max_u u^\\top D_p^{-1} F^\\top D_n^{-1} F D_p^{-1} u \\quad \\text{s.c.} \\quad u^\\top D_p^{-1} u = 1\\]\nSolution : Vecteurs propres de la matrice \\[S = F^\\top D_n^{-1} F D_p^{-1}\\]\nPremier axe factoriel : \\(S u_1 = \\lambda_1 u_1\\)"
+    "text": "Analyse directe (profils-lignes)\nObjectif : Maximiser la variance projetée des profils-lignes\n\nProblème d’optimisation : \\[\\max_u u^\\top D_p^{-1} F^\\top D_n^{-1} F D_p^{-1} u \\quad \\text{s.c.} \\quad u^\\top D_p^{-1} u = 1\\]\n\n\nSolution : Vecteurs propres de la matrice \\[S = F^\\top D_n^{-1} F D_p^{-1}\\]\n\n\nPremier axe factoriel : \\(S u_1 = \\lambda_1 u_1\\)"
   },
   {
     "objectID": "slides/04-dimension-ca-slides.html#analyse-duale-profils-colonnes",
     "href": "slides/04-dimension-ca-slides.html#analyse-duale-profils-colonnes",
     "title": "Dimension",
     "section": "Analyse duale (profils-colonnes)",
-    "text": "Analyse duale (profils-colonnes)\nObjectif : Maximiser la variance projetée des profils-colonnes\nProblème d’optimisation similaire avec matrice : \\[T = F D_p^{-1} F^\\top D_n^{-1}\\]\nPremier axe factoriel : \\(T v_1 = \\mu_1 v_1\\)\nPropriété fondamentale : \\(S\\) et \\(T\\) ont les mêmes \\(r = \\min(n-1, p-1)\\) valeurs propres positives !"
+    "text": "Analyse duale (profils-colonnes)\nObjectif : Maximiser la variance projetée des profils-colonnes\n\nProblème d’optimisation similaire avec matrice : \\[T = F D_p^{-1} F^\\top D_n^{-1}\\]\n\n\nPremier axe factoriel : \\(T v_1 = \\mu_1 v_1\\)"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#propriété",
+    "href": "slides/04-dimension-ca-slides.html#propriété",
+    "title": "Dimension",
+    "section": "Propriété",
+    "text": "Propriété\n\n\n\n\n\n\nPropriété\n\n\n\\(S\\) et \\(T\\) ont les mêmes \\(r = \\min(n-1, p-1)\\) valeurs propres positives !"
   },
   {
     "objectID": "slides/04-dimension-ca-slides.html#relations-entre-analyses",
     "href": "slides/04-dimension-ca-slides.html#relations-entre-analyses",
     "title": "Dimension",
     "section": "Relations entre analyses",
-    "text": "Relations entre analyses\nCohérence des représentations : \\(\\lambda_k = \\mu_k\\) pour \\(k = 1, \\ldots, r\\)\nRelations entre vecteurs propres : \\[u_k = \\frac{1}{\\sqrt{\\lambda_k}} F^\\top D_n^{-1} v_k\\] \\[v_k = \\frac{1}{\\sqrt{\\lambda_k}} F D_p^{-1} u_k\\]\nCette propriété garantit une représentation cohérente dans le même espace réduit."
+    "text": "Relations entre analyses\nCohérence des représentations : \\(\\lambda_k = \\mu_k\\) pour \\(k = 1, \\ldots, r\\)\nRelations entre vecteurs propres : \\[u_k = \\frac{1}{\\sqrt{\\lambda_k}} F^\\top D_n^{-1} v_k.\\] \\[v_k = \\frac{1}{\\sqrt{\\lambda_k}} F D_p^{-1} u_k.\\]\nCette propriété garantit une représentation cohérente dans le même espace réduit."
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#afc-comme-double-acp",
+    "href": "slides/04-dimension-ca-slides.html#afc-comme-double-acp",
+    "title": "Dimension",
+    "section": "AFC comme double ACP",
+    "text": "AFC comme double ACP\n\n\n\n\n\n\nRemarque\n\n\nL’AFC peut être vue comme une double ACP pondérée :\n\nACP des profils-lignes dans \\(\\mathbb{R}^p\\),\nACP des profils-colonnes dans \\(\\mathbb{R}^n\\),\nAvec métriques du \\(\\chi^2\\) adaptées à chaque espace."
   },
   {
     "objectID": "slides/04-dimension-ca-slides.html#coordonnées-factorielles",
     "href": "slides/04-dimension-ca-slides.html#coordonnées-factorielles",
     "title": "Dimension",
     "section": "Coordonnées factorielles",
-    "text": "Coordonnées factorielles\nCoordonnées des profils-lignes sur l’axe \\(k\\) : \\[\\Phi_k = D_n^{-1} F D_p^{-1} u_k\\]\nCoordonnées des profils-colonnes sur l’axe \\(k\\) : \\[\\Psi_k = D_p^{-1} F^\\top D_n^{-1} v_k\\]\nRelations entre coordonnées : \\[\\Phi_k = \\frac{1}{\\sqrt{\\lambda_k}} D_n^{-1} F \\Psi_k\\]"
+    "text": "Coordonnées factorielles\nCoordonnées des profils-lignes sur l’axe \\(k\\) :\n\\[\\Phi_k = D_n^{-1} F D_p^{-1} u_k.\\]\nCoordonnées des profils-colonnes sur l’axe \\(k\\) :\n\\[\\Psi_k = D_p^{-1} F^\\top D_n^{-1} v_k.\\]\nRelations entre coordonnées : \\[\\Phi_k = \\frac{1}{\\sqrt{\\lambda_k}} D_n^{-1} F \\Psi_k.\\]"
   },
   {
     "objectID": "slides/04-dimension-ca-slides.html#centrage-et-centre-de-gravité",
     "href": "slides/04-dimension-ca-slides.html#centrage-et-centre-de-gravité",
     "title": "Dimension",
     "section": "Centrage et centre de gravité",
-    "text": "Centrage et centre de gravité\nConvention : Représentation centrée en \\((0,0)\\) dans les logiciels\nCentres de gravité : - Lignes : \\(G_L = (f_{\\bullet 1}, \\ldots, f_{\\bullet p})^\\top\\) - Colonnes : \\(G_C = (f_{1\\bullet}, \\ldots, f_{n\\bullet})^\\top\\)\nCentrage : Soustraire les profils moyens \\[\\frac{f_{ij}}{f_{i\\bullet}} - f_{\\bullet j} = \\frac{f_{ij} - f_{i\\bullet}f_{\\bullet j}}{f_{i\\bullet}}\\]"
+    "text": "Centrage et centre de gravité\n\nConvention : Représentation centrée en \\((0,0)\\) dans les logiciels.\n\nCentres de gravité :\n\nLignes : \\(G_L = (f_{\\bullet 1}, \\ldots, f_{\\bullet p})^\\top\\).\nColonnes : \\(G_C = (f_{1\\bullet}, \\ldots, f_{n\\bullet})^\\top\\).\n\n\n\nCentrage : Soustraire les profils moyens\n\\[\\frac{f_{ij}}{f_{i\\bullet}} - f_{\\bullet j} = \\frac{f_{ij} - f_{i\\bullet}f_{\\bullet j}}{f_{i\\bullet}}.\\]"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#afc-sur-matrice-centrée",
+    "href": "slides/04-dimension-ca-slides.html#afc-sur-matrice-centrée",
+    "title": "Dimension",
+    "section": "AFC sur matrice centrée",
+    "text": "AFC sur matrice centrée\n\nMatrice centrée : \\(S^* = (s_{jj'}^*)\\) avec\n\\[s_{jj'}^* = \\sum_{i=1}^n \\frac{(f_{ij} - f_{i\\bullet}f_{\\bullet j})(f_{ij'} - f_{i\\bullet}f_{\\bullet j'})}{f_{i\\bullet}f_{\\bullet j'}}.\\]"
   },
   {
     "objectID": "slides/04-dimension-ca-slides.html#inertie-totale",
     "href": "slides/04-dimension-ca-slides.html#inertie-totale",
     "title": "Dimension",
     "section": "Inertie totale",
-    "text": "Inertie totale\nMatrice centrée : \\(S^* = (s_{jj'}^*)\\) avec \\[s_{jj'}^* = \\sum_{i=1}^n \\frac{(f_{ij} - f_{i\\bullet}f_{\\bullet j})(f_{ij'} - f_{i\\bullet}f_{\\bullet j'})}{f_{i\\bullet}f_{\\bullet j'}}\\]\nInertie totale : \\[\\text{tr}(S^*) = \\sum_{j=1}^p \\sum_{i=1}^n \\frac{(f_{ij} - f_{i\\bullet}f_{\\bullet j})^2}{f_{i\\bullet}f_{\\bullet j}}\\]\nCette inertie correspond à la statistique du \\(\\chi^2\\) normalisée."
+    "text": "Inertie totale\n\nInertie totale :\n\\[\\text{tr}(S^*) = \\sum_{j=1}^p \\sum_{i=1}^n \\frac{(f_{ij} - f_{i\\bullet}f_{\\bullet j})^2}{f_{i\\bullet}f_{\\bullet j}}\\]\nCette inertie correspond à la statistique du \\(\\chi^2\\) normalisée."
   },
   {
     "objectID": "slides/04-dimension-ca-slides.html#représentation-barycentrique",
     "href": "slides/04-dimension-ca-slides.html#représentation-barycentrique",
     "title": "Dimension",
     "section": "Représentation barycentrique",
-    "text": "Représentation barycentrique\nPropriété remarquable : Sur chaque axe factoriel,\n\\[[\\Phi_k]_i = \\frac{1}{\\sqrt{\\lambda_k}} \\sum_{j=1}^p \\frac{f_{ij}}{f_{i\\bullet}} [\\Psi_k]_j\\]\n\\[[\\Psi_k]_j = \\frac{1}{\\sqrt{\\lambda_k}} \\sum_{i=1}^n \\frac{f_{ij}}{f_{\\bullet j}} [\\Phi_k]_i\\]\nInterprétation : Chaque profil-ligne est au barycentre des profils-colonnes (et vice versa)."
+    "text": "Représentation barycentrique\nSur chaque axe factoriel,\n\\[[\\Phi_k]_i = \\frac{1}{\\sqrt{\\lambda_k}} \\sum_{j=1}^p \\frac{f_{ij}}{f_{i\\bullet}} [\\Psi_k]_j,\\]\n\\[[\\Psi_k]_j = \\frac{1}{\\sqrt{\\lambda_k}} \\sum_{i=1}^n \\frac{f_{ij}}{f_{\\bullet j}} [\\Phi_k]_i.\\]\nInterprétation : Chaque profil-ligne est au barycentre des profils-colonnes (et vice versa)."
   },
   {
     "objectID": "slides/04-dimension-ca-slides.html#double-représentation-barycentrique",
     "href": "slides/04-dimension-ca-slides.html#double-représentation-barycentrique",
     "title": "Dimension",
     "section": "Double représentation barycentrique",
-    "text": "Double représentation barycentrique\n\n\n\n\n\n\nAstuce\n\n\nPropriété fondamentale de l’AFC :\nSur les axes factoriels, chaque point d’un nuage est au barycentre des points de l’autre nuage, pondéré par les contributions respectives.\n\n\n\nCette propriété permet une interprétation conjointe des modalités des deux variables dans le même graphique."
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#applications-pratiques",
-    "href": "slides/04-dimension-ca-slides.html#applications-pratiques",
-    "title": "Dimension",
-    "section": "Applications pratiques",
-    "text": "Applications pratiques\nDomaines d’application : - Marketing : Préférences × Segments de clientèle - Sociologie : Catégories sociales × Comportements\n- Biologie : Espèces × Environnements - Linguistique : Mots × Contextes\nAvantages : - Visualisation intuitive des associations - Identification des profils similaires - Détection de structures cachées"
+    "text": "Double représentation barycentrique\n\n\n\n\n\n\nPropriété fondamentale de l’AFC :\n\n\nSur les axes factoriels, chaque point d’un nuage est au barycentre des points de l’autre nuage, pondéré par les contributions respectives.\n\n\n\nCette propriété permet une interprétation conjointe des modalités des deux variables dans le même graphique."
   },
   {
     "objectID": "slides/04-dimension-ca-slides.html#interprétation-des-résultats",
     "href": "slides/04-dimension-ca-slides.html#interprétation-des-résultats",
     "title": "Dimension",
     "section": "Interprétation des résultats",
-    "text": "Interprétation des résultats\nProximité géométrique = Similarité des profils\nAxes factoriels : Directions de variation maximale\nContribution des modalités : Importance dans la construction des axes\nInertie expliquée : \\(\\frac{\\lambda_k}{\\sum_{j=1}^r \\lambda_j} \\times 100\\%\\)\nQualité de représentation : Proportion de l’inertie d’un point expliquée par les axes retenus."
+    "text": "Interprétation des résultats\n\nProximité géométrique = Similarité des profils\nAxes factoriels : Directions de variation maximale.\nContribution des modalités : Importance dans la construction des axes.\nQualité de représentation : Proportion de l’inertie d’un point expliquée par les axes retenus."
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada",
+    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada",
+    "title": "Dimension",
+    "section": "Exemple : le taux d’emploi au Canada",
+    "text": "Exemple : le taux d’emploi au Canada\nOn considère le jeu de données suivant :\n\n\n\n\n\nprovince\nfull-time\npart-time\nunemployed\n\n\n\n\nNewfoundland and Labrador\n205.0\n39.3\n27.3\n\n\nPrince Edward Island\n82.1\n11.9\n7.6\n\n\nNova Scotia\n437.7\n87.2\n34.0\n\n\nNew Brunswick\n346.8\n54.8\n30.0\n\n\nQuebec\n3762.6\n864.7\n279.6\n\n\nOntario\n6721.8\n1508.0\n667.2\n\n\nManitoba\n608.4\n122.6\n46.3\n\n\nSaskatchewan\n498.1\n115.4\n31.7\n\n\nAlberta\n2084.6\n466.2\n195.0\n\n\nBritish Columbia\n2357.1\n587.8\n190.1"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-1",
+    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-1",
+    "title": "Dimension",
+    "section": "Exemple : le taux d’emploi au Canada",
+    "text": "Exemple : le taux d’emploi au Canada\n\nCodePlotValeurs propres\n\n\n\nlibrary(FactoMineR)\nlibrary(factoextra)\nres_ca &lt;- df |&gt;\n  column_to_rownames(var = 'province') |&gt; \n  CA(graph = FALSE)\nfviz_eig(res_ca)\nget_eigenvalue(res_ca)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\neigenvalue\nvariance.percent\ncumulative.variance.percent\n\n\n\n\nDim.1\n0.0014335\n70.77104\n70.77104\n\n\nDim.2\n0.0005921\n29.22896\n100.00000"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-2",
+    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-2",
+    "title": "Dimension",
+    "section": "Exemple : le taux d’emploi au Canada",
+    "text": "Exemple : le taux d’emploi au Canada\n\nCodePlot\n\n\n\n# Résultat pour les lignes\nfviz_ca_row(res_ca, repel = TRUE)"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-3",
+    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-3",
+    "title": "Dimension",
+    "section": "Exemple : le taux d’emploi au Canada",
+    "text": "Exemple : le taux d’emploi au Canada\n\nCodeContribution à la première composante\n\n\n\n# Visualisation des lignes sur l'axe 1\nfviz_contrib(res_ca, choice =\"row\", axes = 1)"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-4",
+    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-4",
+    "title": "Dimension",
+    "section": "Exemple : le taux d’emploi au Canada",
+    "text": "Exemple : le taux d’emploi au Canada\n\nCodeContribution à la première composante\n\n\n\n# Visualisation des lignes sur l'axe 2\nfviz_contrib(res_ca, choice =\"row\", axes = 2)"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-5",
+    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-5",
+    "title": "Dimension",
+    "section": "Exemple : le taux d’emploi au Canada",
+    "text": "Exemple : le taux d’emploi au Canada\n\nCodeBiplot\n\n\n\nfviz_ca_biplot(res_ca, repel = TRUE)"
   },
   {
     "objectID": "slides/04-dimension-ca-slides.html#conclusion",
     "href": "slides/04-dimension-ca-slides.html#conclusion",
     "title": "Dimension",
     "section": "Conclusion",
-    "text": "Conclusion\nL’AFC est un outil puissant pour :\n\nExplorer les relations entre variables qualitatives\nVisualiser des structures complexes en 2D/3D\n\nIdentifier des associations non évidentes\nInterpréter conjointement lignes et colonnes\n\nLa dualité ligne-colonne et la représentation barycentrique en font une méthode unique pour l’analyse de tableaux de contingence."
+    "text": "Conclusion\n\nL’AFC est un outil pour :\n\nExplorer les relations entre variables qualitatives\nVisualiser des structures complexes en 2D/3D\nIdentifier des associations non évidentes\nInterpréter conjointement lignes et colonnes\n\nProchaine étape → Que faire si on a plus que deux variables qualitatives ?"
   },
   {
     "objectID": "slides/03-generalities-space-slides.html#pourquoi-sintéresser-à-lespace-mathématique",
