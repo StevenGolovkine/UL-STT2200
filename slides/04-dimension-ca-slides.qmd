@@ -3,7 +3,7 @@ title: "Dimension"
 subtitle: "Analyse factorielle des correspondances"
 author: "Steven Golovkine"
 lang: fr
-date: today
+date: "03 oct. 2024"
 date-format: "DD MMM YYYY"
 slide-number: c/t
 title-logo: ../include/logo-ul.png
