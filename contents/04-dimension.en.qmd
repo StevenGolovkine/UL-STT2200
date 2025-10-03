@@ -12,7 +12,7 @@ format:
 
   - [Principal componens analysis ](../slides/04-dimension-pca-slides.qmd) - [annotated](../slides/04-dimension-pca-slides-annotated.qmd)
 
-  - [Correspondance analysis](../slides/04-dimension-ca-slides.qmd)
+  - [Correspondance analysis](../slides/04-dimension-ca-slides.qmd) - [annotated](../slides/04-dimension-ca-slides-annotated.qmd)
 
   - [Multiple correspondance analysis](../slides/04-dimension-mca-slides.qmd)
 
