@@ -50,3 +50,29 @@ Soit un vecteur de trois variables aléatoires $X = (X_{1}, X_{2}, X_{3})^{\top}
 2. Quelle proportion de la variabilité totale de $X_{1}, X_{2}$ et $X_{3}$ est capturée par $C$ ?
 
 3. Retrouvez la matrice $\Sigma$ à partir des informations données dans l'énoncé de la question.
+
+
+## Exercice 4: Taux de survie de patients 
+
+La tableau suivant donne la répartition de patients selon l'issue observée en ligne (survie ou décès codés respectivement 0 et 1) en fonction de l'observation de troubles cognitifs en phase initiale en colonne (absence codée 0, présence de troubles codée 1 et troubles sévères codée 2).
+
+
+
+|            | Abscence | Troubles | Troubles sévères | Total |
+| ---------- | ------- | --------------- | ----------- | ---- |
+| Survie   | 108 | 61 | 13 | 182 | 
+| Décès    | 8 | 4 | 2 | 14 |
+| Total | 116 | 65 | 15 | 196 |
+
+1. Quelle méthode vous semble la mieux adaptée à l'analyse de ce tableau ?
+
+2. Donner le tableau des fréquences relatives.
+
+3. Donner le profil moyen des lignes. À quoi correspond-il ?
+
+4. Donner le profil moyen des colonnes. À quoi correspond-il ?
+
+5. Combien d'axes obtient-on en effectuant l'analyse donnée en question 1 ? Justifier.
+
+6. Quel test vous permet de détecter une éventuelle indépendance entre l'issue observée et la présence ou l'absence de troubles cognitifs en phase initiale ? Sachant que l'inertie totale du nuage est égale à 0.0050, donner la valeur de la statistique du test correspondant.
+

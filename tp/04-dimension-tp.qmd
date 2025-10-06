@@ -12,7 +12,7 @@ Vous pouvez faire les exercices dans le langage de votre choix.
 
 ## Exercice 1: Des coquillages
 
-Dans cette exercice, on se propose de faire une analyse de données de coquillages. Pour cela, on a accès à 7 mesures physiques des coquillages, ainsi que leur genre et leur âge. 
+Dans cet exercice, on se propose de faire une analyse de données de coquillages. Pour cela, on a accès à 7 mesures physiques des coquillages, ainsi que leur genre et leur âge. 
 
 1. Télécharger le jeu de données suivant: [lien](../include/data/tp/abalone.csv). Des informations sur le jeu de données sont disponibles [ici](https://www.kaggle.com/datasets/farkhod77/abalone-age-predict).
 
@@ -29,3 +29,31 @@ Dans cette exercice, on se propose de faire une analyse de données de coquillag
 7. Quelle est le pourcentage de la variabilité expliquée par les trois premiers axes factoriels ?
 
 8. Dans ce contexte, était-il pertinent de standardiser les données pour faire l'analyse en composantes principales ? Justifiez.
+
+
+## Exercice 2: Écoute radio au Canada
+
+Dans cet exercice, on cherche à savoir si certains types de radio sont préférés par des adoslescents, des hommes ou bien des femmes. 
+
+1. Télécharger le jeu de données suivant: [lien](../include/data/tp/radio.csv). Ces données sont tirés de Statistique Canada et correspondent aux types de radio écoutées par les adoslescents, les hommes et les femmes adultes au Canada.
+
+2. Faire une analyse factorielle des correspondances. 
+
+3. Interpréter le premier axe factoriel.
+
+4. Quelle est la qualité de représentation des adoslescents, des hommes et des femmes adultes. Expliquer.
+
+
+## Exercice 3: Le café 
+
+Dans cet exercice, on s'intéresse à la relation entre le type de café commandé et la période de la journée.
+
+1. Télécharger le jeu de données suivant: [lien](../include/data/tp/coffee_sales.csv). 
+
+2. Construire la tableau des fréquences relatives croisant Types de café et Période de la journée.
+
+3. Faire une analyse factorielle des correspondances de ce tableau de fréquences.
+
+4. Interpréter les axes factoriels. 
+
+5. Les deux variables sont-elles indépendantes ? Justifier.
