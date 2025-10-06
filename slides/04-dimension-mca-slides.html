@@ -30,6 +30,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-61cb6bcdcb66a6a6ea8a61dd05d6a15c.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -145,7 +211,7 @@ Steven Golovkine
 </div>
 </div>
 
-  <p class="date">06 oct. 2025</p>
+  <p class="date">10 oct. 2024</p>
   <figure>
     <center>
       <img src="../include/logo-ul.png" alt="logo" width="40%">
@@ -154,30 +220,29 @@ Steven Golovkine
 </section>
 <section id="introduction-à-lacm" class="slide level2">
 <h2>Introduction à l’ACM</h2>
-<p>L’<strong>Analyse des Correspondances Multiples (ACM)</strong> est un prolongement de l’AFC pour analyser <strong>plus de deux variables qualitatives</strong>.</p>
-<p><strong>Applications classiques</strong> : - Questionnaires à choix multiples (<span class="math inline">\(Q\)</span> questions) - Visualisation de réponses d’enquêtes - Variables mixtes (quantitatives + qualitatives)</p>
-<p><strong>Principe fondamental</strong> : Transformation préalable par <strong>codage disjonctif complet</strong>.</p>
+<p><br></p>
+<p>L’Analyse des Correspondances Multiples (ACM) est un prolongement de l’AFC pour analyser plus de deux variables qualitatives.</p>
+<p>Principe fondamental : Transformation préalable par codage disjonctif complet.</p>
 </section>
-<section id="extension-de-lafc" class="slide level2">
-<h2>Extension de l’AFC</h2>
-<p>L’ACM peut être vue comme :</p>
+<section id="plan" class="slide level2">
+<h2>Plan</h2>
+<p><br></p>
 <ol type="1">
-<li><strong>AFC généralisée</strong> : Plus de 2 variables qualitatives</li>
-<li><strong>ACP adaptée</strong> : Variables mixtes (quanti + quali)</li>
-<li><strong>Analyse de questionnaires</strong> : Réponses à choix multiples</li>
+<li><p>La théorie de l’analyse des correspondances multiples</p></li>
+<li><p>L’ACM en pratique</p></li>
+<li><p>Exemple :</p></li>
 </ol>
-<p><strong>Transformation clé</strong> : Passer des variables originales aux modalités binaires.</p>
 </section>
 <section id="notation-de-base" class="slide level2">
 <h2>Notation de base</h2>
+<p><br></p>
 <ul>
-<li><span class="math inline">\(n\)</span> : nombre d’individus (observations)</li>
-<li><span class="math inline">\(Q\)</span> : nombre de variables (questions)<br>
-</li>
-<li><span class="math inline">\(J_q\)</span> : nombre de modalités de la variable <span class="math inline">\(q\)</span></li>
-<li><span class="math inline">\(J\)</span> : nombre total de modalités (<span class="math inline">\(J = \sum_{q=1}^Q J_q\)</span>)</li>
+<li><p><span class="math inline">\(n\)</span> : nombre d’individus (observations)</p></li>
+<li><p><span class="math inline">\(Q\)</span> : nombre de variables (questions)</p></li>
+<li><p><span class="math inline">\(J_q\)</span> : nombre de modalités de la variable <span class="math inline">\(q\)</span></p></li>
+<li><p><span class="math inline">\(J\)</span> : nombre total de modalités (<span class="math inline">\(J = \sum_{q=1}^Q J_q\)</span>)</p></li>
 </ul>
-<p><strong>Objectif</strong> : Représenter graphiquement les relations entre toutes ces modalités.</p>
+<p>Objectif : Représenter graphiquement les relations entre toutes ces modalités.</p>
 </section>
 <section id="codage-disjonctif-complet" class="slide level2">
 <h2>Codage disjonctif complet</h2>
@@ -187,18 +252,27 @@ Steven Golovkine
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Avertissement</strong></p>
+<p><strong>Définition</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Définition</strong> : Tableau binaire <span class="math inline">\(Z\)</span> (<span class="math inline">\(n \times J\)</span>) contenant uniquement des 0 et des 1.</p>
+<p>Tableau binaire <span class="math inline">\(Z\)</span> (<span class="math inline">\(n \times J\)</span>) contenant uniquement des 0 et des 1.</p>
 </div>
 </div>
 </div>
-<p><strong>Principe</strong> : - Chaque variable → ses modalités - Individu possède modalité → code 1 - Individu ne possède pas modalité → code 0 - <strong>Disjonctif</strong> : au plus une modalité par variable - <strong>Complet</strong> : au moins une modalité par variable</p>
+<div class="fragment">
+<ul>
+<li><p>Chaque variable → ses modalités</p></li>
+<li><p>Individu possède modalité → code 1</p></li>
+<li><p>Individu ne possède pas modalité → code 0</p></li>
+<li><p><strong>Disjonctif</strong> : au plus une modalité par variable</p></li>
+<li><p><strong>Complet</strong> : au moins une modalité par variable</p></li>
+</ul>
+</div>
 </section>
 <section id="exemple-concret---données" class="slide level2">
 <h2>Exemple concret - Données</h2>
-<p><strong>Produits avec Type et Prix</strong> :</p>
+<p><br></p>
+<p>Produits avec Type et Prix:</p>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -209,48 +283,43 @@ Steven Golovkine
 </thead>
 <tbody>
 <tr class="odd">
-<td>Nike Tech Fleece</td>
+<td>Nike</td>
 <td>Hoodie</td>
 <td>256.72</td>
 </tr>
 <tr class="even">
-<td>Puma Joggers</td>
+<td>Puma</td>
 <td>Joggers</td>
 <td>221.26</td>
 </tr>
 <tr class="odd">
-<td>Off-White Hoodie</td>
+<td>Off-W</td>
 <td>Hoodie</td>
 <td>198.45</td>
 </tr>
 <tr class="even">
-<td>Supreme Hoodie</td>
+<td>Supreme</td>
 <td>Hoodie</td>
 <td>235.50</td>
 </tr>
-<tr class="odd">
-<td>Jordan 1 High</td>
-<td>Sneakers</td>
-<td>298.22</td>
-</tr>
-<tr class="even">
-<td>Nike Dunk Low</td>
-<td>Sneakers</td>
-<td>273.00</td>
-</tr>
-<tr class="odd">
-<td>Nike Tech Fleece</td>
-<td>Hoodie</td>
-<td>162.38</td>
-</tr>
 </tbody>
 </table>
-<p><strong>Variable Prix</strong> → 3 classes : &lt;200<span class="math inline">\(, [200\)</span>-250<span class="math inline">\(], &gt;250\)</span></p>
+<p>Variable Prix → 3 classes : &lt;200$, [200$-250$], &gt;250$</p>
 </section>
 <section id="exemple---codage-disjonctif-complet" class="slide level2">
 <h2>Exemple - Codage disjonctif complet</h2>
-<p><strong>Tableau transformé</strong> <span class="math inline">\(Z\)</span> :</p>
-<table class="caption-top">
+<p><br></p>
+<p>Tableau transformé <span class="math inline">\(Z\)</span> :</p>
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 12%">
+<col style="width: 14%">
+<col style="width: 16%">
+<col style="width: 11%">
+<col style="width: 19%">
+<col style="width: 11%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Produit</th>
@@ -258,13 +327,13 @@ Steven Golovkine
 <th style="text-align: center;">Joggers</th>
 <th style="text-align: center;">Sneakers</th>
 <th style="text-align: center;">&lt;200$</th>
-<th style="text-align: center;">[200-250<span class="math inline">\(] | &gt;250\)</span></th>
-<th style="text-align: center;"></th>
+<th style="text-align: center;">[200$-250$]</th>
+<th style="text-align: center;">&gt;250$</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Nike Tech Fleece</td>
+<td>Nike</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
@@ -273,7 +342,7 @@ Steven Golovkine
 <td style="text-align: center;">1</td>
 </tr>
 <tr class="even">
-<td>Puma Joggers</td>
+<td>Puma</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">0</td>
@@ -282,7 +351,7 @@ Steven Golovkine
 <td style="text-align: center;">0</td>
 </tr>
 <tr class="odd">
-<td>Off-White Hoodie</td>
+<td>Off-W</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
@@ -291,39 +360,12 @@ Steven Golovkine
 <td style="text-align: center;">0</td>
 </tr>
 <tr class="even">
-<td>Supreme Hoodie</td>
+<td>Supreme</td>
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
-</tr>
-<tr class="odd">
-<td>Jordan 1 High</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">1</td>
-</tr>
-<tr class="even">
-<td>Nike Dunk Low</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">1</td>
-</tr>
-<tr class="odd">
-<td>Nike Tech Fleece</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
 </tr>
 </tbody>
@@ -332,150 +374,557 @@ Steven Golovkine
 </section>
 <section id="propriétés-du-tableau-z" class="slide level2">
 <h2>Propriétés du tableau Z</h2>
+<p><br></p>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Important</strong></p>
+<p><strong>Propriétés</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Propriétés fondamentales</strong> :</p>
 <ol type="1">
-<li><strong>Somme par ligne</strong> : <span class="math inline">\(\sum_{j=1}^J z_{ij} = Q\)</span> (constante)</li>
-<li><strong>Somme totale</strong> : <span class="math inline">\(\sum_{i,j} z_{ij} = nQ\)</span></li>
-<li><strong>Somme par colonne</strong> : <span class="math inline">\(\sum_{i=1}^n z_{ij} = n_j\)</span> (effectif modalité <span class="math inline">\(j\)</span>)</li>
+<li><p><strong>Somme par ligne</strong> : <span class="math inline">\(\sum_{j=1}^J z_{ij} = Q\)</span> (constante)</p></li>
+<li><p><strong>Somme totale</strong> : <span class="math inline">\(\sum_{i,j} z_{ij} = nQ\)</span></p></li>
+<li><p><strong>Somme par colonne</strong> : <span class="math inline">\(\sum_{i=1}^n z_{ij} = n_j\)</span> (effectif modalité <span class="math inline">\(j\)</span>)</p></li>
 </ol>
 </div>
 </div>
 </div>
-<p>Ces propriétés découlent directement du codage disjonctif complet.</p>
 </section>
 <section id="perte-dinformation" class="slide level2">
 <h2>Perte d’information</h2>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Astuce</strong></p>
-</div>
-<div class="callout-content">
-<p><strong>Variables quantitatives</strong> → <strong>Classes</strong> : Perte d’information inévitable.</p>
+<p><br></p>
+<p>Variables quantitatives → Classes : Perte d’information inévitable.</p>
 <ul>
-<li>Valeur précise → Appartenance à une classe</li>
-<li>Exemple : 256.72$ → “&gt;250$”</li>
-<li><strong>Compromis</strong> : Granularité vs interprétabilité</li>
+<li><p>Valeur précise → Appartenance à une classe</p></li>
+<li><p>Exemple : 256.72$ → &gt;250$</p></li>
+<li><p>Compromis : Granularité vs interprétabilité</p></li>
 </ul>
-</div>
-</div>
-</div>
-<p><strong>Enjeu</strong> : Choisir des classes pertinentes pour le problème étudié.</p>
+<p>Enjeu : Choisir des classes pertinentes pour le problème étudié.</p>
 </section>
 <section id="tableau-de-burt" class="slide level2">
 <h2>Tableau de Burt</h2>
+<p><br></p>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Avertissement</strong></p>
+<p><strong>Définition</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Définition</strong> : <span class="math inline">\(B = Z^\top Z\)</span> (matrice <span class="math inline">\(J \times J\)</span>)</p>
+<p><span class="math inline">\(B = Z^\top Z\)</span> (matrice <span class="math inline">\(J \times J\)</span>)</p>
 </div>
 </div>
 </div>
-<p><strong>Structure du tableau de Burt</strong> : - <strong>Blocs diagonaux</strong> : <span class="math inline">\(B_{qq} = Z_q^\top Z_q\)</span> (effectifs par modalité) - <strong>Blocs non-diagonaux</strong> : <span class="math inline">\(B_{qq'} = Z_q^\top Z_{q'}\)</span> (tableaux de contingence) - <strong>Symétrique</strong> : <span class="math inline">\(B_{q'q} = B_{qq'}^\top\)</span></p>
 </section>
 <section id="propriétés-du-tableau-de-burt" class="slide level2">
 <h2>Propriétés du tableau de Burt</h2>
-<p><strong>Taille</strong> : <span class="math inline">\(J \times J\)</span> (nombre total de modalités)</p>
-<p><strong>Blocs diagonaux</strong> : Matrices diagonales - Éléments = effectifs de chaque modalité</p>
-<p><strong>Blocs non-diagonaux</strong> : Tableaux de contingence<br>
-- Croisement entre variables <span class="math inline">\(q\)</span> et <span class="math inline">\(q'\)</span></p>
-<p><strong>Symétrie</strong> : <span class="math inline">\(B = B^\top\)</span></p>
+<p><br></p>
+<p>Taille : <span class="math inline">\(J \times J\)</span> (nombre total de modalités)</p>
+<div class="fragment">
+<p>Blocs diagonaux : Matrices diagonales</p>
+<p>→ Éléments = effectifs de chaque modalité</p>
+</div>
+<div class="fragment">
+<p>Blocs non-diagonaux : Tableaux de contingence</p>
+<p>→ Croisement entre variables <span class="math inline">\(q\)</span> et <span class="math inline">\(q'\)</span></p>
+</div>
+<div class="fragment">
+<p>Symétrie : <span class="math inline">\(B = B^\top\)</span></p>
+</div>
 </section>
 <section id="équivalence-mathématique" class="slide level2">
 <h2>Équivalence mathématique</h2>
-<p><strong>Propriété fondamentale</strong> : L’ACM peut s’effectuer sur : - Le tableau disjonctif complet <span class="math inline">\(Z\)</span> - Le tableau de Burt <span class="math inline">\(B = Z^\top Z\)</span></p>
-<p><strong>Résultat</strong> : Les deux approches donnent les <strong>mêmes facteurs</strong> !</p>
+<p><br></p>
+<p>L’ACM peut s’effectuer sur :</p>
+<ul>
+<li><p>Le tableau disjonctif complet <span class="math inline">\(Z\)</span></p></li>
+<li><p>Le tableau de Burt <span class="math inline">\(B = Z^\top Z\)</span></p></li>
+</ul>
+<p>Résultat → Les deux approches donnent les mêmes facteurs!</p>
 <p>Cette équivalence offre une flexibilité computationnelle.</p>
 </section>
 <section id="éléments-propres-de-z" class="slide level2">
 <h2>Éléments propres de Z</h2>
-<p><strong>Analyse directe</strong> - Vecteurs propres de : <span class="math display">\[S = \frac{1}{Q} Z^\top Z D_J^{-1}\]</span></p>
-<p>où <span class="math inline">\(D_J = \text{diag}(n_1, \ldots, n_J)\)</span></p>
-<p><strong>Coordonnées profils-lignes</strong> : <span class="math display">\[\Phi_k = n Z D_J^{-1} u_k\]</span></p>
-<p><strong>Analyse duale</strong> - Vecteurs propres de : <span class="math display">\[T = \frac{1}{Q} Z D_J^{-1} Z^\top\]</span></p>
+<p>Analyse directe - Vecteurs propres de :</p>
+<p><span class="math display">\[S = \frac{1}{Q} Z^\top Z D_J^{-1}\]</span> où <span class="math inline">\(D_J = \text{diag}(n_1, \ldots, n_J)\)</span>.</p>
+<p>Coordonnées profils-lignes : <span class="math display">\[\Phi_k = n Z D_J^{-1} u_k\]</span></p>
+</section>
+<section id="éléments-propres-de-z-1" class="slide level2">
+<h2>Éléments propres de Z</h2>
+<p>Analyse duale - Vecteurs propres de : <span class="math display">\[T = \frac{1}{Q} Z D_J^{-1} Z^\top\]</span> où <span class="math inline">\(D_J = \text{diag}(n_1, \ldots, n_J)\)</span>.</p>
+<p>Coordonnées profils-colonnes : <span class="math display">\[\Psi_k = n D_J^{-1} Z^\top v_k\]</span></p>
 </section>
 <section id="éléments-propres-de-b" class="slide level2">
 <h2>Éléments propres de B</h2>
-<p><strong>Tableau de Burt symétrique</strong> → Analyse directe = duale</p>
-<p><strong>Vecteurs propres de</strong> : <span class="math display">\[S' = \frac{1}{Q^2} B^\top D_J^{-1} B D_J^{-1}\]</span></p>
-<p><strong>Propriété remarquable</strong> : <span class="math display">\[S' = \frac{1}{Q^2} Z^\top Z D_J^{-1} Z^\top Z D_J^{-1}\]</span></p>
+<p>Tableau de Burt symétrique → Analyse directe = duale</p>
+<p>Vecteurs propres de : <span class="math display">\[S' = \frac{1}{Q^2} B^\top D_J^{-1} B D_J^{-1}\]</span></p>
+<div class="fragment">
+<p>On peut réécrire <span class="math inline">\(S'\)</span> comme : <span class="math display">\[S' = \frac{1}{Q^2} Z^\top Z D_J^{-1} Z^\top Z D_J^{-1}\]</span></p>
+</div>
 </section>
 <section id="relation-entre-valeurs-propres" class="slide level2">
 <h2>Relation entre valeurs propres</h2>
-<p><strong>Théorème fondamental</strong> :</p>
-<p>Si <span class="math inline">\(\lambda\)</span> est valeur propre de <span class="math inline">\(S\)</span> (analyse de <span class="math inline">\(Z\)</span>),<br>
-alors <span class="math inline">\(\lambda^2\)</span> est valeur propre de <span class="math inline">\(S'\)</span> (analyse de <span class="math inline">\(B\)</span>).</p>
-<p><strong>Conséquence</strong> : - Mêmes vecteurs propres pour <span class="math inline">\(Z\)</span> et <span class="math inline">\(B\)</span> - Valeurs propres de <span class="math inline">\(B\)</span> = carrés des valeurs propres de <span class="math inline">\(Z\)</span></p>
+<p><br></p>
+<p>Si <span class="math inline">\(\lambda\)</span> est valeur propre de <span class="math inline">\(S\)</span> (analyse de <span class="math inline">\(Z\)</span>), alors <span class="math inline">\(\lambda^2\)</span> est valeur propre de <span class="math inline">\(S'\)</span> (analyse de <span class="math inline">\(B\)</span>).</p>
+<p>Conséquence :</p>
+<ul>
+<li><p>Mêmes vecteurs propres pour <span class="math inline">\(Z\)</span> et <span class="math inline">\(B\)</span>.</p></li>
+<li><p>Valeurs propres de <span class="math inline">\(B\)</span> = carrés des valeurs propres de <span class="math inline">\(Z\)</span>.</p></li>
+</ul>
 </section>
 <section id="encodage-des-variables-quantitatives" class="slide level2">
 <h2>Encodage des variables quantitatives</h2>
-<p><strong>Choix des bornes</strong> crucial pour la qualité de l’analyse :</p>
-<p><strong>Approches recommandées</strong> : - Analyser la distribution (histogrammes) - Bornes pertinentes au domaine d’étude - Éviter les classes peu informatives</p>
-<p><strong>Approche déconseillée</strong> : - Effectifs égaux automatiques - Classes sans sens métier</p>
+<p>Choix des bornes crucial pour la qualité de l’analyse.</p>
+<div class="fragment">
+<p>Approches recommandées :</p>
+<ul>
+<li><p>Analyser la distribution (histogrammes)</p></li>
+<li><p>Bornes pertinentes au domaine d’étude</p></li>
+<li><p>Éviter les classes peu informatives</p></li>
+</ul>
+</div>
+<div class="fragment">
+<p>Approche déconseillée :</p>
+<ul>
+<li><p>Effectifs égaux automatiques</p></li>
+<li><p>Classes sans sens métier</p></li>
+</ul>
+</div>
 </section>
 <section id="encodage-des-variables-qualitatives" class="slide level2">
 <h2>Encodage des variables qualitatives</h2>
-<p><strong>Modalités “naturelles”</strong> mais problèmes potentiels :</p>
-<p><strong>Effectifs déséquilibrés</strong> : - Modalités très rares vs très fréquentes - Impact sur la représentation</p>
-<p><strong>Solutions</strong> : - <strong>Regroupements pertinents</strong> (connaissance du domaine) - Éviter la répartition aléatoire - Préserver le sens des modalités</p>
+<p>Modalités “naturelles” mais problèmes potentiels.</p>
+<div class="fragment">
+<p>Effectifs déséquilibrés :</p>
+<ul>
+<li><p>Modalités très rares vs très fréquentes</p></li>
+<li><p>Impact sur la représentation</p></li>
+</ul>
+</div>
+<div class="fragment">
+<p>Solutions potentielles :</p>
+<ul>
+<li><p>Regroupements pertinents (connaissance du domaine)</p></li>
+<li><p>Éviter la répartition aléatoire</p></li>
+<li><p>Préserver le sens des modalités</p></li>
+</ul>
+</div>
 </section>
-<section id="stratégies-dencodage" class="slide level2">
-<h2>Stratégies d’encodage</h2>
-<p><strong>Variables continues</strong> : 1. Examiner la distribution 2. Identifier des seuils naturels 3. Classes équilibrées ET pertinentes 4. Éviter trop de classes (complexité)</p>
-<p><strong>Variables qualitatives</strong> : 1. Analyser les effectifs 2. Regrouper les modalités rares 3. Préserver la logique métier 4. Maintenir l’interprétabilité</p>
+<section id="exemple-le-succès-des-étudiants" class="slide level2 smaller scrollable">
+<h2>Exemple : le succès des étudiants</h2>
+<p>On considère le jeu de données suivant :</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 11%">
+<col style="width: 21%">
+<col style="width: 27%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Hours_Studied</th>
+<th style="text-align: left;">Attendance</th>
+<th style="text-align: left;">Parental_Involvement</th>
+<th style="text-align: left;">Extracurricular_Activities</th>
+<th style="text-align: left;">Sleep_Hours</th>
+<th style="text-align: left;">School_Type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">21-30</td>
+<td style="text-align: left;">71-90</td>
+<td style="text-align: left;">Low</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">&lt;=7</td>
+<td style="text-align: left;">Public</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">11-20</td>
+<td style="text-align: left;">0-70</td>
+<td style="text-align: left;">Low</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">&gt;7</td>
+<td style="text-align: left;">Public</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">21-30</td>
+<td style="text-align: left;">91-100</td>
+<td style="text-align: left;">Medium</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">&lt;=7</td>
+<td style="text-align: left;">Public</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">21-30</td>
+<td style="text-align: left;">71-90</td>
+<td style="text-align: left;">Low</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">&gt;7</td>
+<td style="text-align: left;">Public</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11-20</td>
+<td style="text-align: left;">91-100</td>
+<td style="text-align: left;">Medium</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">&lt;=7</td>
+<td style="text-align: left;">Public</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">11-20</td>
+<td style="text-align: left;">71-90</td>
+<td style="text-align: left;">Medium</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">&gt;7</td>
+<td style="text-align: left;">Public</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </section>
-<section id="considérations-pratiques" class="slide level2">
-<h2>Considérations pratiques</h2>
-<p><strong>Nombre optimal de classes</strong> : - Trop peu → Perte d’information - Trop → Complexité, effectifs faibles</p>
-<p><strong>Validation du codage</strong> : - Vérifier la pertinence des classes - Tester différents découpages - Évaluer l’impact sur les résultats</p>
-<p><strong>Documentation</strong> : Justifier les choix d’encodage.</p>
+<section id="exemple-le-succès-des-étudiants-1" class="slide level2 smaller">
+<h2>Exemple : le succès des étudiants</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Code</a></li><li><a href="#tabset-1-2">Plot</a></li><li><a href="#tabset-1-3">Valeurs propres</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(FactoMineR)</span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(factoextra)</span>
+<span id="cb1-3"><a></a>res_mca <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb1-4"><a></a>  <span class="fu">MCA</span>(<span class="at">graph =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-5"><a></a><span class="fu">fviz_eig</span>(res_mca)</span>
+<span id="cb1-6"><a></a><span class="fu">get_eigenvalue</span>(res_mca)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="tabset-1-2">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-dimension-mca-slides_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-3">
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">eigenvalue</th>
+<th style="text-align: right;">variance.percent</th>
+<th style="text-align: right;">cumulative.variance.percent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Dim.1</td>
+<td style="text-align: right;">0.1984565</td>
+<td style="text-align: right;">11.907391</td>
+<td style="text-align: right;">11.90739</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dim.2</td>
+<td style="text-align: right;">0.1898757</td>
+<td style="text-align: right;">11.392541</td>
+<td style="text-align: right;">23.29993</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dim.3</td>
+<td style="text-align: right;">0.1814721</td>
+<td style="text-align: right;">10.888326</td>
+<td style="text-align: right;">34.18826</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dim.4</td>
+<td style="text-align: right;">0.1773147</td>
+<td style="text-align: right;">10.638882</td>
+<td style="text-align: right;">44.82714</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dim.5</td>
+<td style="text-align: right;">0.1672860</td>
+<td style="text-align: right;">10.037161</td>
+<td style="text-align: right;">54.86430</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dim.6</td>
+<td style="text-align: right;">0.1651723</td>
+<td style="text-align: right;">9.910338</td>
+<td style="text-align: right;">64.77464</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dim.7</td>
+<td style="text-align: right;">0.1561348</td>
+<td style="text-align: right;">9.368089</td>
+<td style="text-align: right;">74.14273</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dim.8</td>
+<td style="text-align: right;">0.1500984</td>
+<td style="text-align: right;">9.005905</td>
+<td style="text-align: right;">83.14863</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dim.9</td>
+<td style="text-align: right;">0.1415169</td>
+<td style="text-align: right;">8.491017</td>
+<td style="text-align: right;">91.63965</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dim.10</td>
+<td style="text-align: right;">0.1393392</td>
+<td style="text-align: right;">8.360350</td>
+<td style="text-align: right;">100.00000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="applications-typiques" class="slide level2">
-<h2>Applications typiques</h2>
-<p><strong>Études marketing</strong> : - Profils consommateurs × Préférences - Segmentation clientèle</p>
-<p><strong>Sciences sociales</strong> : - Enquêtes d’opinion - Comportements × Caractéristiques</p>
-<p><strong>Santé publique</strong> : - Facteurs de risque × Pathologies - Questionnaires de qualité de vie</p>
+<section id="exemple-le-succès-des-étudiants-2" class="slide level2 smaller">
+<h2>Exemple : le succès des étudiants</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Code</a></li><li><a href="#tabset-2-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">fviz_mca_biplot</span>(</span>
+<span id="cb2-2"><a></a>  res_mca, </span>
+<span id="cb2-3"><a></a>  <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-4"><a></a>  <span class="at">label =</span> <span class="st">"none"</span>,</span>
+<span id="cb2-5"><a></a>  <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>()</span>
+<span id="cb2-6"><a></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="tabset-2-2">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-dimension-mca-slides_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exemple-le-succès-des-étudiants-3" class="slide level2 smaller">
+<h2>Exemple : le succès des étudiants</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Code</a></li><li><a href="#tabset-3-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">fviz_mca_var</span>(</span>
+<span id="cb3-2"><a></a>  res_mca,</span>
+<span id="cb3-3"><a></a>  <span class="at">choice =</span> <span class="st">"mca.cor"</span>, </span>
+<span id="cb3-4"><a></a>  <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb3-5"><a></a>  <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>()</span>
+<span id="cb3-6"><a></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="tabset-3-2">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-dimension-mca-slides_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exemple-le-succès-des-étudiants-4" class="slide level2 smaller">
+<h2>Exemple : le succès des étudiants</h2>
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Code</a></li><li><a href="#tabset-4-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">fviz_mca_var</span>(</span>
+<span id="cb4-2"><a></a>  res_mca,</span>
+<span id="cb4-3"><a></a>  <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb4-4"><a></a>  <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>()</span>
+<span id="cb4-5"><a></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="tabset-4-2">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-dimension-mca-slides_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exemple-le-succès-des-étudiants-5" class="slide level2 smaller">
+<h2>Exemple : le succès des étudiants</h2>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Code</a></li><li><a href="#tabset-5-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">fviz_mca_var</span>(</span>
+<span id="cb5-2"><a></a>  res_mca,</span>
+<span id="cb5-3"><a></a>  <span class="at">col.var =</span> <span class="st">"cos2"</span>,</span>
+<span id="cb5-4"><a></a>  <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span>), </span>
+<span id="cb5-5"><a></a>  <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb5-6"><a></a>  <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>()</span>
+<span id="cb5-7"><a></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="tabset-5-2">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-dimension-mca-slides_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exemple-le-succès-des-étudiants-6" class="slide level2 smaller">
+<h2>Exemple : le succès des étudiants</h2>
+<div class="panel-tabset">
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Code</a></li><li><a href="#tabset-6-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1">
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">fviz_mca_ind</span>(</span>
+<span id="cb6-2"><a></a>  res_mca,</span>
+<span id="cb6-3"><a></a>  <span class="at">label =</span> <span class="st">"none"</span>,</span>
+<span id="cb6-4"><a></a>  <span class="at">col.ind =</span> <span class="st">"cos2"</span>, </span>
+<span id="cb6-5"><a></a>  <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span>),</span>
+<span id="cb6-6"><a></a>  <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb6-7"><a></a>  <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>()</span>
+<span id="cb6-8"><a></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="tabset-6-2">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-dimension-mca-slides_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exemple-le-succès-des-étudiants-7" class="slide level2 smaller">
+<h2>Exemple : le succès des étudiants</h2>
+<div class="panel-tabset">
+<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Code</a></li><li><a href="#tabset-7-2">Plot</a></li><li><a href="#tabset-7-3">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1">
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">fviz_mca_ind</span>(</span>
+<span id="cb7-2"><a></a>  res_mca, </span>
+<span id="cb7-3"><a></a>  <span class="at">label =</span> <span class="st">"none"</span>,</span>
+<span id="cb7-4"><a></a>  <span class="at">habillage =</span> <span class="st">"Hours_Studied"</span>,</span>
+<span id="cb7-5"><a></a>  <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"#D81B60"</span>, <span class="st">"#1E88E5"</span>, <span class="st">"#FFC107"</span>, <span class="st">"#004D40"</span>),</span>
+<span id="cb7-6"><a></a>  <span class="at">addEllipses =</span> <span class="cn">TRUE</span>, <span class="at">ellipse.type =</span> <span class="st">"confidence"</span>,</span>
+<span id="cb7-7"><a></a>  <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>()</span>
+<span id="cb7-8"><a></a>) </span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="tabset-7-2">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-dimension-mca-slides_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-7-3">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="04-dimension-mca-slides_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="avantages-de-lacm" class="slide level2">
 <h2>Avantages de l’ACM</h2>
+<p><br></p>
 <ul>
-<li><strong>Visualisation</strong> de relations complexes multi-variables</li>
-<li><strong>Traitement unifié</strong> de variables hétérogènes<br>
-</li>
-<li><strong>Réduction de dimension</strong> préservant les associations</li>
-<li><strong>Interprétation intuitive</strong> des proximités</li>
-<li><strong>Flexibilité</strong> dans l’encodage des variables</li>
+<li><p>Visualisation de relations complexes multi-variables</p></li>
+<li><p>Traitement unifié de variables hétérogènes</p></li>
+<li><p>Réduction de dimension préservant les associations</p></li>
+<li><p>Interprétation intuitive des proximités</p></li>
+<li><p>Flexibilité dans l’encodage des variables</p></li>
 </ul>
 </section>
 <section id="limites-et-précautions" class="slide level2">
 <h2>Limites et précautions</h2>
-<p><strong>Perte d’information</strong> : - Variables continues → classes - Choix d’encodage critique</p>
-<p><strong>Sensibilité aux effectifs</strong> : - Modalités rares peuvent dominer - Équilibrage nécessaire</p>
-<p><strong>Interprétation</strong> : - Proximités entre modalités de variables différentes - Attention aux artefacts d’encodage</p>
+<p><br></p>
+<p>Perte d’information :</p>
+<ul>
+<li><p>Variables continues → classes</p></li>
+<li><p>Choix d’encodage critique</p></li>
+</ul>
+<p>Interprétation :</p>
+<ul>
+<li><p>Proximités entre modalités de variables différentes</p></li>
+<li><p>Attention aux artefacts d’encodage</p></li>
+</ul>
 </section>
 <section id="conclusion" class="slide level2">
 <h2>Conclusion</h2>
-<p>L’ACM étend l’AFC au cas multi-variables grâce au <strong>codage disjonctif complet</strong>.</p>
-<p><strong>Éléments clés</strong> : - Transformation binaire préalable - Équivalence <span class="math inline">\(Z\)</span> ↔︎ Tableau de Burt - Choix d’encodage fondamental - Visualisation des patterns complexes</p>
-<p><strong>Succès</strong> dépend de la qualité de l’encodage des variables originales.</p>
+<p><br></p>
+<p>L’ACM étend l’AFC au cas multi-variables grâce au codage disjonctif complet :</p>
+<ul>
+<li><p>Transformation binaire préalable</p></li>
+<li><p>Équivalence <span class="math inline">\(Z\)</span> ↔︎ Tableau de Burt <span class="math inline">\(B\)</span></p></li>
+<li><p>Choix d’encodage</p></li>
+<li><p>Visualisation des patterns complexes</p></li>
+</ul>
+<p>Prochaine étape → éthique de l’analyse de données</p>
 
 
 </section>
@@ -696,6 +1145,44 @@ alors <span class="math inline">\(\lambda^2\)</span> est valeur propre de <span 
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
