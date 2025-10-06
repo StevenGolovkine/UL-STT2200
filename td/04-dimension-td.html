@@ -568,6 +568,7 @@ window.Quarto = {
   <li><a href="#exercice-1-compréhension-de-lacp" id="toc-exercice-1-compréhension-de-lacp" class="nav-link active" data-scroll-target="#exercice-1-compréhension-de-lacp">Exercice 1: Compréhension de l’ACP</a></li>
   <li><a href="#exercice-2-matrice-de-covariance-et-de-corrélation" id="toc-exercice-2-matrice-de-covariance-et-de-corrélation" class="nav-link" data-scroll-target="#exercice-2-matrice-de-covariance-et-de-corrélation">Exercice 2: Matrice de covariance et de corrélation</a></li>
   <li><a href="#exercice-3-pratique-de-lacp" id="toc-exercice-3-pratique-de-lacp" class="nav-link" data-scroll-target="#exercice-3-pratique-de-lacp">Exercice 3: Pratique de l’ACP</a></li>
+  <li><a href="#exercice-4-taux-de-survie-de-patients" id="toc-exercice-4-taux-de-survie-de-patients" class="nav-link" data-scroll-target="#exercice-4-taux-de-survie-de-patients">Exercice 4: Taux de survie de patients</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/td/04-dimension-td.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="04-dimension-td.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -629,6 +630,52 @@ window.Quarto = {
 <li><p>En fait, <span class="math inline">\(X_{1}, X_{2}\)</span> et <span class="math inline">\(X_{3}\)</span> représentent, respectivement, la circonférence du poignet droit, un score de capacité pulmonaire et l’indice de masse corporelle des individus d’une certaine population. Les médecins aimeraient résumer ces trois mesures en un seul score, noté <span class="math inline">\(C\)</span>, qui est une combinaison linéaire des trois variables originales, i.e.&nbsp;<span class="math inline">\(C = c_{1} X_{1} + c_{2} X_{2} + c_{3} X_{3}\)</span> pour des nombres réels <span class="math inline">\(c_{1}, c_{2}\)</span> et <span class="math inline">\(c_{3}\)</span>) et qui capture le plus de variabilité possible. Trouvez les valeurs de <span class="math inline">\(c_{1}, c_{2}\)</span> et <span class="math inline">\(c_{3}\)</span> telles que <span class="math inline">\(\sum_{j = 1}^{3} c_j^2 = 1\)</span> et que la variance de <span class="math inline">\(C\)</span> sera maximale. Quelle est la valeur de cette variance maximale ?</p></li>
 <li><p>Quelle proportion de la variabilité totale de <span class="math inline">\(X_{1}, X_{2}\)</span> et <span class="math inline">\(X_{3}\)</span> est capturée par <span class="math inline">\(C\)</span> ?</p></li>
 <li><p>Retrouvez la matrice <span class="math inline">\(\Sigma\)</span> à partir des informations données dans l’énoncé de la question.</p></li>
+</ol>
+</section>
+<section id="exercice-4-taux-de-survie-de-patients" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-4-taux-de-survie-de-patients">Exercice 4: Taux de survie de patients</h2>
+<p>La tableau suivant donne la répartition de patients selon l’issue observée en ligne (survie ou décès codés respectivement 0 et 1) en fonction de l’observation de troubles cognitifs en phase initiale en colonne (absence codée 0, présence de troubles codée 1 et troubles sévères codée 2).</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Abscence</th>
+<th>Troubles</th>
+<th>Troubles sévères</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Survie</td>
+<td>108</td>
+<td>61</td>
+<td>13</td>
+<td>182</td>
+</tr>
+<tr class="even">
+<td>Décès</td>
+<td>8</td>
+<td>4</td>
+<td>2</td>
+<td>14</td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td>116</td>
+<td>65</td>
+<td>15</td>
+<td>196</td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li><p>Quelle méthode vous semble la mieux adaptée à l’analyse de ce tableau ?</p></li>
+<li><p>Donner le tableau des fréquences relatives.</p></li>
+<li><p>Donner le profil moyen des lignes. À quoi correspond-il ?</p></li>
+<li><p>Donner le profil moyen des colonnes. À quoi correspond-il ?</p></li>
+<li><p>Combien d’axes obtient-on en effectuant l’analyse donnée en question 1 ? Justifier.</p></li>
+<li><p>Quel test vous permet de détecter une éventuelle indépendance entre l’issue observée et la présence ou l’absence de troubles cognitifs en phase initiale ? Sachant que l’inertie totale du nuage est égale à 0.0050, donner la valeur de la statistique du test correspondant.</p></li>
 </ol>
 
 

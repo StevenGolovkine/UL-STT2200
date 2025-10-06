@@ -2634,6 +2634,13 @@
     "text": "Exercice 3: Pratique de l’ACP\nSoit un vecteur de trois variables aléatoires \\(X = (X_{1}, X_{2}, X_{3})^{\\top}\\) dont la matrice de variance est donnée par \\(\\mathrm{Var}(X) = \\Sigma\\). On vous dit que les valeurs propres de \\(\\Sigma\\) sont \\(3, 2\\) et \\(1\\) et que les vecteurs propres normés correspondants sont, respectivement, \\(v_{1} = (0, - 1 / \\sqrt{2}, 1 / \\sqrt{2})^{\\top}\\), \\(v_{2} = (1, 0, 0)^{\\top}\\) et \\(v_{3} = (0, 1 / \\sqrt{2}, 1 / \\sqrt{2})^{\\top}\\).\n\nEn fait, \\(X_{1}, X_{2}\\) et \\(X_{3}\\) représentent, respectivement, la circonférence du poignet droit, un score de capacité pulmonaire et l’indice de masse corporelle des individus d’une certaine population. Les médecins aimeraient résumer ces trois mesures en un seul score, noté \\(C\\), qui est une combinaison linéaire des trois variables originales, i.e. \\(C = c_{1} X_{1} + c_{2} X_{2} + c_{3} X_{3}\\) pour des nombres réels \\(c_{1}, c_{2}\\) et \\(c_{3}\\)) et qui capture le plus de variabilité possible. Trouvez les valeurs de \\(c_{1}, c_{2}\\) et \\(c_{3}\\) telles que \\(\\sum_{j = 1}^{3} c_j^2 = 1\\) et que la variance de \\(C\\) sera maximale. Quelle est la valeur de cette variance maximale ?\nQuelle proportion de la variabilité totale de \\(X_{1}, X_{2}\\) et \\(X_{3}\\) est capturée par \\(C\\) ?\nRetrouvez la matrice \\(\\Sigma\\) à partir des informations données dans l’énoncé de la question."
   },
   {
+    "objectID": "td/04-dimension-td.html#exercice-4-taux-de-survie-de-patients",
+    "href": "td/04-dimension-td.html#exercice-4-taux-de-survie-de-patients",
+    "title": "TD: Dimension",
+    "section": "Exercice 4: Taux de survie de patients",
+    "text": "Exercice 4: Taux de survie de patients\nLa tableau suivant donne la répartition de patients selon l’issue observée en ligne (survie ou décès codés respectivement 0 et 1) en fonction de l’observation de troubles cognitifs en phase initiale en colonne (absence codée 0, présence de troubles codée 1 et troubles sévères codée 2).\n\n\n\n\nAbscence\nTroubles\nTroubles sévères\nTotal\n\n\n\n\nSurvie\n108\n61\n13\n182\n\n\nDécès\n8\n4\n2\n14\n\n\nTotal\n116\n65\n15\n196\n\n\n\n\nQuelle méthode vous semble la mieux adaptée à l’analyse de ce tableau ?\nDonner le tableau des fréquences relatives.\nDonner le profil moyen des lignes. À quoi correspond-il ?\nDonner le profil moyen des colonnes. À quoi correspond-il ?\nCombien d’axes obtient-on en effectuant l’analyse donnée en question 1 ? Justifier.\nQuel test vous permet de détecter une éventuelle indépendance entre l’issue observée et la présence ou l’absence de troubles cognitifs en phase initiale ? Sachant que l’inertie totale du nuage est égale à 0.0050, donner la valeur de la statistique du test correspondant."
+  },
+  {
     "objectID": "td/03-generalities-td.html",
     "href": "td/03-generalities-td.html",
     "title": "TD: Généralités",
@@ -2715,7 +2722,21 @@
     "href": "tp/04-dimension-tp.html#exercice-1-des-coquillages",
     "title": "TP: Dimension",
     "section": "Exercice 1: Des coquillages",
-    "text": "Exercice 1: Des coquillages\nDans cette exercice, on se propose de faire une analyse de données de coquillages. Pour cela, on a accès à 7 mesures physiques des coquillages, ainsi que leur genre et leur âge.\n\nTélécharger le jeu de données suivant: lien. Des informations sur le jeu de données sont disponibles ici.\nFaire une rapide analyse descriptive des données.\nFaire une analyse en composantes principales.\nCombien gardez-vous d’axes factoriels en fonction des différentes règles vu en cours ?\nQuelles sont les deux variables qui contribuent le plus à la deuxième dimension ? Et quelles sont les deux observations qui contribuent le plus à la troisième dimension ?\nComment interprétez la première dimension ?\nQuelle est le pourcentage de la variabilité expliquée par les trois premiers axes factoriels ?\nDans ce contexte, était-il pertinent de standardiser les données pour faire l’analyse en composantes principales ? Justifiez."
+    "text": "Exercice 1: Des coquillages\nDans cet exercice, on se propose de faire une analyse de données de coquillages. Pour cela, on a accès à 7 mesures physiques des coquillages, ainsi que leur genre et leur âge.\n\nTélécharger le jeu de données suivant: lien. Des informations sur le jeu de données sont disponibles ici.\nFaire une rapide analyse descriptive des données.\nFaire une analyse en composantes principales.\nCombien gardez-vous d’axes factoriels en fonction des différentes règles vu en cours ?\nQuelles sont les deux variables qui contribuent le plus à la deuxième dimension ? Et quelles sont les deux observations qui contribuent le plus à la troisième dimension ?\nComment interprétez la première dimension ?\nQuelle est le pourcentage de la variabilité expliquée par les trois premiers axes factoriels ?\nDans ce contexte, était-il pertinent de standardiser les données pour faire l’analyse en composantes principales ? Justifiez."
+  },
+  {
+    "objectID": "tp/04-dimension-tp.html#exercice-2-écoute-radio-au-canada",
+    "href": "tp/04-dimension-tp.html#exercice-2-écoute-radio-au-canada",
+    "title": "TP: Dimension",
+    "section": "Exercice 2: Écoute radio au Canada",
+    "text": "Exercice 2: Écoute radio au Canada\nDans cet exercice, on cherche à savoir si certains types de radio sont préférés par des adoslescents, des hommes ou bien des femmes.\n\nTélécharger le jeu de données suivant: lien. Ces données sont tirés de Statistique Canada et correspondent aux types de radio écoutées par les adoslescents, les hommes et les femmes adultes au Canada.\nFaire une analyse factorielle des correspondances.\nInterpréter le premier axe factoriel.\nQuelle est la qualité de représentation des adoslescents, des hommes et des femmes adultes. Expliquer."
+  },
+  {
+    "objectID": "tp/04-dimension-tp.html#exercice-3-le-café",
+    "href": "tp/04-dimension-tp.html#exercice-3-le-café",
+    "title": "TP: Dimension",
+    "section": "Exercice 3: Le café",
+    "text": "Exercice 3: Le café\nDans cet exercice, on s’intéresse à la relation entre le type de café commandé et la période de la journée.\n\nTélécharger le jeu de données suivant: lien.\nConstruire la tableau des fréquences relatives croisant Types de café et Période de la journée.\nFaire une analyse factorielle des correspondances de ce tableau de fréquences.\nInterpréter les axes factoriels.\nLes deux variables sont-elles indépendantes ? Justifier."
   },
   {
     "objectID": "slides/05-supervised-tree-slides.html#introduction",
