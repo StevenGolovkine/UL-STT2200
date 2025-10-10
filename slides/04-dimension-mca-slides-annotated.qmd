@@ -11,7 +11,7 @@ format:
   revealjs:
     theme: [default, ../include/ulaval-slide.scss]
     chalkboard:
-      src: annotation/04-dimension-ca-slides-annotation.json
+      src: annotation/04-dimension-mca-slides-annotation.json
     width: 1280
     height: 720
     template-partials:
