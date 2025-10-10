@@ -11,7 +11,7 @@ format:
 
 * Slides: 
 
-  - [\thique](../slides/07-ethics-slides.qmd) 
+  - [Éthique](../slides/07-ethics-slides.qmd) 
 
 * TD: [link](../td/07-ethics-td.qmd)
 
