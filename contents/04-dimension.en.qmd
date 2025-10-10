@@ -14,7 +14,7 @@ format:
 
   - [Correspondance analysis](../slides/04-dimension-ca-slides.qmd) - [annotated](../slides/04-dimension-ca-slides-annotated.qmd)
 
-  - [Multiple correspondance analysis](../slides/04-dimension-mca-slides.qmd)
+  - [Multiple correspondance analysis](../slides/04-dimension-mca-slides.qmd) - [annotated](../slides/04-dimension-mca-slides-annotated.qmd)
 
 * TD: [link](../td/04-dimension-td.qmd)
 

@@ -13,7 +13,7 @@ format:
 
   - [Analyse factorielle des correspondances](../slides/04-dimension-ca-slides.qmd) - [annoté](../slides/04-dimension-ca-slides-annotated.qmd)
 
-  - [Analyse des correspondances multiples](../slides/04-dimension-mca-slides.qmd)
+  - [Analyse des correspondances multiples](../slides/04-dimension-mca-slides.qmd) - [annoté](../slides/04-dimension-mca-slides-annotated.qmd)
 
 * TD: [link](../td/04-dimension-td.qmd)
 

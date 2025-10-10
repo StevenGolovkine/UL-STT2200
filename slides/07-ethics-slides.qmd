@@ -1,0 +1,503 @@
+--- 
+title: "Éthique"
+subtitle: "et confidentialité"
+author: "Steven Golovkine"
+lang: fr
+date: "17 oct. 2024"
+date-format: "DD MMM YYYY"
+slide-number: c/t
+title-logo: ../include/logo-ul.png
+format:
+  revealjs:
+    theme: [default, ../include/ulaval-slide.scss]
+    chalkboard: true
+    width: 1280
+    height: 720
+    template-partials:
+      - title-slide.html
+---
+
+
+## L'analyse de données aujourd'hui
+
+<br>
+
+Omniprésence dans tous les domaines :
+
+- Santé
+
+- Éducation
+
+- Politiques publiques
+
+- Justice
+
+- Finance
+
+. . .
+
+→ Décisions automatisées aux conséquences réelles.
+
+
+## Plan
+
+<br>
+
+1. Généralités
+
+2. Confidentialité des données
+
+3. Implications sociales 
+
+4. Mythes à déconstruire 
+
+5. Solutions pratiques 
+
+
+
+## Pourquoi l'éthique est cruciale ?
+
+<br>
+
+<center>
+**Les données ne sont pas neutres !**
+</center>
+
+. . .
+
+Elles sont le reflet d'un contexte :
+
+- Social
+
+- Institutionnel
+
+- Technique
+
+. . .
+
+Risques → Renforcer les inégalités, reproduire des biais historiques, porter atteinte à la vie privée, ...
+
+
+## Questions fondamentales
+
+<br>
+
+Avant toute analyse, se demander :
+
+::: {.incremental}
+1. Mes données représentent-elles fidèlement ma population ?
+
+2. Quelles décisions seront prises à partir de ces analyses ?
+
+3. Quelles sont les conséquences pour les individus concernés ?
+
+4. Qui est affecté par ces décisions ?
+:::
+
+## Confidentialité : Enjeux
+
+<br>
+
+Lors de la manipulation de données personnelles :
+
+- Réidentification des personnes
+
+- Exploitation abusive
+
+- Violation de la vie privée
+
+→ Nécessité de prendre des mesures adéquates.
+
+
+## Anonymisation des données
+
+<br>
+
+Supprimer ou transformer les identifiants :
+
+* Directs :
+
+  - Noms, adresses, numéros
+
+* Indirects :
+
+  - Dates de naissance, codes postaux
+
+. . .
+
+⚠️ Attention : Le croisement de plusieurs variables peut permettre l'identification !
+
+
+## Exemple : Netflix et IMDb
+
+<br>
+
+Des chercheurs de l'université du Texas ont pu identifier des utilisateurs Netflix en croisant leurs notes avec celles sur IMDb.
+
+. . .
+
+<br>
+Leçon → L'anonymisation simple ne suffit pas toujours !
+
+
+## Techniques de protection
+
+<br>
+
+Réduire la granularité :
+
+- Âges → Tranches d'âge (25-34 ans au lieu de 28 ans)
+
+- Codes postaux → Régions
+
+- Salaires → Catégories
+
+. . .
+
+Regrouper les modalités rares :
+
+- Éviter les combinaisons uniques de caractéristiques
+
+- Fusionner les catégories peu fréquentes
+
+
+## Techniques de protection
+
+<br>
+
+Ajout de bruit :
+
+- Préserver les tendances globales
+
+- Rendre l'identification individuelle difficile
+
+- ⚠️ Ne pas compromettre la validité des analyses
+
+. . .
+
+Confidentialité différentielle :
+
+- Garantir qu'un individu ne peut être identifié
+
+- Même en connaissant toutes les autres données
+
+
+## Implications sociales : Sources de biais
+
+<br>
+
+Plusieurs points de défaillance :
+
+::: {.incremental}
+1. **Biais d'échantillonnage** → Données non représentatives
+
+2. **Biais dans la variable cible** → Reproduction de discriminations historiques
+
+3. **Validité variable selon les groupes** → Performance inégale
+
+4. **Classes mal représentées** → Groupes minoritaires ignorés
+
+:::
+
+## Biais d'échantillonnage
+
+<br>
+
+Problème : Le jeu de données ne reflète pas fidèlement la population cible.
+
+Exemples :
+
+- Sous-représentation de certaines communautés
+
+- Surreprésentation de populations faciles d'accès
+
+- Exclusion de groupes vulnérables
+
+→ Modèles inéquitables
+
+## Biais dans la variable cible
+
+<br>
+
+Problème : Reproduction de discriminations historiques.
+
+Exemples :
+
+- Justice prédictive : logiciel COMPAS utilisé aux USA.
+
+- Recrutement : processus d'Amazon.
+
+
+→ Discrimination systématique de certains groupes.
+ 
+
+## Validité variable selon les groupes
+
+<br>
+
+Un même modèle peut :
+
+- Très bien fonctionner pour un sous-groupe
+
+- Être très mauvais pour un autre
+
+. . .
+
+Exemple (Krishnan, A., Almadan, A., & Rattani, A. (2020)):
+
+- Reconnaissance faciale : Haute précision pour hommes blancs.
+
+- Même système : Faible précision pour femmes noires.
+
+
+→ Erreurs systématiques discriminatoires
+
+
+## Classes mal représentées
+
+<br>
+
+Conséquences :
+
+- Les maladies rares sont mal prédites.
+
+- Les groupes démographiques minoritaires sont ignorés.
+
+- La performance globale masque les échecs locaux.
+
+- Les inégalités existantes sont renforcées.
+
+
+## Mythes à déconstruire
+
+. . .
+
+<br>
+
+Quelques idées reçues :
+
+1. "La machine apprend toute seule."
+
+2. "C'est objectif, c'est basé sur des données."
+
+3. "Mon modèle ne peut pas être sexiste, je n'utilise pas le genre."
+
+
+## Mythe 1 : "La machine apprend toute seule."
+
+
+<br>
+
+En réalité → Ce sont des **choix** faits par des humains :
+
+- Quelles données collecter ?
+
+- Quelles variables inclure ?
+
+- Quelle variable à expliquer ?
+
+- Quel algorithme utiliser ?
+
+→ L'"apprentissage" dépend entièrement des décisions humaines
+
+
+## Mythe 2 : "C'est objectif, basé sur des données."
+
+<br>
+
+Réalité → Les données ne sont jamais neutres !
+
+Elles sont le produit de :
+
+- Contexte social
+
+- Choix institutionnels
+
+- Décisions méthodologiques
+
+→ Les modèles héritent des biais des données.
+
+
+## Mythe 3 : "Sans genre, pas de sexisme."
+
+<br>
+
+Réalité → Le modèle peut inférer le genre via d'autres variables corrélées :
+
+- Profession
+
+- Parcours scolaire
+
+- Historique salarial
+
+→ L'exclusion explicite ne garantit pas l'absence de biais.
+
+
+## Solutions : Vue d'ensemble
+
+<br>
+
+Agir à différentes étapes du processus :
+
+1. En amont → Sur les données
+
+2. Pendant → Sur la fonction de perte
+
+3. A posteriori → Sur les résultats
+
+
+## Solution 1 : Agir sur les données
+
+<br>
+
+Interventions en amont :
+
+::: {.incremental}
+- **Rééquilibrer l'échantillon** → Représentation équitable
+
+- **Sur-représenter certains groupes** → Compenser sous-représentation
+
+- **Corriger les biais connus** → Dans la variable cible
+
+- **Augmenter les données** → Pour classes minoritaires
+:::
+
+## Solution 2 : Modifier la fonction de perte
+
+<br>
+
+Intégrer l'équité dans l'apprentissage :
+
+::: {.incremental}
+- Pénalités pour inégalités de performance
+
+- Imposer équité en termes de faux positifs
+
+- Contraintes sur disparités entre groupes
+
+- Optimisation multi-objectifs (performance + équité)
+:::
+
+## Solution 3 : Corrections a posteriori
+
+<br>
+
+Ajuster les résultats produits :
+
+::: {.incremental}
+- **Recalibrage des probabilités** → Par groupe démographique
+
+- **Ajustement des seuils** → Seuils différents selon contexte
+
+- **Post-processing** → Corrections statistiques
+
+- **Audits réguliers** → Monitoring des performances
+:::
+
+## Limites des solutions techniques
+
+<br>
+
+
+⚠️ Les solutions techniques ne suffisent pas !
+
+Nécessité de :
+
+- Réflexion éthique continue
+
+- Transparence sur les choix
+
+- Implication des parties prenantes
+
+- Évaluation des impacts sociaux
+
+
+## Bonnes pratiques
+
+<br>
+
+Démarche éthique complète :
+
+::: {.incremental}
+1. Documentation → Origines et limites des données
+
+2. Transparence → Méthodes et hypothèses
+
+3. Évaluation différenciée → Performance par sous-groupe
+
+4. Implication → Communautés affectées
+
+5. Révision → Continue et critique
+:::
+
+## Cadres réglementaires
+
+<br>
+
+Protection juridique croissante :
+
+- RGPD (Europe) → Droit à l'explication
+
+- AI Act (UE) → Classification des risques
+
+- Algorithmic Accountability Act (USA) → Audits obligatoires
+
+- Législations nationales en développement
+
+## Responsabilité du data scientist
+
+<br>
+
+Rôle et obligations :
+
+::: {.incremental}
+- Vigilance → Identifier les biais potentiels
+
+- Transparence → Communiquer les limites
+
+- Prudence → Évaluer les conséquences
+
+- Courage → Refuser les projets problématiques
+
+- Formation → Continue sur l'éthique
+:::
+
+## Questions à se poser
+
+<br>
+
+Avant de déployer un modèle :
+
+::: {.incremental}
+1. Qui bénéficie de ce modèle ? Qui peut en pâtir ?
+
+2. Les données sont-elles représentatives ?
+
+3. Y a-t-il des groupes désavantagés ?
+
+4. Les erreurs ont-elles les mêmes conséquences pour tous ?
+
+5. Existe-t-il des alternatives moins risquées ?
+:::
+
+
+## Conclusion
+
+- Les données et modèles ne sont jamais neutres.
+
+- Biais multiples à toutes les étapes du processus.
+
+- Solutions techniques nécessaires mais insuffisantes.
+
+- Réflexion éthique indispensable à chaque projet.
+
+- Responsabilité collective → Data scientists, organisations, société
+
+
+. . .
+
+→ L'éthique n'est pas une contrainte, c'est une condition de qualité !
+
+
+
+Prochaine étape → Classification supervisée

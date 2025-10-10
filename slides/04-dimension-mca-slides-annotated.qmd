@@ -1,0 +1,659 @@
+--- 
+title: "Dimension"
+subtitle: "Analyse des correspondances multiples"
+author: "Steven Golovkine"
+lang: fr
+date: "10 oct. 2024"
+date-format: "DD MMM YYYY"
+slide-number: c/t
+title-logo: ../include/logo-ul.png
+format:
+  revealjs:
+    theme: [default, ../include/ulaval-slide.scss]
+    chalkboard:
+      src: annotation/04-dimension-ca-slides-annotation.json
+    width: 1280
+    height: 720
+    template-partials:
+      - title-slide.html
+--- 
+
+
+
+## Introduction à l'ACM
+
+<br>
+
+L'Analyse des Correspondances Multiples (ACM) est un prolongement de l'AFC pour analyser plus de deux variables qualitatives.
+
+Principe fondamental : Transformation préalable par codage disjonctif complet.
+
+## Plan
+
+<br>
+
+1. La théorie de l'analyse des correspondances multiples 
+
+2. L'ACM en pratique
+
+3. Exemple : 
+
+
+## Notation de base
+
+<br>
+
+- $n$ : nombre d'individus (observations)
+
+- $Q$ : nombre de variables (questions)  
+
+- $J_q$ : nombre de modalités de la variable $q$
+
+- $J$ : nombre total de modalités ($J = \sum_{q=1}^Q J_q$)
+
+Objectif : Représenter graphiquement les relations entre toutes ces modalités.
+
+
+## Codage disjonctif complet
+
+::: {.callout-warning}
+## Définition
+
+Tableau binaire $Z$ ($n \times J$) contenant uniquement des 0 et des 1.
+:::
+
+. . .
+
+- Chaque variable → ses modalités
+
+- Individu possède modalité → code 1
+
+- Individu ne possède pas modalité → code 0
+
+- **Disjonctif** : au plus une modalité par variable
+
+- **Complet** : au moins une modalité par variable
+
+
+## Exemple concret - Données
+
+<br> 
+
+Produits avec Type et Prix:
+
+| Produit | Type | Prix (\$) |
+|---------|------|----------|
+| Nike | Hoodie | 256.72 |
+| Puma | Joggers | 221.26 |
+| Off-W | Hoodie | 198.45 |
+| Supreme | Hoodie | 235.50 |
+
+Variable Prix → 3 classes : <200\$, [200\$-250\$], >250\$
+
+## Exemple - Codage disjonctif complet
+
+<br> 
+
+Tableau transformé $Z$ :
+
+| Produit | Hoodie | Joggers | Sneakers | <200\$ | [200\$-250\$] | >250\$ |
+|---------|:------:|:-------:|:--------:|:-----:|:----------:|:-----:|
+| Nike | 1 | 0 | 0 | 0 | 0 | 1 |
+| Puma | 0 | 1 | 0 | 0 | 1 | 0 |
+| Off-W | 1 | 0 | 0 | 1 | 0 | 0 |
+| Supreme | 1 | 0 | 0 | 0 | 1 | 0 |
+
+Chaque ligne somme à $Q = 2$ (2 variables).
+
+## Propriétés du tableau Z
+
+<br>
+
+::: {.callout-important}
+## Propriétés
+
+1. **Somme par ligne** : $\sum_{j=1}^J z_{ij} = Q$ (constante)
+
+2. **Somme totale** : $\sum_{i,j} z_{ij} = nQ$ 
+
+3. **Somme par colonne** : $\sum_{i=1}^n z_{ij} = n_j$ (effectif modalité $j$)
+
+:::
+
+
+## Perte d'information
+
+<br>
+
+Variables quantitatives → Classes : Perte d'information inévitable.
+
+- Valeur précise → Appartenance à une classe
+
+- Exemple : 256.72\$ → >250\$
+
+- Compromis : Granularité vs interprétabilité
+
+
+Enjeu : Choisir des classes pertinentes pour le problème étudié.
+
+## Tableau de Burt
+
+<br>
+
+::: {.callout-warning}
+## Définition
+
+$B = Z^\top Z$ (matrice $J \times J$)
+:::
+
+
+## Propriétés du tableau de Burt
+
+<br>
+
+Taille : $J \times J$ (nombre total de modalités)
+
+. . .
+
+Blocs diagonaux : Matrices diagonales
+
+  → Éléments = effectifs de chaque modalité
+
+. . .
+
+Blocs non-diagonaux : Tableaux de contingence  
+
+  → Croisement entre variables $q$ et $q'$
+
+. . .
+
+Symétrie : $B = B^\top$
+
+## Équivalence mathématique
+
+<br>
+
+L'ACM peut s'effectuer sur :
+
+- Le tableau disjonctif complet $Z$
+
+- Le tableau de Burt $B = Z^\top Z$
+
+Résultat → Les deux approches donnent les mêmes facteurs!
+
+Cette équivalence offre une flexibilité computationnelle.
+
+## Éléments propres de Z
+
+Analyse directe - Vecteurs propres de :
+
+$$S = \frac{1}{Q} Z^\top Z D_J^{-1}$$
+où $D_J = \text{diag}(n_1, \ldots, n_J)$.
+
+Coordonnées profils-lignes :
+$$\Phi_k = n Z D_J^{-1} u_k$$
+
+## Éléments propres de Z
+
+Analyse duale - Vecteurs propres de :
+$$T = \frac{1}{Q} Z D_J^{-1} Z^\top$$
+où $D_J = \text{diag}(n_1, \ldots, n_J)$.
+
+Coordonnées profils-colonnes :
+$$\Psi_k = n D_J^{-1} Z^\top v_k$$
+
+## Éléments propres de B
+
+Tableau de Burt symétrique → Analyse directe = duale
+
+Vecteurs propres de :
+$$S' = \frac{1}{Q^2} B^\top D_J^{-1} B D_J^{-1}$$
+
+. . .
+
+On peut réécrire $S'$ comme :
+$$S' = \frac{1}{Q^2} Z^\top Z D_J^{-1} Z^\top Z D_J^{-1}$$
+
+## Relation entre valeurs propres
+
+<br>
+
+Si $\lambda$ est valeur propre de $S$ (analyse de $Z$), alors $\lambda^2$ est valeur propre de $S'$ (analyse de $B$).
+
+Conséquence : 
+
+- Mêmes vecteurs propres pour $Z$ et $B$.
+
+- Valeurs propres de $B$ = carrés des valeurs propres de $Z$.
+
+
+
+## Encodage des variables quantitatives
+
+
+Choix des bornes crucial pour la qualité de l'analyse.
+
+. . .
+
+Approches recommandées :
+
+- Analyser la distribution (histogrammes)
+
+- Bornes pertinentes au domaine d'étude
+
+- Éviter les classes peu informatives
+
+. . .
+
+Approche déconseillée :
+
+- Effectifs égaux automatiques
+
+- Classes sans sens métier
+
+## Encodage des variables qualitatives
+
+Modalités "naturelles" mais problèmes potentiels.
+
+. . .
+
+Effectifs déséquilibrés :
+
+- Modalités très rares vs très fréquentes
+
+- Impact sur la représentation
+
+. . .
+
+Solutions potentielles :
+
+- Regroupements pertinents (connaissance du domaine)
+
+- Éviter la répartition aléatoire
+
+- Préserver le sens des modalités
+
+## Exemple : le succès des étudiants {.smaller .scrollable}
+
+On considère le jeu de données suivant :
+
+```{r warning=FALSE}
+library(FactoMineR)
+library(factoextra)
+library(tidyverse)
+
+df <- read_csv('../include/data/mca/StudentPerformanceFactors.csv')
+df <- df |> select(
+  Hours_Studied,
+  Attendance,
+  Parental_Involvement,
+  Extracurricular_Activities,
+  Sleep_Hours,
+  School_Type
+) |> 
+  slice_head(n = 500)
+
+df$Hours_Studied <- cut(
+  df$Hours_Studied,
+  breaks = c(0, 10, 20, 30, 50),
+  labels = c("0-10","11-20","21-30", "31+")
+)
+
+df$Attendance <- cut(
+  df$Attendance,
+  breaks = c(0, 70, 90, 100),
+  labels = c("0-70","71-90","91-100")
+)
+
+df$Sleep_Hours <- cut(
+  df$Sleep_Hours,
+  breaks = c(0, 7, 10),
+  labels = c("<=7",">7")
+)
+
+knitr::kable(head(df))
+
+```
+
+## Exemple : le succès des étudiants {.smaller}
+
+::: panel-tabset
+### Code
+
+```{r warning=FALSE}
+#| echo: true
+#| eval: false
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+library(FactoMineR)
+library(factoextra)
+res_mca <- df |>
+  MCA(graph = FALSE)
+fviz_eig(res_mca)
+get_eigenvalue(res_mca)
+```
+
+### Plot
+
+```{r warning=FALSE}
+#| echo: false
+#| eval: true
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+library(FactoMineR)
+library(factoextra)
+res_mca <- df |>
+  MCA(graph = FALSE)
+fviz_eig(res_mca)
+```
+
+
+### Valeurs propres
+
+```{r}
+#| echo: false
+#| eval: true
+knitr::kable(get_eigenvalue(res_mca))
+```
+
+:::
+
+
+## Exemple : le succès des étudiants {.smaller}
+
+::: panel-tabset
+### Code
+
+```{r}
+#| echo: true
+#| eval: false
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+fviz_mca_biplot(
+  res_mca, 
+  repel = TRUE,
+  label = "none",
+  ggtheme = theme_minimal()
+)
+```
+
+### Plot
+
+```{r warning=FALSE}
+#| echo: false
+#| eval: true
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+fviz_mca_biplot(
+  res_mca, 
+  repel = TRUE,
+  label = "none",
+  ggtheme = theme_minimal()
+)
+```
+:::
+
+
+## Exemple : le succès des étudiants {.smaller}
+
+::: panel-tabset
+### Code
+
+```{r}
+#| echo: true
+#| eval: false
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+fviz_mca_var(
+  res_mca,
+  choice = "mca.cor", 
+  repel = TRUE,
+  ggtheme = theme_minimal()
+)
+```
+
+### Plot
+
+```{r warning=FALSE}
+#| echo: false
+#| eval: true
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+fviz_mca_var(
+  res_mca,
+  choice = "mca.cor", 
+  repel = TRUE,
+  ggtheme = theme_minimal()
+)
+```
+:::
+
+
+## Exemple : le succès des étudiants {.smaller}
+
+::: panel-tabset
+### Code
+
+```{r}
+#| echo: true
+#| eval: false
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+fviz_mca_var(
+  res_mca,
+  repel = TRUE,
+  ggtheme = theme_minimal()
+)
+```
+
+### Plot
+
+```{r warning=FALSE}
+#| echo: false
+#| eval: true
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+fviz_mca_var(
+  res_mca,
+  repel = TRUE,
+  ggtheme = theme_minimal()
+)
+```
+:::
+
+## Exemple : le succès des étudiants {.smaller}
+
+::: panel-tabset
+### Code
+
+```{r}
+#| echo: true
+#| eval: false
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+fviz_mca_var(
+  res_mca,
+  col.var = "cos2",
+  gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), 
+  repel = TRUE,
+  ggtheme = theme_minimal()
+)
+```
+
+### Plot
+
+```{r warning=FALSE}
+#| echo: false
+#| eval: true
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+fviz_mca_var(
+  res_mca,
+  col.var = "cos2",
+  gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), 
+  repel = TRUE,
+  ggtheme = theme_minimal()
+)
+```
+:::
+
+## Exemple : le succès des étudiants {.smaller}
+
+::: panel-tabset
+### Code
+
+```{r}
+#| echo: true
+#| eval: false
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+fviz_mca_ind(
+  res_mca,
+  label = "none",
+  col.ind = "cos2", 
+  gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+  repel = TRUE,
+  ggtheme = theme_minimal()
+)
+```
+
+### Plot
+
+```{r warning=FALSE}
+#| echo: false
+#| eval: true
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+fviz_mca_ind(
+  res_mca,
+  label = "none",
+  col.ind = "cos2", 
+  gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+  repel = TRUE,
+  ggtheme = theme_minimal()
+)
+```
+:::
+
+
+
+## Exemple : le succès des étudiants {.smaller}
+
+::: panel-tabset
+### Code
+
+```{r}
+#| echo: true
+#| eval: false
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+fviz_mca_ind(
+  res_mca, 
+  label = "none",
+  habillage = "Hours_Studied",
+  palette = c("#D81B60", "#1E88E5", "#FFC107", "#004D40"),
+  addEllipses = TRUE, ellipse.type = "confidence",
+  ggtheme = theme_minimal()
+) 
+```
+
+### Plot
+
+```{r warning=FALSE}
+#| echo: false
+#| eval: true
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+fviz_mca_ind(
+  res_mca, 
+  label = "none",
+  habillage = "Hours_Studied",
+  palette = c("#D81B60", "#1E88E5", "#FFC107", "#004D40"),
+  addEllipses = TRUE, ellipse.type = "confidence",
+  ggtheme = theme_minimal()
+) 
+```
+
+### Plot
+
+```{r warning=FALSE}
+#| echo: false
+#| eval: true
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+fviz_mca_ind(
+  res_mca, 
+  label = "none",
+  habillage = "Attendance",
+  palette = c("#D81B60", "#1E88E5", "#FFC107", "#004D40"),
+  addEllipses = TRUE, ellipse.type = "confidence",
+  ggtheme = theme_minimal()
+) 
+```
+
+:::
+
+
+
+
+## Avantages de l'ACM
+
+<br>
+
+- Visualisation de relations complexes multi-variables
+
+- Traitement unifié de variables hétérogènes  
+
+- Réduction de dimension préservant les associations
+
+- Interprétation intuitive des proximités
+
+- Flexibilité dans l'encodage des variables
+
+
+## Limites et précautions
+
+<br>
+
+Perte d'information :
+
+- Variables continues → classes
+
+- Choix d'encodage critique
+
+Interprétation :
+
+- Proximités entre modalités de variables différentes
+
+- Attention aux artefacts d'encodage
+
+## Conclusion
+
+<br>
+
+L'ACM étend l'AFC au cas multi-variables grâce au codage disjonctif complet :
+
+- Transformation binaire préalable
+
+- Équivalence $Z$ ↔ Tableau de Burt $B$
+
+- Choix d'encodage
+
+- Visualisation des patterns complexes
+
+Prochaine étape → éthique de l'analyse de données
