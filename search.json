@@ -1566,228 +1566,557 @@
     "text": "Conclusion\n\n\nL’unité statistique définit le niveau d’analyse.\nLe type de variable guide le choix de l’espace.\nL’espace d’observation \\(\\mathcal{X}\\) est le cadre mathématique.\nVariables multiples → produit cartésien d’ensemble.\n\n\n→ Prochaine étape : Définir des distances dans ces espaces !"
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#limite-de-lacp",
-    "href": "slides/04-dimension-ca-slides.html#limite-de-lacp",
-    "title": "Dimension",
-    "section": "Limite de l’ACP",
-    "text": "Limite de l’ACP\n\nL’analyse en composantes principales est restreinte à des données quantitatives.\n\n→ Comment faire lorsque l’on a des données qualitatives ?"
+    "objectID": "slides/07-ethics-slides.html#lanalyse-de-données-aujourdhui",
+    "href": "slides/07-ethics-slides.html#lanalyse-de-données-aujourdhui",
+    "title": "Éthique",
+    "section": "L’analyse de données aujourd’hui",
+    "text": "L’analyse de données aujourd’hui\n\nOmniprésence dans tous les domaines :\n\nSanté\nÉducation\nPolitiques publiques\nJustice\nFinance\n\n\n→ Décisions automatisées aux conséquences réelles."
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#plan",
-    "href": "slides/04-dimension-ca-slides.html#plan",
+    "objectID": "slides/07-ethics-slides.html#plan",
+    "href": "slides/07-ethics-slides.html#plan",
+    "title": "Éthique",
+    "section": "Plan",
+    "text": "Plan\n\n\nGénéralités\nConfidentialité des données\nImplications sociales\nMythes à déconstruire\nSolutions pratiques"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#pourquoi-léthique-est-cruciale",
+    "href": "slides/07-ethics-slides.html#pourquoi-léthique-est-cruciale",
+    "title": "Éthique",
+    "section": "Pourquoi l’éthique est cruciale ?",
+    "text": "Pourquoi l’éthique est cruciale ?\n\n\nLes données ne sont pas neutres !\n\n\nElles sont le reflet d’un contexte :\n\nSocial\nInstitutionnel\nTechnique\n\n\n\nRisques → Renforcer les inégalités, reproduire des biais historiques, porter atteinte à la vie privée, …"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#questions-fondamentales",
+    "href": "slides/07-ethics-slides.html#questions-fondamentales",
+    "title": "Éthique",
+    "section": "Questions fondamentales",
+    "text": "Questions fondamentales\n\nAvant toute analyse, se demander :\n\nMes données représentent-elles fidèlement ma population ?\nQuelles décisions seront prises à partir de ces analyses ?\nQuelles sont les conséquences pour les individus concernés ?\nQui est affecté par ces décisions ?"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#confidentialité-enjeux",
+    "href": "slides/07-ethics-slides.html#confidentialité-enjeux",
+    "title": "Éthique",
+    "section": "Confidentialité : Enjeux",
+    "text": "Confidentialité : Enjeux\n\nLors de la manipulation de données personnelles :\n\nRéidentification des personnes\nExploitation abusive\nViolation de la vie privée\n\n→ Nécessité de prendre des mesures adéquates."
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#anonymisation-des-données",
+    "href": "slides/07-ethics-slides.html#anonymisation-des-données",
+    "title": "Éthique",
+    "section": "Anonymisation des données",
+    "text": "Anonymisation des données\n\nSupprimer ou transformer les identifiants :\n\nDirects :\n\nNoms, adresses, numéros\n\nIndirects :\n\nDates de naissance, codes postaux\n\n\n\n⚠️ Attention : Le croisement de plusieurs variables peut permettre l’identification !"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#exemple-netflix-et-imdb",
+    "href": "slides/07-ethics-slides.html#exemple-netflix-et-imdb",
+    "title": "Éthique",
+    "section": "Exemple : Netflix et IMDb",
+    "text": "Exemple : Netflix et IMDb\n\nDes chercheurs de l’université du Texas ont pu identifier des utilisateurs Netflix en croisant leurs notes avec celles sur IMDb.\n\n Leçon → L’anonymisation simple ne suffit pas toujours !"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#techniques-de-protection",
+    "href": "slides/07-ethics-slides.html#techniques-de-protection",
+    "title": "Éthique",
+    "section": "Techniques de protection",
+    "text": "Techniques de protection\n\nRéduire la granularité :\n\nÂges → Tranches d’âge (25-34 ans au lieu de 28 ans)\nCodes postaux → Régions\nSalaires → Catégories\n\n\nRegrouper les modalités rares :\n\nÉviter les combinaisons uniques de caractéristiques\nFusionner les catégories peu fréquentes"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#techniques-de-protection-1",
+    "href": "slides/07-ethics-slides.html#techniques-de-protection-1",
+    "title": "Éthique",
+    "section": "Techniques de protection",
+    "text": "Techniques de protection\n\nAjout de bruit :\n\nPréserver les tendances globales\nRendre l’identification individuelle difficile\n⚠️ Ne pas compromettre la validité des analyses\n\n\nConfidentialité différentielle :\n\nGarantir qu’un individu ne peut être identifié\nMême en connaissant toutes les autres données"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#implications-sociales-sources-de-biais",
+    "href": "slides/07-ethics-slides.html#implications-sociales-sources-de-biais",
+    "title": "Éthique",
+    "section": "Implications sociales : Sources de biais",
+    "text": "Implications sociales : Sources de biais\n\nPlusieurs points de défaillance :\n\nBiais d’échantillonnage → Données non représentatives\nBiais dans la variable cible → Reproduction de discriminations historiques\nValidité variable selon les groupes → Performance inégale\nClasses mal représentées → Groupes minoritaires ignorés"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#biais-déchantillonnage",
+    "href": "slides/07-ethics-slides.html#biais-déchantillonnage",
+    "title": "Éthique",
+    "section": "Biais d’échantillonnage",
+    "text": "Biais d’échantillonnage\n\nProblème : Le jeu de données ne reflète pas fidèlement la population cible.\nExemples :\n\nSous-représentation de certaines communautés\nSurreprésentation de populations faciles d’accès\nExclusion de groupes vulnérables\n\n→ Modèles inéquitables"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#biais-dans-la-variable-cible",
+    "href": "slides/07-ethics-slides.html#biais-dans-la-variable-cible",
+    "title": "Éthique",
+    "section": "Biais dans la variable cible",
+    "text": "Biais dans la variable cible\n\nProblème : Reproduction de discriminations historiques.\nExemples :\n\nJustice prédictive : logiciel COMPAS utilisé aux USA.\nRecrutement : processus d’Amazon.\n\n→ Discrimination systématique de certains groupes."
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#validité-variable-selon-les-groupes",
+    "href": "slides/07-ethics-slides.html#validité-variable-selon-les-groupes",
+    "title": "Éthique",
+    "section": "Validité variable selon les groupes",
+    "text": "Validité variable selon les groupes\n\nUn même modèle peut :\n\nTrès bien fonctionner pour un sous-groupe\nÊtre très mauvais pour un autre\n\n\nExemple (Krishnan, A., Almadan, A., & Rattani, A. (2020)):\n\nReconnaissance faciale : Haute précision pour hommes blancs.\nMême système : Faible précision pour femmes noires.\n\n→ Erreurs systématiques discriminatoires"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#classes-mal-représentées",
+    "href": "slides/07-ethics-slides.html#classes-mal-représentées",
+    "title": "Éthique",
+    "section": "Classes mal représentées",
+    "text": "Classes mal représentées\n\nConséquences :\n\nLes maladies rares sont mal prédites.\nLes groupes démographiques minoritaires sont ignorés.\nLa performance globale masque les échecs locaux.\nLes inégalités existantes sont renforcées."
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#mythes-à-déconstruire",
+    "href": "slides/07-ethics-slides.html#mythes-à-déconstruire",
+    "title": "Éthique",
+    "section": "Mythes à déconstruire",
+    "text": "Mythes à déconstruire\n\n\nQuelques idées reçues :\n\n“La machine apprend toute seule.”\n“C’est objectif, c’est basé sur des données.”\n“Mon modèle ne peut pas être sexiste, je n’utilise pas le genre.”"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#mythe-1-la-machine-apprend-toute-seule.",
+    "href": "slides/07-ethics-slides.html#mythe-1-la-machine-apprend-toute-seule.",
+    "title": "Éthique",
+    "section": "Mythe 1 : “La machine apprend toute seule.”",
+    "text": "Mythe 1 : “La machine apprend toute seule.”\n\nEn réalité → Ce sont des choix faits par des humains :\n\nQuelles données collecter ?\nQuelles variables inclure ?\nQuelle variable à expliquer ?\nQuel algorithme utiliser ?\n\n→ L’“apprentissage” dépend entièrement des décisions humaines"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#mythe-2-cest-objectif-basé-sur-des-données.",
+    "href": "slides/07-ethics-slides.html#mythe-2-cest-objectif-basé-sur-des-données.",
+    "title": "Éthique",
+    "section": "Mythe 2 : “C’est objectif, basé sur des données.”",
+    "text": "Mythe 2 : “C’est objectif, basé sur des données.”\n\nRéalité → Les données ne sont jamais neutres !\nElles sont le produit de :\n\nContexte social\nChoix institutionnels\nDécisions méthodologiques\n\n→ Les modèles héritent des biais des données."
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#mythe-3-sans-genre-pas-de-sexisme.",
+    "href": "slides/07-ethics-slides.html#mythe-3-sans-genre-pas-de-sexisme.",
+    "title": "Éthique",
+    "section": "Mythe 3 : “Sans genre, pas de sexisme.”",
+    "text": "Mythe 3 : “Sans genre, pas de sexisme.”\n\nRéalité → Le modèle peut inférer le genre via d’autres variables corrélées :\n\nProfession\nParcours scolaire\nHistorique salarial\n\n→ L’exclusion explicite ne garantit pas l’absence de biais."
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#solutions-vue-densemble",
+    "href": "slides/07-ethics-slides.html#solutions-vue-densemble",
+    "title": "Éthique",
+    "section": "Solutions : Vue d’ensemble",
+    "text": "Solutions : Vue d’ensemble\n\nAgir à différentes étapes du processus :\n\nEn amont → Sur les données\nPendant → Sur la fonction de perte\nA posteriori → Sur les résultats"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#solution-1-agir-sur-les-données",
+    "href": "slides/07-ethics-slides.html#solution-1-agir-sur-les-données",
+    "title": "Éthique",
+    "section": "Solution 1 : Agir sur les données",
+    "text": "Solution 1 : Agir sur les données\n\nInterventions en amont :\n\nRééquilibrer l’échantillon → Représentation équitable\nSur-représenter certains groupes → Compenser sous-représentation\nCorriger les biais connus → Dans la variable cible\nAugmenter les données → Pour classes minoritaires"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#solution-2-modifier-la-fonction-de-perte",
+    "href": "slides/07-ethics-slides.html#solution-2-modifier-la-fonction-de-perte",
+    "title": "Éthique",
+    "section": "Solution 2 : Modifier la fonction de perte",
+    "text": "Solution 2 : Modifier la fonction de perte\n\nIntégrer l’équité dans l’apprentissage :\n\nPénalités pour inégalités de performance\nImposer équité en termes de faux positifs\nContraintes sur disparités entre groupes\nOptimisation multi-objectifs (performance + équité)"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#solution-3-corrections-a-posteriori",
+    "href": "slides/07-ethics-slides.html#solution-3-corrections-a-posteriori",
+    "title": "Éthique",
+    "section": "Solution 3 : Corrections a posteriori",
+    "text": "Solution 3 : Corrections a posteriori\n\nAjuster les résultats produits :\n\nRecalibrage des probabilités → Par groupe démographique\nAjustement des seuils → Seuils différents selon contexte\nPost-processing → Corrections statistiques\nAudits réguliers → Monitoring des performances"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#limites-des-solutions-techniques",
+    "href": "slides/07-ethics-slides.html#limites-des-solutions-techniques",
+    "title": "Éthique",
+    "section": "Limites des solutions techniques",
+    "text": "Limites des solutions techniques\n\n⚠️ Les solutions techniques ne suffisent pas !\nNécessité de :\n\nRéflexion éthique continue\nTransparence sur les choix\nImplication des parties prenantes\nÉvaluation des impacts sociaux"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#bonnes-pratiques",
+    "href": "slides/07-ethics-slides.html#bonnes-pratiques",
+    "title": "Éthique",
+    "section": "Bonnes pratiques",
+    "text": "Bonnes pratiques\n\nDémarche éthique complète :\n\nDocumentation → Origines et limites des données\nTransparence → Méthodes et hypothèses\nÉvaluation différenciée → Performance par sous-groupe\nImplication → Communautés affectées\nRévision → Continue et critique"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#cadres-réglementaires",
+    "href": "slides/07-ethics-slides.html#cadres-réglementaires",
+    "title": "Éthique",
+    "section": "Cadres réglementaires",
+    "text": "Cadres réglementaires\n\nProtection juridique croissante :\n\nRGPD (Europe) → Droit à l’explication\nAI Act (UE) → Classification des risques\nAlgorithmic Accountability Act (USA) → Audits obligatoires\nLégislations nationales en développement"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#responsabilité-du-data-scientist",
+    "href": "slides/07-ethics-slides.html#responsabilité-du-data-scientist",
+    "title": "Éthique",
+    "section": "Responsabilité du data scientist",
+    "text": "Responsabilité du data scientist\n\nRôle et obligations :\n\nVigilance → Identifier les biais potentiels\nTransparence → Communiquer les limites\nPrudence → Évaluer les conséquences\nCourage → Refuser les projets problématiques\nFormation → Continue sur l’éthique"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#questions-à-se-poser",
+    "href": "slides/07-ethics-slides.html#questions-à-se-poser",
+    "title": "Éthique",
+    "section": "Questions à se poser",
+    "text": "Questions à se poser\n\nAvant de déployer un modèle :\n\nQui bénéficie de ce modèle ? Qui peut en pâtir ?\nLes données sont-elles représentatives ?\nY a-t-il des groupes désavantagés ?\nLes erreurs ont-elles les mêmes conséquences pour tous ?\nExiste-t-il des alternatives moins risquées ?"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#conclusion",
+    "href": "slides/07-ethics-slides.html#conclusion",
+    "title": "Éthique",
+    "section": "Conclusion",
+    "text": "Conclusion\n\nLes données et modèles ne sont jamais neutres.\nBiais multiples à toutes les étapes du processus.\nSolutions techniques nécessaires mais insuffisantes.\nRéflexion éthique indispensable à chaque projet.\nResponsabilité collective → Data scientists, organisations, société\n\n\n→ L’éthique n’est pas une contrainte, c’est une condition de qualité !\nProchaine étape → Classification supervisée"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#pourquoi-les-distances",
+    "href": "slides/03-generalities-distance-slides-annotated.html#pourquoi-les-distances",
+    "title": "Généralités",
+    "section": "Pourquoi les distances ?",
+    "text": "Pourquoi les distances ?\n\nDans tout projet d’analyse de données, il faut pouvoir quantifier la ressemblance ou la dissemblance entre observations.\n\nImpact direct sur :\n\nAlgorithmes d’apprentissage\nMéthodes de regroupement\nTechniques de visualisation"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#plan",
+    "href": "slides/03-generalities-distance-slides-annotated.html#plan",
+    "title": "Généralités",
+    "section": "Plan",
+    "text": "Plan\n\n\nNotion de distance - Définition mathématique\nDistances numériques - \\(L_q\\), euclidienne, Manhattan\nNotion de similarité - Concept opposé\nVariables qualitatives - Encodages et distances adaptées\nDistance de Jaccard - Cas des variables binaires"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#définition-mathématique",
+    "href": "slides/03-generalities-distance-slides-annotated.html#définition-mathématique",
+    "title": "Généralités",
+    "section": "Définition mathématique",
+    "text": "Définition mathématique\n\n\n\nDistance sur \\(\\mathcal{X}\\)\n\n\nUne fonction \\(d: \\mathcal{X} \\times \\mathcal{X} \\to \\mathbb{R}\\) est une distance si :\n\nNon-négativité : \\(d(x, y) \\geq 0\\)\nSéparation : \\(d(x, y) = 0 \\Leftrightarrow x = y\\)\nSymétrie : \\(d(x, y) = d(y, x)\\)\nInégalité triangulaire : \\(d(x, y) \\leq d(x, z) + d(y, z)\\)"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#distance-euclidienne",
+    "href": "slides/03-generalities-distance-slides-annotated.html#distance-euclidienne",
+    "title": "Généralités",
+    "section": "Distance euclidienne",
+    "text": "Distance euclidienne\n\n\n\nDéfinition\n\n\nPour \\(x, y \\in \\mathbb{R}^p\\) :\n\\[d(x, y) = \\left\\| x - y \\right\\|_2 = \\sqrt{\\sum_{i=1}^{p} (x_i - y_i)^2}\\]\nQuand l’utiliser : Variables numériques de même ordre de grandeur."
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#distance-euclidienne-preuve",
+    "href": "slides/03-generalities-distance-slides-annotated.html#distance-euclidienne-preuve",
+    "title": "Généralités",
+    "section": "Distance euclidienne (preuve)",
+    "text": "Distance euclidienne (preuve)"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#distance-l_q-minkowski",
+    "href": "slides/03-generalities-distance-slides-annotated.html#distance-l_q-minkowski",
+    "title": "Généralités",
+    "section": "Distance \\(L_q\\) (Minkowski)",
+    "text": "Distance \\(L_q\\) (Minkowski)\n\n\n\nFormule générale :\n\n\n\\[d(x, y) = \\left( \\sum_{i=1}^{p} |x_i - y_i|^q \\right)^{1/q}\\]\nCas particuliers :\n\n\\(q = 1\\) : Distance de Manhattan → \\(d(x, y) = \\sum_{i=1}^{p} |x_i - y_i|\\)\n\\(q = 2\\) : Distance euclidienne"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#exemple-concret-wooclap-kffpdj",
+    "href": "slides/03-generalities-distance-slides-annotated.html#exemple-concret-wooclap-kffpdj",
+    "title": "Généralités",
+    "section": "Exemple concret (WOOCLAP: KFFPDJ)",
+    "text": "Exemple concret (WOOCLAP: KFFPDJ)\n\n\n\nNom\nTaille (cm)\nPoids (kg)\n\n\n\n\nAlice\n165\n70\n\n\nBob\n177\n75"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#problème-déchelle",
+    "href": "slides/03-generalities-distance-slides-annotated.html#problème-déchelle",
+    "title": "Généralités",
+    "section": "Problème d’échelle",
+    "text": "Problème d’échelle\n\n\n\nAttention !\n\n\nLes distances \\(L_q\\) ne sont pas invariantes aux changements d’échelle."
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#problème-déchelle---solution",
+    "href": "slides/03-generalities-distance-slides-annotated.html#problème-déchelle---solution",
+    "title": "Généralités",
+    "section": "Problème d’échelle - solution",
+    "text": "Problème d’échelle - solution\n\nStandardiser les variables !\n\nDistance euclidienne standardisée :\n\\[d(x, y) = \\sum_{i=1}^{p} \\left( \\frac{x_i - y_i}{\\sigma_i} \\right)^2\\]\noù \\(\\sigma_i\\) = écart-type de la variable \\(i\\)."
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#notion-de-similarité",
+    "href": "slides/03-generalities-distance-slides-annotated.html#notion-de-similarité",
+    "title": "Généralités",
+    "section": "Notion de similarité",
+    "text": "Notion de similarité\n\n\n\n\nMesure de similarité sur \\(\\mathcal{X}\\)\n\n\nUne fonction \\(s: \\mathcal{X} \\times \\mathcal{X} \\to \\mathbb{R}\\) telle que :\n\n\\(s(x, y) \\geq 0\\)\n\\(s(x, y) = s(y, x)\\) (symétrie)\n\\(s(x, x) = 1 \\geq s(x, y)\\) (maximum pour soi-même)"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#conversion-distance-similarité",
+    "href": "slides/03-generalities-distance-slides-annotated.html#conversion-distance-similarité",
+    "title": "Généralités",
+    "section": "Conversion distance ↔︎ similarité",
+    "text": "Conversion distance ↔︎ similarité\n\nDistance → Similarité :\n\\[s(x, y) = \\frac{1}{1 + d(x, y)}\\]\n\n⚠️ Une mesure de similarité ne respecte généralement pas l’inégalité triangulaire.\n\n\nSimilarité → Dissemblance :\n\\[d^*(x, y) = 1 - s(x, y)\\]"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#variables-qualitatives",
+    "href": "slides/03-generalities-distance-slides-annotated.html#variables-qualitatives",
+    "title": "Généralités",
+    "section": "Variables qualitatives",
+    "text": "Variables qualitatives\n\nProblème : pour \\(\\mathcal{X} = \\{\\text{Rouge}, \\text{Vert}, \\text{Bleu}\\}\\).\n\n\n❌ Mauvaise pratique :\nRouge = 1, Vert = 2, Bleu = 3 → Introduit un ordre artificiel !\n\n\n\n✅ Bonne pratique : Encodage adapté"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#encodage-1-parmi-k-one-hot-encoding",
+    "href": "slides/03-generalities-distance-slides-annotated.html#encodage-1-parmi-k-one-hot-encoding",
+    "title": "Généralités",
+    "section": "Encodage “1 parmi K” (One-hot encoding)",
+    "text": "Encodage “1 parmi K” (One-hot encoding)\n\n\nRouge → \\((1, 0, 0)\\)\nVert → \\((0, 1, 0)\\)\nBleu → \\((0, 0, 1)\\)\n\n\nAvantages : Pas d’ordre artificiel\nInconvénients : Grande dimension si beaucoup de modalités"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#distance-discrète",
+    "href": "slides/03-generalities-distance-slides-annotated.html#distance-discrète",
+    "title": "Généralités",
+    "section": "Distance discrète",
+    "text": "Distance discrète\n\n\n\nDistance de Hamming\n\n\nPour des vecteurs :\n\\[d(x, y) = \\sum_{i=1}^{p} \\mathbb{1}(x_i \\neq y_i)\\]"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#exemple-distance-discrète-wooclap-kffpdj",
+    "href": "slides/03-generalities-distance-slides-annotated.html#exemple-distance-discrète-wooclap-kffpdj",
+    "title": "Généralités",
+    "section": "Exemple : Distance discrète (WOOCLAP: KFFPDJ)",
+    "text": "Exemple : Distance discrète (WOOCLAP: KFFPDJ)\n\n\n\nNom\nCouleur\nYeux\nCheveux\n\n\n\n\nAlice\nRouge\nVert\nBlond\n\n\nBob\nVert\nBleu\nRoux\n\n\nChris\nRouge\nVert\nBlond"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#similarité-par-accords",
+    "href": "slides/03-generalities-distance-slides-annotated.html#similarité-par-accords",
+    "title": "Généralités",
+    "section": "Similarité par accords",
+    "text": "Similarité par accords\n\nCompter les accords normalisés :\n\\[s(x, y) = \\frac{1}{p}\\sum_{i=1}^{p} \\mathbb{1}(x_i = y_i)\\]\n\nExemple précédent :\n\n\\(s(\\text{Alice}, \\text{Bob}) = 0\\)\n\\(s(\\text{Alice}, \\text{Chris}) = 1\\)\n\\(s(\\text{Bob}, \\text{Chris}) = 0\\)"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#problème-des-variables-binaires",
+    "href": "slides/03-generalities-distance-slides-annotated.html#problème-des-variables-binaires",
+    "title": "Généralités",
+    "section": "Problème des variables binaires",
+    "text": "Problème des variables binaires\n\nAvec l’encodage “1 parmi K” :\n\nBeaucoup de variables binaires\nBeaucoup de 0, peu de 1\nDistance discrète peu informative\n\n\nSolution : Se concentrer sur les attributs à 1 → Distance de Jaccard"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#indice-de-jaccard-définition",
+    "href": "slides/03-generalities-distance-slides-annotated.html#indice-de-jaccard-définition",
+    "title": "Généralités",
+    "section": "Indice de Jaccard : Définition",
+    "text": "Indice de Jaccard : Définition\n\nPour deux observations de \\(K\\) variables binaires :\n\n\\(M_{11}\\) : nombre de variables à 1 pour x et y\n\\(M_{10}\\) : nombre de variables à 1 pour x, 0 pour y\n\\(M_{01}\\) : nombre de variables à 0 pour x, 1 pour y\n\\(M_{00}\\) : nombre de variables à 0 pour x et y\n\n\n\\[J(x, y) = \\frac{M_{11}}{M_{10} + M_{01} + M_{11}} = \\frac{M_{11}}{K - M_{00}}\\]"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#distance-de-jaccard",
+    "href": "slides/03-generalities-distance-slides-annotated.html#distance-de-jaccard",
+    "title": "Généralités",
+    "section": "Distance de Jaccard",
+    "text": "Distance de Jaccard\n\n\n\n\nDistance de Jaccard :\n\n\n\\[d(x, y) = 1 - J(x, y) = \\frac{M_{10} + M_{01}}{M_{01} + M_{10} + M_{11}}\\]\n\n\n\nIntuition : Proportion de désaccords parmi les variables “actives”."
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#exemple-distance-de-jaccard",
+    "href": "slides/03-generalities-distance-slides-annotated.html#exemple-distance-de-jaccard",
+    "title": "Généralités",
+    "section": "Exemple : Distance de Jaccard",
+    "text": "Exemple : Distance de Jaccard\n\n\n\nNom\nQ1\nQ2\nQ3\nQ4\nQ5\n\n\n\n\nAlice\n1\n0\n1\n0\n1\n\n\nBob\n1\n0\n0\n1\n0"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#récapitulatif-des-distances",
+    "href": "slides/03-generalities-distance-slides-annotated.html#récapitulatif-des-distances",
+    "title": "Généralités",
+    "section": "Récapitulatif des distances",
+    "text": "Récapitulatif des distances\n\n\n\n\nType de données\nDistance utilisable\n\n\n\n\nNumériques\nEuclidienne (standardisée)\n\n\nQualitatives\nDiscrète (Hamming)\n\n\nBinaires nombreuses\nJaccard\n\n\nMixtes\nCombinaison adaptée"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#choix-pratique-de-la-distance",
+    "href": "slides/03-generalities-distance-slides-annotated.html#choix-pratique-de-la-distance",
+    "title": "Généralités",
+    "section": "Choix pratique de la distance",
+    "text": "Choix pratique de la distance\n\nQuestions à se poser :\n\nQuel type de variables ? (numériques/qualitatives)\nMême échelle ou standardisation nécessaire ?\nBeaucoup de variables binaires ?\nLes double-absences sont-elles informatives ?\n\n\n→ Le choix de distance influence directement les résultats !"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#conclusion",
+    "href": "slides/03-generalities-distance-slides-annotated.html#conclusion",
+    "title": "Généralités",
+    "section": "Conclusion",
+    "text": "Conclusion\n\n\nDistance → mesure de dissemblance (4 propriétés mathématiques)\nSimilarité → mesure de ressemblance (concept opposé)\nVariables numériques → Distance euclidienne (standardisée)\nVariables qualitatives → Encodage + distance adaptée\nVariables binaires → Distance de Jaccard\n\n\nProchaine étape → Compromis biais/variance"
+  },
+  {
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#introduction-à-lacm",
+    "href": "slides/04-dimension-mca-slides-annotated.html#introduction-à-lacm",
+    "title": "Dimension",
+    "section": "Introduction à l’ACM",
+    "text": "Introduction à l’ACM\n\nL’Analyse des Correspondances Multiples (ACM) est un prolongement de l’AFC pour analyser plus de deux variables qualitatives.\nPrincipe fondamental : Transformation préalable par codage disjonctif complet."
+  },
+  {
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#plan",
+    "href": "slides/04-dimension-mca-slides-annotated.html#plan",
     "title": "Dimension",
     "section": "Plan",
-    "text": "Plan\n\n\nLa théorie de l’analyse factorielle des correspondances\nL’AFC en pratique\nExemple : le taux d’emploi au Canada"
+    "text": "Plan\n\n\nLa théorie de l’analyse des correspondances multiples\nL’ACM en pratique\nExemple :"
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#analyse-factorielle-des-correspondances",
-    "href": "slides/04-dimension-ca-slides.html#analyse-factorielle-des-correspondances",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#notation-de-base",
+    "href": "slides/04-dimension-mca-slides-annotated.html#notation-de-base",
     "title": "Dimension",
-    "section": "Analyse factorielle des correspondances",
-    "text": "Analyse factorielle des correspondances\n\nL’Analyse Factorielle des Correspondances (AFC) est une méthode d’analyse exploratoire pour représenter graphiquement les relations entre les modalités de deux variables qualitatives.\n\nObjectif → Trouver une représentation en faible dimension tout en gardant le maximum d’information possible."
+    "section": "Notation de base",
+    "text": "Notation de base\n\n\n\\(n\\) : nombre d’individus (observations)\n\\(Q\\) : nombre de variables (questions)\n\\(J_q\\) : nombre de modalités de la variable \\(q\\)\n\\(J\\) : nombre total de modalités (\\(J = \\sum_{q=1}^Q J_q\\))\n\nObjectif : Représenter graphiquement les relations entre toutes ces modalités."
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#notation",
-    "href": "slides/04-dimension-ca-slides.html#notation",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#codage-disjonctif-complet",
+    "href": "slides/04-dimension-mca-slides-annotated.html#codage-disjonctif-complet",
     "title": "Dimension",
-    "section": "Notation",
-    "text": "Notation\n\nTableau de contingence:\n\\[K = (k_{ij}) \\text{ avec } k_{ij} = \\text{ effectif classe } i \\in \\{1, \\dots, n\\}, \\text{ catégorie } j \\in \\{1, \\dots, p\\}.\\]"
+    "section": "Codage disjonctif complet",
+    "text": "Codage disjonctif complet\n\n\n\n\n\n\nDéfinition\n\n\nTableau binaire \\(Z\\) (\\(n \\times J\\)) contenant uniquement des 0 et des 1.\n\n\n\n\n\nChaque variable → ses modalités\nIndividu possède modalité → code 1\nIndividu ne possède pas modalité → code 0\nDisjonctif : au plus une modalité par variable\nComplet : au moins une modalité par variable"
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#notation-1",
-    "href": "slides/04-dimension-ca-slides.html#notation-1",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple-concret---données",
+    "href": "slides/04-dimension-mca-slides-annotated.html#exemple-concret---données",
     "title": "Dimension",
-    "section": "Notation",
-    "text": "Notation\n\nTableau de fréquences relatives :\n\\[F = (f_{ij}) \\text{ où } f_{ij} = \\frac{k_{ij}}{k_{\\bullet\\bullet}}.\\]"
+    "section": "Exemple concret - Données",
+    "text": "Exemple concret - Données\n\nProduits avec Type et Prix:\n\n\n\nProduit\nType\nPrix ($)\n\n\n\n\nNike\nHoodie\n256.72\n\n\nPuma\nJoggers\n221.26\n\n\nOff-W\nHoodie\n198.45\n\n\nSupreme\nHoodie\n235.50\n\n\n\nVariable Prix → 3 classes : &lt;200$, [200$-250$], &gt;250$"
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#notation-2",
-    "href": "slides/04-dimension-ca-slides.html#notation-2",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple---codage-disjonctif-complet",
+    "href": "slides/04-dimension-mca-slides-annotated.html#exemple---codage-disjonctif-complet",
     "title": "Dimension",
-    "section": "Notation",
-    "text": "Notation\n\nMarges :\n\nLigne : \\(f_{i\\bullet} = \\sum_{j=1}^p f_{ij}\\)\nColonne : \\(f_{\\bullet j} = \\sum_{i=1}^n f_{ij}\\)\nTotal : \\(f_{\\bullet\\bullet} = 1\\)"
+    "section": "Exemple - Codage disjonctif complet",
+    "text": "Exemple - Codage disjonctif complet\n\nTableau transformé \\(Z\\) :\n\n\n\n\n\n\n\n\n\n\n\n\nProduit\nHoodie\nJoggers\nSneakers\n&lt;200$\n[200$-250$]\n&gt;250$\n\n\n\n\nNike\n1\n0\n0\n0\n0\n1\n\n\nPuma\n0\n1\n0\n0\n1\n0\n\n\nOff-W\n1\n0\n0\n1\n0\n0\n\n\nSupreme\n1\n0\n0\n0\n1\n0\n\n\n\nChaque ligne somme à \\(Q = 2\\) (2 variables)."
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#exemple-concret",
-    "href": "slides/04-dimension-ca-slides.html#exemple-concret",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#propriétés-du-tableau-z",
+    "href": "slides/04-dimension-mca-slides-annotated.html#propriétés-du-tableau-z",
     "title": "Dimension",
-    "section": "Exemple concret",
-    "text": "Exemple concret\n\n\n\n\n\n\n\n\n\n\n\n\nCollège\nUniversité Laval\nAutre université\nHors Québec\n\\(f_{i \\bullet}\\)\n\n\n\n\nActuariat\n0.08\n0\n0\n0.04\n0.12\n\n\nStatistique\n0.08\n0.16\n0.04\n0\n0.28\n\n\nBio-info\n0.16\n0.08\n0\n0.08\n0.32\n\n\nFinance\n0.08\n0\n0\n0\n0.08\n\n\nMaths\n0.04\n0\n0\n0\n0.04\n\n\nInfo\n0.08\n0.04\n0\n0.04\n0.16\n\n\n\\(f_{\\bullet j}\\)\n0.52\n0.28\n0.04\n0.16\n1"
+    "section": "Propriétés du tableau Z",
+    "text": "Propriétés du tableau Z\n\n\n\n\n\n\n\nPropriétés\n\n\n\nSomme par ligne : \\(\\sum_{j=1}^J z_{ij} = Q\\) (constante)\nSomme totale : \\(\\sum_{i,j} z_{ij} = nQ\\)\nSomme par colonne : \\(\\sum_{i=1}^n z_{ij} = n_j\\) (effectif modalité \\(j\\))"
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#indépendance-statistique",
-    "href": "slides/04-dimension-ca-slides.html#indépendance-statistique",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#perte-dinformation",
+    "href": "slides/04-dimension-mca-slides-annotated.html#perte-dinformation",
     "title": "Dimension",
-    "section": "Indépendance statistique",
-    "text": "Indépendance statistique\n\nTest d’indépendance : Si les variables sont indépendantes, \\[f_{ij} \\approx f_{i\\bullet} f_{\\bullet j}\\]"
+    "section": "Perte d’information",
+    "text": "Perte d’information\n\nVariables quantitatives → Classes : Perte d’information inévitable.\n\nValeur précise → Appartenance à une classe\nExemple : 256.72$ → &gt;250$\nCompromis : Granularité vs interprétabilité\n\nEnjeu : Choisir des classes pertinentes pour le problème étudié."
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#indépendance-statistique-1",
-    "href": "slides/04-dimension-ca-slides.html#indépendance-statistique-1",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#tableau-de-burt",
+    "href": "slides/04-dimension-mca-slides-annotated.html#tableau-de-burt",
     "title": "Dimension",
-    "section": "Indépendance statistique",
-    "text": "Indépendance statistique\n\nTest du \\(\\chi^2\\) :\n\\[T = \\sum_{i,j} \\frac{(k_{ij} - \\mathbb{E}(k_{ij}))^2}{\\mathbb{E}(k_{ij})} = \\sum_{i,j} \\frac{(k_{ij} - \\frac{k_{i\\bullet}k_{\\bullet j}}{k_{\\bullet\\bullet}})^2}{\\frac{k_{i\\bullet}k_{\\bullet j}}{k_{\\bullet\\bullet}}}\\]\nSi \\(T \\approx 0\\) → indépendance\nSi \\(T\\) grand → dépendance (intéressant pour l’AFC)"
+    "section": "Tableau de Burt",
+    "text": "Tableau de Burt\n\n\n\n\n\n\n\nDéfinition\n\n\n\\(B = Z^\\top Z\\) (matrice \\(J \\times J\\))"
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#profils-lignes-et-profils-colonnes",
-    "href": "slides/04-dimension-ca-slides.html#profils-lignes-et-profils-colonnes",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#propriétés-du-tableau-de-burt",
+    "href": "slides/04-dimension-mca-slides-annotated.html#propriétés-du-tableau-de-burt",
     "title": "Dimension",
-    "section": "Profils-lignes et profils-colonnes",
-    "text": "Profils-lignes et profils-colonnes\nProfil-ligne \\(i\\) : Répartition de la modalité \\(i\\) parmi les colonnes \\[L_i = \\left(\\frac{f_{i1}}{f_{i\\bullet}}, \\ldots, \\frac{f_{ip}}{f_{i\\bullet}}\\right).\\]\n\nProfil-colonne \\(j\\) : Répartition de la modalité \\(j\\) parmi les lignes \\[C_j = \\left(\\frac{f_{1j}}{f_{\\bullet j}}, \\ldots, \\frac{f_{nj}}{f_{\\bullet j}}\\right).\\]\n\n\nLes profils sont des distributions conditionnelles."
+    "section": "Propriétés du tableau de Burt",
+    "text": "Propriétés du tableau de Burt\n\nTaille : \\(J \\times J\\) (nombre total de modalités)\n\nBlocs diagonaux : Matrices diagonales\n→ Éléments = effectifs de chaque modalité\n\n\nBlocs non-diagonaux : Tableaux de contingence\n→ Croisement entre variables \\(q\\) et \\(q'\\)\n\n\nSymétrie : \\(B = B^\\top\\)"
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#profils-moyens",
-    "href": "slides/04-dimension-ca-slides.html#profils-moyens",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#équivalence-mathématique",
+    "href": "slides/04-dimension-mca-slides-annotated.html#équivalence-mathématique",
     "title": "Dimension",
-    "section": "Profils moyens",
-    "text": "Profils moyens\n\nProfil-ligne moyen = fréquences marginales colonnes : \\[\\text{Profil moyen} = (f_{\\bullet 1}, \\ldots, f_{\\bullet p})\\]\nProfil-colonne moyen = fréquences marginales lignes : \\[\\text{Profil moyen} = (f_{1\\bullet}, \\ldots, f_{n\\bullet})\\]\nIndépendance \\(\\Longleftrightarrow\\) Tous les profils \\(\\approx\\) profils moyens."
+    "section": "Équivalence mathématique",
+    "text": "Équivalence mathématique\n\nL’ACM peut s’effectuer sur :\n\nLe tableau disjonctif complet \\(Z\\)\nLe tableau de Burt \\(B = Z^\\top Z\\)\n\nRésultat → Les deux approches donnent les mêmes facteurs!\nCette équivalence offre une flexibilité computationnelle."
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#distance-du-chi2",
-    "href": "slides/04-dimension-ca-slides.html#distance-du-chi2",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#éléments-propres-de-z",
+    "href": "slides/04-dimension-mca-slides-annotated.html#éléments-propres-de-z",
     "title": "Dimension",
-    "section": "Distance du \\(\\chi^2\\)",
-    "text": "Distance du \\(\\chi^2\\)\nDistance entre profils-lignes : \\[d^2(L_i, L_{i'}) = \\sum_{j=1}^p \\frac{1}{f_{\\bullet j}} \\left(\\frac{f_{ij}}{f_{i\\bullet}} - \\frac{f_{i'j}}{f_{i'\\bullet}}\\right)^2\\]\nDistance entre profils-colonnes : \\[d^2(C_j, C_{j'}) = \\sum_{i=1}^n \\frac{1}{f_{i\\bullet}} \\left(\\frac{f_{ij}}{f_{\\bullet j}} - \\frac{f_{ij'}}{f_{\\bullet j'}}\\right)^2\\]"
+    "section": "Éléments propres de Z",
+    "text": "Éléments propres de Z\nAnalyse directe - Vecteurs propres de :\n\\[S = \\frac{1}{Q} Z^\\top Z D_J^{-1}\\] où \\(D_J = \\text{diag}(n_1, \\ldots, n_J)\\).\nCoordonnées profils-lignes : \\[\\Phi_k = n Z D_J^{-1} u_k\\]"
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#formulation-matricielle",
-    "href": "slides/04-dimension-ca-slides.html#formulation-matricielle",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#éléments-propres-de-z-1",
+    "href": "slides/04-dimension-mca-slides-annotated.html#éléments-propres-de-z-1",
     "title": "Dimension",
-    "section": "Formulation matricielle",
-    "text": "Formulation matricielle\nMatrices de poids :\n\n\\(D_n = \\text{diag}(f_{i\\bullet})\\) → poids des lignes\n\\(D_p = \\text{diag}(f_{\\bullet j})\\) → poids des colonnes\n\n\nDistance du \\(\\chi^2\\) matricielle :\n\nProfils-lignes : \\(d^2(L_i, L_{i'}) = (L_i - L_{i'})^\\top D_p^{-1} (L_i - L_{i'})\\)\nProfils-colonnes : \\(d^2(C_j, C_{j'}) = (C_j - C_{j'})^\\top D_n^{-1} (C_j - C_{j'})\\)"
+    "section": "Éléments propres de Z",
+    "text": "Éléments propres de Z\nAnalyse duale - Vecteurs propres de : \\[T = \\frac{1}{Q} Z D_J^{-1} Z^\\top\\] où \\(D_J = \\text{diag}(n_1, \\ldots, n_J)\\).\nCoordonnées profils-colonnes : \\[\\Psi_k = n D_J^{-1} Z^\\top v_k\\]"
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#analyse-directe-profils-lignes",
-    "href": "slides/04-dimension-ca-slides.html#analyse-directe-profils-lignes",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#éléments-propres-de-b",
+    "href": "slides/04-dimension-mca-slides-annotated.html#éléments-propres-de-b",
     "title": "Dimension",
-    "section": "Analyse directe (profils-lignes)",
-    "text": "Analyse directe (profils-lignes)\nObjectif : Maximiser la variance projetée des profils-lignes\n\nProblème d’optimisation : \\[\\max_u u^\\top D_p^{-1} F^\\top D_n^{-1} F D_p^{-1} u \\quad \\text{s.c.} \\quad u^\\top D_p^{-1} u = 1\\]\n\n\nSolution : Vecteurs propres de la matrice \\[S = F^\\top D_n^{-1} F D_p^{-1}\\]\n\n\nPremier axe factoriel : \\(S u_1 = \\lambda_1 u_1\\)"
+    "section": "Éléments propres de B",
+    "text": "Éléments propres de B\nTableau de Burt symétrique → Analyse directe = duale\nVecteurs propres de : \\[S' = \\frac{1}{Q^2} B^\\top D_J^{-1} B D_J^{-1}\\]\n\nOn peut réécrire \\(S'\\) comme : \\[S' = \\frac{1}{Q^2} Z^\\top Z D_J^{-1} Z^\\top Z D_J^{-1}\\]"
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#analyse-duale-profils-colonnes",
-    "href": "slides/04-dimension-ca-slides.html#analyse-duale-profils-colonnes",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#relation-entre-valeurs-propres",
+    "href": "slides/04-dimension-mca-slides-annotated.html#relation-entre-valeurs-propres",
     "title": "Dimension",
-    "section": "Analyse duale (profils-colonnes)",
-    "text": "Analyse duale (profils-colonnes)\nObjectif : Maximiser la variance projetée des profils-colonnes\n\nProblème d’optimisation similaire avec matrice : \\[T = F D_p^{-1} F^\\top D_n^{-1}\\]\n\n\nPremier axe factoriel : \\(T v_1 = \\mu_1 v_1\\)"
+    "section": "Relation entre valeurs propres",
+    "text": "Relation entre valeurs propres\n\nSi \\(\\lambda\\) est valeur propre de \\(S\\) (analyse de \\(Z\\)), alors \\(\\lambda^2\\) est valeur propre de \\(S'\\) (analyse de \\(B\\)).\nConséquence :\n\nMêmes vecteurs propres pour \\(Z\\) et \\(B\\).\nValeurs propres de \\(B\\) = carrés des valeurs propres de \\(Z\\)."
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#propriété",
-    "href": "slides/04-dimension-ca-slides.html#propriété",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#encodage-des-variables-quantitatives",
+    "href": "slides/04-dimension-mca-slides-annotated.html#encodage-des-variables-quantitatives",
     "title": "Dimension",
-    "section": "Propriété",
-    "text": "Propriété\n\n\n\n\n\n\nPropriété\n\n\n\\(S\\) et \\(T\\) ont les mêmes \\(r = \\min(n-1, p-1)\\) valeurs propres positives !"
+    "section": "Encodage des variables quantitatives",
+    "text": "Encodage des variables quantitatives\nChoix des bornes crucial pour la qualité de l’analyse.\n\nApproches recommandées :\n\nAnalyser la distribution (histogrammes)\nBornes pertinentes au domaine d’étude\nÉviter les classes peu informatives\n\n\n\nApproche déconseillée :\n\nEffectifs égaux automatiques\nClasses sans sens métier"
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#relations-entre-analyses",
-    "href": "slides/04-dimension-ca-slides.html#relations-entre-analyses",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#encodage-des-variables-qualitatives",
+    "href": "slides/04-dimension-mca-slides-annotated.html#encodage-des-variables-qualitatives",
     "title": "Dimension",
-    "section": "Relations entre analyses",
-    "text": "Relations entre analyses\nCohérence des représentations : \\(\\lambda_k = \\mu_k\\) pour \\(k = 1, \\ldots, r\\)\nRelations entre vecteurs propres : \\[u_k = \\frac{1}{\\sqrt{\\lambda_k}} F^\\top D_n^{-1} v_k.\\] \\[v_k = \\frac{1}{\\sqrt{\\lambda_k}} F D_p^{-1} u_k.\\]\nCette propriété garantit une représentation cohérente dans le même espace réduit."
+    "section": "Encodage des variables qualitatives",
+    "text": "Encodage des variables qualitatives\nModalités “naturelles” mais problèmes potentiels.\n\nEffectifs déséquilibrés :\n\nModalités très rares vs très fréquentes\nImpact sur la représentation\n\n\n\nSolutions potentielles :\n\nRegroupements pertinents (connaissance du domaine)\nÉviter la répartition aléatoire\nPréserver le sens des modalités"
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#afc-comme-double-acp",
-    "href": "slides/04-dimension-ca-slides.html#afc-comme-double-acp",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants",
+    "href": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants",
     "title": "Dimension",
-    "section": "AFC comme double ACP",
-    "text": "AFC comme double ACP\n\n\n\n\n\n\nRemarque\n\n\nL’AFC peut être vue comme une double ACP pondérée :\n\nACP des profils-lignes dans \\(\\mathbb{R}^p\\),\nACP des profils-colonnes dans \\(\\mathbb{R}^n\\),\nAvec métriques du \\(\\chi^2\\) adaptées à chaque espace."
+    "section": "Exemple : le succès des étudiants",
+    "text": "Exemple : le succès des étudiants\nOn considère le jeu de données suivant :\n\n\n\n\n\n\n\n\n\n\n\n\n\nHours_Studied\nAttendance\nParental_Involvement\nExtracurricular_Activities\nSleep_Hours\nSchool_Type\n\n\n\n\n21-30\n71-90\nLow\nNo\n&lt;=7\nPublic\n\n\n11-20\n0-70\nLow\nNo\n&gt;7\nPublic\n\n\n21-30\n91-100\nMedium\nYes\n&lt;=7\nPublic\n\n\n21-30\n71-90\nLow\nYes\n&gt;7\nPublic\n\n\n11-20\n91-100\nMedium\nYes\n&lt;=7\nPublic\n\n\n11-20\n71-90\nMedium\nYes\n&gt;7\nPublic"
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#coordonnées-factorielles",
-    "href": "slides/04-dimension-ca-slides.html#coordonnées-factorielles",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-1",
+    "href": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-1",
     "title": "Dimension",
-    "section": "Coordonnées factorielles",
-    "text": "Coordonnées factorielles\nCoordonnées des profils-lignes sur l’axe \\(k\\) :\n\\[\\Phi_k = D_n^{-1} F D_p^{-1} u_k.\\]\nCoordonnées des profils-colonnes sur l’axe \\(k\\) :\n\\[\\Psi_k = D_p^{-1} F^\\top D_n^{-1} v_k.\\]\nRelations entre coordonnées : \\[\\Phi_k = \\frac{1}{\\sqrt{\\lambda_k}} D_n^{-1} F \\Psi_k.\\]"
+    "section": "Exemple : le succès des étudiants",
+    "text": "Exemple : le succès des étudiants\n\nCodePlotValeurs propres\n\n\n\nlibrary(FactoMineR)\nlibrary(factoextra)\nres_mca &lt;- df |&gt;\n  MCA(graph = FALSE)\nfviz_eig(res_mca)\nget_eigenvalue(res_mca)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\neigenvalue\nvariance.percent\ncumulative.variance.percent\n\n\n\n\nDim.1\n0.1984565\n11.907391\n11.90739\n\n\nDim.2\n0.1898757\n11.392541\n23.29993\n\n\nDim.3\n0.1814721\n10.888326\n34.18826\n\n\nDim.4\n0.1773147\n10.638882\n44.82714\n\n\nDim.5\n0.1672860\n10.037161\n54.86430\n\n\nDim.6\n0.1651723\n9.910338\n64.77464\n\n\nDim.7\n0.1561348\n9.368089\n74.14273\n\n\nDim.8\n0.1500984\n9.005905\n83.14863\n\n\nDim.9\n0.1415169\n8.491017\n91.63965\n\n\nDim.10\n0.1393392\n8.360350\n100.00000"
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#centrage-et-centre-de-gravité",
-    "href": "slides/04-dimension-ca-slides.html#centrage-et-centre-de-gravité",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-2",
+    "href": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-2",
     "title": "Dimension",
-    "section": "Centrage et centre de gravité",
-    "text": "Centrage et centre de gravité\n\nConvention : Représentation centrée en \\((0,0)\\) dans les logiciels.\n\nCentres de gravité :\n\nLignes : \\(G_L = (f_{\\bullet 1}, \\ldots, f_{\\bullet p})^\\top\\).\nColonnes : \\(G_C = (f_{1\\bullet}, \\ldots, f_{n\\bullet})^\\top\\).\n\n\n\nCentrage : Soustraire les profils moyens\n\\[\\frac{f_{ij}}{f_{i\\bullet}} - f_{\\bullet j} = \\frac{f_{ij} - f_{i\\bullet}f_{\\bullet j}}{f_{i\\bullet}}.\\]"
+    "section": "Exemple : le succès des étudiants",
+    "text": "Exemple : le succès des étudiants\n\nCodePlot\n\n\n\nfviz_mca_biplot(\n  res_mca, \n  repel = TRUE,\n  label = \"none\",\n  ggtheme = theme_minimal()\n)"
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#afc-sur-matrice-centrée",
-    "href": "slides/04-dimension-ca-slides.html#afc-sur-matrice-centrée",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-3",
+    "href": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-3",
     "title": "Dimension",
-    "section": "AFC sur matrice centrée",
-    "text": "AFC sur matrice centrée\n\nMatrice centrée : \\(S^* = (s_{jj'}^*)\\) avec\n\\[s_{jj'}^* = \\sum_{i=1}^n \\frac{(f_{ij} - f_{i\\bullet}f_{\\bullet j})(f_{ij'} - f_{i\\bullet}f_{\\bullet j'})}{f_{i\\bullet}f_{\\bullet j'}}.\\]"
+    "section": "Exemple : le succès des étudiants",
+    "text": "Exemple : le succès des étudiants\n\nCodePlot\n\n\n\nfviz_mca_var(\n  res_mca,\n  choice = \"mca.cor\", \n  repel = TRUE,\n  ggtheme = theme_minimal()\n)"
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#inertie-totale",
-    "href": "slides/04-dimension-ca-slides.html#inertie-totale",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-4",
+    "href": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-4",
     "title": "Dimension",
-    "section": "Inertie totale",
-    "text": "Inertie totale\n\nInertie totale :\n\\[\\text{tr}(S^*) = \\sum_{j=1}^p \\sum_{i=1}^n \\frac{(f_{ij} - f_{i\\bullet}f_{\\bullet j})^2}{f_{i\\bullet}f_{\\bullet j}}\\]\nCette inertie correspond à la statistique du \\(\\chi^2\\) normalisée."
+    "section": "Exemple : le succès des étudiants",
+    "text": "Exemple : le succès des étudiants\n\nCodePlot\n\n\n\nfviz_mca_var(\n  res_mca,\n  repel = TRUE,\n  ggtheme = theme_minimal()\n)"
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#représentation-barycentrique",
-    "href": "slides/04-dimension-ca-slides.html#représentation-barycentrique",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-5",
+    "href": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-5",
     "title": "Dimension",
-    "section": "Représentation barycentrique",
-    "text": "Représentation barycentrique\nSur chaque axe factoriel,\n\\[[\\Phi_k]_i = \\frac{1}{\\sqrt{\\lambda_k}} \\sum_{j=1}^p \\frac{f_{ij}}{f_{i\\bullet}} [\\Psi_k]_j,\\]\n\\[[\\Psi_k]_j = \\frac{1}{\\sqrt{\\lambda_k}} \\sum_{i=1}^n \\frac{f_{ij}}{f_{\\bullet j}} [\\Phi_k]_i.\\]\nInterprétation : Chaque profil-ligne est au barycentre des profils-colonnes (et vice versa)."
+    "section": "Exemple : le succès des étudiants",
+    "text": "Exemple : le succès des étudiants\n\nCodePlot\n\n\n\nfviz_mca_var(\n  res_mca,\n  col.var = \"cos2\",\n  gradient.cols = c(\"#00AFBB\", \"#E7B800\", \"#FC4E07\"), \n  repel = TRUE,\n  ggtheme = theme_minimal()\n)"
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#double-représentation-barycentrique",
-    "href": "slides/04-dimension-ca-slides.html#double-représentation-barycentrique",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-6",
+    "href": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-6",
     "title": "Dimension",
-    "section": "Double représentation barycentrique",
-    "text": "Double représentation barycentrique\n\n\n\n\n\n\nPropriété fondamentale de l’AFC :\n\n\nSur les axes factoriels, chaque point d’un nuage est au barycentre des points de l’autre nuage, pondéré par les contributions respectives.\n\n\n\nCette propriété permet une interprétation conjointe des modalités des deux variables dans le même graphique."
+    "section": "Exemple : le succès des étudiants",
+    "text": "Exemple : le succès des étudiants\n\nCodePlot\n\n\n\nfviz_mca_ind(\n  res_mca,\n  label = \"none\",\n  col.ind = \"cos2\", \n  gradient.cols = c(\"#00AFBB\", \"#E7B800\", \"#FC4E07\"),\n  repel = TRUE,\n  ggtheme = theme_minimal()\n)"
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#interprétation-des-résultats",
-    "href": "slides/04-dimension-ca-slides.html#interprétation-des-résultats",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-7",
+    "href": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-7",
     "title": "Dimension",
-    "section": "Interprétation des résultats",
-    "text": "Interprétation des résultats\n\nProximité géométrique = Similarité des profils\nAxes factoriels : Directions de variation maximale.\nContribution des modalités : Importance dans la construction des axes.\nQualité de représentation : Proportion de l’inertie d’un point expliquée par les axes retenus."
+    "section": "Exemple : le succès des étudiants",
+    "text": "Exemple : le succès des étudiants\n\nCodePlotPlot\n\n\n\nfviz_mca_ind(\n  res_mca, \n  label = \"none\",\n  habillage = \"Hours_Studied\",\n  palette = c(\"#D81B60\", \"#1E88E5\", \"#FFC107\", \"#004D40\"),\n  addEllipses = TRUE, ellipse.type = \"confidence\",\n  ggtheme = theme_minimal()\n)"
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada",
-    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#avantages-de-lacm",
+    "href": "slides/04-dimension-mca-slides-annotated.html#avantages-de-lacm",
     "title": "Dimension",
-    "section": "Exemple : le taux d’emploi au Canada",
-    "text": "Exemple : le taux d’emploi au Canada\nOn considère le jeu de données suivant :\n\n\n\n\n\nprovince\nfull-time\npart-time\nunemployed\n\n\n\n\nNewfoundland and Labrador\n205.0\n39.3\n27.3\n\n\nPrince Edward Island\n82.1\n11.9\n7.6\n\n\nNova Scotia\n437.7\n87.2\n34.0\n\n\nNew Brunswick\n346.8\n54.8\n30.0\n\n\nQuebec\n3762.6\n864.7\n279.6\n\n\nOntario\n6721.8\n1508.0\n667.2\n\n\nManitoba\n608.4\n122.6\n46.3\n\n\nSaskatchewan\n498.1\n115.4\n31.7\n\n\nAlberta\n2084.6\n466.2\n195.0\n\n\nBritish Columbia\n2357.1\n587.8\n190.1"
+    "section": "Avantages de l’ACM",
+    "text": "Avantages de l’ACM\n\n\nVisualisation de relations complexes multi-variables\nTraitement unifié de variables hétérogènes\nRéduction de dimension préservant les associations\nInterprétation intuitive des proximités\nFlexibilité dans l’encodage des variables"
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-1",
-    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-1",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#limites-et-précautions",
+    "href": "slides/04-dimension-mca-slides-annotated.html#limites-et-précautions",
     "title": "Dimension",
-    "section": "Exemple : le taux d’emploi au Canada",
-    "text": "Exemple : le taux d’emploi au Canada\n\nCodePlotValeurs propres\n\n\n\nlibrary(FactoMineR)\nlibrary(factoextra)\nres_ca &lt;- df |&gt;\n  column_to_rownames(var = 'province') |&gt; \n  CA(graph = FALSE)\nfviz_eig(res_ca)\nget_eigenvalue(res_ca)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\neigenvalue\nvariance.percent\ncumulative.variance.percent\n\n\n\n\nDim.1\n0.0014335\n70.77104\n70.77104\n\n\nDim.2\n0.0005921\n29.22896\n100.00000"
+    "section": "Limites et précautions",
+    "text": "Limites et précautions\n\nPerte d’information :\n\nVariables continues → classes\nChoix d’encodage critique\n\nInterprétation :\n\nProximités entre modalités de variables différentes\nAttention aux artefacts d’encodage"
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-2",
-    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-2",
-    "title": "Dimension",
-    "section": "Exemple : le taux d’emploi au Canada",
-    "text": "Exemple : le taux d’emploi au Canada\n\nCodePlot\n\n\n\n# Résultat pour les lignes\nfviz_ca_row(res_ca, repel = TRUE)"
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-3",
-    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-3",
-    "title": "Dimension",
-    "section": "Exemple : le taux d’emploi au Canada",
-    "text": "Exemple : le taux d’emploi au Canada\n\nCodeContribution à la première composante\n\n\n\n# Visualisation des lignes sur l'axe 1\nfviz_contrib(res_ca, choice =\"row\", axes = 1)"
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-4",
-    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-4",
-    "title": "Dimension",
-    "section": "Exemple : le taux d’emploi au Canada",
-    "text": "Exemple : le taux d’emploi au Canada\n\nCodeContribution à la première composante\n\n\n\n# Visualisation des lignes sur l'axe 2\nfviz_contrib(res_ca, choice =\"row\", axes = 2)"
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-5",
-    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-5",
-    "title": "Dimension",
-    "section": "Exemple : le taux d’emploi au Canada",
-    "text": "Exemple : le taux d’emploi au Canada\n\nCodeBiplot\n\n\n\nfviz_ca_biplot(res_ca, repel = TRUE)"
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#conclusion",
-    "href": "slides/04-dimension-ca-slides.html#conclusion",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#conclusion",
+    "href": "slides/04-dimension-mca-slides-annotated.html#conclusion",
     "title": "Dimension",
     "section": "Conclusion",
-    "text": "Conclusion\n\nL’AFC est un outil pour :\n\nExplorer les relations entre variables qualitatives\nVisualiser des structures complexes en 2D/3D\nIdentifier des associations non évidentes\nInterpréter conjointement lignes et colonnes\n\nProchaine étape → Que faire si on a plus que deux variables qualitatives ?"
+    "text": "Conclusion\n\nL’ACM étend l’AFC au cas multi-variables grâce au codage disjonctif complet :\n\nTransformation binaire préalable\nÉquivalence \\(Z\\) ↔︎ Tableau de Burt \\(B\\)\nChoix d’encodage\nVisualisation des patterns complexes\n\nProchaine étape → éthique de l’analyse de données"
   },
   {
     "objectID": "slides/03-generalities-stat-slides.html#structure-dun-projet",
@@ -2273,32 +2602,18 @@
     "text": "Vous pouvez faire les exercices dans le langage de votre choix."
   },
   {
-    "objectID": "tp/02-revision-tp.html",
-    "href": "tp/02-revision-tp.html",
-    "title": "TP: Révision",
+    "objectID": "tp/07-ethics-tp.html",
+    "href": "tp/07-ethics-tp.html",
+    "title": "TP: Dimension",
     "section": "",
     "text": "Vous pouvez faire les exercices dans le langage de votre choix."
   },
   {
-    "objectID": "tp/02-revision-tp.html#exercice-1-estimer-pi",
-    "href": "tp/02-revision-tp.html#exercice-1-estimer-pi",
-    "title": "TP: Révision",
-    "section": "Exercice 1: Estimer \\(\\pi\\)",
-    "text": "Exercice 1: Estimer \\(\\pi\\)\nDans cet exercice, on se propose d’estimer \\(\\pi\\) grâce à la méthode de Monte-Carlo. Le méthode de Monte-Carlo est une méthode algorithmique permettant d’estimer des quantités en utilisant des tirages aléatoires. Pour estimer \\(\\pi\\), l’idée est de générer des points dans un carré de façon uniforme et ensuite de compter la proportion de ces points qui sont dans le cercle unité.\n\nGénérer un nombre \\(n\\) de points \\((x, y)\\) dans un carré de longueur \\(2\\) centré à l’origine, i.e. \\(x \\in [-1, 1]\\) et \\(y \\in [-1, 1]\\).\nPour chaque point \\(n\\), déterminer si le point appartient au cercle unité.\nCalculer la proportion du nombre de points dans le cercle unité.\nÀ partir du résultat précédent, estimer \\(\\pi\\).\nNotons \\(\\widehat{\\pi}(n)\\), l’estimateur de \\(\\pi\\) utilisant \\(n\\) points générés. Tracer l’erreur d’estimation \\(\\left| \\pi - \\widehat{\\pi}(n) \\right|\\) en fonction de \\(n\\)."
-  },
-  {
-    "objectID": "tp/02-revision-tp.html#exercice-2-estimation-dintégrale",
-    "href": "tp/02-revision-tp.html#exercice-2-estimation-dintégrale",
-    "title": "TP: Révision",
-    "section": "Exercice 2: Estimation d’intégrale",
-    "text": "Exercice 2: Estimation d’intégrale\nDans cette exercice, on se propose d’estimer \\[I = \\int_{0}^{1} \\sqrt{1 - x^2} dx .\\]\n\nCalculer \\(I\\) en utilisant une primitive.\nIl est possible d’estimer \\(I = \\int_{0}^{1} f(x) dx\\) à l’aide des sommes de Riemann \\(\\widehat{I}(n) = \\frac{1}{n}\\sum_{i = 1}^{n} f(\\frac{i}{n}), i = 1, \\dots, n\\). Estimer \\(I\\) en utilisant les sommes de Riemann.\nL’intégrale \\(I\\) peut être vu comme l’espérance d’un variable aléatoire. \\(I = \\mathbb{E}[f(U)]\\), où \\(U \\sim \\mathcal{U}(0, 1)\\). On peut estimer \\(I\\) en utilisant \\(\\widetilde{I}(n) = \\frac{1}{n} \\sum_{i = 1}^{n} f(u_i)\\), où les \\(u_i\\) sont des réalisations de la variable aléatoire \\(U\\). Estimer \\(I\\) en utilisant cette méthode.\nComparer la qualité de ces deux estimateurs de \\(I\\) en fonction de \\(n\\)."
-  },
-  {
-    "objectID": "tp/02-revision-tp.html#exercice-3-la-loi-des-gaz-parfaits",
-    "href": "tp/02-revision-tp.html#exercice-3-la-loi-des-gaz-parfaits",
-    "title": "TP: Révision",
-    "section": "Exercice 3: La loi des gaz parfaits",
-    "text": "Exercice 3: La loi des gaz parfaits\nDans cet exercice, on se propose de vérifier la loi des gaz parfaits à partir des données. On rappelle que la loi des gaz parfaits est donnée par \\(PV = nRT\\) où :\n\n\\(P\\) est la pression à l’intérieur du volume considéré en Pascal (Pa);\n\\(V\\) est le volume du gaz en m\\(^3\\);\n\\(n\\) est la quantité de matière en mole (mol);\n\\(R = 8.314\\) est la constante universelle des gaz parfaits en J.mol\\(^{-1}\\).K\\(^{-1}\\);\n\\(T\\) est la température à l’intérieur du volume considéré en Kelvin (K).\n\nOn conduit une expérience consistant à chauffer une quantité fixe de gaz dans un récipient fermé de volume fixé. La température \\(T\\) en Kelvin et la pression \\(P\\) en kPa sont enregistrées. On trouve les résultats suivants :\n\ntemperature = [\n  406, 296, 272, 449, 483, 439, 460, 276, 321, 462, 408, 322, 285,\n  411, 491, 359, 453, 486, 413, 350, 263, 456, 390, 462, 389, 494,\n  303, 496, 336, 460\n]\n\npression = [\n  1365, 982, 898, 1486, 1596, 1481, 1506, 906, 1085, 1542, 1367,\n  1072, 955, 1379, 1633, 1186, 1499, 1606, 1378, 1156, 867, 1514,\n  1306, 1525, 1287, 1665, 1020, 1635, 1118, 1529\n]\n\n\nTracer la pression en fonction de la température. Est-ce que le graphique est linéaire ?\nConstruire la matrice \\(X = (1 | \\text{temperature})\\). La première colonne de \\(X\\) est une colonne de \\(1\\) et la deuxième colonne de \\(X\\) est le vecteur des températures.\nCalculer le vecteur \\(\\beta = (X^{\\top} X)^{-1} X^{\\top} Y\\) où \\(Y\\) est le vecteur des pressions.\nQuelle est l’interprétation physique des éléments du vecteur \\(\\beta\\) ?\nÀ quelle valeur de \\(\\beta_0\\), le premier coefficient de \\(\\beta\\), devrait-on s’attendre dans le cadre d’un gaz parfait ? Est-ce le cas ici ? Pourquoi ?\nSupposons que le volume de gaz est de \\(10\\)dm\\(^3\\). Estimer la quantité de matière \\(n\\) en mole utilisé pour avoir les données."
+    "objectID": "tp/06-unsupervised-tp.html",
+    "href": "tp/06-unsupervised-tp.html",
+    "title": "TP: Dimension",
+    "section": "",
+    "text": "Vous pouvez faire les exercices dans le langage de votre choix."
   },
   {
     "objectID": "td/02-revision-td.html",
@@ -2676,11 +2991,32 @@
     "text": "Exercice 4 : Calcul de distance\n\nUn robot commence à la position \\((0, 0)\\). Calculer la distance la plus courte que le robot doive parcourir pour aller à la position \\((8, 6)\\).\nUn taxi New-Yorkais dois aller de l’angle de la 5th avenue et 42nd street (New York public library) à l’angle de la 1st avenue et 114th street (Thomas Jefferson park). Calculer la distance que le taxi va faire.\nUne entreprise de transport utilise les coordonnées GPS pour calculer les distances entre son entrepôt et deux de ses clients. Les coordonnées de l’entrepôt sont \\((10, 15)\\), les coordonnées du premier client sont \\((18, 22)\\) et les coordonnées du deuxième client sont \\((5, 8)\\). Quel est le client le plus proche de l’entrepôt à vol d’oiseau. Est-ce le même client qui est le plus proche de l’entrepôt pour un camion qui suivrait des routes, réparties en grille.\nConsidérons un système de communication qui envoie des messages encodés sur 4 bits. Ce système envoie les messages suivants: “1001” et “1101”. Quelle est la distance de Hamming entre ces deux messages ? Si un système de détection d’erreurs peut détecter des erreurs de 2 bits, est-ce que la différence entre les deux messages est détectable ?\nTrois utilisateurs ont aimé les films suivants: \\(\\{ \\text{Titanic}, \\text{Avatar}, \\text{Star Wars}, \\text{Matrix}, \\text{Inception} \\}\\), \\(\\{ \\text{Avatar}, \\text{Matrix}, \\text{Batman}, \\text{Superman}, \\text{Inception} \\}\\) et \\(\\{ \\text{Inception}, \\text{Avengers}, \\text{Spiderman}, \\text{Superman}, \\text{Batman} \\}\\). Quels sont les utilisateurs les plus proches basés sur la distance de Hamming ?"
   },
   {
-    "objectID": "tp/06-unsupervised-tp.html",
-    "href": "tp/06-unsupervised-tp.html",
-    "title": "TP: Dimension",
+    "objectID": "tp/02-revision-tp.html",
+    "href": "tp/02-revision-tp.html",
+    "title": "TP: Révision",
     "section": "",
     "text": "Vous pouvez faire les exercices dans le langage de votre choix."
+  },
+  {
+    "objectID": "tp/02-revision-tp.html#exercice-1-estimer-pi",
+    "href": "tp/02-revision-tp.html#exercice-1-estimer-pi",
+    "title": "TP: Révision",
+    "section": "Exercice 1: Estimer \\(\\pi\\)",
+    "text": "Exercice 1: Estimer \\(\\pi\\)\nDans cet exercice, on se propose d’estimer \\(\\pi\\) grâce à la méthode de Monte-Carlo. Le méthode de Monte-Carlo est une méthode algorithmique permettant d’estimer des quantités en utilisant des tirages aléatoires. Pour estimer \\(\\pi\\), l’idée est de générer des points dans un carré de façon uniforme et ensuite de compter la proportion de ces points qui sont dans le cercle unité.\n\nGénérer un nombre \\(n\\) de points \\((x, y)\\) dans un carré de longueur \\(2\\) centré à l’origine, i.e. \\(x \\in [-1, 1]\\) et \\(y \\in [-1, 1]\\).\nPour chaque point \\(n\\), déterminer si le point appartient au cercle unité.\nCalculer la proportion du nombre de points dans le cercle unité.\nÀ partir du résultat précédent, estimer \\(\\pi\\).\nNotons \\(\\widehat{\\pi}(n)\\), l’estimateur de \\(\\pi\\) utilisant \\(n\\) points générés. Tracer l’erreur d’estimation \\(\\left| \\pi - \\widehat{\\pi}(n) \\right|\\) en fonction de \\(n\\)."
+  },
+  {
+    "objectID": "tp/02-revision-tp.html#exercice-2-estimation-dintégrale",
+    "href": "tp/02-revision-tp.html#exercice-2-estimation-dintégrale",
+    "title": "TP: Révision",
+    "section": "Exercice 2: Estimation d’intégrale",
+    "text": "Exercice 2: Estimation d’intégrale\nDans cette exercice, on se propose d’estimer \\[I = \\int_{0}^{1} \\sqrt{1 - x^2} dx .\\]\n\nCalculer \\(I\\) en utilisant une primitive.\nIl est possible d’estimer \\(I = \\int_{0}^{1} f(x) dx\\) à l’aide des sommes de Riemann \\(\\widehat{I}(n) = \\frac{1}{n}\\sum_{i = 1}^{n} f(\\frac{i}{n}), i = 1, \\dots, n\\). Estimer \\(I\\) en utilisant les sommes de Riemann.\nL’intégrale \\(I\\) peut être vu comme l’espérance d’un variable aléatoire. \\(I = \\mathbb{E}[f(U)]\\), où \\(U \\sim \\mathcal{U}(0, 1)\\). On peut estimer \\(I\\) en utilisant \\(\\widetilde{I}(n) = \\frac{1}{n} \\sum_{i = 1}^{n} f(u_i)\\), où les \\(u_i\\) sont des réalisations de la variable aléatoire \\(U\\). Estimer \\(I\\) en utilisant cette méthode.\nComparer la qualité de ces deux estimateurs de \\(I\\) en fonction de \\(n\\)."
+  },
+  {
+    "objectID": "tp/02-revision-tp.html#exercice-3-la-loi-des-gaz-parfaits",
+    "href": "tp/02-revision-tp.html#exercice-3-la-loi-des-gaz-parfaits",
+    "title": "TP: Révision",
+    "section": "Exercice 3: La loi des gaz parfaits",
+    "text": "Exercice 3: La loi des gaz parfaits\nDans cet exercice, on se propose de vérifier la loi des gaz parfaits à partir des données. On rappelle que la loi des gaz parfaits est donnée par \\(PV = nRT\\) où :\n\n\\(P\\) est la pression à l’intérieur du volume considéré en Pascal (Pa);\n\\(V\\) est le volume du gaz en m\\(^3\\);\n\\(n\\) est la quantité de matière en mole (mol);\n\\(R = 8.314\\) est la constante universelle des gaz parfaits en J.mol\\(^{-1}\\).K\\(^{-1}\\);\n\\(T\\) est la température à l’intérieur du volume considéré en Kelvin (K).\n\nOn conduit une expérience consistant à chauffer une quantité fixe de gaz dans un récipient fermé de volume fixé. La température \\(T\\) en Kelvin et la pression \\(P\\) en kPa sont enregistrées. On trouve les résultats suivants :\n\ntemperature = [\n  406, 296, 272, 449, 483, 439, 460, 276, 321, 462, 408, 322, 285,\n  411, 491, 359, 453, 486, 413, 350, 263, 456, 390, 462, 389, 494,\n  303, 496, 336, 460\n]\n\npression = [\n  1365, 982, 898, 1486, 1596, 1481, 1506, 906, 1085, 1542, 1367,\n  1072, 955, 1379, 1633, 1186, 1499, 1606, 1378, 1156, 867, 1514,\n  1306, 1525, 1287, 1665, 1020, 1635, 1118, 1529\n]\n\n\nTracer la pression en fonction de la température. Est-ce que le graphique est linéaire ?\nConstruire la matrice \\(X = (1 | \\text{temperature})\\). La première colonne de \\(X\\) est une colonne de \\(1\\) et la deuxième colonne de \\(X\\) est le vecteur des températures.\nCalculer le vecteur \\(\\beta = (X^{\\top} X)^{-1} X^{\\top} Y\\) où \\(Y\\) est le vecteur des pressions.\nQuelle est l’interprétation physique des éléments du vecteur \\(\\beta\\) ?\nÀ quelle valeur de \\(\\beta_0\\), le premier coefficient de \\(\\beta\\), devrait-on s’attendre dans le cadre d’un gaz parfait ? Est-ce le cas ici ? Pourquoi ?\nSupposons que le volume de gaz est de \\(10\\)dm\\(^3\\). Estimer la quantité de matière \\(n\\) en mole utilisé pour avoir les données."
   },
   {
     "objectID": "tp/03-generalities-tp.html",
@@ -3313,165 +3649,228 @@
     "text": "Conclusion\n\nL’ACM étend l’AFC au cas multi-variables grâce au codage disjonctif complet :\n\nTransformation binaire préalable\nÉquivalence \\(Z\\) ↔︎ Tableau de Burt \\(B\\)\nChoix d’encodage\nVisualisation des patterns complexes\n\nProchaine étape → éthique de l’analyse de données"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#pourquoi-les-distances",
-    "href": "slides/03-generalities-distance-slides-annotated.html#pourquoi-les-distances",
-    "title": "Généralités",
-    "section": "Pourquoi les distances ?",
-    "text": "Pourquoi les distances ?\n\nDans tout projet d’analyse de données, il faut pouvoir quantifier la ressemblance ou la dissemblance entre observations.\n\nImpact direct sur :\n\nAlgorithmes d’apprentissage\nMéthodes de regroupement\nTechniques de visualisation"
+    "objectID": "slides/04-dimension-ca-slides.html#limite-de-lacp",
+    "href": "slides/04-dimension-ca-slides.html#limite-de-lacp",
+    "title": "Dimension",
+    "section": "Limite de l’ACP",
+    "text": "Limite de l’ACP\n\nL’analyse en composantes principales est restreinte à des données quantitatives.\n\n→ Comment faire lorsque l’on a des données qualitatives ?"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#plan",
-    "href": "slides/03-generalities-distance-slides-annotated.html#plan",
-    "title": "Généralités",
+    "objectID": "slides/04-dimension-ca-slides.html#plan",
+    "href": "slides/04-dimension-ca-slides.html#plan",
+    "title": "Dimension",
     "section": "Plan",
-    "text": "Plan\n\n\nNotion de distance - Définition mathématique\nDistances numériques - \\(L_q\\), euclidienne, Manhattan\nNotion de similarité - Concept opposé\nVariables qualitatives - Encodages et distances adaptées\nDistance de Jaccard - Cas des variables binaires"
+    "text": "Plan\n\n\nLa théorie de l’analyse factorielle des correspondances\nL’AFC en pratique\nExemple : le taux d’emploi au Canada"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#définition-mathématique",
-    "href": "slides/03-generalities-distance-slides-annotated.html#définition-mathématique",
-    "title": "Généralités",
-    "section": "Définition mathématique",
-    "text": "Définition mathématique\n\n\n\nDistance sur \\(\\mathcal{X}\\)\n\n\nUne fonction \\(d: \\mathcal{X} \\times \\mathcal{X} \\to \\mathbb{R}\\) est une distance si :\n\nNon-négativité : \\(d(x, y) \\geq 0\\)\nSéparation : \\(d(x, y) = 0 \\Leftrightarrow x = y\\)\nSymétrie : \\(d(x, y) = d(y, x)\\)\nInégalité triangulaire : \\(d(x, y) \\leq d(x, z) + d(y, z)\\)"
+    "objectID": "slides/04-dimension-ca-slides.html#analyse-factorielle-des-correspondances",
+    "href": "slides/04-dimension-ca-slides.html#analyse-factorielle-des-correspondances",
+    "title": "Dimension",
+    "section": "Analyse factorielle des correspondances",
+    "text": "Analyse factorielle des correspondances\n\nL’Analyse Factorielle des Correspondances (AFC) est une méthode d’analyse exploratoire pour représenter graphiquement les relations entre les modalités de deux variables qualitatives.\n\nObjectif → Trouver une représentation en faible dimension tout en gardant le maximum d’information possible."
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#distance-euclidienne",
-    "href": "slides/03-generalities-distance-slides-annotated.html#distance-euclidienne",
-    "title": "Généralités",
-    "section": "Distance euclidienne",
-    "text": "Distance euclidienne\n\n\n\nDéfinition\n\n\nPour \\(x, y \\in \\mathbb{R}^p\\) :\n\\[d(x, y) = \\left\\| x - y \\right\\|_2 = \\sqrt{\\sum_{i=1}^{p} (x_i - y_i)^2}\\]\nQuand l’utiliser : Variables numériques de même ordre de grandeur."
+    "objectID": "slides/04-dimension-ca-slides.html#notation",
+    "href": "slides/04-dimension-ca-slides.html#notation",
+    "title": "Dimension",
+    "section": "Notation",
+    "text": "Notation\n\nTableau de contingence:\n\\[K = (k_{ij}) \\text{ avec } k_{ij} = \\text{ effectif classe } i \\in \\{1, \\dots, n\\}, \\text{ catégorie } j \\in \\{1, \\dots, p\\}.\\]"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#distance-euclidienne-preuve",
-    "href": "slides/03-generalities-distance-slides-annotated.html#distance-euclidienne-preuve",
-    "title": "Généralités",
-    "section": "Distance euclidienne (preuve)",
-    "text": "Distance euclidienne (preuve)"
+    "objectID": "slides/04-dimension-ca-slides.html#notation-1",
+    "href": "slides/04-dimension-ca-slides.html#notation-1",
+    "title": "Dimension",
+    "section": "Notation",
+    "text": "Notation\n\nTableau de fréquences relatives :\n\\[F = (f_{ij}) \\text{ où } f_{ij} = \\frac{k_{ij}}{k_{\\bullet\\bullet}}.\\]"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#distance-l_q-minkowski",
-    "href": "slides/03-generalities-distance-slides-annotated.html#distance-l_q-minkowski",
-    "title": "Généralités",
-    "section": "Distance \\(L_q\\) (Minkowski)",
-    "text": "Distance \\(L_q\\) (Minkowski)\n\n\n\nFormule générale :\n\n\n\\[d(x, y) = \\left( \\sum_{i=1}^{p} |x_i - y_i|^q \\right)^{1/q}\\]\nCas particuliers :\n\n\\(q = 1\\) : Distance de Manhattan → \\(d(x, y) = \\sum_{i=1}^{p} |x_i - y_i|\\)\n\\(q = 2\\) : Distance euclidienne"
+    "objectID": "slides/04-dimension-ca-slides.html#notation-2",
+    "href": "slides/04-dimension-ca-slides.html#notation-2",
+    "title": "Dimension",
+    "section": "Notation",
+    "text": "Notation\n\nMarges :\n\nLigne : \\(f_{i\\bullet} = \\sum_{j=1}^p f_{ij}\\)\nColonne : \\(f_{\\bullet j} = \\sum_{i=1}^n f_{ij}\\)\nTotal : \\(f_{\\bullet\\bullet} = 1\\)"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#exemple-concret-wooclap-kffpdj",
-    "href": "slides/03-generalities-distance-slides-annotated.html#exemple-concret-wooclap-kffpdj",
-    "title": "Généralités",
-    "section": "Exemple concret (WOOCLAP: KFFPDJ)",
-    "text": "Exemple concret (WOOCLAP: KFFPDJ)\n\n\n\nNom\nTaille (cm)\nPoids (kg)\n\n\n\n\nAlice\n165\n70\n\n\nBob\n177\n75"
+    "objectID": "slides/04-dimension-ca-slides.html#exemple-concret",
+    "href": "slides/04-dimension-ca-slides.html#exemple-concret",
+    "title": "Dimension",
+    "section": "Exemple concret",
+    "text": "Exemple concret\n\n\n\n\n\n\n\n\n\n\n\n\nCollège\nUniversité Laval\nAutre université\nHors Québec\n\\(f_{i \\bullet}\\)\n\n\n\n\nActuariat\n0.08\n0\n0\n0.04\n0.12\n\n\nStatistique\n0.08\n0.16\n0.04\n0\n0.28\n\n\nBio-info\n0.16\n0.08\n0\n0.08\n0.32\n\n\nFinance\n0.08\n0\n0\n0\n0.08\n\n\nMaths\n0.04\n0\n0\n0\n0.04\n\n\nInfo\n0.08\n0.04\n0\n0.04\n0.16\n\n\n\\(f_{\\bullet j}\\)\n0.52\n0.28\n0.04\n0.16\n1"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#problème-déchelle",
-    "href": "slides/03-generalities-distance-slides-annotated.html#problème-déchelle",
-    "title": "Généralités",
-    "section": "Problème d’échelle",
-    "text": "Problème d’échelle\n\n\n\nAttention !\n\n\nLes distances \\(L_q\\) ne sont pas invariantes aux changements d’échelle."
+    "objectID": "slides/04-dimension-ca-slides.html#indépendance-statistique",
+    "href": "slides/04-dimension-ca-slides.html#indépendance-statistique",
+    "title": "Dimension",
+    "section": "Indépendance statistique",
+    "text": "Indépendance statistique\n\nTest d’indépendance : Si les variables sont indépendantes, \\[f_{ij} \\approx f_{i\\bullet} f_{\\bullet j}\\]"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#problème-déchelle---solution",
-    "href": "slides/03-generalities-distance-slides-annotated.html#problème-déchelle---solution",
-    "title": "Généralités",
-    "section": "Problème d’échelle - solution",
-    "text": "Problème d’échelle - solution\n\nStandardiser les variables !\n\nDistance euclidienne standardisée :\n\\[d(x, y) = \\sum_{i=1}^{p} \\left( \\frac{x_i - y_i}{\\sigma_i} \\right)^2\\]\noù \\(\\sigma_i\\) = écart-type de la variable \\(i\\)."
+    "objectID": "slides/04-dimension-ca-slides.html#indépendance-statistique-1",
+    "href": "slides/04-dimension-ca-slides.html#indépendance-statistique-1",
+    "title": "Dimension",
+    "section": "Indépendance statistique",
+    "text": "Indépendance statistique\n\nTest du \\(\\chi^2\\) :\n\\[T = \\sum_{i,j} \\frac{(k_{ij} - \\mathbb{E}(k_{ij}))^2}{\\mathbb{E}(k_{ij})} = \\sum_{i,j} \\frac{(k_{ij} - \\frac{k_{i\\bullet}k_{\\bullet j}}{k_{\\bullet\\bullet}})^2}{\\frac{k_{i\\bullet}k_{\\bullet j}}{k_{\\bullet\\bullet}}}\\]\nSi \\(T \\approx 0\\) → indépendance\nSi \\(T\\) grand → dépendance (intéressant pour l’AFC)"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#notion-de-similarité",
-    "href": "slides/03-generalities-distance-slides-annotated.html#notion-de-similarité",
-    "title": "Généralités",
-    "section": "Notion de similarité",
-    "text": "Notion de similarité\n\n\n\n\nMesure de similarité sur \\(\\mathcal{X}\\)\n\n\nUne fonction \\(s: \\mathcal{X} \\times \\mathcal{X} \\to \\mathbb{R}\\) telle que :\n\n\\(s(x, y) \\geq 0\\)\n\\(s(x, y) = s(y, x)\\) (symétrie)\n\\(s(x, x) = 1 \\geq s(x, y)\\) (maximum pour soi-même)"
+    "objectID": "slides/04-dimension-ca-slides.html#profils-lignes-et-profils-colonnes",
+    "href": "slides/04-dimension-ca-slides.html#profils-lignes-et-profils-colonnes",
+    "title": "Dimension",
+    "section": "Profils-lignes et profils-colonnes",
+    "text": "Profils-lignes et profils-colonnes\nProfil-ligne \\(i\\) : Répartition de la modalité \\(i\\) parmi les colonnes \\[L_i = \\left(\\frac{f_{i1}}{f_{i\\bullet}}, \\ldots, \\frac{f_{ip}}{f_{i\\bullet}}\\right).\\]\n\nProfil-colonne \\(j\\) : Répartition de la modalité \\(j\\) parmi les lignes \\[C_j = \\left(\\frac{f_{1j}}{f_{\\bullet j}}, \\ldots, \\frac{f_{nj}}{f_{\\bullet j}}\\right).\\]\n\n\nLes profils sont des distributions conditionnelles."
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#conversion-distance-similarité",
-    "href": "slides/03-generalities-distance-slides-annotated.html#conversion-distance-similarité",
-    "title": "Généralités",
-    "section": "Conversion distance ↔︎ similarité",
-    "text": "Conversion distance ↔︎ similarité\n\nDistance → Similarité :\n\\[s(x, y) = \\frac{1}{1 + d(x, y)}\\]\n\n⚠️ Une mesure de similarité ne respecte généralement pas l’inégalité triangulaire.\n\n\nSimilarité → Dissemblance :\n\\[d^*(x, y) = 1 - s(x, y)\\]"
+    "objectID": "slides/04-dimension-ca-slides.html#profils-moyens",
+    "href": "slides/04-dimension-ca-slides.html#profils-moyens",
+    "title": "Dimension",
+    "section": "Profils moyens",
+    "text": "Profils moyens\n\nProfil-ligne moyen = fréquences marginales colonnes : \\[\\text{Profil moyen} = (f_{\\bullet 1}, \\ldots, f_{\\bullet p})\\]\nProfil-colonne moyen = fréquences marginales lignes : \\[\\text{Profil moyen} = (f_{1\\bullet}, \\ldots, f_{n\\bullet})\\]\nIndépendance \\(\\Longleftrightarrow\\) Tous les profils \\(\\approx\\) profils moyens."
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#variables-qualitatives",
-    "href": "slides/03-generalities-distance-slides-annotated.html#variables-qualitatives",
-    "title": "Généralités",
-    "section": "Variables qualitatives",
-    "text": "Variables qualitatives\n\nProblème : pour \\(\\mathcal{X} = \\{\\text{Rouge}, \\text{Vert}, \\text{Bleu}\\}\\).\n\n\n❌ Mauvaise pratique :\nRouge = 1, Vert = 2, Bleu = 3 → Introduit un ordre artificiel !\n\n\n\n✅ Bonne pratique : Encodage adapté"
+    "objectID": "slides/04-dimension-ca-slides.html#distance-du-chi2",
+    "href": "slides/04-dimension-ca-slides.html#distance-du-chi2",
+    "title": "Dimension",
+    "section": "Distance du \\(\\chi^2\\)",
+    "text": "Distance du \\(\\chi^2\\)\nDistance entre profils-lignes : \\[d^2(L_i, L_{i'}) = \\sum_{j=1}^p \\frac{1}{f_{\\bullet j}} \\left(\\frac{f_{ij}}{f_{i\\bullet}} - \\frac{f_{i'j}}{f_{i'\\bullet}}\\right)^2\\]\nDistance entre profils-colonnes : \\[d^2(C_j, C_{j'}) = \\sum_{i=1}^n \\frac{1}{f_{i\\bullet}} \\left(\\frac{f_{ij}}{f_{\\bullet j}} - \\frac{f_{ij'}}{f_{\\bullet j'}}\\right)^2\\]"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#encodage-1-parmi-k-one-hot-encoding",
-    "href": "slides/03-generalities-distance-slides-annotated.html#encodage-1-parmi-k-one-hot-encoding",
-    "title": "Généralités",
-    "section": "Encodage “1 parmi K” (One-hot encoding)",
-    "text": "Encodage “1 parmi K” (One-hot encoding)\n\n\nRouge → \\((1, 0, 0)\\)\nVert → \\((0, 1, 0)\\)\nBleu → \\((0, 0, 1)\\)\n\n\nAvantages : Pas d’ordre artificiel\nInconvénients : Grande dimension si beaucoup de modalités"
+    "objectID": "slides/04-dimension-ca-slides.html#formulation-matricielle",
+    "href": "slides/04-dimension-ca-slides.html#formulation-matricielle",
+    "title": "Dimension",
+    "section": "Formulation matricielle",
+    "text": "Formulation matricielle\nMatrices de poids :\n\n\\(D_n = \\text{diag}(f_{i\\bullet})\\) → poids des lignes\n\\(D_p = \\text{diag}(f_{\\bullet j})\\) → poids des colonnes\n\n\nDistance du \\(\\chi^2\\) matricielle :\n\nProfils-lignes : \\(d^2(L_i, L_{i'}) = (L_i - L_{i'})^\\top D_p^{-1} (L_i - L_{i'})\\)\nProfils-colonnes : \\(d^2(C_j, C_{j'}) = (C_j - C_{j'})^\\top D_n^{-1} (C_j - C_{j'})\\)"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#distance-discrète",
-    "href": "slides/03-generalities-distance-slides-annotated.html#distance-discrète",
-    "title": "Généralités",
-    "section": "Distance discrète",
-    "text": "Distance discrète\n\n\n\nDistance de Hamming\n\n\nPour des vecteurs :\n\\[d(x, y) = \\sum_{i=1}^{p} \\mathbb{1}(x_i \\neq y_i)\\]"
+    "objectID": "slides/04-dimension-ca-slides.html#analyse-directe-profils-lignes",
+    "href": "slides/04-dimension-ca-slides.html#analyse-directe-profils-lignes",
+    "title": "Dimension",
+    "section": "Analyse directe (profils-lignes)",
+    "text": "Analyse directe (profils-lignes)\nObjectif : Maximiser la variance projetée des profils-lignes\n\nProblème d’optimisation : \\[\\max_u u^\\top D_p^{-1} F^\\top D_n^{-1} F D_p^{-1} u \\quad \\text{s.c.} \\quad u^\\top D_p^{-1} u = 1\\]\n\n\nSolution : Vecteurs propres de la matrice \\[S = F^\\top D_n^{-1} F D_p^{-1}\\]\n\n\nPremier axe factoriel : \\(S u_1 = \\lambda_1 u_1\\)"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#exemple-distance-discrète-wooclap-kffpdj",
-    "href": "slides/03-generalities-distance-slides-annotated.html#exemple-distance-discrète-wooclap-kffpdj",
-    "title": "Généralités",
-    "section": "Exemple : Distance discrète (WOOCLAP: KFFPDJ)",
-    "text": "Exemple : Distance discrète (WOOCLAP: KFFPDJ)\n\n\n\nNom\nCouleur\nYeux\nCheveux\n\n\n\n\nAlice\nRouge\nVert\nBlond\n\n\nBob\nVert\nBleu\nRoux\n\n\nChris\nRouge\nVert\nBlond"
+    "objectID": "slides/04-dimension-ca-slides.html#analyse-duale-profils-colonnes",
+    "href": "slides/04-dimension-ca-slides.html#analyse-duale-profils-colonnes",
+    "title": "Dimension",
+    "section": "Analyse duale (profils-colonnes)",
+    "text": "Analyse duale (profils-colonnes)\nObjectif : Maximiser la variance projetée des profils-colonnes\n\nProblème d’optimisation similaire avec matrice : \\[T = F D_p^{-1} F^\\top D_n^{-1}\\]\n\n\nPremier axe factoriel : \\(T v_1 = \\mu_1 v_1\\)"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#similarité-par-accords",
-    "href": "slides/03-generalities-distance-slides-annotated.html#similarité-par-accords",
-    "title": "Généralités",
-    "section": "Similarité par accords",
-    "text": "Similarité par accords\n\nCompter les accords normalisés :\n\\[s(x, y) = \\frac{1}{p}\\sum_{i=1}^{p} \\mathbb{1}(x_i = y_i)\\]\n\nExemple précédent :\n\n\\(s(\\text{Alice}, \\text{Bob}) = 0\\)\n\\(s(\\text{Alice}, \\text{Chris}) = 1\\)\n\\(s(\\text{Bob}, \\text{Chris}) = 0\\)"
+    "objectID": "slides/04-dimension-ca-slides.html#propriété",
+    "href": "slides/04-dimension-ca-slides.html#propriété",
+    "title": "Dimension",
+    "section": "Propriété",
+    "text": "Propriété\n\n\n\n\n\n\nPropriété\n\n\n\\(S\\) et \\(T\\) ont les mêmes \\(r = \\min(n-1, p-1)\\) valeurs propres positives !"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#problème-des-variables-binaires",
-    "href": "slides/03-generalities-distance-slides-annotated.html#problème-des-variables-binaires",
-    "title": "Généralités",
-    "section": "Problème des variables binaires",
-    "text": "Problème des variables binaires\n\nAvec l’encodage “1 parmi K” :\n\nBeaucoup de variables binaires\nBeaucoup de 0, peu de 1\nDistance discrète peu informative\n\n\nSolution : Se concentrer sur les attributs à 1 → Distance de Jaccard"
+    "objectID": "slides/04-dimension-ca-slides.html#relations-entre-analyses",
+    "href": "slides/04-dimension-ca-slides.html#relations-entre-analyses",
+    "title": "Dimension",
+    "section": "Relations entre analyses",
+    "text": "Relations entre analyses\nCohérence des représentations : \\(\\lambda_k = \\mu_k\\) pour \\(k = 1, \\ldots, r\\)\nRelations entre vecteurs propres : \\[u_k = \\frac{1}{\\sqrt{\\lambda_k}} F^\\top D_n^{-1} v_k.\\] \\[v_k = \\frac{1}{\\sqrt{\\lambda_k}} F D_p^{-1} u_k.\\]\nCette propriété garantit une représentation cohérente dans le même espace réduit."
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#indice-de-jaccard-définition",
-    "href": "slides/03-generalities-distance-slides-annotated.html#indice-de-jaccard-définition",
-    "title": "Généralités",
-    "section": "Indice de Jaccard : Définition",
-    "text": "Indice de Jaccard : Définition\n\nPour deux observations de \\(K\\) variables binaires :\n\n\\(M_{11}\\) : nombre de variables à 1 pour x et y\n\\(M_{10}\\) : nombre de variables à 1 pour x, 0 pour y\n\\(M_{01}\\) : nombre de variables à 0 pour x, 1 pour y\n\\(M_{00}\\) : nombre de variables à 0 pour x et y\n\n\n\\[J(x, y) = \\frac{M_{11}}{M_{10} + M_{01} + M_{11}} = \\frac{M_{11}}{K - M_{00}}\\]"
+    "objectID": "slides/04-dimension-ca-slides.html#afc-comme-double-acp",
+    "href": "slides/04-dimension-ca-slides.html#afc-comme-double-acp",
+    "title": "Dimension",
+    "section": "AFC comme double ACP",
+    "text": "AFC comme double ACP\n\n\n\n\n\n\nRemarque\n\n\nL’AFC peut être vue comme une double ACP pondérée :\n\nACP des profils-lignes dans \\(\\mathbb{R}^p\\),\nACP des profils-colonnes dans \\(\\mathbb{R}^n\\),\nAvec métriques du \\(\\chi^2\\) adaptées à chaque espace."
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#distance-de-jaccard",
-    "href": "slides/03-generalities-distance-slides-annotated.html#distance-de-jaccard",
-    "title": "Généralités",
-    "section": "Distance de Jaccard",
-    "text": "Distance de Jaccard\n\n\n\n\nDistance de Jaccard :\n\n\n\\[d(x, y) = 1 - J(x, y) = \\frac{M_{10} + M_{01}}{M_{01} + M_{10} + M_{11}}\\]\n\n\n\nIntuition : Proportion de désaccords parmi les variables “actives”."
+    "objectID": "slides/04-dimension-ca-slides.html#coordonnées-factorielles",
+    "href": "slides/04-dimension-ca-slides.html#coordonnées-factorielles",
+    "title": "Dimension",
+    "section": "Coordonnées factorielles",
+    "text": "Coordonnées factorielles\nCoordonnées des profils-lignes sur l’axe \\(k\\) :\n\\[\\Phi_k = D_n^{-1} F D_p^{-1} u_k.\\]\nCoordonnées des profils-colonnes sur l’axe \\(k\\) :\n\\[\\Psi_k = D_p^{-1} F^\\top D_n^{-1} v_k.\\]\nRelations entre coordonnées : \\[\\Phi_k = \\frac{1}{\\sqrt{\\lambda_k}} D_n^{-1} F \\Psi_k.\\]"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#exemple-distance-de-jaccard",
-    "href": "slides/03-generalities-distance-slides-annotated.html#exemple-distance-de-jaccard",
-    "title": "Généralités",
-    "section": "Exemple : Distance de Jaccard",
-    "text": "Exemple : Distance de Jaccard\n\n\n\nNom\nQ1\nQ2\nQ3\nQ4\nQ5\n\n\n\n\nAlice\n1\n0\n1\n0\n1\n\n\nBob\n1\n0\n0\n1\n0"
+    "objectID": "slides/04-dimension-ca-slides.html#centrage-et-centre-de-gravité",
+    "href": "slides/04-dimension-ca-slides.html#centrage-et-centre-de-gravité",
+    "title": "Dimension",
+    "section": "Centrage et centre de gravité",
+    "text": "Centrage et centre de gravité\n\nConvention : Représentation centrée en \\((0,0)\\) dans les logiciels.\n\nCentres de gravité :\n\nLignes : \\(G_L = (f_{\\bullet 1}, \\ldots, f_{\\bullet p})^\\top\\).\nColonnes : \\(G_C = (f_{1\\bullet}, \\ldots, f_{n\\bullet})^\\top\\).\n\n\n\nCentrage : Soustraire les profils moyens\n\\[\\frac{f_{ij}}{f_{i\\bullet}} - f_{\\bullet j} = \\frac{f_{ij} - f_{i\\bullet}f_{\\bullet j}}{f_{i\\bullet}}.\\]"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#récapitulatif-des-distances",
-    "href": "slides/03-generalities-distance-slides-annotated.html#récapitulatif-des-distances",
-    "title": "Généralités",
-    "section": "Récapitulatif des distances",
-    "text": "Récapitulatif des distances\n\n\n\n\nType de données\nDistance utilisable\n\n\n\n\nNumériques\nEuclidienne (standardisée)\n\n\nQualitatives\nDiscrète (Hamming)\n\n\nBinaires nombreuses\nJaccard\n\n\nMixtes\nCombinaison adaptée"
+    "objectID": "slides/04-dimension-ca-slides.html#afc-sur-matrice-centrée",
+    "href": "slides/04-dimension-ca-slides.html#afc-sur-matrice-centrée",
+    "title": "Dimension",
+    "section": "AFC sur matrice centrée",
+    "text": "AFC sur matrice centrée\n\nMatrice centrée : \\(S^* = (s_{jj'}^*)\\) avec\n\\[s_{jj'}^* = \\sum_{i=1}^n \\frac{(f_{ij} - f_{i\\bullet}f_{\\bullet j})(f_{ij'} - f_{i\\bullet}f_{\\bullet j'})}{f_{i\\bullet}f_{\\bullet j'}}.\\]"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#choix-pratique-de-la-distance",
-    "href": "slides/03-generalities-distance-slides-annotated.html#choix-pratique-de-la-distance",
-    "title": "Généralités",
-    "section": "Choix pratique de la distance",
-    "text": "Choix pratique de la distance\n\nQuestions à se poser :\n\nQuel type de variables ? (numériques/qualitatives)\nMême échelle ou standardisation nécessaire ?\nBeaucoup de variables binaires ?\nLes double-absences sont-elles informatives ?\n\n\n→ Le choix de distance influence directement les résultats !"
+    "objectID": "slides/04-dimension-ca-slides.html#inertie-totale",
+    "href": "slides/04-dimension-ca-slides.html#inertie-totale",
+    "title": "Dimension",
+    "section": "Inertie totale",
+    "text": "Inertie totale\n\nInertie totale :\n\\[\\text{tr}(S^*) = \\sum_{j=1}^p \\sum_{i=1}^n \\frac{(f_{ij} - f_{i\\bullet}f_{\\bullet j})^2}{f_{i\\bullet}f_{\\bullet j}}\\]\nCette inertie correspond à la statistique du \\(\\chi^2\\) normalisée."
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#conclusion",
-    "href": "slides/03-generalities-distance-slides-annotated.html#conclusion",
-    "title": "Généralités",
+    "objectID": "slides/04-dimension-ca-slides.html#représentation-barycentrique",
+    "href": "slides/04-dimension-ca-slides.html#représentation-barycentrique",
+    "title": "Dimension",
+    "section": "Représentation barycentrique",
+    "text": "Représentation barycentrique\nSur chaque axe factoriel,\n\\[[\\Phi_k]_i = \\frac{1}{\\sqrt{\\lambda_k}} \\sum_{j=1}^p \\frac{f_{ij}}{f_{i\\bullet}} [\\Psi_k]_j,\\]\n\\[[\\Psi_k]_j = \\frac{1}{\\sqrt{\\lambda_k}} \\sum_{i=1}^n \\frac{f_{ij}}{f_{\\bullet j}} [\\Phi_k]_i.\\]\nInterprétation : Chaque profil-ligne est au barycentre des profils-colonnes (et vice versa)."
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#double-représentation-barycentrique",
+    "href": "slides/04-dimension-ca-slides.html#double-représentation-barycentrique",
+    "title": "Dimension",
+    "section": "Double représentation barycentrique",
+    "text": "Double représentation barycentrique\n\n\n\n\n\n\nPropriété fondamentale de l’AFC :\n\n\nSur les axes factoriels, chaque point d’un nuage est au barycentre des points de l’autre nuage, pondéré par les contributions respectives.\n\n\n\nCette propriété permet une interprétation conjointe des modalités des deux variables dans le même graphique."
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#interprétation-des-résultats",
+    "href": "slides/04-dimension-ca-slides.html#interprétation-des-résultats",
+    "title": "Dimension",
+    "section": "Interprétation des résultats",
+    "text": "Interprétation des résultats\n\nProximité géométrique = Similarité des profils\nAxes factoriels : Directions de variation maximale.\nContribution des modalités : Importance dans la construction des axes.\nQualité de représentation : Proportion de l’inertie d’un point expliquée par les axes retenus."
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada",
+    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada",
+    "title": "Dimension",
+    "section": "Exemple : le taux d’emploi au Canada",
+    "text": "Exemple : le taux d’emploi au Canada\nOn considère le jeu de données suivant :\n\n\n\n\n\nprovince\nfull-time\npart-time\nunemployed\n\n\n\n\nNewfoundland and Labrador\n205.0\n39.3\n27.3\n\n\nPrince Edward Island\n82.1\n11.9\n7.6\n\n\nNova Scotia\n437.7\n87.2\n34.0\n\n\nNew Brunswick\n346.8\n54.8\n30.0\n\n\nQuebec\n3762.6\n864.7\n279.6\n\n\nOntario\n6721.8\n1508.0\n667.2\n\n\nManitoba\n608.4\n122.6\n46.3\n\n\nSaskatchewan\n498.1\n115.4\n31.7\n\n\nAlberta\n2084.6\n466.2\n195.0\n\n\nBritish Columbia\n2357.1\n587.8\n190.1"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-1",
+    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-1",
+    "title": "Dimension",
+    "section": "Exemple : le taux d’emploi au Canada",
+    "text": "Exemple : le taux d’emploi au Canada\n\nCodePlotValeurs propres\n\n\n\nlibrary(FactoMineR)\nlibrary(factoextra)\nres_ca &lt;- df |&gt;\n  column_to_rownames(var = 'province') |&gt; \n  CA(graph = FALSE)\nfviz_eig(res_ca)\nget_eigenvalue(res_ca)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\neigenvalue\nvariance.percent\ncumulative.variance.percent\n\n\n\n\nDim.1\n0.0014335\n70.77104\n70.77104\n\n\nDim.2\n0.0005921\n29.22896\n100.00000"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-2",
+    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-2",
+    "title": "Dimension",
+    "section": "Exemple : le taux d’emploi au Canada",
+    "text": "Exemple : le taux d’emploi au Canada\n\nCodePlot\n\n\n\n# Résultat pour les lignes\nfviz_ca_row(res_ca, repel = TRUE)"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-3",
+    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-3",
+    "title": "Dimension",
+    "section": "Exemple : le taux d’emploi au Canada",
+    "text": "Exemple : le taux d’emploi au Canada\n\nCodeContribution à la première composante\n\n\n\n# Visualisation des lignes sur l'axe 1\nfviz_contrib(res_ca, choice =\"row\", axes = 1)"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-4",
+    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-4",
+    "title": "Dimension",
+    "section": "Exemple : le taux d’emploi au Canada",
+    "text": "Exemple : le taux d’emploi au Canada\n\nCodeContribution à la première composante\n\n\n\n# Visualisation des lignes sur l'axe 2\nfviz_contrib(res_ca, choice =\"row\", axes = 2)"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-5",
+    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-5",
+    "title": "Dimension",
+    "section": "Exemple : le taux d’emploi au Canada",
+    "text": "Exemple : le taux d’emploi au Canada\n\nCodeBiplot\n\n\n\nfviz_ca_biplot(res_ca, repel = TRUE)"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#conclusion",
+    "href": "slides/04-dimension-ca-slides.html#conclusion",
+    "title": "Dimension",
     "section": "Conclusion",
-    "text": "Conclusion\n\n\nDistance → mesure de dissemblance (4 propriétés mathématiques)\nSimilarité → mesure de ressemblance (concept opposé)\nVariables numériques → Distance euclidienne (standardisée)\nVariables qualitatives → Encodage + distance adaptée\nVariables binaires → Distance de Jaccard\n\n\nProchaine étape → Compromis biais/variance"
+    "text": "Conclusion\n\nL’AFC est un outil pour :\n\nExplorer les relations entre variables qualitatives\nVisualiser des structures complexes en 2D/3D\nIdentifier des associations non évidentes\nInterpréter conjointement lignes et colonnes\n\nProchaine étape → Que faire si on a plus que deux variables qualitatives ?"
   },
   {
     "objectID": "slides/06-unsupervised-hierarchy-slides.html#motivation",
@@ -4778,7 +5177,7 @@
     "href": "contents/07-further.html",
     "title": "Aspects éthiques",
     "section": "",
-    "text": "L’analyse de données est aujourd’hui utilisé dans de nombreux domaines : santé, éducation, politique publique, etc. Les données jouent même un rôle central dans la plupart des domaines. Les analyses permettent de prendre des décisions mieux informées et parfois automatisées. Dans certains domaines, ces décisions sont inconséquentes, mais pour d’autres domaines, cela soulève des questions éthiques majeures. Par exemple, est-ce que mes données représentent fidélement ma population ? quelles décisions sont prises à partir de ces analyses ? quelles sont les conséquences pour les individus concernés ?\nLes données ne sont pas neutres, elles sont le reflet d’un contexte social, institutionnel et technique. Ainsi, les modèles qui en sont issus peuvent renforcer les inégalités, reproduire des biais historiques, ou éventuellement porter atteinte à la vie privée des individus. Il est donc essentiel, lorsque l’on fait une analyse de données, d’avoir une certaine vigilance éthique, en réflechissant aux impacts sociaux, aux limites méthodologiques et aux responsabilités associées à ses choix.",
+    "text": "Slides:\n\nÉthique\n\nTD: link\nTP: link\nL’analyse de données est aujourd’hui utilisé dans de nombreux domaines : santé, éducation, politique publique, etc. Les données jouent même un rôle central dans la plupart des domaines. Les analyses permettent de prendre des décisions mieux informées et parfois automatisées. Dans certains domaines, ces décisions sont inconséquentes, mais pour d’autres domaines, cela soulève des questions éthiques majeures. Par exemple, est-ce que mes données représentent fidélement ma population ? quelles décisions sont prises à partir de ces analyses ? quelles sont les conséquences pour les individus concernés ?\nLes données ne sont pas neutres, elles sont le reflet d’un contexte social, institutionnel et technique. Ainsi, les modèles qui en sont issus peuvent renforcer les inégalités, reproduire des biais historiques, ou éventuellement porter atteinte à la vie privée des individus. Il est donc essentiel, lorsque l’on fait une analyse de données, d’avoir une certaine vigilance éthique, en réflechissant aux impacts sociaux, aux limites méthodologiques et aux responsabilités associées à ses choix.",
     "crumbs": [
       "Modules",
       "07 - Éthique"
@@ -4935,7 +5334,7 @@
     "href": "contents/04-dimension.html",
     "title": "Dimension",
     "section": "",
-    "text": "Slides:\n\nAnalyse en composantes principales - annoté\nAnalyse factorielle des correspondances - annoté\nAnalyse des correspondances multiples\n\nTD: link\nTP: link",
+    "text": "Slides:\n\nAnalyse en composantes principales - annoté\nAnalyse factorielle des correspondances - annoté\nAnalyse des correspondances multiples - annoté\n\nTD: link\nTP: link",
     "crumbs": [
       "Modules",
       "04 - Dimension"
