@@ -2956,6 +2956,13 @@
     "text": "Exercice 4: Taux de survie de patients\nLa tableau suivant donne la répartition de patients selon l’issue observée en ligne (survie ou décès codés respectivement 0 et 1) en fonction de l’observation de troubles cognitifs en phase initiale en colonne (absence codée 0, présence de troubles codée 1 et troubles sévères codée 2).\n\n\n\n\nAbscence\nTroubles\nTroubles sévères\nTotal\n\n\n\n\nSurvie\n108\n61\n13\n182\n\n\nDécès\n8\n4\n2\n14\n\n\nTotal\n116\n65\n15\n196\n\n\n\n\nQuelle méthode vous semble la mieux adaptée à l’analyse de ce tableau ?\nDonner le tableau des fréquences relatives.\nDonner le profil moyen des lignes. À quoi correspond-il ?\nDonner le profil moyen des colonnes. À quoi correspond-il ?\nCombien d’axes obtient-on en effectuant l’analyse donnée en question 1 ? Justifier.\nQuel test vous permet de détecter une éventuelle indépendance entre l’issue observée et la présence ou l’absence de troubles cognitifs en phase initiale ? Sachant que l’inertie totale du nuage est égale à 0.0050, donner la valeur de la statistique du test correspondant."
   },
   {
+    "objectID": "td/04-dimension-td.html#exercice-5-théorie-de-lacm",
+    "href": "td/04-dimension-td.html#exercice-5-théorie-de-lacm",
+    "title": "TD: Dimension",
+    "section": "Exercice 5: Théorie de l’ACM",
+    "text": "Exercice 5: Théorie de l’ACM\n\nParmi les tableaux suivants, quels sont ceux qui peuvent être étudiés par une ACM ? Justifier.\n\n\nUn tableau issu d’une enquête où toutes les questions engendrent des réponses qualitatives.\nUn tableau où les individus réponsent pour chaque question par “trop peu”, “peu”, “assez”, “trop”, “beaucoup trop”.\nUn tableau dans lequel on dénombre le nombre de personnes ayant répondu à deux questions particulières.\nUn tableau contenant diverses caractéristiques d’individus (taille, poids, couleur des yeux, couleur des cheveux, etc.).\n\n\nQuels sont les énoncés vrais dans le cadre de l’ACM ? Justifier.\n\n\nLa tableau de données brut contient autant de colonnes que de variables.\nLe tableau disjonctif complet contient autant de colonnes que de variables.\nLe tableau de Burt contient autant de colonnes que de variables.\nLe tableau disjonctif complet contient autant de colonnes que de modalités (toutes variables confondues).\n\n\nQuels sont les énoncés vrais dans le cadre de l’ACM ? Justifier. La distance entre deux points représentant les individus \\(i\\) et \\(j\\) est\n\n\nd’autant plus petite que ces deux individus prennent à peu près les mêmes modalités.\nd’autant plus grande que les individus prennent des modalités différentes.\nd’autant plus grande que les individus prennent des modalités différentes et que ces modalités sont fréquentes.\nd’autant plus grande que les individus prennent des modalités différentes et que ces modalités sont rares.\n\n\nQuels sont les énoncés vrais dans le cadre de l’ACM ? Justifier.\n\n\nLa distance entre deux points représentant les modalités \\(k\\) et \\(l\\) est d’autant plus petite que ces deux modalités ont en commun un grand nombre d’individus.\nLa distance entre deux points représentant les modalités \\(k\\) et \\(l\\) est d’autant plus grande que ces deux modalités sont rares.\nLa distance entre deux modalités ayant de gros effectifs est nécessairement grande.\nLa distance entre deux modalités rares est nécessairement grande.\n\n\nQuels sont les énoncés vrais dans le cadre de l’ACM ? Justifier.\n\n\nLe graphe biplot fournit une représentation optimale du nuage des individus.\nLe graphe biplot fournit une représentation optimale du nuage des modalités.\nSi un individu est proche d’une modalité alors il prend cette modalité.\nUn individu est du côté des modalités qu’il a choisi.\nUne modalité est du côté des individus qui ont choisi cette modalité."
+  },
+  {
     "objectID": "td/03-generalities-td.html",
     "href": "td/03-generalities-td.html",
     "title": "TD: Généralités",
@@ -3073,6 +3080,13 @@
     "title": "TP: Dimension",
     "section": "Exercice 3: Le café",
     "text": "Exercice 3: Le café\nDans cet exercice, on s’intéresse à la relation entre le type de café commandé et la période de la journée.\n\nTélécharger le jeu de données suivant: lien.\nConstruire la tableau des fréquences relatives croisant Types de café et Période de la journée.\nFaire une analyse factorielle des correspondances de ce tableau de fréquences.\nInterpréter les axes factoriels.\nLes deux variables sont-elles indépendantes ? Justifier."
+  },
+  {
+    "objectID": "tp/04-dimension-tp.html#exercice-4-dépression-post-partum",
+    "href": "tp/04-dimension-tp.html#exercice-4-dépression-post-partum",
+    "title": "TP: Dimension",
+    "section": "Exercice 4: Dépression post-partum",
+    "text": "Exercice 4: Dépression post-partum\nDans cet exercice, on s’intéresse à l’analyse d’un questionnaire sur la dépression post-partum après l’accouchement.\n\nTélécharger le jeu de données suivant: lien. Des informations sur le jeu de données sont disponibles ici.\nConstuire le tableau disjonctif complet de ce jeu de données.\nConstruire le tableau de Burt de ce jeu de données.\nFaire une analyse des correspondances multiples sur le tableau disjonctif complet. Vérifier que les résultats sont cohérents avec ue ACM faites sur le tableau de Burt.\nInterpréter les axes factoriels.\nQuelles associations pouvez-vous faire à l’aide des résultats de l’ACM ?"
   },
   {
     "objectID": "slides/05-supervised-tree-slides.html#introduction",
