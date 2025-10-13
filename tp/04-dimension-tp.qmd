@@ -57,3 +57,21 @@ Dans cet exercice, on s'intéresse à la relation entre le type de café command
 4. Interpréter les axes factoriels. 
 
 5. Les deux variables sont-elles indépendantes ? Justifier.
+
+## Exercice 4: Dépression post-partum
+
+Dans cet exercice, on s'intéresse à l'analyse d'un questionnaire sur la dépression post-partum après l'accouchement.
+
+1. Télécharger le jeu de données suivant: [lien](../include/data/tp/postpartum_data.csv). Des informations sur le jeu de données sont disponibles [ici](https://www.kaggle.com/datasets/parvezalmuqtadir2348/postpartum-depression).
+
+2. Constuire le tableau disjonctif complet de ce jeu de données.
+
+3. Construire le tableau de Burt de ce jeu de données.
+
+4. Faire une analyse des correspondances multiples sur le tableau disjonctif complet. Vérifier que les résultats sont cohérents avec ue ACM faites sur le tableau de Burt.
+
+5. Interpréter les axes factoriels.
+
+6. Quelles associations pouvez-vous faire à l'aide des résultats de l'ACM ? 
+
+

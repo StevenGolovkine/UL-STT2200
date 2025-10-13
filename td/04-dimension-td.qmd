@@ -76,3 +76,59 @@ La tableau suivant donne la répartition de patients selon l'issue observée en 
 
 6. Quel test vous permet de détecter une éventuelle indépendance entre l'issue observée et la présence ou l'absence de troubles cognitifs en phase initiale ? Sachant que l'inertie totale du nuage est égale à 0.0050, donner la valeur de la statistique du test correspondant.
 
+
+## Exercice 5: Théorie de l'ACM 
+
+1. Parmi les tableaux suivants, quels sont ceux qui peuvent être étudiés par une ACM ? Justifier.
+
+  - Un tableau issu d'une enquête où toutes les questions engendrent des réponses qualitatives.
+
+  - Un tableau où les individus réponsent pour chaque question par "trop peu", "peu", "assez", "trop", "beaucoup trop".
+
+  - Un tableau dans lequel on dénombre le nombre de personnes ayant répondu à deux questions particulières.
+
+  - Un tableau contenant diverses caractéristiques d'individus (taille, poids, couleur des yeux, couleur des cheveux, etc.).
+
+2. Quels sont les énoncés vrais dans le cadre de l'ACM ? Justifier.
+
+  - La tableau de données brut contient autant de colonnes que de variables.
+
+  - Le tableau disjonctif complet contient autant de colonnes que de variables.
+
+  - Le tableau de Burt contient autant de colonnes que de variables.
+
+  - Le tableau disjonctif complet contient autant de colonnes que de modalités (toutes variables confondues).
+
+3. Quels sont les énoncés vrais dans le cadre de l'ACM ? Justifier. La distance entre deux points représentant les individus $i$ et $j$ est 
+
+  - d'autant plus petite que ces deux individus prennent à peu près les mêmes modalités.
+
+  - d'autant plus grande que les individus prennent des modalités différentes.
+
+  - d'autant plus grande que les individus prennent des modalités différentes et que ces modalités sont fréquentes.
+
+  - d'autant plus grande que les individus prennent des modalités différentes et que ces modalités sont rares.
+
+4. Quels sont les énoncés vrais dans le cadre de l'ACM ? Justifier.
+
+  - La distance entre deux points représentant les modalités $k$ et $l$ est d'autant plus petite que ces deux modalités ont en commun un grand nombre d'individus.
+
+  - La distance entre deux points représentant les modalités $k$ et $l$ est d'autant plus grande que ces deux modalités sont rares.
+
+  - La distance entre deux modalités ayant de gros effectifs est nécessairement grande.
+
+  - La distance entre deux modalités rares est nécessairement grande.
+
+5. Quels sont les énoncés vrais dans le cadre de l'ACM ? Justifier. 
+
+  - Le graphe biplot fournit une représentation optimale du nuage des individus.
+
+  - Le graphe biplot fournit une représentation optimale du nuage des modalités.
+
+  - Si un individu est proche d'une modalité alors il prend cette modalité.
+
+  - Un individu est du côté des modalités qu'il a choisi.
+
+  - Une modalité est du côté des individus qui ont choisi cette modalité.
+
+
