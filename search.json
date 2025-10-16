@@ -1738,7 +1738,7 @@
     "href": "slides/07-ethics-slides.html#cadres-réglementaires",
     "title": "Éthique",
     "section": "Cadres réglementaires",
-    "text": "Cadres réglementaires\n\nProtection juridique croissante :\n\nRGPD (Europe) → Droit à l’explication\nAI Act (UE) → Classification des risques\nAlgorithmic Accountability Act (USA) → Audits obligatoires\nLégislations nationales en développement"
+    "text": "Cadres réglementaires\n\nProtection juridique croissante :\n\nRGPD (UE) → Droit à l’explication\nAI Act (UE) → Cadre réglementaire et juridique commun pour l’IA\nLIAD (Canada) → Protection des consommateurs\nAlgorithmic Accountability Act (USA) → Audits obligatoires\nLégislations nationales en développement"
   },
   {
     "objectID": "slides/07-ethics-slides.html#responsabilité-du-data-scientist",
