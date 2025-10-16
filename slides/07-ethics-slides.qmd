@@ -436,9 +436,11 @@ Démarche éthique complète :
 
 Protection juridique croissante :
 
-- RGPD (Europe) → Droit à l'explication
+- RGPD (UE) → Droit à l'explication
 
-- AI Act (UE) → Classification des risques
+- AI Act (UE) → Cadre réglementaire et juridique commun pour l'IA
+
+- LIAD (Canada) → Protection des consommateurs
 
 - Algorithmic Accountability Act (USA) → Audits obligatoires
 
