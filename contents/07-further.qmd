@@ -13,9 +13,6 @@ format:
 
   - [Éthique](../slides/07-ethics-slides.qmd) 
 
-* TD: [link](../td/07-ethics-td.qmd)
-
-* TP: [link](../tp/07-ethics-tp.qmd)
 
 L'analyse de données est aujourd'hui utilisé dans de nombreux domaines : santé, éducation, politique publique, etc. Les données jouent même un rôle central dans la plupart des domaines. Les analyses permettent de prendre des décisions mieux informées et parfois automatisées. Dans certains domaines, ces décisions sont inconséquentes, mais pour d'autres domaines, cela soulève des questions éthiques majeures. Par exemple, est-ce que mes données représentent fidélement ma population ? quelles décisions sont prises à partir de ces analyses ? quelles sont les conséquences pour les individus concernés ?
 
