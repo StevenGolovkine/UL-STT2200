@@ -7,7 +7,13 @@ format:
       - \usepackage{mathtools}
 --- 
 
-* Slides: [link](../slides/05-supervised-slides.qmd)
+* Slides:
+
+  - [Analyse discriminante](../slides/05-supervised-discriminant-slides.qmd)
+
+  - [Arbres](../slides/05-supervised-tree-slides.qmd)
+
+  - [Modèles ensemblistes](../slides/05-supervised-ensemble-slides.qmd)
 
 * TD: [link](../td/05-supervised-td.qmd)
 

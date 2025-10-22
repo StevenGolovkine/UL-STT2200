@@ -1,5 +1,5 @@
 --- 
-title: "TD: Dimension"
+title: "TD: Supervisée"
 format:
   html: default
   pdf: 

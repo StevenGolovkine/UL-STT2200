@@ -1,6 +1,6 @@
 --- 
-title: "Dimension"
-subtitle: "Data"
+title: "Supervisée"
+subtitle: "Arbres"
 author: "Steven Golovkine"
 lang: fr
 date: today
