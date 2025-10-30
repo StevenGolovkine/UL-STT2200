@@ -3,7 +3,7 @@ title: "Généralités"
 subtitle: "Distances"
 author: "Steven Golovkine"
 lang: fr
-date: "12 sept. 2024"
+date: "12 sept. 2025"
 date-format: "DD MMM YYYY"
 slide-number: c/t
 title-logo: ../include/logo-ul.png

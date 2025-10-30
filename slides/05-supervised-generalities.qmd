@@ -1,0 +1,140 @@
+--- 
+title: "Supervisée"
+subtitle: "Généralités"
+author: "Steven Golovkine"
+lang: fr
+date: "04 nov. 2025"
+date-format: "DD MMM YYYY"
+slide-number: c/t
+title-logo: ../include/logo-ul.png
+format:
+  revealjs:
+    theme: [default, ../include/ulaval-slide.scss]
+    chalkboard: true
+    width: 1280
+    height: 720
+    template-partials:
+      - title-slide.html
+--- 
+
+
+## Plan
+
+<br>
+
+1. Qu'est-ce que la classification supervisée ?
+
+2. Exemples
+
+3. Approche
+
+
+## Principe
+
+<br>
+
+On considère une population comportant $K$ groupes.
+
+On connaît le nombre des groupes.
+
+On observe $p$ variables $X_1, \dots, X_p$ pour chaque individu / observation de la population.
+
+On connaît le groupe d'appartenance de chaque individu / observation.
+
+## Objectif
+
+<br>
+
+$$Y = f(X) + \epsilon$$
+
+. . .
+
+Obtenir un modèle / algorithme pour classer de nouveaux individus / nouvelles observations dans les bons groupes.
+
+. . .
+
+Prédire $Y$ à partir de $X_1, \dots, X_p$.
+
+## Quelques méthodes 
+
+<br>
+
+Classificateur naïf de Bayes
+
+. . .
+
+**Analyse discrimante**
+
+. . .
+
+**Arbres de classification**
+
+. . .
+
+$k$ plus proches voisins ($k$-NN)
+
+. . .
+
+Régression logistiques et dérivée (GLM, GAM, GLMM, GAMM, ...)
+
+. . .
+
+**Méthodes ensemblistes (bagging, boosting, forêt aléatoire, ...)**
+
+. . .
+
+Machine de vecteur de soutien (*support vector machine*, SVM)
+
+. . .
+
+Réseaux de neurones
+
+## Exemples
+
+<br>
+
+Filtrage de courriels indésirables
+
+Systèmes de recommendation
+
+Prévision des gagnants lors d'événements sportifs
+
+Traduction automatisée de textes
+
+Reconnaissance d'images
+
+
+
+## Approche générale
+
+1. Sélectionner un certain nombre d'individus / d'observations dont on connaît le groupe d'appartenance. 
+
+2. Mesurer $p$ caractéristiques $X_1, \dots, X_p$ sur ces individus.
+
+3. Divisier ce jeu de données en deux :
+
+  - Un jeu de données pour la modélisation (*train*)
+  
+  - Un jeu de données pour la vérification (*test*)
+  
+4. Développer un algorithme pour classer le mieux possible les individus du jeu de données d'entraînement.
+
+5. Évaluer notre algorithme sur le jeu de données de validation.
+
+
+
+## Conclusion
+
+<br>
+
+Modèle général:
+
+$$Y = f(X) + \epsilon$$
+
+Classification supervisée: connaissant $X$ et $Y$, on cherche à estimer $f$ (en supposant éventuellement une certaine forme pour $f$).
+
+<br>
+
+. . .
+
+Prochaine étape → Analyse discriminante

@@ -3,7 +3,7 @@ title: "Dimension"
 subtitle: "Analyse des correspondances multiples"
 author: "Steven Golovkine"
 lang: fr
-date: "10 oct. 2024"
+date: "10 oct. 2025"
 date-format: "DD MMM YYYY"
 slide-number: c/t
 title-logo: ../include/logo-ul.png

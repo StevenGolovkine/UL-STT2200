@@ -159,7 +159,7 @@ En applicant cette règle à l'échantillon $X_{1}, \dots, X_n$, on peut estimer
 ### Cas particulier de la classification binaire 
 
 Dans le cas où $K = 2$, il est possible de calculer explicitement la valeur de vecteur propre $a$. Soit 
-$$C =  \sqrt{\frac{n_{1} n_{2}}{n}} (\overline{X}_1 - \widetilde{X}_2),$$
+$$C =  \sqrt{\frac{n_{1} n_{2}}{n}} (\overline{X}_1 - \overline{X}_2),$$
 $\overline{X}_i, i = 1, 2$ sont les vecteurs moyens des caractériques dans chaque groupe,
 alors 
 $$B = C C^{\top}, \quad a = S^{-1} C.$$
