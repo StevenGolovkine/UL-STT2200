@@ -9,6 +9,8 @@ format:
 
 * Slides:
 
+  - [Généralités](../slides/05-supervised-generalities.qmd)
+  
   - [Analyse discriminante](../slides/05-supervised-discriminant-slides.qmd)
 
   - [Arbres](../slides/05-supervised-tree-slides.qmd)
