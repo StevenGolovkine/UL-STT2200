@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr"><head>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/slides/05-supervised-tree-slides.html" />
-<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/slides/05-supervised-tree-slides.en.html" />
+<link rel="alternate" hreflang="fr" href="https://stt2200.netlify.app/slides/05-supervised-generalities.html" />
+<link rel="alternate" hreflang="en" href="https://stt2200.netlify.app/en/slides/05-supervised-generalities.en.html" />
 <script src="../site_libs/quarto-html/tabby.min.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -126,7 +126,7 @@
     }
   </style>
 <meta property="og:title" content="Supervisée – STT-2200: Analyse de données">
-<meta property="og:description" content="Arbres">
+<meta property="og:description" content="Généralités">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
 <body class="quarto-light">
@@ -135,7 +135,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Supervisée</h1>
-  <p class="subtitle">Arbres</p>
+  <p class="subtitle">Généralités</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -145,169 +145,105 @@ Steven Golovkine
 </div>
 </div>
 
-  <p class="date">30 oct. 2025</p>
+  <p class="date">04 nov. 2025</p>
   <figure>
     <center>
       <img src="../include/logo-ul.png" alt="logo" width="40%">
     </center>
   </figure>
 </section>
-<section>
-<section id="arbres-de-décision-cart" class="title-slide slide level1 center">
-<h1>Arbres de décision (CART)</h1>
-
-</section>
-<section id="introduction" class="slide level2">
-<h2>Introduction</h2>
-<ul>
-<li class="fragment"><strong>CART</strong>: Classification And Regression Trees</li>
-<li class="fragment"><strong>Méthode d’apprentissage supervisée</strong></li>
-<li class="fragment"><strong>Classification</strong>: Prédire l’appartenance à l’un des <span class="math inline">\(K\)</span> groupes</li>
-<li class="fragment"><strong>Régression</strong>: Prédire une variable numérique continue <span class="math inline">\(Y\)</span></li>
-<li class="fragment"><strong>Variables</strong>: <span class="math inline">\(X_1, \ldots, X_p\)</span> avec <span class="math inline">\(n\)</span> observations dans <span class="math inline">\(\mathbb{R}^p\)</span></li>
-</ul>
-</section>
-<section id="objectif-principal" class="slide level2">
-<h2>Objectif principal</h2>
-<div class="fragment">
-<p><strong>Partitionner l’espace des observations</strong> <span class="math inline">\(\mathbb{R}^p\)</span> en sous-ensembles homogènes</p>
-</div>
-<div class="fragment">
-<p><strong>Algorithme récursif de découpage binaire</strong> 1. Découper selon une variable <span class="math inline">\(X_j\)</span> à un seuil <span class="math inline">\(s\)</span> 2. Créer des sous-régions rectangulaires (hyper-rectangles) 3. Chaque sous-ensemble = une <strong>feuille</strong> avec une prédiction</p>
-</div>
-<div class="fragment">
-<p><strong>Prédiction par feuille</strong> - <strong>Classification</strong>: Classe majoritaire - <strong>Régression</strong>: Moyenne des <span class="math inline">\(Y\)</span></p>
-</div>
-</section>
-<section id="principe-de-lalgorithme" class="slide level2">
-<h2>Principe de l’algorithme</h2>
+<section id="plan" class="slide level2">
+<h2>Plan</h2>
+<p><br></p>
 <ol type="1">
-<li class="fragment"><strong>Découpage</strong> selon <span class="math inline">\(X_j \leq s\)</span> vs <span class="math inline">\(X_j &gt; s\)</span></li>
-<li class="fragment"><strong>Choix optimal</strong> de <span class="math inline">\((X_j, s)\)</span> maximisant le <strong>critère d’homogénéité</strong></li>
-<li class="fragment"><strong>Répétition</strong> jusqu’au <strong>critère d’arrêt</strong></li>
-<li class="fragment"><strong>Prédiction unique</strong> par feuille pour toutes les observations</li>
+<li><p>Qu’est-ce que la classification supervisée ?</p></li>
+<li><p>Exemples</p></li>
+<li><p>Approche</p></li>
 </ol>
+</section>
+<section id="principe" class="slide level2">
+<h2>Principe</h2>
+<p><br></p>
+<p>On considère une population comportant <span class="math inline">\(K\)</span> groupes.</p>
+<p>On connaît le nombre des groupes.</p>
+<p>On observe <span class="math inline">\(p\)</span> variables <span class="math inline">\(X_1, \dots, X_p\)</span> pour chaque individu / observation de la population.</p>
+<p>On connaît le groupe d’appartenance de chaque individu / observation.</p>
+</section>
+<section id="objectif" class="slide level2">
+<h2>Objectif</h2>
+<p><br></p>
+<p><span class="math display">\[Y = f(X) + \epsilon\]</span></p>
 <div class="fragment">
-<p>⚠️ <strong>Algorithme glouton</strong>: Optimisation locale, pas globale !</p>
+<p>Obtenir un modèle / algorithme pour classer de nouveaux individus / nouvelles observations dans les bons groupes.</p>
+</div>
+<div class="fragment">
+<p>Prédire <span class="math inline">\(Y\)</span> à partir de <span class="math inline">\(X_1, \dots, X_p\)</span>.</p>
 </div>
 </section>
-<section id="algorithme-détaillé" class="slide level2">
-<h2>Algorithme détaillé</h2>
+<section id="quelques-méthodes" class="slide level2">
+<h2>Quelques méthodes</h2>
+<p><br></p>
+<p>Classificateur naïf de Bayes</p>
 <div class="fragment">
-<p><strong>Pour chaque nœud:</strong></p>
+<p><strong>Analyse discrimante</strong></p>
 </div>
+<div class="fragment">
+<p><strong>Arbres de classification</strong></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(k\)</span> plus proches voisins (<span class="math inline">\(k\)</span>-NN)</p>
+</div>
+<div class="fragment">
+<p>Régression logistiques et dérivée (GLM, GAM, GLMM, GAMM, …)</p>
+</div>
+<div class="fragment">
+<p><strong>Méthodes ensemblistes (bagging, boosting, forêt aléatoire, …)</strong></p>
+</div>
+<div class="fragment">
+<p>Machine de vecteur de soutien (<em>support vector machine</em>, SVM)</p>
+</div>
+<div class="fragment">
+<p>Réseaux de neurones</p>
+</div>
+</section>
+<section id="exemples" class="slide level2">
+<h2>Exemples</h2>
+<p><br></p>
+<p>Filtrage de courriels indésirables</p>
+<p>Systèmes de recommendation</p>
+<p>Prévision des gagnants lors d’événements sportifs</p>
+<p>Traduction automatisée de textes</p>
+<p>Reconnaissance d’images</p>
+</section>
+<section id="approche-générale" class="slide level2">
+<h2>Approche générale</h2>
 <ol type="1">
-<li class="fragment"><strong>Évaluer</strong> tous les couples <span class="math inline">\((X_j, s)\)</span> possibles</li>
-<li class="fragment"><strong>Calculer</strong> la réduction du critère d’homogénéité</li>
-<li class="fragment"><strong>Sélectionner</strong> le couple qui maximise le gain</li>
-<li class="fragment"><strong>Diviser</strong> le nœud selon <span class="math inline">\(X_j \leq s\)</span> vs <span class="math inline">\(X_j &gt; s\)</span></li>
-<li class="fragment"><strong>Répéter</strong> jusqu’aux critères d’arrêt</li>
+<li><p>Sélectionner un certain nombre d’individus / d’observations dont on connaît le groupe d’appartenance.</p></li>
+<li><p>Mesurer <span class="math inline">\(p\)</span> caractéristiques <span class="math inline">\(X_1, \dots, X_p\)</span> sur ces individus.</p></li>
+<li><p>Divisier ce jeu de données en deux :</p></li>
 </ol>
-<div class="fragment">
-<p><strong>Point de départ</strong>: L’ensemble complet des observations</p>
-</div>
-</section>
-<section id="critères-dhomogénéité---classification" class="slide level2">
-<h2>Critères d’homogénéité - Classification</h2>
-<p>Soit <span class="math inline">\(\widehat{p}_{jk}\)</span> la proportion d’observations de la région <span class="math inline">\(R_j\)</span> appartenant à la classe <span class="math inline">\(k\)</span></p>
-<div class="fragment">
-<p><strong>1. Taux d’erreur de classification</strong> <span class="math display">\[E_j = 1 - \max_k \widehat{p}_{jk}\]</span> - Facile à interpréter - Peu sensible → rarement utilisé pour la construction</p>
-</div>
-</section>
-<section id="critères-dhomogénéité-suite" class="slide level2">
-<h2>Critères d’homogénéité (suite)</h2>
-<div class="fragment">
-<p><strong>2. Indice de Gini</strong> (le plus utilisé) <span class="math display">\[G_j = \sum_{k=1}^{K} \widehat{p}_{jk}(1 - \widehat{p}_{jk})\]</span> - Minimal (<span class="math inline">\(= 0\)</span>) quand homogénéité parfaite - On cherche un indice faible</p>
-</div>
-<div class="fragment">
-<p><strong>3. Entropie croisée</strong> (théorie de l’information) <span class="math display">\[D_j = -\sum_{k=1}^{K} \widehat{p}_{jk} \log(\widehat{p}_{jk})\]</span> - Basé sur Shannon - Minimal pour classe parfaitement prédite</p>
-</div>
-</section>
-<section id="gain-dinformation" class="slide level2">
-<h2>Gain d’information</h2>
-<div class="fragment">
-<p><strong>Mesure de l’amélioration</strong> après division</p>
-</div>
-<div class="fragment">
-<p><strong>Exemple avec l’indice de Gini:</strong> <span class="math display">\[\Delta G = G_{\text{avant}} - \left(\frac{n_1}{n} G_1 + \frac{n_2}{n} G_2\right)\]</span></p>
-<p>où: - <span class="math inline">\(n_1, n_2\)</span> : nombres d’observations dans les sous-ensembles - <span class="math inline">\(n = n_1 + n_2\)</span></p>
-</div>
-<div class="fragment">
-<p><strong>Objectif</strong>: Maximiser le gain d’information</p>
-</div>
-</section>
-<section id="problème-du-sur-ajustement" class="slide level2">
-<h2>Problème du sur-ajustement</h2>
-<div class="fragment">
-<p><strong>Dilemme</strong> - <strong>Arbre trop profond</strong> → Sur-ajustement aux données d’apprentissage - <strong>Arbre trop simple</strong> → Sous-ajustement, classification trop simpliste</p>
-</div>
-<div class="fragment">
-<p><strong>Conséquence</strong> Perte de capacité de généralisation à de nouvelles données</p>
-</div>
-<div class="fragment">
-<p><strong>Solution</strong>: Élagage (<em>pruning</em>)</p>
-</div>
-</section>
-<section id="élagage-de-larbre" class="slide level2">
-<h2>Élagage de l’arbre</h2>
-<div class="fragment">
-<p><strong>Stratégie en deux temps:</strong> 1. <strong>Croissance complète</strong> jusqu’aux feuilles pures 2. <strong>Élagage</strong> des branches peu performantes</p>
-</div>
-<div class="fragment">
-<p><strong>Critère coût-complexité</strong> <span class="math display">\[\sum_{j=1}^{|T|} c_j + \alpha |T|\]</span></p>
-<p>où: - <span class="math inline">\(|T|\)</span> : nombre de feuilles - <span class="math inline">\(c_j\)</span> : coût dans la feuille <span class="math inline">\(j\)</span> - <span class="math inline">\(\alpha\)</span> : paramètre de régularisation</p>
-</div>
-</section>
-<section id="choix-du-paramètre-α" class="slide level2">
-<h2>Choix du paramètre α</h2>
-<div class="fragment">
-<p><strong>Interprétation</strong> - <span class="math inline">\(\alpha\)</span> élevé → Favorise les arbres simples - <span class="math inline">\(\alpha\)</span> faible → Arbres plus complexes</p>
-</div>
-<div class="fragment">
-<p><strong>Méthode de sélection</strong> Validation croisée pour comparer les performances sur différentes valeurs de <span class="math inline">\(\alpha\)</span></p>
-</div>
-</section>
-<section id="avantages-des-arbres" class="slide level2">
-<h2>Avantages des arbres</h2>
 <ul>
-<li class="fragment"><strong>Très interprétables</strong> : Chemin explicite pour chaque prédiction</li>
-<li class="fragment"><strong>Robustes</strong> aux valeurs extrêmes et transformations monotones</li>
-<li class="fragment"><strong>Gestion naturelle</strong> des interactions entre variables</li>
-<li class="fragment"><strong>Variables mixtes</strong> : Quantitatives et qualitatives</li>
-<li class="fragment"><strong>Aucune hypothèse</strong> sur la distribution des données</li>
-<li class="fragment"><strong>Sélection automatique</strong> des variables importantes</li>
-<li class="fragment"><strong>Base</strong> de méthodes modernes (forêts aléatoires, boosting)</li>
+<li><p>Un jeu de données pour la modélisation (<em>train</em>)</p></li>
+<li><p>Un jeu de données pour la vérification (<em>test</em>)</p></li>
 </ul>
+<ol start="4" type="1">
+<li><p>Développer un algorithme pour classer le mieux possible les individus du jeu de données d’entraînement.</p></li>
+<li><p>Évaluer notre algorithme sur le jeu de données de validation.</p></li>
+</ol>
 </section>
-<section id="limites-des-arbres" class="slide level2">
-<h2>Limites des arbres</h2>
-<ul>
-<li class="fragment"><strong>Instabilité</strong> : Sensibles aux petites modifications des données</li>
-<li class="fragment"><strong>Performance limitée</strong> seuls, surtout avec données bruitées</li>
-<li class="fragment"><strong>Divisions rectangulaires</strong> inadaptées aux frontières non-linéaires</li>
-<li class="fragment"><strong>Tendance au sur-ajustement</strong> sans élagage</li>
-<li class="fragment"><strong>Sensibilité</strong> au déséquilibre des classes</li>
-<li class="fragment"><strong>Solution</strong> : Méthodes ensemblistes (forêts, boosting)</li>
-</ul>
-</section>
-<section id="récapitulatif" class="slide level2">
-<h2>Récapitulatif</h2>
+<section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
+<p><br></p>
+<p>Modèle général:</p>
+<p><span class="math display">\[Y = f(X) + \epsilon\]</span></p>
+<p>Classification supervisée: connaissant <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span>, on cherche à estimer <span class="math inline">\(f\)</span> (en supposant éventuellement une certaine forme pour <span class="math inline">\(f\)</span>).</p>
+<p><br></p>
 <div class="fragment">
-<p><strong>Les arbres CART</strong> - Méthode de partitionnement récursif - Algorithme glouton simple et intuitif - Nécessitent un élagage pour éviter le sur-ajustement</p>
-</div>
-<div class="fragment">
-<p><strong>Usage recommandé</strong> - Excellents pour l’interprétabilité - Meilleurs en combinaison (méthodes ensemblistes) - Première approche pour comprendre les données</p>
-</div>
-</section>
-<section id="merci-pour-votre-attention" class="slide level2">
-<h2>Merci pour votre attention</h2>
-<p><strong>Questions ?</strong></p>
-<div class="fragment">
-<p><em>Les arbres de décision : simplicité, interprétabilité et fondement des méthodes ensemblistes</em></p>
-</div>
+<p>Prochaine étape → Analyse discriminante</p>
 
 
-</section></section>
+</div>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
