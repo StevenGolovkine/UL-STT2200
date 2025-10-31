@@ -2497,102 +2497,116 @@
     "text": "Pour finir l’introduction\n\n\nStatistics courses […] tend to resemble horoscopes.\n\nR. McElreath - Statistical Rethinking"
   },
   {
-    "objectID": "slides/05-supervised-tree-slides.html#introduction",
-    "href": "slides/05-supervised-tree-slides.html#introduction",
+    "objectID": "slides/05-supervised-tree-slides.html#plan",
+    "href": "slides/05-supervised-tree-slides.html#plan",
     "title": "Supervisée",
-    "section": "Introduction",
-    "text": "Introduction\n\nCART: Classification And Regression Trees\nMéthode d’apprentissage supervisée\nClassification: Prédire l’appartenance à l’un des \\(K\\) groupes\nRégression: Prédire une variable numérique continue \\(Y\\)\nVariables: \\(X_1, \\ldots, X_p\\) avec \\(n\\) observations dans \\(\\mathbb{R}^p\\)"
+    "section": "Plan",
+    "text": "Plan\n\n\nLa théorie des arbres de décision\nLes arbres en pratique\nExemple"
+  },
+  {
+    "objectID": "slides/05-supervised-tree-slides.html#cart",
+    "href": "slides/05-supervised-tree-slides.html#cart",
+    "title": "Supervisée",
+    "section": "CART",
+    "text": "CART\n\nVariables : \\(X_1, \\ldots, X_p\\) avec \\(n\\) observations dans \\(\\mathbb{R}^p\\).\n\n\nClassification : Prédire l’appartenance à l’un des \\(K\\) groupes.\n\n\n\nRégression : Prédire une variable numérique continue \\(Y\\)."
   },
   {
     "objectID": "slides/05-supervised-tree-slides.html#objectif-principal",
     "href": "slides/05-supervised-tree-slides.html#objectif-principal",
     "title": "Supervisée",
     "section": "Objectif principal",
-    "text": "Objectif principal\n\nPartitionner l’espace des observations \\(\\mathbb{R}^p\\) en sous-ensembles homogènes\n\n\nAlgorithme récursif de découpage binaire 1. Découper selon une variable \\(X_j\\) à un seuil \\(s\\) 2. Créer des sous-régions rectangulaires (hyper-rectangles) 3. Chaque sous-ensemble = une feuille avec une prédiction\n\n\nPrédiction par feuille - Classification: Classe majoritaire - Régression: Moyenne des \\(Y\\)"
+    "text": "Objectif principal\n\nPartitionner l’espace des observations \\(\\mathbb{R}^p\\) en sous-ensembles homogènes."
   },
   {
-    "objectID": "slides/05-supervised-tree-slides.html#principe-de-lalgorithme",
-    "href": "slides/05-supervised-tree-slides.html#principe-de-lalgorithme",
+    "objectID": "slides/05-supervised-tree-slides.html#algorithme-récursif-de-découpage-binaire",
+    "href": "slides/05-supervised-tree-slides.html#algorithme-récursif-de-découpage-binaire",
     "title": "Supervisée",
-    "section": "Principe de l’algorithme",
-    "text": "Principe de l’algorithme\n\nDécoupage selon \\(X_j \\leq s\\) vs \\(X_j &gt; s\\)\nChoix optimal de \\((X_j, s)\\) maximisant le critère d’homogénéité\nRépétition jusqu’au critère d’arrêt\nPrédiction unique par feuille pour toutes les observations\n\n\n⚠️ Algorithme glouton: Optimisation locale, pas globale !"
+    "section": "Algorithme récursif de découpage binaire",
+    "text": "Algorithme récursif de découpage binaire\n\nDécouper selon une variable \\(X_j\\) à un seuil \\(s\\).\n\n\nCréer des sous-régions rectangulaires (hyper-rectangles).\n\n\n\nChaque sous-ensemble = une feuille avec une prédiction.\n\n\n\n⚠️ Algorithme glouton: Optimisation locale, pas globale !"
   },
   {
-    "objectID": "slides/05-supervised-tree-slides.html#algorithme-détaillé",
-    "href": "slides/05-supervised-tree-slides.html#algorithme-détaillé",
+    "objectID": "slides/05-supervised-tree-slides.html#prédiction-par-feuille",
+    "href": "slides/05-supervised-tree-slides.html#prédiction-par-feuille",
     "title": "Supervisée",
-    "section": "Algorithme détaillé",
-    "text": "Algorithme détaillé\n\nPour chaque nœud:\n\n\nÉvaluer tous les couples \\((X_j, s)\\) possibles\nCalculer la réduction du critère d’homogénéité\nSélectionner le couple qui maximise le gain\nDiviser le nœud selon \\(X_j \\leq s\\) vs \\(X_j &gt; s\\)\nRépéter jusqu’aux critères d’arrêt\n\n\nPoint de départ: L’ensemble complet des observations"
+    "section": "Prédiction par feuille",
+    "text": "Prédiction par feuille\n\nClassification : Classe majoritaire\n\n\nRégression : Moyenne des \\(Y\\)"
   },
   {
-    "objectID": "slides/05-supervised-tree-slides.html#critères-dhomogénéité---classification",
-    "href": "slides/05-supervised-tree-slides.html#critères-dhomogénéité---classification",
+    "objectID": "slides/05-supervised-tree-slides.html#algorithme",
+    "href": "slides/05-supervised-tree-slides.html#algorithme",
     "title": "Supervisée",
-    "section": "Critères d’homogénéité - Classification",
-    "text": "Critères d’homogénéité - Classification\nSoit \\(\\widehat{p}_{jk}\\) la proportion d’observations de la région \\(R_j\\) appartenant à la classe \\(k\\)\n\n1. Taux d’erreur de classification \\[E_j = 1 - \\max_k \\widehat{p}_{jk}\\] - Facile à interpréter - Peu sensible → rarement utilisé pour la construction"
+    "section": "Algorithme",
+    "text": "Algorithme\n\nPoint de départ: L’ensemble complet des observations\n\nPour chaque nœud:\n\nÉvaluer tous les couples \\((X_j, s)\\) possibles.\nCalculer la réduction du critère d’homogénéité.\nSélectionner le couple \\((X_j, s)\\) qui maximise le gain.\nDiviser le nœud selon \\(X_j \\leq s\\) vs \\(X_j &gt; s\\).\nRépéter jusqu’au critère d’arrêt."
   },
   {
-    "objectID": "slides/05-supervised-tree-slides.html#critères-dhomogénéité-suite",
-    "href": "slides/05-supervised-tree-slides.html#critères-dhomogénéité-suite",
+    "objectID": "slides/05-supervised-tree-slides.html#critères-dhomogénéité",
+    "href": "slides/05-supervised-tree-slides.html#critères-dhomogénéité",
     "title": "Supervisée",
-    "section": "Critères d’homogénéité (suite)",
-    "text": "Critères d’homogénéité (suite)\n\n2. Indice de Gini (le plus utilisé) \\[G_j = \\sum_{k=1}^{K} \\widehat{p}_{jk}(1 - \\widehat{p}_{jk})\\] - Minimal (\\(= 0\\)) quand homogénéité parfaite - On cherche un indice faible\n\n\n3. Entropie croisée (théorie de l’information) \\[D_j = -\\sum_{k=1}^{K} \\widehat{p}_{jk} \\log(\\widehat{p}_{jk})\\] - Basé sur Shannon - Minimal pour classe parfaitement prédite"
+    "section": "Critères d’homogénéité",
+    "text": "Critères d’homogénéité\n\nSoit \\(\\widehat{p}_{jk}\\) la proportion d’observations de la région \\(R_j\\) appartenant à la classe \\(k\\).\n\n\nTaux d’erreur de classification\n\\[E_j = 1 - \\max_k \\widehat{p}_{jk}\\]\n\n\nFacile à interpréter.\nPeu sensible → rarement utilisé pour la construction."
+  },
+  {
+    "objectID": "slides/05-supervised-tree-slides.html#critères-dhomogénéité-1",
+    "href": "slides/05-supervised-tree-slides.html#critères-dhomogénéité-1",
+    "title": "Supervisée",
+    "section": "Critères d’homogénéité",
+    "text": "Critères d’homogénéité\n\nSoit \\(\\widehat{p}_{jk}\\) la proportion d’observations de la région \\(R_j\\) appartenant à la classe \\(k\\).\n\nIndice de Gini (le plus utilisé)\n\\[G_j = \\sum_{k=1}^{K} \\widehat{p}_{jk}(1 - \\widehat{p}_{jk})\\]\n\nMinimal (\\(= 0\\)) quand homogénéité parfaite.\nOn cherche un indice faible."
+  },
+  {
+    "objectID": "slides/05-supervised-tree-slides.html#critères-dhomogénéité-2",
+    "href": "slides/05-supervised-tree-slides.html#critères-dhomogénéité-2",
+    "title": "Supervisée",
+    "section": "Critères d’homogénéité",
+    "text": "Critères d’homogénéité\n\nSoit \\(\\widehat{p}_{jk}\\) la proportion d’observations de la région \\(R_j\\) appartenant à la classe \\(k\\).\n\nEntropie croisée (théorie de l’information)\n\\[D_j = -\\sum_{k=1}^{K} \\widehat{p}_{jk} \\log(\\widehat{p}_{jk})\\]\n\nBasé sur l’information de Shannon.\nMinimal pour classe parfaitement prédite."
   },
   {
     "objectID": "slides/05-supervised-tree-slides.html#gain-dinformation",
     "href": "slides/05-supervised-tree-slides.html#gain-dinformation",
     "title": "Supervisée",
     "section": "Gain d’information",
-    "text": "Gain d’information\n\nMesure de l’amélioration après division\n\n\nExemple avec l’indice de Gini: \\[\\Delta G = G_{\\text{avant}} - \\left(\\frac{n_1}{n} G_1 + \\frac{n_2}{n} G_2\\right)\\]\noù: - \\(n_1, n_2\\) : nombres d’observations dans les sous-ensembles - \\(n = n_1 + n_2\\)\n\n\nObjectif: Maximiser le gain d’information"
+    "text": "Gain d’information\n\nMesure de la réduction de l’hétérogénéité après division.\n\nObjectif : Maximiser le gain d’information.\n\n\nExemple avec l’indice de Gini:\n\\[\\Delta G = G_{\\text{avant}} - \\left(\\frac{n_1}{n} G_1 + \\frac{n_2}{n} G_2\\right)\\]\noù:\n\n\\(n_1, n_2\\) : nombres d’observations dans les sous-ensembles\n\\(n = n_1 + n_2\\)"
   },
   {
-    "objectID": "slides/05-supervised-tree-slides.html#problème-du-sur-ajustement",
-    "href": "slides/05-supervised-tree-slides.html#problème-du-sur-ajustement",
+    "objectID": "slides/05-supervised-tree-slides.html#problème-de-lajustement",
+    "href": "slides/05-supervised-tree-slides.html#problème-de-lajustement",
     "title": "Supervisée",
-    "section": "Problème du sur-ajustement",
-    "text": "Problème du sur-ajustement\n\nDilemme - Arbre trop profond → Sur-ajustement aux données d’apprentissage - Arbre trop simple → Sous-ajustement, classification trop simpliste\n\n\nConséquence Perte de capacité de généralisation à de nouvelles données\n\n\nSolution: Élagage (pruning)"
+    "section": "Problème de l’ajustement",
+    "text": "Problème de l’ajustement\n\nDilemme:\n\nArbre trop profond → Sur-ajustement aux données d’apprentissage\nArbre trop simple → Sous-ajustement, classification trop simpliste\n\n\nConséquence → Perte de capacité de généralisation à de nouvelles données.\n\n\nSolution → Élagage (pruning)"
   },
   {
     "objectID": "slides/05-supervised-tree-slides.html#élagage-de-larbre",
     "href": "slides/05-supervised-tree-slides.html#élagage-de-larbre",
     "title": "Supervisée",
     "section": "Élagage de l’arbre",
-    "text": "Élagage de l’arbre\n\nStratégie en deux temps: 1. Croissance complète jusqu’aux feuilles pures 2. Élagage des branches peu performantes\n\n\nCritère coût-complexité \\[\\sum_{j=1}^{|T|} c_j + \\alpha |T|\\]\noù: - \\(|T|\\) : nombre de feuilles - \\(c_j\\) : coût dans la feuille \\(j\\) - \\(\\alpha\\) : paramètre de régularisation"
+    "text": "Élagage de l’arbre\n\nStratégie en deux temps :\n\nCroissance complète jusqu’aux feuilles pures\nÉlagage des branches peu performantes\n\n\nCritère coût-complexité :\n\\[\\sum_{j=1}^{|T|} c_j + \\alpha |T|\\]\noù \\(|T|\\) est le nombre de feuilles, \\(c_j\\) est le coût dans la feuille \\(j\\) et \\(\\alpha\\) est un paramètre de régularisation."
   },
   {
     "objectID": "slides/05-supervised-tree-slides.html#choix-du-paramètre-α",
     "href": "slides/05-supervised-tree-slides.html#choix-du-paramètre-α",
     "title": "Supervisée",
     "section": "Choix du paramètre α",
-    "text": "Choix du paramètre α\n\nInterprétation - \\(\\alpha\\) élevé → Favorise les arbres simples - \\(\\alpha\\) faible → Arbres plus complexes\n\n\nMéthode de sélection Validation croisée pour comparer les performances sur différentes valeurs de \\(\\alpha\\)"
+    "text": "Choix du paramètre α\n\nInterprétation\n\n\\(\\alpha\\) élevé → Favorise les arbres simples\n\\(\\alpha\\) faible → Arbres plus complexes\n\n\nMéthode de sélection → Validation croisée pour comparer les performances sur différentes valeurs de \\(\\alpha\\)"
   },
   {
     "objectID": "slides/05-supervised-tree-slides.html#avantages-des-arbres",
     "href": "slides/05-supervised-tree-slides.html#avantages-des-arbres",
     "title": "Supervisée",
     "section": "Avantages des arbres",
-    "text": "Avantages des arbres\n\nTrès interprétables : Chemin explicite pour chaque prédiction\nRobustes aux valeurs extrêmes et transformations monotones\nGestion naturelle des interactions entre variables\nVariables mixtes : Quantitatives et qualitatives\nAucune hypothèse sur la distribution des données\nSélection automatique des variables importantes\nBase de méthodes modernes (forêts aléatoires, boosting)"
+    "text": "Avantages des arbres\n\nTrès interprétables : Chemin explicite pour chaque prédiction.\n\nRobustes aux valeurs extrêmes et transformations monotones.\n\n\nGestion naturelle des interactions entre variables.\n\n\nVariables mixtes : Quantitatives et qualitatives.\n\n\nAucune hypothèse sur la distribution des données.\n\n\nSélection automatique des variables importantes.\n\n\nBase des méthodes modernes (forêts aléatoires, boosting)."
   },
   {
     "objectID": "slides/05-supervised-tree-slides.html#limites-des-arbres",
     "href": "slides/05-supervised-tree-slides.html#limites-des-arbres",
     "title": "Supervisée",
     "section": "Limites des arbres",
-    "text": "Limites des arbres\n\nInstabilité : Sensibles aux petites modifications des données\nPerformance limitée seuls, surtout avec données bruitées\nDivisions rectangulaires inadaptées aux frontières non-linéaires\nTendance au sur-ajustement sans élagage\nSensibilité au déséquilibre des classes\nSolution : Méthodes ensemblistes (forêts, boosting)"
+    "text": "Limites des arbres\n\nInstabilité : Sensibles aux petites modifications des données\n\nPerformance limitée seuls, surtout avec données bruitées.\n\n\nDivisions rectangulaires inadaptées aux frontières non-linéaires.\n\n\nTendance au sur-ajustement sans élagage.\n\n\nSensibilité au déséquilibre des classes.\n\n\nSolution : Méthodes ensemblistes (forêts, boosting)."
   },
   {
-    "objectID": "slides/05-supervised-tree-slides.html#récapitulatif",
-    "href": "slides/05-supervised-tree-slides.html#récapitulatif",
+    "objectID": "slides/05-supervised-tree-slides.html#conclusion",
+    "href": "slides/05-supervised-tree-slides.html#conclusion",
     "title": "Supervisée",
-    "section": "Récapitulatif",
-    "text": "Récapitulatif\n\nLes arbres CART - Méthode de partitionnement récursif - Algorithme glouton simple et intuitif - Nécessitent un élagage pour éviter le sur-ajustement\n\n\nUsage recommandé - Excellents pour l’interprétabilité - Meilleurs en combinaison (méthodes ensemblistes) - Première approche pour comprendre les données"
-  },
-  {
-    "objectID": "slides/05-supervised-tree-slides.html#merci-pour-votre-attention",
-    "href": "slides/05-supervised-tree-slides.html#merci-pour-votre-attention",
-    "title": "Supervisée",
-    "section": "Merci pour votre attention",
-    "text": "Merci pour votre attention\nQuestions ?\n\nLes arbres de décision : simplicité, interprétabilité et fondement des méthodes ensemblistes"
+    "section": "Conclusion",
+    "text": "Conclusion\n\nLes arbres :\n\nMéthode de partitionnement récursif\nAlgorithme glouton simple et intuitif\nNécessitent un élagage pour éviter le sur-ajustement\n\n\nProchaine étape → Les modèles ensemblistes"
   },
   {
     "objectID": "tp/04-dimension-tp.html",
@@ -5253,7 +5267,7 @@
     "href": "contents/05-supervisee.html",
     "title": "Supervisée",
     "section": "",
-    "text": "Slides:\n\nAnalyse discriminante\nArbres\nModèles ensemblistes\n\nTD: link\nTP: link",
+    "text": "Slides:\n\nGénéralités\nAnalyse discriminante\nArbres\nModèles ensemblistes\n\nTD: link\nTP: link",
     "crumbs": [
       "Modules",
       "05 - Supervisée"
