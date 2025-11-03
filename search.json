@@ -1433,6 +1433,13 @@
     "text": "Fonction discriminante\n\n\\[f(x) = a^{\\top} (x - \\overline{X})\\]\n\nScores des observations \\[U_i = a^{\\top} (X_i - \\overline{X})\\] Ces scores maximisent le rapport variance inter-groupe / variance intra-groupe"
   },
   {
+    "objectID": "slides/05-supervised-discriminant-slides.html#exemple",
+    "href": "slides/05-supervised-discriminant-slides.html#exemple",
+    "title": "Supervisée",
+    "section": "Exemple",
+    "text": "Exemple\n\nCodePlot des donnéesCombinaison linéaireCombinaison linéaire optimale\n\n\n\nlibrary(MASS)\nlibrary(tidyverse)\n\nn &lt;- 50\nR &lt;- matrix(\n  c(1, 0.8, 0.8, 1), \n  nrow = 2, ncol = 2, byrow = TRUE\n)\n            \nmu_1 &lt;- c(X = 7.5, Y = 3)\ndata_1 &lt;- MASS::mvrnorm(n, mu = mu_1, Sigma = R)\nmu_2 &lt;- c(X = 8.5, Y = 4)\ndata_2 &lt;- MASS::mvrnorm(n, mu = mu_2, Sigma = R)\ndata &lt;- data.frame(rbind(data_1, data_2))\ndata$group &lt;- as.factor(rep(c(1, 2), each = n))\n\nmodel &lt;- lda(group ~ ., data = data)\ndata$new_X &lt;- predict(model, data)$x"
+  },
+  {
     "objectID": "slides/05-supervised-discriminant-slides.html#pouvoir-discriminant",
     "href": "slides/05-supervised-discriminant-slides.html#pouvoir-discriminant",
     "title": "Supervisée",
@@ -1466,6 +1473,41 @@
     "title": "Supervisée",
     "section": "Évaluation de la performance",
     "text": "Évaluation de la performance\n\nMatrice de confusion\n\nAppliquer la règle de classification à l’échantillon d’apprentissage\nComparer les classifications prédites aux vraies classes\nEstimer les risques de mauvaise classification"
+  },
+  {
+    "objectID": "slides/05-supervised-discriminant-slides.html#exemple-1",
+    "href": "slides/05-supervised-discriminant-slides.html#exemple-1",
+    "title": "Supervisée",
+    "section": "Exemple",
+    "text": "Exemple\n\\(49\\) hommes âgés ont été déclarés soit en bonne santé mentale (Groupe I), soit séniles (Groupe II) à la suite d’examens psychiatriques poussés. Les mêmes sujets ont été soumis à \\(4\\) tests standards beaucoup moins coûteux :\n\n\n\nTest\nGroup I (\\(n_1 = 37\\))\nGroup II (\\(n_2 = 12\\))\n\n\n\n\nInformation\n12.57\n8.75\n\n\nSimilitudes\n9.57\n5.33\n\n\nArithmétique\n11.49\n8.50\n\n\nComplétion de dessins\n7.97\n4.75"
+  },
+  {
+    "objectID": "slides/05-supervised-discriminant-slides.html#exemple-2",
+    "href": "slides/05-supervised-discriminant-slides.html#exemple-2",
+    "title": "Supervisée",
+    "section": "Exemple",
+    "text": "Exemple\nPour cette étude, on a trouvé que\n\\[\\frac{S}{n} = \\begin{pmatrix}\n  11.2552 & 9.4042 & 7.1489 & 3.3830 \\\\\n   & 13.5318 & 7.3830 & 2.5532 \\\\\n   & & 11.5744 & 2.6170 \\\\\n   & & & 5.8085\n\\end{pmatrix},\\] \\[C = \\sqrt{\\frac{n_1 n_2}{n}} (\\overline{X}_1 - \\overline{X}_2) = \\sqrt{\\frac{37 \\times 12}{49}} \\begin{pmatrix} 3.82 \\\\ 4.24 \\\\ 2.99 \\\\ 3.22\\end{pmatrix}\\]"
+  },
+  {
+    "objectID": "slides/05-supervised-discriminant-slides.html#exemple-3",
+    "href": "slides/05-supervised-discriminant-slides.html#exemple-3",
+    "title": "Supervisée",
+    "section": "Exemple",
+    "text": "Exemple\n En principe, on a \\[a = S^{-1} C,\\] mais on peut tout aussi bien utiliser \\[a = n S^{-1} C\\] puisque \\(a\\) n’est défini qu’à une constante multiplicative près."
+  },
+  {
+    "objectID": "slides/05-supervised-discriminant-slides.html#exemple-4",
+    "href": "slides/05-supervised-discriminant-slides.html#exemple-4",
+    "title": "Supervisée",
+    "section": "Exemple",
+    "text": "Exemple\n\nEn effectuant les calculs décrits précédemment, on trouve \\[m_1 = a^\\top \\overline{X}_1 = 5.97 \\quad\\text{et}\\quad m_2 = a^\\top \\overline{X}_2 = 3.54,\\] ce qui conduit à déclarer un individu sénile si \\[a^\\top X &gt; \\frac{m_1 + m_2}{2} = 4.755.\\]"
+  },
+  {
+    "objectID": "slides/05-supervised-discriminant-slides.html#exemple-5",
+    "href": "slides/05-supervised-discriminant-slides.html#exemple-5",
+    "title": "Supervisée",
+    "section": "Exemple",
+    "text": "Exemple\n Matrice de confusion :\n\n\n\nDiagnostic clinique →\nOK\nSénile\nTotaux\n\n\n\n\nClassé OK\n29\n4\n33\n\n\nClassé sénile\n8\n8\n16\n\n\nTotaux\n37\n12\n49"
   },
   {
     "objectID": "slides/05-supervised-discriminant-slides.html#conclusion",
