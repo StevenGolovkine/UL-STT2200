@@ -194,6 +194,90 @@ Scores des observations
 $$U_i = a^{\top} (X_i - \overline{X})$$
 Ces scores maximisent le rapport variance inter-groupe / variance intra-groupe
 
+## Exemple {.smaller}
+
+::: panel-tabset
+### Code
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+library(MASS)
+library(tidyverse)
+
+n <- 50
+R <- matrix(
+  c(1, 0.8, 0.8, 1), 
+  nrow = 2, ncol = 2, byrow = TRUE
+)
+            
+mu_1 <- c(X = 7.5, Y = 3)
+data_1 <- MASS::mvrnorm(n, mu = mu_1, Sigma = R)
+mu_2 <- c(X = 8.5, Y = 4)
+data_2 <- MASS::mvrnorm(n, mu = mu_2, Sigma = R)
+data <- data.frame(rbind(data_1, data_2))
+data$group <- as.factor(rep(c(1, 2), each = n))
+
+model <- lda(group ~ ., data = data)
+data$new_X <- predict(model, data)$x
+```
+
+
+### Plot des données
+
+```{r}
+#| echo: false
+#| eval: true
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+ggplot(data) +
+  geom_point(aes(x = X, y = Y, color = group)) +
+  xlab(label = "X1") +
+  ylab(label = "X2") +
+  theme_bw() +
+  theme(legend.position = "none")
+```
+
+### Combinaison linéaire
+
+```{r}
+#| echo: false
+#| eval: true
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+ggplot(data) +
+  geom_point(aes(x = X - Y, y = 0, color = group)) +
+  xlab(label = "X1 - X2") +
+  ylab(label = "") +
+  theme_bw() +
+  theme(legend.position = "none")
+```
+
+### Combinaison linéaire optimale
+
+```{r}
+#| echo: false
+#| eval: true
+#| fig-align: "center"
+#| fig-width: 10
+#| fig-height: 4.5
+model <- lda(group ~ ., data = data)
+data$new_X <- predict(model, data)$x
+ggplot(data) +
+  geom_point(aes(x = new_X, y = 0, color = group)) +
+  xlab(label = "Optimal X") +
+  ylab(label = "") +
+  theme_bw() +
+  theme(legend.position = "none")
+```
+
+
+
+:::
+
 
 ## Pouvoir discriminant
 
@@ -260,7 +344,58 @@ Matrice de confusion
 
 - Estimer les risques de mauvaise classification
 
+## Exemple
 
+
+$49$ hommes âgés ont été déclarés soit en bonne santé mentale (Groupe I), soit séniles (Groupe II) à la suite d'examens psychiatriques poussés. Les mêmes sujets ont été soumis à $4$ tests standards beaucoup moins coûteux :
+
+| Test | Group I ($n_1 = 37$) | Group II ($n_2 = 12$) |
+| ---: | -------------------: | --------------------: |
+| Information | 12.57 | 8.75 |
+| Similitudes | 9.57 | 5.33 |
+| Arithmétique | 11.49 | 8.50 |
+| Complétion de dessins | 7.97 | 4.75 |
+
+## Exemple
+
+Pour cette étude, on a trouvé que 
+
+$$\frac{S}{n} = \begin{pmatrix}
+  11.2552 & 9.4042 & 7.1489 & 3.3830 \\ 
+   & 13.5318 & 7.3830 & 2.5532 \\
+   & & 11.5744 & 2.6170 \\
+   & & & 5.8085
+\end{pmatrix},$$
+$$C = \sqrt{\frac{n_1 n_2}{n}} (\overline{X}_1 - \overline{X}_2) = \sqrt{\frac{37 \times 12}{49}} \begin{pmatrix} 3.82 \\ 4.24 \\ 2.99 \\ 3.22\end{pmatrix}$$
+
+## Exemple
+
+<br>
+En principe, on a 
+$$a = S^{-1} C,$$
+mais on peut tout aussi bien utiliser 
+$$a = n S^{-1} C$$
+puisque $a$ n'est défini qu'à une constante multiplicative près.
+
+## Exemple
+
+<br>
+
+En effectuant les calculs décrits précédemment, on trouve
+$$m_1 = a^\top \overline{X}_1 = 5.97 \quad\text{et}\quad m_2 = a^\top \overline{X}_2 = 3.54,$$
+ce qui conduit à déclarer un individu sénile si
+$$a^\top X > \frac{m_1 + m_2}{2} = 4.755.$$
+
+## Exemple
+
+<br>
+Matrice de confusion :
+
+|Diagnostic clinique → | OK | Sénile | Totaux |
+|:---:|:--:|:--:|:--:|
+| Classé OK | 29 | 4 | 33 |
+| Classé sénile | 8 | 8 | 16 |
+| Totaux | 37 | 12 | 49 |
 
 ## Conclusion
 
