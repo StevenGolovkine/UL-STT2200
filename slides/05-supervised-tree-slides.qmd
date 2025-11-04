@@ -205,6 +205,42 @@ où:
 - $n = n_1 + n_2$
 
 
+## Exemple {.smaller}
+
+::: panel-tabset
+### Code
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+library(tidyverse)
+
+carseats <- as_tibble(ISLR::Carseats)
+tree_carseat <- rpart::rpart(Sales ~ ., data = carseats)
+```
+
+### Print
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+print(tree_carseat)
+```
+
+### Plot
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+plot(tree_carseat)
+text(tree_carseat, use.n = TRUE)
+```
+
+:::
+
 ## Problème de l'ajustement
 
 <br>
@@ -257,6 +293,43 @@ Interprétation
 . . .
 
 Méthode de sélection → Validation croisée pour comparer les performances sur différentes valeurs de $\alpha$
+
+## Exemple {.smaller}
+
+::: panel-tabset
+### Code
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+library(tidyverse)
+
+carseats <- as_tibble(ISLR::Carseats)
+tree_carseat <- rpart::rpart(Sales ~ ., data = carseats)
+tree_prune <- rpart::prune(tree_carseat, cp = 0.1)
+```
+
+### Print
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+print(tree_prune)
+```
+
+### Plot
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+plot(tree_prune)
+text(tree_prune, use.n = TRUE)
+```
+
+:::
 
 
 ## Avantages des arbres
