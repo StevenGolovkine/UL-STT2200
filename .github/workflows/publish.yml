@@ -30,6 +30,7 @@ jobs:
             any::FactoMineR
             any::factoextra
             any::latex2exp
+            any::ISLR
 
       - name: Install Python and Dependencies
         uses: actions/setup-python@v5
