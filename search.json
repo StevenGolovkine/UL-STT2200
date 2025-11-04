@@ -2609,6 +2609,13 @@
     "text": "Gain d’information\n\nMesure de la réduction de l’hétérogénéité après division.\n\nObjectif : Maximiser le gain d’information.\n\n\nExemple avec l’indice de Gini:\n\\[\\Delta G = G_{\\text{avant}} - \\left(\\frac{n_1}{n} G_1 + \\frac{n_2}{n} G_2\\right)\\]\noù:\n\n\\(n_1, n_2\\) : nombres d’observations dans les sous-ensembles\n\\(n = n_1 + n_2\\)"
   },
   {
+    "objectID": "slides/05-supervised-tree-slides.html#exemple",
+    "href": "slides/05-supervised-tree-slides.html#exemple",
+    "title": "Supervisée",
+    "section": "Exemple",
+    "text": "Exemple\n\nCodePrintPlot\n\n\n\nlibrary(tidyverse)\n\ncarseats &lt;- as_tibble(ISLR::Carseats)\ntree_carseat &lt;- rpart::rpart(Sales ~ ., data = carseats)\n\n\n\n\nprint(tree_carseat)\n\nn= 400 \n\nnode), split, n, deviance, yval\n      * denotes terminal node\n\n 1) root 400 3182.27500  7.496325  \n   2) ShelveLoc=Bad,Medium 315 1859.56000  6.762984  \n     4) Price&gt;=105.5 207  956.57240  6.018792  \n       8) ShelveLoc=Bad 61  240.81970  4.722459  \n        16) Population&lt; 196.5 25   88.22930  3.767200 *\n        17) Population&gt;=196.5 36  113.93510  5.385833 *\n       9) ShelveLoc=Medium 146  570.41420  6.560411  \n        18) Advertising&lt; 5.5 77  280.11340  5.902468  \n          36) Price&gt;=127 34  133.53970  4.986765 *\n          37) Price&lt; 127 43   95.52198  6.626512 *\n        19) Advertising&gt;=5.5 69  219.77110  7.294638  \n          38) CompPrice&lt; 121.5 19   40.33360  6.230000 *\n          39) CompPrice&gt;=121.5 50  149.71840  7.699200  \n            78) Price&gt;=127 28   71.99441  6.731786 *\n            79) Price&lt; 127 22   18.16730  8.930455 *\n     5) Price&lt; 105.5 108  568.61750  8.189352  \n      10) Age&gt;=54.5 65  303.05690  7.380154  \n        20) Income&lt; 105.5 56  203.03290  6.946071  \n          40) ShelveLoc=Bad 20   76.96006  5.786500 *\n          41) ShelveLoc=Medium 36   84.24070  7.590278 *\n        21) Income&gt;=105.5 9   23.81549 10.081110 *\n      11) Age&lt; 54.5 43  158.66040  9.412558  \n        22) Income&lt; 57.5 13   19.24283  7.987692 *\n        23) Income&gt;=57.5 30  101.58740 10.030000  \n          46) ShelveLoc=Bad 9   22.75640  8.396667 *\n          47) ShelveLoc=Medium 21   44.53100 10.730000 *\n   3) ShelveLoc=Good 85  525.52220 10.214000  \n     6) Price&gt;=109.5 57  277.26520  9.244386  \n      12) Advertising&lt; 13.5 48  185.42030  8.742500  \n        24) Price&gt;=142.5 12   36.64722  7.152500 *\n        25) Price&lt; 142.5 36  108.32350  9.272500  \n          50) Income&lt; 40.5 9    9.82780  7.603333 *\n          51) Income&gt;=40.5 27   65.06227  9.828889 *\n      13) Advertising&gt;=13.5 9   15.27049 11.921110 *\n     7) Price&lt; 109.5 28   85.57727 12.187860 *\n\n\n\n\n\nplot(tree_carseat)\ntext(tree_carseat, use.n = TRUE)"
+  },
+  {
     "objectID": "slides/05-supervised-tree-slides.html#problème-de-lajustement",
     "href": "slides/05-supervised-tree-slides.html#problème-de-lajustement",
     "title": "Supervisée",
@@ -2628,6 +2635,13 @@
     "title": "Supervisée",
     "section": "Choix du paramètre α",
     "text": "Choix du paramètre α\n\nInterprétation\n\n\\(\\alpha\\) élevé → Favorise les arbres simples\n\\(\\alpha\\) faible → Arbres plus complexes\n\n\nMéthode de sélection → Validation croisée pour comparer les performances sur différentes valeurs de \\(\\alpha\\)"
+  },
+  {
+    "objectID": "slides/05-supervised-tree-slides.html#exemple-1",
+    "href": "slides/05-supervised-tree-slides.html#exemple-1",
+    "title": "Supervisée",
+    "section": "Exemple",
+    "text": "Exemple\n\nCodePrintPlot\n\n\n\nlibrary(tidyverse)\n\ncarseats &lt;- as_tibble(ISLR::Carseats)\ntree_carseat &lt;- rpart::rpart(Sales ~ ., data = carseats)\ntree_prune &lt;- rpart::prune(tree_carseat, cp = 0.1)\n\n\n\n\nprint(tree_prune)\n\nn= 400 \n\nnode), split, n, deviance, yval\n      * denotes terminal node\n\n1) root 400 3182.2750  7.496325  \n  2) ShelveLoc=Bad,Medium 315 1859.5600  6.762984  \n    4) Price&gt;=105.5 207  956.5724  6.018792 *\n    5) Price&lt; 105.5 108  568.6175  8.189352 *\n  3) ShelveLoc=Good 85  525.5222 10.214000 *\n\n\n\n\n\nplot(tree_prune)\ntext(tree_prune, use.n = TRUE)"
   },
   {
     "objectID": "slides/05-supervised-tree-slides.html#avantages-des-arbres",

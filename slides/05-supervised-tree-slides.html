@@ -30,6 +30,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-61cb6bcdcb66a6a6ea8a61dd05d6a15c.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -145,7 +211,7 @@ Steven Golovkine
 </div>
 </div>
 
-  <p class="date">03 nov. 2025</p>
+  <p class="date">04 nov. 2025</p>
   <figure>
     <center>
       <img src="../include/logo-ul.png" alt="logo" width="40%">
@@ -275,6 +341,82 @@ Steven Golovkine
 </ul>
 </div>
 </section>
+<section id="exemple" class="slide level2 smaller">
+<h2>Exemple</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Code</a></li><li><a href="#tabset-1-2">Print</a></li><li><a href="#tabset-1-3">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a></a></span>
+<span id="cb1-3"><a></a>carseats <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(ISLR<span class="sc">::</span>Carseats)</span>
+<span id="cb1-4"><a></a>tree_carseat <span class="ot">&lt;-</span> rpart<span class="sc">::</span><span class="fu">rpart</span>(Sales <span class="sc">~</span> ., <span class="at">data =</span> carseats)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="tabset-1-2">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">print</span>(tree_carseat)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>n= 400 
+
+node), split, n, deviance, yval
+      * denotes terminal node
+
+ 1) root 400 3182.27500  7.496325  
+   2) ShelveLoc=Bad,Medium 315 1859.56000  6.762984  
+     4) Price&gt;=105.5 207  956.57240  6.018792  
+       8) ShelveLoc=Bad 61  240.81970  4.722459  
+        16) Population&lt; 196.5 25   88.22930  3.767200 *
+        17) Population&gt;=196.5 36  113.93510  5.385833 *
+       9) ShelveLoc=Medium 146  570.41420  6.560411  
+        18) Advertising&lt; 5.5 77  280.11340  5.902468  
+          36) Price&gt;=127 34  133.53970  4.986765 *
+          37) Price&lt; 127 43   95.52198  6.626512 *
+        19) Advertising&gt;=5.5 69  219.77110  7.294638  
+          38) CompPrice&lt; 121.5 19   40.33360  6.230000 *
+          39) CompPrice&gt;=121.5 50  149.71840  7.699200  
+            78) Price&gt;=127 28   71.99441  6.731786 *
+            79) Price&lt; 127 22   18.16730  8.930455 *
+     5) Price&lt; 105.5 108  568.61750  8.189352  
+      10) Age&gt;=54.5 65  303.05690  7.380154  
+        20) Income&lt; 105.5 56  203.03290  6.946071  
+          40) ShelveLoc=Bad 20   76.96006  5.786500 *
+          41) ShelveLoc=Medium 36   84.24070  7.590278 *
+        21) Income&gt;=105.5 9   23.81549 10.081110 *
+      11) Age&lt; 54.5 43  158.66040  9.412558  
+        22) Income&lt; 57.5 13   19.24283  7.987692 *
+        23) Income&gt;=57.5 30  101.58740 10.030000  
+          46) ShelveLoc=Bad 9   22.75640  8.396667 *
+          47) ShelveLoc=Medium 21   44.53100 10.730000 *
+   3) ShelveLoc=Good 85  525.52220 10.214000  
+     6) Price&gt;=109.5 57  277.26520  9.244386  
+      12) Advertising&lt; 13.5 48  185.42030  8.742500  
+        24) Price&gt;=142.5 12   36.64722  7.152500 *
+        25) Price&lt; 142.5 36  108.32350  9.272500  
+          50) Income&lt; 40.5 9    9.82780  7.603333 *
+          51) Income&gt;=40.5 27   65.06227  9.828889 *
+      13) Advertising&gt;=13.5 9   15.27049 11.921110 *
+     7) Price&lt; 109.5 28   85.57727 12.187860 *</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-3">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">plot</span>(tree_carseat)</span>
+<span id="cb4-2"><a></a><span class="fu">text</span>(tree_carseat, <span class="at">use.n =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="05-supervised-tree-slides_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="problème-de-lajustement" class="slide level2">
 <h2>Problème de l’ajustement</h2>
 <p><br></p>
@@ -314,6 +456,53 @@ Steven Golovkine
 </ul>
 <div class="fragment">
 <p>Méthode de sélection → Validation croisée pour comparer les performances sur différentes valeurs de <span class="math inline">\(\alpha\)</span></p>
+</div>
+</section>
+<section id="exemple-1" class="slide level2 smaller">
+<h2>Exemple</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Code</a></li><li><a href="#tabset-2-2">Print</a></li><li><a href="#tabset-2-3">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb5-2"><a></a></span>
+<span id="cb5-3"><a></a>carseats <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(ISLR<span class="sc">::</span>Carseats)</span>
+<span id="cb5-4"><a></a>tree_carseat <span class="ot">&lt;-</span> rpart<span class="sc">::</span><span class="fu">rpart</span>(Sales <span class="sc">~</span> ., <span class="at">data =</span> carseats)</span>
+<span id="cb5-5"><a></a>tree_prune <span class="ot">&lt;-</span> rpart<span class="sc">::</span><span class="fu">prune</span>(tree_carseat, <span class="at">cp =</span> <span class="fl">0.1</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div id="tabset-2-2">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">print</span>(tree_prune)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>n= 400 
+
+node), split, n, deviance, yval
+      * denotes terminal node
+
+1) root 400 3182.2750  7.496325  
+  2) ShelveLoc=Bad,Medium 315 1859.5600  6.762984  
+    4) Price&gt;=105.5 207  956.5724  6.018792 *
+    5) Price&lt; 105.5 108  568.6175  8.189352 *
+  3) ShelveLoc=Good 85  525.5222 10.214000 *</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-2-3">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">plot</span>(tree_prune)</span>
+<span id="cb8-2"><a></a><span class="fu">text</span>(tree_prune, <span class="at">use.n =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="05-supervised-tree-slides_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="avantages-des-arbres" class="slide level2">
@@ -591,6 +780,44 @@ Steven Golovkine
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
