@@ -106,6 +106,7 @@ window.Quarto = {
 </script>
 
 <meta property="og:title" content="TD: Supervisée – STT-2200: Analyse de données">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
 
@@ -560,8 +561,14 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="05-supervised-td.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#exercice-1-compréhension-de-lanalyse-discrimante" id="toc-exercice-1-compréhension-de-lanalyse-discrimante" class="nav-link active" data-scroll-target="#exercice-1-compréhension-de-lanalyse-discrimante">Exercice 1: Compréhension de l’analyse discrimante</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/td/05-supervised-td.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="05-supervised-td.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -585,8 +592,89 @@ window.Quarto = {
 </header>
 
 
+<section id="exercice-1-compréhension-de-lanalyse-discrimante" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-1-compréhension-de-lanalyse-discrimante">Exercice 1: Compréhension de l’analyse discrimante</h2>
+<p>On effectue un analyse discriminante sur un jeu de données pour lequel on tente de prédire auquel de trois groupes les 80 observations appartiennent à partir de la valeur des variables <span class="math inline">\(X_1, \dots, X_5\)</span>. Les valeurs moyennes des 5 variables dans chacun des trois groupes sont données dans le tableau qui suit.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(k\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\overline{X}_{k1}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\overline{X}_{k2}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\overline{X}_{k2}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\overline{X}_{k3}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\overline{X}_{k4}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">-0.155</td>
+<td style="text-align: center;">0.202</td>
+<td style="text-align: center;">-0.003</td>
+<td style="text-align: center;">-0.909</td>
+<td style="text-align: center;">-0.952</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0.227</td>
+<td style="text-align: center;">0.050</td>
+<td style="text-align: center;">0.091</td>
+<td style="text-align: center;">0.067</td>
+<td style="text-align: center;">0.084</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0.505</td>
+<td style="text-align: center;">-0.313</td>
+<td style="text-align: center;">-0.092</td>
+<td style="text-align: center;">0.475</td>
+<td style="text-align: center;">0.776</td>
+</tr>
+</tbody>
+</table>
+<p>On obtient les matrices de sommes des carrées suivantes, desquelles trois valeurs ont été masquées et remplacées par AAAAA, BBBBB et CCCCC.</p>
+<p><span class="math display">\[S = \begin{pmatrix}
+62.8029695 &amp; \text{AAAAA} &amp; -4.471622  &amp; -0.3359447 &amp; 10.369236  \\
+\text{AAAAA} &amp; 81.038586  &amp; 26.437970  &amp; -4.6206012 &amp; 7.087506   \\
+-4.4716215  &amp; 26.437970   &amp; 80.626818  &amp; 12.6439431 &amp; -6.670094  \\
+-0.3359447  &amp; -4.620601   &amp; 12.643943  &amp; 85.5572762 &amp; 30.720944  \\
+10.3692360  &amp; 7.087506    &amp; -6.670094  &amp; 30.7209436 &amp; 88.442644  \\
+\end{pmatrix},\]</span></p>
+<p><span class="math display">\[W = \begin{pmatrix}
+56.401092 &amp; 10.81546  &amp; -3.671480 &amp; -13.814659 &amp; -6.382273 \\
+10.815459 &amp; 76.90362  &amp; 25.490769 &amp; 5.371660   &amp; 19.919442 \\
+-3.671480 &amp; 25.490770 &amp; 80.197630 &amp; 13.933547  &amp; -4.655554 \\
+-13.814659 &amp; 5.371660 &amp; 13.933547 &amp; 56.704695  &amp; \text{BBBBB} \\
+-6.382273 &amp; 19.919440 &amp; -4.655554 &amp; \text{BBBBB} &amp; 44.590677 \\
+\end{pmatrix}
+\]</span> et</p>
+<p><span class="math display">\[B = \begin{pmatrix}
+6.4018771  &amp; -4.934314  &amp; -0.8001411 &amp; 13.478714  &amp; 16.751510 \\
+-4.9343145 &amp; 4.134966   &amp; 0.9472010  &amp; \text{CCCCC}  &amp; -12.83194 \\
+-0.8001411 &amp; 0.947201   &amp; 0.4291877  &amp; -1.289604  &amp; -2.01454 \\
+13.4787145 &amp; \text{CCCCC} &amp; -1.2896044 &amp; 28.852581  &amp; 35.36415 \\
+16.7515092 &amp; -12.831936 &amp; -2.0145400 &amp; 35.364146  &amp; 43.85197 \\
+\end{pmatrix}.
+\]</span></p>
+<p>De plus, on vous dit que les deux plus grandes valeurs propres de la matrice <span class="math inline">\(S^{-1}B\)</span> sont <span class="math inline">\(0.751\)</span> et <span class="math inline">\(0.011\)</span> et que les vecteurs propres normés correspondants sont</p>
+<p><span class="math display">\[a_1 = \begin{pmatrix} -0.40 \\ 0.37 \\ -0.09 \\ -0.44 \\ -0.71\end{pmatrix}, \quad\text{et}\quad a_2 = \begin{pmatrix} 0.08 \\ -0.65 \\ -0.28 \\ -0.64 \\ 0.29\end{pmatrix}\]</span></p>
+<ol type="1">
+<li><p>Quelles sont les valeurs de AAAAA, BBBBB et CCCCC?</p></li>
+<li><p>Quel est le pouvoir discriminant de la fonction discriminante de Fisher ?</p></li>
+<li><p>Selon cette fonction discriminante, dans lequel des trois groupes classeriez-vous une observation dont les valeurs de <span class="math inline">\((X_1, X_2, X_3, X_4, X_5)\)</span> sont respectivement <span class="math inline">\((—0.5, 0.5, 0, 1, 1)\)</span> ?</p></li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script>
@@ -1221,7 +1309,7 @@ window.onload = function() {
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions"><ul><li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/td/05-supervised-td.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/td/05-supervised-td.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
