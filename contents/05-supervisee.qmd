@@ -19,7 +19,7 @@ format:
 
 * TD: [link](../td/05-supervised-td.qmd)
 
-* TP: [link](../td/05-supervised-tp.qmd)
+* TP: [link](../tp/05-supervised-tp.qmd)
 
 ## Sommaire
 
