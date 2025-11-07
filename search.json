@@ -1643,620 +1643,704 @@
     "text": "Conclusion\n\n\nL’unité statistique définit le niveau d’analyse.\nLe type de variable guide le choix de l’espace.\nL’espace d’observation \\(\\mathcal{X}\\) est le cadre mathématique.\nVariables multiples → produit cartésien d’ensemble.\n\n\n→ Prochaine étape : Définir des distances dans ces espaces !"
   },
   {
-    "objectID": "slides/07-ethics-slides.html#lanalyse-de-données-aujourdhui",
-    "href": "slides/07-ethics-slides.html#lanalyse-de-données-aujourdhui",
-    "title": "Éthique",
-    "section": "L’analyse de données aujourd’hui",
-    "text": "L’analyse de données aujourd’hui\n\nOmniprésence dans tous les domaines :\n\nSanté\nÉducation\nPolitiques publiques\nJustice\nFinance\n\n\n→ Décisions automatisées aux conséquences réelles."
-  },
-  {
-    "objectID": "slides/07-ethics-slides.html#plan",
-    "href": "slides/07-ethics-slides.html#plan",
-    "title": "Éthique",
+    "objectID": "slides/05-supervised-discriminant-slides-annotated.html#plan",
+    "href": "slides/05-supervised-discriminant-slides-annotated.html#plan",
+    "title": "Supervisée",
     "section": "Plan",
-    "text": "Plan\n\n\nGénéralités\nConfidentialité des données\nImplications sociales\nMythes à déconstruire\nSolutions pratiques"
+    "text": "Plan\n\n\nLa théorie de l’analyse discriminante\nL’analyse discriminante en pratique\nExemple"
   },
   {
-    "objectID": "slides/07-ethics-slides.html#pourquoi-léthique-est-cruciale",
-    "href": "slides/07-ethics-slides.html#pourquoi-léthique-est-cruciale",
-    "title": "Éthique",
-    "section": "Pourquoi l’éthique est cruciale ?",
-    "text": "Pourquoi l’éthique est cruciale ?\n\n\nLes données ne sont pas neutres !\n\n\nElles sont le reflet d’un contexte :\n\nSocial\nInstitutionnel\nTechnique\n\n\n\nRisques → Renforcer les inégalités, reproduire des biais historiques, porter atteinte à la vie privée, …"
+    "objectID": "slides/05-supervised-discriminant-slides-annotated.html#notation",
+    "href": "slides/05-supervised-discriminant-slides-annotated.html#notation",
+    "title": "Supervisée",
+    "section": "Notation",
+    "text": "Notation\nDonnées:\n\n\\(X = (X_{ij}) \\in \\mathbb{R}^{n \\times p}\\) : matrice de données.\n\\(n\\) : nombre d’individus / d’observations.\n\\(p\\) : nombre de variables.\n\n\nGroupes:\n\n\\(K\\) groupes dans la population.\n\\(I_k\\) : ensemble des individus du groupe \\(k\\).\n\\(n_k\\) : nombre d’observations dans \\(I_k\\) et \\(\\sum_{k=1}^{K} n_k = n\\)."
   },
   {
-    "objectID": "slides/07-ethics-slides.html#questions-fondamentales",
-    "href": "slides/07-ethics-slides.html#questions-fondamentales",
-    "title": "Éthique",
-    "section": "Questions fondamentales",
-    "text": "Questions fondamentales\n\nAvant toute analyse, se demander :\n\nMes données représentent-elles fidèlement ma population ?\nQuelles décisions seront prises à partir de ces analyses ?\nQuelles sont les conséquences pour les individus concernés ?\nQui est affecté par ces décisions ?"
+    "objectID": "slides/05-supervised-discriminant-slides-annotated.html#objectif-principal",
+    "href": "slides/05-supervised-discriminant-slides-annotated.html#objectif-principal",
+    "title": "Supervisée",
+    "section": "Objectif principal",
+    "text": "Objectif principal\n\nPrincipe:\n\nPartitionner \\(\\mathbb{R}^p\\) en \\(K\\) sous-ensembles.\nPasser de \\(\\mathbb{R}^p\\) à \\(\\mathbb{R}\\) via un score.\n\n\n\nScore de Fisher\n\\[f(X_1, \\ldots, X_p) = a^{\\top} X + b = a_1 X_1 + \\cdots + a_p X_p + b\\]\n\n\nUtiliser ce score pour déterminer le groupe d’appartenance."
   },
   {
-    "objectID": "slides/07-ethics-slides.html#confidentialité-enjeux",
-    "href": "slides/07-ethics-slides.html#confidentialité-enjeux",
-    "title": "Éthique",
-    "section": "Confidentialité : Enjeux",
-    "text": "Confidentialité : Enjeux\n\nLors de la manipulation de données personnelles :\n\nRéidentification des personnes\nExploitation abusive\nViolation de la vie privée\n\n→ Nécessité de prendre des mesures adéquates."
+    "objectID": "slides/05-supervised-discriminant-slides-annotated.html#simplification",
+    "href": "slides/05-supervised-discriminant-slides-annotated.html#simplification",
+    "title": "Supervisée",
+    "section": "Simplification",
+    "text": "Simplification\n\nEn centrant les variables: \\(-b = a^{\\top} \\overline{X}\\).\n\nIl reste à déterminer le vecteur \\(a = (a_1, \\ldots, a_p)\\)."
   },
   {
-    "objectID": "slides/07-ethics-slides.html#anonymisation-des-données",
-    "href": "slides/07-ethics-slides.html#anonymisation-des-données",
-    "title": "Éthique",
-    "section": "Anonymisation des données",
-    "text": "Anonymisation des données\n\nSupprimer ou transformer les identifiants :\n\nDirects :\n\nNoms, adresses, numéros\n\nIndirects :\n\nDates de naissance, codes postaux\n\n\n\n⚠️ Attention : Le croisement de plusieurs variables peut permettre l’identification !"
+    "objectID": "slides/05-supervised-discriminant-slides-annotated.html#intuition",
+    "href": "slides/05-supervised-discriminant-slides-annotated.html#intuition",
+    "title": "Supervisée",
+    "section": "Intuition",
+    "text": "Intuition\n\nOn voudrait choisir le vecteur \\(a\\) de sorte que les scores soient\n\ntrès différents entre les groupes\ntrès similaire à l’intérieur des groupes\n\n\nOn s’intéresse donc à la variabilité des scores à l’intérieur des groupes et entre les groupes.\n\n\nOptimiser le rapport entre la variabilité inter-groupes (maximiser) et la variabilité intra-groupe (minimiser)."
   },
   {
-    "objectID": "slides/07-ethics-slides.html#exemple-netflix-et-imdb",
-    "href": "slides/07-ethics-slides.html#exemple-netflix-et-imdb",
-    "title": "Éthique",
-    "section": "Exemple : Netflix et IMDb",
-    "text": "Exemple : Netflix et IMDb\n\nDes chercheurs de l’université du Texas ont pu identifier des utilisateurs Netflix en croisant leurs notes avec celles sur IMDb.\n\n Leçon → L’anonymisation simple ne suffit pas toujours !"
+    "objectID": "slides/05-supervised-discriminant-slides-annotated.html#matrices-de-variance-covariance",
+    "href": "slides/05-supervised-discriminant-slides-annotated.html#matrices-de-variance-covariance",
+    "title": "Supervisée",
+    "section": "Matrices de variance-covariance",
+    "text": "Matrices de variance-covariance\n\n\n\\(S\\) : matrice de variance totale\n\\(W\\) : matrice de variance intra-groupe\n\\(B\\) : matrice de variance inter-groupe\n\n\nRelation fondamentale:\n\\[S = W + B\\]"
   },
   {
-    "objectID": "slides/07-ethics-slides.html#techniques-de-protection",
-    "href": "slides/07-ethics-slides.html#techniques-de-protection",
-    "title": "Éthique",
-    "section": "Techniques de protection",
-    "text": "Techniques de protection\n\nRéduire la granularité :\n\nÂges → Tranches d’âge (25-34 ans au lieu de 28 ans)\nCodes postaux → Régions\nSalaires → Catégories\n\n\nRegrouper les modalités rares :\n\nÉviter les combinaisons uniques de caractéristiques\nFusionner les catégories peu fréquentes"
+    "objectID": "slides/05-supervised-discriminant-slides-annotated.html#matrices-de-variance-covariance-1",
+    "href": "slides/05-supervised-discriminant-slides-annotated.html#matrices-de-variance-covariance-1",
+    "title": "Supervisée",
+    "section": "Matrices de variance-covariance",
+    "text": "Matrices de variance-covariance\n\nMatrice totale: \\(S = \\sum_{i=1}^{n} (X_i - \\overline{X})(X_i - \\overline{X})^{\\top}\\)\n\n\nMatrice intra-groupe: \\(W = \\sum_{k=1}^{K} \\sum_{i \\in I_k} (X_i - \\overline{X}_k)(X_i - \\overline{X}_k)^{\\top}\\)\n\n\n\nMatrice inter-groupe: \\(B = \\sum_{k=1}^{K} n_k (\\overline{X}_k - \\overline{X})(\\overline{X}_k - \\overline{X})^{\\top}\\)"
   },
   {
-    "objectID": "slides/07-ethics-slides.html#techniques-de-protection-1",
-    "href": "slides/07-ethics-slides.html#techniques-de-protection-1",
-    "title": "Éthique",
-    "section": "Techniques de protection",
-    "text": "Techniques de protection\n\nAjout de bruit :\n\nPréserver les tendances globales\nRendre l’identification individuelle difficile\n⚠️ Ne pas compromettre la validité des analyses\n\n\nConfidentialité différentielle :\n\nGarantir qu’un individu ne peut être identifié\nMême en connaissant toutes les autres données"
+    "objectID": "slides/05-supervised-discriminant-slides-annotated.html#variabilité-des-scores",
+    "href": "slides/05-supervised-discriminant-slides-annotated.html#variabilité-des-scores",
+    "title": "Supervisée",
+    "section": "Variabilité des scores",
+    "text": "Variabilité des scores\n\nÉtant donné que \\(a \\in \\mathbb{R}^p\\), on a: \\[\\mathrm{Var}(f(X_{1}, \\dots, X_p)) = \\mathrm{Var}(a^{\\top} X) = a^{\\top} \\mathrm{Var}(X) a.\\]\nComme \\(S\\) est un estimateur de la variance totale de \\(X\\),\n\\[\\widehat{\\mathrm{Var}}(f(X_{1}, \\dots, X_p)) = \\frac{1}{n} a^{\\top} S a = \\frac{1}{n} \\left( a^{\\top} W a + a^{\\top} B a \\right).\\]"
   },
   {
-    "objectID": "slides/07-ethics-slides.html#implications-sociales-sources-de-biais",
-    "href": "slides/07-ethics-slides.html#implications-sociales-sources-de-biais",
-    "title": "Éthique",
-    "section": "Implications sociales : Sources de biais",
-    "text": "Implications sociales : Sources de biais\n\nPlusieurs points de défaillance :\n\nBiais d’échantillonnage → Données non représentatives\nBiais dans la variable cible → Reproduction de discriminations historiques\nValidité variable selon les groupes → Performance inégale\nClasses mal représentées → Groupes minoritaires ignorés"
+    "objectID": "slides/05-supervised-discriminant-slides-annotated.html#critère-doptimisation",
+    "href": "slides/05-supervised-discriminant-slides-annotated.html#critère-doptimisation",
+    "title": "Supervisée",
+    "section": "Critère d’optimisation",
+    "text": "Critère d’optimisation\n\n\\[J(a) = \\frac{a^{\\top} B a}{a^{\\top} W a} = \\frac{a^{\\top} B a}{a^{\\top} S a}\\]\n\nFormulations équivalentes\n\nMaximiser \\(J(a)\\) sous contrainte \\(a^{\\top} a = 1\\)\nMaximiser \\(a^{\\top} B a\\) sous contrainte \\(a^{\\top} S a = 1\\)\nMaximiser \\(c^{\\top} S^{-1/2} B S^{-1/2} c\\) sous contrainte \\(c^{\\top} c = 1\\) où \\(c = S^{1/2} a\\)."
   },
   {
-    "objectID": "slides/07-ethics-slides.html#biais-déchantillonnage",
-    "href": "slides/07-ethics-slides.html#biais-déchantillonnage",
-    "title": "Éthique",
-    "section": "Biais d’échantillonnage",
-    "text": "Biais d’échantillonnage\n\nProblème : Le jeu de données ne reflète pas fidèlement la population cible.\nExemples :\n\nSous-représentation de certaines communautés\nSurreprésentation de populations faciles d’accès\nExclusion de groupes vulnérables\n\n→ Modèles inéquitables"
+    "objectID": "slides/05-supervised-discriminant-slides-annotated.html#solution-optimale",
+    "href": "slides/05-supervised-discriminant-slides-annotated.html#solution-optimale",
+    "title": "Supervisée",
+    "section": "Solution optimale",
+    "text": "Solution optimale\n\nEn réécrivant la troisième formulation\n\\[c^{\\top} \\left( S^{-1/2} B S^{-1/2} \\right) c \\quad\\text{s.c.}\\quad c^{\\top} c = 1,\\]\n\nOn peut prendre \\(a = S^{-1/2} c\\), où \\(c\\) est un vecteur propre normé associé à \\(\\lambda_{1}\\), la première valeur propre de \\(S^{-1/2} B S^{-1/2}\\)."
   },
   {
-    "objectID": "slides/07-ethics-slides.html#biais-dans-la-variable-cible",
-    "href": "slides/07-ethics-slides.html#biais-dans-la-variable-cible",
-    "title": "Éthique",
-    "section": "Biais dans la variable cible",
-    "text": "Biais dans la variable cible\n\nProblème : Reproduction de discriminations historiques.\nExemples :\n\nJustice prédictive : logiciel COMPAS utilisé aux USA.\nRecrutement : processus d’Amazon.\n\n→ Discrimination systématique de certains groupes."
+    "objectID": "slides/05-supervised-discriminant-slides-annotated.html#fonction-discriminante",
+    "href": "slides/05-supervised-discriminant-slides-annotated.html#fonction-discriminante",
+    "title": "Supervisée",
+    "section": "Fonction discriminante",
+    "text": "Fonction discriminante\n\n\\[f(x) = a^{\\top} (x - \\overline{X})\\]\n\nScores des observations \\[U_i = a^{\\top} (X_i - \\overline{X})\\] Ces scores maximisent le rapport variance inter-groupe / variance intra-groupe"
   },
   {
-    "objectID": "slides/07-ethics-slides.html#validité-variable-selon-les-groupes",
-    "href": "slides/07-ethics-slides.html#validité-variable-selon-les-groupes",
-    "title": "Éthique",
-    "section": "Validité variable selon les groupes",
-    "text": "Validité variable selon les groupes\n\nUn même modèle peut :\n\nTrès bien fonctionner pour un sous-groupe\nÊtre très mauvais pour un autre\n\n\nExemple (Krishnan, A., Almadan, A., & Rattani, A. (2020)):\n\nReconnaissance faciale : Haute précision pour hommes blancs.\nMême système : Faible précision pour femmes noires.\n\n→ Erreurs systématiques discriminatoires"
+    "objectID": "slides/05-supervised-discriminant-slides-annotated.html#exemple",
+    "href": "slides/05-supervised-discriminant-slides-annotated.html#exemple",
+    "title": "Supervisée",
+    "section": "Exemple",
+    "text": "Exemple\n\nCodePlot des donnéesCombinaison linéaireCombinaison linéaire optimale\n\n\n\nlibrary(MASS)\nlibrary(tidyverse)\n\nn &lt;- 50\nR &lt;- matrix(\n  c(1, 0.8, 0.8, 1), \n  nrow = 2, ncol = 2, byrow = TRUE\n)\n            \nmu_1 &lt;- c(X = 7.5, Y = 3)\ndata_1 &lt;- MASS::mvrnorm(n, mu = mu_1, Sigma = R)\nmu_2 &lt;- c(X = 8.5, Y = 4)\ndata_2 &lt;- MASS::mvrnorm(n, mu = mu_2, Sigma = R)\ndata &lt;- data.frame(rbind(data_1, data_2))\ndata$group &lt;- as.factor(rep(c(1, 2), each = n))\n\nmodel &lt;- lda(group ~ ., data = data)\ndata$new_X &lt;- predict(model, data)$x"
   },
   {
-    "objectID": "slides/07-ethics-slides.html#classes-mal-représentées",
-    "href": "slides/07-ethics-slides.html#classes-mal-représentées",
-    "title": "Éthique",
-    "section": "Classes mal représentées",
-    "text": "Classes mal représentées\n\nConséquences :\n\nLes maladies rares sont mal prédites.\nLes groupes démographiques minoritaires sont ignorés.\nLa performance globale masque les échecs locaux.\nLes inégalités existantes sont renforcées."
+    "objectID": "slides/05-supervised-discriminant-slides-annotated.html#pouvoir-discriminant",
+    "href": "slides/05-supervised-discriminant-slides-annotated.html#pouvoir-discriminant",
+    "title": "Supervisée",
+    "section": "Pouvoir discriminant",
+    "text": "Pouvoir discriminant\n\nInterprétation de \\(\\lambda_1\\) → pouvoir discriminant de \\(f\\) \\[\\lambda_1 = \\frac{a^{\\top} B a}{a^{\\top} S a} \\quad \\text{avec } 0 \\leq \\lambda_1 \\leq 1\\]\n\n\\(\\lambda_1 = 1\\) : Cas idéal\n\n\n\\(\\lambda_1 = 0\\) : Analyse inutile"
   },
   {
-    "objectID": "slides/07-ethics-slides.html#mythes-à-déconstruire",
-    "href": "slides/07-ethics-slides.html#mythes-à-déconstruire",
-    "title": "Éthique",
-    "section": "Mythes à déconstruire",
-    "text": "Mythes à déconstruire\n\n\nQuelques idées reçues :\n\n“La machine apprend toute seule.”\n“C’est objectif, c’est basé sur des données.”\n“Mon modèle ne peut pas être sexiste, je n’utilise pas le genre.”"
+    "objectID": "slides/05-supervised-discriminant-slides-annotated.html#règle-de-classification",
+    "href": "slides/05-supervised-discriminant-slides-annotated.html#règle-de-classification",
+    "title": "Supervisée",
+    "section": "Règle de classification",
+    "text": "Règle de classification\n\nScore moyen par groupe \\[m_k = a^{\\top} (\\overline{X}_{k1}, \\ldots, \\overline{X}_{kp})^{\\top}\\]\n\nClassification d’une nouvelle observation \\(X_0\\)\n\nCalculer le score: \\(f(X_0) = a^{\\top} X_0\\)\nAssigner au groupe \\(k^*\\) tel que:\n\n\\[k^* = \\arg\\min_{k} |a^{\\top} X_0 - m_k|\\]"
   },
   {
-    "objectID": "slides/07-ethics-slides.html#mythe-1-la-machine-apprend-toute-seule.",
-    "href": "slides/07-ethics-slides.html#mythe-1-la-machine-apprend-toute-seule.",
-    "title": "Éthique",
-    "section": "Mythe 1 : “La machine apprend toute seule.”",
-    "text": "Mythe 1 : “La machine apprend toute seule.”\n\nEn réalité → Ce sont des choix faits par des humains :\n\nQuelles données collecter ?\nQuelles variables inclure ?\nQuelle variable à expliquer ?\nQuel algorithme utiliser ?\n\n→ L’“apprentissage” dépend entièrement des décisions humaines"
+    "objectID": "slides/05-supervised-discriminant-slides-annotated.html#cas-binaire-k-2",
+    "href": "slides/05-supervised-discriminant-slides-annotated.html#cas-binaire-k-2",
+    "title": "Supervisée",
+    "section": "Cas binaire (\\(K = 2\\))",
+    "text": "Cas binaire (\\(K = 2\\))\n\nSolution explicite \\[C = \\sqrt{\\frac{n_1 n_2}{n}} (\\overline{X}_1 - \\overline{X}_2)\\] \\[B = CC^{\\top}, \\quad a = S^{-1}C\\]"
   },
   {
-    "objectID": "slides/07-ethics-slides.html#mythe-2-cest-objectif-basé-sur-des-données.",
-    "href": "slides/07-ethics-slides.html#mythe-2-cest-objectif-basé-sur-des-données.",
-    "title": "Éthique",
-    "section": "Mythe 2 : “C’est objectif, basé sur des données.”",
-    "text": "Mythe 2 : “C’est objectif, basé sur des données.”\n\nRéalité → Les données ne sont jamais neutres !\nElles sont le produit de :\n\nContexte social\nChoix institutionnels\nDécisions méthodologiques\n\n→ Les modèles héritent des biais des données."
+    "objectID": "slides/05-supervised-discriminant-slides-annotated.html#cas-binaire-k-2-1",
+    "href": "slides/05-supervised-discriminant-slides-annotated.html#cas-binaire-k-2-1",
+    "title": "Supervisée",
+    "section": "Cas binaire (\\(K = 2\\))",
+    "text": "Cas binaire (\\(K = 2\\))\n\nRègle de classification\nSi \\(m_{1} = a^{\\top} \\overline{X}_1 &gt; a^{\\top} \\overline{X}_2 = m_{2}\\), classer \\(X_0\\) dans le groupe 1 si: \\[a^{\\top} X_0 &gt; \\frac{m_1 + m_2}{2}\\]"
   },
   {
-    "objectID": "slides/07-ethics-slides.html#mythe-3-sans-genre-pas-de-sexisme.",
-    "href": "slides/07-ethics-slides.html#mythe-3-sans-genre-pas-de-sexisme.",
-    "title": "Éthique",
-    "section": "Mythe 3 : “Sans genre, pas de sexisme.”",
-    "text": "Mythe 3 : “Sans genre, pas de sexisme.”\n\nRéalité → Le modèle peut inférer le genre via d’autres variables corrélées :\n\nProfession\nParcours scolaire\nHistorique salarial\n\n→ L’exclusion explicite ne garantit pas l’absence de biais."
+    "objectID": "slides/05-supervised-discriminant-slides-annotated.html#évaluation-de-la-performance",
+    "href": "slides/05-supervised-discriminant-slides-annotated.html#évaluation-de-la-performance",
+    "title": "Supervisée",
+    "section": "Évaluation de la performance",
+    "text": "Évaluation de la performance\n\nMatrice de confusion\n\nAppliquer la règle de classification à l’échantillon d’apprentissage\nComparer les classifications prédites aux vraies classes\nEstimer les risques de mauvaise classification"
   },
   {
-    "objectID": "slides/07-ethics-slides.html#solutions-vue-densemble",
-    "href": "slides/07-ethics-slides.html#solutions-vue-densemble",
-    "title": "Éthique",
-    "section": "Solutions : Vue d’ensemble",
-    "text": "Solutions : Vue d’ensemble\n\nAgir à différentes étapes du processus :\n\nEn amont → Sur les données\nPendant → Sur la fonction de perte\nA posteriori → Sur les résultats"
+    "objectID": "slides/05-supervised-discriminant-slides-annotated.html#exemple-1",
+    "href": "slides/05-supervised-discriminant-slides-annotated.html#exemple-1",
+    "title": "Supervisée",
+    "section": "Exemple",
+    "text": "Exemple\n\\(49\\) hommes âgés ont été déclarés soit en bonne santé mentale (Groupe I), soit séniles (Groupe II) à la suite d’examens psychiatriques poussés. Les mêmes sujets ont été soumis à \\(4\\) tests standards beaucoup moins coûteux :\n\n\n\nTest\nGroup I (\\(n_1 = 37\\))\nGroup II (\\(n_2 = 12\\))\n\n\n\n\nInformation\n12.57\n8.75\n\n\nSimilitudes\n9.57\n5.33\n\n\nArithmétique\n11.49\n8.50\n\n\nComplétion de dessins\n7.97\n4.75"
   },
   {
-    "objectID": "slides/07-ethics-slides.html#solution-1-agir-sur-les-données",
-    "href": "slides/07-ethics-slides.html#solution-1-agir-sur-les-données",
-    "title": "Éthique",
-    "section": "Solution 1 : Agir sur les données",
-    "text": "Solution 1 : Agir sur les données\n\nInterventions en amont :\n\nRééquilibrer l’échantillon → Représentation équitable\nSur-représenter certains groupes → Compenser sous-représentation\nCorriger les biais connus → Dans la variable cible\nAugmenter les données → Pour classes minoritaires"
+    "objectID": "slides/05-supervised-discriminant-slides-annotated.html#exemple-2",
+    "href": "slides/05-supervised-discriminant-slides-annotated.html#exemple-2",
+    "title": "Supervisée",
+    "section": "Exemple",
+    "text": "Exemple\nPour cette étude, on a trouvé que\n\\[\\frac{S}{n} = \\begin{pmatrix}\n  11.2552 & 9.4042 & 7.1489 & 3.3830 \\\\\n   & 13.5318 & 7.3830 & 2.5532 \\\\\n   & & 11.5744 & 2.6170 \\\\\n   & & & 5.8085\n\\end{pmatrix},\\] \\[C = \\sqrt{\\frac{n_1 n_2}{n}} (\\overline{X}_1 - \\overline{X}_2) = \\sqrt{\\frac{37 \\times 12}{49}} \\begin{pmatrix} 3.82 \\\\ 4.24 \\\\ 2.99 \\\\ 3.22\\end{pmatrix}\\]"
   },
   {
-    "objectID": "slides/07-ethics-slides.html#solution-2-modifier-la-fonction-de-perte",
-    "href": "slides/07-ethics-slides.html#solution-2-modifier-la-fonction-de-perte",
-    "title": "Éthique",
-    "section": "Solution 2 : Modifier la fonction de perte",
-    "text": "Solution 2 : Modifier la fonction de perte\n\nIntégrer l’équité dans l’apprentissage :\n\nPénalités pour inégalités de performance\nImposer équité en termes de faux positifs\nContraintes sur disparités entre groupes\nOptimisation multi-objectifs (performance + équité)"
+    "objectID": "slides/05-supervised-discriminant-slides-annotated.html#exemple-3",
+    "href": "slides/05-supervised-discriminant-slides-annotated.html#exemple-3",
+    "title": "Supervisée",
+    "section": "Exemple",
+    "text": "Exemple\n En principe, on a \\[a = S^{-1} C,\\] mais on peut tout aussi bien utiliser \\[a = n S^{-1} C\\] puisque \\(a\\) n’est défini qu’à une constante multiplicative près."
   },
   {
-    "objectID": "slides/07-ethics-slides.html#solution-3-corrections-a-posteriori",
-    "href": "slides/07-ethics-slides.html#solution-3-corrections-a-posteriori",
-    "title": "Éthique",
-    "section": "Solution 3 : Corrections a posteriori",
-    "text": "Solution 3 : Corrections a posteriori\n\nAjuster les résultats produits :\n\nRecalibrage des probabilités → Par groupe démographique\nAjustement des seuils → Seuils différents selon contexte\nPost-processing → Corrections statistiques\nAudits réguliers → Monitoring des performances"
+    "objectID": "slides/05-supervised-discriminant-slides-annotated.html#exemple-4",
+    "href": "slides/05-supervised-discriminant-slides-annotated.html#exemple-4",
+    "title": "Supervisée",
+    "section": "Exemple",
+    "text": "Exemple\n\nEn effectuant les calculs décrits précédemment, on trouve \\[m_1 = a^\\top \\overline{X}_1 = 5.97 \\quad\\text{et}\\quad m_2 = a^\\top \\overline{X}_2 = 3.54,\\] ce qui conduit à déclarer un individu sénile si \\[a^\\top X &gt; \\frac{m_1 + m_2}{2} = 4.755.\\]"
   },
   {
-    "objectID": "slides/07-ethics-slides.html#limites-des-solutions-techniques",
-    "href": "slides/07-ethics-slides.html#limites-des-solutions-techniques",
-    "title": "Éthique",
-    "section": "Limites des solutions techniques",
-    "text": "Limites des solutions techniques\n\n⚠️ Les solutions techniques ne suffisent pas !\nNécessité de :\n\nRéflexion éthique continue\nTransparence sur les choix\nImplication des parties prenantes\nÉvaluation des impacts sociaux"
+    "objectID": "slides/05-supervised-discriminant-slides-annotated.html#exemple-5",
+    "href": "slides/05-supervised-discriminant-slides-annotated.html#exemple-5",
+    "title": "Supervisée",
+    "section": "Exemple",
+    "text": "Exemple\n Matrice de confusion :\n\n\n\nDiagnostic clinique →\nOK\nSénile\nTotaux\n\n\n\n\nClassé OK\n29\n4\n33\n\n\nClassé sénile\n8\n8\n16\n\n\nTotaux\n37\n12\n49"
   },
   {
-    "objectID": "slides/07-ethics-slides.html#bonnes-pratiques",
-    "href": "slides/07-ethics-slides.html#bonnes-pratiques",
-    "title": "Éthique",
-    "section": "Bonnes pratiques",
-    "text": "Bonnes pratiques\n\nDémarche éthique complète :\n\nDocumentation → Origines et limites des données\nTransparence → Méthodes et hypothèses\nÉvaluation différenciée → Performance par sous-groupe\nImplication → Communautés affectées\nRévision → Continue et critique"
-  },
-  {
-    "objectID": "slides/07-ethics-slides.html#cadres-réglementaires",
-    "href": "slides/07-ethics-slides.html#cadres-réglementaires",
-    "title": "Éthique",
-    "section": "Cadres réglementaires",
-    "text": "Cadres réglementaires\n\nProtection juridique croissante :\n\nRGPD (UE) → Droit à l’explication\nAI Act (UE) → Cadre réglementaire et juridique commun pour l’IA\nLIAD (Canada) → Protection des consommateurs\nAlgorithmic Accountability Act (USA) → Audits obligatoires\nLégislations nationales en développement"
-  },
-  {
-    "objectID": "slides/07-ethics-slides.html#responsabilité-du-data-scientist",
-    "href": "slides/07-ethics-slides.html#responsabilité-du-data-scientist",
-    "title": "Éthique",
-    "section": "Responsabilité du data scientist",
-    "text": "Responsabilité du data scientist\n\nRôle et obligations :\n\nVigilance → Identifier les biais potentiels\nTransparence → Communiquer les limites\nPrudence → Évaluer les conséquences\nCourage → Refuser les projets problématiques\nFormation → Continue sur l’éthique"
-  },
-  {
-    "objectID": "slides/07-ethics-slides.html#questions-à-se-poser",
-    "href": "slides/07-ethics-slides.html#questions-à-se-poser",
-    "title": "Éthique",
-    "section": "Questions à se poser",
-    "text": "Questions à se poser\n\nAvant de déployer un modèle :\n\nQui bénéficie de ce modèle ? Qui peut en pâtir ?\nLes données sont-elles représentatives ?\nY a-t-il des groupes désavantagés ?\nLes erreurs ont-elles les mêmes conséquences pour tous ?\nExiste-t-il des alternatives moins risquées ?"
-  },
-  {
-    "objectID": "slides/07-ethics-slides.html#conclusion",
-    "href": "slides/07-ethics-slides.html#conclusion",
-    "title": "Éthique",
+    "objectID": "slides/05-supervised-discriminant-slides-annotated.html#conclusion",
+    "href": "slides/05-supervised-discriminant-slides-annotated.html#conclusion",
+    "title": "Supervisée",
     "section": "Conclusion",
-    "text": "Conclusion\n\nLes données et modèles ne sont jamais neutres.\nBiais multiples à toutes les étapes du processus.\nSolutions techniques nécessaires mais insuffisantes.\nRéflexion éthique indispensable à chaque projet.\nResponsabilité collective → Data scientists, organisations, société\n\n\n→ L’éthique n’est pas une contrainte, c’est une condition de qualité !\nProchaine étape → Classification supervisée"
+    "text": "Conclusion\n\nL’analyse discrimante est un algorithme de classification supervisée qui :\n\nest simple et interprétable.\na une solution analytique explicite.\npermet une réduction de dimension naturelle (\\(\\mathbb{R}^p \\to \\mathbb{R}\\)).\n\n\nProchaine étape → Des arbres !"
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#limite-de-lacp",
-    "href": "slides/04-dimension-ca-slides.html#limite-de-lacp",
-    "title": "Dimension",
-    "section": "Limite de l’ACP",
-    "text": "Limite de l’ACP\n\nL’analyse en composantes principales est restreinte à des données quantitatives.\n\n→ Comment faire lorsque l’on a des données qualitatives ?"
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#plan",
-    "href": "slides/04-dimension-ca-slides.html#plan",
-    "title": "Dimension",
+    "objectID": "slides/05-supervised-generalities.html#plan",
+    "href": "slides/05-supervised-generalities.html#plan",
+    "title": "Supervisée",
     "section": "Plan",
-    "text": "Plan\n\n\nLa théorie de l’analyse factorielle des correspondances\nL’AFC en pratique\nExemple : le taux d’emploi au Canada"
+    "text": "Plan\n\n\nQu’est-ce que la classification supervisée ?\nExemples\nApproche"
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#analyse-factorielle-des-correspondances",
-    "href": "slides/04-dimension-ca-slides.html#analyse-factorielle-des-correspondances",
-    "title": "Dimension",
-    "section": "Analyse factorielle des correspondances",
-    "text": "Analyse factorielle des correspondances\n\nL’Analyse Factorielle des Correspondances (AFC) est une méthode d’analyse exploratoire pour représenter graphiquement les relations entre les modalités de deux variables qualitatives.\n\nObjectif → Trouver une représentation en faible dimension tout en gardant le maximum d’information possible."
+    "objectID": "slides/05-supervised-generalities.html#principe",
+    "href": "slides/05-supervised-generalities.html#principe",
+    "title": "Supervisée",
+    "section": "Principe",
+    "text": "Principe\n\nOn considère une population comportant \\(K\\) groupes.\nOn connaît le nombre des groupes.\nOn observe \\(p\\) variables \\(X_1, \\dots, X_p\\) pour chaque individu / observation de la population.\nOn connaît le groupe d’appartenance de chaque individu / observation."
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#notation",
-    "href": "slides/04-dimension-ca-slides.html#notation",
-    "title": "Dimension",
-    "section": "Notation",
-    "text": "Notation\n\nTableau de contingence:\n\\[K = (k_{ij}) \\text{ avec } k_{ij} = \\text{ effectif classe } i \\in \\{1, \\dots, n\\}, \\text{ catégorie } j \\in \\{1, \\dots, p\\}.\\]"
+    "objectID": "slides/05-supervised-generalities.html#objectif",
+    "href": "slides/05-supervised-generalities.html#objectif",
+    "title": "Supervisée",
+    "section": "Objectif",
+    "text": "Objectif\n\n\\[Y = f(X) + \\epsilon\\]\n\nObtenir un modèle / algorithme pour classer de nouveaux individus / nouvelles observations dans les bons groupes.\n\n\nPrédire \\(Y\\) à partir de \\(X_1, \\dots, X_p\\)."
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#notation-1",
-    "href": "slides/04-dimension-ca-slides.html#notation-1",
-    "title": "Dimension",
-    "section": "Notation",
-    "text": "Notation\n\nTableau de fréquences relatives :\n\\[F = (f_{ij}) \\text{ où } f_{ij} = \\frac{k_{ij}}{k_{\\bullet\\bullet}}.\\]"
+    "objectID": "slides/05-supervised-generalities.html#quelques-méthodes",
+    "href": "slides/05-supervised-generalities.html#quelques-méthodes",
+    "title": "Supervisée",
+    "section": "Quelques méthodes",
+    "text": "Quelques méthodes\n\nClassificateur naïf de Bayes\n\nAnalyse discrimante\n\n\nArbres de classification\n\n\n\\(k\\) plus proches voisins (\\(k\\)-NN)\n\n\nRégression logistiques et dérivée (GLM, GAM, GLMM, GAMM, …)\n\n\nMéthodes ensemblistes (bagging, boosting, forêt aléatoire, …)\n\n\nMachine de vecteur de soutien (support vector machine, SVM)\n\n\nRéseaux de neurones"
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#notation-2",
-    "href": "slides/04-dimension-ca-slides.html#notation-2",
-    "title": "Dimension",
-    "section": "Notation",
-    "text": "Notation\n\nMarges :\n\nLigne : \\(f_{i\\bullet} = \\sum_{j=1}^p f_{ij}\\)\nColonne : \\(f_{\\bullet j} = \\sum_{i=1}^n f_{ij}\\)\nTotal : \\(f_{\\bullet\\bullet} = 1\\)"
+    "objectID": "slides/05-supervised-generalities.html#exemples",
+    "href": "slides/05-supervised-generalities.html#exemples",
+    "title": "Supervisée",
+    "section": "Exemples",
+    "text": "Exemples\n\nFiltrage de courriels indésirables\nSystèmes de recommendation\nPrévision des gagnants lors d’événements sportifs\nTraduction automatisée de textes\nReconnaissance d’images"
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#exemple-concret",
-    "href": "slides/04-dimension-ca-slides.html#exemple-concret",
-    "title": "Dimension",
-    "section": "Exemple concret",
-    "text": "Exemple concret\n\n\n\n\n\n\n\n\n\n\n\n\nCollège\nUniversité Laval\nAutre université\nHors Québec\n\\(f_{i \\bullet}\\)\n\n\n\n\nActuariat\n0.08\n0\n0\n0.04\n0.12\n\n\nStatistique\n0.08\n0.16\n0.04\n0\n0.28\n\n\nBio-info\n0.16\n0.08\n0\n0.08\n0.32\n\n\nFinance\n0.08\n0\n0\n0\n0.08\n\n\nMaths\n0.04\n0\n0\n0\n0.04\n\n\nInfo\n0.08\n0.04\n0\n0.04\n0.16\n\n\n\\(f_{\\bullet j}\\)\n0.52\n0.28\n0.04\n0.16\n1"
+    "objectID": "slides/05-supervised-generalities.html#approche-générale",
+    "href": "slides/05-supervised-generalities.html#approche-générale",
+    "title": "Supervisée",
+    "section": "Approche générale",
+    "text": "Approche générale\n\nSélectionner un certain nombre d’individus / d’observations dont on connaît le groupe d’appartenance.\nMesurer \\(p\\) caractéristiques \\(X_1, \\dots, X_p\\) sur ces individus.\nDivisier ce jeu de données en deux :\n\n\nUn jeu de données pour la modélisation (train)\nUn jeu de données pour la vérification (test)\n\n\nDévelopper un algorithme pour classer le mieux possible les individus du jeu de données d’entraînement.\nÉvaluer notre algorithme sur le jeu de données de validation."
   },
   {
-    "objectID": "slides/04-dimension-ca-slides.html#indépendance-statistique",
-    "href": "slides/04-dimension-ca-slides.html#indépendance-statistique",
-    "title": "Dimension",
-    "section": "Indépendance statistique",
-    "text": "Indépendance statistique\n\nTest d’indépendance : Si les variables sont indépendantes, \\[f_{ij} \\approx f_{i\\bullet} f_{\\bullet j}\\]"
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#indépendance-statistique-1",
-    "href": "slides/04-dimension-ca-slides.html#indépendance-statistique-1",
-    "title": "Dimension",
-    "section": "Indépendance statistique",
-    "text": "Indépendance statistique\n\nTest du \\(\\chi^2\\) :\n\\[T = \\sum_{i,j} \\frac{(k_{ij} - \\mathbb{E}(k_{ij}))^2}{\\mathbb{E}(k_{ij})} = \\sum_{i,j} \\frac{(k_{ij} - \\frac{k_{i\\bullet}k_{\\bullet j}}{k_{\\bullet\\bullet}})^2}{\\frac{k_{i\\bullet}k_{\\bullet j}}{k_{\\bullet\\bullet}}}\\]\nSi \\(T \\approx 0\\) → indépendance\nSi \\(T\\) grand → dépendance (intéressant pour l’AFC)"
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#profils-lignes-et-profils-colonnes",
-    "href": "slides/04-dimension-ca-slides.html#profils-lignes-et-profils-colonnes",
-    "title": "Dimension",
-    "section": "Profils-lignes et profils-colonnes",
-    "text": "Profils-lignes et profils-colonnes\nProfil-ligne \\(i\\) : Répartition de la modalité \\(i\\) parmi les colonnes \\[L_i = \\left(\\frac{f_{i1}}{f_{i\\bullet}}, \\ldots, \\frac{f_{ip}}{f_{i\\bullet}}\\right).\\]\n\nProfil-colonne \\(j\\) : Répartition de la modalité \\(j\\) parmi les lignes \\[C_j = \\left(\\frac{f_{1j}}{f_{\\bullet j}}, \\ldots, \\frac{f_{nj}}{f_{\\bullet j}}\\right).\\]\n\n\nLes profils sont des distributions conditionnelles."
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#profils-moyens",
-    "href": "slides/04-dimension-ca-slides.html#profils-moyens",
-    "title": "Dimension",
-    "section": "Profils moyens",
-    "text": "Profils moyens\n\nProfil-ligne moyen = fréquences marginales colonnes : \\[\\text{Profil moyen} = (f_{\\bullet 1}, \\ldots, f_{\\bullet p})\\]\nProfil-colonne moyen = fréquences marginales lignes : \\[\\text{Profil moyen} = (f_{1\\bullet}, \\ldots, f_{n\\bullet})\\]\nIndépendance \\(\\Longleftrightarrow\\) Tous les profils \\(\\approx\\) profils moyens."
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#distance-du-chi2",
-    "href": "slides/04-dimension-ca-slides.html#distance-du-chi2",
-    "title": "Dimension",
-    "section": "Distance du \\(\\chi^2\\)",
-    "text": "Distance du \\(\\chi^2\\)\nDistance entre profils-lignes : \\[d^2(L_i, L_{i'}) = \\sum_{j=1}^p \\frac{1}{f_{\\bullet j}} \\left(\\frac{f_{ij}}{f_{i\\bullet}} - \\frac{f_{i'j}}{f_{i'\\bullet}}\\right)^2\\]\nDistance entre profils-colonnes : \\[d^2(C_j, C_{j'}) = \\sum_{i=1}^n \\frac{1}{f_{i\\bullet}} \\left(\\frac{f_{ij}}{f_{\\bullet j}} - \\frac{f_{ij'}}{f_{\\bullet j'}}\\right)^2\\]"
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#formulation-matricielle",
-    "href": "slides/04-dimension-ca-slides.html#formulation-matricielle",
-    "title": "Dimension",
-    "section": "Formulation matricielle",
-    "text": "Formulation matricielle\nMatrices de poids :\n\n\\(D_n = \\text{diag}(f_{i\\bullet})\\) → poids des lignes\n\\(D_p = \\text{diag}(f_{\\bullet j})\\) → poids des colonnes\n\n\nDistance du \\(\\chi^2\\) matricielle :\n\nProfils-lignes : \\(d^2(L_i, L_{i'}) = (L_i - L_{i'})^\\top D_p^{-1} (L_i - L_{i'})\\)\nProfils-colonnes : \\(d^2(C_j, C_{j'}) = (C_j - C_{j'})^\\top D_n^{-1} (C_j - C_{j'})\\)"
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#analyse-directe-profils-lignes",
-    "href": "slides/04-dimension-ca-slides.html#analyse-directe-profils-lignes",
-    "title": "Dimension",
-    "section": "Analyse directe (profils-lignes)",
-    "text": "Analyse directe (profils-lignes)\nObjectif : Maximiser la variance projetée des profils-lignes\n\nProblème d’optimisation : \\[\\max_u u^\\top D_p^{-1} F^\\top D_n^{-1} F D_p^{-1} u \\quad \\text{s.c.} \\quad u^\\top D_p^{-1} u = 1\\]\n\n\nSolution : Vecteurs propres de la matrice \\[S = F^\\top D_n^{-1} F D_p^{-1}\\]\n\n\nPremier axe factoriel : \\(S u_1 = \\lambda_1 u_1\\)"
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#analyse-duale-profils-colonnes",
-    "href": "slides/04-dimension-ca-slides.html#analyse-duale-profils-colonnes",
-    "title": "Dimension",
-    "section": "Analyse duale (profils-colonnes)",
-    "text": "Analyse duale (profils-colonnes)\nObjectif : Maximiser la variance projetée des profils-colonnes\n\nProblème d’optimisation similaire avec matrice : \\[T = F D_p^{-1} F^\\top D_n^{-1}\\]\n\n\nPremier axe factoriel : \\(T v_1 = \\mu_1 v_1\\)"
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#propriété",
-    "href": "slides/04-dimension-ca-slides.html#propriété",
-    "title": "Dimension",
-    "section": "Propriété",
-    "text": "Propriété\n\n\n\n\n\n\nPropriété\n\n\n\\(S\\) et \\(T\\) ont les mêmes \\(r = \\min(n-1, p-1)\\) valeurs propres positives !"
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#relations-entre-analyses",
-    "href": "slides/04-dimension-ca-slides.html#relations-entre-analyses",
-    "title": "Dimension",
-    "section": "Relations entre analyses",
-    "text": "Relations entre analyses\nCohérence des représentations : \\(\\lambda_k = \\mu_k\\) pour \\(k = 1, \\ldots, r\\)\nRelations entre vecteurs propres : \\[u_k = \\frac{1}{\\sqrt{\\lambda_k}} F^\\top D_n^{-1} v_k.\\] \\[v_k = \\frac{1}{\\sqrt{\\lambda_k}} F D_p^{-1} u_k.\\]\nCette propriété garantit une représentation cohérente dans le même espace réduit."
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#afc-comme-double-acp",
-    "href": "slides/04-dimension-ca-slides.html#afc-comme-double-acp",
-    "title": "Dimension",
-    "section": "AFC comme double ACP",
-    "text": "AFC comme double ACP\n\n\n\n\n\n\nRemarque\n\n\nL’AFC peut être vue comme une double ACP pondérée :\n\nACP des profils-lignes dans \\(\\mathbb{R}^p\\),\nACP des profils-colonnes dans \\(\\mathbb{R}^n\\),\nAvec métriques du \\(\\chi^2\\) adaptées à chaque espace."
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#coordonnées-factorielles",
-    "href": "slides/04-dimension-ca-slides.html#coordonnées-factorielles",
-    "title": "Dimension",
-    "section": "Coordonnées factorielles",
-    "text": "Coordonnées factorielles\nCoordonnées des profils-lignes sur l’axe \\(k\\) :\n\\[\\Phi_k = D_n^{-1} F D_p^{-1} u_k.\\]\nCoordonnées des profils-colonnes sur l’axe \\(k\\) :\n\\[\\Psi_k = D_p^{-1} F^\\top D_n^{-1} v_k.\\]\nRelations entre coordonnées : \\[\\Phi_k = \\frac{1}{\\sqrt{\\lambda_k}} D_n^{-1} F \\Psi_k.\\]"
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#centrage-et-centre-de-gravité",
-    "href": "slides/04-dimension-ca-slides.html#centrage-et-centre-de-gravité",
-    "title": "Dimension",
-    "section": "Centrage et centre de gravité",
-    "text": "Centrage et centre de gravité\n\nConvention : Représentation centrée en \\((0,0)\\) dans les logiciels.\n\nCentres de gravité :\n\nLignes : \\(G_L = (f_{\\bullet 1}, \\ldots, f_{\\bullet p})^\\top\\).\nColonnes : \\(G_C = (f_{1\\bullet}, \\ldots, f_{n\\bullet})^\\top\\).\n\n\n\nCentrage : Soustraire les profils moyens\n\\[\\frac{f_{ij}}{f_{i\\bullet}} - f_{\\bullet j} = \\frac{f_{ij} - f_{i\\bullet}f_{\\bullet j}}{f_{i\\bullet}}.\\]"
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#afc-sur-matrice-centrée",
-    "href": "slides/04-dimension-ca-slides.html#afc-sur-matrice-centrée",
-    "title": "Dimension",
-    "section": "AFC sur matrice centrée",
-    "text": "AFC sur matrice centrée\n\nMatrice centrée : \\(S^* = (s_{jj'}^*)\\) avec\n\\[s_{jj'}^* = \\sum_{i=1}^n \\frac{(f_{ij} - f_{i\\bullet}f_{\\bullet j})(f_{ij'} - f_{i\\bullet}f_{\\bullet j'})}{f_{i\\bullet}f_{\\bullet j'}}.\\]"
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#inertie-totale",
-    "href": "slides/04-dimension-ca-slides.html#inertie-totale",
-    "title": "Dimension",
-    "section": "Inertie totale",
-    "text": "Inertie totale\n\nInertie totale :\n\\[\\text{tr}(S^*) = \\sum_{j=1}^p \\sum_{i=1}^n \\frac{(f_{ij} - f_{i\\bullet}f_{\\bullet j})^2}{f_{i\\bullet}f_{\\bullet j}}\\]\nCette inertie correspond à la statistique du \\(\\chi^2\\) normalisée."
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#représentation-barycentrique",
-    "href": "slides/04-dimension-ca-slides.html#représentation-barycentrique",
-    "title": "Dimension",
-    "section": "Représentation barycentrique",
-    "text": "Représentation barycentrique\nSur chaque axe factoriel,\n\\[[\\Phi_k]_i = \\frac{1}{\\sqrt{\\lambda_k}} \\sum_{j=1}^p \\frac{f_{ij}}{f_{i\\bullet}} [\\Psi_k]_j,\\]\n\\[[\\Psi_k]_j = \\frac{1}{\\sqrt{\\lambda_k}} \\sum_{i=1}^n \\frac{f_{ij}}{f_{\\bullet j}} [\\Phi_k]_i.\\]\nInterprétation : Chaque profil-ligne est au barycentre des profils-colonnes (et vice versa)."
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#double-représentation-barycentrique",
-    "href": "slides/04-dimension-ca-slides.html#double-représentation-barycentrique",
-    "title": "Dimension",
-    "section": "Double représentation barycentrique",
-    "text": "Double représentation barycentrique\n\n\n\n\n\n\nPropriété fondamentale de l’AFC :\n\n\nSur les axes factoriels, chaque point d’un nuage est au barycentre des points de l’autre nuage, pondéré par les contributions respectives.\n\n\n\nCette propriété permet une interprétation conjointe des modalités des deux variables dans le même graphique."
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#interprétation-des-résultats",
-    "href": "slides/04-dimension-ca-slides.html#interprétation-des-résultats",
-    "title": "Dimension",
-    "section": "Interprétation des résultats",
-    "text": "Interprétation des résultats\n\nProximité géométrique = Similarité des profils\nAxes factoriels : Directions de variation maximale.\nContribution des modalités : Importance dans la construction des axes.\nQualité de représentation : Proportion de l’inertie d’un point expliquée par les axes retenus."
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada",
-    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada",
-    "title": "Dimension",
-    "section": "Exemple : le taux d’emploi au Canada",
-    "text": "Exemple : le taux d’emploi au Canada\nOn considère le jeu de données suivant :\n\n\n\n\n\nprovince\nfull-time\npart-time\nunemployed\n\n\n\n\nNewfoundland and Labrador\n205.0\n39.3\n27.3\n\n\nPrince Edward Island\n82.1\n11.9\n7.6\n\n\nNova Scotia\n437.7\n87.2\n34.0\n\n\nNew Brunswick\n346.8\n54.8\n30.0\n\n\nQuebec\n3762.6\n864.7\n279.6\n\n\nOntario\n6721.8\n1508.0\n667.2\n\n\nManitoba\n608.4\n122.6\n46.3\n\n\nSaskatchewan\n498.1\n115.4\n31.7\n\n\nAlberta\n2084.6\n466.2\n195.0\n\n\nBritish Columbia\n2357.1\n587.8\n190.1"
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-1",
-    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-1",
-    "title": "Dimension",
-    "section": "Exemple : le taux d’emploi au Canada",
-    "text": "Exemple : le taux d’emploi au Canada\n\nCodePlotValeurs propres\n\n\n\nlibrary(FactoMineR)\nlibrary(factoextra)\nres_ca &lt;- df |&gt;\n  column_to_rownames(var = 'province') |&gt; \n  CA(graph = FALSE)\nfviz_eig(res_ca)\nget_eigenvalue(res_ca)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\neigenvalue\nvariance.percent\ncumulative.variance.percent\n\n\n\n\nDim.1\n0.0014335\n70.77104\n70.77104\n\n\nDim.2\n0.0005921\n29.22896\n100.00000"
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-2",
-    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-2",
-    "title": "Dimension",
-    "section": "Exemple : le taux d’emploi au Canada",
-    "text": "Exemple : le taux d’emploi au Canada\n\nCodePlot\n\n\n\n# Résultat pour les lignes\nfviz_ca_row(res_ca, repel = TRUE)"
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-3",
-    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-3",
-    "title": "Dimension",
-    "section": "Exemple : le taux d’emploi au Canada",
-    "text": "Exemple : le taux d’emploi au Canada\n\nCodeContribution à la première composante\n\n\n\n# Visualisation des lignes sur l'axe 1\nfviz_contrib(res_ca, choice =\"row\", axes = 1)"
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-4",
-    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-4",
-    "title": "Dimension",
-    "section": "Exemple : le taux d’emploi au Canada",
-    "text": "Exemple : le taux d’emploi au Canada\n\nCodeContribution à la première composante\n\n\n\n# Visualisation des lignes sur l'axe 2\nfviz_contrib(res_ca, choice =\"row\", axes = 2)"
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-5",
-    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-5",
-    "title": "Dimension",
-    "section": "Exemple : le taux d’emploi au Canada",
-    "text": "Exemple : le taux d’emploi au Canada\n\nCodeBiplot\n\n\n\nfviz_ca_biplot(res_ca, repel = TRUE)"
-  },
-  {
-    "objectID": "slides/04-dimension-ca-slides.html#conclusion",
-    "href": "slides/04-dimension-ca-slides.html#conclusion",
-    "title": "Dimension",
+    "objectID": "slides/05-supervised-generalities.html#conclusion",
+    "href": "slides/05-supervised-generalities.html#conclusion",
+    "title": "Supervisée",
     "section": "Conclusion",
-    "text": "Conclusion\n\nL’AFC est un outil pour :\n\nExplorer les relations entre variables qualitatives\nVisualiser des structures complexes en 2D/3D\nIdentifier des associations non évidentes\nInterpréter conjointement lignes et colonnes\n\nProchaine étape → Que faire si on a plus que deux variables qualitatives ?"
+    "text": "Conclusion\n\nModèle général:\n\\[Y = f(X) + \\epsilon\\]\nClassification supervisée: connaissant \\(X\\) et \\(Y\\), on cherche à estimer \\(f\\) (en supposant éventuellement une certaine forme pour \\(f\\)).\n\n\nProchaine étape → Analyse discriminante"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides.html#introduction-à-lacm",
-    "href": "slides/04-dimension-mca-slides.html#introduction-à-lacm",
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#pourquoi-les-distances",
+    "href": "slides/03-generalities-distance-slides-annotated.html#pourquoi-les-distances",
+    "title": "Généralités",
+    "section": "Pourquoi les distances ?",
+    "text": "Pourquoi les distances ?\n\nDans tout projet d’analyse de données, il faut pouvoir quantifier la ressemblance ou la dissemblance entre observations.\n\nImpact direct sur :\n\nAlgorithmes d’apprentissage\nMéthodes de regroupement\nTechniques de visualisation"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#plan",
+    "href": "slides/03-generalities-distance-slides-annotated.html#plan",
+    "title": "Généralités",
+    "section": "Plan",
+    "text": "Plan\n\n\nNotion de distance - Définition mathématique\nDistances numériques - \\(L_q\\), euclidienne, Manhattan\nNotion de similarité - Concept opposé\nVariables qualitatives - Encodages et distances adaptées\nDistance de Jaccard - Cas des variables binaires"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#définition-mathématique",
+    "href": "slides/03-generalities-distance-slides-annotated.html#définition-mathématique",
+    "title": "Généralités",
+    "section": "Définition mathématique",
+    "text": "Définition mathématique\n\n\n\nDistance sur \\(\\mathcal{X}\\)\n\n\nUne fonction \\(d: \\mathcal{X} \\times \\mathcal{X} \\to \\mathbb{R}\\) est une distance si :\n\nNon-négativité : \\(d(x, y) \\geq 0\\)\nSéparation : \\(d(x, y) = 0 \\Leftrightarrow x = y\\)\nSymétrie : \\(d(x, y) = d(y, x)\\)\nInégalité triangulaire : \\(d(x, y) \\leq d(x, z) + d(y, z)\\)"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#distance-euclidienne",
+    "href": "slides/03-generalities-distance-slides-annotated.html#distance-euclidienne",
+    "title": "Généralités",
+    "section": "Distance euclidienne",
+    "text": "Distance euclidienne\n\n\n\nDéfinition\n\n\nPour \\(x, y \\in \\mathbb{R}^p\\) :\n\\[d(x, y) = \\left\\| x - y \\right\\|_2 = \\sqrt{\\sum_{i=1}^{p} (x_i - y_i)^2}\\]\nQuand l’utiliser : Variables numériques de même ordre de grandeur."
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#distance-euclidienne-preuve",
+    "href": "slides/03-generalities-distance-slides-annotated.html#distance-euclidienne-preuve",
+    "title": "Généralités",
+    "section": "Distance euclidienne (preuve)",
+    "text": "Distance euclidienne (preuve)"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#distance-l_q-minkowski",
+    "href": "slides/03-generalities-distance-slides-annotated.html#distance-l_q-minkowski",
+    "title": "Généralités",
+    "section": "Distance \\(L_q\\) (Minkowski)",
+    "text": "Distance \\(L_q\\) (Minkowski)\n\n\n\nFormule générale :\n\n\n\\[d(x, y) = \\left( \\sum_{i=1}^{p} |x_i - y_i|^q \\right)^{1/q}\\]\nCas particuliers :\n\n\\(q = 1\\) : Distance de Manhattan → \\(d(x, y) = \\sum_{i=1}^{p} |x_i - y_i|\\)\n\\(q = 2\\) : Distance euclidienne"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#exemple-concret-wooclap-kffpdj",
+    "href": "slides/03-generalities-distance-slides-annotated.html#exemple-concret-wooclap-kffpdj",
+    "title": "Généralités",
+    "section": "Exemple concret (WOOCLAP: KFFPDJ)",
+    "text": "Exemple concret (WOOCLAP: KFFPDJ)\n\n\n\nNom\nTaille (cm)\nPoids (kg)\n\n\n\n\nAlice\n165\n70\n\n\nBob\n177\n75"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#problème-déchelle",
+    "href": "slides/03-generalities-distance-slides-annotated.html#problème-déchelle",
+    "title": "Généralités",
+    "section": "Problème d’échelle",
+    "text": "Problème d’échelle\n\n\n\nAttention !\n\n\nLes distances \\(L_q\\) ne sont pas invariantes aux changements d’échelle."
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#problème-déchelle---solution",
+    "href": "slides/03-generalities-distance-slides-annotated.html#problème-déchelle---solution",
+    "title": "Généralités",
+    "section": "Problème d’échelle - solution",
+    "text": "Problème d’échelle - solution\n\nStandardiser les variables !\n\nDistance euclidienne standardisée :\n\\[d(x, y) = \\sum_{i=1}^{p} \\left( \\frac{x_i - y_i}{\\sigma_i} \\right)^2\\]\noù \\(\\sigma_i\\) = écart-type de la variable \\(i\\)."
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#notion-de-similarité",
+    "href": "slides/03-generalities-distance-slides-annotated.html#notion-de-similarité",
+    "title": "Généralités",
+    "section": "Notion de similarité",
+    "text": "Notion de similarité\n\n\n\n\nMesure de similarité sur \\(\\mathcal{X}\\)\n\n\nUne fonction \\(s: \\mathcal{X} \\times \\mathcal{X} \\to \\mathbb{R}\\) telle que :\n\n\\(s(x, y) \\geq 0\\)\n\\(s(x, y) = s(y, x)\\) (symétrie)\n\\(s(x, x) = 1 \\geq s(x, y)\\) (maximum pour soi-même)"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#conversion-distance-similarité",
+    "href": "slides/03-generalities-distance-slides-annotated.html#conversion-distance-similarité",
+    "title": "Généralités",
+    "section": "Conversion distance ↔︎ similarité",
+    "text": "Conversion distance ↔︎ similarité\n\nDistance → Similarité :\n\\[s(x, y) = \\frac{1}{1 + d(x, y)}\\]\n\n⚠️ Une mesure de similarité ne respecte généralement pas l’inégalité triangulaire.\n\n\nSimilarité → Dissemblance :\n\\[d^*(x, y) = 1 - s(x, y)\\]"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#variables-qualitatives",
+    "href": "slides/03-generalities-distance-slides-annotated.html#variables-qualitatives",
+    "title": "Généralités",
+    "section": "Variables qualitatives",
+    "text": "Variables qualitatives\n\nProblème : pour \\(\\mathcal{X} = \\{\\text{Rouge}, \\text{Vert}, \\text{Bleu}\\}\\).\n\n\n❌ Mauvaise pratique :\nRouge = 1, Vert = 2, Bleu = 3 → Introduit un ordre artificiel !\n\n\n\n✅ Bonne pratique : Encodage adapté"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#encodage-1-parmi-k-one-hot-encoding",
+    "href": "slides/03-generalities-distance-slides-annotated.html#encodage-1-parmi-k-one-hot-encoding",
+    "title": "Généralités",
+    "section": "Encodage “1 parmi K” (One-hot encoding)",
+    "text": "Encodage “1 parmi K” (One-hot encoding)\n\n\nRouge → \\((1, 0, 0)\\)\nVert → \\((0, 1, 0)\\)\nBleu → \\((0, 0, 1)\\)\n\n\nAvantages : Pas d’ordre artificiel\nInconvénients : Grande dimension si beaucoup de modalités"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#distance-discrète",
+    "href": "slides/03-generalities-distance-slides-annotated.html#distance-discrète",
+    "title": "Généralités",
+    "section": "Distance discrète",
+    "text": "Distance discrète\n\n\n\nDistance de Hamming\n\n\nPour des vecteurs :\n\\[d(x, y) = \\sum_{i=1}^{p} \\mathbb{1}(x_i \\neq y_i)\\]"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#exemple-distance-discrète-wooclap-kffpdj",
+    "href": "slides/03-generalities-distance-slides-annotated.html#exemple-distance-discrète-wooclap-kffpdj",
+    "title": "Généralités",
+    "section": "Exemple : Distance discrète (WOOCLAP: KFFPDJ)",
+    "text": "Exemple : Distance discrète (WOOCLAP: KFFPDJ)\n\n\n\nNom\nCouleur\nYeux\nCheveux\n\n\n\n\nAlice\nRouge\nVert\nBlond\n\n\nBob\nVert\nBleu\nRoux\n\n\nChris\nRouge\nVert\nBlond"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#similarité-par-accords",
+    "href": "slides/03-generalities-distance-slides-annotated.html#similarité-par-accords",
+    "title": "Généralités",
+    "section": "Similarité par accords",
+    "text": "Similarité par accords\n\nCompter les accords normalisés :\n\\[s(x, y) = \\frac{1}{p}\\sum_{i=1}^{p} \\mathbb{1}(x_i = y_i)\\]\n\nExemple précédent :\n\n\\(s(\\text{Alice}, \\text{Bob}) = 0\\)\n\\(s(\\text{Alice}, \\text{Chris}) = 1\\)\n\\(s(\\text{Bob}, \\text{Chris}) = 0\\)"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#problème-des-variables-binaires",
+    "href": "slides/03-generalities-distance-slides-annotated.html#problème-des-variables-binaires",
+    "title": "Généralités",
+    "section": "Problème des variables binaires",
+    "text": "Problème des variables binaires\n\nAvec l’encodage “1 parmi K” :\n\nBeaucoup de variables binaires\nBeaucoup de 0, peu de 1\nDistance discrète peu informative\n\n\nSolution : Se concentrer sur les attributs à 1 → Distance de Jaccard"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#indice-de-jaccard-définition",
+    "href": "slides/03-generalities-distance-slides-annotated.html#indice-de-jaccard-définition",
+    "title": "Généralités",
+    "section": "Indice de Jaccard : Définition",
+    "text": "Indice de Jaccard : Définition\n\nPour deux observations de \\(K\\) variables binaires :\n\n\\(M_{11}\\) : nombre de variables à 1 pour x et y\n\\(M_{10}\\) : nombre de variables à 1 pour x, 0 pour y\n\\(M_{01}\\) : nombre de variables à 0 pour x, 1 pour y\n\\(M_{00}\\) : nombre de variables à 0 pour x et y\n\n\n\\[J(x, y) = \\frac{M_{11}}{M_{10} + M_{01} + M_{11}} = \\frac{M_{11}}{K - M_{00}}\\]"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#distance-de-jaccard",
+    "href": "slides/03-generalities-distance-slides-annotated.html#distance-de-jaccard",
+    "title": "Généralités",
+    "section": "Distance de Jaccard",
+    "text": "Distance de Jaccard\n\n\n\n\nDistance de Jaccard :\n\n\n\\[d(x, y) = 1 - J(x, y) = \\frac{M_{10} + M_{01}}{M_{01} + M_{10} + M_{11}}\\]\n\n\n\nIntuition : Proportion de désaccords parmi les variables “actives”."
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#exemple-distance-de-jaccard",
+    "href": "slides/03-generalities-distance-slides-annotated.html#exemple-distance-de-jaccard",
+    "title": "Généralités",
+    "section": "Exemple : Distance de Jaccard",
+    "text": "Exemple : Distance de Jaccard\n\n\n\nNom\nQ1\nQ2\nQ3\nQ4\nQ5\n\n\n\n\nAlice\n1\n0\n1\n0\n1\n\n\nBob\n1\n0\n0\n1\n0"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#récapitulatif-des-distances",
+    "href": "slides/03-generalities-distance-slides-annotated.html#récapitulatif-des-distances",
+    "title": "Généralités",
+    "section": "Récapitulatif des distances",
+    "text": "Récapitulatif des distances\n\n\n\n\nType de données\nDistance utilisable\n\n\n\n\nNumériques\nEuclidienne (standardisée)\n\n\nQualitatives\nDiscrète (Hamming)\n\n\nBinaires nombreuses\nJaccard\n\n\nMixtes\nCombinaison adaptée"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#choix-pratique-de-la-distance",
+    "href": "slides/03-generalities-distance-slides-annotated.html#choix-pratique-de-la-distance",
+    "title": "Généralités",
+    "section": "Choix pratique de la distance",
+    "text": "Choix pratique de la distance\n\nQuestions à se poser :\n\nQuel type de variables ? (numériques/qualitatives)\nMême échelle ou standardisation nécessaire ?\nBeaucoup de variables binaires ?\nLes double-absences sont-elles informatives ?\n\n\n→ Le choix de distance influence directement les résultats !"
+  },
+  {
+    "objectID": "slides/03-generalities-distance-slides-annotated.html#conclusion",
+    "href": "slides/03-generalities-distance-slides-annotated.html#conclusion",
+    "title": "Généralités",
+    "section": "Conclusion",
+    "text": "Conclusion\n\n\nDistance → mesure de dissemblance (4 propriétés mathématiques)\nSimilarité → mesure de ressemblance (concept opposé)\nVariables numériques → Distance euclidienne (standardisée)\nVariables qualitatives → Encodage + distance adaptée\nVariables binaires → Distance de Jaccard\n\n\nProchaine étape → Compromis biais/variance"
+  },
+  {
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#introduction-à-lacm",
+    "href": "slides/04-dimension-mca-slides-annotated.html#introduction-à-lacm",
     "title": "Dimension",
     "section": "Introduction à l’ACM",
     "text": "Introduction à l’ACM\n\nL’Analyse des Correspondances Multiples (ACM) est un prolongement de l’AFC pour analyser plus de deux variables qualitatives.\nPrincipe fondamental : Transformation préalable par codage disjonctif complet."
   },
   {
-    "objectID": "slides/04-dimension-mca-slides.html#plan",
-    "href": "slides/04-dimension-mca-slides.html#plan",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#plan",
+    "href": "slides/04-dimension-mca-slides-annotated.html#plan",
     "title": "Dimension",
     "section": "Plan",
     "text": "Plan\n\n\nLa théorie de l’analyse des correspondances multiples\nL’ACM en pratique\nExemple :"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides.html#notation-de-base",
-    "href": "slides/04-dimension-mca-slides.html#notation-de-base",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#notation-de-base",
+    "href": "slides/04-dimension-mca-slides-annotated.html#notation-de-base",
     "title": "Dimension",
     "section": "Notation de base",
     "text": "Notation de base\n\n\n\\(n\\) : nombre d’individus (observations)\n\\(Q\\) : nombre de variables (questions)\n\\(J_q\\) : nombre de modalités de la variable \\(q\\)\n\\(J\\) : nombre total de modalités (\\(J = \\sum_{q=1}^Q J_q\\))\n\nObjectif : Représenter graphiquement les relations entre toutes ces modalités."
   },
   {
-    "objectID": "slides/04-dimension-mca-slides.html#codage-disjonctif-complet",
-    "href": "slides/04-dimension-mca-slides.html#codage-disjonctif-complet",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#codage-disjonctif-complet",
+    "href": "slides/04-dimension-mca-slides-annotated.html#codage-disjonctif-complet",
     "title": "Dimension",
     "section": "Codage disjonctif complet",
     "text": "Codage disjonctif complet\n\n\n\n\n\n\nDéfinition\n\n\nTableau binaire \\(Z\\) (\\(n \\times J\\)) contenant uniquement des 0 et des 1.\n\n\n\n\n\nChaque variable → ses modalités\nIndividu possède modalité → code 1\nIndividu ne possède pas modalité → code 0\nDisjonctif : au plus une modalité par variable\nComplet : au moins une modalité par variable"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides.html#exemple-concret---données",
-    "href": "slides/04-dimension-mca-slides.html#exemple-concret---données",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple-concret---données",
+    "href": "slides/04-dimension-mca-slides-annotated.html#exemple-concret---données",
     "title": "Dimension",
     "section": "Exemple concret - Données",
     "text": "Exemple concret - Données\n\nProduits avec Type et Prix:\n\n\n\nProduit\nType\nPrix ($)\n\n\n\n\nNike\nHoodie\n256.72\n\n\nPuma\nJoggers\n221.26\n\n\nOff-W\nHoodie\n198.45\n\n\nSupreme\nHoodie\n235.50\n\n\n\nVariable Prix → 3 classes : &lt;200$, [200$-250$], &gt;250$"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides.html#exemple---codage-disjonctif-complet",
-    "href": "slides/04-dimension-mca-slides.html#exemple---codage-disjonctif-complet",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple---codage-disjonctif-complet",
+    "href": "slides/04-dimension-mca-slides-annotated.html#exemple---codage-disjonctif-complet",
     "title": "Dimension",
     "section": "Exemple - Codage disjonctif complet",
     "text": "Exemple - Codage disjonctif complet\n\nTableau transformé \\(Z\\) :\n\n\n\n\n\n\n\n\n\n\n\n\nProduit\nHoodie\nJoggers\nSneakers\n&lt;200$\n[200$-250$]\n&gt;250$\n\n\n\n\nNike\n1\n0\n0\n0\n0\n1\n\n\nPuma\n0\n1\n0\n0\n1\n0\n\n\nOff-W\n1\n0\n0\n1\n0\n0\n\n\nSupreme\n1\n0\n0\n0\n1\n0\n\n\n\nChaque ligne somme à \\(Q = 2\\) (2 variables)."
   },
   {
-    "objectID": "slides/04-dimension-mca-slides.html#propriétés-du-tableau-z",
-    "href": "slides/04-dimension-mca-slides.html#propriétés-du-tableau-z",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#propriétés-du-tableau-z",
+    "href": "slides/04-dimension-mca-slides-annotated.html#propriétés-du-tableau-z",
     "title": "Dimension",
     "section": "Propriétés du tableau Z",
     "text": "Propriétés du tableau Z\n\n\n\n\n\n\n\nPropriétés\n\n\n\nSomme par ligne : \\(\\sum_{j=1}^J z_{ij} = Q\\) (constante)\nSomme totale : \\(\\sum_{i,j} z_{ij} = nQ\\)\nSomme par colonne : \\(\\sum_{i=1}^n z_{ij} = n_j\\) (effectif modalité \\(j\\))"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides.html#perte-dinformation",
-    "href": "slides/04-dimension-mca-slides.html#perte-dinformation",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#perte-dinformation",
+    "href": "slides/04-dimension-mca-slides-annotated.html#perte-dinformation",
     "title": "Dimension",
     "section": "Perte d’information",
     "text": "Perte d’information\n\nVariables quantitatives → Classes : Perte d’information inévitable.\n\nValeur précise → Appartenance à une classe\nExemple : 256.72$ → &gt;250$\nCompromis : Granularité vs interprétabilité\n\nEnjeu : Choisir des classes pertinentes pour le problème étudié."
   },
   {
-    "objectID": "slides/04-dimension-mca-slides.html#tableau-de-burt",
-    "href": "slides/04-dimension-mca-slides.html#tableau-de-burt",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#tableau-de-burt",
+    "href": "slides/04-dimension-mca-slides-annotated.html#tableau-de-burt",
     "title": "Dimension",
     "section": "Tableau de Burt",
     "text": "Tableau de Burt\n\n\n\n\n\n\n\nDéfinition\n\n\n\\(B = Z^\\top Z\\) (matrice \\(J \\times J\\))"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides.html#propriétés-du-tableau-de-burt",
-    "href": "slides/04-dimension-mca-slides.html#propriétés-du-tableau-de-burt",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#propriétés-du-tableau-de-burt",
+    "href": "slides/04-dimension-mca-slides-annotated.html#propriétés-du-tableau-de-burt",
     "title": "Dimension",
     "section": "Propriétés du tableau de Burt",
     "text": "Propriétés du tableau de Burt\n\nTaille : \\(J \\times J\\) (nombre total de modalités)\n\nBlocs diagonaux : Matrices diagonales\n→ Éléments = effectifs de chaque modalité\n\n\nBlocs non-diagonaux : Tableaux de contingence\n→ Croisement entre variables \\(q\\) et \\(q'\\)\n\n\nSymétrie : \\(B = B^\\top\\)"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides.html#équivalence-mathématique",
-    "href": "slides/04-dimension-mca-slides.html#équivalence-mathématique",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#équivalence-mathématique",
+    "href": "slides/04-dimension-mca-slides-annotated.html#équivalence-mathématique",
     "title": "Dimension",
     "section": "Équivalence mathématique",
     "text": "Équivalence mathématique\n\nL’ACM peut s’effectuer sur :\n\nLe tableau disjonctif complet \\(Z\\)\nLe tableau de Burt \\(B = Z^\\top Z\\)\n\nRésultat → Les deux approches donnent les mêmes facteurs!\nCette équivalence offre une flexibilité computationnelle."
   },
   {
-    "objectID": "slides/04-dimension-mca-slides.html#éléments-propres-de-z",
-    "href": "slides/04-dimension-mca-slides.html#éléments-propres-de-z",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#éléments-propres-de-z",
+    "href": "slides/04-dimension-mca-slides-annotated.html#éléments-propres-de-z",
     "title": "Dimension",
     "section": "Éléments propres de Z",
     "text": "Éléments propres de Z\nAnalyse directe - Vecteurs propres de :\n\\[S = \\frac{1}{Q} Z^\\top Z D_J^{-1}\\] où \\(D_J = \\text{diag}(n_1, \\ldots, n_J)\\).\nCoordonnées profils-lignes : \\[\\Phi_k = n Z D_J^{-1} u_k\\]"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides.html#éléments-propres-de-z-1",
-    "href": "slides/04-dimension-mca-slides.html#éléments-propres-de-z-1",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#éléments-propres-de-z-1",
+    "href": "slides/04-dimension-mca-slides-annotated.html#éléments-propres-de-z-1",
     "title": "Dimension",
     "section": "Éléments propres de Z",
     "text": "Éléments propres de Z\nAnalyse duale - Vecteurs propres de : \\[T = \\frac{1}{Q} Z D_J^{-1} Z^\\top\\] où \\(D_J = \\text{diag}(n_1, \\ldots, n_J)\\).\nCoordonnées profils-colonnes : \\[\\Psi_k = n D_J^{-1} Z^\\top v_k\\]"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides.html#éléments-propres-de-b",
-    "href": "slides/04-dimension-mca-slides.html#éléments-propres-de-b",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#éléments-propres-de-b",
+    "href": "slides/04-dimension-mca-slides-annotated.html#éléments-propres-de-b",
     "title": "Dimension",
     "section": "Éléments propres de B",
     "text": "Éléments propres de B\nTableau de Burt symétrique → Analyse directe = duale\nVecteurs propres de : \\[S' = \\frac{1}{Q^2} B^\\top D_J^{-1} B D_J^{-1}\\]\n\nOn peut réécrire \\(S'\\) comme : \\[S' = \\frac{1}{Q^2} Z^\\top Z D_J^{-1} Z^\\top Z D_J^{-1}\\]"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides.html#relation-entre-valeurs-propres",
-    "href": "slides/04-dimension-mca-slides.html#relation-entre-valeurs-propres",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#relation-entre-valeurs-propres",
+    "href": "slides/04-dimension-mca-slides-annotated.html#relation-entre-valeurs-propres",
     "title": "Dimension",
     "section": "Relation entre valeurs propres",
     "text": "Relation entre valeurs propres\n\nSi \\(\\lambda\\) est valeur propre de \\(S\\) (analyse de \\(Z\\)), alors \\(\\lambda^2\\) est valeur propre de \\(S'\\) (analyse de \\(B\\)).\nConséquence :\n\nMêmes vecteurs propres pour \\(Z\\) et \\(B\\).\nValeurs propres de \\(B\\) = carrés des valeurs propres de \\(Z\\)."
   },
   {
-    "objectID": "slides/04-dimension-mca-slides.html#encodage-des-variables-quantitatives",
-    "href": "slides/04-dimension-mca-slides.html#encodage-des-variables-quantitatives",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#encodage-des-variables-quantitatives",
+    "href": "slides/04-dimension-mca-slides-annotated.html#encodage-des-variables-quantitatives",
     "title": "Dimension",
     "section": "Encodage des variables quantitatives",
     "text": "Encodage des variables quantitatives\nChoix des bornes crucial pour la qualité de l’analyse.\n\nApproches recommandées :\n\nAnalyser la distribution (histogrammes)\nBornes pertinentes au domaine d’étude\nÉviter les classes peu informatives\n\n\n\nApproche déconseillée :\n\nEffectifs égaux automatiques\nClasses sans sens métier"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides.html#encodage-des-variables-qualitatives",
-    "href": "slides/04-dimension-mca-slides.html#encodage-des-variables-qualitatives",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#encodage-des-variables-qualitatives",
+    "href": "slides/04-dimension-mca-slides-annotated.html#encodage-des-variables-qualitatives",
     "title": "Dimension",
     "section": "Encodage des variables qualitatives",
     "text": "Encodage des variables qualitatives\nModalités “naturelles” mais problèmes potentiels.\n\nEffectifs déséquilibrés :\n\nModalités très rares vs très fréquentes\nImpact sur la représentation\n\n\n\nSolutions potentielles :\n\nRegroupements pertinents (connaissance du domaine)\nÉviter la répartition aléatoire\nPréserver le sens des modalités"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants",
-    "href": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants",
+    "href": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants",
     "title": "Dimension",
     "section": "Exemple : le succès des étudiants",
     "text": "Exemple : le succès des étudiants\nOn considère le jeu de données suivant :\n\n\n\n\n\n\n\n\n\n\n\n\n\nHours_Studied\nAttendance\nParental_Involvement\nExtracurricular_Activities\nSleep_Hours\nSchool_Type\n\n\n\n\n21-30\n71-90\nLow\nNo\n&lt;=7\nPublic\n\n\n11-20\n0-70\nLow\nNo\n&gt;7\nPublic\n\n\n21-30\n91-100\nMedium\nYes\n&lt;=7\nPublic\n\n\n21-30\n71-90\nLow\nYes\n&gt;7\nPublic\n\n\n11-20\n91-100\nMedium\nYes\n&lt;=7\nPublic\n\n\n11-20\n71-90\nMedium\nYes\n&gt;7\nPublic"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants-1",
-    "href": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants-1",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-1",
+    "href": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-1",
     "title": "Dimension",
     "section": "Exemple : le succès des étudiants",
     "text": "Exemple : le succès des étudiants\n\nCodePlotValeurs propres\n\n\n\nlibrary(FactoMineR)\nlibrary(factoextra)\nres_mca &lt;- df |&gt;\n  MCA(graph = FALSE)\nfviz_eig(res_mca)\nget_eigenvalue(res_mca)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\neigenvalue\nvariance.percent\ncumulative.variance.percent\n\n\n\n\nDim.1\n0.1984565\n11.907391\n11.90739\n\n\nDim.2\n0.1898757\n11.392541\n23.29993\n\n\nDim.3\n0.1814721\n10.888326\n34.18826\n\n\nDim.4\n0.1773147\n10.638882\n44.82714\n\n\nDim.5\n0.1672860\n10.037161\n54.86430\n\n\nDim.6\n0.1651723\n9.910338\n64.77464\n\n\nDim.7\n0.1561348\n9.368089\n74.14273\n\n\nDim.8\n0.1500984\n9.005905\n83.14863\n\n\nDim.9\n0.1415169\n8.491017\n91.63965\n\n\nDim.10\n0.1393392\n8.360350\n100.00000"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants-2",
-    "href": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants-2",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-2",
+    "href": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-2",
     "title": "Dimension",
     "section": "Exemple : le succès des étudiants",
     "text": "Exemple : le succès des étudiants\n\nCodePlot\n\n\n\nfviz_mca_biplot(\n  res_mca, \n  repel = TRUE,\n  label = \"none\",\n  ggtheme = theme_minimal()\n)"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants-3",
-    "href": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants-3",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-3",
+    "href": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-3",
     "title": "Dimension",
     "section": "Exemple : le succès des étudiants",
     "text": "Exemple : le succès des étudiants\n\nCodePlot\n\n\n\nfviz_mca_var(\n  res_mca,\n  choice = \"mca.cor\", \n  repel = TRUE,\n  ggtheme = theme_minimal()\n)"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants-4",
-    "href": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants-4",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-4",
+    "href": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-4",
     "title": "Dimension",
     "section": "Exemple : le succès des étudiants",
     "text": "Exemple : le succès des étudiants\n\nCodePlot\n\n\n\nfviz_mca_var(\n  res_mca,\n  repel = TRUE,\n  ggtheme = theme_minimal()\n)"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants-5",
-    "href": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants-5",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-5",
+    "href": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-5",
     "title": "Dimension",
     "section": "Exemple : le succès des étudiants",
     "text": "Exemple : le succès des étudiants\n\nCodePlot\n\n\n\nfviz_mca_var(\n  res_mca,\n  col.var = \"cos2\",\n  gradient.cols = c(\"#00AFBB\", \"#E7B800\", \"#FC4E07\"), \n  repel = TRUE,\n  ggtheme = theme_minimal()\n)"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants-6",
-    "href": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants-6",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-6",
+    "href": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-6",
     "title": "Dimension",
     "section": "Exemple : le succès des étudiants",
     "text": "Exemple : le succès des étudiants\n\nCodePlot\n\n\n\nfviz_mca_ind(\n  res_mca,\n  label = \"none\",\n  col.ind = \"cos2\", \n  gradient.cols = c(\"#00AFBB\", \"#E7B800\", \"#FC4E07\"),\n  repel = TRUE,\n  ggtheme = theme_minimal()\n)"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants-7",
-    "href": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants-7",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-7",
+    "href": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-7",
     "title": "Dimension",
     "section": "Exemple : le succès des étudiants",
     "text": "Exemple : le succès des étudiants\n\nCodePlotPlot\n\n\n\nfviz_mca_ind(\n  res_mca, \n  label = \"none\",\n  habillage = \"Hours_Studied\",\n  palette = c(\"#D81B60\", \"#1E88E5\", \"#FFC107\", \"#004D40\"),\n  addEllipses = TRUE, ellipse.type = \"confidence\",\n  ggtheme = theme_minimal()\n)"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides.html#avantages-de-lacm",
-    "href": "slides/04-dimension-mca-slides.html#avantages-de-lacm",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#avantages-de-lacm",
+    "href": "slides/04-dimension-mca-slides-annotated.html#avantages-de-lacm",
     "title": "Dimension",
     "section": "Avantages de l’ACM",
     "text": "Avantages de l’ACM\n\n\nVisualisation de relations complexes multi-variables\nTraitement unifié de variables hétérogènes\nRéduction de dimension préservant les associations\nInterprétation intuitive des proximités\nFlexibilité dans l’encodage des variables"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides.html#limites-et-précautions",
-    "href": "slides/04-dimension-mca-slides.html#limites-et-précautions",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#limites-et-précautions",
+    "href": "slides/04-dimension-mca-slides-annotated.html#limites-et-précautions",
     "title": "Dimension",
     "section": "Limites et précautions",
     "text": "Limites et précautions\n\nPerte d’information :\n\nVariables continues → classes\nChoix d’encodage critique\n\nInterprétation :\n\nProximités entre modalités de variables différentes\nAttention aux artefacts d’encodage"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides.html#conclusion",
-    "href": "slides/04-dimension-mca-slides.html#conclusion",
+    "objectID": "slides/04-dimension-mca-slides-annotated.html#conclusion",
+    "href": "slides/04-dimension-mca-slides-annotated.html#conclusion",
     "title": "Dimension",
     "section": "Conclusion",
     "text": "Conclusion\n\nL’ACM étend l’AFC au cas multi-variables grâce au codage disjonctif complet :\n\nTransformation binaire préalable\nÉquivalence \\(Z\\) ↔︎ Tableau de Burt \\(B\\)\nChoix d’encodage\nVisualisation des patterns complexes\n\nProchaine étape → éthique de l’analyse de données"
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#structure-dun-projet",
+    "href": "slides/03-generalities-stat-slides.html#structure-dun-projet",
+    "title": "Généralités",
+    "section": "Structure d’un projet",
+    "text": "Structure d’un projet\n\n5 étapes principales :\n\nDéfinition des objectifs\nCollecte et préparation des données\nÉlaboration et validation des modèles\nImplémentation et mise en production\nSuivi de la performance et amélioration continue"
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#répartition-temps-vs-importance-pyle-1999",
+    "href": "slides/03-generalities-stat-slides.html#répartition-temps-vs-importance-pyle-1999",
+    "title": "Généralités",
+    "section": "Répartition temps vs importance (Pyle, 1999)",
+    "text": "Répartition temps vs importance (Pyle, 1999)\n\n\n\n\nÉtape\nTemps\nImportance\n\n\n\n\nComprendre le problème\n10%\n15%\n\n\nExplorer la solution\n9%\n14%\n\n\nImplementer la solution\n1%\n51%\n\n\nPréparer les données\n60%\n15%\n\n\nAnalyse descriptive des données\n15%\n3%\n\n\nModéliser les données\n5%\n2%\n\n\n\n\nConstat: importance ≠ temps passé !"
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#définition-des-objectifs",
+    "href": "slides/03-generalities-stat-slides.html#définition-des-objectifs",
+    "title": "Généralités",
+    "section": "1. Définition des objectifs",
+    "text": "1. Définition des objectifs\n\nPourquoi c’est crucial ?\n\nGuide la collecte des données.\nDéfinit le modèle adéquat.\nFacilite l’interprétation.\nÉvite les explorations aveugles."
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#définition-des-objectifs-1",
+    "href": "slides/03-generalities-stat-slides.html#définition-des-objectifs-1",
+    "title": "Généralités",
+    "section": "1. Définition des objectifs",
+    "text": "1. Définition des objectifs\n\nComment bien formuler ?\n\nClarifier les termes.\nIdentifier les utilisateurs.\nDéfinir la population cible.\nPréciser les décisions qui dépendent des résultats."
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#exemples-dobjectifs",
+    "href": "slides/03-generalities-stat-slides.html#exemples-dobjectifs",
+    "title": "Généralités",
+    "section": "1. Exemples d’objectifs",
+    "text": "1. Exemples d’objectifs\n\n❌ Mauvais objectifs\n\nAnalyser les données clients.\nAnalyser les données des adversaires.\nAnalyser les données du médicament.\n\n\n✅ Bons objectifs\n\nPrédire quels clients achèteront le produit d’épargne.\nCaractériser le style de jeu pour identifier les faiblesses d’une équipe.\nConcevoir un protocole pour tester l’efficacité d’un médicament."
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#sources-de-données",
+    "href": "slides/03-generalities-stat-slides.html#sources-de-données",
+    "title": "Généralités",
+    "section": "2. Sources de données",
+    "text": "2. Sources de données\nPlateformes génériques :\n\nGoogle datasets\nKaggle\nUC Irvine ML Repository\n\nSources officielles :\n\nCanada: StatCan\nFrance: data.gouv.fr\nUSA: data.gov\n\nSources internes : bases clients, transactions, production, web analytics"
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#qualité-des-données",
+    "href": "slides/03-generalities-stat-slides.html#qualité-des-données",
+    "title": "Généralités",
+    "section": "2. Qualité des données",
+    "text": "2. Qualité des données\n\n\n“Garbage in, garbage out”\n\n\nQuelques questions importantes :\n\nLes données sont-elles représentatives ?\nSont-elles exactes, complètes, pertinentes ?\nY a-t-il des valeurs manquantes, doublons, incohérences ?"
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#format-tidy-data",
+    "href": "slides/03-generalities-stat-slides.html#format-tidy-data",
+    "title": "Généralités",
+    "section": "2. Format “Tidy Data”",
+    "text": "2. Format “Tidy Data”\n\n3 principes fondamentaux :\n\nChaque variable = une colonne.\nChaque observation = une ligne.\nChaque cellule = une valeur unique.\n\n\n\nR : tidyr, readr, readxl, haven\n\nPython : pandas, polars"
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#exploration-préliminaire---nettoyage",
+    "href": "slides/03-generalities-stat-slides.html#exploration-préliminaire---nettoyage",
+    "title": "Généralités",
+    "section": "2. Exploration préliminaire - Nettoyage",
+    "text": "2. Exploration préliminaire - Nettoyage\n\n\nSupprimer les doublons.\nUniformiser les modalités.\nVérifier les formats des valeurs spéciales."
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration",
+    "href": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration",
+    "title": "Généralités",
+    "section": "2. Exploration préliminaire - Exploration",
+    "text": "2. Exploration préliminaire - Exploration\n\n\nModalités rares/nombreuses.\nValeurs extrêmes ou aberrantes.\nCorrélations fortes.\nClasses déséquilibrées.\nValeurs manquantes."
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-1",
+    "href": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-1",
+    "title": "Généralités",
+    "section": "2. Exploration préliminaire - Exploration",
+    "text": "2. Exploration préliminaire - Exploration\n\nPour faire l’exploration, on peut utiliser :\n\ndes statistiques descriptives unidimensionnelles\n\nnumérique: moyenne, extremum, tableau de fréquences, …\ngraphique: histogramme, boxplot"
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-2",
+    "href": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-2",
+    "title": "Généralités",
+    "section": "2. Exploration préliminaire - Exploration",
+    "text": "2. Exploration préliminaire - Exploration\n\nPour faire l’exploration, on peut utiliser :\n\ndes statistiques descriptives bidimensionnelles\n\nnumérique: tableaux croisés, corrélation, …\ngraphique: diagramme de dispersion, …"
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-3",
+    "href": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-3",
+    "title": "Généralités",
+    "section": "2. Exploration préliminaire - Exploration",
+    "text": "2. Exploration préliminaire - Exploration\n\nPour faire l’exploration, on peut utiliser :\n\ndes transformations de variables\n\ntransformation simple: passer au \\(\\log\\), standardisation, …\nregrouper des modalités\ncombiner des variables"
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-4",
+    "href": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-4",
+    "title": "Généralités",
+    "section": "2. Exploration préliminaire - Exploration",
+    "text": "2. Exploration préliminaire - Exploration\n\nUne valeur extrême est une valeur éloignée des autres valeurs de la population.\n🚨 Peut correspondre à un profil particulier et plus rare dans la population.\n\nQue faire ?\n\n\n\nUtiliser des méthodes robustes\nTransformer la variable, e.g. avec un \\(\\log\\)."
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-5",
+    "href": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-5",
+    "title": "Généralités",
+    "section": "2. Exploration préliminaire - Exploration",
+    "text": "2. Exploration préliminaire - Exploration\n\nUne valeur aberrantes est une valeur erronée causée par une erreur de saisie, une erreur de calcul, une mauvaise mesure ou une fausse déclaration.\n\nQue faire ?\n\n\n\nLes remplacer par la bonne valeur.\nLes traiter comme des valeurs manquantes\nRetirer l’individu."
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#modélisation-4-composantes",
+    "href": "slides/03-generalities-stat-slides.html#modélisation-4-composantes",
+    "title": "Généralités",
+    "section": "3. Modélisation : 4 composantes",
+    "text": "3. Modélisation : 4 composantes\n\n\n\nEspace de représentation (cadre mathématique).\nDistance ou similarité (comparer les observations).\nModèle ou algorithme (méthode d’apprentissage).\nFonction de coût (mesure de qualité)."
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#mise-en-production-data-engineering",
+    "href": "slides/03-generalities-stat-slides.html#mise-en-production-data-engineering",
+    "title": "Généralités",
+    "section": "4. Mise en production : Data Engineering",
+    "text": "4. Mise en production : Data Engineering\n\n\nAutomatiser la collecte et le nettoyage.\nIntégrer le modèle dans l’application.\nGénérer rapports/prédictions en temps réel.\nMaintenir la pipeline de données.\n\nRôle du Data Engineer : conception et maintenance de bout en bout."
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#suivi-et-amélioration",
+    "href": "slides/03-generalities-stat-slides.html#suivi-et-amélioration",
+    "title": "Généralités",
+    "section": "5. Suivi et amélioration",
+    "text": "5. Suivi et amélioration\n\nDéfis :\n\nEvolution des données (data drift).\nHypothèses initiales invalidées.\nNouvelles variables disponibles.\n\n\nSolutions :\n\nMonitoring régulier des performances.\nRéentraînement avec données récentes.\nAmélioration continue du modèle."
+  },
+  {
+    "objectID": "slides/03-generalities-stat-slides.html#conclusion",
+    "href": "slides/03-generalities-stat-slides.html#conclusion",
+    "title": "Généralités",
+    "section": "Conclusion",
+    "text": "Conclusion\n\nUn bon modèle :\n✅ Performant à un instant donné.\n✅ Robuste dans le temps.\n✅ Adaptable aux changements.\n→ Équilibre entre toutes les étapes, pas seulement la modélisation !"
   },
   {
     "objectID": "slides/02-revisions-algebre-slides-annotated.html#plan-de-la-présentation",
@@ -3516,543 +3600,746 @@
     "text": "Estimation de la corrélation\nMatrice de corrélation estimée : \\(\\widehat{R} = D^{-1} \\widehat{\\Sigma} D^{-1}\\) où \\(D\\) est la matrice diagonale des écarts-types.\n\nExemple 2D : Si \\(\\widehat{\\Sigma} = \\begin{pmatrix} 4 & 1.5 \\\\ 1.5 & 9 \\end{pmatrix}\\). Alors,\n\\[D = \\begin{pmatrix} 2 & 0 \\\\ 0 & 3 \\end{pmatrix}, \\quad\\text{et}\\quad\\widehat{R} = \\begin{pmatrix} 1 & 0.25 \\\\ 0.25 & 1 \\end{pmatrix}.\\]\nInterprétation : corrélation faible positive (0.25) entre les variables."
   },
   {
-    "objectID": "slides/03-generalities-stat-slides.html#structure-dun-projet",
-    "href": "slides/03-generalities-stat-slides.html#structure-dun-projet",
-    "title": "Généralités",
-    "section": "Structure d’un projet",
-    "text": "Structure d’un projet\n\n5 étapes principales :\n\nDéfinition des objectifs\nCollecte et préparation des données\nÉlaboration et validation des modèles\nImplémentation et mise en production\nSuivi de la performance et amélioration continue"
+    "objectID": "slides/05-supervised-tree-slides-annotated.html#plan",
+    "href": "slides/05-supervised-tree-slides-annotated.html#plan",
+    "title": "Supervisée",
+    "section": "Plan",
+    "text": "Plan\n\n\nLa théorie des arbres de décision\nLes arbres en pratique\nExemple"
   },
   {
-    "objectID": "slides/03-generalities-stat-slides.html#répartition-temps-vs-importance-pyle-1999",
-    "href": "slides/03-generalities-stat-slides.html#répartition-temps-vs-importance-pyle-1999",
-    "title": "Généralités",
-    "section": "Répartition temps vs importance (Pyle, 1999)",
-    "text": "Répartition temps vs importance (Pyle, 1999)\n\n\n\n\nÉtape\nTemps\nImportance\n\n\n\n\nComprendre le problème\n10%\n15%\n\n\nExplorer la solution\n9%\n14%\n\n\nImplementer la solution\n1%\n51%\n\n\nPréparer les données\n60%\n15%\n\n\nAnalyse descriptive des données\n15%\n3%\n\n\nModéliser les données\n5%\n2%\n\n\n\n\nConstat: importance ≠ temps passé !"
+    "objectID": "slides/05-supervised-tree-slides-annotated.html#cart",
+    "href": "slides/05-supervised-tree-slides-annotated.html#cart",
+    "title": "Supervisée",
+    "section": "CART",
+    "text": "CART\n\nVariables : \\(X_1, \\ldots, X_p\\) avec \\(n\\) observations dans \\(\\mathbb{R}^p\\).\n\n\nClassification : Prédire l’appartenance à l’un des \\(K\\) groupes.\n\n\n\nRégression : Prédire une variable numérique continue \\(Y\\)."
   },
   {
-    "objectID": "slides/03-generalities-stat-slides.html#définition-des-objectifs",
-    "href": "slides/03-generalities-stat-slides.html#définition-des-objectifs",
-    "title": "Généralités",
-    "section": "1. Définition des objectifs",
-    "text": "1. Définition des objectifs\n\nPourquoi c’est crucial ?\n\nGuide la collecte des données.\nDéfinit le modèle adéquat.\nFacilite l’interprétation.\nÉvite les explorations aveugles."
+    "objectID": "slides/05-supervised-tree-slides-annotated.html#objectif-principal",
+    "href": "slides/05-supervised-tree-slides-annotated.html#objectif-principal",
+    "title": "Supervisée",
+    "section": "Objectif principal",
+    "text": "Objectif principal\n\nPartitionner l’espace des observations \\(\\mathbb{R}^p\\) en sous-ensembles homogènes."
   },
   {
-    "objectID": "slides/03-generalities-stat-slides.html#définition-des-objectifs-1",
-    "href": "slides/03-generalities-stat-slides.html#définition-des-objectifs-1",
-    "title": "Généralités",
-    "section": "1. Définition des objectifs",
-    "text": "1. Définition des objectifs\n\nComment bien formuler ?\n\nClarifier les termes.\nIdentifier les utilisateurs.\nDéfinir la population cible.\nPréciser les décisions qui dépendent des résultats."
+    "objectID": "slides/05-supervised-tree-slides-annotated.html#algorithme-récursif-de-découpage-binaire",
+    "href": "slides/05-supervised-tree-slides-annotated.html#algorithme-récursif-de-découpage-binaire",
+    "title": "Supervisée",
+    "section": "Algorithme récursif de découpage binaire",
+    "text": "Algorithme récursif de découpage binaire\n\nDécouper selon une variable \\(X_j\\) à un seuil \\(s\\).\n\n\nCréer des sous-régions rectangulaires (hyper-rectangles).\n\n\n\nChaque sous-ensemble = une feuille avec une prédiction.\n\n\n\n⚠️ Algorithme glouton: Optimisation locale, pas globale !"
   },
   {
-    "objectID": "slides/03-generalities-stat-slides.html#exemples-dobjectifs",
-    "href": "slides/03-generalities-stat-slides.html#exemples-dobjectifs",
-    "title": "Généralités",
-    "section": "1. Exemples d’objectifs",
-    "text": "1. Exemples d’objectifs\n\n❌ Mauvais objectifs\n\nAnalyser les données clients.\nAnalyser les données des adversaires.\nAnalyser les données du médicament.\n\n\n✅ Bons objectifs\n\nPrédire quels clients achèteront le produit d’épargne.\nCaractériser le style de jeu pour identifier les faiblesses d’une équipe.\nConcevoir un protocole pour tester l’efficacité d’un médicament."
+    "objectID": "slides/05-supervised-tree-slides-annotated.html#prédiction-par-feuille",
+    "href": "slides/05-supervised-tree-slides-annotated.html#prédiction-par-feuille",
+    "title": "Supervisée",
+    "section": "Prédiction par feuille",
+    "text": "Prédiction par feuille\n\nClassification : Classe majoritaire\n\n\nRégression : Moyenne des \\(Y\\)"
   },
   {
-    "objectID": "slides/03-generalities-stat-slides.html#sources-de-données",
-    "href": "slides/03-generalities-stat-slides.html#sources-de-données",
-    "title": "Généralités",
-    "section": "2. Sources de données",
-    "text": "2. Sources de données\nPlateformes génériques :\n\nGoogle datasets\nKaggle\nUC Irvine ML Repository\n\nSources officielles :\n\nCanada: StatCan\nFrance: data.gouv.fr\nUSA: data.gov\n\nSources internes : bases clients, transactions, production, web analytics"
+    "objectID": "slides/05-supervised-tree-slides-annotated.html#algorithme",
+    "href": "slides/05-supervised-tree-slides-annotated.html#algorithme",
+    "title": "Supervisée",
+    "section": "Algorithme",
+    "text": "Algorithme\n\nPoint de départ: L’ensemble complet des observations\n\nPour chaque nœud:\n\nÉvaluer tous les couples \\((X_j, s)\\) possibles.\nCalculer la réduction du critère d’homogénéité.\nSélectionner le couple \\((X_j, s)\\) qui maximise le gain.\nDiviser le nœud selon \\(X_j \\leq s\\) vs \\(X_j &gt; s\\).\nRépéter jusqu’au critère d’arrêt."
   },
   {
-    "objectID": "slides/03-generalities-stat-slides.html#qualité-des-données",
-    "href": "slides/03-generalities-stat-slides.html#qualité-des-données",
-    "title": "Généralités",
-    "section": "2. Qualité des données",
-    "text": "2. Qualité des données\n\n\n“Garbage in, garbage out”\n\n\nQuelques questions importantes :\n\nLes données sont-elles représentatives ?\nSont-elles exactes, complètes, pertinentes ?\nY a-t-il des valeurs manquantes, doublons, incohérences ?"
+    "objectID": "slides/05-supervised-tree-slides-annotated.html#critères-dhomogénéité",
+    "href": "slides/05-supervised-tree-slides-annotated.html#critères-dhomogénéité",
+    "title": "Supervisée",
+    "section": "Critères d’homogénéité",
+    "text": "Critères d’homogénéité\n\nSoit \\(\\widehat{p}_{jk}\\) la proportion d’observations de la région \\(R_j\\) appartenant à la classe \\(k\\).\n\n\nTaux d’erreur de classification\n\\[E_j = 1 - \\max_k \\widehat{p}_{jk}\\]\n\n\nFacile à interpréter.\nPeu sensible → rarement utilisé pour la construction."
   },
   {
-    "objectID": "slides/03-generalities-stat-slides.html#format-tidy-data",
-    "href": "slides/03-generalities-stat-slides.html#format-tidy-data",
-    "title": "Généralités",
-    "section": "2. Format “Tidy Data”",
-    "text": "2. Format “Tidy Data”\n\n3 principes fondamentaux :\n\nChaque variable = une colonne.\nChaque observation = une ligne.\nChaque cellule = une valeur unique.\n\n\n\nR : tidyr, readr, readxl, haven\n\nPython : pandas, polars"
+    "objectID": "slides/05-supervised-tree-slides-annotated.html#critères-dhomogénéité-1",
+    "href": "slides/05-supervised-tree-slides-annotated.html#critères-dhomogénéité-1",
+    "title": "Supervisée",
+    "section": "Critères d’homogénéité",
+    "text": "Critères d’homogénéité\n\nSoit \\(\\widehat{p}_{jk}\\) la proportion d’observations de la région \\(R_j\\) appartenant à la classe \\(k\\).\n\nIndice de Gini (le plus utilisé)\n\\[G_j = \\sum_{k=1}^{K} \\widehat{p}_{jk}(1 - \\widehat{p}_{jk})\\]\n\nMinimal (\\(= 0\\)) quand homogénéité parfaite.\nOn cherche un indice faible."
   },
   {
-    "objectID": "slides/03-generalities-stat-slides.html#exploration-préliminaire---nettoyage",
-    "href": "slides/03-generalities-stat-slides.html#exploration-préliminaire---nettoyage",
-    "title": "Généralités",
-    "section": "2. Exploration préliminaire - Nettoyage",
-    "text": "2. Exploration préliminaire - Nettoyage\n\n\nSupprimer les doublons.\nUniformiser les modalités.\nVérifier les formats des valeurs spéciales."
+    "objectID": "slides/05-supervised-tree-slides-annotated.html#critères-dhomogénéité-2",
+    "href": "slides/05-supervised-tree-slides-annotated.html#critères-dhomogénéité-2",
+    "title": "Supervisée",
+    "section": "Critères d’homogénéité",
+    "text": "Critères d’homogénéité\n\nSoit \\(\\widehat{p}_{jk}\\) la proportion d’observations de la région \\(R_j\\) appartenant à la classe \\(k\\).\n\nEntropie croisée (théorie de l’information)\n\\[D_j = -\\sum_{k=1}^{K} \\widehat{p}_{jk} \\log(\\widehat{p}_{jk})\\]\n\nBasé sur l’information de Shannon.\nMinimal pour classe parfaitement prédite."
   },
   {
-    "objectID": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration",
-    "href": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration",
-    "title": "Généralités",
-    "section": "2. Exploration préliminaire - Exploration",
-    "text": "2. Exploration préliminaire - Exploration\n\n\nModalités rares/nombreuses.\nValeurs extrêmes ou aberrantes.\nCorrélations fortes.\nClasses déséquilibrées.\nValeurs manquantes."
+    "objectID": "slides/05-supervised-tree-slides-annotated.html#gain-dinformation",
+    "href": "slides/05-supervised-tree-slides-annotated.html#gain-dinformation",
+    "title": "Supervisée",
+    "section": "Gain d’information",
+    "text": "Gain d’information\n\nMesure de la réduction de l’hétérogénéité après division.\n\nObjectif : Maximiser le gain d’information.\n\n\nExemple avec l’indice de Gini:\n\\[\\Delta G = G_{\\text{avant}} - \\left(\\frac{n_1}{n} G_1 + \\frac{n_2}{n} G_2\\right)\\]\noù:\n\n\\(n_1, n_2\\) : nombres d’observations dans les sous-ensembles\n\\(n = n_1 + n_2\\)"
   },
   {
-    "objectID": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-1",
-    "href": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-1",
-    "title": "Généralités",
-    "section": "2. Exploration préliminaire - Exploration",
-    "text": "2. Exploration préliminaire - Exploration\n\nPour faire l’exploration, on peut utiliser :\n\ndes statistiques descriptives unidimensionnelles\n\nnumérique: moyenne, extremum, tableau de fréquences, …\ngraphique: histogramme, boxplot"
+    "objectID": "slides/05-supervised-tree-slides-annotated.html#exemple",
+    "href": "slides/05-supervised-tree-slides-annotated.html#exemple",
+    "title": "Supervisée",
+    "section": "Exemple",
+    "text": "Exemple\n\nCodePrintPlot\n\n\n\nlibrary(tidyverse)\n\ncarseats &lt;- as_tibble(ISLR::Carseats)\ntree_carseat &lt;- rpart::rpart(Sales ~ ., data = carseats)\n\n\n\n\nprint(tree_carseat)\n\nn= 400 \n\nnode), split, n, deviance, yval\n      * denotes terminal node\n\n 1) root 400 3182.27500  7.496325  \n   2) ShelveLoc=Bad,Medium 315 1859.56000  6.762984  \n     4) Price&gt;=105.5 207  956.57240  6.018792  \n       8) ShelveLoc=Bad 61  240.81970  4.722459  \n        16) Population&lt; 196.5 25   88.22930  3.767200 *\n        17) Population&gt;=196.5 36  113.93510  5.385833 *\n       9) ShelveLoc=Medium 146  570.41420  6.560411  \n        18) Advertising&lt; 5.5 77  280.11340  5.902468  \n          36) Price&gt;=127 34  133.53970  4.986765 *\n          37) Price&lt; 127 43   95.52198  6.626512 *\n        19) Advertising&gt;=5.5 69  219.77110  7.294638  \n          38) CompPrice&lt; 121.5 19   40.33360  6.230000 *\n          39) CompPrice&gt;=121.5 50  149.71840  7.699200  \n            78) Price&gt;=127 28   71.99441  6.731786 *\n            79) Price&lt; 127 22   18.16730  8.930455 *\n     5) Price&lt; 105.5 108  568.61750  8.189352  \n      10) Age&gt;=54.5 65  303.05690  7.380154  \n        20) Income&lt; 105.5 56  203.03290  6.946071  \n          40) ShelveLoc=Bad 20   76.96006  5.786500 *\n          41) ShelveLoc=Medium 36   84.24070  7.590278 *\n        21) Income&gt;=105.5 9   23.81549 10.081110 *\n      11) Age&lt; 54.5 43  158.66040  9.412558  \n        22) Income&lt; 57.5 13   19.24283  7.987692 *\n        23) Income&gt;=57.5 30  101.58740 10.030000  \n          46) ShelveLoc=Bad 9   22.75640  8.396667 *\n          47) ShelveLoc=Medium 21   44.53100 10.730000 *\n   3) ShelveLoc=Good 85  525.52220 10.214000  \n     6) Price&gt;=109.5 57  277.26520  9.244386  \n      12) Advertising&lt; 13.5 48  185.42030  8.742500  \n        24) Price&gt;=142.5 12   36.64722  7.152500 *\n        25) Price&lt; 142.5 36  108.32350  9.272500  \n          50) Income&lt; 40.5 9    9.82780  7.603333 *\n          51) Income&gt;=40.5 27   65.06227  9.828889 *\n      13) Advertising&gt;=13.5 9   15.27049 11.921110 *\n     7) Price&lt; 109.5 28   85.57727 12.187860 *\n\n\n\n\n\nplot(tree_carseat)\ntext(tree_carseat, use.n = TRUE)"
   },
   {
-    "objectID": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-2",
-    "href": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-2",
-    "title": "Généralités",
-    "section": "2. Exploration préliminaire - Exploration",
-    "text": "2. Exploration préliminaire - Exploration\n\nPour faire l’exploration, on peut utiliser :\n\ndes statistiques descriptives bidimensionnelles\n\nnumérique: tableaux croisés, corrélation, …\ngraphique: diagramme de dispersion, …"
+    "objectID": "slides/05-supervised-tree-slides-annotated.html#problème-de-lajustement",
+    "href": "slides/05-supervised-tree-slides-annotated.html#problème-de-lajustement",
+    "title": "Supervisée",
+    "section": "Problème de l’ajustement",
+    "text": "Problème de l’ajustement\n\nDilemme:\n\nArbre trop profond → Sur-ajustement aux données d’apprentissage\nArbre trop simple → Sous-ajustement, classification trop simpliste\n\n\nConséquence → Perte de capacité de généralisation à de nouvelles données.\n\n\nSolution → Élagage (pruning)"
   },
   {
-    "objectID": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-3",
-    "href": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-3",
-    "title": "Généralités",
-    "section": "2. Exploration préliminaire - Exploration",
-    "text": "2. Exploration préliminaire - Exploration\n\nPour faire l’exploration, on peut utiliser :\n\ndes transformations de variables\n\ntransformation simple: passer au \\(\\log\\), standardisation, …\nregrouper des modalités\ncombiner des variables"
+    "objectID": "slides/05-supervised-tree-slides-annotated.html#élagage-de-larbre",
+    "href": "slides/05-supervised-tree-slides-annotated.html#élagage-de-larbre",
+    "title": "Supervisée",
+    "section": "Élagage de l’arbre",
+    "text": "Élagage de l’arbre\n\nStratégie en deux temps :\n\nCroissance complète jusqu’aux feuilles pures\nÉlagage des branches peu performantes\n\n\nCritère coût-complexité :\n\\[\\sum_{j=1}^{|T|} c_j + \\alpha |T|\\]\noù \\(|T|\\) est le nombre de feuilles, \\(c_j\\) est le coût dans la feuille \\(j\\) et \\(\\alpha\\) est un paramètre de régularisation."
   },
   {
-    "objectID": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-4",
-    "href": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-4",
-    "title": "Généralités",
-    "section": "2. Exploration préliminaire - Exploration",
-    "text": "2. Exploration préliminaire - Exploration\n\nUne valeur extrême est une valeur éloignée des autres valeurs de la population.\n🚨 Peut correspondre à un profil particulier et plus rare dans la population.\n\nQue faire ?\n\n\n\nUtiliser des méthodes robustes\nTransformer la variable, e.g. avec un \\(\\log\\)."
+    "objectID": "slides/05-supervised-tree-slides-annotated.html#choix-du-paramètre-α",
+    "href": "slides/05-supervised-tree-slides-annotated.html#choix-du-paramètre-α",
+    "title": "Supervisée",
+    "section": "Choix du paramètre α",
+    "text": "Choix du paramètre α\n\nInterprétation\n\n\\(\\alpha\\) élevé → Favorise les arbres simples\n\\(\\alpha\\) faible → Arbres plus complexes\n\n\nMéthode de sélection → Validation croisée pour comparer les performances sur différentes valeurs de \\(\\alpha\\)"
   },
   {
-    "objectID": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-5",
-    "href": "slides/03-generalities-stat-slides.html#exploration-préliminaire---exploration-5",
-    "title": "Généralités",
-    "section": "2. Exploration préliminaire - Exploration",
-    "text": "2. Exploration préliminaire - Exploration\n\nUne valeur aberrantes est une valeur erronée causée par une erreur de saisie, une erreur de calcul, une mauvaise mesure ou une fausse déclaration.\n\nQue faire ?\n\n\n\nLes remplacer par la bonne valeur.\nLes traiter comme des valeurs manquantes\nRetirer l’individu."
+    "objectID": "slides/05-supervised-tree-slides-annotated.html#exemple-1",
+    "href": "slides/05-supervised-tree-slides-annotated.html#exemple-1",
+    "title": "Supervisée",
+    "section": "Exemple",
+    "text": "Exemple\n\nCodePrintPlot\n\n\n\nlibrary(tidyverse)\n\ncarseats &lt;- as_tibble(ISLR::Carseats)\ntree_carseat &lt;- rpart::rpart(Sales ~ ., data = carseats)\ntree_prune &lt;- rpart::prune(tree_carseat, cp = 0.1)\n\n\n\n\nprint(tree_prune)\n\nn= 400 \n\nnode), split, n, deviance, yval\n      * denotes terminal node\n\n1) root 400 3182.2750  7.496325  \n  2) ShelveLoc=Bad,Medium 315 1859.5600  6.762984  \n    4) Price&gt;=105.5 207  956.5724  6.018792 *\n    5) Price&lt; 105.5 108  568.6175  8.189352 *\n  3) ShelveLoc=Good 85  525.5222 10.214000 *\n\n\n\n\n\nplot(tree_prune)\ntext(tree_prune, use.n = TRUE)"
   },
   {
-    "objectID": "slides/03-generalities-stat-slides.html#modélisation-4-composantes",
-    "href": "slides/03-generalities-stat-slides.html#modélisation-4-composantes",
-    "title": "Généralités",
-    "section": "3. Modélisation : 4 composantes",
-    "text": "3. Modélisation : 4 composantes\n\n\n\nEspace de représentation (cadre mathématique).\nDistance ou similarité (comparer les observations).\nModèle ou algorithme (méthode d’apprentissage).\nFonction de coût (mesure de qualité)."
+    "objectID": "slides/05-supervised-tree-slides-annotated.html#avantages-des-arbres",
+    "href": "slides/05-supervised-tree-slides-annotated.html#avantages-des-arbres",
+    "title": "Supervisée",
+    "section": "Avantages des arbres",
+    "text": "Avantages des arbres\n\nTrès interprétables : Chemin explicite pour chaque prédiction.\n\nRobustes aux valeurs extrêmes et transformations monotones.\n\n\nGestion naturelle des interactions entre variables.\n\n\nVariables mixtes : Quantitatives et qualitatives.\n\n\nAucune hypothèse sur la distribution des données.\n\n\nSélection automatique des variables importantes.\n\n\nBase des méthodes modernes (forêts aléatoires, boosting)."
   },
   {
-    "objectID": "slides/03-generalities-stat-slides.html#mise-en-production-data-engineering",
-    "href": "slides/03-generalities-stat-slides.html#mise-en-production-data-engineering",
-    "title": "Généralités",
-    "section": "4. Mise en production : Data Engineering",
-    "text": "4. Mise en production : Data Engineering\n\n\nAutomatiser la collecte et le nettoyage.\nIntégrer le modèle dans l’application.\nGénérer rapports/prédictions en temps réel.\nMaintenir la pipeline de données.\n\nRôle du Data Engineer : conception et maintenance de bout en bout."
+    "objectID": "slides/05-supervised-tree-slides-annotated.html#limites-des-arbres",
+    "href": "slides/05-supervised-tree-slides-annotated.html#limites-des-arbres",
+    "title": "Supervisée",
+    "section": "Limites des arbres",
+    "text": "Limites des arbres\n\nInstabilité : Sensibles aux petites modifications des données\n\nPerformance limitée seuls, surtout avec données bruitées.\n\n\nDivisions rectangulaires inadaptées aux frontières non-linéaires.\n\n\nTendance au sur-ajustement sans élagage.\n\n\nSensibilité au déséquilibre des classes.\n\n\nSolution : Méthodes ensemblistes (forêts, boosting)."
   },
   {
-    "objectID": "slides/03-generalities-stat-slides.html#suivi-et-amélioration",
-    "href": "slides/03-generalities-stat-slides.html#suivi-et-amélioration",
-    "title": "Généralités",
-    "section": "5. Suivi et amélioration",
-    "text": "5. Suivi et amélioration\n\nDéfis :\n\nEvolution des données (data drift).\nHypothèses initiales invalidées.\nNouvelles variables disponibles.\n\n\nSolutions :\n\nMonitoring régulier des performances.\nRéentraînement avec données récentes.\nAmélioration continue du modèle."
-  },
-  {
-    "objectID": "slides/03-generalities-stat-slides.html#conclusion",
-    "href": "slides/03-generalities-stat-slides.html#conclusion",
-    "title": "Généralités",
+    "objectID": "slides/05-supervised-tree-slides-annotated.html#conclusion",
+    "href": "slides/05-supervised-tree-slides-annotated.html#conclusion",
+    "title": "Supervisée",
     "section": "Conclusion",
-    "text": "Conclusion\n\nUn bon modèle :\n✅ Performant à un instant donné.\n✅ Robuste dans le temps.\n✅ Adaptable aux changements.\n→ Équilibre entre toutes les étapes, pas seulement la modélisation !"
+    "text": "Conclusion\n\nLes arbres :\n\nMéthode de partitionnement récursif\nAlgorithme glouton simple et intuitif\nNécessitent un élagage pour éviter le sur-ajustement\n\n\nProchaine étape → Les modèles ensemblistes"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides-annotated.html#introduction-à-lacm",
-    "href": "slides/04-dimension-mca-slides-annotated.html#introduction-à-lacm",
+    "objectID": "slides/04-dimension-mca-slides.html#introduction-à-lacm",
+    "href": "slides/04-dimension-mca-slides.html#introduction-à-lacm",
     "title": "Dimension",
     "section": "Introduction à l’ACM",
     "text": "Introduction à l’ACM\n\nL’Analyse des Correspondances Multiples (ACM) est un prolongement de l’AFC pour analyser plus de deux variables qualitatives.\nPrincipe fondamental : Transformation préalable par codage disjonctif complet."
   },
   {
-    "objectID": "slides/04-dimension-mca-slides-annotated.html#plan",
-    "href": "slides/04-dimension-mca-slides-annotated.html#plan",
+    "objectID": "slides/04-dimension-mca-slides.html#plan",
+    "href": "slides/04-dimension-mca-slides.html#plan",
     "title": "Dimension",
     "section": "Plan",
     "text": "Plan\n\n\nLa théorie de l’analyse des correspondances multiples\nL’ACM en pratique\nExemple :"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides-annotated.html#notation-de-base",
-    "href": "slides/04-dimension-mca-slides-annotated.html#notation-de-base",
+    "objectID": "slides/04-dimension-mca-slides.html#notation-de-base",
+    "href": "slides/04-dimension-mca-slides.html#notation-de-base",
     "title": "Dimension",
     "section": "Notation de base",
     "text": "Notation de base\n\n\n\\(n\\) : nombre d’individus (observations)\n\\(Q\\) : nombre de variables (questions)\n\\(J_q\\) : nombre de modalités de la variable \\(q\\)\n\\(J\\) : nombre total de modalités (\\(J = \\sum_{q=1}^Q J_q\\))\n\nObjectif : Représenter graphiquement les relations entre toutes ces modalités."
   },
   {
-    "objectID": "slides/04-dimension-mca-slides-annotated.html#codage-disjonctif-complet",
-    "href": "slides/04-dimension-mca-slides-annotated.html#codage-disjonctif-complet",
+    "objectID": "slides/04-dimension-mca-slides.html#codage-disjonctif-complet",
+    "href": "slides/04-dimension-mca-slides.html#codage-disjonctif-complet",
     "title": "Dimension",
     "section": "Codage disjonctif complet",
     "text": "Codage disjonctif complet\n\n\n\n\n\n\nDéfinition\n\n\nTableau binaire \\(Z\\) (\\(n \\times J\\)) contenant uniquement des 0 et des 1.\n\n\n\n\n\nChaque variable → ses modalités\nIndividu possède modalité → code 1\nIndividu ne possède pas modalité → code 0\nDisjonctif : au plus une modalité par variable\nComplet : au moins une modalité par variable"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple-concret---données",
-    "href": "slides/04-dimension-mca-slides-annotated.html#exemple-concret---données",
+    "objectID": "slides/04-dimension-mca-slides.html#exemple-concret---données",
+    "href": "slides/04-dimension-mca-slides.html#exemple-concret---données",
     "title": "Dimension",
     "section": "Exemple concret - Données",
     "text": "Exemple concret - Données\n\nProduits avec Type et Prix:\n\n\n\nProduit\nType\nPrix ($)\n\n\n\n\nNike\nHoodie\n256.72\n\n\nPuma\nJoggers\n221.26\n\n\nOff-W\nHoodie\n198.45\n\n\nSupreme\nHoodie\n235.50\n\n\n\nVariable Prix → 3 classes : &lt;200$, [200$-250$], &gt;250$"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple---codage-disjonctif-complet",
-    "href": "slides/04-dimension-mca-slides-annotated.html#exemple---codage-disjonctif-complet",
+    "objectID": "slides/04-dimension-mca-slides.html#exemple---codage-disjonctif-complet",
+    "href": "slides/04-dimension-mca-slides.html#exemple---codage-disjonctif-complet",
     "title": "Dimension",
     "section": "Exemple - Codage disjonctif complet",
     "text": "Exemple - Codage disjonctif complet\n\nTableau transformé \\(Z\\) :\n\n\n\n\n\n\n\n\n\n\n\n\nProduit\nHoodie\nJoggers\nSneakers\n&lt;200$\n[200$-250$]\n&gt;250$\n\n\n\n\nNike\n1\n0\n0\n0\n0\n1\n\n\nPuma\n0\n1\n0\n0\n1\n0\n\n\nOff-W\n1\n0\n0\n1\n0\n0\n\n\nSupreme\n1\n0\n0\n0\n1\n0\n\n\n\nChaque ligne somme à \\(Q = 2\\) (2 variables)."
   },
   {
-    "objectID": "slides/04-dimension-mca-slides-annotated.html#propriétés-du-tableau-z",
-    "href": "slides/04-dimension-mca-slides-annotated.html#propriétés-du-tableau-z",
+    "objectID": "slides/04-dimension-mca-slides.html#propriétés-du-tableau-z",
+    "href": "slides/04-dimension-mca-slides.html#propriétés-du-tableau-z",
     "title": "Dimension",
     "section": "Propriétés du tableau Z",
     "text": "Propriétés du tableau Z\n\n\n\n\n\n\n\nPropriétés\n\n\n\nSomme par ligne : \\(\\sum_{j=1}^J z_{ij} = Q\\) (constante)\nSomme totale : \\(\\sum_{i,j} z_{ij} = nQ\\)\nSomme par colonne : \\(\\sum_{i=1}^n z_{ij} = n_j\\) (effectif modalité \\(j\\))"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides-annotated.html#perte-dinformation",
-    "href": "slides/04-dimension-mca-slides-annotated.html#perte-dinformation",
+    "objectID": "slides/04-dimension-mca-slides.html#perte-dinformation",
+    "href": "slides/04-dimension-mca-slides.html#perte-dinformation",
     "title": "Dimension",
     "section": "Perte d’information",
     "text": "Perte d’information\n\nVariables quantitatives → Classes : Perte d’information inévitable.\n\nValeur précise → Appartenance à une classe\nExemple : 256.72$ → &gt;250$\nCompromis : Granularité vs interprétabilité\n\nEnjeu : Choisir des classes pertinentes pour le problème étudié."
   },
   {
-    "objectID": "slides/04-dimension-mca-slides-annotated.html#tableau-de-burt",
-    "href": "slides/04-dimension-mca-slides-annotated.html#tableau-de-burt",
+    "objectID": "slides/04-dimension-mca-slides.html#tableau-de-burt",
+    "href": "slides/04-dimension-mca-slides.html#tableau-de-burt",
     "title": "Dimension",
     "section": "Tableau de Burt",
     "text": "Tableau de Burt\n\n\n\n\n\n\n\nDéfinition\n\n\n\\(B = Z^\\top Z\\) (matrice \\(J \\times J\\))"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides-annotated.html#propriétés-du-tableau-de-burt",
-    "href": "slides/04-dimension-mca-slides-annotated.html#propriétés-du-tableau-de-burt",
+    "objectID": "slides/04-dimension-mca-slides.html#propriétés-du-tableau-de-burt",
+    "href": "slides/04-dimension-mca-slides.html#propriétés-du-tableau-de-burt",
     "title": "Dimension",
     "section": "Propriétés du tableau de Burt",
     "text": "Propriétés du tableau de Burt\n\nTaille : \\(J \\times J\\) (nombre total de modalités)\n\nBlocs diagonaux : Matrices diagonales\n→ Éléments = effectifs de chaque modalité\n\n\nBlocs non-diagonaux : Tableaux de contingence\n→ Croisement entre variables \\(q\\) et \\(q'\\)\n\n\nSymétrie : \\(B = B^\\top\\)"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides-annotated.html#équivalence-mathématique",
-    "href": "slides/04-dimension-mca-slides-annotated.html#équivalence-mathématique",
+    "objectID": "slides/04-dimension-mca-slides.html#équivalence-mathématique",
+    "href": "slides/04-dimension-mca-slides.html#équivalence-mathématique",
     "title": "Dimension",
     "section": "Équivalence mathématique",
     "text": "Équivalence mathématique\n\nL’ACM peut s’effectuer sur :\n\nLe tableau disjonctif complet \\(Z\\)\nLe tableau de Burt \\(B = Z^\\top Z\\)\n\nRésultat → Les deux approches donnent les mêmes facteurs!\nCette équivalence offre une flexibilité computationnelle."
   },
   {
-    "objectID": "slides/04-dimension-mca-slides-annotated.html#éléments-propres-de-z",
-    "href": "slides/04-dimension-mca-slides-annotated.html#éléments-propres-de-z",
+    "objectID": "slides/04-dimension-mca-slides.html#éléments-propres-de-z",
+    "href": "slides/04-dimension-mca-slides.html#éléments-propres-de-z",
     "title": "Dimension",
     "section": "Éléments propres de Z",
     "text": "Éléments propres de Z\nAnalyse directe - Vecteurs propres de :\n\\[S = \\frac{1}{Q} Z^\\top Z D_J^{-1}\\] où \\(D_J = \\text{diag}(n_1, \\ldots, n_J)\\).\nCoordonnées profils-lignes : \\[\\Phi_k = n Z D_J^{-1} u_k\\]"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides-annotated.html#éléments-propres-de-z-1",
-    "href": "slides/04-dimension-mca-slides-annotated.html#éléments-propres-de-z-1",
+    "objectID": "slides/04-dimension-mca-slides.html#éléments-propres-de-z-1",
+    "href": "slides/04-dimension-mca-slides.html#éléments-propres-de-z-1",
     "title": "Dimension",
     "section": "Éléments propres de Z",
     "text": "Éléments propres de Z\nAnalyse duale - Vecteurs propres de : \\[T = \\frac{1}{Q} Z D_J^{-1} Z^\\top\\] où \\(D_J = \\text{diag}(n_1, \\ldots, n_J)\\).\nCoordonnées profils-colonnes : \\[\\Psi_k = n D_J^{-1} Z^\\top v_k\\]"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides-annotated.html#éléments-propres-de-b",
-    "href": "slides/04-dimension-mca-slides-annotated.html#éléments-propres-de-b",
+    "objectID": "slides/04-dimension-mca-slides.html#éléments-propres-de-b",
+    "href": "slides/04-dimension-mca-slides.html#éléments-propres-de-b",
     "title": "Dimension",
     "section": "Éléments propres de B",
     "text": "Éléments propres de B\nTableau de Burt symétrique → Analyse directe = duale\nVecteurs propres de : \\[S' = \\frac{1}{Q^2} B^\\top D_J^{-1} B D_J^{-1}\\]\n\nOn peut réécrire \\(S'\\) comme : \\[S' = \\frac{1}{Q^2} Z^\\top Z D_J^{-1} Z^\\top Z D_J^{-1}\\]"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides-annotated.html#relation-entre-valeurs-propres",
-    "href": "slides/04-dimension-mca-slides-annotated.html#relation-entre-valeurs-propres",
+    "objectID": "slides/04-dimension-mca-slides.html#relation-entre-valeurs-propres",
+    "href": "slides/04-dimension-mca-slides.html#relation-entre-valeurs-propres",
     "title": "Dimension",
     "section": "Relation entre valeurs propres",
     "text": "Relation entre valeurs propres\n\nSi \\(\\lambda\\) est valeur propre de \\(S\\) (analyse de \\(Z\\)), alors \\(\\lambda^2\\) est valeur propre de \\(S'\\) (analyse de \\(B\\)).\nConséquence :\n\nMêmes vecteurs propres pour \\(Z\\) et \\(B\\).\nValeurs propres de \\(B\\) = carrés des valeurs propres de \\(Z\\)."
   },
   {
-    "objectID": "slides/04-dimension-mca-slides-annotated.html#encodage-des-variables-quantitatives",
-    "href": "slides/04-dimension-mca-slides-annotated.html#encodage-des-variables-quantitatives",
+    "objectID": "slides/04-dimension-mca-slides.html#encodage-des-variables-quantitatives",
+    "href": "slides/04-dimension-mca-slides.html#encodage-des-variables-quantitatives",
     "title": "Dimension",
     "section": "Encodage des variables quantitatives",
     "text": "Encodage des variables quantitatives\nChoix des bornes crucial pour la qualité de l’analyse.\n\nApproches recommandées :\n\nAnalyser la distribution (histogrammes)\nBornes pertinentes au domaine d’étude\nÉviter les classes peu informatives\n\n\n\nApproche déconseillée :\n\nEffectifs égaux automatiques\nClasses sans sens métier"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides-annotated.html#encodage-des-variables-qualitatives",
-    "href": "slides/04-dimension-mca-slides-annotated.html#encodage-des-variables-qualitatives",
+    "objectID": "slides/04-dimension-mca-slides.html#encodage-des-variables-qualitatives",
+    "href": "slides/04-dimension-mca-slides.html#encodage-des-variables-qualitatives",
     "title": "Dimension",
     "section": "Encodage des variables qualitatives",
     "text": "Encodage des variables qualitatives\nModalités “naturelles” mais problèmes potentiels.\n\nEffectifs déséquilibrés :\n\nModalités très rares vs très fréquentes\nImpact sur la représentation\n\n\n\nSolutions potentielles :\n\nRegroupements pertinents (connaissance du domaine)\nÉviter la répartition aléatoire\nPréserver le sens des modalités"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants",
-    "href": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants",
+    "objectID": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants",
+    "href": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants",
     "title": "Dimension",
     "section": "Exemple : le succès des étudiants",
     "text": "Exemple : le succès des étudiants\nOn considère le jeu de données suivant :\n\n\n\n\n\n\n\n\n\n\n\n\n\nHours_Studied\nAttendance\nParental_Involvement\nExtracurricular_Activities\nSleep_Hours\nSchool_Type\n\n\n\n\n21-30\n71-90\nLow\nNo\n&lt;=7\nPublic\n\n\n11-20\n0-70\nLow\nNo\n&gt;7\nPublic\n\n\n21-30\n91-100\nMedium\nYes\n&lt;=7\nPublic\n\n\n21-30\n71-90\nLow\nYes\n&gt;7\nPublic\n\n\n11-20\n91-100\nMedium\nYes\n&lt;=7\nPublic\n\n\n11-20\n71-90\nMedium\nYes\n&gt;7\nPublic"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-1",
-    "href": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-1",
+    "objectID": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants-1",
+    "href": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants-1",
     "title": "Dimension",
     "section": "Exemple : le succès des étudiants",
     "text": "Exemple : le succès des étudiants\n\nCodePlotValeurs propres\n\n\n\nlibrary(FactoMineR)\nlibrary(factoextra)\nres_mca &lt;- df |&gt;\n  MCA(graph = FALSE)\nfviz_eig(res_mca)\nget_eigenvalue(res_mca)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\neigenvalue\nvariance.percent\ncumulative.variance.percent\n\n\n\n\nDim.1\n0.1984565\n11.907391\n11.90739\n\n\nDim.2\n0.1898757\n11.392541\n23.29993\n\n\nDim.3\n0.1814721\n10.888326\n34.18826\n\n\nDim.4\n0.1773147\n10.638882\n44.82714\n\n\nDim.5\n0.1672860\n10.037161\n54.86430\n\n\nDim.6\n0.1651723\n9.910338\n64.77464\n\n\nDim.7\n0.1561348\n9.368089\n74.14273\n\n\nDim.8\n0.1500984\n9.005905\n83.14863\n\n\nDim.9\n0.1415169\n8.491017\n91.63965\n\n\nDim.10\n0.1393392\n8.360350\n100.00000"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-2",
-    "href": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-2",
+    "objectID": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants-2",
+    "href": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants-2",
     "title": "Dimension",
     "section": "Exemple : le succès des étudiants",
     "text": "Exemple : le succès des étudiants\n\nCodePlot\n\n\n\nfviz_mca_biplot(\n  res_mca, \n  repel = TRUE,\n  label = \"none\",\n  ggtheme = theme_minimal()\n)"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-3",
-    "href": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-3",
+    "objectID": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants-3",
+    "href": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants-3",
     "title": "Dimension",
     "section": "Exemple : le succès des étudiants",
     "text": "Exemple : le succès des étudiants\n\nCodePlot\n\n\n\nfviz_mca_var(\n  res_mca,\n  choice = \"mca.cor\", \n  repel = TRUE,\n  ggtheme = theme_minimal()\n)"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-4",
-    "href": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-4",
+    "objectID": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants-4",
+    "href": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants-4",
     "title": "Dimension",
     "section": "Exemple : le succès des étudiants",
     "text": "Exemple : le succès des étudiants\n\nCodePlot\n\n\n\nfviz_mca_var(\n  res_mca,\n  repel = TRUE,\n  ggtheme = theme_minimal()\n)"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-5",
-    "href": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-5",
+    "objectID": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants-5",
+    "href": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants-5",
     "title": "Dimension",
     "section": "Exemple : le succès des étudiants",
     "text": "Exemple : le succès des étudiants\n\nCodePlot\n\n\n\nfviz_mca_var(\n  res_mca,\n  col.var = \"cos2\",\n  gradient.cols = c(\"#00AFBB\", \"#E7B800\", \"#FC4E07\"), \n  repel = TRUE,\n  ggtheme = theme_minimal()\n)"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-6",
-    "href": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-6",
+    "objectID": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants-6",
+    "href": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants-6",
     "title": "Dimension",
     "section": "Exemple : le succès des étudiants",
     "text": "Exemple : le succès des étudiants\n\nCodePlot\n\n\n\nfviz_mca_ind(\n  res_mca,\n  label = \"none\",\n  col.ind = \"cos2\", \n  gradient.cols = c(\"#00AFBB\", \"#E7B800\", \"#FC4E07\"),\n  repel = TRUE,\n  ggtheme = theme_minimal()\n)"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-7",
-    "href": "slides/04-dimension-mca-slides-annotated.html#exemple-le-succès-des-étudiants-7",
+    "objectID": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants-7",
+    "href": "slides/04-dimension-mca-slides.html#exemple-le-succès-des-étudiants-7",
     "title": "Dimension",
     "section": "Exemple : le succès des étudiants",
     "text": "Exemple : le succès des étudiants\n\nCodePlotPlot\n\n\n\nfviz_mca_ind(\n  res_mca, \n  label = \"none\",\n  habillage = \"Hours_Studied\",\n  palette = c(\"#D81B60\", \"#1E88E5\", \"#FFC107\", \"#004D40\"),\n  addEllipses = TRUE, ellipse.type = \"confidence\",\n  ggtheme = theme_minimal()\n)"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides-annotated.html#avantages-de-lacm",
-    "href": "slides/04-dimension-mca-slides-annotated.html#avantages-de-lacm",
+    "objectID": "slides/04-dimension-mca-slides.html#avantages-de-lacm",
+    "href": "slides/04-dimension-mca-slides.html#avantages-de-lacm",
     "title": "Dimension",
     "section": "Avantages de l’ACM",
     "text": "Avantages de l’ACM\n\n\nVisualisation de relations complexes multi-variables\nTraitement unifié de variables hétérogènes\nRéduction de dimension préservant les associations\nInterprétation intuitive des proximités\nFlexibilité dans l’encodage des variables"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides-annotated.html#limites-et-précautions",
-    "href": "slides/04-dimension-mca-slides-annotated.html#limites-et-précautions",
+    "objectID": "slides/04-dimension-mca-slides.html#limites-et-précautions",
+    "href": "slides/04-dimension-mca-slides.html#limites-et-précautions",
     "title": "Dimension",
     "section": "Limites et précautions",
     "text": "Limites et précautions\n\nPerte d’information :\n\nVariables continues → classes\nChoix d’encodage critique\n\nInterprétation :\n\nProximités entre modalités de variables différentes\nAttention aux artefacts d’encodage"
   },
   {
-    "objectID": "slides/04-dimension-mca-slides-annotated.html#conclusion",
-    "href": "slides/04-dimension-mca-slides-annotated.html#conclusion",
+    "objectID": "slides/04-dimension-mca-slides.html#conclusion",
+    "href": "slides/04-dimension-mca-slides.html#conclusion",
     "title": "Dimension",
     "section": "Conclusion",
     "text": "Conclusion\n\nL’ACM étend l’AFC au cas multi-variables grâce au codage disjonctif complet :\n\nTransformation binaire préalable\nÉquivalence \\(Z\\) ↔︎ Tableau de Burt \\(B\\)\nChoix d’encodage\nVisualisation des patterns complexes\n\nProchaine étape → éthique de l’analyse de données"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#pourquoi-les-distances",
-    "href": "slides/03-generalities-distance-slides-annotated.html#pourquoi-les-distances",
-    "title": "Généralités",
-    "section": "Pourquoi les distances ?",
-    "text": "Pourquoi les distances ?\n\nDans tout projet d’analyse de données, il faut pouvoir quantifier la ressemblance ou la dissemblance entre observations.\n\nImpact direct sur :\n\nAlgorithmes d’apprentissage\nMéthodes de regroupement\nTechniques de visualisation"
+    "objectID": "slides/04-dimension-ca-slides.html#limite-de-lacp",
+    "href": "slides/04-dimension-ca-slides.html#limite-de-lacp",
+    "title": "Dimension",
+    "section": "Limite de l’ACP",
+    "text": "Limite de l’ACP\n\nL’analyse en composantes principales est restreinte à des données quantitatives.\n\n→ Comment faire lorsque l’on a des données qualitatives ?"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#plan",
-    "href": "slides/03-generalities-distance-slides-annotated.html#plan",
-    "title": "Généralités",
+    "objectID": "slides/04-dimension-ca-slides.html#plan",
+    "href": "slides/04-dimension-ca-slides.html#plan",
+    "title": "Dimension",
     "section": "Plan",
-    "text": "Plan\n\n\nNotion de distance - Définition mathématique\nDistances numériques - \\(L_q\\), euclidienne, Manhattan\nNotion de similarité - Concept opposé\nVariables qualitatives - Encodages et distances adaptées\nDistance de Jaccard - Cas des variables binaires"
+    "text": "Plan\n\n\nLa théorie de l’analyse factorielle des correspondances\nL’AFC en pratique\nExemple : le taux d’emploi au Canada"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#définition-mathématique",
-    "href": "slides/03-generalities-distance-slides-annotated.html#définition-mathématique",
-    "title": "Généralités",
-    "section": "Définition mathématique",
-    "text": "Définition mathématique\n\n\n\nDistance sur \\(\\mathcal{X}\\)\n\n\nUne fonction \\(d: \\mathcal{X} \\times \\mathcal{X} \\to \\mathbb{R}\\) est une distance si :\n\nNon-négativité : \\(d(x, y) \\geq 0\\)\nSéparation : \\(d(x, y) = 0 \\Leftrightarrow x = y\\)\nSymétrie : \\(d(x, y) = d(y, x)\\)\nInégalité triangulaire : \\(d(x, y) \\leq d(x, z) + d(y, z)\\)"
+    "objectID": "slides/04-dimension-ca-slides.html#analyse-factorielle-des-correspondances",
+    "href": "slides/04-dimension-ca-slides.html#analyse-factorielle-des-correspondances",
+    "title": "Dimension",
+    "section": "Analyse factorielle des correspondances",
+    "text": "Analyse factorielle des correspondances\n\nL’Analyse Factorielle des Correspondances (AFC) est une méthode d’analyse exploratoire pour représenter graphiquement les relations entre les modalités de deux variables qualitatives.\n\nObjectif → Trouver une représentation en faible dimension tout en gardant le maximum d’information possible."
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#distance-euclidienne",
-    "href": "slides/03-generalities-distance-slides-annotated.html#distance-euclidienne",
-    "title": "Généralités",
-    "section": "Distance euclidienne",
-    "text": "Distance euclidienne\n\n\n\nDéfinition\n\n\nPour \\(x, y \\in \\mathbb{R}^p\\) :\n\\[d(x, y) = \\left\\| x - y \\right\\|_2 = \\sqrt{\\sum_{i=1}^{p} (x_i - y_i)^2}\\]\nQuand l’utiliser : Variables numériques de même ordre de grandeur."
+    "objectID": "slides/04-dimension-ca-slides.html#notation",
+    "href": "slides/04-dimension-ca-slides.html#notation",
+    "title": "Dimension",
+    "section": "Notation",
+    "text": "Notation\n\nTableau de contingence:\n\\[K = (k_{ij}) \\text{ avec } k_{ij} = \\text{ effectif classe } i \\in \\{1, \\dots, n\\}, \\text{ catégorie } j \\in \\{1, \\dots, p\\}.\\]"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#distance-euclidienne-preuve",
-    "href": "slides/03-generalities-distance-slides-annotated.html#distance-euclidienne-preuve",
-    "title": "Généralités",
-    "section": "Distance euclidienne (preuve)",
-    "text": "Distance euclidienne (preuve)"
+    "objectID": "slides/04-dimension-ca-slides.html#notation-1",
+    "href": "slides/04-dimension-ca-slides.html#notation-1",
+    "title": "Dimension",
+    "section": "Notation",
+    "text": "Notation\n\nTableau de fréquences relatives :\n\\[F = (f_{ij}) \\text{ où } f_{ij} = \\frac{k_{ij}}{k_{\\bullet\\bullet}}.\\]"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#distance-l_q-minkowski",
-    "href": "slides/03-generalities-distance-slides-annotated.html#distance-l_q-minkowski",
-    "title": "Généralités",
-    "section": "Distance \\(L_q\\) (Minkowski)",
-    "text": "Distance \\(L_q\\) (Minkowski)\n\n\n\nFormule générale :\n\n\n\\[d(x, y) = \\left( \\sum_{i=1}^{p} |x_i - y_i|^q \\right)^{1/q}\\]\nCas particuliers :\n\n\\(q = 1\\) : Distance de Manhattan → \\(d(x, y) = \\sum_{i=1}^{p} |x_i - y_i|\\)\n\\(q = 2\\) : Distance euclidienne"
+    "objectID": "slides/04-dimension-ca-slides.html#notation-2",
+    "href": "slides/04-dimension-ca-slides.html#notation-2",
+    "title": "Dimension",
+    "section": "Notation",
+    "text": "Notation\n\nMarges :\n\nLigne : \\(f_{i\\bullet} = \\sum_{j=1}^p f_{ij}\\)\nColonne : \\(f_{\\bullet j} = \\sum_{i=1}^n f_{ij}\\)\nTotal : \\(f_{\\bullet\\bullet} = 1\\)"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#exemple-concret-wooclap-kffpdj",
-    "href": "slides/03-generalities-distance-slides-annotated.html#exemple-concret-wooclap-kffpdj",
-    "title": "Généralités",
-    "section": "Exemple concret (WOOCLAP: KFFPDJ)",
-    "text": "Exemple concret (WOOCLAP: KFFPDJ)\n\n\n\nNom\nTaille (cm)\nPoids (kg)\n\n\n\n\nAlice\n165\n70\n\n\nBob\n177\n75"
+    "objectID": "slides/04-dimension-ca-slides.html#exemple-concret",
+    "href": "slides/04-dimension-ca-slides.html#exemple-concret",
+    "title": "Dimension",
+    "section": "Exemple concret",
+    "text": "Exemple concret\n\n\n\n\n\n\n\n\n\n\n\n\nCollège\nUniversité Laval\nAutre université\nHors Québec\n\\(f_{i \\bullet}\\)\n\n\n\n\nActuariat\n0.08\n0\n0\n0.04\n0.12\n\n\nStatistique\n0.08\n0.16\n0.04\n0\n0.28\n\n\nBio-info\n0.16\n0.08\n0\n0.08\n0.32\n\n\nFinance\n0.08\n0\n0\n0\n0.08\n\n\nMaths\n0.04\n0\n0\n0\n0.04\n\n\nInfo\n0.08\n0.04\n0\n0.04\n0.16\n\n\n\\(f_{\\bullet j}\\)\n0.52\n0.28\n0.04\n0.16\n1"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#problème-déchelle",
-    "href": "slides/03-generalities-distance-slides-annotated.html#problème-déchelle",
-    "title": "Généralités",
-    "section": "Problème d’échelle",
-    "text": "Problème d’échelle\n\n\n\nAttention !\n\n\nLes distances \\(L_q\\) ne sont pas invariantes aux changements d’échelle."
+    "objectID": "slides/04-dimension-ca-slides.html#indépendance-statistique",
+    "href": "slides/04-dimension-ca-slides.html#indépendance-statistique",
+    "title": "Dimension",
+    "section": "Indépendance statistique",
+    "text": "Indépendance statistique\n\nTest d’indépendance : Si les variables sont indépendantes, \\[f_{ij} \\approx f_{i\\bullet} f_{\\bullet j}\\]"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#problème-déchelle---solution",
-    "href": "slides/03-generalities-distance-slides-annotated.html#problème-déchelle---solution",
-    "title": "Généralités",
-    "section": "Problème d’échelle - solution",
-    "text": "Problème d’échelle - solution\n\nStandardiser les variables !\n\nDistance euclidienne standardisée :\n\\[d(x, y) = \\sum_{i=1}^{p} \\left( \\frac{x_i - y_i}{\\sigma_i} \\right)^2\\]\noù \\(\\sigma_i\\) = écart-type de la variable \\(i\\)."
+    "objectID": "slides/04-dimension-ca-slides.html#indépendance-statistique-1",
+    "href": "slides/04-dimension-ca-slides.html#indépendance-statistique-1",
+    "title": "Dimension",
+    "section": "Indépendance statistique",
+    "text": "Indépendance statistique\n\nTest du \\(\\chi^2\\) :\n\\[T = \\sum_{i,j} \\frac{(k_{ij} - \\mathbb{E}(k_{ij}))^2}{\\mathbb{E}(k_{ij})} = \\sum_{i,j} \\frac{(k_{ij} - \\frac{k_{i\\bullet}k_{\\bullet j}}{k_{\\bullet\\bullet}})^2}{\\frac{k_{i\\bullet}k_{\\bullet j}}{k_{\\bullet\\bullet}}}\\]\nSi \\(T \\approx 0\\) → indépendance\nSi \\(T\\) grand → dépendance (intéressant pour l’AFC)"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#notion-de-similarité",
-    "href": "slides/03-generalities-distance-slides-annotated.html#notion-de-similarité",
-    "title": "Généralités",
-    "section": "Notion de similarité",
-    "text": "Notion de similarité\n\n\n\n\nMesure de similarité sur \\(\\mathcal{X}\\)\n\n\nUne fonction \\(s: \\mathcal{X} \\times \\mathcal{X} \\to \\mathbb{R}\\) telle que :\n\n\\(s(x, y) \\geq 0\\)\n\\(s(x, y) = s(y, x)\\) (symétrie)\n\\(s(x, x) = 1 \\geq s(x, y)\\) (maximum pour soi-même)"
+    "objectID": "slides/04-dimension-ca-slides.html#profils-lignes-et-profils-colonnes",
+    "href": "slides/04-dimension-ca-slides.html#profils-lignes-et-profils-colonnes",
+    "title": "Dimension",
+    "section": "Profils-lignes et profils-colonnes",
+    "text": "Profils-lignes et profils-colonnes\nProfil-ligne \\(i\\) : Répartition de la modalité \\(i\\) parmi les colonnes \\[L_i = \\left(\\frac{f_{i1}}{f_{i\\bullet}}, \\ldots, \\frac{f_{ip}}{f_{i\\bullet}}\\right).\\]\n\nProfil-colonne \\(j\\) : Répartition de la modalité \\(j\\) parmi les lignes \\[C_j = \\left(\\frac{f_{1j}}{f_{\\bullet j}}, \\ldots, \\frac{f_{nj}}{f_{\\bullet j}}\\right).\\]\n\n\nLes profils sont des distributions conditionnelles."
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#conversion-distance-similarité",
-    "href": "slides/03-generalities-distance-slides-annotated.html#conversion-distance-similarité",
-    "title": "Généralités",
-    "section": "Conversion distance ↔︎ similarité",
-    "text": "Conversion distance ↔︎ similarité\n\nDistance → Similarité :\n\\[s(x, y) = \\frac{1}{1 + d(x, y)}\\]\n\n⚠️ Une mesure de similarité ne respecte généralement pas l’inégalité triangulaire.\n\n\nSimilarité → Dissemblance :\n\\[d^*(x, y) = 1 - s(x, y)\\]"
+    "objectID": "slides/04-dimension-ca-slides.html#profils-moyens",
+    "href": "slides/04-dimension-ca-slides.html#profils-moyens",
+    "title": "Dimension",
+    "section": "Profils moyens",
+    "text": "Profils moyens\n\nProfil-ligne moyen = fréquences marginales colonnes : \\[\\text{Profil moyen} = (f_{\\bullet 1}, \\ldots, f_{\\bullet p})\\]\nProfil-colonne moyen = fréquences marginales lignes : \\[\\text{Profil moyen} = (f_{1\\bullet}, \\ldots, f_{n\\bullet})\\]\nIndépendance \\(\\Longleftrightarrow\\) Tous les profils \\(\\approx\\) profils moyens."
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#variables-qualitatives",
-    "href": "slides/03-generalities-distance-slides-annotated.html#variables-qualitatives",
-    "title": "Généralités",
-    "section": "Variables qualitatives",
-    "text": "Variables qualitatives\n\nProblème : pour \\(\\mathcal{X} = \\{\\text{Rouge}, \\text{Vert}, \\text{Bleu}\\}\\).\n\n\n❌ Mauvaise pratique :\nRouge = 1, Vert = 2, Bleu = 3 → Introduit un ordre artificiel !\n\n\n\n✅ Bonne pratique : Encodage adapté"
+    "objectID": "slides/04-dimension-ca-slides.html#distance-du-chi2",
+    "href": "slides/04-dimension-ca-slides.html#distance-du-chi2",
+    "title": "Dimension",
+    "section": "Distance du \\(\\chi^2\\)",
+    "text": "Distance du \\(\\chi^2\\)\nDistance entre profils-lignes : \\[d^2(L_i, L_{i'}) = \\sum_{j=1}^p \\frac{1}{f_{\\bullet j}} \\left(\\frac{f_{ij}}{f_{i\\bullet}} - \\frac{f_{i'j}}{f_{i'\\bullet}}\\right)^2\\]\nDistance entre profils-colonnes : \\[d^2(C_j, C_{j'}) = \\sum_{i=1}^n \\frac{1}{f_{i\\bullet}} \\left(\\frac{f_{ij}}{f_{\\bullet j}} - \\frac{f_{ij'}}{f_{\\bullet j'}}\\right)^2\\]"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#encodage-1-parmi-k-one-hot-encoding",
-    "href": "slides/03-generalities-distance-slides-annotated.html#encodage-1-parmi-k-one-hot-encoding",
-    "title": "Généralités",
-    "section": "Encodage “1 parmi K” (One-hot encoding)",
-    "text": "Encodage “1 parmi K” (One-hot encoding)\n\n\nRouge → \\((1, 0, 0)\\)\nVert → \\((0, 1, 0)\\)\nBleu → \\((0, 0, 1)\\)\n\n\nAvantages : Pas d’ordre artificiel\nInconvénients : Grande dimension si beaucoup de modalités"
+    "objectID": "slides/04-dimension-ca-slides.html#formulation-matricielle",
+    "href": "slides/04-dimension-ca-slides.html#formulation-matricielle",
+    "title": "Dimension",
+    "section": "Formulation matricielle",
+    "text": "Formulation matricielle\nMatrices de poids :\n\n\\(D_n = \\text{diag}(f_{i\\bullet})\\) → poids des lignes\n\\(D_p = \\text{diag}(f_{\\bullet j})\\) → poids des colonnes\n\n\nDistance du \\(\\chi^2\\) matricielle :\n\nProfils-lignes : \\(d^2(L_i, L_{i'}) = (L_i - L_{i'})^\\top D_p^{-1} (L_i - L_{i'})\\)\nProfils-colonnes : \\(d^2(C_j, C_{j'}) = (C_j - C_{j'})^\\top D_n^{-1} (C_j - C_{j'})\\)"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#distance-discrète",
-    "href": "slides/03-generalities-distance-slides-annotated.html#distance-discrète",
-    "title": "Généralités",
-    "section": "Distance discrète",
-    "text": "Distance discrète\n\n\n\nDistance de Hamming\n\n\nPour des vecteurs :\n\\[d(x, y) = \\sum_{i=1}^{p} \\mathbb{1}(x_i \\neq y_i)\\]"
+    "objectID": "slides/04-dimension-ca-slides.html#analyse-directe-profils-lignes",
+    "href": "slides/04-dimension-ca-slides.html#analyse-directe-profils-lignes",
+    "title": "Dimension",
+    "section": "Analyse directe (profils-lignes)",
+    "text": "Analyse directe (profils-lignes)\nObjectif : Maximiser la variance projetée des profils-lignes\n\nProblème d’optimisation : \\[\\max_u u^\\top D_p^{-1} F^\\top D_n^{-1} F D_p^{-1} u \\quad \\text{s.c.} \\quad u^\\top D_p^{-1} u = 1\\]\n\n\nSolution : Vecteurs propres de la matrice \\[S = F^\\top D_n^{-1} F D_p^{-1}\\]\n\n\nPremier axe factoriel : \\(S u_1 = \\lambda_1 u_1\\)"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#exemple-distance-discrète-wooclap-kffpdj",
-    "href": "slides/03-generalities-distance-slides-annotated.html#exemple-distance-discrète-wooclap-kffpdj",
-    "title": "Généralités",
-    "section": "Exemple : Distance discrète (WOOCLAP: KFFPDJ)",
-    "text": "Exemple : Distance discrète (WOOCLAP: KFFPDJ)\n\n\n\nNom\nCouleur\nYeux\nCheveux\n\n\n\n\nAlice\nRouge\nVert\nBlond\n\n\nBob\nVert\nBleu\nRoux\n\n\nChris\nRouge\nVert\nBlond"
+    "objectID": "slides/04-dimension-ca-slides.html#analyse-duale-profils-colonnes",
+    "href": "slides/04-dimension-ca-slides.html#analyse-duale-profils-colonnes",
+    "title": "Dimension",
+    "section": "Analyse duale (profils-colonnes)",
+    "text": "Analyse duale (profils-colonnes)\nObjectif : Maximiser la variance projetée des profils-colonnes\n\nProblème d’optimisation similaire avec matrice : \\[T = F D_p^{-1} F^\\top D_n^{-1}\\]\n\n\nPremier axe factoriel : \\(T v_1 = \\mu_1 v_1\\)"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#similarité-par-accords",
-    "href": "slides/03-generalities-distance-slides-annotated.html#similarité-par-accords",
-    "title": "Généralités",
-    "section": "Similarité par accords",
-    "text": "Similarité par accords\n\nCompter les accords normalisés :\n\\[s(x, y) = \\frac{1}{p}\\sum_{i=1}^{p} \\mathbb{1}(x_i = y_i)\\]\n\nExemple précédent :\n\n\\(s(\\text{Alice}, \\text{Bob}) = 0\\)\n\\(s(\\text{Alice}, \\text{Chris}) = 1\\)\n\\(s(\\text{Bob}, \\text{Chris}) = 0\\)"
+    "objectID": "slides/04-dimension-ca-slides.html#propriété",
+    "href": "slides/04-dimension-ca-slides.html#propriété",
+    "title": "Dimension",
+    "section": "Propriété",
+    "text": "Propriété\n\n\n\n\n\n\nPropriété\n\n\n\\(S\\) et \\(T\\) ont les mêmes \\(r = \\min(n-1, p-1)\\) valeurs propres positives !"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#problème-des-variables-binaires",
-    "href": "slides/03-generalities-distance-slides-annotated.html#problème-des-variables-binaires",
-    "title": "Généralités",
-    "section": "Problème des variables binaires",
-    "text": "Problème des variables binaires\n\nAvec l’encodage “1 parmi K” :\n\nBeaucoup de variables binaires\nBeaucoup de 0, peu de 1\nDistance discrète peu informative\n\n\nSolution : Se concentrer sur les attributs à 1 → Distance de Jaccard"
+    "objectID": "slides/04-dimension-ca-slides.html#relations-entre-analyses",
+    "href": "slides/04-dimension-ca-slides.html#relations-entre-analyses",
+    "title": "Dimension",
+    "section": "Relations entre analyses",
+    "text": "Relations entre analyses\nCohérence des représentations : \\(\\lambda_k = \\mu_k\\) pour \\(k = 1, \\ldots, r\\)\nRelations entre vecteurs propres : \\[u_k = \\frac{1}{\\sqrt{\\lambda_k}} F^\\top D_n^{-1} v_k.\\] \\[v_k = \\frac{1}{\\sqrt{\\lambda_k}} F D_p^{-1} u_k.\\]\nCette propriété garantit une représentation cohérente dans le même espace réduit."
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#indice-de-jaccard-définition",
-    "href": "slides/03-generalities-distance-slides-annotated.html#indice-de-jaccard-définition",
-    "title": "Généralités",
-    "section": "Indice de Jaccard : Définition",
-    "text": "Indice de Jaccard : Définition\n\nPour deux observations de \\(K\\) variables binaires :\n\n\\(M_{11}\\) : nombre de variables à 1 pour x et y\n\\(M_{10}\\) : nombre de variables à 1 pour x, 0 pour y\n\\(M_{01}\\) : nombre de variables à 0 pour x, 1 pour y\n\\(M_{00}\\) : nombre de variables à 0 pour x et y\n\n\n\\[J(x, y) = \\frac{M_{11}}{M_{10} + M_{01} + M_{11}} = \\frac{M_{11}}{K - M_{00}}\\]"
+    "objectID": "slides/04-dimension-ca-slides.html#afc-comme-double-acp",
+    "href": "slides/04-dimension-ca-slides.html#afc-comme-double-acp",
+    "title": "Dimension",
+    "section": "AFC comme double ACP",
+    "text": "AFC comme double ACP\n\n\n\n\n\n\nRemarque\n\n\nL’AFC peut être vue comme une double ACP pondérée :\n\nACP des profils-lignes dans \\(\\mathbb{R}^p\\),\nACP des profils-colonnes dans \\(\\mathbb{R}^n\\),\nAvec métriques du \\(\\chi^2\\) adaptées à chaque espace."
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#distance-de-jaccard",
-    "href": "slides/03-generalities-distance-slides-annotated.html#distance-de-jaccard",
-    "title": "Généralités",
-    "section": "Distance de Jaccard",
-    "text": "Distance de Jaccard\n\n\n\n\nDistance de Jaccard :\n\n\n\\[d(x, y) = 1 - J(x, y) = \\frac{M_{10} + M_{01}}{M_{01} + M_{10} + M_{11}}\\]\n\n\n\nIntuition : Proportion de désaccords parmi les variables “actives”."
+    "objectID": "slides/04-dimension-ca-slides.html#coordonnées-factorielles",
+    "href": "slides/04-dimension-ca-slides.html#coordonnées-factorielles",
+    "title": "Dimension",
+    "section": "Coordonnées factorielles",
+    "text": "Coordonnées factorielles\nCoordonnées des profils-lignes sur l’axe \\(k\\) :\n\\[\\Phi_k = D_n^{-1} F D_p^{-1} u_k.\\]\nCoordonnées des profils-colonnes sur l’axe \\(k\\) :\n\\[\\Psi_k = D_p^{-1} F^\\top D_n^{-1} v_k.\\]\nRelations entre coordonnées : \\[\\Phi_k = \\frac{1}{\\sqrt{\\lambda_k}} D_n^{-1} F \\Psi_k.\\]"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#exemple-distance-de-jaccard",
-    "href": "slides/03-generalities-distance-slides-annotated.html#exemple-distance-de-jaccard",
-    "title": "Généralités",
-    "section": "Exemple : Distance de Jaccard",
-    "text": "Exemple : Distance de Jaccard\n\n\n\nNom\nQ1\nQ2\nQ3\nQ4\nQ5\n\n\n\n\nAlice\n1\n0\n1\n0\n1\n\n\nBob\n1\n0\n0\n1\n0"
+    "objectID": "slides/04-dimension-ca-slides.html#centrage-et-centre-de-gravité",
+    "href": "slides/04-dimension-ca-slides.html#centrage-et-centre-de-gravité",
+    "title": "Dimension",
+    "section": "Centrage et centre de gravité",
+    "text": "Centrage et centre de gravité\n\nConvention : Représentation centrée en \\((0,0)\\) dans les logiciels.\n\nCentres de gravité :\n\nLignes : \\(G_L = (f_{\\bullet 1}, \\ldots, f_{\\bullet p})^\\top\\).\nColonnes : \\(G_C = (f_{1\\bullet}, \\ldots, f_{n\\bullet})^\\top\\).\n\n\n\nCentrage : Soustraire les profils moyens\n\\[\\frac{f_{ij}}{f_{i\\bullet}} - f_{\\bullet j} = \\frac{f_{ij} - f_{i\\bullet}f_{\\bullet j}}{f_{i\\bullet}}.\\]"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#récapitulatif-des-distances",
-    "href": "slides/03-generalities-distance-slides-annotated.html#récapitulatif-des-distances",
-    "title": "Généralités",
-    "section": "Récapitulatif des distances",
-    "text": "Récapitulatif des distances\n\n\n\n\nType de données\nDistance utilisable\n\n\n\n\nNumériques\nEuclidienne (standardisée)\n\n\nQualitatives\nDiscrète (Hamming)\n\n\nBinaires nombreuses\nJaccard\n\n\nMixtes\nCombinaison adaptée"
+    "objectID": "slides/04-dimension-ca-slides.html#afc-sur-matrice-centrée",
+    "href": "slides/04-dimension-ca-slides.html#afc-sur-matrice-centrée",
+    "title": "Dimension",
+    "section": "AFC sur matrice centrée",
+    "text": "AFC sur matrice centrée\n\nMatrice centrée : \\(S^* = (s_{jj'}^*)\\) avec\n\\[s_{jj'}^* = \\sum_{i=1}^n \\frac{(f_{ij} - f_{i\\bullet}f_{\\bullet j})(f_{ij'} - f_{i\\bullet}f_{\\bullet j'})}{f_{i\\bullet}f_{\\bullet j'}}.\\]"
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#choix-pratique-de-la-distance",
-    "href": "slides/03-generalities-distance-slides-annotated.html#choix-pratique-de-la-distance",
-    "title": "Généralités",
-    "section": "Choix pratique de la distance",
-    "text": "Choix pratique de la distance\n\nQuestions à se poser :\n\nQuel type de variables ? (numériques/qualitatives)\nMême échelle ou standardisation nécessaire ?\nBeaucoup de variables binaires ?\nLes double-absences sont-elles informatives ?\n\n\n→ Le choix de distance influence directement les résultats !"
+    "objectID": "slides/04-dimension-ca-slides.html#inertie-totale",
+    "href": "slides/04-dimension-ca-slides.html#inertie-totale",
+    "title": "Dimension",
+    "section": "Inertie totale",
+    "text": "Inertie totale\n\nInertie totale :\n\\[\\text{tr}(S^*) = \\sum_{j=1}^p \\sum_{i=1}^n \\frac{(f_{ij} - f_{i\\bullet}f_{\\bullet j})^2}{f_{i\\bullet}f_{\\bullet j}}\\]\nCette inertie correspond à la statistique du \\(\\chi^2\\) normalisée."
   },
   {
-    "objectID": "slides/03-generalities-distance-slides-annotated.html#conclusion",
-    "href": "slides/03-generalities-distance-slides-annotated.html#conclusion",
-    "title": "Généralités",
+    "objectID": "slides/04-dimension-ca-slides.html#représentation-barycentrique",
+    "href": "slides/04-dimension-ca-slides.html#représentation-barycentrique",
+    "title": "Dimension",
+    "section": "Représentation barycentrique",
+    "text": "Représentation barycentrique\nSur chaque axe factoriel,\n\\[[\\Phi_k]_i = \\frac{1}{\\sqrt{\\lambda_k}} \\sum_{j=1}^p \\frac{f_{ij}}{f_{i\\bullet}} [\\Psi_k]_j,\\]\n\\[[\\Psi_k]_j = \\frac{1}{\\sqrt{\\lambda_k}} \\sum_{i=1}^n \\frac{f_{ij}}{f_{\\bullet j}} [\\Phi_k]_i.\\]\nInterprétation : Chaque profil-ligne est au barycentre des profils-colonnes (et vice versa)."
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#double-représentation-barycentrique",
+    "href": "slides/04-dimension-ca-slides.html#double-représentation-barycentrique",
+    "title": "Dimension",
+    "section": "Double représentation barycentrique",
+    "text": "Double représentation barycentrique\n\n\n\n\n\n\nPropriété fondamentale de l’AFC :\n\n\nSur les axes factoriels, chaque point d’un nuage est au barycentre des points de l’autre nuage, pondéré par les contributions respectives.\n\n\n\nCette propriété permet une interprétation conjointe des modalités des deux variables dans le même graphique."
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#interprétation-des-résultats",
+    "href": "slides/04-dimension-ca-slides.html#interprétation-des-résultats",
+    "title": "Dimension",
+    "section": "Interprétation des résultats",
+    "text": "Interprétation des résultats\n\nProximité géométrique = Similarité des profils\nAxes factoriels : Directions de variation maximale.\nContribution des modalités : Importance dans la construction des axes.\nQualité de représentation : Proportion de l’inertie d’un point expliquée par les axes retenus."
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada",
+    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada",
+    "title": "Dimension",
+    "section": "Exemple : le taux d’emploi au Canada",
+    "text": "Exemple : le taux d’emploi au Canada\nOn considère le jeu de données suivant :\n\n\n\n\n\nprovince\nfull-time\npart-time\nunemployed\n\n\n\n\nNewfoundland and Labrador\n205.0\n39.3\n27.3\n\n\nPrince Edward Island\n82.1\n11.9\n7.6\n\n\nNova Scotia\n437.7\n87.2\n34.0\n\n\nNew Brunswick\n346.8\n54.8\n30.0\n\n\nQuebec\n3762.6\n864.7\n279.6\n\n\nOntario\n6721.8\n1508.0\n667.2\n\n\nManitoba\n608.4\n122.6\n46.3\n\n\nSaskatchewan\n498.1\n115.4\n31.7\n\n\nAlberta\n2084.6\n466.2\n195.0\n\n\nBritish Columbia\n2357.1\n587.8\n190.1"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-1",
+    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-1",
+    "title": "Dimension",
+    "section": "Exemple : le taux d’emploi au Canada",
+    "text": "Exemple : le taux d’emploi au Canada\n\nCodePlotValeurs propres\n\n\n\nlibrary(FactoMineR)\nlibrary(factoextra)\nres_ca &lt;- df |&gt;\n  column_to_rownames(var = 'province') |&gt; \n  CA(graph = FALSE)\nfviz_eig(res_ca)\nget_eigenvalue(res_ca)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\neigenvalue\nvariance.percent\ncumulative.variance.percent\n\n\n\n\nDim.1\n0.0014335\n70.77104\n70.77104\n\n\nDim.2\n0.0005921\n29.22896\n100.00000"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-2",
+    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-2",
+    "title": "Dimension",
+    "section": "Exemple : le taux d’emploi au Canada",
+    "text": "Exemple : le taux d’emploi au Canada\n\nCodePlot\n\n\n\n# Résultat pour les lignes\nfviz_ca_row(res_ca, repel = TRUE)"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-3",
+    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-3",
+    "title": "Dimension",
+    "section": "Exemple : le taux d’emploi au Canada",
+    "text": "Exemple : le taux d’emploi au Canada\n\nCodeContribution à la première composante\n\n\n\n# Visualisation des lignes sur l'axe 1\nfviz_contrib(res_ca, choice =\"row\", axes = 1)"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-4",
+    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-4",
+    "title": "Dimension",
+    "section": "Exemple : le taux d’emploi au Canada",
+    "text": "Exemple : le taux d’emploi au Canada\n\nCodeContribution à la première composante\n\n\n\n# Visualisation des lignes sur l'axe 2\nfviz_contrib(res_ca, choice =\"row\", axes = 2)"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-5",
+    "href": "slides/04-dimension-ca-slides.html#exemple-le-taux-demploi-au-canada-5",
+    "title": "Dimension",
+    "section": "Exemple : le taux d’emploi au Canada",
+    "text": "Exemple : le taux d’emploi au Canada\n\nCodeBiplot\n\n\n\nfviz_ca_biplot(res_ca, repel = TRUE)"
+  },
+  {
+    "objectID": "slides/04-dimension-ca-slides.html#conclusion",
+    "href": "slides/04-dimension-ca-slides.html#conclusion",
+    "title": "Dimension",
     "section": "Conclusion",
-    "text": "Conclusion\n\n\nDistance → mesure de dissemblance (4 propriétés mathématiques)\nSimilarité → mesure de ressemblance (concept opposé)\nVariables numériques → Distance euclidienne (standardisée)\nVariables qualitatives → Encodage + distance adaptée\nVariables binaires → Distance de Jaccard\n\n\nProchaine étape → Compromis biais/variance"
+    "text": "Conclusion\n\nL’AFC est un outil pour :\n\nExplorer les relations entre variables qualitatives\nVisualiser des structures complexes en 2D/3D\nIdentifier des associations non évidentes\nInterpréter conjointement lignes et colonnes\n\nProchaine étape → Que faire si on a plus que deux variables qualitatives ?"
   },
   {
-    "objectID": "slides/05-supervised-generalities.html#plan",
-    "href": "slides/05-supervised-generalities.html#plan",
-    "title": "Supervisée",
+    "objectID": "slides/07-ethics-slides.html#lanalyse-de-données-aujourdhui",
+    "href": "slides/07-ethics-slides.html#lanalyse-de-données-aujourdhui",
+    "title": "Éthique",
+    "section": "L’analyse de données aujourd’hui",
+    "text": "L’analyse de données aujourd’hui\n\nOmniprésence dans tous les domaines :\n\nSanté\nÉducation\nPolitiques publiques\nJustice\nFinance\n\n\n→ Décisions automatisées aux conséquences réelles."
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#plan",
+    "href": "slides/07-ethics-slides.html#plan",
+    "title": "Éthique",
     "section": "Plan",
-    "text": "Plan\n\n\nQu’est-ce que la classification supervisée ?\nExemples\nApproche"
+    "text": "Plan\n\n\nGénéralités\nConfidentialité des données\nImplications sociales\nMythes à déconstruire\nSolutions pratiques"
   },
   {
-    "objectID": "slides/05-supervised-generalities.html#principe",
-    "href": "slides/05-supervised-generalities.html#principe",
-    "title": "Supervisée",
-    "section": "Principe",
-    "text": "Principe\n\nOn considère une population comportant \\(K\\) groupes.\nOn connaît le nombre des groupes.\nOn observe \\(p\\) variables \\(X_1, \\dots, X_p\\) pour chaque individu / observation de la population.\nOn connaît le groupe d’appartenance de chaque individu / observation."
+    "objectID": "slides/07-ethics-slides.html#pourquoi-léthique-est-cruciale",
+    "href": "slides/07-ethics-slides.html#pourquoi-léthique-est-cruciale",
+    "title": "Éthique",
+    "section": "Pourquoi l’éthique est cruciale ?",
+    "text": "Pourquoi l’éthique est cruciale ?\n\n\nLes données ne sont pas neutres !\n\n\nElles sont le reflet d’un contexte :\n\nSocial\nInstitutionnel\nTechnique\n\n\n\nRisques → Renforcer les inégalités, reproduire des biais historiques, porter atteinte à la vie privée, …"
   },
   {
-    "objectID": "slides/05-supervised-generalities.html#objectif",
-    "href": "slides/05-supervised-generalities.html#objectif",
-    "title": "Supervisée",
-    "section": "Objectif",
-    "text": "Objectif\n\n\\[Y = f(X) + \\epsilon\\]\n\nObtenir un modèle / algorithme pour classer de nouveaux individus / nouvelles observations dans les bons groupes.\n\n\nPrédire \\(Y\\) à partir de \\(X_1, \\dots, X_p\\)."
+    "objectID": "slides/07-ethics-slides.html#questions-fondamentales",
+    "href": "slides/07-ethics-slides.html#questions-fondamentales",
+    "title": "Éthique",
+    "section": "Questions fondamentales",
+    "text": "Questions fondamentales\n\nAvant toute analyse, se demander :\n\nMes données représentent-elles fidèlement ma population ?\nQuelles décisions seront prises à partir de ces analyses ?\nQuelles sont les conséquences pour les individus concernés ?\nQui est affecté par ces décisions ?"
   },
   {
-    "objectID": "slides/05-supervised-generalities.html#quelques-méthodes",
-    "href": "slides/05-supervised-generalities.html#quelques-méthodes",
-    "title": "Supervisée",
-    "section": "Quelques méthodes",
-    "text": "Quelques méthodes\n\nClassificateur naïf de Bayes\n\nAnalyse discrimante\n\n\nArbres de classification\n\n\n\\(k\\) plus proches voisins (\\(k\\)-NN)\n\n\nRégression logistiques et dérivée (GLM, GAM, GLMM, GAMM, …)\n\n\nMéthodes ensemblistes (bagging, boosting, forêt aléatoire, …)\n\n\nMachine de vecteur de soutien (support vector machine, SVM)\n\n\nRéseaux de neurones"
+    "objectID": "slides/07-ethics-slides.html#confidentialité-enjeux",
+    "href": "slides/07-ethics-slides.html#confidentialité-enjeux",
+    "title": "Éthique",
+    "section": "Confidentialité : Enjeux",
+    "text": "Confidentialité : Enjeux\n\nLors de la manipulation de données personnelles :\n\nRéidentification des personnes\nExploitation abusive\nViolation de la vie privée\n\n→ Nécessité de prendre des mesures adéquates."
   },
   {
-    "objectID": "slides/05-supervised-generalities.html#exemples",
-    "href": "slides/05-supervised-generalities.html#exemples",
-    "title": "Supervisée",
-    "section": "Exemples",
-    "text": "Exemples\n\nFiltrage de courriels indésirables\nSystèmes de recommendation\nPrévision des gagnants lors d’événements sportifs\nTraduction automatisée de textes\nReconnaissance d’images"
+    "objectID": "slides/07-ethics-slides.html#anonymisation-des-données",
+    "href": "slides/07-ethics-slides.html#anonymisation-des-données",
+    "title": "Éthique",
+    "section": "Anonymisation des données",
+    "text": "Anonymisation des données\n\nSupprimer ou transformer les identifiants :\n\nDirects :\n\nNoms, adresses, numéros\n\nIndirects :\n\nDates de naissance, codes postaux\n\n\n\n⚠️ Attention : Le croisement de plusieurs variables peut permettre l’identification !"
   },
   {
-    "objectID": "slides/05-supervised-generalities.html#approche-générale",
-    "href": "slides/05-supervised-generalities.html#approche-générale",
-    "title": "Supervisée",
-    "section": "Approche générale",
-    "text": "Approche générale\n\nSélectionner un certain nombre d’individus / d’observations dont on connaît le groupe d’appartenance.\nMesurer \\(p\\) caractéristiques \\(X_1, \\dots, X_p\\) sur ces individus.\nDivisier ce jeu de données en deux :\n\n\nUn jeu de données pour la modélisation (train)\nUn jeu de données pour la vérification (test)\n\n\nDévelopper un algorithme pour classer le mieux possible les individus du jeu de données d’entraînement.\nÉvaluer notre algorithme sur le jeu de données de validation."
+    "objectID": "slides/07-ethics-slides.html#exemple-netflix-et-imdb",
+    "href": "slides/07-ethics-slides.html#exemple-netflix-et-imdb",
+    "title": "Éthique",
+    "section": "Exemple : Netflix et IMDb",
+    "text": "Exemple : Netflix et IMDb\n\nDes chercheurs de l’université du Texas ont pu identifier des utilisateurs Netflix en croisant leurs notes avec celles sur IMDb.\n\n Leçon → L’anonymisation simple ne suffit pas toujours !"
   },
   {
-    "objectID": "slides/05-supervised-generalities.html#conclusion",
-    "href": "slides/05-supervised-generalities.html#conclusion",
-    "title": "Supervisée",
+    "objectID": "slides/07-ethics-slides.html#techniques-de-protection",
+    "href": "slides/07-ethics-slides.html#techniques-de-protection",
+    "title": "Éthique",
+    "section": "Techniques de protection",
+    "text": "Techniques de protection\n\nRéduire la granularité :\n\nÂges → Tranches d’âge (25-34 ans au lieu de 28 ans)\nCodes postaux → Régions\nSalaires → Catégories\n\n\nRegrouper les modalités rares :\n\nÉviter les combinaisons uniques de caractéristiques\nFusionner les catégories peu fréquentes"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#techniques-de-protection-1",
+    "href": "slides/07-ethics-slides.html#techniques-de-protection-1",
+    "title": "Éthique",
+    "section": "Techniques de protection",
+    "text": "Techniques de protection\n\nAjout de bruit :\n\nPréserver les tendances globales\nRendre l’identification individuelle difficile\n⚠️ Ne pas compromettre la validité des analyses\n\n\nConfidentialité différentielle :\n\nGarantir qu’un individu ne peut être identifié\nMême en connaissant toutes les autres données"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#implications-sociales-sources-de-biais",
+    "href": "slides/07-ethics-slides.html#implications-sociales-sources-de-biais",
+    "title": "Éthique",
+    "section": "Implications sociales : Sources de biais",
+    "text": "Implications sociales : Sources de biais\n\nPlusieurs points de défaillance :\n\nBiais d’échantillonnage → Données non représentatives\nBiais dans la variable cible → Reproduction de discriminations historiques\nValidité variable selon les groupes → Performance inégale\nClasses mal représentées → Groupes minoritaires ignorés"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#biais-déchantillonnage",
+    "href": "slides/07-ethics-slides.html#biais-déchantillonnage",
+    "title": "Éthique",
+    "section": "Biais d’échantillonnage",
+    "text": "Biais d’échantillonnage\n\nProblème : Le jeu de données ne reflète pas fidèlement la population cible.\nExemples :\n\nSous-représentation de certaines communautés\nSurreprésentation de populations faciles d’accès\nExclusion de groupes vulnérables\n\n→ Modèles inéquitables"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#biais-dans-la-variable-cible",
+    "href": "slides/07-ethics-slides.html#biais-dans-la-variable-cible",
+    "title": "Éthique",
+    "section": "Biais dans la variable cible",
+    "text": "Biais dans la variable cible\n\nProblème : Reproduction de discriminations historiques.\nExemples :\n\nJustice prédictive : logiciel COMPAS utilisé aux USA.\nRecrutement : processus d’Amazon.\n\n→ Discrimination systématique de certains groupes."
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#validité-variable-selon-les-groupes",
+    "href": "slides/07-ethics-slides.html#validité-variable-selon-les-groupes",
+    "title": "Éthique",
+    "section": "Validité variable selon les groupes",
+    "text": "Validité variable selon les groupes\n\nUn même modèle peut :\n\nTrès bien fonctionner pour un sous-groupe\nÊtre très mauvais pour un autre\n\n\nExemple (Krishnan, A., Almadan, A., & Rattani, A. (2020)):\n\nReconnaissance faciale : Haute précision pour hommes blancs.\nMême système : Faible précision pour femmes noires.\n\n→ Erreurs systématiques discriminatoires"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#classes-mal-représentées",
+    "href": "slides/07-ethics-slides.html#classes-mal-représentées",
+    "title": "Éthique",
+    "section": "Classes mal représentées",
+    "text": "Classes mal représentées\n\nConséquences :\n\nLes maladies rares sont mal prédites.\nLes groupes démographiques minoritaires sont ignorés.\nLa performance globale masque les échecs locaux.\nLes inégalités existantes sont renforcées."
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#mythes-à-déconstruire",
+    "href": "slides/07-ethics-slides.html#mythes-à-déconstruire",
+    "title": "Éthique",
+    "section": "Mythes à déconstruire",
+    "text": "Mythes à déconstruire\n\n\nQuelques idées reçues :\n\n“La machine apprend toute seule.”\n“C’est objectif, c’est basé sur des données.”\n“Mon modèle ne peut pas être sexiste, je n’utilise pas le genre.”"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#mythe-1-la-machine-apprend-toute-seule.",
+    "href": "slides/07-ethics-slides.html#mythe-1-la-machine-apprend-toute-seule.",
+    "title": "Éthique",
+    "section": "Mythe 1 : “La machine apprend toute seule.”",
+    "text": "Mythe 1 : “La machine apprend toute seule.”\n\nEn réalité → Ce sont des choix faits par des humains :\n\nQuelles données collecter ?\nQuelles variables inclure ?\nQuelle variable à expliquer ?\nQuel algorithme utiliser ?\n\n→ L’“apprentissage” dépend entièrement des décisions humaines"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#mythe-2-cest-objectif-basé-sur-des-données.",
+    "href": "slides/07-ethics-slides.html#mythe-2-cest-objectif-basé-sur-des-données.",
+    "title": "Éthique",
+    "section": "Mythe 2 : “C’est objectif, basé sur des données.”",
+    "text": "Mythe 2 : “C’est objectif, basé sur des données.”\n\nRéalité → Les données ne sont jamais neutres !\nElles sont le produit de :\n\nContexte social\nChoix institutionnels\nDécisions méthodologiques\n\n→ Les modèles héritent des biais des données."
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#mythe-3-sans-genre-pas-de-sexisme.",
+    "href": "slides/07-ethics-slides.html#mythe-3-sans-genre-pas-de-sexisme.",
+    "title": "Éthique",
+    "section": "Mythe 3 : “Sans genre, pas de sexisme.”",
+    "text": "Mythe 3 : “Sans genre, pas de sexisme.”\n\nRéalité → Le modèle peut inférer le genre via d’autres variables corrélées :\n\nProfession\nParcours scolaire\nHistorique salarial\n\n→ L’exclusion explicite ne garantit pas l’absence de biais."
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#solutions-vue-densemble",
+    "href": "slides/07-ethics-slides.html#solutions-vue-densemble",
+    "title": "Éthique",
+    "section": "Solutions : Vue d’ensemble",
+    "text": "Solutions : Vue d’ensemble\n\nAgir à différentes étapes du processus :\n\nEn amont → Sur les données\nPendant → Sur la fonction de perte\nA posteriori → Sur les résultats"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#solution-1-agir-sur-les-données",
+    "href": "slides/07-ethics-slides.html#solution-1-agir-sur-les-données",
+    "title": "Éthique",
+    "section": "Solution 1 : Agir sur les données",
+    "text": "Solution 1 : Agir sur les données\n\nInterventions en amont :\n\nRééquilibrer l’échantillon → Représentation équitable\nSur-représenter certains groupes → Compenser sous-représentation\nCorriger les biais connus → Dans la variable cible\nAugmenter les données → Pour classes minoritaires"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#solution-2-modifier-la-fonction-de-perte",
+    "href": "slides/07-ethics-slides.html#solution-2-modifier-la-fonction-de-perte",
+    "title": "Éthique",
+    "section": "Solution 2 : Modifier la fonction de perte",
+    "text": "Solution 2 : Modifier la fonction de perte\n\nIntégrer l’équité dans l’apprentissage :\n\nPénalités pour inégalités de performance\nImposer équité en termes de faux positifs\nContraintes sur disparités entre groupes\nOptimisation multi-objectifs (performance + équité)"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#solution-3-corrections-a-posteriori",
+    "href": "slides/07-ethics-slides.html#solution-3-corrections-a-posteriori",
+    "title": "Éthique",
+    "section": "Solution 3 : Corrections a posteriori",
+    "text": "Solution 3 : Corrections a posteriori\n\nAjuster les résultats produits :\n\nRecalibrage des probabilités → Par groupe démographique\nAjustement des seuils → Seuils différents selon contexte\nPost-processing → Corrections statistiques\nAudits réguliers → Monitoring des performances"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#limites-des-solutions-techniques",
+    "href": "slides/07-ethics-slides.html#limites-des-solutions-techniques",
+    "title": "Éthique",
+    "section": "Limites des solutions techniques",
+    "text": "Limites des solutions techniques\n\n⚠️ Les solutions techniques ne suffisent pas !\nNécessité de :\n\nRéflexion éthique continue\nTransparence sur les choix\nImplication des parties prenantes\nÉvaluation des impacts sociaux"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#bonnes-pratiques",
+    "href": "slides/07-ethics-slides.html#bonnes-pratiques",
+    "title": "Éthique",
+    "section": "Bonnes pratiques",
+    "text": "Bonnes pratiques\n\nDémarche éthique complète :\n\nDocumentation → Origines et limites des données\nTransparence → Méthodes et hypothèses\nÉvaluation différenciée → Performance par sous-groupe\nImplication → Communautés affectées\nRévision → Continue et critique"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#cadres-réglementaires",
+    "href": "slides/07-ethics-slides.html#cadres-réglementaires",
+    "title": "Éthique",
+    "section": "Cadres réglementaires",
+    "text": "Cadres réglementaires\n\nProtection juridique croissante :\n\nRGPD (UE) → Droit à l’explication\nAI Act (UE) → Cadre réglementaire et juridique commun pour l’IA\nLIAD (Canada) → Protection des consommateurs\nAlgorithmic Accountability Act (USA) → Audits obligatoires\nLégislations nationales en développement"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#responsabilité-du-data-scientist",
+    "href": "slides/07-ethics-slides.html#responsabilité-du-data-scientist",
+    "title": "Éthique",
+    "section": "Responsabilité du data scientist",
+    "text": "Responsabilité du data scientist\n\nRôle et obligations :\n\nVigilance → Identifier les biais potentiels\nTransparence → Communiquer les limites\nPrudence → Évaluer les conséquences\nCourage → Refuser les projets problématiques\nFormation → Continue sur l’éthique"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#questions-à-se-poser",
+    "href": "slides/07-ethics-slides.html#questions-à-se-poser",
+    "title": "Éthique",
+    "section": "Questions à se poser",
+    "text": "Questions à se poser\n\nAvant de déployer un modèle :\n\nQui bénéficie de ce modèle ? Qui peut en pâtir ?\nLes données sont-elles représentatives ?\nY a-t-il des groupes désavantagés ?\nLes erreurs ont-elles les mêmes conséquences pour tous ?\nExiste-t-il des alternatives moins risquées ?"
+  },
+  {
+    "objectID": "slides/07-ethics-slides.html#conclusion",
+    "href": "slides/07-ethics-slides.html#conclusion",
+    "title": "Éthique",
     "section": "Conclusion",
-    "text": "Conclusion\n\nModèle général:\n\\[Y = f(X) + \\epsilon\\]\nClassification supervisée: connaissant \\(X\\) et \\(Y\\), on cherche à estimer \\(f\\) (en supposant éventuellement une certaine forme pour \\(f\\)).\n\n\nProchaine étape → Analyse discriminante"
+    "text": "Conclusion\n\nLes données et modèles ne sont jamais neutres.\nBiais multiples à toutes les étapes du processus.\nSolutions techniques nécessaires mais insuffisantes.\nRéflexion éthique indispensable à chaque projet.\nResponsabilité collective → Data scientists, organisations, société\n\n\n→ L’éthique n’est pas une contrainte, c’est une condition de qualité !\nProchaine étape → Classification supervisée"
   },
   {
     "objectID": "slides/06-unsupervised-hierarchy-slides.html#motivation",
@@ -5337,7 +5624,7 @@
     "href": "contents/05-supervisee.html",
     "title": "Supervisée",
     "section": "",
-    "text": "Slides:\n\nGénéralités\nAnalyse discriminante\nArbres\nModèles ensemblistes\n\nTD: link\nTP: link",
+    "text": "Slides:\n\nGénéralités\nAnalyse discriminante - annoté\nArbres - annoté\nModèles ensemblistes\n\nTD: link\nTP: link",
     "crumbs": [
       "Modules",
       "05 - Supervisée"
