@@ -3,7 +3,7 @@ title: "Supervisée"
 subtitle: "Arbres de décision"
 author: "Steven Golovkine"
 lang: fr
-date: today
+date: "07 nov. 2025"
 date-format: "DD MMM YYYY"
 slide-number: c/t
 title-logo: ../include/logo-ul.png
