@@ -11,9 +11,9 @@ format:
 
   - [Généralités](../slides/05-supervised-generalities.qmd)
   
-  - [Analyse discriminante](../slides/05-supervised-discriminant-slides.qmd)
+  - [Analyse discriminante](../slides/05-supervised-discriminant-slides.qmd) - [annoté](../slides/05-supervised-discriminant-slides-annotated.qmd)
 
-  - [Arbres](../slides/05-supervised-tree-slides.qmd)
+  - [Arbres](../slides/05-supervised-tree-slides.qmd) - [annoté](../slides/05-supervised-tree-slides-annotated.qmd)
 
   - [Modèles ensemblistes](../slides/05-supervised-ensemble-slides.qmd)
 

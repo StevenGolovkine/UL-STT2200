@@ -1,0 +1,409 @@
+--- 
+title: "Supervisée"
+subtitle: "Arbres de décision"
+author: "Steven Golovkine"
+lang: fr
+date: "07 nov. 2025"
+date-format: "DD MMM YYYY"
+slide-number: c/t
+title-logo: ../include/logo-ul.png
+format:
+  revealjs:
+    theme: [default, ../include/ulaval-slide.scss]
+    chalkboard:
+      src: annotation/05-supervised-tree-slides-annotation.json
+    width: 1280
+    height: 720
+    template-partials:
+      - title-slide.html
+--- 
+
+
+## Plan
+
+<br>
+
+1. La théorie des arbres de décision
+
+2. Les arbres en pratique
+
+3. Exemple
+
+
+## CART
+
+<br>
+
+Variables : $X_1, \ldots, X_p$ avec $n$ observations dans $\mathbb{R}^p$.
+
+. . .
+
+<br>
+
+Classification : Prédire l'appartenance à l'un des $K$ groupes.
+
+. . .
+
+<br>
+
+Régression : Prédire une variable numérique continue $Y$.
+
+
+
+
+## Objectif principal
+
+<br>
+
+Partitionner l'espace des observations $\mathbb{R}^p$ en sous-ensembles homogènes.
+
+
+
+## Algorithme récursif de découpage binaire
+
+<br>
+
+Découper selon une variable $X_j$ à un seuil $s$.
+
+. . .
+
+<br>
+
+Créer des sous-régions rectangulaires (hyper-rectangles).
+
+. . .
+
+<br>
+
+Chaque sous-ensemble = une feuille avec une prédiction.
+
+. . .
+
+<br>
+
+
+⚠️ Algorithme glouton: Optimisation locale, pas globale !
+
+
+## Prédiction par feuille
+
+<br>
+
+Classification : Classe majoritaire
+
+. . .
+
+<br>
+
+Régression : Moyenne des $Y$
+
+
+## Algorithme
+
+<br>
+
+Point de départ: L'ensemble complet des observations
+
+. . .
+
+Pour chaque nœud:
+
+::: {.incremental}
+1. Évaluer tous les couples $(X_j, s)$ possibles.
+
+2. Calculer la réduction du critère d'homogénéité.
+
+3. Sélectionner le couple $(X_j, s)$ qui maximise le gain.
+
+4. Diviser le nœud selon $X_j \leq s$ vs $X_j > s$.
+
+5. Répéter jusqu'au critère d'arrêt.
+:::
+
+
+
+## Critères d'homogénéité
+
+<br>
+
+Soit $\widehat{p}_{jk}$ la proportion d'observations de la région $R_j$ appartenant à la classe $k$.
+
+. . .
+
+<br>
+
+Taux d'erreur de classification
+
+$$E_j = 1 - \max_k \widehat{p}_{jk}$$
+
+. . .
+
+Facile à interpréter.
+
+Peu sensible → rarement utilisé pour la construction.
+
+
+
+## Critères d'homogénéité
+
+<br>
+
+Soit $\widehat{p}_{jk}$ la proportion d'observations de la région $R_j$ appartenant à la classe $k$.
+
+<br>
+
+Indice de Gini (le plus utilisé)
+
+$$G_j = \sum_{k=1}^{K} \widehat{p}_{jk}(1 - \widehat{p}_{jk})$$
+
+. . .
+
+Minimal ($= 0$) quand homogénéité parfaite.
+
+On cherche un indice faible.
+
+
+## Critères d'homogénéité
+
+
+<br>
+
+Soit $\widehat{p}_{jk}$ la proportion d'observations de la région $R_j$ appartenant à la classe $k$.
+
+<br>
+
+Entropie croisée (théorie de l'information)
+
+$$D_j = -\sum_{k=1}^{K} \widehat{p}_{jk} \log(\widehat{p}_{jk})$$
+
+. . .
+
+Basé sur l'information de Shannon.
+
+Minimal pour classe parfaitement prédite.
+
+
+## Gain d'information
+
+<br>
+
+Mesure de la réduction de l'hétérogénéité après division.
+
+. . .
+
+Objectif : Maximiser le gain d'information.
+
+. . .
+
+Exemple avec l'indice de Gini:
+
+$$\Delta G = G_{\text{avant}} - \left(\frac{n_1}{n} G_1 + \frac{n_2}{n} G_2\right)$$
+
+où:
+
+- $n_1, n_2$ : nombres d'observations dans les sous-ensembles
+
+- $n = n_1 + n_2$
+
+
+## Exemple {.smaller}
+
+::: panel-tabset
+### Code
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+library(tidyverse)
+
+carseats <- as_tibble(ISLR::Carseats)
+tree_carseat <- rpart::rpart(Sales ~ ., data = carseats)
+```
+
+### Print
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+print(tree_carseat)
+```
+
+### Plot
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+plot(tree_carseat)
+text(tree_carseat, use.n = TRUE)
+```
+
+:::
+
+## Problème de l'ajustement
+
+<br>
+
+Dilemme: 
+
+- Arbre trop profond → Sur-ajustement aux données d'apprentissage
+
+- Arbre trop simple → Sous-ajustement, classification trop simpliste
+
+. . .
+
+Conséquence → Perte de capacité de généralisation à de nouvelles données.
+
+. . .
+
+Solution → Élagage (*pruning*)
+
+
+## Élagage de l'arbre
+
+<br>
+
+Stratégie en deux temps :
+
+1. Croissance complète jusqu'aux feuilles pures
+
+2. Élagage des branches peu performantes
+
+. . .
+
+
+Critère coût-complexité :
+
+$$\sum_{j=1}^{|T|} c_j + \alpha |T|$$
+
+où $|T|$ est le nombre de feuilles, $c_j$ est le coût dans la feuille $j$ et $\alpha$ est un paramètre de régularisation.
+
+
+## Choix du paramètre α
+
+<br>
+
+Interprétation
+
+- $\alpha$ élevé → Favorise les arbres simples
+
+- $\alpha$ faible → Arbres plus complexes
+
+. . .
+
+Méthode de sélection → Validation croisée pour comparer les performances sur différentes valeurs de $\alpha$
+
+## Exemple {.smaller}
+
+::: panel-tabset
+### Code
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+library(tidyverse)
+
+carseats <- as_tibble(ISLR::Carseats)
+tree_carseat <- rpart::rpart(Sales ~ ., data = carseats)
+tree_prune <- rpart::prune(tree_carseat, cp = 0.1)
+```
+
+### Print
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+print(tree_prune)
+```
+
+### Plot
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+plot(tree_prune)
+text(tree_prune, use.n = TRUE)
+```
+
+:::
+
+
+## Avantages des arbres
+
+<br>
+
+Très interprétables : Chemin explicite pour chaque prédiction.
+
+. . .
+
+Robustes aux valeurs extrêmes et transformations monotones.
+
+. . .
+
+Gestion naturelle des interactions entre variables.
+
+. . .
+
+Variables mixtes : Quantitatives et qualitatives.
+
+. . .
+
+Aucune hypothèse sur la distribution des données.
+
+. . .
+
+Sélection automatique des variables importantes.
+
+. . .
+
+Base des méthodes modernes (forêts aléatoires, boosting).
+
+
+## Limites des arbres
+
+<br>
+
+Instabilité : Sensibles aux petites modifications des données
+
+. . .
+
+Performance limitée seuls, surtout avec données bruitées.
+
+. . .
+
+Divisions rectangulaires inadaptées aux frontières non-linéaires.
+
+. . .
+
+Tendance au sur-ajustement sans élagage.
+
+. . . 
+
+Sensibilité au déséquilibre des classes.
+
+. . .
+
+Solution : Méthodes ensemblistes (forêts, boosting).
+
+
+## Conclusion
+
+<br>
+
+Les arbres :
+
+- Méthode de partitionnement récursif
+
+- Algorithme glouton simple et intuitif
+
+- Nécessitent un élagage pour éviter le sur-ajustement
+
+
+. . .
+
+Prochaine étape → Les modèles ensemblistes
