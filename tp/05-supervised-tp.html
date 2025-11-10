@@ -561,8 +561,15 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="05-supervised-tp.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#exercice-1-position-des-joueurs-nfl" id="toc-exercice-1-position-des-joueurs-nfl" class="nav-link active" data-scroll-target="#exercice-1-position-des-joueurs-nfl">Exercice 1: Position des joueurs NFL</a></li>
+  <li><a href="#exercice-2-prédire-les-réclamations" id="toc-exercice-2-prédire-les-réclamations" class="nav-link" data-scroll-target="#exercice-2-prédire-les-réclamations">Exercice 2: Prédire les réclamations</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/tp/05-supervised-tp.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="05-supervised-tp.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -587,8 +594,36 @@ window.Quarto = {
 
 
 <p>Vous pouvez faire les exercices dans le langage de votre choix.</p>
+<section id="exercice-1-position-des-joueurs-nfl" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-1-position-des-joueurs-nfl">Exercice 1: Position des joueurs NFL</h2>
+<p>Dans cet exercice, on se propose de développer un modèle permettant de classifier les joueurs NFL grâce à l’analyse discrimnante.</p>
+<ol type="1">
+<li><p>Télécharger le jeu de données suivant: <a href="../include/data/tp/nfl.csv">lien</a>.</p></li>
+<li><p>Faire une rapide analyse descriptive des données.</p></li>
+<li><p>Faire une analyse discriminante pour classer les joueurs des positions <code>QB</code> (quart-arrière) et <code>OL</code> (ligne offensive) en utilisant leur taille (<code>Ht</code>) et leur poids (<code>Wt</code>).</p></li>
+<li><p>Quelle serait la coordonnée d’un joueur ayant une taille est de <span class="math inline">\(76.5\)</span> et un poids de <span class="math inline">\(335.5\)</span> sur le nouvel axe ? Quelle serait la position d’un tel joueur ?</p></li>
+<li><p>Faire la même chose avec les joueurs des lignes offensives (<code>OL</code>) et défensives (<code>DL</code>), puis entre les joueurs de la ligne défensive (<code>DL</code>) et les quarts-arrières (<code>QB</code>). En utilisant les résultats de ce modèle, quelles positions sont les plus faciles à séparer avec l’analyse discriminante ?</p></li>
+<li><p>Faire une analyse discriminante pour classer les joueurs des positions <code>QB</code>, <code>OL</code> et <code>DL</code>. La classification des joueurs est-elle facilitée avec ce modèle ou bien est-il préférable d’utiliser les trois modèles précédents ?</p></li>
+</ol>
+</section>
+<section id="exercice-2-prédire-les-réclamations" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-2-prédire-les-réclamations">Exercice 2: Prédire les réclamations</h2>
+<p>Dans cet exercice, on se propose de construire un arbre de classification permettant de prédire si une réclamation pourrait avoir lieu sur un colis envoyé par Rakuten. Le jeu de données fourni par PriceMinister Rakuten contient une variable cible (<code>CLAIM_TYPE</code>), ainsi que 12 variables explicatives.</p>
+<ol type="1">
+<li><p>Télécharger le jeu de données suivant: <a href="../include/data/tp/rakuten.csv">lien</a>.</p></li>
+<li><p>Faire une rapide analyse descriptive des données.</p></li>
+<li><p>Partionner les données en échantillon d’entraînement (<span class="math inline">\(70\%\)</span>), de validation (<span class="math inline">\(30\%\)</span>) de façon aléatoire.</p></li>
+<li><p>Ajuster un arbre de classification sur le jeu d’entraînement en utilisant les paramètres par défaut.</p></li>
+<li><p>Faire une prédiction sur les jeux d’entraînement et de validation.</p></li>
+<li><p>Estimer le taux d’erreur dans le noeud 3.</p></li>
+<li><p>Calculer le taux d’observations bien classifiés global sur les échantillons d’entraînement et de validation.</p></li>
+<li><p>Changer les hyperparamètres tel que l’effectif minimal pour q’un noeud puisse être séparé soit de 2 et l’effectif minimal d’un noeud terminal soit de 1 et reconstruire l’arbre.</p></li>
+<li><p>Faire varier le paramètre de complexité du modèle et analyser les arbres résultant.</p></li>
+<li><p>Calculer le taux d’erreur des différents modèles sur les échantillons d’entraînement et de validation. Tracer le graphique du taux d’erreur en fonction de la complexité du modèle.</p></li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script>
@@ -1223,7 +1258,7 @@ window.onload = function() {
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions"><ul><li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/tp/05-supervised-tp.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/tp/05-supervised-tp.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

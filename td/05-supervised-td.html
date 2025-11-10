@@ -566,6 +566,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#exercice-1-compréhension-de-lanalyse-discrimante" id="toc-exercice-1-compréhension-de-lanalyse-discrimante" class="nav-link active" data-scroll-target="#exercice-1-compréhension-de-lanalyse-discrimante">Exercice 1: Compréhension de l’analyse discrimante</a></li>
+  <li><a href="#exercice-2-construction-dun-arbre" id="toc-exercice-2-construction-dun-arbre" class="nav-link" data-scroll-target="#exercice-2-construction-dun-arbre">Exercice 2: Construction d’un arbre</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/td/05-supervised-td.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="05-supervised-td.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -671,6 +672,80 @@ window.Quarto = {
 <li><p>Quelles sont les valeurs de AAAAA, BBBBB et CCCCC?</p></li>
 <li><p>Quel est le pouvoir discriminant de la fonction discriminante de Fisher ?</p></li>
 <li><p>Selon cette fonction discriminante, dans lequel des trois groupes classeriez-vous une observation dont les valeurs de <span class="math inline">\((X_1, X_2, X_3, X_4, X_5)\)</span> sont respectivement <span class="math inline">\((—0.5, 0.5, 0, 1, 1)\)</span> ?</p></li>
+</ol>
+</section>
+<section id="exercice-2-construction-dun-arbre" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-2-construction-dun-arbre">Exercice 2: Construction d’un arbre</h2>
+<p>On cherche à prédire <span class="math inline">\(Y\)</span> à partir des variables <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span> et <span class="math inline">\(X_3\)</span>. Toutes les variables sont binaires. On souhaite construire un arbre à partir des données, et en particulier choisir le premier embranchement. Voici les tableaux croisés entre <span class="math inline">\(Y\)</span> et chacune des trois variables.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><span class="math inline">\(Y = 1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(Y = 0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(X_1 = 1\)</span></td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(X_1 = 0\)</span></td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">5</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><span class="math inline">\(Y = 1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(Y = 0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(X_2 = 1\)</span></td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(X_2 = 0\)</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">10</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><span class="math inline">\(Y = 1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(Y = 0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(X_3 = 1\)</span></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(X_3 = 0\)</span></td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li><p>Calculer le taux d’erreur obtenu en créant un embranchement à partir de chacune des trois variables explicatives.</p></li>
+<li><p>Calculer l’indice de Gini obtenu en créant un embranchement à partir de chacune des trois variables explicatives.</p></li>
+<li><p>Calculer l’entropie obtenu en créant un embranchement à partir de chacune des trois variables explicatives.</p></li>
+<li><p>Quelle variable choisir pour faire le premier embranchement ?</p></li>
+<li><p>Calculer le coût de complexité de l’arbre obtenu, en utilisant le taux d’erreur comme mesure du coût (prendre <span class="math inline">\(\alpha = 0.5\)</span>).</p></li>
 </ol>
 
 
