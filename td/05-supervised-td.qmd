@@ -60,3 +60,34 @@ $$a_1 = \begin{pmatrix} -0.40 \\ 0.37 \\ -0.09 \\ -0.44 \\ -0.71\end{pmatrix}, \
 2. Quel est le pouvoir discriminant de la fonction discriminante de Fisher ?
 
 3. Selon cette fonction discriminante, dans lequel des trois groupes classeriez-vous une observation dont les valeurs de $(X_1, X_2, X_3, X_4, X_5)$ sont respectivement $(—0.5, 0.5, 0, 1, 1)$ ?
+
+
+## Exercice 2: Construction d'un arbre
+
+On cherche à prédire $Y$ à partir des variables $X_1$, $X_2$ et $X_3$. Toutes les variables sont binaires. On souhaite construire un arbre à partir des données, et en particulier choisir le premier embranchement. Voici les tableaux croisés entre $Y$ et chacune des trois variables.
+
+| | $Y = 1$ | $Y = 0$ |
+|:-:|:-:|:-:|
+|$X_1 = 1$| 5 | 5 |
+|$X_1 = 0$| 5 | 5 |
+
+| | $Y = 1$ | $Y = 0$ |
+|:-:|:-:|:-:|
+|$X_2 = 1$| 10 | 0 |
+|$X_2 = 0$| 0 | 10 |
+
+| | $Y = 1$ | $Y = 0$ |
+|:-:|:-:|:-:|
+|$X_3 = 1$| 3 | 9 |
+|$X_3 = 0$| 7 | 1 |
+
+1. Calculer le taux d'erreur obtenu en créant un embranchement à partir de chacune des trois variables explicatives.
+
+2. Calculer l'indice de Gini obtenu en créant un embranchement à partir de chacune des trois variables explicatives.
+
+3. Calculer l'entropie obtenu en créant un embranchement à partir de chacune des trois variables explicatives.
+
+4. Quelle variable choisir pour faire le premier embranchement ?
+
+5. Calculer le coût de complexité de l'arbre obtenu, en utilisant le taux d'erreur comme mesure du coût (prendre $\alpha = 0.5$).
+
