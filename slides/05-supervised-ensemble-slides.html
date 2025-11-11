@@ -145,98 +145,133 @@ Steven Golovkine
 </div>
 </div>
 
-  <p class="date">10 nov. 2025</p>
+  <p class="date">14 nov. 2025</p>
   <figure>
     <center>
       <img src="../include/logo-ul.png" alt="logo" width="40%">
     </center>
   </figure>
 </section>
-<section>
-<section id="méthodes-ensemblistes" class="title-slide slide level1 center">
-<h1>Méthodes ensemblistes</h1>
-
+<section id="plan" class="slide level2">
+<h2>Plan</h2>
+<p><br></p>
+<ol type="1">
+<li><p>Généralités</p></li>
+<li><p>Bagging</p></li>
+<li><p>Forêts aléatoires</p></li>
+<li><p>Boosting</p></li>
+</ol>
 </section>
-<section id="principe-fondamental" class="slide level2">
-<h2>Principe fondamental</h2>
+<section id="principe" class="slide level2">
+<h2>Principe</h2>
+<p><br></p>
+<p>Combiner les prédictions de plusieurs modèles simples (classificateurs faibles, <em>weak classifier</em>) plutôt qu’un unique modèle complexe :</p>
 <div class="fragment">
-<p><strong>Idée centrale</strong> Combiner les prédictions de plusieurs <strong>modèles simples</strong> (classificateurs faibles) plutôt qu’un unique modèle complexe</p>
+<ol type="1">
+<li><p>Meilleure performance globale</p></li>
+<li><p>Plus grande robustesse au bruit</p></li>
+<li><p>Réduction du sur-ajustement</p></li>
+<li><p>Stabilité des prédictions améliorée</p></li>
+</ol>
 </div>
-<ul>
-<li class="fragment"><strong>Meilleure performance</strong> globale</li>
-<li class="fragment"><strong>Plus grande robustesse</strong> au bruit</li>
-<li class="fragment"><strong>Réduction du sur-ajustement</strong></li>
-<li class="fragment"><strong>Stabilité</strong> des prédictions améliorée</li>
-</ul>
 </section>
 <section id="stratégies-de-combinaison" class="slide level2">
 <h2>Stratégies de combinaison</h2>
+<p><br></p>
 <ol type="1">
-<li class="fragment"><p><strong>Moyenne des probabilités</strong> prédites par chaque modèle</p></li>
-<li class="fragment"><p><strong>Vote de majorité</strong> : Classe la plus souvent prédite</p></li>
-<li class="fragment"><p><strong>Sélection de modèles</strong> : Analogie avec la sélection de variables</p></li>
-<li class="fragment"><p><strong>Méthodes automatisées</strong> : Bagging, boosting, forêts aléatoires</p></li>
-</ol>
-</section></section>
-<section>
-<section id="bagging" class="title-slide slide level1 center">
-<h1>Bagging</h1>
-
-</section>
-<section id="bootstrap-aggregating" class="slide level2">
-<h2>Bootstrap Aggregating</h2>
-<div class="fragment">
-<p><strong>Principe</strong> Construire plusieurs versions d’un même modèle sur des échantillons différents</p>
-</div>
-<ol type="1">
-<li class="fragment"><strong>Générer</strong> <span class="math inline">\(B\)</span> échantillons bootstrap (tirage avec remise)</li>
-<li class="fragment"><strong>Construire</strong> un arbre pour chaque échantillon</li>
-<li class="fragment"><strong>Obtenir</strong> <span class="math inline">\(B\)</span> arbres de classification</li>
-<li class="fragment"><strong>Prédire</strong> par vote de majorité ou moyenne des probabilités</li>
+<li><p>Moyenne des probabilités prédites par chaque modèle</p></li>
+<li><p>Vote de majorité : Classe la plus souvent prédite</p></li>
+<li><p>Sélection de modèles : Analogie avec la sélection de variables</p></li>
+<li><p>Méthodes automatisées : Bagging, boosting, forêts aléatoires</p></li>
 </ol>
 </section>
-<section id="avantages-et-évaluation" class="slide level2">
-<h2>Avantages et évaluation</h2>
+<section id="illustration" class="slide level2">
+<h2>Illustration</h2>
+<p>Supposons que pour un exercice de classification binaire pour une observation, trois méthodes me donnent respectivement des probabilités <span class="math inline">\(0.3\)</span>, <span class="math inline">\(0.505\)</span> et <span class="math inline">\(0.515\)</span> que cette observation soit “positive” (et donc des probabilités <span class="math inline">\(0.7\)</span>, <span class="math inline">\(0.495\)</span> et <span class="math inline">\(0.485\)</span> que cette observation soit “négative”).</p>
 <div class="fragment">
-<p><strong>Avantages principaux</strong> - <strong>Réduction de la variance</strong> des prédictions - <strong>Augmentation de la stabilité</strong></p>
+<ol type="1">
+<li><p>Moyenne des probabilités : <span class="math inline">\((0.3 + 0.505 + 0.515) / 3 = 0.44 &lt; 0.5\)</span>, donc on prédit “négatif”.</p></li>
+<li><p>Vote de majorité: deux méthodes prédisent “positif” et une prédit “négatif”, donc on prédit “positif”.</p></li>
+</ol>
 </div>
 <div class="fragment">
-<p><strong>Inconvénient</strong> Perte d’interprétabilité des variables individuelles</p>
+<p>Remarque: on peut pondérer les moyennes ou les votes !</p>
 </div>
-<div class="fragment">
-<p><strong>Évaluation de l’importance des variables</strong> - Sommer les réductions d’indice de Gini par variable - Moyenner sur tous les arbres - Exprimer en pourcentage relatif</p>
-</div>
-</section></section>
-<section>
-<section id="forêts-aléatoires" class="title-slide slide level1 center">
-<h1>Forêts aléatoires</h1>
-
 </section>
-<section id="extension-du-bagging" class="slide level2">
-<h2>Extension du bagging</h2>
+<section id="bagging-bootstrap-aggregating" class="slide level2">
+<h2>Bagging (Bootstrap Aggregating)</h2>
+<p><br></p>
+<p>Construire plusieurs versions d’un même modèle sur des échantillons différents.</p>
 <div class="fragment">
-<p><strong>Problème du bagging</strong> Les arbres se ressemblent (dominance des classes fréquentes)</p>
+<p>Algorithme :</p>
+<ol type="1">
+<li><p>Générer <span class="math inline">\(B\)</span> échantillons <em>bootstrap</em> (tirage avec remise).</p></li>
+<li><p>Construire un arbre pour chaque échantillon.</p></li>
+<li><p>Obtenir <span class="math inline">\(B\)</span> arbres de classification (ou autre).</p></li>
+<li><p>Prédire par vote de majorité ou moyenne des probabilités.</p></li>
+</ol>
+</div>
+</section>
+<section id="bootstrap" class="slide level2">
+<h2>Bootstrap</h2>
+<p><br></p>
+<p>Le bootstrap est une technique basée sur l’échantillonage aléatoire, ce qui permet d’estimer la distribution (échantillonale) de (presque) toutes les statistiques.</p>
+</section>
+<section id="avantages-et-inconvénients" class="slide level2">
+<h2>Avantages et inconvénients</h2>
+<p><br></p>
+<p>Réduction de la variance des prédictions</p>
+<p>Augmentation de la stabilité des prédictions</p>
+<div class="fragment">
+<p><br></p>
+<p>Perte d’interprétabilité des variables individuelles</p>
 </div>
 <div class="fragment">
-<p><strong>Solution des forêts aléatoires</strong> Introduction d’une <strong>source supplémentaire d’aléa</strong></p>
+<p><br></p>
+<p>Un <em>bagging</em> d’un bon classificateur peut le rendre meilleur, un <em>bagging</em> d’un mauvais classificateur peut le rendre moins bon.</p>
+</div>
+</section>
+<section id="évaluation-de-limportance-des-variables" class="slide level2">
+<h2>Évaluation de l’importance des variables</h2>
+<p><br></p>
+<ol type="1">
+<li><p>Sommer les réductions d’indice de Gini par variable.</p></li>
+<li><p>Moyenner sur tous les arbres.</p></li>
+<li><p>Exprimer en pourcentage relatif.</p></li>
+</ol>
+</section>
+<section id="exemple" class="slide level2">
+<h2>Exemple</h2>
+</section>
+<section id="forêts-aléatoires" class="slide level2">
+<h2>Forêts aléatoires</h2>
+<p><br></p>
+<p>Problème du bagging : Les arbres se ressemblent (dominance des classes fréquentes).</p>
+<div class="fragment">
+<p>Solution : Introduction d’une source supplémentaire d’aléatoire.</p>
 </div>
 <div class="fragment">
-<p><strong>Mécanisme</strong> À chaque division, sélectionner aléatoirement <span class="math inline">\(m\)</span> variables parmi <span class="math inline">\(p\)</span> disponibles</p>
-<p><strong>Choix usuel</strong>: <span class="math inline">\(m \approx \sqrt{p}\)</span></p>
+<p>À chaque division, sélectionner aléatoirement <span class="math inline">\(m\)</span> variables parmi <span class="math inline">\(p\)</span> disponibles.</p>
+</div>
+<div class="fragment">
+<p>Choix usuel: <span class="math inline">\(m \approx \sqrt{p}\)</span>.</p>
 </div>
 </section>
 <section id="bénéfices-de-la-randomisation" class="slide level2">
 <h2>Bénéfices de la randomisation</h2>
-<ul>
-<li class="fragment"><strong>Décorrélation</strong> des arbres construits</li>
-<li class="fragment"><strong>Diversification</strong> des modèles</li>
-<li class="fragment"><strong>Amélioration</strong> de la performance globale</li>
-<li class="fragment"><strong>Robustesse</strong> accrue</li>
-</ul>
-<div class="fragment">
-<p><strong>Résultat</strong> Meilleure généralisation que le bagging simple</p>
-</div>
-</section></section>
+<p><br></p>
+<p>Décorrélation des arbres construits.</p>
+<p>Diversification des modèles.</p>
+<p>Amélioration de la performance globale.</p>
+<p>Robustesse aux valeurs abérrantes accrue.</p>
+<p>Meilleure généralisation que le <em>bagging</em> simple.</p>
+</section>
+<section id="algorithme" class="slide level2">
+<h2>Algorithme</h2>
+</section>
+<section id="exemple-1" class="slide level2">
+<h2>Exemple</h2>
+</section>
 <section>
 <section id="boosting" class="title-slide slide level1 center">
 <h1>Boosting</h1>
@@ -345,14 +380,14 @@ Steven Golovkine
 <li class="fragment"><strong>Applications</strong> : Base de nombreux algorithmes modernes (XGBoost, LightGBM, etc.)</li>
 </ul>
 </section>
-<section id="merci-pour-votre-attention" class="slide level2">
-<h2>Merci pour votre attention</h2>
-<p><strong>Questions ?</strong></p>
+<section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
+<p><br></p>
 <div class="fragment">
-<p><em>Les méthodes ensemblistes : quand l’union fait la force</em></p>
+<p>Prochaine étape → La classification non-supervisée (<em>clustering</em>)</p>
+
+
 </div>
-
-
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">

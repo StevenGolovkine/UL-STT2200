@@ -3285,46 +3285,95 @@
     "text": "Bienvenue à tous au cours STT-2200 de l’automne 2025.\nVous trouverez sur ce site toute les informations nécessaire pour les cours, les différents travaux et les examens. Les contenus seront mis à jour au cours de la session avec les corrigés de certains travaux. Je vous invite à regarder les différents modules avant les cours.\nCe site a été créé en s’aidant des notes de cours de Aurélien Nicosia et de Thierry Duchesne.\nCe site a été créé avec Quarto. Des larges modèles de langages (LLM), ChatGPT et Claude, ont été utilisés pour améliorer la fluidité des notes, pour corriger les typos et pour la mise en forme des figures. Toutes erreurs restantes me sont strictement et directement imputable.\n\n\n\nData trap (xkcd:2582)."
   },
   {
-    "objectID": "slides/05-supervised-ensemble-slides.html#principe-fondamental",
-    "href": "slides/05-supervised-ensemble-slides.html#principe-fondamental",
+    "objectID": "slides/05-supervised-ensemble-slides.html#plan",
+    "href": "slides/05-supervised-ensemble-slides.html#plan",
     "title": "Supervisée",
-    "section": "Principe fondamental",
-    "text": "Principe fondamental\n\nIdée centrale Combiner les prédictions de plusieurs modèles simples (classificateurs faibles) plutôt qu’un unique modèle complexe\n\n\nMeilleure performance globale\nPlus grande robustesse au bruit\nRéduction du sur-ajustement\nStabilité des prédictions améliorée"
+    "section": "Plan",
+    "text": "Plan\n\n\nGénéralités\nBagging\nForêts aléatoires\nBoosting"
+  },
+  {
+    "objectID": "slides/05-supervised-ensemble-slides.html#principe",
+    "href": "slides/05-supervised-ensemble-slides.html#principe",
+    "title": "Supervisée",
+    "section": "Principe",
+    "text": "Principe\n\nCombiner les prédictions de plusieurs modèles simples (classificateurs faibles, weak classifier) plutôt qu’un unique modèle complexe :\n\n\nMeilleure performance globale\nPlus grande robustesse au bruit\nRéduction du sur-ajustement\nStabilité des prédictions améliorée"
   },
   {
     "objectID": "slides/05-supervised-ensemble-slides.html#stratégies-de-combinaison",
     "href": "slides/05-supervised-ensemble-slides.html#stratégies-de-combinaison",
     "title": "Supervisée",
     "section": "Stratégies de combinaison",
-    "text": "Stratégies de combinaison\n\nMoyenne des probabilités prédites par chaque modèle\nVote de majorité : Classe la plus souvent prédite\nSélection de modèles : Analogie avec la sélection de variables\nMéthodes automatisées : Bagging, boosting, forêts aléatoires"
+    "text": "Stratégies de combinaison\n\n\nMoyenne des probabilités prédites par chaque modèle\nVote de majorité : Classe la plus souvent prédite\nSélection de modèles : Analogie avec la sélection de variables\nMéthodes automatisées : Bagging, boosting, forêts aléatoires"
   },
   {
-    "objectID": "slides/05-supervised-ensemble-slides.html#bootstrap-aggregating",
-    "href": "slides/05-supervised-ensemble-slides.html#bootstrap-aggregating",
+    "objectID": "slides/05-supervised-ensemble-slides.html#illustration",
+    "href": "slides/05-supervised-ensemble-slides.html#illustration",
     "title": "Supervisée",
-    "section": "Bootstrap Aggregating",
-    "text": "Bootstrap Aggregating\n\nPrincipe Construire plusieurs versions d’un même modèle sur des échantillons différents\n\n\nGénérer \\(B\\) échantillons bootstrap (tirage avec remise)\nConstruire un arbre pour chaque échantillon\nObtenir \\(B\\) arbres de classification\nPrédire par vote de majorité ou moyenne des probabilités"
+    "section": "Illustration",
+    "text": "Illustration\nSupposons que pour un exercice de classification binaire pour une observation, trois méthodes me donnent respectivement des probabilités \\(0.3\\), \\(0.505\\) et \\(0.515\\) que cette observation soit “positive” (et donc des probabilités \\(0.7\\), \\(0.495\\) et \\(0.485\\) que cette observation soit “négative”).\n\n\nMoyenne des probabilités : \\((0.3 + 0.505 + 0.515) / 3 = 0.44 &lt; 0.5\\), donc on prédit “négatif”.\nVote de majorité: deux méthodes prédisent “positif” et une prédit “négatif”, donc on prédit “positif”.\n\n\n\nRemarque: on peut pondérer les moyennes ou les votes !"
   },
   {
-    "objectID": "slides/05-supervised-ensemble-slides.html#avantages-et-évaluation",
-    "href": "slides/05-supervised-ensemble-slides.html#avantages-et-évaluation",
+    "objectID": "slides/05-supervised-ensemble-slides.html#bagging-bootstrap-aggregating",
+    "href": "slides/05-supervised-ensemble-slides.html#bagging-bootstrap-aggregating",
     "title": "Supervisée",
-    "section": "Avantages et évaluation",
-    "text": "Avantages et évaluation\n\nAvantages principaux - Réduction de la variance des prédictions - Augmentation de la stabilité\n\n\nInconvénient Perte d’interprétabilité des variables individuelles\n\n\nÉvaluation de l’importance des variables - Sommer les réductions d’indice de Gini par variable - Moyenner sur tous les arbres - Exprimer en pourcentage relatif"
+    "section": "Bagging (Bootstrap Aggregating)",
+    "text": "Bagging (Bootstrap Aggregating)\n\nConstruire plusieurs versions d’un même modèle sur des échantillons différents.\n\nAlgorithme :\n\nGénérer \\(B\\) échantillons bootstrap (tirage avec remise).\nConstruire un arbre pour chaque échantillon.\nObtenir \\(B\\) arbres de classification (ou autre).\nPrédire par vote de majorité ou moyenne des probabilités."
   },
   {
-    "objectID": "slides/05-supervised-ensemble-slides.html#extension-du-bagging",
-    "href": "slides/05-supervised-ensemble-slides.html#extension-du-bagging",
+    "objectID": "slides/05-supervised-ensemble-slides.html#bootstrap",
+    "href": "slides/05-supervised-ensemble-slides.html#bootstrap",
     "title": "Supervisée",
-    "section": "Extension du bagging",
-    "text": "Extension du bagging\n\nProblème du bagging Les arbres se ressemblent (dominance des classes fréquentes)\n\n\nSolution des forêts aléatoires Introduction d’une source supplémentaire d’aléa\n\n\nMécanisme À chaque division, sélectionner aléatoirement \\(m\\) variables parmi \\(p\\) disponibles\nChoix usuel: \\(m \\approx \\sqrt{p}\\)"
+    "section": "Bootstrap",
+    "text": "Bootstrap\n\nLe bootstrap est une technique basée sur l’échantillonage aléatoire, ce qui permet d’estimer la distribution (échantillonale) de (presque) toutes les statistiques."
+  },
+  {
+    "objectID": "slides/05-supervised-ensemble-slides.html#avantages-et-inconvénients",
+    "href": "slides/05-supervised-ensemble-slides.html#avantages-et-inconvénients",
+    "title": "Supervisée",
+    "section": "Avantages et inconvénients",
+    "text": "Avantages et inconvénients\n\nRéduction de la variance des prédictions\nAugmentation de la stabilité des prédictions\n\n\nPerte d’interprétabilité des variables individuelles\n\n\n\nUn bagging d’un bon classificateur peut le rendre meilleur, un bagging d’un mauvais classificateur peut le rendre moins bon."
+  },
+  {
+    "objectID": "slides/05-supervised-ensemble-slides.html#évaluation-de-limportance-des-variables",
+    "href": "slides/05-supervised-ensemble-slides.html#évaluation-de-limportance-des-variables",
+    "title": "Supervisée",
+    "section": "Évaluation de l’importance des variables",
+    "text": "Évaluation de l’importance des variables\n\n\nSommer les réductions d’indice de Gini par variable.\nMoyenner sur tous les arbres.\nExprimer en pourcentage relatif."
+  },
+  {
+    "objectID": "slides/05-supervised-ensemble-slides.html#exemple",
+    "href": "slides/05-supervised-ensemble-slides.html#exemple",
+    "title": "Supervisée",
+    "section": "Exemple",
+    "text": "Exemple"
+  },
+  {
+    "objectID": "slides/05-supervised-ensemble-slides.html#forêts-aléatoires",
+    "href": "slides/05-supervised-ensemble-slides.html#forêts-aléatoires",
+    "title": "Supervisée",
+    "section": "Forêts aléatoires",
+    "text": "Forêts aléatoires\n\nProblème du bagging : Les arbres se ressemblent (dominance des classes fréquentes).\n\nSolution : Introduction d’une source supplémentaire d’aléatoire.\n\n\nÀ chaque division, sélectionner aléatoirement \\(m\\) variables parmi \\(p\\) disponibles.\n\n\nChoix usuel: \\(m \\approx \\sqrt{p}\\)."
   },
   {
     "objectID": "slides/05-supervised-ensemble-slides.html#bénéfices-de-la-randomisation",
     "href": "slides/05-supervised-ensemble-slides.html#bénéfices-de-la-randomisation",
     "title": "Supervisée",
     "section": "Bénéfices de la randomisation",
-    "text": "Bénéfices de la randomisation\n\nDécorrélation des arbres construits\nDiversification des modèles\nAmélioration de la performance globale\nRobustesse accrue\n\n\nRésultat Meilleure généralisation que le bagging simple"
+    "text": "Bénéfices de la randomisation\n\nDécorrélation des arbres construits.\nDiversification des modèles.\nAmélioration de la performance globale.\nRobustesse aux valeurs abérrantes accrue.\nMeilleure généralisation que le bagging simple."
+  },
+  {
+    "objectID": "slides/05-supervised-ensemble-slides.html#algorithme",
+    "href": "slides/05-supervised-ensemble-slides.html#algorithme",
+    "title": "Supervisée",
+    "section": "Algorithme",
+    "text": "Algorithme"
+  },
+  {
+    "objectID": "slides/05-supervised-ensemble-slides.html#exemple-1",
+    "href": "slides/05-supervised-ensemble-slides.html#exemple-1",
+    "title": "Supervisée",
+    "section": "Exemple",
+    "text": "Exemple"
   },
   {
     "objectID": "slides/05-supervised-ensemble-slides.html#approche-séquentielle",
@@ -3383,11 +3432,11 @@
     "text": "Points clés à retenir\n\nEnsemble &gt; Individuel : Combinaison de modèles faibles\nDiversité : Clé du succès des méthodes ensemblistes\nTrade-off : Performance vs Interprétabilité\nOptimisation : Cruciale pour la performance finale\nApplications : Base de nombreux algorithmes modernes (XGBoost, LightGBM, etc.)"
   },
   {
-    "objectID": "slides/05-supervised-ensemble-slides.html#merci-pour-votre-attention",
-    "href": "slides/05-supervised-ensemble-slides.html#merci-pour-votre-attention",
+    "objectID": "slides/05-supervised-ensemble-slides.html#conclusion",
+    "href": "slides/05-supervised-ensemble-slides.html#conclusion",
     "title": "Supervisée",
-    "section": "Merci pour votre attention",
-    "text": "Merci pour votre attention\nQuestions ?\n\nLes méthodes ensemblistes : quand l’union fait la force"
+    "section": "Conclusion",
+    "text": "Conclusion\n\n\nProchaine étape → La classification non-supervisée (clustering)"
   },
   {
     "objectID": "slides/02-revisions-proba-slides-annotated.html#plan-de-la-présentation",
