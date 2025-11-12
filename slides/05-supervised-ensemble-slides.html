@@ -8,8 +8,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.26">
 
   <meta name="author" content="Steven Golovkine">
   <title>STT-2200: Analyse de données – Supervisée</title>
@@ -261,10 +261,18 @@ Steven Golovkine
 <h2>Bénéfices de la randomisation</h2>
 <p><br></p>
 <p>Décorrélation des arbres construits.</p>
+<div class="fragment">
 <p>Diversification des modèles.</p>
+</div>
+<div class="fragment">
 <p>Amélioration de la performance globale.</p>
+</div>
+<div class="fragment">
 <p>Robustesse aux valeurs abérrantes accrue.</p>
+</div>
+<div class="fragment">
 <p>Meilleure généralisation que le <em>bagging</em> simple.</p>
+</div>
 </section>
 <section id="algorithme" class="slide level2">
 <h2>Algorithme</h2>
@@ -272,123 +280,94 @@ Steven Golovkine
 <section id="exemple-1" class="slide level2">
 <h2>Exemple</h2>
 </section>
-<section>
-<section id="boosting" class="title-slide slide level1 center">
-<h1>Boosting</h1>
-
-</section>
-<section id="approche-séquentielle" class="slide level2">
-<h2>Approche séquentielle</h2>
+<section id="boosting" class="slide level2">
+<h2>Boosting</h2>
+<p><br></p>
+<p>Construction séquentielle au lieu de parallèle → à l’opposé du <em>bagging</em>.</p>
 <div class="fragment">
-<p><strong>Philosophie opposée au bagging</strong> Construction séquentielle au lieu de parallèle</p>
-</div>
-<div class="fragment">
-<p><strong>Principe</strong> 1. <strong>Construire</strong> une série de modèles simples 2. <strong>Accorder progressivement</strong> plus d’importance aux erreurs 3. <strong>Corriger</strong> les erreurs du modèle précédent 4. <strong>Atteindre</strong> une très haute précision globale</p>
+<ol type="1">
+<li><p>Construire une série de modèles simples.</p></li>
+<li><p>Accorder progressivement plus d’importance aux erreurs.</p></li>
+<li><p>Corriger les erreurs du modèle précédent.</p></li>
+<li><p>Améliorer les prédictions.</p></li>
+</ol>
 </div>
 </section>
 <section id="condition-de-succès" class="slide level2">
 <h2>Condition de succès</h2>
+<p><br></p>
+<p>L’idée est d’utiliser des classifieurs faibles (<em>weak learners</em>).</p>
 <div class="fragment">
-<p><strong>Exigence fondamentale</strong> Utiliser des <strong>modèles faibles</strong> (weak learners)</p>
-</div>
-<div class="fragment">
-<p><strong>Raison</strong> Laisser au processus de boosting le soin de combiner optimalement les prédictions</p>
+<p>Laisser au processus de boosting le soin de combiner optimalement les prédictions.</p>
 </div>
 </section>
-<section id="variantes-principales" class="slide level2">
-<h2>Variantes principales</h2>
-<div class="fragment">
-<p><strong>1. AdaBoost</strong> (Adaptive Boosting) - Ajuste les poids des observations à chaque itération - Méthode historique et bien établie</p>
-</div>
-<div class="fragment">
-<p><strong>2. Gradient Boosting</strong> - Minimisation d’une fonction de perte - Procédure itérative inspirée de la descente du gradient - Très utilisé aujourd’hui</p>
-</div>
-</section></section>
-<section>
-<section id="optimisation-des-hyper-paramètres" class="title-slide slide level1 center">
-<h1>Optimisation des hyper-paramètres</h1>
-
+<section id="algorithme-1" class="slide level2">
+<h2>Algorithme</h2>
 </section>
-<section id="nécessité-de-loptimisation" class="slide level2">
-<h2>Nécessité de l’optimisation</h2>
+<section id="exemple-2" class="slide level2">
+<h2>Exemple</h2>
+</section>
+<section id="quelques-variantes" class="slide level2">
+<h2>Quelques variantes</h2>
+<p><br></p>
+<ol type="1">
+<li>AdaBoost (Adaptive Boosting)</li>
+</ol>
+<ul>
+<li><p>Ajuste les poids des observations à chaque itération.</p></li>
+<li><p>Méthode historique et bien établie.</p></li>
+</ul>
 <div class="fragment">
-<p><strong>Observation empirique</strong> Plus une méthode est puissante, plus l’optimisation des hyper-paramètres est complexe et sensible</p>
-</div>
-<div class="fragment">
-<p><strong>Objectif</strong> Atteindre un bon compromis entre performance et robustesse</p>
+<ol start="2" type="1">
+<li>Gradient Boosting</li>
+</ol>
+<ul>
+<li><p>Procédure itérative inspirée de la descente du gradient.</p></li>
+<li><p>Très utilisé aujourd’hui.</p></li>
+</ul>
 </div>
 </section>
 <section id="paramètres-par-méthode" class="slide level2">
 <h2>Paramètres par méthode</h2>
+<p><br></p>
+<p>Atteindre un bon compromis entre performance et robustesse</p>
 <div class="fragment">
-<p><strong>Bagging</strong> - Nombre d’échantillons bootstrap <span class="math inline">\(B\)</span></p>
+<p><br> Bagging → Nombre d’échantillons bootstrap <span class="math inline">\(B\)</span>.</p>
 </div>
 <div class="fragment">
-<p><strong>Forêts aléatoires</strong> - Nombre d’échantillons bootstrap <span class="math inline">\(B\)</span> - Nombre de variables <span class="math inline">\(m\)</span> à considérer à chaque division</p>
+<p>Forêts aléatoires → <em>Bagging</em> + Nombre de variables <span class="math inline">\(m\)</span> à considérer à chaque division</p>
 </div>
 <div class="fragment">
-<p><strong>Boosting</strong> - Taille des arbres - Fraction du jeu de données échantillonné - Nombre d’itérations - Paramètres de régularisation</p>
-</div>
-</section>
-<section id="méthode-doptimisation" class="slide level2">
-<h2>Méthode d’optimisation</h2>
-<div class="fragment">
-<p><strong>Validation croisée</strong> Nécessaire pour chaque paramètre afin d’éviter le sur-ajustement</p>
-</div>
-<div class="fragment">
-<p><strong>Processus</strong> 1. <strong>Définir</strong> une grille de valeurs pour chaque paramètre 2. <strong>Évaluer</strong> par validation croisée 3. <strong>Sélectionner</strong> la combinaison optimale 4. <strong>Tester</strong> sur un jeu de données indépendant</p>
+<p>Boosting → Taille des arbres + Fraction du jeu de données échantillonné + Nombre d’itérations + Paramètres de régularisation</p>
 </div>
 </section>
-<section id="récapitulatif-des-méthodes" class="slide level2">
-<h2>Récapitulatif des méthodes</h2>
+<section id="méthode-doptimisation-validation-croisée" class="slide level2">
+<h2>Méthode d’optimisation: Validation croisée</h2>
+<p><br></p>
+<p>→ Nécessaire pour chaque paramètre afin d’éviter le sur-ajustement.</p>
 <div class="fragment">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Méthode</th>
-<th>Approche</th>
-<th>Avantage principal</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Bagging</strong></td>
-<td>Parallèle</td>
-<td>Réduction variance</td>
-</tr>
-<tr class="even">
-<td><strong>Forêts aléatoires</strong></td>
-<td>Parallèle + aléa</td>
-<td>Décorrélation</td>
-</tr>
-<tr class="odd">
-<td><strong>Boosting</strong></td>
-<td>Séquentielle</td>
-<td>Correction d’erreurs</td>
-</tr>
-</tbody>
-</table>
+<ol type="1">
+<li><p>Définir une grille de valeurs pour chaque paramètre.</p></li>
+<li><p>Évaluer par validation croisée.</p></li>
+<li><p>Sélectionner la combinaison optimale.</p></li>
+<li><p>Tester sur un jeu de données indépendant.</p></li>
+</ol>
 </div>
-</section>
-<section id="points-clés-à-retenir" class="slide level2">
-<h2>Points clés à retenir</h2>
-<ul>
-<li class="fragment"><strong>Ensemble &gt; Individuel</strong> : Combinaison de modèles faibles</li>
-<li class="fragment"><strong>Diversité</strong> : Clé du succès des méthodes ensemblistes</li>
-<li class="fragment"><strong>Trade-off</strong> : Performance vs Interprétabilité</li>
-<li class="fragment"><strong>Optimisation</strong> : Cruciale pour la performance finale</li>
-<li class="fragment"><strong>Applications</strong> : Base de nombreux algorithmes modernes (XGBoost, LightGBM, etc.)</li>
-</ul>
 </section>
 <section id="conclusion" class="slide level2">
 <h2>Conclusion</h2>
+<p><br></p>
+<p>Ensemble &gt; Individuel : Combinaison de modèles faibles.</p>
+<p>Compromis : Performance vs Interprétabilité.</p>
+<p>Optimisation des paramètres : Cruciale pour la performance finale.</p>
+<p>Applications : Base de nombreux algorithmes modernes (XGBoost, LightGBM, etc.)</p>
 <p><br></p>
 <div class="fragment">
 <p>Prochaine étape → La classification non-supervisée (<em>clustering</em>)</p>
 
 
 </div>
-</section></section>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

@@ -3359,7 +3359,7 @@
     "href": "slides/05-supervised-ensemble-slides.html#bénéfices-de-la-randomisation",
     "title": "Supervisée",
     "section": "Bénéfices de la randomisation",
-    "text": "Bénéfices de la randomisation\n\nDécorrélation des arbres construits.\nDiversification des modèles.\nAmélioration de la performance globale.\nRobustesse aux valeurs abérrantes accrue.\nMeilleure généralisation que le bagging simple."
+    "text": "Bénéfices de la randomisation\n\nDécorrélation des arbres construits.\n\nDiversification des modèles.\n\n\nAmélioration de la performance globale.\n\n\nRobustesse aux valeurs abérrantes accrue.\n\n\nMeilleure généralisation que le bagging simple."
   },
   {
     "objectID": "slides/05-supervised-ensemble-slides.html#algorithme",
@@ -3376,67 +3376,60 @@
     "text": "Exemple"
   },
   {
-    "objectID": "slides/05-supervised-ensemble-slides.html#approche-séquentielle",
-    "href": "slides/05-supervised-ensemble-slides.html#approche-séquentielle",
+    "objectID": "slides/05-supervised-ensemble-slides.html#boosting",
+    "href": "slides/05-supervised-ensemble-slides.html#boosting",
     "title": "Supervisée",
-    "section": "Approche séquentielle",
-    "text": "Approche séquentielle\n\nPhilosophie opposée au bagging Construction séquentielle au lieu de parallèle\n\n\nPrincipe 1. Construire une série de modèles simples 2. Accorder progressivement plus d’importance aux erreurs 3. Corriger les erreurs du modèle précédent 4. Atteindre une très haute précision globale"
+    "section": "Boosting",
+    "text": "Boosting\n\nConstruction séquentielle au lieu de parallèle → à l’opposé du bagging.\n\n\nConstruire une série de modèles simples.\nAccorder progressivement plus d’importance aux erreurs.\nCorriger les erreurs du modèle précédent.\nAméliorer les prédictions."
   },
   {
     "objectID": "slides/05-supervised-ensemble-slides.html#condition-de-succès",
     "href": "slides/05-supervised-ensemble-slides.html#condition-de-succès",
     "title": "Supervisée",
     "section": "Condition de succès",
-    "text": "Condition de succès\n\nExigence fondamentale Utiliser des modèles faibles (weak learners)\n\n\nRaison Laisser au processus de boosting le soin de combiner optimalement les prédictions"
+    "text": "Condition de succès\n\nL’idée est d’utiliser des classifieurs faibles (weak learners).\n\nLaisser au processus de boosting le soin de combiner optimalement les prédictions."
   },
   {
-    "objectID": "slides/05-supervised-ensemble-slides.html#variantes-principales",
-    "href": "slides/05-supervised-ensemble-slides.html#variantes-principales",
+    "objectID": "slides/05-supervised-ensemble-slides.html#algorithme-1",
+    "href": "slides/05-supervised-ensemble-slides.html#algorithme-1",
     "title": "Supervisée",
-    "section": "Variantes principales",
-    "text": "Variantes principales\n\n1. AdaBoost (Adaptive Boosting) - Ajuste les poids des observations à chaque itération - Méthode historique et bien établie\n\n\n2. Gradient Boosting - Minimisation d’une fonction de perte - Procédure itérative inspirée de la descente du gradient - Très utilisé aujourd’hui"
+    "section": "Algorithme",
+    "text": "Algorithme"
   },
   {
-    "objectID": "slides/05-supervised-ensemble-slides.html#nécessité-de-loptimisation",
-    "href": "slides/05-supervised-ensemble-slides.html#nécessité-de-loptimisation",
+    "objectID": "slides/05-supervised-ensemble-slides.html#exemple-2",
+    "href": "slides/05-supervised-ensemble-slides.html#exemple-2",
     "title": "Supervisée",
-    "section": "Nécessité de l’optimisation",
-    "text": "Nécessité de l’optimisation\n\nObservation empirique Plus une méthode est puissante, plus l’optimisation des hyper-paramètres est complexe et sensible\n\n\nObjectif Atteindre un bon compromis entre performance et robustesse"
+    "section": "Exemple",
+    "text": "Exemple"
+  },
+  {
+    "objectID": "slides/05-supervised-ensemble-slides.html#quelques-variantes",
+    "href": "slides/05-supervised-ensemble-slides.html#quelques-variantes",
+    "title": "Supervisée",
+    "section": "Quelques variantes",
+    "text": "Quelques variantes\n\n\nAdaBoost (Adaptive Boosting)\n\n\nAjuste les poids des observations à chaque itération.\nMéthode historique et bien établie.\n\n\n\nGradient Boosting\n\n\nProcédure itérative inspirée de la descente du gradient.\nTrès utilisé aujourd’hui."
   },
   {
     "objectID": "slides/05-supervised-ensemble-slides.html#paramètres-par-méthode",
     "href": "slides/05-supervised-ensemble-slides.html#paramètres-par-méthode",
     "title": "Supervisée",
     "section": "Paramètres par méthode",
-    "text": "Paramètres par méthode\n\nBagging - Nombre d’échantillons bootstrap \\(B\\)\n\n\nForêts aléatoires - Nombre d’échantillons bootstrap \\(B\\) - Nombre de variables \\(m\\) à considérer à chaque division\n\n\nBoosting - Taille des arbres - Fraction du jeu de données échantillonné - Nombre d’itérations - Paramètres de régularisation"
+    "text": "Paramètres par méthode\n\nAtteindre un bon compromis entre performance et robustesse\n\n Bagging → Nombre d’échantillons bootstrap \\(B\\).\n\n\nForêts aléatoires → Bagging + Nombre de variables \\(m\\) à considérer à chaque division\n\n\nBoosting → Taille des arbres + Fraction du jeu de données échantillonné + Nombre d’itérations + Paramètres de régularisation"
   },
   {
-    "objectID": "slides/05-supervised-ensemble-slides.html#méthode-doptimisation",
-    "href": "slides/05-supervised-ensemble-slides.html#méthode-doptimisation",
+    "objectID": "slides/05-supervised-ensemble-slides.html#méthode-doptimisation-validation-croisée",
+    "href": "slides/05-supervised-ensemble-slides.html#méthode-doptimisation-validation-croisée",
     "title": "Supervisée",
-    "section": "Méthode d’optimisation",
-    "text": "Méthode d’optimisation\n\nValidation croisée Nécessaire pour chaque paramètre afin d’éviter le sur-ajustement\n\n\nProcessus 1. Définir une grille de valeurs pour chaque paramètre 2. Évaluer par validation croisée 3. Sélectionner la combinaison optimale 4. Tester sur un jeu de données indépendant"
-  },
-  {
-    "objectID": "slides/05-supervised-ensemble-slides.html#récapitulatif-des-méthodes",
-    "href": "slides/05-supervised-ensemble-slides.html#récapitulatif-des-méthodes",
-    "title": "Supervisée",
-    "section": "Récapitulatif des méthodes",
-    "text": "Récapitulatif des méthodes\n\n\n\n\nMéthode\nApproche\nAvantage principal\n\n\n\n\nBagging\nParallèle\nRéduction variance\n\n\nForêts aléatoires\nParallèle + aléa\nDécorrélation\n\n\nBoosting\nSéquentielle\nCorrection d’erreurs"
-  },
-  {
-    "objectID": "slides/05-supervised-ensemble-slides.html#points-clés-à-retenir",
-    "href": "slides/05-supervised-ensemble-slides.html#points-clés-à-retenir",
-    "title": "Supervisée",
-    "section": "Points clés à retenir",
-    "text": "Points clés à retenir\n\nEnsemble &gt; Individuel : Combinaison de modèles faibles\nDiversité : Clé du succès des méthodes ensemblistes\nTrade-off : Performance vs Interprétabilité\nOptimisation : Cruciale pour la performance finale\nApplications : Base de nombreux algorithmes modernes (XGBoost, LightGBM, etc.)"
+    "section": "Méthode d’optimisation: Validation croisée",
+    "text": "Méthode d’optimisation: Validation croisée\n\n→ Nécessaire pour chaque paramètre afin d’éviter le sur-ajustement.\n\n\nDéfinir une grille de valeurs pour chaque paramètre.\nÉvaluer par validation croisée.\nSélectionner la combinaison optimale.\nTester sur un jeu de données indépendant."
   },
   {
     "objectID": "slides/05-supervised-ensemble-slides.html#conclusion",
     "href": "slides/05-supervised-ensemble-slides.html#conclusion",
     "title": "Supervisée",
     "section": "Conclusion",
-    "text": "Conclusion\n\n\nProchaine étape → La classification non-supervisée (clustering)"
+    "text": "Conclusion\n\nEnsemble &gt; Individuel : Combinaison de modèles faibles.\nCompromis : Performance vs Interprétabilité.\nOptimisation des paramètres : Cruciale pour la performance finale.\nApplications : Base de nombreux algorithmes modernes (XGBoost, LightGBM, etc.)\n\n\nProchaine étape → La classification non-supervisée (clustering)"
   },
   {
     "objectID": "slides/02-revisions-proba-slides-annotated.html#plan-de-la-présentation",
