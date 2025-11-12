@@ -86,11 +86,10 @@ Algorithme :
 
 1. Générer $B$ échantillons *bootstrap* (tirage avec remise).
 
-2. Construire un arbre pour chaque échantillon.
+2. Obtenir $B$ arbres de classification (ou autre).
 
-3. Obtenir $B$ arbres de classification (ou autre).
+3. Prédire par vote de majorité ou moyenne des probabilités.
 
-4. Prédire par vote de majorité ou moyenne des probabilités.
 
 ## Bootstrap
 
@@ -178,6 +177,15 @@ Meilleure généralisation que le *bagging* simple.
 
 ## Algorithme
 
+<br>
+
+1. Générer $B$ échantillons *bootstrap* (tirage avec remise).
+
+2. Obtenir $B$ arbres de classification construit sur $m$ variables choisies aléatoirement parmi toutes les variables disponibles.
+
+3. Prédire par vote de majorité ou moyenne des probabilités.
+
+
 ## Exemple
 
 
@@ -208,10 +216,6 @@ L'idée est d'utiliser des classifieurs faibles (*weak learners*).
 
 Laisser au processus de boosting le soin de combiner optimalement les prédictions.
 
-## Algorithme
-
-## Exemple
-
 
 ## Quelques variantes
 
@@ -232,6 +236,10 @@ Laisser au processus de boosting le soin de combiner optimalement les prédictio
 - Procédure itérative inspirée de la descente du gradient.
 
 - Très utilisé aujourd'hui.
+
+
+## Exemple (AdaBoost)
+
 
 
 
