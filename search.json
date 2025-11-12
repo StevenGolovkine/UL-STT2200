@@ -3317,7 +3317,7 @@
     "href": "slides/05-supervised-ensemble-slides.html#bagging-bootstrap-aggregating",
     "title": "Supervisée",
     "section": "Bagging (Bootstrap Aggregating)",
-    "text": "Bagging (Bootstrap Aggregating)\n\nConstruire plusieurs versions d’un même modèle sur des échantillons différents.\n\nAlgorithme :\n\nGénérer \\(B\\) échantillons bootstrap (tirage avec remise).\nConstruire un arbre pour chaque échantillon.\nObtenir \\(B\\) arbres de classification (ou autre).\nPrédire par vote de majorité ou moyenne des probabilités."
+    "text": "Bagging (Bootstrap Aggregating)\n\nConstruire plusieurs versions d’un même modèle sur des échantillons différents.\n\nAlgorithme :\n\nGénérer \\(B\\) échantillons bootstrap (tirage avec remise).\nObtenir \\(B\\) arbres de classification (ou autre).\nPrédire par vote de majorité ou moyenne des probabilités."
   },
   {
     "objectID": "slides/05-supervised-ensemble-slides.html#bootstrap",
@@ -3366,7 +3366,7 @@
     "href": "slides/05-supervised-ensemble-slides.html#algorithme",
     "title": "Supervisée",
     "section": "Algorithme",
-    "text": "Algorithme"
+    "text": "Algorithme\n\n\nGénérer \\(B\\) échantillons bootstrap (tirage avec remise).\nObtenir \\(B\\) arbres de classification construit sur \\(m\\) variables choisies aléatoirement parmi toutes les variables disponibles.\nPrédire par vote de majorité ou moyenne des probabilités."
   },
   {
     "objectID": "slides/05-supervised-ensemble-slides.html#exemple-1",
@@ -3390,25 +3390,18 @@
     "text": "Condition de succès\n\nL’idée est d’utiliser des classifieurs faibles (weak learners).\n\nLaisser au processus de boosting le soin de combiner optimalement les prédictions."
   },
   {
-    "objectID": "slides/05-supervised-ensemble-slides.html#algorithme-1",
-    "href": "slides/05-supervised-ensemble-slides.html#algorithme-1",
-    "title": "Supervisée",
-    "section": "Algorithme",
-    "text": "Algorithme"
-  },
-  {
-    "objectID": "slides/05-supervised-ensemble-slides.html#exemple-2",
-    "href": "slides/05-supervised-ensemble-slides.html#exemple-2",
-    "title": "Supervisée",
-    "section": "Exemple",
-    "text": "Exemple"
-  },
-  {
     "objectID": "slides/05-supervised-ensemble-slides.html#quelques-variantes",
     "href": "slides/05-supervised-ensemble-slides.html#quelques-variantes",
     "title": "Supervisée",
     "section": "Quelques variantes",
     "text": "Quelques variantes\n\n\nAdaBoost (Adaptive Boosting)\n\n\nAjuste les poids des observations à chaque itération.\nMéthode historique et bien établie.\n\n\n\nGradient Boosting\n\n\nProcédure itérative inspirée de la descente du gradient.\nTrès utilisé aujourd’hui."
+  },
+  {
+    "objectID": "slides/05-supervised-ensemble-slides.html#exemple-adaboost",
+    "href": "slides/05-supervised-ensemble-slides.html#exemple-adaboost",
+    "title": "Supervisée",
+    "section": "Exemple (AdaBoost)",
+    "text": "Exemple (AdaBoost)"
   },
   {
     "objectID": "slides/05-supervised-ensemble-slides.html#paramètres-par-méthode",

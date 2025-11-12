@@ -206,7 +206,6 @@ Steven Golovkine
 <p>Algorithme :</p>
 <ol type="1">
 <li><p>Générer <span class="math inline">\(B\)</span> échantillons <em>bootstrap</em> (tirage avec remise).</p></li>
-<li><p>Construire un arbre pour chaque échantillon.</p></li>
 <li><p>Obtenir <span class="math inline">\(B\)</span> arbres de classification (ou autre).</p></li>
 <li><p>Prédire par vote de majorité ou moyenne des probabilités.</p></li>
 </ol>
@@ -276,6 +275,12 @@ Steven Golovkine
 </section>
 <section id="algorithme" class="slide level2">
 <h2>Algorithme</h2>
+<p><br></p>
+<ol type="1">
+<li><p>Générer <span class="math inline">\(B\)</span> échantillons <em>bootstrap</em> (tirage avec remise).</p></li>
+<li><p>Obtenir <span class="math inline">\(B\)</span> arbres de classification construit sur <span class="math inline">\(m\)</span> variables choisies aléatoirement parmi toutes les variables disponibles.</p></li>
+<li><p>Prédire par vote de majorité ou moyenne des probabilités.</p></li>
+</ol>
 </section>
 <section id="exemple-1" class="slide level2">
 <h2>Exemple</h2>
@@ -301,12 +306,6 @@ Steven Golovkine
 <p>Laisser au processus de boosting le soin de combiner optimalement les prédictions.</p>
 </div>
 </section>
-<section id="algorithme-1" class="slide level2">
-<h2>Algorithme</h2>
-</section>
-<section id="exemple-2" class="slide level2">
-<h2>Exemple</h2>
-</section>
 <section id="quelques-variantes" class="slide level2">
 <h2>Quelques variantes</h2>
 <p><br></p>
@@ -326,6 +325,9 @@ Steven Golovkine
 <li><p>Très utilisé aujourd’hui.</p></li>
 </ul>
 </div>
+</section>
+<section id="exemple-adaboost" class="slide level2">
+<h2>Exemple (AdaBoost)</h2>
 </section>
 <section id="paramètres-par-méthode" class="slide level2">
 <h2>Paramètres par méthode</h2>
