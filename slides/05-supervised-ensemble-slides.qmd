@@ -160,11 +160,19 @@ Choix usuel: $m \approx \sqrt{p}$.
 
 Décorrélation des arbres construits.
 
+. . .
+
 Diversification des modèles.
+
+. . .
 
 Amélioration de la performance globale.
 
+. . .
+
 Robustesse aux valeurs abérrantes accrue.
+
+. . .
 
 Meilleure généralisation que le *bagging* simple.
 
@@ -172,125 +180,112 @@ Meilleure généralisation que le *bagging* simple.
 
 ## Exemple
 
-# Boosting
 
-## Approche séquentielle
+## Boosting
 
-::: {.fragment}
-**Philosophie opposée au bagging**
-Construction séquentielle au lieu de parallèle
-:::
+<br>
 
-::: {.fragment}
-**Principe**
-1. **Construire** une série de modèles simples
-2. **Accorder progressivement** plus d'importance aux erreurs
-3. **Corriger** les erreurs du modèle précédent
-4. **Atteindre** une très haute précision globale
-:::
+Construction séquentielle au lieu de parallèle → à l'opposé du *bagging*.
+
+. . .
+
+1. Construire une série de modèles simples.
+
+2. Accorder progressivement plus d'importance aux erreurs.
+
+3. Corriger les erreurs du modèle précédent.
+
+4. Améliorer les prédictions.
+
 
 ## Condition de succès
 
-::: {.fragment}
-**Exigence fondamentale**
-Utiliser des **modèles faibles** (weak learners)
-:::
+<br>
 
-::: {.fragment}
-**Raison**
-Laisser au processus de boosting le soin de combiner optimalement les prédictions
-:::
+L'idée est d'utiliser des classifieurs faibles (*weak learners*).
 
-## Variantes principales
+. . .
 
-::: {.fragment}
-**1. AdaBoost** (Adaptive Boosting)
-- Ajuste les poids des observations à chaque itération
-- Méthode historique et bien établie
-:::
+Laisser au processus de boosting le soin de combiner optimalement les prédictions.
 
-::: {.fragment}
-**2. Gradient Boosting**
-- Minimisation d'une fonction de perte
-- Procédure itérative inspirée de la descente du gradient
-- Très utilisé aujourd'hui
-:::
+## Algorithme
 
-# Optimisation des hyper-paramètres
+## Exemple
 
-## Nécessité de l'optimisation
 
-::: {.fragment}
-**Observation empirique**
-Plus une méthode est puissante, plus l'optimisation des hyper-paramètres est complexe et sensible
-:::
+## Quelques variantes
 
-::: {.fragment}
-**Objectif**
-Atteindre un bon compromis entre performance et robustesse
-:::
+<br>
+
+1. AdaBoost (Adaptive Boosting)
+
+- Ajuste les poids des observations à chaque itération.
+
+- Méthode historique et bien établie.
+
+. . .
+
+
+2. Gradient Boosting
+
+
+- Procédure itérative inspirée de la descente du gradient.
+
+- Très utilisé aujourd'hui.
+
+
 
 ## Paramètres par méthode
 
-::: {.fragment}
-**Bagging**
-- Nombre d'échantillons bootstrap $B$
-:::
+<br>
 
-::: {.fragment}
-**Forêts aléatoires**
-- Nombre d'échantillons bootstrap $B$
-- Nombre de variables $m$ à considérer à chaque division
-:::
+Atteindre un bon compromis entre performance et robustesse
 
-::: {.fragment}
-**Boosting**
-- Taille des arbres
-- Fraction du jeu de données échantillonné
-- Nombre d'itérations
-- Paramètres de régularisation
-:::
+. . .
 
-## Méthode d'optimisation
+<br>
+Bagging → Nombre d'échantillons bootstrap $B$.
 
-::: {.fragment}
-**Validation croisée**
-Nécessaire pour chaque paramètre afin d'éviter le sur-ajustement
-:::
+. . .
 
-::: {.fragment}
-**Processus**
-1. **Définir** une grille de valeurs pour chaque paramètre
-2. **Évaluer** par validation croisée
-3. **Sélectionner** la combinaison optimale
-4. **Tester** sur un jeu de données indépendant
-:::
+Forêts aléatoires → *Bagging* + Nombre de variables $m$ à considérer à chaque division
 
-## Récapitulatif des méthodes
+. . .
 
-::: {.fragment}
-| Méthode | Approche | Avantage principal |
-|---------|----------|-------------------|
-| **Bagging** | Parallèle | Réduction variance |
-| **Forêts aléatoires** | Parallèle + aléa | Décorrélation |
-| **Boosting** | Séquentielle | Correction d'erreurs |
-:::
+Boosting → Taille des arbres + Fraction du jeu de données échantillonné + Nombre d'itérations + Paramètres de régularisation
 
-## Points clés à retenir
 
-::: {.incremental}
-- **Ensemble > Individuel** : Combinaison de modèles faibles
-- **Diversité** : Clé du succès des méthodes ensemblistes
-- **Trade-off** : Performance vs Interprétabilité
-- **Optimisation** : Cruciale pour la performance finale
-- **Applications** : Base de nombreux algorithmes modernes (XGBoost, LightGBM, etc.)
-:::
+## Méthode d'optimisation: Validation croisée
+
+<br>
+
+→ Nécessaire pour chaque paramètre afin d'éviter le sur-ajustement.
+
+. . .
+
+1. Définir une grille de valeurs pour chaque paramètre.
+
+2. Évaluer par validation croisée.
+
+3. Sélectionner la combinaison optimale.
+
+4. Tester sur un jeu de données indépendant.
+
+
 
 ## Conclusion
 
 <br>
 
+Ensemble > Individuel : Combinaison de modèles faibles.
 
+Compromis : Performance vs Interprétabilité.
+
+Optimisation des paramètres : Cruciale pour la performance finale.
+
+Applications : Base de nombreux algorithmes modernes (XGBoost, LightGBM, etc.)
+
+<br>
 
 . . .
 
