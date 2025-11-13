@@ -3345,7 +3345,7 @@
     "href": "slides/05-supervised-ensemble-slides.html#exemple",
     "title": "Supervisée",
     "section": "Exemple",
-    "text": "Exemple"
+    "text": "Exemple\n\nCodeGraphique\n\n\n\nlibrary(tidyverse)\nlibrary(ipred)\n\nnfl &lt;- read_csv('../include/data/supervised/nfl.csv') |&gt; \n  mutate(PosRec = as.factor(PosRec))\nmodel &lt;- bagging(PosRec ~ ., data = nfl, nbagg = 10)\npred &lt;- predict(model)"
   },
   {
     "objectID": "slides/05-supervised-ensemble-slides.html#forêts-aléatoires",
@@ -3373,7 +3373,7 @@
     "href": "slides/05-supervised-ensemble-slides.html#exemple-1",
     "title": "Supervisée",
     "section": "Exemple",
-    "text": "Exemple"
+    "text": "Exemple\n\nCodeGraphique\n\n\n\nlibrary(tidyverse)\nlibrary(randomForest)\n\nnfl &lt;- read_csv('../include/data/supervised/nfl.csv') |&gt; \n  mutate(PosRec = as.factor(PosRec))\nmodel &lt;- randomForest(PosRec ~ ., data = nfl, ntree = 10)\npred &lt;- predict(model)"
   },
   {
     "objectID": "slides/05-supervised-ensemble-slides.html#boosting",
@@ -3402,6 +3402,62 @@
     "title": "Supervisée",
     "section": "Exemple (AdaBoost)",
     "text": "Exemple (AdaBoost)"
+  },
+  {
+    "objectID": "slides/05-supervised-ensemble-slides.html#exemple-adaboost-1",
+    "href": "slides/05-supervised-ensemble-slides.html#exemple-adaboost-1",
+    "title": "Supervisée",
+    "section": "Exemple (AdaBoost)",
+    "text": "Exemple (AdaBoost)"
+  },
+  {
+    "objectID": "slides/05-supervised-ensemble-slides.html#exemple-adaboost-2",
+    "href": "slides/05-supervised-ensemble-slides.html#exemple-adaboost-2",
+    "title": "Supervisée",
+    "section": "Exemple (AdaBoost)",
+    "text": "Exemple (AdaBoost)"
+  },
+  {
+    "objectID": "slides/05-supervised-ensemble-slides.html#exemple-adaboost-3",
+    "href": "slides/05-supervised-ensemble-slides.html#exemple-adaboost-3",
+    "title": "Supervisée",
+    "section": "Exemple (AdaBoost)",
+    "text": "Exemple (AdaBoost)"
+  },
+  {
+    "objectID": "slides/05-supervised-ensemble-slides.html#exemple-adaboost-4",
+    "href": "slides/05-supervised-ensemble-slides.html#exemple-adaboost-4",
+    "title": "Supervisée",
+    "section": "Exemple (AdaBoost)",
+    "text": "Exemple (AdaBoost)"
+  },
+  {
+    "objectID": "slides/05-supervised-ensemble-slides.html#exemple-adaboost-5",
+    "href": "slides/05-supervised-ensemble-slides.html#exemple-adaboost-5",
+    "title": "Supervisée",
+    "section": "Exemple (AdaBoost)",
+    "text": "Exemple (AdaBoost)"
+  },
+  {
+    "objectID": "slides/05-supervised-ensemble-slides.html#exemple-adaboost-6",
+    "href": "slides/05-supervised-ensemble-slides.html#exemple-adaboost-6",
+    "title": "Supervisée",
+    "section": "Exemple (AdaBoost)",
+    "text": "Exemple (AdaBoost)"
+  },
+  {
+    "objectID": "slides/05-supervised-ensemble-slides.html#exemple-adaboost-7",
+    "href": "slides/05-supervised-ensemble-slides.html#exemple-adaboost-7",
+    "title": "Supervisée",
+    "section": "Exemple (AdaBoost)",
+    "text": "Exemple (AdaBoost)"
+  },
+  {
+    "objectID": "slides/05-supervised-ensemble-slides.html#exemple-2",
+    "href": "slides/05-supervised-ensemble-slides.html#exemple-2",
+    "title": "Supervisée",
+    "section": "Exemple",
+    "text": "Exemple\n\nCodeGraphique\n\n\n\nlibrary(tidyverse)\nlibrary(gbm)\n\nnfl &lt;- read_csv('../include/data/supervised/nfl.csv') |&gt; \n  mutate(PosRec = as.factor(PosRec))\nnfl$PosRec &lt;- as.integer(nfl$PosRec) - 1\nmodel &lt;- gbm(PosRec ~ ., data = nfl, n.trees = 10, distribution = \"bernoulli\")\npred &lt;- predict(model)"
   },
   {
     "objectID": "slides/05-supervised-ensemble-slides.html#paramètres-par-méthode",
