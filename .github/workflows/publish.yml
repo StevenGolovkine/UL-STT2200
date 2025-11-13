@@ -31,6 +31,9 @@ jobs:
             any::factoextra
             any::latex2exp
             any::ISLR
+            any::gbm
+            any::randomForest
+            any::ipred
 
       - name: Install Python and Dependencies
         uses: actions/setup-python@v5
