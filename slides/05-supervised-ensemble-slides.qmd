@@ -131,8 +131,46 @@ Un *bagging* d'un bon classificateur peut le rendre meilleur, un *bagging* d'un 
 3. Exprimer en pourcentage relatif.
 
 
-## Exemple
+## Exemple {.smaller}
 
+::: panel-tabset
+### Code
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+library(tidyverse)
+library(ipred)
+
+nfl <- read_csv('../include/data/supervised/nfl.csv') |> 
+  mutate(PosRec = as.factor(PosRec))
+model <- bagging(PosRec ~ ., data = nfl, nbagg = 10)
+pred <- predict(model)
+```
+
+
+### Graphique
+
+```{r}
+x1_range <- seq(min(nfl$Ht), max(nfl$Ht), length.out = 200)
+x2_range <- seq(min(nfl$Wt), max(nfl$Wt), length.out = 200)
+grid <- expand.grid(Ht = x1_range, Wt = x2_range)
+
+grid$prob <- predict(model, newdata = grid, type = "prob")[,2]
+grid$pred_class <- factor(ifelse(grid$prob > 0.5, 1, 0))
+
+ggplot() +
+  geom_raster(data = grid, aes(x = Ht, y = Wt, fill = pred_class), alpha = 0.3) +
+  geom_contour(
+    data = grid, aes(x = Ht, y = Wt, z = prob), breaks = 0.5, color = "black"
+  ) +
+  geom_point(data = nfl, aes(x = Ht, y = Wt, color = PosRec)) +
+  theme_minimal()
+```
+
+
+:::
 
 ## Forêts aléatoires
 
@@ -186,7 +224,46 @@ Meilleure généralisation que le *bagging* simple.
 3. Prédire par vote de majorité ou moyenne des probabilités.
 
 
-## Exemple
+## Exemple {.smaller}
+
+::: panel-tabset
+### Code
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+library(tidyverse)
+library(randomForest)
+
+nfl <- read_csv('../include/data/supervised/nfl.csv') |> 
+  mutate(PosRec = as.factor(PosRec))
+model <- randomForest(PosRec ~ ., data = nfl, ntree = 10)
+pred <- predict(model)
+```
+
+
+### Graphique
+
+```{r}
+x1_range <- seq(min(nfl$Ht), max(nfl$Ht), length.out = 200)
+x2_range <- seq(min(nfl$Wt), max(nfl$Wt), length.out = 200)
+grid <- expand.grid(Ht = x1_range, Wt = x2_range)
+
+grid$prob <- predict(model, newdata = grid, type = "prob")[,2]
+grid$pred_class <- factor(ifelse(grid$prob > 0.5, 1, 0))
+
+ggplot() +
+  geom_raster(data = grid, aes(x = Ht, y = Wt, fill = pred_class), alpha = 0.3) +
+  geom_contour(
+    data = grid, aes(x = Ht, y = Wt, z = prob), breaks = 0.5, color = "black"
+  ) +
+  geom_point(data = nfl, aes(x = Ht, y = Wt, color = PosRec)) +
+  theme_minimal()
+```
+
+
+:::
 
 
 ## Boosting
@@ -239,6 +316,152 @@ Laisser au processus de boosting le soin de combiner optimalement les prédictio
 
 
 ## Exemple (AdaBoost)
+
+::: {.column width="30%"}
+<img src="../include/boosting_1.png" width="500" height="500">
+:::
+
+::: {.column width="30%"}
+
+:::
+
+::: {.column width="30%"}
+
+:::
+
+
+
+## Exemple (AdaBoost)
+
+
+::: {.column width="30%"}
+<img src="../include/boosting_2.png" width="500" height="500">
+:::
+
+::: {.column width="30%"}
+
+:::
+
+::: {.column width="30%"}
+
+:::
+
+## Exemple (AdaBoost)
+
+::: {.column width="30%"}
+<img src="../include/boosting_2.png" width="500" height="500">
+:::
+
+::: {.column width="30%"}
+<img src="../include/boosting_3.png" width="500" height="500">
+:::
+
+::: {.column width="30%"}
+
+:::
+
+
+## Exemple (AdaBoost)
+
+::: {.column width="30%"}
+<img src="../include/boosting_2.png" width="500" height="500">
+:::
+
+::: {.column width="30%"}
+<img src="../include/boosting_4.png" width="500" height="500">
+:::
+
+::: {.column width="30%"}
+
+:::
+
+## Exemple (AdaBoost)
+
+::: {.column width="30%"}
+<img src="../include/boosting_2.png" width="500" height="500">
+:::
+
+::: {.column width="30%"}
+<img src="../include/boosting_4.png" width="500" height="500">
+:::
+
+::: {.column width="30%"}
+<img src="../include/boosting_5.png" width="500" height="500">
+:::
+
+## Exemple (AdaBoost)
+
+::: {.column width="30%"}
+<img src="../include/boosting_2.png" width="500" height="500">
+:::
+
+::: {.column width="30%"}
+<img src="../include/boosting_4.png" width="500" height="500">
+:::
+
+::: {.column width="30%"}
+<img src="../include/boosting_6.png" width="500" height="500">
+:::
+
+## Exemple (AdaBoost)
+
+::: {.column width="70%"}
+<img src="../include/boosting_8.png" width="1500" height="500">
+:::
+
+## Exemple (AdaBoost)
+
+::: {.column width="70%"}
+<img src="../include/boosting_8.png" width="1500" height="500">
+:::
+
+::: {.column width="30%"}
+<img src="../include/boosting_7.png" width="500" height="500">
+:::
+
+
+
+## Exemple {.smaller}
+
+::: panel-tabset
+### Code
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+library(tidyverse)
+library(gbm)
+
+nfl <- read_csv('../include/data/supervised/nfl.csv') |> 
+  mutate(PosRec = as.factor(PosRec))
+nfl$PosRec <- as.integer(nfl$PosRec) - 1
+model <- gbm(PosRec ~ ., data = nfl, n.trees = 10, distribution = "bernoulli")
+pred <- predict(model)
+```
+
+
+### Graphique
+
+```{r}
+x1_range <- seq(min(nfl$Ht), max(nfl$Ht), length.out = 200)
+x2_range <- seq(min(nfl$Wt), max(nfl$Wt), length.out = 200)
+grid <- expand.grid(Ht = x1_range, Wt = x2_range)
+
+grid$prob <- predict(model, newdata = grid, type = "response")
+grid$pred_class <- factor(ifelse(grid$prob > 0.5, 1, 0))
+
+ggplot() +
+  geom_raster(data = grid, aes(x = Ht, y = Wt, fill = pred_class), alpha = 0.3) +
+  geom_contour(
+    data = grid, aes(x = Ht, y = Wt, z = prob), breaks = 0.5, color = "black"
+  ) +
+  geom_point(data = nfl, aes(x = Ht, y = Wt, color = PosRec)) +
+  theme_minimal()
+```
+
+
+:::
 
 
 
