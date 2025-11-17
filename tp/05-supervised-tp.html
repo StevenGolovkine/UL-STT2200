@@ -567,6 +567,9 @@ window.Quarto = {
   <ul>
   <li><a href="#exercice-1-position-des-joueurs-nfl" id="toc-exercice-1-position-des-joueurs-nfl" class="nav-link active" data-scroll-target="#exercice-1-position-des-joueurs-nfl">Exercice 1: Position des joueurs NFL</a></li>
   <li><a href="#exercice-2-prédire-les-réclamations" id="toc-exercice-2-prédire-les-réclamations" class="nav-link" data-scroll-target="#exercice-2-prédire-les-réclamations">Exercice 2: Prédire les réclamations</a></li>
+  <li><a href="#exercice-3-un-bagging-de-lanalyse-discrimante-et-de-larbre-de-classification" id="toc-exercice-3-un-bagging-de-lanalyse-discrimante-et-de-larbre-de-classification" class="nav-link" data-scroll-target="#exercice-3-un-bagging-de-lanalyse-discrimante-et-de-larbre-de-classification">Exercice 3: Un <em>bagging</em> de l’analyse discrimante et de l’arbre de classification</a></li>
+  <li><a href="#exercice-4-est-ce-que-jai-reçu-un-spam" id="toc-exercice-4-est-ce-que-jai-reçu-un-spam" class="nav-link" data-scroll-target="#exercice-4-est-ce-que-jai-reçu-un-spam">Exercice 4: Est-ce que j’ai reçu un spam ?</a></li>
+  <li><a href="#exercice-5-comparaison-des-performances-de-classificateurs." id="toc-exercice-5-comparaison-des-performances-de-classificateurs." class="nav-link" data-scroll-target="#exercice-5-comparaison-des-performances-de-classificateurs.">Exercice 5: Comparaison des performances de classificateurs.</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/tp/05-supervised-tp.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="05-supervised-tp.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -620,6 +623,38 @@ window.Quarto = {
 <li><p>Changer les hyperparamètres tel que l’effectif minimal pour q’un noeud puisse être séparé soit de 2 et l’effectif minimal d’un noeud terminal soit de 1 et reconstruire l’arbre.</p></li>
 <li><p>Faire varier le paramètre de complexité du modèle et analyser les arbres résultant.</p></li>
 <li><p>Calculer le taux d’erreur des différents modèles sur les échantillons d’entraînement et de validation. Tracer le graphique du taux d’erreur en fonction de la complexité du modèle.</p></li>
+</ol>
+</section>
+<section id="exercice-3-un-bagging-de-lanalyse-discrimante-et-de-larbre-de-classification" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-3-un-bagging-de-lanalyse-discrimante-et-de-larbre-de-classification">Exercice 3: Un <em>bagging</em> de l’analyse discrimante et de l’arbre de classification</h2>
+<p>Dans cet exercice, on se propose de simuler des données pour regarder les performances du <em>bagging</em> des algorithmes d’analyse discrimante et d’arbres de classification. Considérons une première classe ayant pour distribution <span class="math inline">\(Y_1 \sim \mathcal{N}(\mu_1, \Sigma_1)\)</span> et une deuxième classe ayant pour distribution <span class="math inline">\(Y_2 \sim \mathcal{N}(\mu_2, \Sigma_2)\)</span> avec</p>
+<p><span class="math display">\[\mu_1 = \begin{pmatrix} 0 \\ 0 \end{pmatrix}, \Sigma_1 = \begin{pmatrix} 1 &amp; 1 \\ 1 &amp; 4 \end{pmatrix}, \quad\text{et}\quad \mu_2 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}, \Sigma_2 = \begin{pmatrix} 4 &amp; 4 \\ 4 &amp; 16 \end{pmatrix}.\]</span> 1. Générer un jeu de données d’entraînement (<span class="math inline">\(n = 200\)</span>) et un jeu de données de test (<span class="math inline">\(n = 1000\)</span>) ayant la distribution décrite précédemment.</p>
+<ol start="2" type="1">
+<li><p>Implémenter le <em>bagging</em> de l’analyse discrimante. Vérifier les performances de modèle en l’entraînant sur le jeu d’entraînement et en calculant son erreur sur le jeu de test pour un nombre différent de classificateurs de base, par exemple sur une grille de vingt valeurs comprises entre 0 et 500. Tracez le graphique de l’erreur en fonction du nombre de classificateurs de base. Interpréter le graphique.</p></li>
+<li><p>Faire la même chose en utilisant un arbre de classification comme classificateurs de base. On pourra aussi regarder l’influence de la taille minimale d’une feuille pour faire la découpe. Interpréter les résultats.</p></li>
+</ol>
+</section>
+<section id="exercice-4-est-ce-que-jai-reçu-un-spam" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-4-est-ce-que-jai-reçu-un-spam">Exercice 4: Est-ce que j’ai reçu un spam ?</h2>
+<p>Dans cet exercice, on cherche à prédire si un mail reçu est un spam ou non à l’aide d’une forêt aléatoire.</p>
+<ol type="1">
+<li><p>Télécharger le jeu de données suivant: <a href="../include/data/tp/spam.csv">lien</a>. Une description du jeu de données est <a href="https://search.r-project.org/CRAN/refmans/kernlab/html/spam.html">ici</a>.</p></li>
+<li><p>Partionner les données en échantillon d’entraînement (<span class="math inline">\(50\%\)</span>), de validation (<span class="math inline">\(50\%\)</span>) de façon aléatoire.</p></li>
+<li><p>Construire une forêt aléatoire en laissant les paramètres par défaut. Interpréter les résultats.</p></li>
+<li><p>Explorer l’influence du nombre de variables choisies aléatoirement à chaque noeud sur les performances du modèle. Interpréter les résultats.</p></li>
+<li><p>Utiliser la validation croisée pour choisir le nombre optimal de variables choisies aléatoirement à chaque noeud.</p></li>
+<li><p>Explorer l’influence du nombre d’arbres dans la forêt. Tracer l’erreur de classification en fonction du nombre d’arbres (prendre une grille de 1 à 50 pour le nombre d’arbres) en choisissant 1, 7 et 35 variables aléatoirement à chaque noeud. Interpréter les résultats.</p></li>
+<li><p>Pour une forêt aléatoire en choisissant une variable aléatoirement à chaque noeud, tracer l’erreur de classification pour une forêt aléatoire ayant <span class="math inline">\(1, 2, \dots, 50\)</span> arbres mesuré sur le jeu de test et sur les données non-utilisées dans les échantillons <em>bootstrap</em> pour la création du modèle (ce que l’on appelle <em>out-of-bag error</em>).</p></li>
+</ol>
+</section>
+<section id="exercice-5-comparaison-des-performances-de-classificateurs." class="level2">
+<h2 class="anchored" data-anchor-id="exercice-5-comparaison-des-performances-de-classificateurs.">Exercice 5: Comparaison des performances de classificateurs.</h2>
+<p>Dans cet exercice, on cherche à comparer les performances des différents classificateurs que l’on a vu pendant le cours.</p>
+<ol type="1">
+<li><p>Télécharger le jeu de données suivant: <a href="../include/data/tp/pima.csv">lien</a>. Une description du jeu de données est <a href="https://rdrr.io/cran/MASS/man/Pima.tr.html">ici</a>.</p></li>
+<li><p>Évaluer les performances de l’analyse discrimante, d’un arbre de classification, d’une forêt alèatoire, de <em>adaboost</em> et de <em>xgboost</em> en découpant le jeu de données en ensemble d’entraînement (70%) et de test (30%).</p></li>
+<li><p>Répéter ce processus 100 fois. Tracer les boxplots des erreurs de classication pour chacune des méthodes.</p></li>
+<li><p>Interpréter les résultats.</p></li>
 </ol>
 
 
