@@ -21,6 +21,10 @@ format:
 
 * TD: [link](../td/03-generalites-td.qmd)
 
+  - [Solution Exercise 1](../td/correction/Td_Generalites_Exercice_1.pdf)
+  
+  - [Solution Exercises 2 à 4](../td/correction/Td_Generalites.pdf)
+
 * TP: [link](../tp/03-generalites-tp.qmd)
 
 ## Outline 

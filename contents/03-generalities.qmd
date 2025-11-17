@@ -21,6 +21,10 @@ format:
 
 * TD: [link](../td/03-generalities-td.qmd)
 
+  - [Corrigé Exercice 1](../td/correction/Td_Generalites_Exercice_1.pdf)
+  
+  - [Corrigé Exercices 2 à 4](../td/correction/Td_Generalites.pdf)
+
 * TP: [link](../tp/03-generalities-tp.qmd)
 
 ## Sommaire

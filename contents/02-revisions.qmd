@@ -17,6 +17,12 @@ format:
 
 * TD: [link](../td/02-revision-td.qmd)
 
+  - [Corrigé Exercice 1](https://youtu.be/QCIooXe7MwU)
+  
+  - [Corrigé Exercice 2](https://youtu.be/B_oAm8vvka0)
+  
+  - [Corrigé Exercice 3](../td/correction/Td_Revision_Exercice_3.pdf)
+
 * TP: [link](../tp/02-revision-tp.qmd)
 
 

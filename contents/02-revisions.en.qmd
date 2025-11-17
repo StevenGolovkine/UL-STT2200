@@ -18,6 +18,12 @@ format:
 
 * TD: [link](../td/02-revision-td.qmd)
 
+  - [Solution Exercise 1](https://youtu.be/QCIooXe7MwU)
+  
+  - [Solution Exercise 2](https://youtu.be/B_oAm8vvka0)
+  
+  - [Solution Exercise 3](../td/correction/Td_Revision_Exercice_3.pdf)
+
 * TP: [link](../tp/02-revision-tp.qmd)
 
 
