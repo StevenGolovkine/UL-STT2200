@@ -6007,7 +6007,7 @@
     "href": "contents/06-nonsupervisee.html",
     "title": "Non-supervisée",
     "section": "",
-    "text": "Slides:\n\n\\(k\\)-moyennes\nMéthodes hiérarchiques\nMélanges de gaussiennes\n\nTD: link\nTP: link",
+    "text": "Slides:\n\nGénéralités\nMéthodes hiérarchiques\n\\(k\\)-moyennes\nMélanges de gaussiennes\n\nTD: link\nTP: link",
     "crumbs": [
       "Modules",
       "06 - Non-supervisée"
@@ -6018,7 +6018,7 @@
     "href": "contents/06-nonsupervisee.html#sommaire",
     "title": "Non-supervisée",
     "section": "Sommaire",
-    "text": "Sommaire\n\n\\(k\\)-moyennes\nMéthodes hiérarchiques\nMélanges de gaussiennes\n\n\n\n\n\\(k\\)-means (xkcd:2731).",
+    "text": "Sommaire\n\nMéthodes hiérarchiques\n\\(k\\)-moyennes\nMélanges de gaussiennes\n\n\n\n\n\\(k\\)-means (xkcd:2731).",
     "crumbs": [
       "Modules",
       "06 - Non-supervisée"
