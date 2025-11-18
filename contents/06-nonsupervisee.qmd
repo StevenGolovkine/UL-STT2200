@@ -9,9 +9,11 @@ format:
 
 * Slides:
 
-  - [$k$-moyennes](../slides/06-unsupervised-kmeans-slides.qmd)
-
+  - [Généralités](../slides/06-unsupervised-generalities.qmd)
+  
   - [Méthodes hiérarchiques](../slides/06-unsupervised-hierarchy-slides.qmd)
+  
+  - [$k$-moyennes](../slides/06-unsupervised-kmeans-slides.qmd)
 
   - [Mélanges de gaussiennes](../slides/06-unsupervised-gaussian-slides.qmd)
 
@@ -21,9 +23,9 @@ format:
 
 ## Sommaire
 
-1. [$k$-moyennes](./unsupervised/01-kmeans.qmd)
+1. [Méthodes hiérarchiques](./unsupervised/02-hierarchy.qmd)
 
-2. [Méthodes hiérarchiques](./unsupervised/02-hierarchy.qmd)
+2. [$k$-moyennes](./unsupervised/01-kmeans.qmd)
 
 3. [Mélanges de gaussiennes](./unsupervised/03-gaussian-mixtures.qmd)
 

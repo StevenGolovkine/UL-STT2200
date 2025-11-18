@@ -89,8 +89,8 @@ website:
           - href: contents/06-nonsupervisee.qmd 
             text: 06 - Non-supervisée
             contents:
-              - contents/unsupervised/01-kmeans.qmd 
               - contents/unsupervised/02-hierarchy.qmd
+              - contents/unsupervised/01-kmeans.qmd 
               - contents/unsupervised/03-gaussian-mixtures.qmd
           - href: contents/07-further.qmd 
             text: 07 - Éthique 
