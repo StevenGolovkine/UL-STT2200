@@ -4524,53 +4524,81 @@
     "text": "Conclusion\n\nLes données et modèles ne sont jamais neutres.\nBiais multiples à toutes les étapes du processus.\nSolutions techniques nécessaires mais insuffisantes.\nRéflexion éthique indispensable à chaque projet.\nResponsabilité collective → Data scientists, organisations, société\n\n\n→ L’éthique n’est pas une contrainte, c’est une condition de qualité !\nProchaine étape → Classification supervisée"
   },
   {
+    "objectID": "slides/06-unsupervised-hierarchy-slides.html#plan",
+    "href": "slides/06-unsupervised-hierarchy-slides.html#plan",
+    "title": "Non-supervisée",
+    "section": "Plan",
+    "text": "Plan\n\n\nGénéralités\nClassifications ascendante et descendante\nMéthodes d’aggrégation\nEn pratique : choix du nombre de groupes, cohérence de la partition\nExemple"
+  },
+  {
     "objectID": "slides/06-unsupervised-hierarchy-slides.html#motivation",
     "href": "slides/06-unsupervised-hierarchy-slides.html#motivation",
     "title": "Non-supervisée",
     "section": "Motivation",
-    "text": "Motivation\n\nLimites du \\(k\\)-means - Nécessite les données originales - Problématique avec matrice de similarité/distance uniquement\n\n\nSolution : Classification hiérarchique - Série de partitions imbriquées - De \\(n\\) groupes (chaque observation isolée) à 1 groupe (toutes ensemble) - Représentation : Dendrogramme"
+    "text": "Motivation\n\n\nSérie de partitions imbriquées\nDe \\(n\\) groupes (chaque observation isolée) à 1 groupe (toutes les observations ensemble)\nReprésentation : Dendrogramme"
   },
   {
     "objectID": "slides/06-unsupervised-hierarchy-slides.html#types-dalgorithmes",
     "href": "slides/06-unsupervised-hierarchy-slides.html#types-dalgorithmes",
     "title": "Non-supervisée",
     "section": "Types d’algorithmes",
-    "text": "Types d’algorithmes\n\nAlgorithmes ascendants\n\nDépart : \\(n\\) groupes individuels\nProcessus : Fusions successives\n\nAlgorithmes descendants\n\nDépart : 1 groupe de toutes les observations\nProcessus : Divisions successives\n\n\n\nRésultat commun : \\(n\\) partitions hiérarchiques de 1 à \\(n\\) groupes"
+    "text": "Types d’algorithmes\n\nAlgorithmes ascendants\n\nDépart : \\(n\\) groupes individuels\nProcessus : Fusions successives\n\n\n\n\nAlgorithmes descendants\n\nDépart : 1 groupe avec toutes les observations\nProcessus : Divisions successives\n\n\n\n\nRésultat commun : \\(n\\) partitions hiérarchiques de 1 à \\(n\\) groupes."
   },
   {
     "objectID": "slides/06-unsupervised-hierarchy-slides.html#algorithmes-descendants",
     "href": "slides/06-unsupervised-hierarchy-slides.html#algorithmes-descendants",
     "title": "Non-supervisée",
     "section": "Algorithmes descendants",
-    "text": "Algorithmes descendants\n\nPrincipe - Démarrage avec toutes les observations dans un groupe - Division du groupe le moins homogène à chaque étape - Maximisation de la dissimilarité entre sous-groupes\n\n\nInconvénient majeur Coût computationnel très élevé (évaluation de toutes les divisions possibles)\n\n\nUsage : Rarement utilisé en pratique"
+    "text": "Algorithmes descendants\n\n\nDémarrage avec toutes les observations dans un groupe.\nDivision du groupe le moins homogène à chaque étape.\nMaximisation de la dissimilarité entre sous-groupes.\n\n\nInconvénient majeur : Coût computationnel très élevé (évaluation de toutes les divisions possibles)."
   },
   {
     "objectID": "slides/06-unsupervised-hierarchy-slides.html#algorithmes-ascendants",
     "href": "slides/06-unsupervised-hierarchy-slides.html#algorithmes-ascendants",
     "title": "Non-supervisée",
     "section": "Algorithmes ascendants",
-    "text": "Algorithmes ascendants\n\nPrincipe - Démarrage avec \\(n\\) groupes distincts - Fusion des deux groupes les plus similaires à chaque étape - Continuation jusqu’à un seul groupe\n\n\nAvantage : Plus efficace computationnellement\n\n\nEnjeu clé : Définir la distance entre groupes"
+    "text": "Algorithmes ascendants\n\n\nDémarrage avec \\(n\\) groupes distincts.\nFusion des deux groupes les plus similaires à chaque étape.\nContinuation jusqu’à un seul groupe.\n\n\nAvantage : Plus efficace computationnellement que le descendant.\n\n\n\nEnjeu clé dans les deux cas : Définir la distance entre groupes."
   },
   {
-    "objectID": "slides/06-unsupervised-hierarchy-slides.html#plus-proche-voisin-single-linkage",
-    "href": "slides/06-unsupervised-hierarchy-slides.html#plus-proche-voisin-single-linkage",
+    "objectID": "slides/06-unsupervised-hierarchy-slides.html#distance-du-plus-proche-voisin-single-linkage",
+    "href": "slides/06-unsupervised-hierarchy-slides.html#distance-du-plus-proche-voisin-single-linkage",
     "title": "Non-supervisée",
-    "section": "Plus proche voisin (Single Linkage)",
-    "text": "Plus proche voisin (Single Linkage)\n\nDéfinition \\[d(A, B) = \\min \\{d_{ij}: i \\in A, j \\in B\\}\\] Distance = plus petite distance entre individus des deux groupes\n\n\nAvantages - Bon avec variables de types différents - Groupes de formes irrégulières - Robuste aux données aberrantes - Bonnes propriétés théoriques\n\n\nInconvénients - Groupes déséquilibrés (effet “chaîne”) - Moins performant pour groupes réguliers"
+    "section": "Distance du plus proche voisin (Single Linkage)",
+    "text": "Distance du plus proche voisin (Single Linkage)\n\nDistance = plus petite distance entre individus des deux groupes.\n\\[d(A, B) = \\min \\{d_{ij}: i \\in A, j \\in B\\}\\]"
   },
   {
-    "objectID": "slides/06-unsupervised-hierarchy-slides.html#voisin-le-plus-distant-complete-linkage",
-    "href": "slides/06-unsupervised-hierarchy-slides.html#voisin-le-plus-distant-complete-linkage",
+    "objectID": "slides/06-unsupervised-hierarchy-slides.html#distance-du-plus-proche-voisin-single-linkage-1",
+    "href": "slides/06-unsupervised-hierarchy-slides.html#distance-du-plus-proche-voisin-single-linkage-1",
     "title": "Non-supervisée",
-    "section": "Voisin le plus distant (Complete Linkage)",
-    "text": "Voisin le plus distant (Complete Linkage)\n\nDéfinition \\[d(A, B) = \\max \\{d_{ij}: i \\in A, j \\in B\\}\\] Distance = plus grande distance entre individus\n\n\nAvantages - Groupes réguliers et homogènes en taille - Adapté aux variables de types différents\n\n\nInconvénients - Extrêmement sensible aux données aberrantes - Force des groupes de même taille"
+    "section": "Distance du plus proche voisin (Single Linkage)",
+    "text": "Distance du plus proche voisin (Single Linkage)\nAvantages :\n\nBon avec des variables de types différents.\nGroupes de formes irrégulières.\nRobuste aux données aberrantes.\nBonnes propriétés théoriques.\n\n\nInconvénients :\n\nGroupes déséquilibrés.\nMoins performant pour groupes de forme régulière."
   },
   {
-    "objectID": "slides/06-unsupervised-hierarchy-slides.html#méthode-de-la-moyenne-average-linkage",
-    "href": "slides/06-unsupervised-hierarchy-slides.html#méthode-de-la-moyenne-average-linkage",
+    "objectID": "slides/06-unsupervised-hierarchy-slides.html#distance-du-voisin-le-plus-distant-complete-linkage",
+    "href": "slides/06-unsupervised-hierarchy-slides.html#distance-du-voisin-le-plus-distant-complete-linkage",
     "title": "Non-supervisée",
-    "section": "Méthode de la moyenne (Average Linkage)",
-    "text": "Méthode de la moyenne (Average Linkage)\n\nDéfinition \\[d(A, B) = \\frac{1}{n_A n_B} \\sum_{i \\in A} \\sum_{j \\in B} d(X_i, X_j)\\] Distance = moyenne de toutes les distances inter-groupes\n\n\nCaractéristiques - Considère toutes les interactions - Produit des groupes homogènes (variance faible) - Privilégie des groupes de variance similaire"
+    "section": "Distance du voisin le plus distant (Complete Linkage)",
+    "text": "Distance du voisin le plus distant (Complete Linkage)\n\nDistance = plus grande distance entre individus des deux groupes.\n\\[d(A, B) = \\max \\{d_{ij}: i \\in A, j \\in B\\}\\]"
+  },
+  {
+    "objectID": "slides/06-unsupervised-hierarchy-slides.html#distance-du-voisin-le-plus-distant-complete-linkage-1",
+    "href": "slides/06-unsupervised-hierarchy-slides.html#distance-du-voisin-le-plus-distant-complete-linkage-1",
+    "title": "Non-supervisée",
+    "section": "Distance du voisin le plus distant (Complete Linkage)",
+    "text": "Distance du voisin le plus distant (Complete Linkage)\nAvantages :\n\nGroupes réguliers et homogènes en taille.\nAdapté aux variables de types différents.\n\n\nInconvénients :\n\nExtrêmement sensible aux données aberrantes.\nForce des groupes de même taille."
+  },
+  {
+    "objectID": "slides/06-unsupervised-hierarchy-slides.html#distance-de-la-moyenne-average-linkage",
+    "href": "slides/06-unsupervised-hierarchy-slides.html#distance-de-la-moyenne-average-linkage",
+    "title": "Non-supervisée",
+    "section": "Distance de la moyenne (Average Linkage)",
+    "text": "Distance de la moyenne (Average Linkage)\n\nDistance = moyenne de toutes les distances inter-groupes.\n\\[d(A, B) = \\frac{1}{n_A n_B} \\sum_{i \\in A} \\sum_{j \\in B} d(X_i, X_j)\\]"
+  },
+  {
+    "objectID": "slides/06-unsupervised-hierarchy-slides.html#distance-de-la-moyenne-average-linkage-1",
+    "href": "slides/06-unsupervised-hierarchy-slides.html#distance-de-la-moyenne-average-linkage-1",
+    "title": "Non-supervisée",
+    "section": "Distance de la moyenne (Average Linkage)",
+    "text": "Distance de la moyenne (Average Linkage)\nAvantages :\n\nConsidère toutes les interactions.\nProduit des groupes homogènes (variance faible).\n\n\nInconvénients :\n\nPrivilégie des groupes de variance similaire.\nMoins performant pour groupes de forme irrégulière."
   },
   {
     "objectID": "slides/06-unsupervised-hierarchy-slides.html#méthode-du-centroïde",
@@ -4580,11 +4608,11 @@
     "text": "Méthode du centroïde\n\nDéfinition \\[d(A, B) = d(\\overline{X}_A, \\overline{X}_B)\\] Distance entre les moyennes des groupes\n\n\nMise à jour après fusion \\[\\overline{X}_{AB} = \\frac{n_A \\overline{X}_A + n_B \\overline{X}_B}{n_A + n_B}\\]\n\n\nPropriété : Assez robuste aux données aberrantes, mais peu performant sans elles"
   },
   {
-    "objectID": "slides/06-unsupervised-hierarchy-slides.html#méthode-de-la-médiane",
-    "href": "slides/06-unsupervised-hierarchy-slides.html#méthode-de-la-médiane",
+    "objectID": "slides/06-unsupervised-hierarchy-slides.html#distance-de-la-médiane",
+    "href": "slides/06-unsupervised-hierarchy-slides.html#distance-de-la-médiane",
     "title": "Non-supervisée",
-    "section": "Méthode de la médiane",
-    "text": "Méthode de la médiane\n\nPrincipe : Mise à jour récursive des distances\n\n\nFormule de mise à jour \\[d(AB, C) = \\frac{d(A, C) + d(B, C)}{2} - \\frac{d(A, B)}{4}\\]\n\n\nCaractéristiques - Très robuste aux données aberrantes - Peu efficace sans valeurs extrêmes"
+    "section": "Distance de la médiane",
+    "text": "Distance de la médiane\n\nPrincipe : Mise à jour récursive des distances\n\n\nFormule de mise à jour \\[d(AB, C) = \\frac{d(A, C) + d(B, C)}{2} - \\frac{d(A, B)}{4}\\]\n\n\nCaractéristiques - Très robuste aux données aberrantes - Peu efficace sans valeurs extrêmes"
   },
   {
     "objectID": "slides/06-unsupervised-hierarchy-slides.html#méthode-de-ward",
@@ -4601,11 +4629,11 @@
     "text": "Ward : Avantages et limites\n\nAvantages - Très efficace sous hypothèses gaussiennes - Groupes homogènes et de taille comparable - Méthode très populaire en pratique\n\n\nInconvénients - Sensible aux données aberrantes - Tend à former des groupes de même taille - Hypothèses gaussiennes restrictives"
   },
   {
-    "objectID": "slides/06-unsupervised-hierarchy-slides.html#méthode-flexible",
-    "href": "slides/06-unsupervised-hierarchy-slides.html#méthode-flexible",
+    "objectID": "slides/06-unsupervised-hierarchy-slides.html#distance-flexible",
+    "href": "slides/06-unsupervised-hierarchy-slides.html#distance-flexible",
     "title": "Non-supervisée",
-    "section": "Méthode flexible",
-    "text": "Méthode flexible\n\nFormule générale \\[d(C, AB) = \\alpha_A d(C, A) + \\alpha_B d(C, B) + \\beta d(A, B) + \\gamma |d(C, A) - d(C, B)|\\]\n\n\nFlexibilité Selon \\((\\alpha_A, \\alpha_B, \\beta, \\gamma)\\), on retrouve toutes les méthodes précédentes\n\n\nParamétrage standard - \\(\\alpha_A = \\alpha_B\\), \\(\\alpha_A + \\alpha_B + \\beta = 1\\), \\(\\gamma = 0\\) - Choix courant : \\(\\beta = -0.25\\) - Données aberrantes : \\(\\beta = -0.5\\)"
+    "section": "Distance flexible",
+    "text": "Distance flexible\n\nFormule générale \\[d(C, AB) = \\alpha_A d(C, A) + \\alpha_B d(C, B) + \\beta d(A, B) + \\gamma |d(C, A) - d(C, B)|\\]\n\n\nFlexibilité Selon \\((\\alpha_A, \\alpha_B, \\beta, \\gamma)\\), on retrouve toutes les méthodes précédentes\n\n\nParamétrage standard - \\(\\alpha_A = \\alpha_B\\), \\(\\alpha_A + \\alpha_B + \\beta = 1\\), \\(\\gamma = 0\\) - Choix courant : \\(\\beta = -0.25\\) - Données aberrantes : \\(\\beta = -0.5\\)"
   },
   {
     "objectID": "slides/06-unsupervised-hierarchy-slides.html#le-problème-du-choix",

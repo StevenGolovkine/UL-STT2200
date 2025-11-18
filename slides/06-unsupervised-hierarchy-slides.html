@@ -145,105 +145,146 @@ Steven Golovkine
 </div>
 </div>
 
-  <p class="date">18 nov. 2025</p>
+  <p class="date">21 nov. 2025</p>
   <figure>
     <center>
       <img src="../include/logo-ul.png" alt="logo" width="40%">
     </center>
   </figure>
 </section>
-<section>
-<section id="classification-hiérarchique" class="title-slide slide level1 center">
-<h1>Classification hiérarchique</h1>
-
+<section id="plan" class="slide level2">
+<h2>Plan</h2>
+<p><br></p>
+<ol type="1">
+<li><p>Généralités</p></li>
+<li><p>Classifications ascendante et descendante</p></li>
+<li><p>Méthodes d’aggrégation</p></li>
+<li><p>En pratique : choix du nombre de groupes, cohérence de la partition</p></li>
+<li><p>Exemple</p></li>
+</ol>
 </section>
 <section id="motivation" class="slide level2">
 <h2>Motivation</h2>
-<div class="fragment">
-<p><strong>Limites du <span class="math inline">\(k\)</span>-means</strong> - Nécessite les données originales - Problématique avec matrice de similarité/distance uniquement</p>
-</div>
-<div class="fragment">
-<p><strong>Solution : Classification hiérarchique</strong> - Série de <strong>partitions imbriquées</strong> - De <span class="math inline">\(n\)</span> groupes (chaque observation isolée) à 1 groupe (toutes ensemble) - Représentation : <strong>Dendrogramme</strong></p>
-</div>
+<p><br></p>
+<ul>
+<li><p>Série de partitions imbriquées</p></li>
+<li><p>De <span class="math inline">\(n\)</span> groupes (chaque observation isolée) à 1 groupe (toutes les observations ensemble)</p></li>
+<li><p>Représentation : Dendrogramme</p></li>
+</ul>
 </section>
 <section id="types-dalgorithmes" class="slide level2">
 <h2>Types d’algorithmes</h2>
 <ol type="1">
-<li class="fragment"><strong>Algorithmes ascendants</strong>
+<li><p>Algorithmes ascendants</p>
 <ul>
-<li class="fragment">Départ : <span class="math inline">\(n\)</span> groupes individuels</li>
-<li class="fragment">Processus : Fusions successives</li>
-</ul></li>
-<li class="fragment"><strong>Algorithmes descendants</strong>
-<ul>
-<li class="fragment">Départ : 1 groupe de toutes les observations</li>
-<li class="fragment">Processus : Divisions successives</li>
+<li><p>Départ : <span class="math inline">\(n\)</span> groupes individuels</p></li>
+<li><p>Processus : Fusions successives</p></li>
 </ul></li>
 </ol>
 <div class="fragment">
-<p><strong>Résultat commun</strong> : <span class="math inline">\(n\)</span> partitions hiérarchiques de 1 à <span class="math inline">\(n\)</span> groupes</p>
+<ol start="2" type="1">
+<li><p>Algorithmes descendants</p>
+<ul>
+<li><p>Départ : 1 groupe avec toutes les observations</p></li>
+<li><p>Processus : Divisions successives</p></li>
+</ul></li>
+</ol>
+</div>
+<div class="fragment">
+<p>Résultat commun : <span class="math inline">\(n\)</span> partitions hiérarchiques de 1 à <span class="math inline">\(n\)</span> groupes.</p>
 </div>
 </section>
 <section id="algorithmes-descendants" class="slide level2">
 <h2>Algorithmes descendants</h2>
+<p><br></p>
+<ol type="1">
+<li><p>Démarrage avec toutes les observations dans un groupe.</p></li>
+<li><p>Division du groupe le moins homogène à chaque étape.</p></li>
+<li><p>Maximisation de la dissimilarité entre sous-groupes.</p></li>
+</ol>
 <div class="fragment">
-<p><strong>Principe</strong> - Démarrage avec toutes les observations dans un groupe - Division du groupe le moins homogène à chaque étape - Maximisation de la dissimilarité entre sous-groupes</p>
-</div>
-<div class="fragment">
-<p><strong>Inconvénient majeur</strong> Coût computationnel très élevé (évaluation de toutes les divisions possibles)</p>
-</div>
-<div class="fragment">
-<p><strong>Usage</strong> : Rarement utilisé en pratique</p>
+<p>Inconvénient majeur : Coût computationnel très élevé (évaluation de toutes les divisions possibles).</p>
 </div>
 </section>
 <section id="algorithmes-ascendants" class="slide level2">
 <h2>Algorithmes ascendants</h2>
+<p><br></p>
+<ol type="1">
+<li><p>Démarrage avec <span class="math inline">\(n\)</span> groupes distincts.</p></li>
+<li><p>Fusion des deux groupes les plus similaires à chaque étape.</p></li>
+<li><p>Continuation jusqu’à un seul groupe.</p></li>
+</ol>
 <div class="fragment">
-<p><strong>Principe</strong> - Démarrage avec <span class="math inline">\(n\)</span> groupes distincts - Fusion des deux groupes les plus similaires à chaque étape - Continuation jusqu’à un seul groupe</p>
+<p>Avantage : Plus efficace computationnellement que le descendant.</p>
 </div>
 <div class="fragment">
-<p><strong>Avantage</strong> : Plus efficace computationnellement</p>
-</div>
-<div class="fragment">
-<p><strong>Enjeu clé</strong> : Définir la distance entre groupes</p>
-</div>
-</section></section>
-<section>
-<section id="distances-entre-groupes" class="title-slide slide level1 center">
-<h1>Distances entre groupes</h1>
-
-</section>
-<section id="plus-proche-voisin-single-linkage" class="slide level2">
-<h2>Plus proche voisin (<em>Single Linkage</em>)</h2>
-<div class="fragment">
-<p><strong>Définition</strong> <span class="math display">\[d(A, B) = \min \{d_{ij}: i \in A, j \in B\}\]</span> Distance = plus petite distance entre individus des deux groupes</p>
-</div>
-<div class="fragment">
-<p><strong>Avantages</strong> - Bon avec variables de types différents - Groupes de formes irrégulières - Robuste aux données aberrantes - Bonnes propriétés théoriques</p>
-</div>
-<div class="fragment">
-<p><strong>Inconvénients</strong> - Groupes déséquilibrés (effet “chaîne”) - Moins performant pour groupes réguliers</p>
+<p><br></p>
+<p>Enjeu clé dans les deux cas : Définir la distance entre groupes.</p>
 </div>
 </section>
-<section id="voisin-le-plus-distant-complete-linkage" class="slide level2">
-<h2>Voisin le plus distant (<em>Complete Linkage</em>)</h2>
+<section id="distance-du-plus-proche-voisin-single-linkage" class="slide level2">
+<h2>Distance du plus proche voisin (<em>Single Linkage</em>)</h2>
+<p><br></p>
+<p>Distance = plus petite distance entre individus des deux groupes.</p>
+<p><span class="math display">\[d(A, B) = \min \{d_{ij}: i \in A, j \in B\}\]</span></p>
+</section>
+<section id="distance-du-plus-proche-voisin-single-linkage-1" class="slide level2">
+<h2>Distance du plus proche voisin (<em>Single Linkage</em>)</h2>
+<p>Avantages :</p>
+<ul>
+<li><p>Bon avec des variables de types différents.</p></li>
+<li><p>Groupes de formes irrégulières.</p></li>
+<li><p>Robuste aux données aberrantes.</p></li>
+<li><p>Bonnes propriétés théoriques.</p></li>
+</ul>
 <div class="fragment">
-<p><strong>Définition</strong> <span class="math display">\[d(A, B) = \max \{d_{ij}: i \in A, j \in B\}\]</span> Distance = plus grande distance entre individus</p>
-</div>
-<div class="fragment">
-<p><strong>Avantages</strong> - Groupes réguliers et homogènes en taille - Adapté aux variables de types différents</p>
-</div>
-<div class="fragment">
-<p><strong>Inconvénients</strong> - <strong>Extrêmement</strong> sensible aux données aberrantes - Force des groupes de même taille</p>
+<p>Inconvénients :</p>
+<ul>
+<li><p>Groupes déséquilibrés.</p></li>
+<li><p>Moins performant pour groupes de forme régulière.</p></li>
+</ul>
 </div>
 </section>
-<section id="méthode-de-la-moyenne-average-linkage" class="slide level2">
-<h2>Méthode de la moyenne (<em>Average Linkage</em>)</h2>
+<section id="distance-du-voisin-le-plus-distant-complete-linkage" class="slide level2">
+<h2>Distance du voisin le plus distant (<em>Complete Linkage</em>)</h2>
+<p><br></p>
+<p>Distance = plus grande distance entre individus des deux groupes.</p>
+<p><span class="math display">\[d(A, B) = \max \{d_{ij}: i \in A, j \in B\}\]</span></p>
+</section>
+<section id="distance-du-voisin-le-plus-distant-complete-linkage-1" class="slide level2">
+<h2>Distance du voisin le plus distant (<em>Complete Linkage</em>)</h2>
+<p>Avantages :</p>
+<ul>
+<li><p>Groupes réguliers et homogènes en taille.</p></li>
+<li><p>Adapté aux variables de types différents.</p></li>
+</ul>
 <div class="fragment">
-<p><strong>Définition</strong> <span class="math display">\[d(A, B) = \frac{1}{n_A n_B} \sum_{i \in A} \sum_{j \in B} d(X_i, X_j)\]</span> Distance = moyenne de toutes les distances inter-groupes</p>
+<p>Inconvénients :</p>
+<ul>
+<li><p>Extrêmement sensible aux données aberrantes.</p></li>
+<li><p>Force des groupes de même taille.</p></li>
+</ul>
 </div>
+</section>
+<section id="distance-de-la-moyenne-average-linkage" class="slide level2">
+<h2>Distance de la moyenne (<em>Average Linkage</em>)</h2>
+<p><br></p>
+<p>Distance = moyenne de toutes les distances inter-groupes.</p>
+<p><span class="math display">\[d(A, B) = \frac{1}{n_A n_B} \sum_{i \in A} \sum_{j \in B} d(X_i, X_j)\]</span></p>
+</section>
+<section id="distance-de-la-moyenne-average-linkage-1" class="slide level2">
+<h2>Distance de la moyenne (<em>Average Linkage</em>)</h2>
+<p>Avantages :</p>
+<ul>
+<li><p>Considère toutes les interactions.</p></li>
+<li><p>Produit des groupes homogènes (variance faible).</p></li>
+</ul>
 <div class="fragment">
-<p><strong>Caractéristiques</strong> - Considère toutes les interactions - Produit des groupes homogènes (variance faible) - Privilégie des groupes de variance similaire</p>
+<p>Inconvénients :</p>
+<ul>
+<li><p>Privilégie des groupes de variance similaire.</p></li>
+<li><p>Moins performant pour groupes de forme irrégulière.</p></li>
+</ul>
 </div>
 </section>
 <section id="méthode-du-centroïde" class="slide level2">
@@ -258,8 +299,8 @@ Steven Golovkine
 <p><strong>Propriété</strong> : Assez robuste aux données aberrantes, mais peu performant sans elles</p>
 </div>
 </section>
-<section id="méthode-de-la-médiane" class="slide level2">
-<h2>Méthode de la médiane</h2>
+<section id="distance-de-la-médiane" class="slide level2">
+<h2>Distance de la médiane</h2>
 <div class="fragment">
 <p><strong>Principe</strong> : Mise à jour récursive des distances</p>
 </div>
@@ -291,8 +332,8 @@ Steven Golovkine
 <p><strong>Inconvénients</strong> - Sensible aux données aberrantes - Tend à former des groupes de même taille - Hypothèses gaussiennes restrictives</p>
 </div>
 </section>
-<section id="méthode-flexible" class="slide level2">
-<h2>Méthode flexible</h2>
+<section id="distance-flexible" class="slide level2">
+<h2>Distance flexible</h2>
 <div class="fragment">
 <p><strong>Formule générale</strong> <span class="math display">\[d(C, AB) = \alpha_A d(C, A) + \alpha_B d(C, B) + \beta d(A, B) + \gamma |d(C, A) - d(C, B)|\]</span></p>
 </div>
@@ -302,7 +343,7 @@ Steven Golovkine
 <div class="fragment">
 <p><strong>Paramétrage standard</strong> - <span class="math inline">\(\alpha_A = \alpha_B\)</span>, <span class="math inline">\(\alpha_A + \alpha_B + \beta = 1\)</span>, <span class="math inline">\(\gamma = 0\)</span> - Choix courant : <span class="math inline">\(\beta = -0.25\)</span> - Données aberrantes : <span class="math inline">\(\beta = -0.5\)</span></p>
 </div>
-</section></section>
+</section>
 <section>
 <section id="choix-de-la-partition" class="title-slide slide level1 center">
 <h1>Choix de la partition</h1>
