@@ -3,7 +3,7 @@ title: "Non-supervisée"
 subtitle: "Classification hiérarchique"
 author: "Steven Golovkine"
 lang: fr
-date: today
+date: "21 nov. 2025"
 date-format: "DD MMM YYYY"
 slide-number: c/t
 title-logo: ../include/logo-ul.png
@@ -17,132 +17,175 @@ format:
       - title-slide.html
 --- 
 
-# Classification hiérarchique
+
+## Plan
+
+<br>
+
+1. Généralités
+
+2. Classifications ascendante et descendante
+
+3. Méthodes d'aggrégation
+
+4. En pratique : choix du nombre de groupes, cohérence de la partition
+
+5. Exemple
 
 ## Motivation
 
-::: {.fragment}
-**Limites du $k$-means**
-- Nécessite les données originales
-- Problématique avec matrice de similarité/distance uniquement
-:::
+<br>
 
-::: {.fragment}
-**Solution : Classification hiérarchique**
-- Série de **partitions imbriquées**
-- De $n$ groupes (chaque observation isolée) à 1 groupe (toutes ensemble)
-- Représentation : **Dendrogramme**
-:::
+- Série de partitions imbriquées
+
+- De $n$ groupes (chaque observation isolée) à 1 groupe (toutes les observations ensemble)
+
+- Représentation : Dendrogramme
+
 
 ## Types d'algorithmes
 
-::: {.incremental}
-1. **Algorithmes ascendants**
+
+1. Algorithmes ascendants
+
    - Départ : $n$ groupes individuels
+
    - Processus : Fusions successives
 
-2. **Algorithmes descendants**
-   - Départ : 1 groupe de toutes les observations
-   - Processus : Divisions successives
-:::
+. . .
 
-::: {.fragment}
-**Résultat commun** : $n$ partitions hiérarchiques de 1 à $n$ groupes
-:::
+2. Algorithmes descendants
+
+   - Départ : 1 groupe avec toutes les observations
+
+   - Processus : Divisions successives
+
+. . .
+
+Résultat commun : $n$ partitions hiérarchiques de 1 à $n$ groupes.
+
 
 ## Algorithmes descendants
 
-::: {.fragment}
-**Principe**
-- Démarrage avec toutes les observations dans un groupe
-- Division du groupe le moins homogène à chaque étape
-- Maximisation de la dissimilarité entre sous-groupes
-:::
+<br>
 
-::: {.fragment}
-**Inconvénient majeur**
-Coût computationnel très élevé (évaluation de toutes les divisions possibles)
-:::
+1. Démarrage avec toutes les observations dans un groupe.
 
-::: {.fragment}
-**Usage** : Rarement utilisé en pratique
-:::
+2. Division du groupe le moins homogène à chaque étape.
+
+3. Maximisation de la dissimilarité entre sous-groupes.
+
+. . .
+
+Inconvénient majeur : Coût computationnel très élevé (évaluation de toutes les divisions possibles).
+
 
 ## Algorithmes ascendants
 
-::: {.fragment}
-**Principe**
-- Démarrage avec $n$ groupes distincts
-- Fusion des deux groupes les plus similaires à chaque étape
-- Continuation jusqu'à un seul groupe
-:::
+<br>
 
-::: {.fragment}
-**Avantage** : Plus efficace computationnellement
-:::
+1. Démarrage avec $n$ groupes distincts.
 
-::: {.fragment}
-**Enjeu clé** : Définir la distance entre groupes
-:::
+2. Fusion des deux groupes les plus similaires à chaque étape.
 
-# Distances entre groupes
+3. Continuation jusqu'à un seul groupe.
 
-## Plus proche voisin (*Single Linkage*)
+. . .
 
-::: {.fragment}
-**Définition**
+Avantage : Plus efficace computationnellement que le descendant.
+
+. . .
+
+<br>
+
+Enjeu clé dans les deux cas : Définir la distance entre groupes.
+
+
+
+## Distance du plus proche voisin (*Single Linkage*)
+
+<br>
+
+Distance = plus petite distance entre individus des deux groupes.
+
+
 $$d(A, B) = \min \{d_{ij}: i \in A, j \in B\}$$
-Distance = plus petite distance entre individus des deux groupes
-:::
 
-::: {.fragment}
-**Avantages**
-- Bon avec variables de types différents
-- Groupes de formes irrégulières
-- Robuste aux données aberrantes
-- Bonnes propriétés théoriques
-:::
 
-::: {.fragment}
-**Inconvénients**
-- Groupes déséquilibrés (effet "chaîne")
-- Moins performant pour groupes réguliers
-:::
 
-## Voisin le plus distant (*Complete Linkage*)
+## Distance du plus proche voisin (*Single Linkage*)
 
-::: {.fragment}
-**Définition**
+Avantages :
+
+- Bon avec des variables de types différents.
+
+- Groupes de formes irrégulières.
+
+- Robuste aux données aberrantes.
+
+- Bonnes propriétés théoriques.
+
+. . .
+
+Inconvénients :
+
+- Groupes déséquilibrés.
+
+- Moins performant pour groupes de forme régulière.
+
+
+## Distance du voisin le plus distant (*Complete Linkage*)
+
+<br>
+
+Distance = plus grande distance entre individus des deux groupes.
+
 $$d(A, B) = \max \{d_{ij}: i \in A, j \in B\}$$
-Distance = plus grande distance entre individus
-:::
 
-::: {.fragment}
-**Avantages**
-- Groupes réguliers et homogènes en taille
-- Adapté aux variables de types différents
-:::
 
-::: {.fragment}
-**Inconvénients**
-- **Extrêmement** sensible aux données aberrantes
-- Force des groupes de même taille
-:::
+## Distance du voisin le plus distant (*Complete Linkage*)
 
-## Méthode de la moyenne (*Average Linkage*)
+Avantages :
 
-::: {.fragment}
-**Définition**
+- Groupes réguliers et homogènes en taille.
+
+- Adapté aux variables de types différents.
+
+. . .
+
+Inconvénients :
+
+- Extrêmement sensible aux données aberrantes.
+
+- Force des groupes de même taille.
+
+
+## Distance de la moyenne (*Average Linkage*)
+
+<br>
+
+Distance = moyenne de toutes les distances inter-groupes.
+
+
 $$d(A, B) = \frac{1}{n_A n_B} \sum_{i \in A} \sum_{j \in B} d(X_i, X_j)$$
-Distance = moyenne de toutes les distances inter-groupes
-:::
 
-::: {.fragment}
-**Caractéristiques**
-- Considère toutes les interactions
-- Produit des groupes homogènes (variance faible)
-- Privilégie des groupes de variance similaire
-:::
+## Distance de la moyenne (*Average Linkage*)
+
+
+Avantages :
+
+- Considère toutes les interactions.
+
+- Produit des groupes homogènes (variance faible).
+
+. . .
+
+Inconvénients :
+
+- Privilégie des groupes de variance similaire.
+
+- Moins performant pour groupes de forme irrégulière.
+
 
 ## Méthode du centroïde
 
@@ -161,7 +204,7 @@ $$\overline{X}_{AB} = \frac{n_A \overline{X}_A + n_B \overline{X}_B}{n_A + n_B}$
 **Propriété** : Assez robuste aux données aberrantes, mais peu performant sans elles
 :::
 
-## Méthode de la médiane
+## Distance de la médiane
 
 ::: {.fragment}
 **Principe** : Mise à jour récursive des distances
@@ -212,7 +255,7 @@ $$I_{AB} = SC_{AB} - SC_A - SC_B = \frac{d^2(\overline{X}_A, \overline{X}_B)}{\f
 - Hypothèses gaussiennes restrictives
 :::
 
-## Méthode flexible
+## Distance flexible
 
 ::: {.fragment}
 **Formule générale**
