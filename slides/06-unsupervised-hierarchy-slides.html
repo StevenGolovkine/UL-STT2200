@@ -289,202 +289,217 @@ Steven Golovkine
 </section>
 <section id="méthode-du-centroïde" class="slide level2">
 <h2>Méthode du centroïde</h2>
+<p>Distance entre les moyennes des groupes.</p>
+<p><span class="math display">\[d(A, B) = d(\overline{X}_A, \overline{X}_B)\]</span></p>
 <div class="fragment">
-<p><strong>Définition</strong> <span class="math display">\[d(A, B) = d(\overline{X}_A, \overline{X}_B)\]</span> Distance entre les moyennes des groupes</p>
+<p>Mise à jour après fusion :</p>
+<p><span class="math display">\[\overline{X}_{AB} = \frac{n_A \overline{X}_A + n_B \overline{X}_B}{n_A + n_B}\]</span></p>
 </div>
 <div class="fragment">
-<p><strong>Mise à jour après fusion</strong> <span class="math display">\[\overline{X}_{AB} = \frac{n_A \overline{X}_A + n_B \overline{X}_B}{n_A + n_B}\]</span></p>
-</div>
-<div class="fragment">
-<p><strong>Propriété</strong> : Assez robuste aux données aberrantes, mais peu performant sans elles</p>
+<p>→ Assez robuste aux données aberrantes, mais peu performant sans elles.</p>
 </div>
 </section>
 <section id="distance-de-la-médiane" class="slide level2">
 <h2>Distance de la médiane</h2>
+<p>Principe : Mise à jour récursive des distances.</p>
 <div class="fragment">
-<p><strong>Principe</strong> : Mise à jour récursive des distances</p>
+<p>Formule de mise à jour :</p>
+<p><span class="math display">\[d(AB, C) = \frac{d(A, C) + d(B, C)}{2} - \frac{d(A, B)}{4}\]</span></p>
 </div>
 <div class="fragment">
-<p><strong>Formule de mise à jour</strong> <span class="math display">\[d(AB, C) = \frac{d(A, C) + d(B, C)}{2} - \frac{d(A, B)}{4}\]</span></p>
-</div>
-<div class="fragment">
-<p><strong>Caractéristiques</strong> - Très robuste aux données aberrantes - Peu efficace sans valeurs extrêmes</p>
+<p>Caractéristiques :</p>
+<ul>
+<li><p>Très robuste aux données aberrantes.</p></li>
+<li><p>Peu efficace sans valeurs extrêmes.</p></li>
+</ul>
 </div>
 </section>
 <section id="méthode-de-ward" class="slide level2">
 <h2>Méthode de Ward</h2>
+<p>Principe : Minimisation de l’augmentation d’inertie intra-groupe.</p>
 <div class="fragment">
-<p><strong>Principe</strong> : Minimisation de l’augmentation d’inertie intra-groupe</p>
-</div>
-<div class="fragment">
-<p><strong>Critère d’optimisation</strong> <span class="math display">\[I_{AB} = SC_{AB} - SC_A - SC_B = \frac{d^2(\overline{X}_A, \overline{X}_B)}{\frac{1}{n_A} + \frac{1}{n_B}}\]</span></p>
-</div>
-<div class="fragment">
-<p><strong>Conditions optimales</strong> - Observations gaussiennes multivariées - Même matrice de variance-covariance - Moyennes différentes</p>
+<p><span class="math display">\[SC_A = \sum_{i \in A} (X_i - \overline{X}_A)^\top (X_i - \overline{X}_A),\]</span></p>
+<p><span class="math display">\[SC_B = \sum_{j \in B} (X_j - \overline{X}_B)^\top (X_j - \overline{X}_B),\]</span></p>
+<p><span class="math display">\[SC_{AB} = \sum_{k \in A \cup B} (X_k - \overline{X}_{AB})^\top (X_k - \overline{X}_{AB}).\]</span></p>
 </div>
 </section>
-<section id="ward-avantages-et-limites" class="slide level2">
-<h2>Ward : Avantages et limites</h2>
+<section id="méthode-de-ward-1" class="slide level2">
+<h2>Méthode de Ward</h2>
+<p>Critère d’optimisation : <span class="math display">\[I_{AB} = SC_{AB} - SC_A - SC_B = \frac{d^2(\overline{X}_A, \overline{X}_B)}{\frac{1}{n_A} + \frac{1}{n_B}}\]</span></p>
 <div class="fragment">
-<p><strong>Avantages</strong> - Très efficace sous hypothèses gaussiennes - Groupes homogènes et de taille comparable - Méthode très populaire en pratique</p>
+<p>Conditions optimales :</p>
+<ul>
+<li><p>Observations gaussiennes multivariées.</p></li>
+<li><p>Même matrice de variance-covariance.</p></li>
+<li><p>Moyennes différentes.</p></li>
+</ul>
 </div>
+</section>
+<section id="méthode-de-ward-2" class="slide level2">
+<h2>Méthode de Ward</h2>
+<p>Avantages :</p>
+<ul>
+<li><p>Très efficace sous hypothèses gaussiennes.</p></li>
+<li><p>Groupes homogènes et de taille comparable.</p></li>
+<li><p>Méthode très populaire en pratique.</p></li>
+</ul>
 <div class="fragment">
-<p><strong>Inconvénients</strong> - Sensible aux données aberrantes - Tend à former des groupes de même taille - Hypothèses gaussiennes restrictives</p>
+<p>Inconvénients :</p>
+<ul>
+<li><p>Sensible aux données aberrantes.</p></li>
+<li><p>Tend à former des groupes de même taille.</p></li>
+<li><p>Hypothèses gaussiennes restrictives.</p></li>
+</ul>
 </div>
 </section>
 <section id="distance-flexible" class="slide level2">
 <h2>Distance flexible</h2>
+<p><span class="math display">\[\begin{align}
+d(C, AB) &amp;= \alpha_A d(C, A) \\
+         &amp;~ + \alpha_B d(C, B) \\
+         &amp;~ + \beta d(A, B) \\
+         &amp;~ + \gamma |d(C, A) - d(C, B)|
+\end{align}\]</span></p>
 <div class="fragment">
-<p><strong>Formule générale</strong> <span class="math display">\[d(C, AB) = \alpha_A d(C, A) + \alpha_B d(C, B) + \beta d(A, B) + \gamma |d(C, A) - d(C, B)|\]</span></p>
+<p>Selon <span class="math inline">\((\alpha_A, \alpha_B, \beta, \gamma)\)</span>, on retrouve toutes les méthodes précédentes.</p>
 </div>
 <div class="fragment">
-<p><strong>Flexibilité</strong> Selon <span class="math inline">\((\alpha_A, \alpha_B, \beta, \gamma)\)</span>, on retrouve toutes les méthodes précédentes</p>
-</div>
-<div class="fragment">
-<p><strong>Paramétrage standard</strong> - <span class="math inline">\(\alpha_A = \alpha_B\)</span>, <span class="math inline">\(\alpha_A + \alpha_B + \beta = 1\)</span>, <span class="math inline">\(\gamma = 0\)</span> - Choix courant : <span class="math inline">\(\beta = -0.25\)</span> - Données aberrantes : <span class="math inline">\(\beta = -0.5\)</span></p>
-</div>
-</section>
-<section>
-<section id="choix-de-la-partition" class="title-slide slide level1 center">
-<h1>Choix de la partition</h1>
-
-</section>
-<section id="le-problème-du-choix" class="slide level2">
-<h2>Le problème du choix</h2>
-<div class="fragment">
-<p><strong>Question centrale</strong> Parmi les <span class="math inline">\(n\)</span> partitions possibles, laquelle choisir ?</p>
-</div>
-<div class="fragment">
-<p><strong>Critères pratiques</strong> - Interprétabilité scientifique ou métier - Pertinence opérationnelle - Nombre de groupes <span class="math inline">\(K\)</span> déterminé à l’avance</p>
-</div>
-<div class="fragment">
-<p><strong>Critères statistiques</strong> Quand les considérations pratiques ne suffisent pas</p>
+<p>Paramétrage standard :</p>
+<ul>
+<li><p><span class="math inline">\(\alpha_A = \alpha_B\)</span>, <span class="math inline">\(\alpha_A + \alpha_B + \beta = 1\)</span>, <span class="math inline">\(\gamma = 0\)</span></p></li>
+<li><p>Choix courant : <span class="math inline">\(\beta = -0.25\)</span> (<span class="math inline">\(\beta = -0.5\)</span> si données aberrantes)</p></li>
+</ul>
 </div>
 </section>
-<section id="outils-disponibles" class="slide level2">
-<h2>Outils disponibles</h2>
+<section id="le-problème-du-choix-de-la-partition" class="slide level2">
+<h2>Le problème du choix de la partition</h2>
+<p><br></p>
+<p>Question centrale: Parmi les <span class="math inline">\(n\)</span> partitions possibles, laquelle choisir ?</p>
 <div class="fragment">
-<p><strong>Librairies spécialisées</strong> - R <code>NbClust</code> : ~30 critères - Python <code>sklearn</code> : ~10 critères</p>
-</div>
-<div class="fragment">
-<p><strong>Adaptation</strong> Critères surtout adaptés aux variables continues</p>
-</div>
-</section></section>
-<section>
-<section id="critères-basés-sur-linertie" class="title-slide slide level1 center">
-<h1>Critères basés sur l’inertie</h1>
-
-</section>
-<section id="décomposition-de-linertie" class="slide level2">
-<h2>Décomposition de l’inertie</h2>
-<div class="fragment">
-<p><strong>Inertie totale</strong> <span class="math display">\[I_{\text{tot}} = \frac{1}{n}\sum_{i=1}^{n} d(X_i, G)\]</span></p>
-</div>
-<div class="fragment">
-<p><strong>Décomposition fondamentale</strong> <span class="math display">\[I_{\text{tot}} = I_{\text{intra-groupe}} + I_{\text{inter-groupe}}\]</span></p>
-</div>
-<div class="fragment">
-<p><strong>Objectif</strong> : Maximiser <span class="math inline">\(I_{\text{inter-groupe}}\)</span> (séparation des groupes)</p>
+<p>Critères pratiques :</p>
+<ul>
+<li><p>Interprétabilité scientifique ou métier.</p></li>
+<li><p>Pertinence opérationnelle.</p></li>
+<li><p>Nombre de groupes <span class="math inline">\(K\)</span> déterminé à l’avance.</p></li>
+</ul>
 </div>
 </section>
-<section id="inertie-inter-groupe-et-intra-groupe" class="slide level2">
-<h2>Inertie inter-groupe et intra-groupe</h2>
+<section id="critère-de-décomposition-de-linertie" class="slide level2">
+<h2>Critère de décomposition de l’inertie</h2>
+<p><br></p>
+<p><span class="math display">\[I_{\text{tot}} = \frac{1}{n}\sum_{i=1}^{n} d(X_i, G)\]</span></p>
 <div class="fragment">
-<p><strong>Inertie inter-groupe</strong> (séparation) <span class="math display">\[I_{\text{inter-groupe}} = \frac{1}{n}\sum_{k=1}^{K} n_k d(G_k, G)\]</span></p>
+<p><span class="math display">\[I_{\text{tot}} = I_{\text{intra-groupe}} + I_{\text{inter-groupe}}\]</span></p>
 </div>
 <div class="fragment">
-<p><strong>Inertie intra-groupe</strong> (compacité) <span class="math display">\[I_{\text{intra-groupe}} = \frac{1}{n}\sum_{k=1}^{K} \sum_{i \in C_k} d(X_i, G_k)\]</span></p>
-</div>
-<div class="fragment">
-<p><strong>Principe</strong> : Groupes compacts <span class="math inline">\(\Rightarrow\)</span> faible inertie intra-groupe</p>
-</div>
-</section>
-<section id="critères-dérivés" class="slide level2">
-<h2>Critères dérivés</h2>
-<div class="fragment">
-<p><strong>Pseudo-<span class="math inline">\(R^2\)</span></strong> <span class="math display">\[\text{pseudo-}R^2 = \frac{I_{\text{inter-groupe}}}{I_{\text{tot}}}\]</span> Proportion d’inertie expliquée par la partition</p>
-</div>
-<div class="fragment">
-<p><strong>Statistique Calinski-Harabasz (CH)</strong> <span class="math display">\[\text{CH} = \frac{I_{\text{inter-groupe}} / (K-1)}{I_{\text{intra-groupe}} / (n-K)}\]</span> Équilibre entre compacité et séparation</p>
-</div>
-</section></section>
-<section>
-<section id="critères-basés-sur-la-distance" class="title-slide slide level1 center">
-<h1>Critères basés sur la distance</h1>
-
-</section>
-<section id="indice-de-dunn" class="slide level2">
-<h2>Indice de Dunn</h2>
-<div class="fragment">
-<p><strong>Définition</strong> <span class="math display">\[D = \frac{\text{Distance minimale entre 2 groupes}}{\text{Distance maximale dans un groupe}}\]</span></p>
-</div>
-<div class="fragment">
-<p><strong>Objectif</strong> : Maximiser <span class="math inline">\(D\)</span> - Groupes denses (faible distance interne) - Groupes bien séparés (grande distance externe)</p>
+<p>Objectif : Maximiser <span class="math inline">\(I_{\text{inter-groupe}}\)</span> (séparation des groupes).</p>
 </div>
 </section>
-<section id="indice-de-silhouette" class="slide level2">
-<h2>Indice de silhouette</h2>
+<section id="critère-de-décomposition-de-linertie-1" class="slide level2">
+<h2>Critère de décomposition de l’inertie</h2>
+<p>Inertie inter-groupe (séparation) :</p>
+<p><span class="math display">\[I_{\text{inter-groupe}} = \frac{1}{n}\sum_{k=1}^{K} n_k d(G_k, G)\]</span></p>
 <div class="fragment">
-<p><strong>Pour une observation <span class="math inline">\(X_i\)</span></strong> <span class="math display">\[S(X_i) = \frac{b_i - a_i}{\max(b_i, a_i)}\]</span> où : - <span class="math inline">\(a_i\)</span> : distance moyenne aux observations du même groupe - <span class="math inline">\(b_i\)</span> : distance moyenne au groupe le plus proche</p>
+<p>Inertie intra-groupe (compacité) :</p>
+<p><span class="math display">\[I_{\text{intra-groupe}} = \frac{1}{n}\sum_{k=1}^{K} \sum_{i \in C_k} d(X_i, G_k)\]</span></p>
 </div>
 <div class="fragment">
-<p><strong>Interprétation</strong> - <span class="math inline">\(S(X_i) \approx 1\)</span> : Bien classée - <span class="math inline">\(S(X_i) \approx 0\)</span> : À la frontière - <span class="math inline">\(S(X_i) \approx -1\)</span> : Mal classée</p>
+<p>Principe : Groupes compacts <span class="math inline">\(\Rightarrow\)</span> faible inertie intra-groupe.</p>
 </div>
 </section>
-<section id="utilisation-de-la-silhouette" class="slide level2">
-<h2>Utilisation de la silhouette</h2>
+<section id="critères-dérivés-de-linertie" class="slide level2">
+<h2>Critères dérivés de l’inertie</h2>
+<p><br></p>
+<p>Pseudo-<span class="math inline">\(R^2\)</span> (Proportion d’inertie expliquée par la partition) :</p>
+<p><span class="math display">\[\text{pseudo-}R^2 = \frac{I_{\text{inter-groupe}}}{I_{\text{tot}}}\]</span></p>
 <div class="fragment">
-<p><strong>Silhouette moyenne</strong> Indicateur de cohérence globale de la partition</p>
+<p>Statistique Calinski-Harabasz (CH) (Équilibre entre compacité et séparation) :</p>
+<p><span class="math display">\[\text{CH} = \frac{I_{\text{inter-groupe}} / (K-1)}{I_{\text{intra-groupe}} / (n-K)}\]</span></p>
+</div>
+</section>
+<section id="critères-basés-sur-la-distance" class="slide level2">
+<h2>Critères basés sur la distance</h2>
+<p><br></p>
+<p>Indice de Dunn :</p>
+<p><span class="math display">\[D = \frac{\text{Distance minimale entre 2 groupes}}{\text{Distance maximale dans un groupe}}\]</span></p>
+<div class="fragment">
+<p>Objectif : Maximiser <span class="math inline">\(D\)</span></p>
+<ul>
+<li><p>Groupes denses (faible distance interne).</p></li>
+<li><p>Groupes bien séparés (grande distance externe).</p></li>
+</ul>
+</div>
+</section>
+<section id="critères-basés-sur-la-distance-1" class="slide level2">
+<h2>Critères basés sur la distance</h2>
+<p><br></p>
+<p>Indice de silhouette :</p>
+<p><span class="math display">\[S(X_i) = \frac{b_i - a_i}{\max(b_i, a_i)}\]</span> où :</p>
+<ul>
+<li><p><span class="math inline">\(a_i\)</span> : distance moyenne aux observations du même groupe</p></li>
+<li><p><span class="math inline">\(b_i\)</span> : distance moyenne au groupe le plus proche</p></li>
+</ul>
+</section>
+<section id="critères-basés-sur-la-distance-2" class="slide level2">
+<h2>Critères basés sur la distance</h2>
+<p><br></p>
+<p>Interprétation de l’indice de Silhouette :</p>
+<ul>
+<li><p><span class="math inline">\(S(X_i) \approx 1\)</span> : Bien classée.</p></li>
+<li><p><span class="math inline">\(S(X_i) \approx 0\)</span> : À la frontière.</p></li>
+<li><p><span class="math inline">\(S(X_i) \approx -1\)</span> : Mal classée.</p></li>
+</ul>
+<div class="fragment">
+<p>Silhouette moyenne : Indicateur de cohérence globale de la partition.</p>
 </div>
 <div class="fragment">
-<p><strong>Avantage</strong> : Intuitive et facilement interprétable</p>
+<p>Avantage : Intuitive et facilement interprétable.</p>
 </div>
 <div class="fragment">
-<p><strong>Usage</strong> : Souvent utilisée pour choisir le nombre optimal de groupes</p>
+<p>Usage : Souvent utilisée pour choisir le nombre optimal de groupes.</p>
 </div>
 </section>
 <section id="recommandations-pratiques" class="slide level2">
 <h2>Recommandations pratiques</h2>
 <ol type="1">
-<li class="fragment"><strong>Croiser les approches</strong>
+<li><p>Croiser les approches :</p>
 <ul>
-<li class="fragment">Connaissance métier</li>
-<li class="fragment">Visualisation (dendrogramme)</li>
-<li class="fragment">Critères statistiques multiples</li>
+<li><p>Connaissance métier</p></li>
+<li><p>Visualisation (dendrogramme)</p></li>
+<li><p>Critères statistiques multiples</p></li>
 </ul></li>
-<li class="fragment"><strong>Aucun critère n’est parfait</strong>
+<li><p>Aucun critère n’est parfait :</p>
 <ul>
-<li class="fragment">Complémentarité des indicateurs</li>
-<li class="fragment">Décision éclairée et contextualisée</li>
+<li><p>Complémentarité des indicateurs</p></li>
+<li><p>Décision éclairée et contextualisée</p></li>
 </ul></li>
-<li class="fragment"><strong>Validation</strong>
+<li><p>Validation :</p>
 <ul>
-<li class="fragment">Interprétabilité des groupes obtenus</li>
-<li class="fragment">Stabilité des résultats</li>
+<li><p>Interprétabilité des groupes obtenus</p></li>
+<li><p>Stabilité des résultats</p></li>
 </ul></li>
 </ol>
 </section>
 <section id="récapitulatif" class="slide level2">
 <h2>Récapitulatif</h2>
+<p>Classification hiérarchique :</p>
+<ul>
+<li><p>Exploration complète de la hiérarchie de groupes</p></li>
+<li><p>Choix de méthode de distance crucial</p></li>
+</ul>
 <div class="fragment">
-<p><strong>Classification hiérarchique</strong> - Alternative robuste au <span class="math inline">\(k\)</span>-means - Exploration complète de la hiérarchie de groupes - Choix de méthode de distance crucial</p>
+<p>Méthodes populaires : Ward (sous hypothèses gaussiennes) / Average linkage (bon compromis)</p>
 </div>
 <div class="fragment">
-<p><strong>Méthodes populaires</strong> - Ward (sous hypothèses gaussiennes) - Average linkage (bon compromis) - Complete linkage (groupes réguliers)</p>
+<p>Choix du nombre de groupes : Combinaison de critères pratiques et statistiques</p>
 </div>
 <div class="fragment">
-<p><strong>Choix du nombre de groupes</strong> Combinaison de critères pratiques et statistiques</p>
+<p><br></p>
+<p>Prochaine étape → <span class="math inline">\(k\)</span>-moyennes</p>
+
+
 </div>
 </section>
-<section id="merci-pour-votre-attention" class="slide level2">
-<h2>Merci pour votre attention</h2>
-<p><strong>Questions ?</strong></p>
-<div class="fragment">
-<p><em>Classification hiérarchique : explorer la structure naturelle des données</em></p>
-</div>
-
-
-</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

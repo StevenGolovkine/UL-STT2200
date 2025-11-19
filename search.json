@@ -4605,112 +4605,105 @@
     "href": "slides/06-unsupervised-hierarchy-slides.html#méthode-du-centroïde",
     "title": "Non-supervisée",
     "section": "Méthode du centroïde",
-    "text": "Méthode du centroïde\n\nDéfinition \\[d(A, B) = d(\\overline{X}_A, \\overline{X}_B)\\] Distance entre les moyennes des groupes\n\n\nMise à jour après fusion \\[\\overline{X}_{AB} = \\frac{n_A \\overline{X}_A + n_B \\overline{X}_B}{n_A + n_B}\\]\n\n\nPropriété : Assez robuste aux données aberrantes, mais peu performant sans elles"
+    "text": "Méthode du centroïde\nDistance entre les moyennes des groupes.\n\\[d(A, B) = d(\\overline{X}_A, \\overline{X}_B)\\]\n\nMise à jour après fusion :\n\\[\\overline{X}_{AB} = \\frac{n_A \\overline{X}_A + n_B \\overline{X}_B}{n_A + n_B}\\]\n\n\n→ Assez robuste aux données aberrantes, mais peu performant sans elles."
   },
   {
     "objectID": "slides/06-unsupervised-hierarchy-slides.html#distance-de-la-médiane",
     "href": "slides/06-unsupervised-hierarchy-slides.html#distance-de-la-médiane",
     "title": "Non-supervisée",
     "section": "Distance de la médiane",
-    "text": "Distance de la médiane\n\nPrincipe : Mise à jour récursive des distances\n\n\nFormule de mise à jour \\[d(AB, C) = \\frac{d(A, C) + d(B, C)}{2} - \\frac{d(A, B)}{4}\\]\n\n\nCaractéristiques - Très robuste aux données aberrantes - Peu efficace sans valeurs extrêmes"
+    "text": "Distance de la médiane\nPrincipe : Mise à jour récursive des distances.\n\nFormule de mise à jour :\n\\[d(AB, C) = \\frac{d(A, C) + d(B, C)}{2} - \\frac{d(A, B)}{4}\\]\n\n\nCaractéristiques :\n\nTrès robuste aux données aberrantes.\nPeu efficace sans valeurs extrêmes."
   },
   {
     "objectID": "slides/06-unsupervised-hierarchy-slides.html#méthode-de-ward",
     "href": "slides/06-unsupervised-hierarchy-slides.html#méthode-de-ward",
     "title": "Non-supervisée",
     "section": "Méthode de Ward",
-    "text": "Méthode de Ward\n\nPrincipe : Minimisation de l’augmentation d’inertie intra-groupe\n\n\nCritère d’optimisation \\[I_{AB} = SC_{AB} - SC_A - SC_B = \\frac{d^2(\\overline{X}_A, \\overline{X}_B)}{\\frac{1}{n_A} + \\frac{1}{n_B}}\\]\n\n\nConditions optimales - Observations gaussiennes multivariées - Même matrice de variance-covariance - Moyennes différentes"
+    "text": "Méthode de Ward\nPrincipe : Minimisation de l’augmentation d’inertie intra-groupe.\n\n\\[SC_A = \\sum_{i \\in A} (X_i - \\overline{X}_A)^\\top (X_i - \\overline{X}_A),\\]\n\\[SC_B = \\sum_{j \\in B} (X_j - \\overline{X}_B)^\\top (X_j - \\overline{X}_B),\\]\n\\[SC_{AB} = \\sum_{k \\in A \\cup B} (X_k - \\overline{X}_{AB})^\\top (X_k - \\overline{X}_{AB}).\\]"
   },
   {
-    "objectID": "slides/06-unsupervised-hierarchy-slides.html#ward-avantages-et-limites",
-    "href": "slides/06-unsupervised-hierarchy-slides.html#ward-avantages-et-limites",
+    "objectID": "slides/06-unsupervised-hierarchy-slides.html#méthode-de-ward-1",
+    "href": "slides/06-unsupervised-hierarchy-slides.html#méthode-de-ward-1",
     "title": "Non-supervisée",
-    "section": "Ward : Avantages et limites",
-    "text": "Ward : Avantages et limites\n\nAvantages - Très efficace sous hypothèses gaussiennes - Groupes homogènes et de taille comparable - Méthode très populaire en pratique\n\n\nInconvénients - Sensible aux données aberrantes - Tend à former des groupes de même taille - Hypothèses gaussiennes restrictives"
+    "section": "Méthode de Ward",
+    "text": "Méthode de Ward\nCritère d’optimisation : \\[I_{AB} = SC_{AB} - SC_A - SC_B = \\frac{d^2(\\overline{X}_A, \\overline{X}_B)}{\\frac{1}{n_A} + \\frac{1}{n_B}}\\]\n\nConditions optimales :\n\nObservations gaussiennes multivariées.\nMême matrice de variance-covariance.\nMoyennes différentes."
+  },
+  {
+    "objectID": "slides/06-unsupervised-hierarchy-slides.html#méthode-de-ward-2",
+    "href": "slides/06-unsupervised-hierarchy-slides.html#méthode-de-ward-2",
+    "title": "Non-supervisée",
+    "section": "Méthode de Ward",
+    "text": "Méthode de Ward\nAvantages :\n\nTrès efficace sous hypothèses gaussiennes.\nGroupes homogènes et de taille comparable.\nMéthode très populaire en pratique.\n\n\nInconvénients :\n\nSensible aux données aberrantes.\nTend à former des groupes de même taille.\nHypothèses gaussiennes restrictives."
   },
   {
     "objectID": "slides/06-unsupervised-hierarchy-slides.html#distance-flexible",
     "href": "slides/06-unsupervised-hierarchy-slides.html#distance-flexible",
     "title": "Non-supervisée",
     "section": "Distance flexible",
-    "text": "Distance flexible\n\nFormule générale \\[d(C, AB) = \\alpha_A d(C, A) + \\alpha_B d(C, B) + \\beta d(A, B) + \\gamma |d(C, A) - d(C, B)|\\]\n\n\nFlexibilité Selon \\((\\alpha_A, \\alpha_B, \\beta, \\gamma)\\), on retrouve toutes les méthodes précédentes\n\n\nParamétrage standard - \\(\\alpha_A = \\alpha_B\\), \\(\\alpha_A + \\alpha_B + \\beta = 1\\), \\(\\gamma = 0\\) - Choix courant : \\(\\beta = -0.25\\) - Données aberrantes : \\(\\beta = -0.5\\)"
+    "text": "Distance flexible\n\\[\\begin{align}\nd(C, AB) &= \\alpha_A d(C, A) \\\\\n         &~ + \\alpha_B d(C, B) \\\\\n         &~ + \\beta d(A, B) \\\\\n         &~ + \\gamma |d(C, A) - d(C, B)|\n\\end{align}\\]\n\nSelon \\((\\alpha_A, \\alpha_B, \\beta, \\gamma)\\), on retrouve toutes les méthodes précédentes.\n\n\nParamétrage standard :\n\n\\(\\alpha_A = \\alpha_B\\), \\(\\alpha_A + \\alpha_B + \\beta = 1\\), \\(\\gamma = 0\\)\nChoix courant : \\(\\beta = -0.25\\) (\\(\\beta = -0.5\\) si données aberrantes)"
   },
   {
-    "objectID": "slides/06-unsupervised-hierarchy-slides.html#le-problème-du-choix",
-    "href": "slides/06-unsupervised-hierarchy-slides.html#le-problème-du-choix",
+    "objectID": "slides/06-unsupervised-hierarchy-slides.html#le-problème-du-choix-de-la-partition",
+    "href": "slides/06-unsupervised-hierarchy-slides.html#le-problème-du-choix-de-la-partition",
     "title": "Non-supervisée",
-    "section": "Le problème du choix",
-    "text": "Le problème du choix\n\nQuestion centrale Parmi les \\(n\\) partitions possibles, laquelle choisir ?\n\n\nCritères pratiques - Interprétabilité scientifique ou métier - Pertinence opérationnelle - Nombre de groupes \\(K\\) déterminé à l’avance\n\n\nCritères statistiques Quand les considérations pratiques ne suffisent pas"
+    "section": "Le problème du choix de la partition",
+    "text": "Le problème du choix de la partition\n\nQuestion centrale: Parmi les \\(n\\) partitions possibles, laquelle choisir ?\n\nCritères pratiques :\n\nInterprétabilité scientifique ou métier.\nPertinence opérationnelle.\nNombre de groupes \\(K\\) déterminé à l’avance."
   },
   {
-    "objectID": "slides/06-unsupervised-hierarchy-slides.html#outils-disponibles",
-    "href": "slides/06-unsupervised-hierarchy-slides.html#outils-disponibles",
+    "objectID": "slides/06-unsupervised-hierarchy-slides.html#critère-de-décomposition-de-linertie",
+    "href": "slides/06-unsupervised-hierarchy-slides.html#critère-de-décomposition-de-linertie",
     "title": "Non-supervisée",
-    "section": "Outils disponibles",
-    "text": "Outils disponibles\n\nLibrairies spécialisées - R NbClust : ~30 critères - Python sklearn : ~10 critères\n\n\nAdaptation Critères surtout adaptés aux variables continues"
+    "section": "Critère de décomposition de l’inertie",
+    "text": "Critère de décomposition de l’inertie\n\n\\[I_{\\text{tot}} = \\frac{1}{n}\\sum_{i=1}^{n} d(X_i, G)\\]\n\n\\[I_{\\text{tot}} = I_{\\text{intra-groupe}} + I_{\\text{inter-groupe}}\\]\n\n\nObjectif : Maximiser \\(I_{\\text{inter-groupe}}\\) (séparation des groupes)."
   },
   {
-    "objectID": "slides/06-unsupervised-hierarchy-slides.html#décomposition-de-linertie",
-    "href": "slides/06-unsupervised-hierarchy-slides.html#décomposition-de-linertie",
+    "objectID": "slides/06-unsupervised-hierarchy-slides.html#critère-de-décomposition-de-linertie-1",
+    "href": "slides/06-unsupervised-hierarchy-slides.html#critère-de-décomposition-de-linertie-1",
     "title": "Non-supervisée",
-    "section": "Décomposition de l’inertie",
-    "text": "Décomposition de l’inertie\n\nInertie totale \\[I_{\\text{tot}} = \\frac{1}{n}\\sum_{i=1}^{n} d(X_i, G)\\]\n\n\nDécomposition fondamentale \\[I_{\\text{tot}} = I_{\\text{intra-groupe}} + I_{\\text{inter-groupe}}\\]\n\n\nObjectif : Maximiser \\(I_{\\text{inter-groupe}}\\) (séparation des groupes)"
+    "section": "Critère de décomposition de l’inertie",
+    "text": "Critère de décomposition de l’inertie\nInertie inter-groupe (séparation) :\n\\[I_{\\text{inter-groupe}} = \\frac{1}{n}\\sum_{k=1}^{K} n_k d(G_k, G)\\]\n\nInertie intra-groupe (compacité) :\n\\[I_{\\text{intra-groupe}} = \\frac{1}{n}\\sum_{k=1}^{K} \\sum_{i \\in C_k} d(X_i, G_k)\\]\n\n\nPrincipe : Groupes compacts \\(\\Rightarrow\\) faible inertie intra-groupe."
   },
   {
-    "objectID": "slides/06-unsupervised-hierarchy-slides.html#inertie-inter-groupe-et-intra-groupe",
-    "href": "slides/06-unsupervised-hierarchy-slides.html#inertie-inter-groupe-et-intra-groupe",
+    "objectID": "slides/06-unsupervised-hierarchy-slides.html#critères-dérivés-de-linertie",
+    "href": "slides/06-unsupervised-hierarchy-slides.html#critères-dérivés-de-linertie",
     "title": "Non-supervisée",
-    "section": "Inertie inter-groupe et intra-groupe",
-    "text": "Inertie inter-groupe et intra-groupe\n\nInertie inter-groupe (séparation) \\[I_{\\text{inter-groupe}} = \\frac{1}{n}\\sum_{k=1}^{K} n_k d(G_k, G)\\]\n\n\nInertie intra-groupe (compacité) \\[I_{\\text{intra-groupe}} = \\frac{1}{n}\\sum_{k=1}^{K} \\sum_{i \\in C_k} d(X_i, G_k)\\]\n\n\nPrincipe : Groupes compacts \\(\\Rightarrow\\) faible inertie intra-groupe"
+    "section": "Critères dérivés de l’inertie",
+    "text": "Critères dérivés de l’inertie\n\nPseudo-\\(R^2\\) (Proportion d’inertie expliquée par la partition) :\n\\[\\text{pseudo-}R^2 = \\frac{I_{\\text{inter-groupe}}}{I_{\\text{tot}}}\\]\n\nStatistique Calinski-Harabasz (CH) (Équilibre entre compacité et séparation) :\n\\[\\text{CH} = \\frac{I_{\\text{inter-groupe}} / (K-1)}{I_{\\text{intra-groupe}} / (n-K)}\\]"
   },
   {
-    "objectID": "slides/06-unsupervised-hierarchy-slides.html#critères-dérivés",
-    "href": "slides/06-unsupervised-hierarchy-slides.html#critères-dérivés",
+    "objectID": "slides/06-unsupervised-hierarchy-slides.html#critères-basés-sur-la-distance",
+    "href": "slides/06-unsupervised-hierarchy-slides.html#critères-basés-sur-la-distance",
     "title": "Non-supervisée",
-    "section": "Critères dérivés",
-    "text": "Critères dérivés\n\nPseudo-\\(R^2\\) \\[\\text{pseudo-}R^2 = \\frac{I_{\\text{inter-groupe}}}{I_{\\text{tot}}}\\] Proportion d’inertie expliquée par la partition\n\n\nStatistique Calinski-Harabasz (CH) \\[\\text{CH} = \\frac{I_{\\text{inter-groupe}} / (K-1)}{I_{\\text{intra-groupe}} / (n-K)}\\] Équilibre entre compacité et séparation"
+    "section": "Critères basés sur la distance",
+    "text": "Critères basés sur la distance\n\nIndice de Dunn :\n\\[D = \\frac{\\text{Distance minimale entre 2 groupes}}{\\text{Distance maximale dans un groupe}}\\]\n\nObjectif : Maximiser \\(D\\)\n\nGroupes denses (faible distance interne).\nGroupes bien séparés (grande distance externe)."
   },
   {
-    "objectID": "slides/06-unsupervised-hierarchy-slides.html#indice-de-dunn",
-    "href": "slides/06-unsupervised-hierarchy-slides.html#indice-de-dunn",
+    "objectID": "slides/06-unsupervised-hierarchy-slides.html#critères-basés-sur-la-distance-1",
+    "href": "slides/06-unsupervised-hierarchy-slides.html#critères-basés-sur-la-distance-1",
     "title": "Non-supervisée",
-    "section": "Indice de Dunn",
-    "text": "Indice de Dunn\n\nDéfinition \\[D = \\frac{\\text{Distance minimale entre 2 groupes}}{\\text{Distance maximale dans un groupe}}\\]\n\n\nObjectif : Maximiser \\(D\\) - Groupes denses (faible distance interne) - Groupes bien séparés (grande distance externe)"
+    "section": "Critères basés sur la distance",
+    "text": "Critères basés sur la distance\n\nIndice de silhouette :\n\\[S(X_i) = \\frac{b_i - a_i}{\\max(b_i, a_i)}\\] où :\n\n\\(a_i\\) : distance moyenne aux observations du même groupe\n\\(b_i\\) : distance moyenne au groupe le plus proche"
   },
   {
-    "objectID": "slides/06-unsupervised-hierarchy-slides.html#indice-de-silhouette",
-    "href": "slides/06-unsupervised-hierarchy-slides.html#indice-de-silhouette",
+    "objectID": "slides/06-unsupervised-hierarchy-slides.html#critères-basés-sur-la-distance-2",
+    "href": "slides/06-unsupervised-hierarchy-slides.html#critères-basés-sur-la-distance-2",
     "title": "Non-supervisée",
-    "section": "Indice de silhouette",
-    "text": "Indice de silhouette\n\nPour une observation \\(X_i\\) \\[S(X_i) = \\frac{b_i - a_i}{\\max(b_i, a_i)}\\] où : - \\(a_i\\) : distance moyenne aux observations du même groupe - \\(b_i\\) : distance moyenne au groupe le plus proche\n\n\nInterprétation - \\(S(X_i) \\approx 1\\) : Bien classée - \\(S(X_i) \\approx 0\\) : À la frontière - \\(S(X_i) \\approx -1\\) : Mal classée"
-  },
-  {
-    "objectID": "slides/06-unsupervised-hierarchy-slides.html#utilisation-de-la-silhouette",
-    "href": "slides/06-unsupervised-hierarchy-slides.html#utilisation-de-la-silhouette",
-    "title": "Non-supervisée",
-    "section": "Utilisation de la silhouette",
-    "text": "Utilisation de la silhouette\n\nSilhouette moyenne Indicateur de cohérence globale de la partition\n\n\nAvantage : Intuitive et facilement interprétable\n\n\nUsage : Souvent utilisée pour choisir le nombre optimal de groupes"
+    "section": "Critères basés sur la distance",
+    "text": "Critères basés sur la distance\n\nInterprétation de l’indice de Silhouette :\n\n\\(S(X_i) \\approx 1\\) : Bien classée.\n\\(S(X_i) \\approx 0\\) : À la frontière.\n\\(S(X_i) \\approx -1\\) : Mal classée.\n\n\nSilhouette moyenne : Indicateur de cohérence globale de la partition.\n\n\nAvantage : Intuitive et facilement interprétable.\n\n\nUsage : Souvent utilisée pour choisir le nombre optimal de groupes."
   },
   {
     "objectID": "slides/06-unsupervised-hierarchy-slides.html#recommandations-pratiques",
     "href": "slides/06-unsupervised-hierarchy-slides.html#recommandations-pratiques",
     "title": "Non-supervisée",
     "section": "Recommandations pratiques",
-    "text": "Recommandations pratiques\n\nCroiser les approches\n\nConnaissance métier\nVisualisation (dendrogramme)\nCritères statistiques multiples\n\nAucun critère n’est parfait\n\nComplémentarité des indicateurs\nDécision éclairée et contextualisée\n\nValidation\n\nInterprétabilité des groupes obtenus\nStabilité des résultats"
+    "text": "Recommandations pratiques\n\nCroiser les approches :\n\nConnaissance métier\nVisualisation (dendrogramme)\nCritères statistiques multiples\n\nAucun critère n’est parfait :\n\nComplémentarité des indicateurs\nDécision éclairée et contextualisée\n\nValidation :\n\nInterprétabilité des groupes obtenus\nStabilité des résultats"
   },
   {
     "objectID": "slides/06-unsupervised-hierarchy-slides.html#récapitulatif",
     "href": "slides/06-unsupervised-hierarchy-slides.html#récapitulatif",
     "title": "Non-supervisée",
     "section": "Récapitulatif",
-    "text": "Récapitulatif\n\nClassification hiérarchique - Alternative robuste au \\(k\\)-means - Exploration complète de la hiérarchie de groupes - Choix de méthode de distance crucial\n\n\nMéthodes populaires - Ward (sous hypothèses gaussiennes) - Average linkage (bon compromis) - Complete linkage (groupes réguliers)\n\n\nChoix du nombre de groupes Combinaison de critères pratiques et statistiques"
-  },
-  {
-    "objectID": "slides/06-unsupervised-hierarchy-slides.html#merci-pour-votre-attention",
-    "href": "slides/06-unsupervised-hierarchy-slides.html#merci-pour-votre-attention",
-    "title": "Non-supervisée",
-    "section": "Merci pour votre attention",
-    "text": "Merci pour votre attention\nQuestions ?\n\nClassification hiérarchique : explorer la structure naturelle des données"
+    "text": "Récapitulatif\nClassification hiérarchique :\n\nExploration complète de la hiérarchie de groupes\nChoix de méthode de distance crucial\n\n\nMéthodes populaires : Ward (sous hypothèses gaussiennes) / Average linkage (bon compromis)\n\n\nChoix du nombre de groupes : Combinaison de critères pratiques et statistiques\n\n\n\nProchaine étape → \\(k\\)-moyennes"
   },
   {
     "objectID": "slides/03-generalities-distance-slides.html#pourquoi-les-distances",
@@ -6309,7 +6302,7 @@
     "href": "contents/unsupervised/02-hierarchy.html#distance-entre-groupes",
     "title": "Méthodes hiérarchiques",
     "section": "Distance entre groupes",
-    "text": "Distance entre groupes\nPour mettre en oeuvre les algorithmes précédent, on doit définir la distance entre deux groupes d’observations \\(A\\) et \\(B\\), notée \\(d(A, B)\\). Si l’on sait généralement mesurer distance entre deux individus, on doit définir une distance entre deux groupes contenant un nombre différents d’éléments. Il existe plusieurs façon de calculer une telle distance entre deux groupes.\n\nMéthode du plus proche voisin (single linkage)\nDans cette approche, la distance entre deux groupes est définie comme la plus petite distance entre un individu de \\(A\\) et un individu de \\(B\\) :\n\\[d(A, B) = \\min \\{ d_{i j}: i \\in A, j \\in B \\}.\\]\nDit autrement, deux groupes \\(A\\) et \\(B\\) sont considérés comme proche si un élément de \\(A\\) est proche d’un élément de \\(B\\). Cette méthode présente plusieurs avantages. Elle donne de bons résultats lorsque les variables sont de nature différente (e.g., quantitatives et qualitatives) et permet de construire des groupes aux formes irrégulière. De plus, elle est relativement robuste aux données aberrantes. Enfin, ses propriétés mathématiques théoriques sont intéressantes.\nCependant, cette méthode tend à créer des groupes déséquilibrés : un grand groupe central entouré de plusieurs petits groupes satellites. Elle est moins performante lorsque les groupes naturels sont de forme régulière. Bien qu’elle est de bonnes propriétés mathématiques, celles-ci ne se vérifie pas toujours empiriquement.\n\n\nMéthode du voisin le plus distant (complete linkage)\nÀ l’inverse de la méthode précédente, la distance entre deux groupes est définie comme la plus grande distance entre un individu de \\(A\\) et un individu de \\(B\\) :\n\\[d(A, B) = \\max \\{ d_{i j}: i \\in A, j \\in B \\}.\\]\nDit autrement, deux groupes sont considérés proches si tous les éléments de \\(A\\) sont proches de tous les éléments de \\(B\\). Cette méthode a tendence à produire des groupes réguliers de taille homogène. Comme la méthode du plus proche voisin, elle est bien adaptée aux variables de différents types. Cependant, elle est extrêmement sensible aux données aberrantes. En effet, un seul individu peut augmenter artificiellement la distance entre deux groupes. De plus, elle a tendance à forcer la formation de groupes de même taille, ce qui n’est pas toujours justifié en pratique.\n\n\nMéthode de la moyenne (average linkage)\nIci, la distance entre deux groupes est définie comme la moyenne des distances entre toutes les paires d’individus, issu de \\(A\\) et de \\(B\\) :\n\\[d(A, B) = \\frac{1}{n_{A}n_{B}} \\sum_{i \\in A} \\sum_{j \\in B} d(X_{i}, X_{j}).\\] où \\(n_{A}\\) est le nombre d’observations dans le groupe \\(A\\) et \\(n_{B}\\) est le nombre d’observations dans le groupe \\(B\\).\nCette méthode consiste à considérer toutes les interactions possibles entre les éléments des deux groupes, puis à en faire la moyenne. Elle tend à produire des groupes dont la variance interne est faible, i.e. relativement homogène. Toutefois, cette méthode privilégie la formation de groupes de variance similaire, ce qui n’est pas toujours justifié en pratique.\n\n\nMéthode du centroïde (centroid method)\nPour cette méthode, la distance entre deux groupes est définie comme la distance entre leurs centroïdes, i.e. les moyennes des observations de chaque groupe :\n\\[d(A, B) = d(\\overline{X}_{A}, \\overline{X}_{B}).\\] où \\[\\overline{X}_{A} = \\frac{1}{n_{A}} \\sum_{i \\in A} X_i, \\quad\\text{et}\\quad \\overline{X}_B = \\frac{1}{n_{B}} \\sum_{j \\in B} X_j\\]\nAprès la fusion de \\(A\\) et de \\(B\\), le nouveau centroïde \\(\\overline{X}_{AB}\\) est donné par la moyenne pondérée : \\[\\overline{x}_{AB} = \\frac{n_{A} \\overline{x}_{A} + n_{B} \\overline{x}_{B}}{n_{A} + n_{B}}.\\]\nCette approche est assez robuste aux données aberrantes, mais elle est généralement peu performante lorsqu’il n’y en a pas.\n\n\nMéthode de la médiane (median method)\nLa méthode de la médiane repose sur une mise à jour des distances de façon récursive. Lorsqu’on fusionne deux groupes \\(A\\) et \\(B\\), on définit la distance entre le nouveau groupe \\(AB\\) et autre groupe \\(C\\) par la formule : \\[d(AB, C) = \\frac{d(A, C) + d(B, C)}{2} - \\frac{d(A, B)}{4}.\\]\nCette méthode est particulièrement robuste aux données aberrantes (davantage que la méthode du centroïde). Elle est cependant très peu efficace lorsque de telles valeurs extrêmes sont absentes.\n\n\nMéthode de Ward (Ward’s method)\nLa méthode de Ward est une variante de la méthode du centroïde. Elle est optimale dans le cas où les observations suivent des lois normales multivariées, de même matrice de variance-covariance mais de moyennes différentes. Elle est basée sur une mesure de l’inertie intra-groupe. Pour chaque groupe \\(A\\), groupe \\(B\\) et groupe \\(A \\cup B\\), noté \\(AB\\), on définit\n\\[SC_A = \\sum_{i \\in A} (X_i - \\overline{X}_A)^\\top (X_i - \\overline{X}_A),\\]\n\\[SC_B = \\sum_{j \\in B} (X_j - \\overline{X}_B)^\\top (X_j - \\overline{X}_B),\\]\n\\[SC_AB = \\sum_{k \\in A \\cup B} (X_k - \\overline{X}_{AB})^\\top (X_k - \\overline{X}_{AB}).\\]\noù \\(\\overline{X}_A\\), \\(\\overline{X}_B\\) et \\(\\overline{X}_{AB}\\) sont calculées comme dans la méthode du centroïde. On regroupe les groupes \\(A\\) et \\(B\\) qui minimisent l’augmentation de l’inertie : \\[I_{AB} = SC_{AB} - SC_A - SC_B = \\frac{d^2(\\overline{X}_A, \\overline{X}_B)}{\\frac{1}{n_{A}} + \\frac{1}{n_{B}}}.\\]\nCette méthode est très efficace lorsque les groupes sont homogènes, de taille comparable et que les hypothèses gaussiennes sont raisonnablement satisfaites. En revanche, elle est sensible aux données aberrantes et tend à former des regroupements de même taille.\n\n\nMéthode flexible (flexible clustering)\nLa méthode flexible repose sur une formule générale permettant de représenter plusieurs méthodes de mise à jour des distances. Si l’on fusionne deux groupes \\(A\\) et \\(B\\) pour former \\(AB\\), et que l’on souhaite calculer la distance entre \\(AB\\) et autre groupe \\(C\\), on peut utiliser la relation \\[d(C, AB) = \\alpha_A d(C, A) + \\alpha_B d(C, B) + \\beta d(A, B) + \\gamma \\left| d(C, A) - d(C, B) \\right|.\\]\nSelon les valeurs choisies pour les coefficients \\(\\alpha_A\\), \\(\\alpha_B\\), \\(\\beta\\) et \\(\\gamma\\), on peut retrouver les formules de mise à jour correspondant aux différentes méthodes précédentes. Le Table 1 présente les valeurs des différents coefficients à choisir pour retrouver les différentes méthodes.\n\n\n\nTable 1: Coefficients pour retrouver les méthodes précédentes.\n\n\n\n\n\n\n\n\n\n\n\n\nMéthode\n\\(\\alpha_A\\)\n\\(\\alpha_B\\)\n\\(\\beta\\)\n\\(\\gamma\\)\n\n\n\n\nPlus proche\n\\(1/2\\)\n\\(1/2\\)\n\\(0\\)\n\\(-1/2\\)\n\n\nPlus distant\n\\(1/2\\)\n\\(1/2\\)\n\\(0\\)\n\\(1/2\\)\n\n\nMédiane\n\\(1/2\\)\n\\(1/2\\)\n\\(-1/4\\)\n\\(0\\)\n\n\nMoyenne\n\\(\\frac{n_A}{n_A+n_B}\\)\n\\(\\frac{n_B}{n_A+n_B}\\)\n\\(0\\)\n\\(0\\)\n\n\nCentroïde\n\\(\\frac{n_A}{n_A+n_B}\\)\n\\(\\frac{n_B}{n_A+n_B}\\)\n\\(-\\frac{n_An_B}{n_A + n_B}\\)\n\\(0\\)\n\n\nWard\n\\(\\frac{n_A+n_C}{n_A+n_B+n_C}\\)\n\\(\\frac{n_B+n_C}{n_A+n_B+n_C}\\)\n\\(-\\frac{n_C}{n_A+n_B+n_C}\\)\n\\(0\\)\n\n\n\n\n\n\nPour la méthode flexible, on impose arbitrairement les contraintes suivantes: \\[\\alpha_A + \\alpha_B + \\beta = 1, \\quad \\alpha_A = \\alpha_B, \\quad \\gamma = 0.\\]\nAinsi, on a \\(\\alpha_A = \\alpha_B = \\frac{1 - \\beta}{2}\\). Il ne reste qu’un seul paramètre à fixer. Généralement, on choisit \\(\\beta = -0.25\\). Si l’on soupçonne la présence de données aberrantes, on peut opter pour \\(\\beta = -0.5\\) afin d’accroître la robustesse de l’algortihme.",
+    "text": "Distance entre groupes\nPour mettre en oeuvre les algorithmes précédent, on doit définir la distance entre deux groupes d’observations \\(A\\) et \\(B\\), notée \\(d(A, B)\\). Si l’on sait généralement mesurer distance entre deux individus, on doit définir une distance entre deux groupes contenant un nombre différents d’éléments. Il existe plusieurs façon de calculer une telle distance entre deux groupes.\n\nMéthode du plus proche voisin (single linkage)\nDans cette approche, la distance entre deux groupes est définie comme la plus petite distance entre un individu de \\(A\\) et un individu de \\(B\\) :\n\\[d(A, B) = \\min \\{ d_{i j}: i \\in A, j \\in B \\}.\\]\nDit autrement, deux groupes \\(A\\) et \\(B\\) sont considérés comme proche si un élément de \\(A\\) est proche d’un élément de \\(B\\). Cette méthode présente plusieurs avantages. Elle donne de bons résultats lorsque les variables sont de nature différente (e.g., quantitatives et qualitatives) et permet de construire des groupes aux formes irrégulière. De plus, elle est relativement robuste aux données aberrantes. Enfin, ses propriétés mathématiques théoriques sont intéressantes.\nCependant, cette méthode tend à créer des groupes déséquilibrés : un grand groupe central entouré de plusieurs petits groupes satellites. Elle est moins performante lorsque les groupes naturels sont de forme régulière. Bien qu’elle est de bonnes propriétés mathématiques, celles-ci ne se vérifie pas toujours empiriquement.\n\n\nMéthode du voisin le plus distant (complete linkage)\nÀ l’inverse de la méthode précédente, la distance entre deux groupes est définie comme la plus grande distance entre un individu de \\(A\\) et un individu de \\(B\\) :\n\\[d(A, B) = \\max \\{ d_{i j}: i \\in A, j \\in B \\}.\\]\nDit autrement, deux groupes sont considérés proches si tous les éléments de \\(A\\) sont proches de tous les éléments de \\(B\\). Cette méthode a tendence à produire des groupes réguliers de taille homogène. Comme la méthode du plus proche voisin, elle est bien adaptée aux variables de différents types. Cependant, elle est extrêmement sensible aux données aberrantes. En effet, un seul individu peut augmenter artificiellement la distance entre deux groupes. De plus, elle a tendance à forcer la formation de groupes de même taille, ce qui n’est pas toujours justifié en pratique.\n\n\nMéthode de la moyenne (average linkage)\nIci, la distance entre deux groupes est définie comme la moyenne des distances entre toutes les paires d’individus, issu de \\(A\\) et de \\(B\\) :\n\\[d(A, B) = \\frac{1}{n_{A}n_{B}} \\sum_{i \\in A} \\sum_{j \\in B} d(X_{i}, X_{j}).\\] où \\(n_{A}\\) est le nombre d’observations dans le groupe \\(A\\) et \\(n_{B}\\) est le nombre d’observations dans le groupe \\(B\\).\nCette méthode consiste à considérer toutes les interactions possibles entre les éléments des deux groupes, puis à en faire la moyenne. Elle tend à produire des groupes dont la variance interne est faible, i.e. relativement homogène. Toutefois, cette méthode privilégie la formation de groupes de variance similaire, ce qui n’est pas toujours justifié en pratique.\n\n\nMéthode du centroïde (centroid method)\nPour cette méthode, la distance entre deux groupes est définie comme la distance entre leurs centroïdes, i.e. les moyennes des observations de chaque groupe :\n\\[d(A, B) = d(\\overline{X}_{A}, \\overline{X}_{B}).\\] où \\[\\overline{X}_{A} = \\frac{1}{n_{A}} \\sum_{i \\in A} X_i, \\quad\\text{et}\\quad \\overline{X}_B = \\frac{1}{n_{B}} \\sum_{j \\in B} X_j\\]\nAprès la fusion de \\(A\\) et de \\(B\\), le nouveau centroïde \\(\\overline{X}_{AB}\\) est donné par la moyenne pondérée : \\[\\overline{x}_{AB} = \\frac{n_{A} \\overline{x}_{A} + n_{B} \\overline{x}_{B}}{n_{A} + n_{B}}.\\]\nCette approche est assez robuste aux données aberrantes, mais elle est généralement peu performante lorsqu’il n’y en a pas.\n\n\nMéthode de la médiane (median method)\nLa méthode de la médiane repose sur une mise à jour des distances de façon récursive. Lorsqu’on fusionne deux groupes \\(A\\) et \\(B\\), on définit la distance entre le nouveau groupe \\(AB\\) et autre groupe \\(C\\) par la formule : \\[d(AB, C) = \\frac{d(A, C) + d(B, C)}{2} - \\frac{d(A, B)}{4}.\\]\nCette méthode est particulièrement robuste aux données aberrantes (davantage que la méthode du centroïde). Elle est cependant très peu efficace lorsque de telles valeurs extrêmes sont absentes.\n\n\nMéthode de Ward (Ward’s method)\nLa méthode de Ward est une variante de la méthode du centroïde. Elle est optimale dans le cas où les observations suivent des lois normales multivariées, de même matrice de variance-covariance mais de moyennes différentes. Elle est basée sur une mesure de l’inertie intra-groupe. Pour chaque groupe \\(A\\), groupe \\(B\\) et groupe \\(A \\cup B\\), noté \\(AB\\), on définit\n\\[SC_A = \\sum_{i \\in A} (X_i - \\overline{X}_A)^\\top (X_i - \\overline{X}_A),\\]\n\\[SC_B = \\sum_{j \\in B} (X_j - \\overline{X}_B)^\\top (X_j - \\overline{X}_B),\\]\n\\[SC_{AB} = \\sum_{k \\in A \\cup B} (X_k - \\overline{X}_{AB})^\\top (X_k - \\overline{X}_{AB}).\\]\noù \\(\\overline{X}_A\\), \\(\\overline{X}_B\\) et \\(\\overline{X}_{AB}\\) sont calculées comme dans la méthode du centroïde. On regroupe les groupes \\(A\\) et \\(B\\) qui minimisent l’augmentation de l’inertie : \\[I_{AB} = SC_{AB} - SC_A - SC_B = \\frac{d^2(\\overline{X}_A, \\overline{X}_B)}{\\frac{1}{n_{A}} + \\frac{1}{n_{B}}}.\\]\nCette méthode est très efficace lorsque les groupes sont homogènes, de taille comparable et que les hypothèses gaussiennes sont raisonnablement satisfaites. En revanche, elle est sensible aux données aberrantes et tend à former des regroupements de même taille.\n\n\nMéthode flexible (flexible clustering)\nLa méthode flexible repose sur une formule générale permettant de représenter plusieurs méthodes de mise à jour des distances. Si l’on fusionne deux groupes \\(A\\) et \\(B\\) pour former \\(AB\\), et que l’on souhaite calculer la distance entre \\(AB\\) et autre groupe \\(C\\), on peut utiliser la relation \\[d(C, AB) = \\alpha_A d(C, A) + \\alpha_B d(C, B) + \\beta d(A, B) + \\gamma \\left| d(C, A) - d(C, B) \\right|.\\]\nSelon les valeurs choisies pour les coefficients \\(\\alpha_A\\), \\(\\alpha_B\\), \\(\\beta\\) et \\(\\gamma\\), on peut retrouver les formules de mise à jour correspondant aux différentes méthodes précédentes. Le Table 1 présente les valeurs des différents coefficients à choisir pour retrouver les différentes méthodes.\n\n\n\nTable 1: Coefficients pour retrouver les méthodes précédentes.\n\n\n\n\n\n\n\n\n\n\n\n\nMéthode\n\\(\\alpha_A\\)\n\\(\\alpha_B\\)\n\\(\\beta\\)\n\\(\\gamma\\)\n\n\n\n\nPlus proche\n\\(1/2\\)\n\\(1/2\\)\n\\(0\\)\n\\(-1/2\\)\n\n\nPlus distant\n\\(1/2\\)\n\\(1/2\\)\n\\(0\\)\n\\(1/2\\)\n\n\nMédiane\n\\(1/2\\)\n\\(1/2\\)\n\\(-1/4\\)\n\\(0\\)\n\n\nMoyenne\n\\(\\frac{n_A}{n_A+n_B}\\)\n\\(\\frac{n_B}{n_A+n_B}\\)\n\\(0\\)\n\\(0\\)\n\n\nCentroïde\n\\(\\frac{n_A}{n_A+n_B}\\)\n\\(\\frac{n_B}{n_A+n_B}\\)\n\\(-\\frac{n_An_B}{n_A + n_B}\\)\n\\(0\\)\n\n\nWard\n\\(\\frac{n_A+n_C}{n_A+n_B+n_C}\\)\n\\(\\frac{n_B+n_C}{n_A+n_B+n_C}\\)\n\\(-\\frac{n_C}{n_A+n_B+n_C}\\)\n\\(0\\)\n\n\n\n\n\n\nPour la méthode flexible, on impose arbitrairement les contraintes suivantes: \\[\\alpha_A + \\alpha_B + \\beta = 1, \\quad \\alpha_A = \\alpha_B, \\quad \\gamma = 0.\\]\nAinsi, on a \\(\\alpha_A = \\alpha_B = \\frac{1 - \\beta}{2}\\). Il ne reste qu’un seul paramètre à fixer. Généralement, on choisit \\(\\beta = -0.25\\). Si l’on soupçonne la présence de données aberrantes, on peut opter pour \\(\\beta = -0.5\\) afin d’accroître la robustesse de l’algortihme.",
     "crumbs": [
       "Modules",
       "06 - Non-supervisée",
