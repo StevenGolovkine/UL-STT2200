@@ -4699,6 +4699,13 @@
     "text": "Recommandations pratiques\n\nCroiser les approches :\n\nConnaissance métier\nVisualisation (dendrogramme)\nCritères statistiques multiples\n\nAucun critère n’est parfait :\n\nComplémentarité des indicateurs\nDécision éclairée et contextualisée\n\nValidation :\n\nInterprétabilité des groupes obtenus\nStabilité des résultats"
   },
   {
+    "objectID": "slides/06-unsupervised-hierarchy-slides.html#exemple",
+    "href": "slides/06-unsupervised-hierarchy-slides.html#exemple",
+    "title": "Non-supervisée",
+    "section": "Exemple",
+    "text": "Exemple\n\nCodeGraphiqueComplete linkageAverage linkage\n\n\n\nlibrary(tidyverse)\nlibrary(ipred)\n\ntemp &lt;- read.table('../include/data/unsupervised/temperature.csv', header = TRUE, sep = \";\", dec = '.', row.names = 1)\ndist &lt;- dist(temp[1:23, 1:12])\ncity &lt;- row.names(temp[1:23,])\n\nmodel &lt;- hclust(dist, method = 'ward.D')  # On peut utiliser différentes méthodes.\n\n\n\n\nplot(model, labels = city, ylab = 'Distance', main = 'Dendrograme')\n\n\n\n\n\n\n\n\n\n\n\nmodel &lt;- hclust(dist, method = 'complete')\nplot(model, labels = city, ylab = 'Distance', main = 'Dendrograme')\n\n\n\n\n\n\n\n\n\n\n\nmodel &lt;- hclust(dist, method = 'average')\nplot(model, labels = city, ylab = 'Distance', main = 'Dendrograme')"
+  },
+  {
     "objectID": "slides/06-unsupervised-hierarchy-slides.html#récapitulatif",
     "href": "slides/06-unsupervised-hierarchy-slides.html#récapitulatif",
     "title": "Non-supervisée",
