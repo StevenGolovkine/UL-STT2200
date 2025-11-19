@@ -96,7 +96,7 @@ $$SC_A = \sum_{i \in A} (X_i - \overline{X}_A)^\top (X_i - \overline{X}_A),$$
 
 $$SC_B = \sum_{j \in B} (X_j - \overline{X}_B)^\top (X_j - \overline{X}_B),$$
 
-$$SC_AB = \sum_{k \in A \cup B} (X_k - \overline{X}_{AB})^\top (X_k - \overline{X}_{AB}).$$
+$$SC_{AB} = \sum_{k \in A \cup B} (X_k - \overline{X}_{AB})^\top (X_k - \overline{X}_{AB}).$$
 
 où $\overline{X}_A$, $\overline{X}_B$ et $\overline{X}_{AB}$ sont calculées comme dans la méthode du centroïde.
 On regroupe les groupes $A$ et $B$ qui minimisent l'augmentation de l'inertie : 

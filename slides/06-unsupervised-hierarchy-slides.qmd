@@ -189,262 +189,279 @@ Inconvénients :
 
 ## Méthode du centroïde
 
-::: {.fragment}
-**Définition**
+Distance entre les moyennes des groupes.
+
 $$d(A, B) = d(\overline{X}_A, \overline{X}_B)$$
-Distance entre les moyennes des groupes
-:::
 
-::: {.fragment}
-**Mise à jour après fusion**
+. . .
+
+Mise à jour après fusion :
+
 $$\overline{X}_{AB} = \frac{n_A \overline{X}_A + n_B \overline{X}_B}{n_A + n_B}$$
-:::
 
-::: {.fragment}
-**Propriété** : Assez robuste aux données aberrantes, mais peu performant sans elles
-:::
+. . .
+
+→ Assez robuste aux données aberrantes, mais peu performant sans elles.
+
 
 ## Distance de la médiane
 
-::: {.fragment}
-**Principe** : Mise à jour récursive des distances
-:::
+Principe : Mise à jour récursive des distances.
 
-::: {.fragment}
-**Formule de mise à jour**
+. . .
+
+Formule de mise à jour :
+
 $$d(AB, C) = \frac{d(A, C) + d(B, C)}{2} - \frac{d(A, B)}{4}$$
-:::
 
-::: {.fragment}
-**Caractéristiques**
-- Très robuste aux données aberrantes
-- Peu efficace sans valeurs extrêmes
-:::
+. . .
+
+Caractéristiques :
+
+- Très robuste aux données aberrantes.
+
+- Peu efficace sans valeurs extrêmes.
+
 
 ## Méthode de Ward
 
-::: {.fragment}
-**Principe** : Minimisation de l'augmentation d'inertie intra-groupe
-:::
 
-::: {.fragment}
-**Critère d'optimisation**
+Principe : Minimisation de l'augmentation d'inertie intra-groupe.
+
+. . .
+
+$$SC_A = \sum_{i \in A} (X_i - \overline{X}_A)^\top (X_i - \overline{X}_A),$$
+
+$$SC_B = \sum_{j \in B} (X_j - \overline{X}_B)^\top (X_j - \overline{X}_B),$$
+
+
+$$SC_{AB} = \sum_{k \in A \cup B} (X_k - \overline{X}_{AB})^\top (X_k - \overline{X}_{AB}).$$
+
+## Méthode de Ward
+
+
+Critère d'optimisation :
 $$I_{AB} = SC_{AB} - SC_A - SC_B = \frac{d^2(\overline{X}_A, \overline{X}_B)}{\frac{1}{n_A} + \frac{1}{n_B}}$$
-:::
 
-::: {.fragment}
-**Conditions optimales**
-- Observations gaussiennes multivariées
-- Même matrice de variance-covariance
-- Moyennes différentes
-:::
+. . .
 
-## Ward : Avantages et limites
+Conditions optimales :
 
-::: {.fragment}
-**Avantages**
-- Très efficace sous hypothèses gaussiennes
-- Groupes homogènes et de taille comparable
-- Méthode très populaire en pratique
-:::
+- Observations gaussiennes multivariées.
 
-::: {.fragment}
-**Inconvénients**
-- Sensible aux données aberrantes
-- Tend à former des groupes de même taille
-- Hypothèses gaussiennes restrictives
-:::
+- Même matrice de variance-covariance.
+
+- Moyennes différentes.
+
+
+## Méthode de Ward
+
+
+Avantages :
+
+- Très efficace sous hypothèses gaussiennes.
+
+- Groupes homogènes et de taille comparable.
+
+- Méthode très populaire en pratique.
+
+. . .
+
+Inconvénients :
+
+- Sensible aux données aberrantes.
+
+- Tend à former des groupes de même taille.
+
+- Hypothèses gaussiennes restrictives.
+
 
 ## Distance flexible
 
-::: {.fragment}
-**Formule générale**
-$$d(C, AB) = \alpha_A d(C, A) + \alpha_B d(C, B) + \beta d(A, B) + \gamma |d(C, A) - d(C, B)|$$
-:::
+\begin{align}
+d(C, AB) &= \alpha_A d(C, A) \\
+         &~ + \alpha_B d(C, B) \\
+         &~ + \beta d(A, B) \\
+         &~ + \gamma |d(C, A) - d(C, B)|
+\end{align}
 
-::: {.fragment}
-**Flexibilité**
-Selon $(\alpha_A, \alpha_B, \beta, \gamma)$, on retrouve toutes les méthodes précédentes
-:::
+. . .
 
-::: {.fragment}
-**Paramétrage standard**
+Selon $(\alpha_A, \alpha_B, \beta, \gamma)$, on retrouve toutes les méthodes précédentes.
+
+. . .
+
+Paramétrage standard :
+
 - $\alpha_A = \alpha_B$, $\alpha_A + \alpha_B + \beta = 1$, $\gamma = 0$
-- Choix courant : $\beta = -0.25$
-- Données aberrantes : $\beta = -0.5$
-:::
 
-# Choix de la partition
+- Choix courant : $\beta = -0.25$ ($\beta = -0.5$ si données aberrantes)
 
-## Le problème du choix
 
-::: {.fragment}
-**Question centrale**
-Parmi les $n$ partitions possibles, laquelle choisir ?
-:::
 
-::: {.fragment}
-**Critères pratiques**
-- Interprétabilité scientifique ou métier
-- Pertinence opérationnelle
-- Nombre de groupes $K$ déterminé à l'avance
-:::
+## Le problème du choix de la partition
 
-::: {.fragment}
-**Critères statistiques**
-Quand les considérations pratiques ne suffisent pas
-:::
+<br>
 
-## Outils disponibles
+Question centrale: Parmi les $n$ partitions possibles, laquelle choisir ?
 
-::: {.fragment}
-**Librairies spécialisées**
-- R `NbClust` : ~30 critères
-- Python `sklearn` : ~10 critères
-:::
+. . .
 
-::: {.fragment}
-**Adaptation**
-Critères surtout adaptés aux variables continues
-:::
+Critères pratiques :
 
-# Critères basés sur l'inertie
+- Interprétabilité scientifique ou métier.
 
-## Décomposition de l'inertie
+- Pertinence opérationnelle.
 
-::: {.fragment}
-**Inertie totale**
+- Nombre de groupes $K$ déterminé à l'avance.
+
+
+## Critère de décomposition de l'inertie
+
+<br>
+
 $$I_{\text{tot}} = \frac{1}{n}\sum_{i=1}^{n} d(X_i, G)$$
-:::
 
-::: {.fragment}
-**Décomposition fondamentale**
+. . .
+
+
 $$I_{\text{tot}} = I_{\text{intra-groupe}} + I_{\text{inter-groupe}}$$
-:::
 
-::: {.fragment}
-**Objectif** : Maximiser $I_{\text{inter-groupe}}$ (séparation des groupes)
-:::
+. . .
 
-## Inertie inter-groupe et intra-groupe
+Objectif : Maximiser $I_{\text{inter-groupe}}$ (séparation des groupes).
 
-::: {.fragment}
-**Inertie inter-groupe** (séparation)
+
+## Critère de décomposition de l'inertie
+
+
+Inertie inter-groupe (séparation) :
+
 $$I_{\text{inter-groupe}} = \frac{1}{n}\sum_{k=1}^{K} n_k d(G_k, G)$$
-:::
 
-::: {.fragment}
-**Inertie intra-groupe** (compacité)
+. . .
+
+Inertie intra-groupe (compacité) :
+
 $$I_{\text{intra-groupe}} = \frac{1}{n}\sum_{k=1}^{K} \sum_{i \in C_k} d(X_i, G_k)$$
-:::
 
-::: {.fragment}
-**Principe** : Groupes compacts $\Rightarrow$ faible inertie intra-groupe
-:::
+. . .
 
-## Critères dérivés
+Principe : Groupes compacts $\Rightarrow$ faible inertie intra-groupe.
 
-::: {.fragment}
-**Pseudo-$R^2$**
+
+## Critères dérivés de l'inertie
+
+<br>
+
+Pseudo-$R^2$ (Proportion d'inertie expliquée par la partition) :
+
 $$\text{pseudo-}R^2 = \frac{I_{\text{inter-groupe}}}{I_{\text{tot}}}$$
-Proportion d'inertie expliquée par la partition
-:::
 
-::: {.fragment}
-**Statistique Calinski-Harabasz (CH)**
+. . .
+
+Statistique Calinski-Harabasz (CH) (Équilibre entre compacité et séparation) : 
+
 $$\text{CH} = \frac{I_{\text{inter-groupe}} / (K-1)}{I_{\text{intra-groupe}} / (n-K)}$$
-Équilibre entre compacité et séparation
-:::
 
-# Critères basés sur la distance
 
-## Indice de Dunn
+## Critères basés sur la distance
 
-::: {.fragment}
-**Définition**
+<br>
+
+Indice de Dunn :
+
 $$D = \frac{\text{Distance minimale entre 2 groupes}}{\text{Distance maximale dans un groupe}}$$
-:::
 
-::: {.fragment}
-**Objectif** : Maximiser $D$
-- Groupes denses (faible distance interne)
-- Groupes bien séparés (grande distance externe)
-:::
+. . .
 
-## Indice de silhouette
+Objectif : Maximiser $D$
 
-::: {.fragment}
-**Pour une observation $X_i$**
+- Groupes denses (faible distance interne).
+
+- Groupes bien séparés (grande distance externe).
+
+
+## Critères basés sur la distance
+
+<br>
+
+Indice de silhouette :
+
 $$S(X_i) = \frac{b_i - a_i}{\max(b_i, a_i)}$$
 où :
+
 - $a_i$ : distance moyenne aux observations du même groupe
+
 - $b_i$ : distance moyenne au groupe le plus proche
-:::
 
-::: {.fragment}
-**Interprétation**
-- $S(X_i) \approx 1$ : Bien classée
-- $S(X_i) \approx 0$ : À la frontière
-- $S(X_i) \approx -1$ : Mal classée
-:::
 
-## Utilisation de la silhouette
+## Critères basés sur la distance
 
-::: {.fragment}
-**Silhouette moyenne**
-Indicateur de cohérence globale de la partition
-:::
+<br>
 
-::: {.fragment}
-**Avantage** : Intuitive et facilement interprétable
-:::
+Interprétation de l'indice de Silhouette :
 
-::: {.fragment}
-**Usage** : Souvent utilisée pour choisir le nombre optimal de groupes
-:::
+- $S(X_i) \approx 1$ : Bien classée.
+
+- $S(X_i) \approx 0$ : À la frontière.
+
+- $S(X_i) \approx -1$ : Mal classée.
+
+. . .
+
+Silhouette moyenne : Indicateur de cohérence globale de la partition.
+
+. . .
+
+Avantage : Intuitive et facilement interprétable.
+
+. . .
+
+Usage : Souvent utilisée pour choisir le nombre optimal de groupes.
+
 
 ## Recommandations pratiques
 
-::: {.incremental}
-1. **Croiser les approches**
+1. Croiser les approches :
+
    - Connaissance métier
+
    - Visualisation (dendrogramme)
+
    - Critères statistiques multiples
 
-2. **Aucun critère n'est parfait**
+2. Aucun critère n'est parfait :
+
    - Complémentarité des indicateurs
+
    - Décision éclairée et contextualisée
 
-3. **Validation**
+3. Validation :
+
    - Interprétabilité des groupes obtenus
+
    - Stabilité des résultats
-:::
+
 
 ## Récapitulatif
 
-::: {.fragment}
-**Classification hiérarchique**
-- Alternative robuste au $k$-means
+Classification hiérarchique :
+
 - Exploration complète de la hiérarchie de groupes
+
 - Choix de méthode de distance crucial
-:::
 
-::: {.fragment}
-**Méthodes populaires**
-- Ward (sous hypothèses gaussiennes)
-- Average linkage (bon compromis)
-- Complete linkage (groupes réguliers)
-:::
+. . .
 
-::: {.fragment}
-**Choix du nombre de groupes**
-Combinaison de critères pratiques et statistiques
-:::
+Méthodes populaires : Ward (sous hypothèses gaussiennes) / Average linkage (bon compromis)
 
-## Merci pour votre attention
+. . .
 
-**Questions ?**
+Choix du nombre de groupes : Combinaison de critères pratiques et statistiques
 
-::: {.fragment}
-*Classification hiérarchique : explorer la structure naturelle des données*
-:::
+. . .
+
+<br>
+
+Prochaine étape → $k$-moyennes
