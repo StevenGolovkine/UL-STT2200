@@ -444,6 +444,59 @@ Usage : Souvent utilisée pour choisir le nombre optimal de groupes.
    - Stabilité des résultats
 
 
+## Exemple {.smaller}
+
+::: panel-tabset
+### Code
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+library(tidyverse)
+library(ipred)
+
+temp <- read.table('../include/data/unsupervised/temperature.csv', header = TRUE, sep = ";", dec = '.', row.names = 1)
+dist <- dist(temp[1:23, 1:12])
+city <- row.names(temp[1:23,])
+
+model <- hclust(dist, method = 'ward.D')  # On peut utiliser différentes méthodes.
+```
+
+
+### Graphique
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+plot(model, labels = city, ylab = 'Distance', main = 'Dendrograme')
+```
+
+### Complete linkage 
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+model <- hclust(dist, method = 'complete')
+plot(model, labels = city, ylab = 'Distance', main = 'Dendrograme')
+```
+
+
+### Average linkage 
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+model <- hclust(dist, method = 'average')
+plot(model, labels = city, ylab = 'Distance', main = 'Dendrograme')
+```
+
+:::
+
+
 ## Récapitulatif
 
 Classification hiérarchique :
