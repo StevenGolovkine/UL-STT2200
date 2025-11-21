@@ -7,3 +7,29 @@ format:
       - \usepackage{mathtools}
 --- 
 
+
+* Slides:
+
+  - [Generalities](../slides/06-unsupervised-generalities.qmd) - [annotated](../slides/06-unsupervised-generalities-annotated.qmd)
+  
+  - [Hierarchical models](../slides/06-unsupervised-hierarchy-slides.qmd) - [annotated](../slides/06-unsupervised-hierarchy-slides-annotated.qmd)
+  
+  - [$k$-means](../slides/06-unsupervised-kmeans-slides.qmd)
+
+  - [Gaussian mixtures](../slides/06-unsupervised-gaussian-slides.qmd)
+
+* TD: [link](../td/06-unsupervised-td.qmd)
+
+* TP: [link](../td/06-unsupervised-tp.qmd)
+
+## Outline
+
+1. [Hierarchical models](./unsupervised/02-hierarchy.qmd)
+
+2. [$k$-means](./unsupervised/01-kmeans.qmd)
+
+3. [Gaussian mixtures](./unsupervised/03-gaussian-mixtures.qmd)
+
+
+![$k$-means ([xkcd:2731](https://xkcd.com/2731/)).](../include/k_means_clustering.png)
+

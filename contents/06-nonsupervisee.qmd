@@ -9,9 +9,9 @@ format:
 
 * Slides:
 
-  - [Généralités](../slides/06-unsupervised-generalities.qmd)
+  - [Généralités](../slides/06-unsupervised-generalities.qmd) - [annoté](../slides/06-unsupervised-generalities-annotated.qmd)
   
-  - [Méthodes hiérarchiques](../slides/06-unsupervised-hierarchy-slides.qmd)
+  - [Méthodes hiérarchiques](../slides/06-unsupervised-hierarchy-slides.qmd) - [annoté](../slides/06-unsupervised-hierarchy-slides-annotated.qmd)
   
   - [$k$-moyennes](../slides/06-unsupervised-kmeans-slides.qmd)
 

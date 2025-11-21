@@ -42,15 +42,15 @@ This repository contains the website used for the module STT-2200 given at Unive
 
 - [ ] TP/TD
   * [X] Remainders
-  * [ ] Generalities
-  * [ ] Dimension
-  * [ ] Supervised 
+  * [X] Generalities
+  * [X] Dimension
+  * [X] Supervised 
   * [ ] Unsupervised
 
 - [ ] Exams
-    * [ ] Mid-term
+    * [X] Mid-term
     * [ ] Final exam
-    * [ ] Project
+    * [X] Project
 
 ## 🚀 Publishing
 

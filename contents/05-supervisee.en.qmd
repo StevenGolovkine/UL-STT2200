@@ -6,3 +6,31 @@ format:
     header-includes:
       - \usepackage{mathtools}
 ---
+
+
+* Slides:
+
+  - [Generalities](../slides/05-supervised-generalities.qmd)
+  
+  - [Discriminant analysis](../slides/05-supervised-discriminant-slides.qmd) - [annotated](../slides/05-supervised-discriminant-slides-annotated.qmd)
+
+  - [Trees](../slides/05-supervised-tree-slides.qmd) - [annotated](../slides/05-supervised-tree-slides-annotated.qmd)
+
+  - [Ensemble models](../slides/05-supervised-ensemble-slides.qmd)
+
+* TD: [link](../td/05-supervised-td.qmd)
+
+* TP: [link](../tp/05-supervised-tp.qmd)
+
+## Outline
+
+1. [Discriminant analysis](./supervised/01-discriminant.qmd)
+
+2. [Trees](./supervised/02-tree.qmd)
+
+3. [Ensemble models](./supervised/03-ensemble.qmd)
+
+
+
+![Extrapolating ([xkcd:605](https://xkcd.com/605/)).](../include/extrapolating.png)
+

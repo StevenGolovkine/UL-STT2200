@@ -1,0 +1,122 @@
+--- 
+title: "Non-Supervisée"
+subtitle: "Généralités"
+author: "Steven Golovkine"
+lang: fr
+date: "21 nov. 2025"
+date-format: "DD MMM YYYY"
+slide-number: c/t
+title-logo: ../include/logo-ul.png
+format:
+  revealjs:
+    theme: [default, ../include/ulaval-slide.scss]
+    chalkboard:
+      src: annotation/06-unsupervised-generalities-slides-annotation.json
+    width: 1280
+    height: 720
+    template-partials:
+      - title-slide.html
+--- 
+
+
+## Plan
+
+<br>
+
+1. Qu'est-ce que la classification non-supervisée (*clustering*) ? 
+
+2. Exemples
+
+3. Approche
+
+
+## Principe
+
+<br>
+
+On considère une population comportant $K$ groupes.
+
+On NE connaît PAS le nombre des groupes.
+
+On observe $p$ variables $X_1, \dots, X_p$ pour chaque individu / observation de la population.
+
+On NE connaît PAS le groupe d'appartenance de chaque individu / observation.
+
+## Objectif
+
+<br>
+
+$$Y = f(X) + \epsilon$$
+
+. . .
+
+Trouver des groupes dans les données.
+
+. . .
+
+Construire une partition en groupe de l'espace des observations.
+
+
+## Quelques méthodes 
+
+
+Méthodes hiérarchiques :
+
+- **Classification ascendante hiérarchique**
+
+- **Classification descendante hiérarchique**
+
+. . .
+
+Méthodes non-hiérarchiques :
+
+- **$k$-means** et dérivés ($k$-medians, $k$-medoids, ...)
+
+- Mélange des distributions (e.g. **GMM**)
+
+- Estimation de densité
+
+- *Clustering* spectral
+
+
+## Exemples
+
+<br>
+
+Identification de nouveaux groupes de patients.
+
+Détection de communautés dans des groupes de personnes.
+
+Segmentation d'images
+
+Identification de similarités dans des composés chimiques
+
+Création de segments de marché basés sur un ensemble de consommateurs.
+
+
+
+## Approche générale
+
+<br>
+
+Pas vraiment d'approche générale pour le *clustering*.
+
+
+
+
+
+## Conclusion
+
+<br>
+
+Modèle général:
+
+$$Y = f(X) + \epsilon$$
+
+Classification non-supervisée: connaissant $X$ et supposant une certaine forme pour $f$, on cherche à estimer $Y$. 
+
+<br>
+
+. . .
+
+Prochaine étape → Classification hiérarchique
