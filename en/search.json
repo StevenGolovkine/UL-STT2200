@@ -795,6 +795,28 @@
     ]
   },
   {
+    "objectID": "contents/05-supervisee.html",
+    "href": "contents/05-supervisee.html",
+    "title": "Supervised",
+    "section": "",
+    "text": "Slides:\n\nGeneralities\nDiscriminant analysis - annotated\nTrees - annotated\nEnsemble models\n\nTD: link\nTP: link",
+    "crumbs": [
+      "Modules",
+      "05 - Supervisée"
+    ]
+  },
+  {
+    "objectID": "contents/05-supervisee.html#outline",
+    "href": "contents/05-supervisee.html#outline",
+    "title": "Supervised",
+    "section": "Outline",
+    "text": "Outline\n\nDiscriminant analysis\nTrees\nEnsemble models\n\n\n\n\nExtrapolating (xkcd:605).",
+    "crumbs": [
+      "Modules",
+      "05 - Supervisée"
+    ]
+  },
+  {
     "objectID": "contents/misc/pipe.html",
     "href": "contents/misc/pipe.html",
     "title": "Pipe operator in R",
@@ -856,6 +878,28 @@
     "crumbs": [
       "Modules",
       "04 - Dimension"
+    ]
+  },
+  {
+    "objectID": "contents/06-nonsupervisee.html",
+    "href": "contents/06-nonsupervisee.html",
+    "title": "Unsupervised",
+    "section": "",
+    "text": "Slides:\n\nGeneralities - annotated\nHierarchical models - annotated\n\\(k\\)-means\nGaussian mixtures\n\nTD: link\nTP: link",
+    "crumbs": [
+      "Modules",
+      "06 - Non-supervisée"
+    ]
+  },
+  {
+    "objectID": "contents/06-nonsupervisee.html#outline",
+    "href": "contents/06-nonsupervisee.html#outline",
+    "title": "Unsupervised",
+    "section": "Outline",
+    "text": "Outline\n\nHierarchical models\n\\(k\\)-means\nGaussian mixtures\n\n\n\n\n\\(k\\)-means (xkcd:2731).",
+    "crumbs": [
+      "Modules",
+      "06 - Non-supervisée"
     ]
   },
   {
