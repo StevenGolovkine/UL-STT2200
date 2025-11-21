@@ -20,7 +20,7 @@ format:
 
 * TD: [link](../td/06-unsupervised-td.qmd)
 
-* TP: [link](../td/06-unsupervised-tp.qmd)
+* TP: [link](../tp/06-unsupervised-tp.qmd)
 
 ## Outline
 
