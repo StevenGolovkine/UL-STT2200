@@ -19,6 +19,8 @@ format:
 
 * TD: [link](../td/05-supervised-td.qmd)
 
+  - [Corrigé](../td/correction/Td_ Supervisee.pdf)
+
 * TP: [link](../tp/05-supervised-tp.qmd)
 
 ## Sommaire
