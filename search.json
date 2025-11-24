@@ -3197,6 +3197,41 @@
     "text": "Vous pouvez faire les exercices dans le langage de votre choix."
   },
   {
+    "objectID": "tp/06-unsupervised-tp.html#exercice-1-arrestation-aux-usa",
+    "href": "tp/06-unsupervised-tp.html#exercice-1-arrestation-aux-usa",
+    "title": "TP: Non-supervisée",
+    "section": "Exercice 1: Arrestation aux USA",
+    "text": "Exercice 1: Arrestation aux USA\nDans cet exercice, on se propose de faire un clustering des états américains par rapport à certaines statistiques d’arrestation.\n\nTélécharger le jeu de données suivant: lien.\nFaire un clustering des états en utilisant la méthode des plus proches voisins et la distance euclidienne. Tracer le dendrogramme.\nCouper le dendrogramme à une hauteur qui résulte en trois groupes distincts. Quels états appartiennent à quel groupe ? Interpréter les groupes obtenus.\nFaire le même clustering, mais cette fois après avoir standardisé les variables. Les variables auront donc un écart-type de 1. Tracer le dendrogramme et le couper pour avoir trois groupes.\nQuel effet à la standardisation des variables sur le clustering obtenu ? À votre avis, doit-on standardiser les variables avant que les distances entre les observations soient calculées ? Justifier."
+  },
+  {
+    "objectID": "tp/06-unsupervised-tp.html#exercice-2-de-la-musique.",
+    "href": "tp/06-unsupervised-tp.html#exercice-2-de-la-musique.",
+    "title": "TP: Non-supervisée",
+    "section": "Exercice 2: De la musique.",
+    "text": "Exercice 2: De la musique.\nDans cet exercice, on se propose de comparer la classification ascendante hiérarchique et la classification descendante hiérarchique.\n\nTélécharger le jeu de données suivant: lien.\nFaire un clustering en 6 groupes des variables m_1 à m_9 à l’aide d’une classification ascendante hiérarchique en utilisant la méthode de la moyenne et une distance euclidienne. Interpréter le dendrogramme.\nFaire un clustering en 6 groupes des variables m_1 à m_9 à l’aide d’une classification descendante hiérarchique en utilisant la méthode de la moyenne et une distance euclidienne. Interpréter le dendrogramme.\nCalculer le critère de Silhouette des deux clustering obtenus. Interpréter les résultats.\nComparer les résultats des méthodes ascendante et descendante."
+  },
+  {
+    "objectID": "td/06-unsupervised-td.html",
+    "href": "td/06-unsupervised-td.html",
+    "title": "TD: Non-supervisée",
+    "section": "",
+    "text": "Considérons la matrice de distance entre 4 observations :\n\n\n\nObs\n1\n2\n3\n4\n\n\n\n\n1\n0\n0.3\n0.4\n0.7\n\n\n2\n0.3\n0\n0.5\n0.8\n\n\n3\n0.4\n0.5\n0\n0.45\n\n\n4\n0.7\n0.8\n0.45\n0\n\n\n\nPar exemple, la distance entre la première et la deuxième observations est \\(0.3\\) et la distance entre la deuxième et la quatrième observations est \\(0.8\\).\n\nUtiliser cette matrice de distance pour dessiner le dendrogramme résultant d’une classification ascendante hiérarchique avec la méthode du plus proche voisin. Indiquer sur le dendrogramme la hauteur à laquelle chaque fusion est faite.\nFaire la même chose en utilisant la méthode du voisin le plus distant.\nQuelle partition obtenez-vous si vous coupez ces deux arbres de sorte d’avoir 2 groupes ?\nIl est possible d’échanger la position des feuilles de l’arbre sans changer l’interprétation du dendrogramme. Re-dessiner les dendrogramme obtenus précédemment en changeant la position de certaines feuilles, mais de sorte que les dendrogramme aient la même interprétation que ceux de base."
+  },
+  {
+    "objectID": "td/06-unsupervised-td.html#exercice-1-cah",
+    "href": "td/06-unsupervised-td.html#exercice-1-cah",
+    "title": "TD: Non-supervisée",
+    "section": "",
+    "text": "Considérons la matrice de distance entre 4 observations :\n\n\n\nObs\n1\n2\n3\n4\n\n\n\n\n1\n0\n0.3\n0.4\n0.7\n\n\n2\n0.3\n0\n0.5\n0.8\n\n\n3\n0.4\n0.5\n0\n0.45\n\n\n4\n0.7\n0.8\n0.45\n0\n\n\n\nPar exemple, la distance entre la première et la deuxième observations est \\(0.3\\) et la distance entre la deuxième et la quatrième observations est \\(0.8\\).\n\nUtiliser cette matrice de distance pour dessiner le dendrogramme résultant d’une classification ascendante hiérarchique avec la méthode du plus proche voisin. Indiquer sur le dendrogramme la hauteur à laquelle chaque fusion est faite.\nFaire la même chose en utilisant la méthode du voisin le plus distant.\nQuelle partition obtenez-vous si vous coupez ces deux arbres de sorte d’avoir 2 groupes ?\nIl est possible d’échanger la position des feuilles de l’arbre sans changer l’interprétation du dendrogramme. Re-dessiner les dendrogramme obtenus précédemment en changeant la position de certaines feuilles, mais de sorte que les dendrogramme aient la même interprétation que ceux de base."
+  },
+  {
+    "objectID": "td/06-unsupervised-td.html#exercice-2-indicateurs-pour-le-choix-des-groupes",
+    "href": "td/06-unsupervised-td.html#exercice-2-indicateurs-pour-le-choix-des-groupes",
+    "title": "TD: Non-supervisée",
+    "section": "Exercice 2: Indicateurs pour le choix des groupes",
+    "text": "Exercice 2: Indicateurs pour le choix des groupes\nSoit \\(a, b, c, d, e\\) et \\(f\\) des observations qui ont respetivement les valeurs suivantes: \\(1, 2, 3, 4, 5, 6, 7\\). On les regroupe en deux. Les observations \\(a, b\\) et \\(c\\) sont dans le groupe 1 et les observations \\(d, e\\) et \\(f\\) sont dans le groupe 2.\n\nCalculer l’indice de Silhouette de l’observation \\(c\\). Interpréter le résultat.\nCalculer le pseudo-\\(R^2\\) de ce regroupement."
+  },
+  {
     "objectID": "td/05-supervised-td.html",
     "href": "td/05-supervised-td.html",
     "title": "TD: Supervisée",

@@ -106,6 +106,7 @@ window.Quarto = {
 </script>
 
 <meta property="og:title" content="TD: Non-supervisée – STT-2200: Analyse de données">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
 
@@ -560,8 +561,15 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="06-unsupervised-td.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#exercice-1-cah" id="toc-exercice-1-cah" class="nav-link active" data-scroll-target="#exercice-1-cah">Exercice 1: CAH</a></li>
+  <li><a href="#exercice-2-indicateurs-pour-le-choix-des-groupes" id="toc-exercice-2-indicateurs-pour-le-choix-des-groupes" class="nav-link" data-scroll-target="#exercice-2-indicateurs-pour-le-choix-des-groupes">Exercice 2: Indicateurs pour le choix des groupes</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/td/06-unsupervised-td.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="06-unsupervised-td.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -585,8 +593,68 @@ window.Quarto = {
 </header>
 
 
+<section id="exercice-1-cah" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-1-cah">Exercice 1: CAH</h2>
+<p>Considérons la matrice de distance entre 4 observations :</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Obs</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0.3</td>
+<td style="text-align: center;">0.4</td>
+<td style="text-align: center;">0.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0.3</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0.5</td>
+<td style="text-align: center;">0.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0.4</td>
+<td style="text-align: center;">0.5</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0.45</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0.7</td>
+<td style="text-align: center;">0.8</td>
+<td style="text-align: center;">0.45</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<p>Par exemple, la distance entre la première et la deuxième observations est <span class="math inline">\(0.3\)</span> et la distance entre la deuxième et la quatrième observations est <span class="math inline">\(0.8\)</span>.</p>
+<ol type="1">
+<li><p>Utiliser cette matrice de distance pour dessiner le dendrogramme résultant d’une classification ascendante hiérarchique avec la méthode du plus proche voisin. Indiquer sur le dendrogramme la hauteur à laquelle chaque fusion est faite.</p></li>
+<li><p>Faire la même chose en utilisant la méthode du voisin le plus distant.</p></li>
+<li><p>Quelle partition obtenez-vous si vous coupez ces deux arbres de sorte d’avoir 2 groupes ?</p></li>
+<li><p>Il est possible d’échanger la position des feuilles de l’arbre sans changer l’interprétation du dendrogramme. Re-dessiner les dendrogramme obtenus précédemment en changeant la position de certaines feuilles, mais de sorte que les dendrogramme aient la même interprétation que ceux de base.</p></li>
+</ol>
+</section>
+<section id="exercice-2-indicateurs-pour-le-choix-des-groupes" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-2-indicateurs-pour-le-choix-des-groupes">Exercice 2: Indicateurs pour le choix des groupes</h2>
+<p>Soit <span class="math inline">\(a, b, c, d, e\)</span> et <span class="math inline">\(f\)</span> des observations qui ont respetivement les valeurs suivantes: <span class="math inline">\(1, 2, 3, 4, 5, 6, 7\)</span>. On les regroupe en deux. Les observations <span class="math inline">\(a, b\)</span> et <span class="math inline">\(c\)</span> sont dans le groupe 1 et les observations <span class="math inline">\(d, e\)</span> et <span class="math inline">\(f\)</span> sont dans le groupe 2.</p>
+<ol type="1">
+<li><p>Calculer l’indice de Silhouette de l’observation <span class="math inline">\(c\)</span>. Interpréter le résultat.</p></li>
+<li><p>Calculer le pseudo-<span class="math inline">\(R^2\)</span> de ce regroupement.</p></li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script>
@@ -1221,7 +1289,7 @@ window.onload = function() {
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions"><ul><li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/td/06-unsupervised-td.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/td/06-unsupervised-td.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

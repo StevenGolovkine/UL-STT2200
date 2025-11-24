@@ -561,8 +561,15 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="06-unsupervised-tp.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#exercice-1-arrestation-aux-usa" id="toc-exercice-1-arrestation-aux-usa" class="nav-link active" data-scroll-target="#exercice-1-arrestation-aux-usa">Exercice 1: Arrestation aux USA</a></li>
+  <li><a href="#exercice-2-de-la-musique." id="toc-exercice-2-de-la-musique." class="nav-link" data-scroll-target="#exercice-2-de-la-musique.">Exercice 2: De la musique.</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/tp/06-unsupervised-tp.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="06-unsupervised-tp.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -587,8 +594,30 @@ window.Quarto = {
 
 
 <p>Vous pouvez faire les exercices dans le langage de votre choix.</p>
+<section id="exercice-1-arrestation-aux-usa" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-1-arrestation-aux-usa">Exercice 1: Arrestation aux USA</h2>
+<p>Dans cet exercice, on se propose de faire un clustering des états américains par rapport à certaines statistiques d’arrestation.</p>
+<ol type="1">
+<li><p>Télécharger le jeu de données suivant: <a href="../include/data/tp/USArrests.csv">lien</a>.</p></li>
+<li><p>Faire un clustering des états en utilisant la méthode des plus proches voisins et la distance euclidienne. Tracer le dendrogramme.</p></li>
+<li><p>Couper le dendrogramme à une hauteur qui résulte en trois groupes distincts. Quels états appartiennent à quel groupe ? Interpréter les groupes obtenus.</p></li>
+<li><p>Faire le même clustering, mais cette fois après avoir standardisé les variables. Les variables auront donc un écart-type de 1. Tracer le dendrogramme et le couper pour avoir trois groupes.</p></li>
+<li><p>Quel effet à la standardisation des variables sur le clustering obtenu ? À votre avis, doit-on standardiser les variables avant que les distances entre les observations soient calculées ? Justifier.</p></li>
+</ol>
+</section>
+<section id="exercice-2-de-la-musique." class="level2">
+<h2 class="anchored" data-anchor-id="exercice-2-de-la-musique.">Exercice 2: De la musique.</h2>
+<p>Dans cet exercice, on se propose de comparer la classification ascendante hiérarchique et la classification descendante hiérarchique.</p>
+<ol type="1">
+<li><p>Télécharger le jeu de données suivant: <a href="../include/data/tp/musique.csv">lien</a>.</p></li>
+<li><p>Faire un clustering en 6 groupes des variables <code>m_1</code> à <code>m_9</code> à l’aide d’une classification ascendante hiérarchique en utilisant la méthode de la moyenne et une distance euclidienne. Interpréter le dendrogramme.</p></li>
+<li><p>Faire un clustering en 6 groupes des variables <code>m_1</code> à <code>m_9</code> à l’aide d’une classification descendante hiérarchique en utilisant la méthode de la moyenne et une distance euclidienne. Interpréter le dendrogramme.</p></li>
+<li><p>Calculer le critère de Silhouette des deux clustering obtenus. Interpréter les résultats.</p></li>
+<li><p>Comparer les résultats des méthodes ascendante et descendante.</p></li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script>
@@ -1223,7 +1252,7 @@ window.onload = function() {
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions"><ul><li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/tp/06-unsupervised-tp.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/tp/06-unsupervised-tp.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
