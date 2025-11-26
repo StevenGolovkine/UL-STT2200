@@ -7,3 +7,34 @@ format:
     header-includes:
       - \usepackage{mathtools} 
 --- 
+
+## Hypothèses
+
+On suppose que le nombre de clusters $K$ est connu. L'ensemble des observations consiste en $K$ sous-populations; chaque sous-population correspondant à un cluster d'observations. Chaque sous-population suit une distribution connue de paramètres $\theta_k$ pour $k \in \{1, \dots, K\}$. Les paramètres sont totalement ou partiellement inconnus et nous devons donc les estimer.
+
+
+## Approche par maximum de vraisemblance
+
+Avec les hypothèses précédentes, il est possible de considerer une fonction correpondant au maximim de vraisemblance :
+
+$$L(\theta, C) = \prod_{k = 1}^K \prod_{\{i: C(i) = k\} f(X_i, \theta_k),$$
+
+où $C(i) = k$ si l'observation $i$ appartient au group $k$, et $f(X, \theta)$ représente la fonction de densité du modèle sous-jacent.
+
+Avec l'hypothèse que chaque sous-population (groupe) suit une loi gaussienne, la fonction de vraisemblance est donnée par 
+
+$$L(\theta, C) = \prod_{k = 1}^{K} \prod_{i: C(i) = k} (2\pi)^{-n_k / 2} \left\| \Sigma_k \right\|^{-1/2} \exp\left\{-\frac{1}{2}(X_i - \mu_k)^\top \Sigma_k^{-1} (X_i - \mu_k)\right\},$$
+
+où $\mu_k$ et $\Sigma_k$ sont le vecteur moyenne et la matrice de covariance de la sous-population $k$, respectivement.
+
+Comme la fonction $C(i)$ est inconnue, l'optimisation du maximum de vraisemblance est obtenu grâce à un algortihme EM (Expectation-Maximimation).
+
+## Propriétés 
+
+Des restrictions sont habituellement supposées pour les matrices de covariance $\Sigma_k$.
+
+Si les matrices de covariance $\Sigma_k$ sont supposées sphérique de taille similaire (proportionnelle à la matrice identité), on obtient quelque chose de similaire aux $k$-means. Si les $\Sigma_k$ sont supposées diagonales, une standardisation des variables est possible. Si les $\Sigma_k$ sont supposées ellipsoïdales de même forme, mais de taille différente, il est possible d'avoir des solutions plus générales. Enfin, si rien n'est supposé, on obtient les solutions les plus générales mais il est possible d'avoir du sur-apprentissage.
+
+## Choix du nombre de clusters
+
+Le choix du nombre du clusters $K$ est fait dans l'approche du maximum de vraisemblance en ajustant plusieurs solutions en prenant $K$ dans un ensemble de valeurs acceptables et ensuite considérant un critère AIC ou BIC adaptés au clustering.
