@@ -601,7 +601,7 @@ window.Quarto = {
 <ol type="1">
 <li>Do not make comparisons to <code>True</code>, <code>False</code>, or <code>None</code>.</li>
 </ol>
-<div id="07054e49" class="cell" data-execution_count="1">
+<div id="08b6e803" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> attr:</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"True!"</span>)</span>
@@ -617,7 +617,7 @@ window.Quarto = {
 <ol start="2" type="1">
 <li>Use list comprehension when possible.</li>
 </ol>
-<div id="1dcace72" class="cell" data-execution_count="2">
+<div id="8c65080b" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> [i <span class="cf">for</span> i <span class="kw">in</span> a <span class="cf">if</span> i <span class="op">&gt;</span> <span class="dv">4</span>]</span></code></pre></div>
@@ -627,7 +627,7 @@ window.Quarto = {
 <ol start="3" type="1">
 <li>Load a file with <code>with</code>. This ensures that the connection to the file is closed once it has been read.</li>
 </ol>
-<div id="22e0d82b" class="cell" data-execution_count="3">
+<div id="6c44d41c" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"file.txt"</span>) <span class="im">as</span> f:</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    read(f)</span></code></pre></div>
