@@ -261,6 +261,65 @@ Coût computationnel plus élevé :
    - Pénalisent la complexité
 :::
 
+
+## Exemple {.smaller}
+
+::: panel-tabset
+### Code
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+library(tidyverse)
+library(ipred)
+
+temp <- read.table('../include/data/unsupervised/temperature.csv', header = TRUE, sep = ";", dec = '.', row.names = 1)
+df <- temp[1:23, 1:12]
+city <- row.names(temp[1:23,])
+
+model <- kmeans(df, centers = 3)
+```
+
+
+### Model
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+model
+```
+
+### Choix du nombre de clusters
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+n_clusters <- 10
+wss <- numeric(n_clusters)
+for (i in 1:n_clusters) {
+  model <- kmeans(df, centers = i)
+  wss[i] <- model$tot.withinss
+}
+plot(1:n_clusters, wss)
+```
+
+
+### Graphique 
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+model <- kmeans(df, centers = 3)
+plot(df$January, df$September, col = model$cluster)
+```
+
+:::
+
+
 ## Récapitulatif
 
 <br>

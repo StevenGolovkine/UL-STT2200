@@ -41,7 +41,7 @@
         "\n",
         "1. Ne pas faire de comparaison à `True`, `False` or `None`.\n"
       ],
-      "id": "5fe58d1d"
+      "id": "7d065ce1"
     },
     {
       "cell_type": "code",
@@ -58,7 +58,7 @@
         "if attr is None:\n",
         "    print(\"None!\")"
       ],
-      "id": "e0c219b6",
+      "id": "2e6f8fea",
       "execution_count": null,
       "outputs": []
     },
@@ -68,7 +68,7 @@
       "source": [
         "2. Utiliser la compréhension de liste lorsque cela est possible.\n"
       ],
-      "id": "4f6e55f4"
+      "id": "99b006db"
     },
     {
       "cell_type": "code",
@@ -79,7 +79,7 @@
         "a = [3, 4, 5]\n",
         "b = [i for i in a if i > 4]"
       ],
-      "id": "2e14192c",
+      "id": "4f94cdc3",
       "execution_count": null,
       "outputs": []
     },
@@ -89,7 +89,7 @@
       "source": [
         "3. Charger un fichier avec `with`. Cela permet d'être sur que la connexion avec le fichier est fermé une fois qu'il a été lu.\n"
       ],
-      "id": "82b831e7"
+      "id": "cbe712a7"
     },
     {
       "cell_type": "code",
@@ -100,7 +100,7 @@
         "with open(\"file.txt\") as f:\n",
         "    read(f)"
       ],
-      "id": "e588419f",
+      "id": "ffe1eef8",
       "execution_count": null,
       "outputs": []
     },
@@ -112,7 +112,7 @@
         "\n",
         "5. Utiliser des parenthèses pour aller à la ligne dans les longues chaînes de caractères."
       ],
-      "id": "b3bb863c"
+      "id": "0aea6fd6"
     }
   ],
   "metadata": {
