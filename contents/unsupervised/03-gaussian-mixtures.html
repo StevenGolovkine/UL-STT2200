@@ -85,6 +85,7 @@ window.Quarto = {
   typesetMath
 };
 </script><meta property="og:title" content="Mélange de gaussiennes – STT-2200: Analyse de données">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="STT-2200: Analyse de données">
 </head>
 <body class="nav-sidebar floating quarto-light">
@@ -534,11 +535,28 @@ window.Quarto = {
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+<li><a href="#hypoth%C3%A8ses" id="toc-hypothèses" class="nav-link active" data-scroll-target="#hypothèses">Hypothèses</a></li>
+  <li>
+<a href="#approche-par-maximum-de-vraisemblance" id="toc-approche-par-maximum-de-vraisemblance" class="nav-link" data-scroll-target="#approche-par-maximum-de-vraisemblance">Approche par maximum de vraisemblance</a>
+  <ul class="collapse">
+<li><a href="#cas-gaussien" id="toc-cas-gaussien" class="nav-link" data-scroll-target="#cas-gaussien">Cas gaussien</a></li>
+  <li><a href="#optimisation" id="toc-optimisation" class="nav-link" data-scroll-target="#optimisation">Optimisation</a></li>
+  </ul>
+</li>
+  <li><a href="#propri%C3%A9t%C3%A9s-et-contraintes-sur-les-matrices-de-covariance" id="toc-propriétés-et-contraintes-sur-les-matrices-de-covariance" class="nav-link" data-scroll-target="#propriétés-et-contraintes-sur-les-matrices-de-covariance">Propriétés et contraintes sur les matrices de covariance</a></li>
+  <li><a href="#choix-du-nombre-de-clusters" id="toc-choix-du-nombre-de-clusters" class="nav-link" data-scroll-target="#choix-du-nombre-de-clusters">Choix du nombre de clusters</a></li>
+  </ul>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
+<li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/unsupervised/03-gaussian-mixtures.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
+</ul></div>
+<div class="quarto-alternate-formats">
 <h2>Autres formats</h2>
 <ul><li><a href="03-gaussian-mixtures.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul>
-</div>
+</div></nav>
 </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
@@ -560,7 +578,54 @@ window.Quarto = {
   
 
 
-</header></main><!-- /main --><script>
+</header><section id="hypothèses" class="level2"><h2 class="anchored" data-anchor-id="hypothèses">Hypothèses</h2>
+<p>On suppose que le nombre de clusters <span class="math inline">\(K\)</span> est connu. L’ensemble des observations <span class="math inline">\((X_1, \dots, X_n)\)</span> est constitué de <span class="math inline">\(K\)</span> sous-populations, chaque sous-population correspondant à un cluster. On note <span class="math inline">\(C(i) \in \{1, \dots, K\}\)</span> l’étiquette (non observée) de l’observation <span class="math inline">\(i\)</span>.</p>
+<p>Chaque sous-population suit une distribution connue, caractérisée par un paramètre <span class="math inline">\(\theta_k\)</span>, pour <span class="math inline">\(k \in \{1, \dots, K\}\)</span>. Les paramètres <span class="math inline">\(\theta_k\)</span> sont totalement ou partiellement inconnus et doivent donc être estimés conjointement avec les affectations <span class="math inline">\(C(i)\)</span>.</p>
+</section><section id="approche-par-maximum-de-vraisemblance" class="level2"><h2 class="anchored" data-anchor-id="approche-par-maximum-de-vraisemblance">Approche par maximum de vraisemblance</h2>
+<p>Sous ces hypothèses, on peut écrire la fonction de vraisemblance complète (vraisemblance des données complétées par les labels) :</p>
+<p><span class="math display">\[L(\theta, C) = \prod_{k=1}^K \prod_{\{i : C(i)=k\}} f(X_i \mid \theta_k).\]</span></p>
+<p>où <span class="math inline">\(f(\cdot \mid \theta_k)\)</span> désigne la densité du modèle sous-jacent pour le cluster <span class="math inline">\(k\)</span>.</p>
+<section id="cas-gaussien" class="level3"><h3 class="anchored" data-anchor-id="cas-gaussien">Cas gaussien</h3>
+<p>Si chaque sous-population suit une loi normale multivariée <span class="math inline">\(\mathcal{N}(\mu_k, \Sigma_k)\)</span>, la vraisemblance complète s’écrit :</p>
+<p><span class="math display">\[
+L(\theta, C)
+= \prod_{k=1}^{K} \prod_{i : C(i)=k}
+(2\pi)^{-d/2} \, \lvert \Sigma_k \rvert^{-1/2}
+\exp\!\left(
+-\frac{1}{2}(X_i - \mu_k)^\top \Sigma_k^{-1}(X_i - \mu_k)
+\right),
+\]</span></p>
+<p>où <span class="math inline">\(d\)</span> est la dimension des données.</p>
+</section><section id="optimisation" class="level3"><h3 class="anchored" data-anchor-id="optimisation">Optimisation</h3>
+<p>Comme les étiquettes <span class="math inline">\(C(i)\)</span> sont inconnues, l’optimisation directe de la vraisemblance complète est impossible. La stratégie standard consiste à maximiser la vraisemblance marginale :</p>
+<p><span class="math display">\[L(\theta) = \prod_{i=1}^n \Bigg( \sum_{k=1}^K \pi_k \, f(X_i \mid \theta_k) \Bigg),\]</span></p>
+<p>où <span class="math inline">\(\pi_k = \mathbb{P}(C(i)=k)\)</span> sont les proportions (ou poids de mélange).</p>
+<p>La maximisation de cette vraisemblance s’effectue classiquement via l’algorithme EM (Expectation–Maximization), qui alterne :</p>
+<ul>
+<li>E-step : estimation des probabilités d’appartenance <span class="math inline">\(\tau_{ik}\)</span> ;</li>
+<li>M-step : mise à jour des paramètres <span class="math inline">\(\pi_k\)</span>, <span class="math inline">\(\mu_k\)</span>, <span class="math inline">\(\Sigma_k\)</span>.</li>
+</ul></section></section><section id="propriétés-et-contraintes-sur-les-matrices-de-covariance" class="level2"><h2 class="anchored" data-anchor-id="propriétés-et-contraintes-sur-les-matrices-de-covariance">Propriétés et contraintes sur les matrices de covariance</h2>
+<p>L’estimation est fortement influencée par les contraintes imposées sur les matrices <span class="math inline">\(\Sigma_k\)</span>. Ces contraintes déterminent la forme géométrique des clusters (sphériques, ellipsoïdes, étirés, orientés, etc.).</p>
+<p>Voici les cas usuels :</p>
+<ul>
+<li><p>Covariances sphériques, même taille : <span class="math inline">\(\Sigma_k = \sigma^2 I\)</span>.<br>
+Les clusters sont des boules de même rayon ; comportement proche du <span class="math inline">\(k\)</span>-means.</p></li>
+<li><p>Covariances sphériques, tailles différentes : <span class="math inline">\(\Sigma_k = \sigma_k^2 I\)</span>.<br>
+Clusters sphériques mais de dispersion différente.</p></li>
+<li><p>Covariances diagonales :<br>
+Les dimensions sont supposées indépendantes. Une standardisation préalable peut être effectuée. Les clusters sont des ellipsoïdes alignés avec les axes.</p></li>
+<li><p>Covariances ellipsoïdales de même forme mais de tailles différentes : <span class="math inline">\(\Sigma_k = \lambda_k D D^\top\)</span>.<br>
+Même orientation, dispersion variable.</p></li>
+<li><p>Covariances générales (<span class="math inline">\(\Sigma_k\)</span> non contraintes) :<br>
+Cas le plus flexible. Les clusters sont des ellipsoïdes de forme complètement libre, au risque de sur-ajustement lorsque <span class="math inline">\(d\)</span> est grand.</p></li>
+</ul>
+<p>Ces différentes paramétrisations correspondent aux modèles GPCM (Banfield &amp; Raftery), tels qu’implémentés dans <code>mclust</code>.</p>
+</section><section id="choix-du-nombre-de-clusters" class="level2"><h2 class="anchored" data-anchor-id="choix-du-nombre-de-clusters">Choix du nombre de clusters</h2>
+<p>Dans une approche par maximum de vraisemblance, le nombre de clusters <span class="math inline">\(K\)</span> n’est pas estimé directement par EM. On ajuste plutôt différents modèles pour plusieurs valeurs possibles de <span class="math inline">\(K\)</span>, puis on sélectionne le meilleur selon un critère pénalisé, typiquement :</p>
+<ul>
+<li><p>AIC (Akaike Information Criterion): Favorise des modèles plus complexes.</p></li>
+<li><p>BIC (Bayesian Information Criterion): Critère plus parcimonieux, souvent utilisé pour les mélanges gaussiens.</p></li>
+</ul></section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -1200,7 +1265,7 @@ window.onload = function() {
     </div>   
     <div class="nav-footer-center">
 <p>2025 | <strong>Steven Golovkine</strong> | <a class="link-footer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
-<div class="toc-actions"><ul>
+<div class="toc-actions d-sm-block d-md-none"><ul>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li>
 <li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/contents/unsupervised/03-gaussian-mixtures.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li>
 </ul></div>
