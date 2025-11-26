@@ -450,43 +450,42 @@ Steven Golovkine
 <div id="tabset-1-1">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(ipred)</span>
-<span id="cb1-3"><a></a></span>
-<span id="cb1-4"><a></a>temp <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">'../include/data/unsupervised/temperature.csv'</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">";"</span>, <span class="at">dec =</span> <span class="st">'.'</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
-<span id="cb1-5"><a></a>df <span class="ot">&lt;-</span> temp[<span class="dv">1</span><span class="sc">:</span><span class="dv">23</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>]</span>
-<span id="cb1-6"><a></a>city <span class="ot">&lt;-</span> <span class="fu">row.names</span>(temp[<span class="dv">1</span><span class="sc">:</span><span class="dv">23</span>,])</span>
-<span id="cb1-7"><a></a></span>
-<span id="cb1-8"><a></a>model <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(df, <span class="at">centers =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-2"><a></a></span>
+<span id="cb1-3"><a></a>temp <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">'../include/data/unsupervised/temperature.csv'</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">";"</span>, <span class="at">dec =</span> <span class="st">'.'</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
+<span id="cb1-4"><a></a>df <span class="ot">&lt;-</span> temp[<span class="dv">1</span><span class="sc">:</span><span class="dv">23</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>]</span>
+<span id="cb1-5"><a></a>city <span class="ot">&lt;-</span> <span class="fu">row.names</span>(temp[<span class="dv">1</span><span class="sc">:</span><span class="dv">23</span>,])</span>
+<span id="cb1-6"><a></a></span>
+<span id="cb1-7"><a></a>model <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(df, <span class="at">centers =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-1-2">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>model</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>K-means clustering with 3 clusters of sizes 11, 8, 4
+<pre><code>K-means clustering with 3 clusters of sizes 4, 8, 11
 
 Cluster means:
     January  February     March     April      May     June     July   August
-1  1.090909  1.854545  5.009091  8.754545 13.23636 16.29091 18.30909 17.95455
+1  7.925000  8.950000 11.100000 13.950000 17.65000 21.60000 24.50000 24.37500
 2 -4.962500 -4.275000 -0.762500  5.075000 11.13750 15.00000 16.98750 15.75000
-3  7.925000  8.950000 11.100000 13.950000 17.65000 21.60000 24.50000 24.37500
+3  1.090909  1.854545  5.009091  8.754545 13.23636 16.29091 18.30909 17.95455
   September  October  November  December
-1    14.800 10.50909  5.572727  2.609091
+1    21.225 16.75000 12.175000  8.950000
 2    11.325  6.11250  0.850000 -2.762500
-3    21.225 16.75000 12.175000  8.950000
+3    14.800 10.50909  5.572727  2.609091
 
 Clustering vector:
  Amsterdam      Athens      Berlin     Brussels   Budapest  Copenhagen  
-          1           3           1           1           1           1 
+          3           1           3           3           3           3 
     Dublin      Elsinki       Kiev      Krakow      Lisbon      London  
-          1           2           2           2           3           1 
+          3           2           2           2           1           3 
     Madrid       Minsk       Moscow       Oslo       Paris      Prague  
-          3           2           2           2           1           1 
+          1           2           2           2           3           3 
  Reykjavik        Rome    Sarajevo       Sofia   Stockholm  
-          2           3           1           1           2 
+          2           1           3           3           2 
 
 Within cluster sum of squares by cluster:
-[1] 364.2236 388.8175 163.0600
+[1] 163.0600 388.8175 364.2236
  (between_SS / total_SS =  79.0 %)
 
 Available components:
