@@ -4510,6 +4510,132 @@
     "text": "Conclusion\n\nModèle général:\n\\[Y = f(X) + \\epsilon\\]\nClassification non-supervisée: connaissant \\(X\\) et supposant une certaine forme pour \\(f\\), on cherche à estimer \\(Y\\).\n\n\nProchaine étape → Classification hiérarchique"
   },
   {
+    "objectID": "slides/06-unsupervised-gaussian-slides.html#quest-ce-quun-mélange-de-gaussiennes",
+    "href": "slides/06-unsupervised-gaussian-slides.html#quest-ce-quun-mélange-de-gaussiennes",
+    "title": "Non-supervisée",
+    "section": "Qu’est-ce qu’un mélange de gaussiennes ?",
+    "text": "Qu’est-ce qu’un mélange de gaussiennes ?\n\nIdée centrale : Les données proviennent de plusieurs sous-populations (clusters), chacune suivant une distribution normale.\n\nObjectif :\n\nIdentifier les clusters\nEstimer les paramètres de chaque distribution\nAssigner les observations aux clusters"
+  },
+  {
+    "objectID": "slides/06-unsupervised-gaussian-slides.html#plan",
+    "href": "slides/06-unsupervised-gaussian-slides.html#plan",
+    "title": "Non-supervisée",
+    "section": "Plan",
+    "text": "Plan\n\n\nHypothèses du modèle\nVraisemblance\nContraintes sur covariances\nSélection de \\(K\\)\nExemple"
+  },
+  {
+    "objectID": "slides/06-unsupervised-gaussian-slides.html#hypothèses-du-modèle",
+    "href": "slides/06-unsupervised-gaussian-slides.html#hypothèses-du-modèle",
+    "title": "Non-supervisée",
+    "section": "Hypothèses du modèle",
+    "text": "Hypothèses du modèle\n\nDonnées : \\((X_1, \\ldots, X_n)\\) observations\n\nStructure :\n\n\\(K\\) sous-populations (clusters).\n\\(C(i) \\in \\{1, \\ldots, K\\}\\) : étiquette (non observée) de l’observation \\(i\\).\nChaque cluster \\(k\\) caractérisé par paramètre \\(\\theta_k\\).\n\n\n\n⚠️ Étiquettes \\(C(i)\\) inconnues !"
+  },
+  {
+    "objectID": "slides/06-unsupervised-gaussian-slides.html#paramètres-à-estimer",
+    "href": "slides/06-unsupervised-gaussian-slides.html#paramètres-à-estimer",
+    "title": "Non-supervisée",
+    "section": "Paramètres à estimer",
+    "text": "Paramètres à estimer\n\nPour chaque cluster \\(k \\in \\{1, \\ldots, K\\}\\) :\n\n\\(\\pi_k\\) : Proportion (poids) du cluster\n\\(\\theta_k\\) : Vecteur des paramètres\n\n\nChallenge : Estimation conjointe des paramètres ET des affectations."
+  },
+  {
+    "objectID": "slides/06-unsupervised-gaussian-slides.html#vraisemblance-complète",
+    "href": "slides/06-unsupervised-gaussian-slides.html#vraisemblance-complète",
+    "title": "Non-supervisée",
+    "section": "Vraisemblance complète",
+    "text": "Vraisemblance complète\n\nSi on connaissait les étiquettes \\(C\\) :\n\\[L(\\theta, C) = \\prod_{k=1}^K \\prod_{\\{i : C(i)=k\\}} f(X_i \\mid \\theta_k)\\]\noù \\(f(\\cdot \\mid \\theta_k)\\) est la densité du cluster \\(k\\)\n\n\nProblème : Les \\(C(i)\\) sont inconnus !"
+  },
+  {
+    "objectID": "slides/06-unsupervised-gaussian-slides.html#cas-gaussien-vraisemblance-complète",
+    "href": "slides/06-unsupervised-gaussian-slides.html#cas-gaussien-vraisemblance-complète",
+    "title": "Non-supervisée",
+    "section": "Cas gaussien : Vraisemblance complète",
+    "text": "Cas gaussien : Vraisemblance complète\n\nHypothèse : Chaque cluster suit \\(\\mathcal{N}(\\mu_k, \\Sigma_k)\\)\n\\[L(\\theta, C) = \\prod_{k=1}^{K} \\prod_{i : C(i)=k} \\frac{(2\\pi)^{-d/2}}{\\lvert \\Sigma_k \\rvert^{1/2}}  \\exp\\left(-\\frac{1}{2}(X_i - \\mu_k)^\\top \\Sigma_k^{-1}(X_i - \\mu_k)\\right)\\]\noù \\(d\\) est la dimension des données"
+  },
+  {
+    "objectID": "slides/06-unsupervised-gaussian-slides.html#vraisemblance-marginale",
+    "href": "slides/06-unsupervised-gaussian-slides.html#vraisemblance-marginale",
+    "title": "Non-supervisée",
+    "section": "Vraisemblance marginale",
+    "text": "Vraisemblance marginale\n\nSolution : Marginaliser sur les étiquettes inconnues\n\\[L(\\theta) = \\prod_{i=1}^n \\left( \\sum_{k=1}^K \\pi_k \\, f(X_i \\mid \\theta_k) \\right)\\]\n\nInterprétation :\n\n\\(\\pi_k = \\mathbb{P}(C(i)=k)\\) : probabilité a priori d’appartenance au cluster \\(k\\)\nPour chaque observation : somme pondérée des densités"
+  },
+  {
+    "objectID": "slides/06-unsupervised-gaussian-slides.html#log-vraisemblance",
+    "href": "slides/06-unsupervised-gaussian-slides.html#log-vraisemblance",
+    "title": "Non-supervisée",
+    "section": "Log-vraisemblance",
+    "text": "Log-vraisemblance\n\nEn pratique, on maximise le log de la vraisemblance :\n\\[\\log L(\\theta) = \\sum_{i=1}^n \\log\\left( \\sum_{k=1}^K \\pi_k \\, f(X_i \\mid \\theta_k) \\right)\\]\n\nProblème : Log d’une somme → pas de solution analytique simple.\n\n\nSolution : Algorithme EM !"
+  },
+  {
+    "objectID": "slides/06-unsupervised-gaussian-slides.html#algorithme-em-vue-densemble",
+    "href": "slides/06-unsupervised-gaussian-slides.html#algorithme-em-vue-densemble",
+    "title": "Non-supervisée",
+    "section": "Algorithme EM : Vue d’ensemble",
+    "text": "Algorithme EM : Vue d’ensemble\n\nItération entre deux étapes :\n\nE-step : Estimer probabilités d’appartenance (avec paramètres courants).\nM-step : Mettre à jour les paramètres (avec probabilités courantes).\n\n\nConvergence vers un maximum local de la vraisemblance."
+  },
+  {
+    "objectID": "slides/06-unsupervised-gaussian-slides.html#contraintes-sur-les-covariances-sphériques-même-taille",
+    "href": "slides/06-unsupervised-gaussian-slides.html#contraintes-sur-les-covariances-sphériques-même-taille",
+    "title": "Non-supervisée",
+    "section": "Contraintes sur les covariances: sphériques, même taille",
+    "text": "Contraintes sur les covariances: sphériques, même taille\n\n\\[\\Sigma_k = \\sigma^2 I\\]\nCaractéristiques :\n\nClusters = boules de même rayon\nComportement proche du \\(k\\)-means\nTrès contraint, peu de paramètres"
+  },
+  {
+    "objectID": "slides/06-unsupervised-gaussian-slides.html#contraintes-sur-les-covariances-sphériques-taille-différente",
+    "href": "slides/06-unsupervised-gaussian-slides.html#contraintes-sur-les-covariances-sphériques-taille-différente",
+    "title": "Non-supervisée",
+    "section": "Contraintes sur les covariances: sphériques, taille différente",
+    "text": "Contraintes sur les covariances: sphériques, taille différente\n\n\\[\\Sigma_k = \\sigma_k^2 I\\]\nCaractéristiques :\n\nClusters sphériques\nDispersion différente par cluster\nPlus flexible que cas précédent"
+  },
+  {
+    "objectID": "slides/06-unsupervised-gaussian-slides.html#contraintes-sur-les-covariances-diagonales",
+    "href": "slides/06-unsupervised-gaussian-slides.html#contraintes-sur-les-covariances-diagonales",
+    "title": "Non-supervisée",
+    "section": "Contraintes sur les covariances: diagonales",
+    "text": "Contraintes sur les covariances: diagonales\n\n\\[\\Sigma_k = \\text{diag}(\\sigma_{k1}^2, \\ldots, \\sigma_{kd}^2)\\]\nCaractéristiques :\n\nDimensions supposées indépendantes\nEllipsoïdes alignés avec les axes\nStandardisation préalable recommandée"
+  },
+  {
+    "objectID": "slides/06-unsupervised-gaussian-slides.html#covariances-générales-non-contraintes",
+    "href": "slides/06-unsupervised-gaussian-slides.html#covariances-générales-non-contraintes",
+    "title": "Non-supervisée",
+    "section": "Covariances générales (non contraintes)",
+    "text": "Covariances générales (non contraintes)\n\n\\[\\Sigma_k \\text{ quelconque (définie positive)}\\]\nCaractéristiques :\n\nMaximum de flexibilité\nEllipsoïdes de forme complètement libre\n⚠️ Risque de sur-ajustement si \\(d\\) grand"
+  },
+  {
+    "objectID": "slides/06-unsupervised-gaussian-slides.html#choix-du-nombre-de-clusters-k",
+    "href": "slides/06-unsupervised-gaussian-slides.html#choix-du-nombre-de-clusters-k",
+    "title": "Non-supervisée",
+    "section": "Choix du nombre de clusters \\(K\\)",
+    "text": "Choix du nombre de clusters \\(K\\)\n\nProblème : \\(K\\) n’est pas estimé par EM.\n\nStratégie :\n\nAjuster des modèles pour différentes valeurs de \\(K\\).\nComparer les modèles avec des critères pénalisés.\nSélectionner le meilleur modèle."
+  },
+  {
+    "objectID": "slides/06-unsupervised-gaussian-slides.html#exemple",
+    "href": "slides/06-unsupervised-gaussian-slides.html#exemple",
+    "title": "Non-supervisée",
+    "section": "Exemple",
+    "text": "Exemple"
+  },
+  {
+    "objectID": "slides/06-unsupervised-gaussian-slides.html#avantages-des-mélanges-gaussiens",
+    "href": "slides/06-unsupervised-gaussian-slides.html#avantages-des-mélanges-gaussiens",
+    "title": "Non-supervisée",
+    "section": "Avantages des mélanges gaussiens",
+    "text": "Avantages des mélanges gaussiens\n\n\nProbabiliste : Incertitude sur affectations.\nFlexible : Clusters de formes variées.\nThéorique : Cadre mathématique solide.\nGénéralisable : Facilite la prédiction.\nModèle génératif : Peut simuler nouvelles données."
+  },
+  {
+    "objectID": "slides/06-unsupervised-gaussian-slides.html#limitations",
+    "href": "slides/06-unsupervised-gaussian-slides.html#limitations",
+    "title": "Non-supervisée",
+    "section": "Limitations",
+    "text": "Limitations\n\n\nHypothèse gaussienne : Peut être restrictive.\nSensibilité à l’initialisation : Maxima locaux.\nChoix de contraintes : Impact sur résultats.\nGrande dimension : Difficultés si \\(d\\) grand."
+  },
+  {
+    "objectID": "slides/06-unsupervised-gaussian-slides.html#récapitulatif",
+    "href": "slides/06-unsupervised-gaussian-slides.html#récapitulatif",
+    "title": "Non-supervisée",
+    "section": "Récapitulatif",
+    "text": "Récapitulatif\n\nModèle probabiliste pour clustering\nAlgorithme EM : E-step (responsabilités) + M-step (paramètres)\nContraintes sur \\(\\Sigma_k\\) → forme des clusters.\n\n\nProchaine étape → The END"
+  },
+  {
     "objectID": "slides/07-ethics-slides.html#lanalyse-de-données-aujourdhui",
     "href": "slides/07-ethics-slides.html#lanalyse-de-données-aujourdhui",
     "title": "Éthique",

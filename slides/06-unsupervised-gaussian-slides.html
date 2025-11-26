@@ -145,17 +145,213 @@ Steven Golovkine
 </div>
 </div>
 
-  <p class="date">26 nov. 2025</p>
+  <p class="date">28 nov. 2025</p>
   <figure>
     <center>
       <img src="../include/logo-ul.png" alt="logo" width="40%">
     </center>
   </figure>
 </section>
-<section class="slide level2">
+<section id="quest-ce-quun-mélange-de-gaussiennes" class="slide level2">
+<h2>Qu’est-ce qu’un mélange de gaussiennes ?</h2>
+<p><br></p>
+<p>Idée centrale : Les données proviennent de plusieurs sous-populations (clusters), chacune suivant une distribution normale.</p>
+<div class="fragment">
+<p>Objectif :</p>
+<ul>
+<li><p>Identifier les clusters</p></li>
+<li><p>Estimer les paramètres de chaque distribution</p></li>
+<li><p>Assigner les observations aux clusters</p></li>
+</ul>
+</div>
+</section>
+<section id="plan" class="slide level2">
+<h2>Plan</h2>
+<p><br></p>
+<ol type="1">
+<li><p>Hypothèses du modèle</p></li>
+<li><p>Vraisemblance</p></li>
+<li><p>Contraintes sur covariances</p></li>
+<li><p>Sélection de <span class="math inline">\(K\)</span></p></li>
+<li><p>Exemple</p></li>
+</ol>
+</section>
+<section id="hypothèses-du-modèle" class="slide level2">
+<h2>Hypothèses du modèle</h2>
+<p><br></p>
+<p>Données : <span class="math inline">\((X_1, \ldots, X_n)\)</span> observations</p>
+<div class="fragment">
+<p>Structure :</p>
+<ul>
+<li><p><span class="math inline">\(K\)</span> sous-populations (clusters).</p></li>
+<li><p><span class="math inline">\(C(i) \in \{1, \ldots, K\}\)</span> : étiquette (non observée) de l’observation <span class="math inline">\(i\)</span>.</p></li>
+<li><p>Chaque cluster <span class="math inline">\(k\)</span> caractérisé par paramètre <span class="math inline">\(\theta_k\)</span>.</p></li>
+</ul>
+</div>
+<div class="fragment">
+<p>⚠️ Étiquettes <span class="math inline">\(C(i)\)</span> inconnues !</p>
+</div>
+</section>
+<section id="paramètres-à-estimer" class="slide level2">
+<h2>Paramètres à estimer</h2>
+<p><br></p>
+<p>Pour chaque cluster <span class="math inline">\(k \in \{1, \ldots, K\}\)</span> :</p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(\pi_k\)</span> : Proportion (poids) du cluster</p></li>
+<li class="fragment"><p><span class="math inline">\(\theta_k\)</span> : Vecteur des paramètres</p></li>
+</ul>
+<div class="fragment">
+<p>Challenge : Estimation conjointe des paramètres ET des affectations.</p>
+</div>
+</section>
+<section id="vraisemblance-complète" class="slide level2">
+<h2>Vraisemblance complète</h2>
+<p><br></p>
+<p>Si on connaissait les étiquettes <span class="math inline">\(C\)</span> :</p>
+<p><span class="math display">\[L(\theta, C) = \prod_{k=1}^K \prod_{\{i : C(i)=k\}} f(X_i \mid \theta_k)\]</span></p>
+<p>où <span class="math inline">\(f(\cdot \mid \theta_k)\)</span> est la densité du cluster <span class="math inline">\(k\)</span></p>
+<div class="fragment">
+<p><br></p>
+<p>Problème : Les <span class="math inline">\(C(i)\)</span> sont inconnus !</p>
+</div>
+</section>
+<section id="cas-gaussien-vraisemblance-complète" class="slide level2">
+<h2>Cas gaussien : Vraisemblance complète</h2>
+<p><br></p>
+<p>Hypothèse : Chaque cluster suit <span class="math inline">\(\mathcal{N}(\mu_k, \Sigma_k)\)</span></p>
+<p><span class="math display">\[L(\theta, C) = \prod_{k=1}^{K} \prod_{i : C(i)=k} \frac{(2\pi)^{-d/2}}{\lvert \Sigma_k \rvert^{1/2}}  \exp\left(-\frac{1}{2}(X_i - \mu_k)^\top \Sigma_k^{-1}(X_i - \mu_k)\right)\]</span></p>
+<p>où <span class="math inline">\(d\)</span> est la dimension des données</p>
+</section>
+<section id="vraisemblance-marginale" class="slide level2">
+<h2>Vraisemblance marginale</h2>
+<p><br></p>
+<p>Solution : Marginaliser sur les étiquettes inconnues</p>
+<p><span class="math display">\[L(\theta) = \prod_{i=1}^n \left( \sum_{k=1}^K \pi_k \, f(X_i \mid \theta_k) \right)\]</span></p>
+<div class="fragment">
+<p>Interprétation :</p>
+<ul>
+<li><p><span class="math inline">\(\pi_k = \mathbb{P}(C(i)=k)\)</span> : probabilité a priori d’appartenance au cluster <span class="math inline">\(k\)</span></p></li>
+<li><p>Pour chaque observation : somme pondérée des densités</p></li>
+</ul>
+</div>
+</section>
+<section id="log-vraisemblance" class="slide level2">
+<h2>Log-vraisemblance</h2>
+<p><br></p>
+<p>En pratique, on maximise le log de la vraisemblance :</p>
+<p><span class="math display">\[\log L(\theta) = \sum_{i=1}^n \log\left( \sum_{k=1}^K \pi_k \, f(X_i \mid \theta_k) \right)\]</span></p>
+<div class="fragment">
+<p>Problème : Log d’une somme → pas de solution analytique simple.</p>
+</div>
+<div class="fragment">
+<p>Solution : Algorithme EM !</p>
+</div>
+</section>
+<section id="algorithme-em-vue-densemble" class="slide level2">
+<h2>Algorithme EM : Vue d’ensemble</h2>
+<p><br></p>
+<p>Itération entre deux étapes :</p>
+<ol type="1">
+<li class="fragment"><p>E-step : Estimer probabilités d’appartenance (avec paramètres courants).</p></li>
+<li class="fragment"><p>M-step : Mettre à jour les paramètres (avec probabilités courantes).</p></li>
+</ol>
+<div class="fragment">
+<p>Convergence vers un maximum local de la vraisemblance.</p>
+</div>
+</section>
+<section id="contraintes-sur-les-covariances-sphériques-même-taille" class="slide level2">
+<h2>Contraintes sur les covariances: sphériques, même taille</h2>
+<p><br></p>
+<p><span class="math display">\[\Sigma_k = \sigma^2 I\]</span></p>
+<p>Caractéristiques :</p>
+<ul>
+<li><p>Clusters = boules de même rayon</p></li>
+<li><p>Comportement proche du <span class="math inline">\(k\)</span>-means</p></li>
+<li><p>Très contraint, peu de paramètres</p></li>
+</ul>
+</section>
+<section id="contraintes-sur-les-covariances-sphériques-taille-différente" class="slide level2">
+<h2>Contraintes sur les covariances: sphériques, taille différente</h2>
+<p><br></p>
+<p><span class="math display">\[\Sigma_k = \sigma_k^2 I\]</span></p>
+<p>Caractéristiques :</p>
+<ul>
+<li><p>Clusters sphériques</p></li>
+<li><p>Dispersion différente par cluster</p></li>
+<li><p>Plus flexible que cas précédent</p></li>
+</ul>
+</section>
+<section id="contraintes-sur-les-covariances-diagonales" class="slide level2">
+<h2>Contraintes sur les covariances: diagonales</h2>
+<p><br></p>
+<p><span class="math display">\[\Sigma_k = \text{diag}(\sigma_{k1}^2, \ldots, \sigma_{kd}^2)\]</span></p>
+<p>Caractéristiques :</p>
+<ul>
+<li><p>Dimensions supposées indépendantes</p></li>
+<li><p>Ellipsoïdes alignés avec les axes</p></li>
+<li><p>Standardisation préalable recommandée</p></li>
+</ul>
+</section>
+<section id="covariances-générales-non-contraintes" class="slide level2">
+<h2>Covariances générales (non contraintes)</h2>
+<p><br></p>
+<p><span class="math display">\[\Sigma_k \text{ quelconque (définie positive)}\]</span></p>
+<p>Caractéristiques :</p>
+<ul>
+<li><p>Maximum de flexibilité</p></li>
+<li><p>Ellipsoïdes de forme complètement libre</p></li>
+<li><p>⚠️ Risque de sur-ajustement si <span class="math inline">\(d\)</span> grand</p></li>
+</ul>
+</section>
+<section id="choix-du-nombre-de-clusters-k" class="slide level2">
+<h2>Choix du nombre de clusters <span class="math inline">\(K\)</span></h2>
+<p><br></p>
+<p>Problème : <span class="math inline">\(K\)</span> n’est pas estimé par EM.</p>
+<div class="fragment">
+<p>Stratégie :</p>
+<ol type="1">
+<li><p>Ajuster des modèles pour différentes valeurs de <span class="math inline">\(K\)</span>.</p></li>
+<li><p>Comparer les modèles avec des critères pénalisés.</p></li>
+<li><p>Sélectionner le meilleur modèle.</p></li>
+</ol>
+</div>
+</section>
+<section id="exemple" class="slide level2">
+<h2>Exemple</h2>
+</section>
+<section id="avantages-des-mélanges-gaussiens" class="slide level2">
+<h2>Avantages des mélanges gaussiens</h2>
+<p><br></p>
+<ul>
+<li><p>Probabiliste : Incertitude sur affectations.</p></li>
+<li><p>Flexible : Clusters de formes variées.</p></li>
+<li><p>Théorique : Cadre mathématique solide.</p></li>
+<li><p>Généralisable : Facilite la prédiction.</p></li>
+<li><p>Modèle génératif : Peut simuler nouvelles données.</p></li>
+</ul>
+</section>
+<section id="limitations" class="slide level2">
+<h2>Limitations</h2>
+<p><br></p>
+<ul>
+<li><p>Hypothèse gaussienne : Peut être restrictive.</p></li>
+<li><p>Sensibilité à l’initialisation : Maxima locaux.</p></li>
+<li><p>Choix de contraintes : Impact sur résultats.</p></li>
+<li><p>Grande dimension : Difficultés si <span class="math inline">\(d\)</span> grand.</p></li>
+</ul>
+</section>
+<section id="récapitulatif" class="slide level2">
+<h2>Récapitulatif</h2>
+<p><br></p>
+<p>Modèle probabiliste pour clustering</p>
+<p>Algorithme EM : E-step (responsabilités) + M-step (paramètres)</p>
+<p>Contraintes sur <span class="math inline">\(\Sigma_k\)</span> → forme des clusters.</p>
+<div class="fragment">
+<p><br></p>
+<p>Prochaine étape → The END</p>
 
 
-
+</div>
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
