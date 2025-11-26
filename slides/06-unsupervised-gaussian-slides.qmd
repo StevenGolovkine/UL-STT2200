@@ -244,7 +244,50 @@ Stratégie :
 
 3. Sélectionner le meilleur modèle.
 
-## Exemple
+
+## Exemple {.smaller}
+
+::: panel-tabset
+### Code
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+library(tidyverse)
+library(mclust)
+
+temp <- read.table('../include/data/unsupervised/temperature.csv', header = TRUE, sep = ";", dec = '.', row.names = 1)
+df <- temp[1:23, 1:12]
+city <- row.names(temp[1:23,])
+
+model <- Mclust(df, G = 3)
+```
+
+
+### Model
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+summary(model)
+```
+
+
+### Graphique 
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+model <- Mclust(df, G = 3)
+plot(df$January, df$September, col = model$classification)
+```
+
+:::
+
+
 
 ## Avantages des mélanges gaussiens
 

@@ -41,7 +41,7 @@
         "\n",
         "1. Do not make comparisons to `True`, `False`, or `None`.\n"
       ],
-      "id": "c75833f3"
+      "id": "8a0cbc22"
     },
     {
       "cell_type": "code",
@@ -58,7 +58,7 @@
         "if attr is None:\n",
         "    print(\"None!\")"
       ],
-      "id": "ca60d876",
+      "id": "0f9b591d",
       "execution_count": null,
       "outputs": []
     },
@@ -68,7 +68,7 @@
       "source": [
         "2. Use list comprehension when possible.\n"
       ],
-      "id": "74025e8c"
+      "id": "1545d73e"
     },
     {
       "cell_type": "code",
@@ -79,7 +79,7 @@
         "a = [3, 4, 5]\n",
         "b = [i for i in a if i > 4]"
       ],
-      "id": "1ab01c67",
+      "id": "ccff5c80",
       "execution_count": null,
       "outputs": []
     },
@@ -89,7 +89,7 @@
       "source": [
         "3. Load a file with `with`. This ensures that the connection to the file is closed once it has been read.\n"
       ],
-      "id": "1621f51d"
+      "id": "c61cc853"
     },
     {
       "cell_type": "code",
@@ -100,7 +100,7 @@
         "with open(\"file.txt\") as f:\n",
         "    read(f)"
       ],
-      "id": "f8335613",
+      "id": "e9511fba",
       "execution_count": null,
       "outputs": []
     },
@@ -112,7 +112,7 @@
         "\n",
         "5. Use parentheses to wrap long strings."
       ],
-      "id": "cd6950d7"
+      "id": "e7d6c551"
     }
   ],
   "metadata": {

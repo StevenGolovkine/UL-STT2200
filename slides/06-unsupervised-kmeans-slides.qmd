@@ -272,7 +272,6 @@ Coût computationnel plus élevé :
 #| eval: true
 #| warning: false
 library(tidyverse)
-library(ipred)
 
 temp <- read.table('../include/data/unsupervised/temperature.csv', header = TRUE, sep = ";", dec = '.', row.names = 1)
 df <- temp[1:23, 1:12]
