@@ -8,33 +8,85 @@ format:
       - \usepackage{mathtools} 
 --- 
 
+
 ## Hypothèses
 
-On suppose que le nombre de clusters $K$ est connu. L'ensemble des observations consiste en $K$ sous-populations; chaque sous-population correspondant à un cluster d'observations. Chaque sous-population suit une distribution connue de paramètres $\theta_k$ pour $k \in \{1, \dots, K\}$. Les paramètres sont totalement ou partiellement inconnus et nous devons donc les estimer.
+On suppose que le nombre de clusters $K$ est connu. L’ensemble des observations $(X_1, \dots, X_n)$ est constitué de $K$ sous-populations, chaque sous-population correspondant à un cluster. On note $C(i) \in \{1, \dots, K\}$ l’étiquette (non observée) de l’observation $i$.
+
+
+Chaque sous-population suit une distribution connue, caractérisée par un paramètre $\theta_k$, pour $k \in \{1, \dots, K\}$. Les paramètres $\theta_k$ sont totalement ou partiellement inconnus et doivent donc être estimés conjointement avec les affectations $C(i)$.
 
 
 ## Approche par maximum de vraisemblance
 
-Avec les hypothèses précédentes, il est possible de considerer une fonction correpondant au maximim de vraisemblance :
+Sous ces hypothèses, on peut écrire la fonction de vraisemblance complète (vraisemblance des données complétées par les labels) :
 
-$$L(\theta, C) = \prod_{k = 1}^K \prod_{\{i: C(i) = k\} f(X_i, \theta_k),$$
+$$L(\theta, C) = \prod_{k=1}^K \prod_{\{i : C(i)=k\}} f(X_i \mid \theta_k).$$
 
-où $C(i) = k$ si l'observation $i$ appartient au group $k$, et $f(X, \theta)$ représente la fonction de densité du modèle sous-jacent.
+où $f(\cdot \mid \theta_k)$ désigne la densité du modèle sous-jacent pour le cluster $k$.
 
-Avec l'hypothèse que chaque sous-population (groupe) suit une loi gaussienne, la fonction de vraisemblance est donnée par 
+### Cas gaussien
 
-$$L(\theta, C) = \prod_{k = 1}^{K} \prod_{i: C(i) = k} (2\pi)^{-n_k / 2} \left\| \Sigma_k \right\|^{-1/2} \exp\left\{-\frac{1}{2}(X_i - \mu_k)^\top \Sigma_k^{-1} (X_i - \mu_k)\right\},$$
+Si chaque sous-population suit une loi normale multivariée $\mathcal{N}(\mu_k, \Sigma_k)$, la vraisemblance complète s’écrit :
 
-où $\mu_k$ et $\Sigma_k$ sont le vecteur moyenne et la matrice de covariance de la sous-population $k$, respectivement.
+$$
+L(\theta, C)
+= \prod_{k=1}^{K} \prod_{i : C(i)=k}
+(2\pi)^{-d/2} \, \lvert \Sigma_k \rvert^{-1/2}
+\exp\!\left(
+-\frac{1}{2}(X_i - \mu_k)^\top \Sigma_k^{-1}(X_i - \mu_k)
+\right),
+$$
 
-Comme la fonction $C(i)$ est inconnue, l'optimisation du maximum de vraisemblance est obtenu grâce à un algortihme EM (Expectation-Maximimation).
+où $d$ est la dimension des données.
 
-## Propriétés 
+### Optimisation
 
-Des restrictions sont habituellement supposées pour les matrices de covariance $\Sigma_k$.
+Comme les étiquettes $C(i)$ sont inconnues, l’optimisation directe de la vraisemblance complète est impossible. La stratégie standard consiste à maximiser la vraisemblance marginale :
 
-Si les matrices de covariance $\Sigma_k$ sont supposées sphérique de taille similaire (proportionnelle à la matrice identité), on obtient quelque chose de similaire aux $k$-means. Si les $\Sigma_k$ sont supposées diagonales, une standardisation des variables est possible. Si les $\Sigma_k$ sont supposées ellipsoïdales de même forme, mais de taille différente, il est possible d'avoir des solutions plus générales. Enfin, si rien n'est supposé, on obtient les solutions les plus générales mais il est possible d'avoir du sur-apprentissage.
+$$L(\theta) = \prod_{i=1}^n \Bigg( \sum_{k=1}^K \pi_k \, f(X_i \mid \theta_k) \Bigg),$$
+
+où $\pi_k = \mathbb{P}(C(i)=k)$ sont les proportions (ou poids de mélange).
+
+La maximisation de cette vraisemblance s’effectue classiquement via l’algorithme EM (Expectation–Maximization), qui alterne :
+
+- E-step : estimation des probabilités d’appartenance $\tau_{ik}$ ;
+- M-step : mise à jour des paramètres $\pi_k$, $\mu_k$, $\Sigma_k$.
+
+
+
+## Propriétés et contraintes sur les matrices de covariance
+
+L’estimation est fortement influencée par les contraintes imposées sur les matrices $\Sigma_k$. Ces contraintes déterminent la forme géométrique des clusters (sphériques, ellipsoïdes, étirés, orientés, etc.).
+
+Voici les cas usuels :
+
+- Covariances sphériques, même taille :  $\Sigma_k = \sigma^2 I$.  
+  Les clusters sont des boules de même rayon ; comportement proche du $k$-means.
+
+- Covariances sphériques, tailles différentes : $\Sigma_k = \sigma_k^2 I$.  
+  Clusters sphériques mais de dispersion différente.
+
+- Covariances diagonales :  
+  Les dimensions sont supposées indépendantes. Une standardisation préalable peut être effectuée. Les clusters sont des ellipsoïdes alignés avec les axes.
+
+- Covariances ellipsoïdales de même forme mais de tailles différentes :  $\Sigma_k = \lambda_k D D^\top$.  
+  Même orientation, dispersion variable.
+
+- Covariances générales ($\Sigma_k$ non contraintes) :  
+  Cas le plus flexible. Les clusters sont des ellipsoïdes de forme complètement libre, au risque de sur-ajustement lorsque $d$ est grand.
+
+Ces différentes paramétrisations correspondent aux modèles GPCM (Banfield & Raftery), tels qu’implémentés dans `mclust`.
+
+
 
 ## Choix du nombre de clusters
 
-Le choix du nombre du clusters $K$ est fait dans l'approche du maximum de vraisemblance en ajustant plusieurs solutions en prenant $K$ dans un ensemble de valeurs acceptables et ensuite considérant un critère AIC ou BIC adaptés au clustering.
+Dans une approche par maximum de vraisemblance, le nombre de clusters $K$ n’est pas estimé directement par EM. On ajuste plutôt différents modèles pour plusieurs valeurs possibles de $K$, puis on sélectionne le meilleur selon un critère pénalisé, typiquement :
+
+- AIC (Akaike Information Criterion): Favorise des modèles plus complexes.
+
+- BIC (Bayesian Information Criterion): Critère plus parcimonieux, souvent utilisé pour les mélanges gaussiens.
+
+
+
