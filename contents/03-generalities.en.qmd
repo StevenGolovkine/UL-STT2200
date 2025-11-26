@@ -27,6 +27,8 @@ format:
 
 * TP: [link](../tp/03-generalites-tp.qmd)
 
+  - [Solution](../tp/correction/TP_Generalities.R)
+
 ## Outline 
 
 1. [Data analysis project](./generalities/01-stat.qmd)

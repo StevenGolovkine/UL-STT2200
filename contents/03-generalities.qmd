@@ -27,6 +27,8 @@ format:
 
 * TP: [link](../tp/03-generalities-tp.qmd)
 
+  - [Corrigé](../tp/correction/TP_Generalities.R)
+
 ## Sommaire
 
 1. [Projet d'analyse de données](./generalities/01-stat.qmd)

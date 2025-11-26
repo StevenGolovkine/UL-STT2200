@@ -20,6 +20,8 @@ format:
 
 * TP: [link](../tp/04-dimension-tp.qmd)
 
+  - [Solution](../tp/correction/TP_Dimension.R)
+
 ## Outline
 
 1. [Principal componens analysis](./dimension/01-pca.qmd)

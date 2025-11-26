@@ -25,6 +25,8 @@ format:
 
 * TP: [link](../tp/02-revision-tp.qmd)
 
+  - [Corrigé](../tp/correction/TP_Revision.R)
+
 
 ## Sommaire
 

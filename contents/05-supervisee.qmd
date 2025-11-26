@@ -23,6 +23,8 @@ format:
 
 * TP: [link](../tp/05-supervised-tp.qmd)
 
+  - [Corrigé](../tp/correction/TP_Supervisee.R)
+
 ## Sommaire
 
 1. [Analyse discriminante](./supervised/01-discriminant.qmd)

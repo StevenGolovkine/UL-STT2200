@@ -21,6 +21,8 @@ format:
 
 * TP: [link](../tp/04-dimension-tp.qmd)
 
+  - [Corrigé](../tp/correction/TP_Dimension.R)
+
 ## Sommaire
 
 1. [Analyse en composantes principales](./dimension/01-pca.qmd)
