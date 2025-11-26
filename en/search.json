@@ -4,7 +4,7 @@
     "href": "contents/03-generalities.html",
     "title": "Generalities",
     "section": "",
-    "text": "Slides:\n\nData analysis project\nSpaces\nDistances - annotated\nBias / Variance - annotated\nModel evaluation - annoté\n\nTD: link\n\nSolution Exercise 1\nSolution Exercises 2 à 4\n\nTP: link",
+    "text": "Slides:\n\nData analysis project\nSpaces\nDistances - annotated\nBias / Variance - annotated\nModel evaluation - annoté\n\nTD: link\n\nSolution Exercise 1\nSolution Exercises 2 à 4\n\nTP: link\n\nSolution",
     "crumbs": [
       "Modules",
       "03 - Généralités"
@@ -278,7 +278,7 @@
     "href": "contents/02-revisions.html",
     "title": "Remainders",
     "section": "",
-    "text": "Slides:\n\nAlgèbre linéaire - annotated\nProbabilités et statistiques - annotated\nAlgorithmique / Programmation\n\nTD: link\n\nSolution Exercise 1\nSolution Exercise 2\nSolution Exercise 3\n\nTP: link",
+    "text": "Slides:\n\nAlgèbre linéaire - annotated\nProbabilités et statistiques - annotated\nAlgorithmique / Programmation\n\nTD: link\n\nSolution Exercise 1\nSolution Exercise 2\nSolution Exercise 3\n\nTP: link\n\nSolution",
     "crumbs": [
       "Modules",
       "02 - Révisions"
@@ -799,7 +799,7 @@
     "href": "contents/05-supervisee.html",
     "title": "Supervised",
     "section": "",
-    "text": "Slides:\n\nGeneralities\nDiscriminant analysis - annotated\nTrees - annotated\nEnsemble models\n\nTD: link\nTP: link",
+    "text": "Slides:\n\nGeneralities\nDiscriminant analysis - annotated\nTrees - annotated\nEnsemble models\n\nTD: link\n\nSolution\n\nTP: link\n\nCorrigé",
     "crumbs": [
       "Modules",
       "05 - Supervisée"
@@ -863,7 +863,7 @@
     "href": "contents/04-dimension.html",
     "title": "Dimension",
     "section": "",
-    "text": "Slides:\n\nPrincipal componens analysis - annotated\nCorrespondance analysis - annotated\nMultiple correspondance analysis - annotated\n\nTD: link\nTP: link",
+    "text": "Slides:\n\nPrincipal componens analysis - annotated\nCorrespondance analysis - annotated\nMultiple correspondance analysis - annotated\n\nTD: link\nTP: link\n\nSolution",
     "crumbs": [
       "Modules",
       "04 - Dimension"

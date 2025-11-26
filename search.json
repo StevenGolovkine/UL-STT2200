@@ -4,7 +4,7 @@
     "href": "contents/03-generalities.html",
     "title": "Généralités",
     "section": "",
-    "text": "Slides:\n\nProjet d’analyse de données\nEspaces\nDistances - annoté\nBiais / Variance - annoté\nÉvaluation de modèles - annoté\n\nTD: link\n\nCorrigé Exercice 1\nCorrigé Exercices 2 à 4\n\nTP: link",
+    "text": "Slides:\n\nProjet d’analyse de données\nEspaces\nDistances - annoté\nBiais / Variance - annoté\nÉvaluation de modèles - annoté\n\nTD: link\n\nCorrigé Exercice 1\nCorrigé Exercices 2 à 4\n\nTP: link\n\nCorrigé",
     "crumbs": [
       "Modules",
       "03 - Généralités"
@@ -326,7 +326,7 @@
     "href": "contents/02-revisions.html",
     "title": "Révisions",
     "section": "",
-    "text": "Slides:\n\nAlgèbre linéaire - annoté\nProbabilités et statistiques - annoté\nAlgorithmique / Programmation\n\nTD: link\n\nCorrigé Exercice 1\nCorrigé Exercice 2\nCorrigé Exercice 3\n\nTP: link",
+    "text": "Slides:\n\nAlgèbre linéaire - annoté\nProbabilités et statistiques - annoté\nAlgorithmique / Programmation\n\nTD: link\n\nCorrigé Exercice 1\nCorrigé Exercice 2\nCorrigé Exercice 3\n\nTP: link\n\nCorrigé",
     "crumbs": [
       "Modules",
       "02 - Révisions"
@@ -6240,7 +6240,7 @@
     "href": "contents/05-supervisee.html",
     "title": "Supervisée",
     "section": "",
-    "text": "Slides:\n\nGénéralités\nAnalyse discriminante - annoté\nArbres - annoté\nModèles ensemblistes\n\nTD: link\n\nCorrigé\n\nTP: link",
+    "text": "Slides:\n\nGénéralités\nAnalyse discriminante - annoté\nArbres - annoté\nModèles ensemblistes\n\nTD: link\n\nCorrigé\n\nTP: link\n\nCorrigé",
     "crumbs": [
       "Modules",
       "05 - Supervisée"
@@ -6419,7 +6419,7 @@
     "href": "contents/04-dimension.html",
     "title": "Dimension",
     "section": "",
-    "text": "Slides:\n\nAnalyse en composantes principales - annoté\nAnalyse factorielle des correspondances - annoté\nAnalyse des correspondances multiples - annoté\n\nTD: link\n\nCorrigé\n\nTP: link",
+    "text": "Slides:\n\nAnalyse en composantes principales - annoté\nAnalyse factorielle des correspondances - annoté\nAnalyse des correspondances multiples - annoté\n\nTD: link\n\nCorrigé\n\nTP: link\n\nCorrigé",
     "crumbs": [
       "Modules",
       "04 - Dimension"
