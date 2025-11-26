@@ -34,6 +34,7 @@ jobs:
             any::gbm
             any::randomForest
             any::ipred
+            any::mclust
 
       - name: Install Python and Dependencies
         uses: actions/setup-python@v5
