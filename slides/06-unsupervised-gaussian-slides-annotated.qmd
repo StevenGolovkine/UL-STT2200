@@ -1,0 +1,338 @@
+--- 
+title: "Non-supervisée"
+subtitle: "Mélange de gaussiennes"
+author: "Steven Golovkine"
+lang: fr
+date: "28 nov. 2025"
+date-format: "DD MMM YYYY"
+slide-number: c/t
+title-logo: ../include/logo-ul.png
+format:
+  revealjs:
+    theme: [default, ../include/ulaval-slide.scss]
+    chalkboard:
+      src: annotation/06-unsupervised-gaussian-slides-annotation.json
+    width: 1280
+    height: 720
+    template-partials:
+      - title-slide.html
+--- 
+
+
+## Qu'est-ce qu'un mélange de gaussiennes ?
+
+<br>
+
+Idée centrale : Les données proviennent de plusieurs sous-populations (clusters), chacune suivant une distribution normale.
+
+. . .
+
+Objectif :
+
+- Identifier les clusters
+
+- Estimer les paramètres de chaque distribution
+
+- Assigner les observations aux clusters
+
+
+## Plan
+
+<br>
+
+1. Hypothèses du modèle
+
+2. Vraisemblance
+
+3. Contraintes sur covariances
+
+4. Sélection de $K$
+
+5. Exemple
+
+## Hypothèses du modèle
+
+<br>
+
+Données : $(X_1, \ldots, X_n)$ observations
+
+. . .
+
+Structure :
+
+- $K$ sous-populations (clusters).
+
+- $C(i) \in \{1, \ldots, K\}$ : étiquette (non observée) de l'observation $i$.
+
+- Chaque cluster $k$ caractérisé par paramètre $\theta_k$.
+
+. . .
+
+⚠️ Étiquettes $C(i)$ inconnues !
+
+
+## Paramètres à estimer
+
+<br>
+
+Pour chaque cluster $k \in \{1, \ldots, K\}$ :
+
+::: {.incremental}
+- $\pi_k$ : Proportion (poids) du cluster
+
+- $\theta_k$ : Vecteur des paramètres
+
+:::
+
+. . .
+
+Challenge : Estimation conjointe des paramètres ET des affectations.
+
+
+## Vraisemblance complète
+
+<br>
+
+Si on connaissait les étiquettes $C$ :
+
+$$L(\theta, C) = \prod_{k=1}^K \prod_{\{i : C(i)=k\}} f(X_i \mid \theta_k)$$
+
+où $f(\cdot \mid \theta_k)$ est la densité du cluster $k$
+
+. . .
+
+<br>
+
+Problème : Les $C(i)$ sont inconnus !
+
+
+## Cas gaussien : Vraisemblance complète
+
+<br>
+
+Hypothèse : Chaque cluster suit $\mathcal{N}(\mu_k, \Sigma_k)$
+
+$$L(\theta, C) = \prod_{k=1}^{K} \prod_{i : C(i)=k} \frac{(2\pi)^{-d/2}}{\lvert \Sigma_k \rvert^{1/2}}  \exp\left(-\frac{1}{2}(X_i - \mu_k)^\top \Sigma_k^{-1}(X_i - \mu_k)\right)$$
+
+où $d$ est la dimension des données
+
+## Vraisemblance marginale
+
+<br>
+
+Solution : Marginaliser sur les étiquettes inconnues
+
+$$L(\theta) = \prod_{i=1}^n \left( \sum_{k=1}^K \pi_k \, f(X_i \mid \theta_k) \right)$$
+
+. . .
+
+Interprétation :
+
+- $\pi_k = \mathbb{P}(C(i)=k)$ : probabilité a priori d'appartenance au cluster $k$
+
+- Pour chaque observation : somme pondérée des densités
+
+
+## Log-vraisemblance
+
+<br>
+
+En pratique, on maximise le log de la vraisemblance :
+
+$$\log L(\theta) = \sum_{i=1}^n \log\left( \sum_{k=1}^K \pi_k \, f(X_i \mid \theta_k) \right)$$
+
+. . .
+
+Problème : Log d'une somme → pas de solution analytique simple.
+
+. . .
+
+Solution : Algorithme EM !
+
+
+## Algorithme EM : Vue d'ensemble
+
+<br>
+
+Itération entre deux étapes :
+
+::: {.incremental}
+1. E-step : Estimer probabilités d'appartenance (avec paramètres courants).
+
+2. M-step : Mettre à jour les paramètres (avec probabilités courantes).
+:::
+
+. . .
+
+Convergence vers un maximum local de la vraisemblance.
+
+
+
+## Contraintes sur les covariances: sphériques, même taille
+
+<br>
+
+$$\Sigma_k = \sigma^2 I$$
+
+Caractéristiques :
+
+- Clusters = boules de même rayon
+
+- Comportement proche du $k$-means
+
+- Très contraint, peu de paramètres
+
+
+## Contraintes sur les covariances: sphériques, taille différente
+
+<br>
+
+$$\Sigma_k = \sigma_k^2 I$$
+
+Caractéristiques :
+
+- Clusters sphériques
+
+- Dispersion différente par cluster
+
+- Plus flexible que cas précédent
+
+
+## Contraintes sur les covariances: diagonales
+
+<br>
+
+$$\Sigma_k = \text{diag}(\sigma_{k1}^2, \ldots, \sigma_{kd}^2)$$
+
+Caractéristiques :
+
+- Dimensions supposées indépendantes
+
+- Ellipsoïdes alignés avec les axes
+
+- Standardisation préalable recommandée
+
+
+## Covariances générales (non contraintes)
+
+<br>
+
+$$\Sigma_k \text{ quelconque (définie positive)}$$
+
+Caractéristiques :
+
+- Maximum de flexibilité
+
+- Ellipsoïdes de forme complètement libre
+
+- ⚠️ Risque de sur-ajustement si $d$ grand
+
+
+
+## Choix du nombre de clusters $K$
+
+<br>
+
+Problème : $K$ n'est pas estimé par EM.
+
+. . .
+
+Stratégie :
+
+1. Ajuster des modèles pour différentes valeurs de $K$.
+
+2. Comparer les modèles avec des critères pénalisés.
+
+3. Sélectionner le meilleur modèle.
+
+
+## Exemple {.smaller}
+
+::: panel-tabset
+### Code
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+library(tidyverse)
+library(mclust)
+
+temp <- read.table('../include/data/unsupervised/temperature.csv', header = TRUE, sep = ";", dec = '.', row.names = 1)
+df <- temp[1:23, 1:12]
+city <- row.names(temp[1:23,])
+
+model <- Mclust(df, G = 3)
+```
+
+
+### Model
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+summary(model)
+```
+
+
+### Graphique 
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+model <- Mclust(df, G = 3)
+plot(df$January, df$September, col = model$classification)
+```
+
+:::
+
+
+
+## Avantages des mélanges gaussiens
+
+<br>
+
+- Probabiliste : Incertitude sur affectations.
+
+- Flexible : Clusters de formes variées.
+
+- Théorique : Cadre mathématique solide.
+
+- Généralisable : Facilite la prédiction.
+
+- Modèle génératif : Peut simuler nouvelles données.
+
+
+## Limitations
+
+<br>
+
+- Hypothèse gaussienne : Peut être restrictive.
+
+- Sensibilité à l'initialisation : Maxima locaux.
+
+- Choix de contraintes : Impact sur résultats.
+
+- Grande dimension : Difficultés si $d$ grand.
+
+
+## Récapitulatif
+
+<br>
+
+
+Modèle probabiliste pour clustering
+
+Algorithme EM : E-step (responsabilités) + M-step (paramètres)
+
+Contraintes sur $\Sigma_k$ → forme des clusters.
+
+. . .
+
+<br>
+
+Prochaine étape → The END
+
+

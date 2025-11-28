@@ -13,9 +13,9 @@ format:
   
   - [Méthodes hiérarchiques](../slides/06-unsupervised-hierarchy-slides.qmd) - [annoté](../slides/06-unsupervised-hierarchy-slides-annotated.qmd)
   
-  - [$k$-moyennes](../slides/06-unsupervised-kmeans-slides.qmd)
+  - [$k$-moyennes](../slides/06-unsupervised-kmeans-slides.qmd) - [annoté](../slides/06-unsupervised-kmeans-slides-annotated.qmd)
 
-  - [Mélanges de gaussiennes](../slides/06-unsupervised-gaussian-slides.qmd)
+  - [Mélanges de gaussiennes](../slides/06-unsupervised-gaussian-slides.qmd) - [annoté](../slides/06-unsupervised-gaussian-slides-annotated.qmd)
 
 * TD: [link](../td/06-unsupervised-td.qmd)
 

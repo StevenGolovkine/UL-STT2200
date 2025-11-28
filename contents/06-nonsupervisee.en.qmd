@@ -14,9 +14,9 @@ format:
   
   - [Hierarchical models](../slides/06-unsupervised-hierarchy-slides.qmd) - [annotated](../slides/06-unsupervised-hierarchy-slides-annotated.qmd)
   
-  - [$k$-means](../slides/06-unsupervised-kmeans-slides.qmd)
+  - [$k$-means](../slides/06-unsupervised-kmeans-slides.qmd) - [annotated](../slides/06-unsupervised-kmeans-slides-annotated.qmd)
 
-  - [Gaussian mixtures](../slides/06-unsupervised-gaussian-slides.qmd)
+  - [Gaussian mixtures](../slides/06-unsupervised-gaussian-slides.qmd) - [annotated](../slides/06-unsupervised-gaussian-slides-annotated.qmd)
 
 * TD: [link](../td/06-unsupervised-td.qmd)
 
