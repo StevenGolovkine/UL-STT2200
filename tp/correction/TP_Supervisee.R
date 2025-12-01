@@ -19,27 +19,26 @@ set.seed(123)
 ############################################################
 
 ## 1. Import data
-## Replace "nfl_players.csv" by your actual file path
-nfl <- read.csv("nfl_players.csv")
+nfl <- read.csv("nfl.csv")
 
-## Assume there are columns: Position (factor), Ht, Wt
+## Assume there are columns: PosRec (factor), Ht, Wt
 nfl <- nfl %>%
-  mutate(Position = factor(Position))
+  mutate(PosRec = factor(PosRec))
 
 ## 2. Descriptive analysis
 summary(nfl)
-table(nfl$Position)
+table(nfl$PosRec)
 
-ggplot(nfl, aes(x = Ht, y = Wt, color = Position)) +
+ggplot(nfl, aes(x = Ht, y = Wt, color = PosRec)) +
   geom_point(alpha = 0.7) +
   theme_minimal()
 
 ## 3. LDA: QB vs OL using Ht and Wt
-nfl_QB_OL <- nfl %>%
-  filter(Position %in% c("QB", "OL")) %>%
+nfl_QB_OL <- nfl |> 
+  filter(PosRec %in% c("QB", "OL")) |> 
   droplevels()
 
-lda_QB_OL <- lda(Position ~ Ht + Wt, data = nfl_QB_OL)
+lda_QB_OL <- lda(PosRec ~ Ht + Wt, data = nfl_QB_OL)
 lda_QB_OL
 
 ## 4. Coordinate & class for new player (Ht=76.5, Wt=335.5)
@@ -54,22 +53,22 @@ pred_new_QB_OL$class  # predicted position
 
 ## OL vs DL
 nfl_OL_DL <- nfl %>%
-  filter(Position %in% c("OL", "DL")) %>%
+  filter(PosRec %in% c("OL", "DL")) %>%
   droplevels()
 
-lda_OL_DL <- lda(Position ~ Ht + Wt, data = nfl_OL_DL)
+lda_OL_DL <- lda(PosRec ~ Ht + Wt, data = nfl_OL_DL)
 lda_OL_DL
 
 ## DL vs QB
 nfl_DL_QB <- nfl %>%
-  filter(Position %in% c("DL", "QB")) %>%
+  filter(PosRec %in% c("DL", "QB")) %>%
   droplevels()
 
-lda_DL_QB <- lda(Position ~ Ht + Wt, data = nfl_DL_QB)
+lda_DL_QB <- lda(PosRec ~ Ht + Wt, data = nfl_DL_QB)
 lda_DL_QB
 
 ## Optionally compute apparent classification error for each:
-lda_error <- function(model, data, response = "Position") {
+lda_error <- function(model, data, response = "PosRec") {
   p <- predict(model)$class
   mean(p != data[[response]])
 }
@@ -82,21 +81,29 @@ err_QB_OL; err_OL_DL; err_DL_QB
 
 ## 6. LDA with three positions: QB, OL, DL
 nfl_3 <- nfl %>%
-  filter(Position %in% c("QB", "OL", "DL")) %>%
+  filter(PosRec %in% c("QB", "OL", "DL")) %>%
   droplevels()
 
-lda_3 <- lda(Position ~ Ht + Wt, data = nfl_3)
+lda_3 <- lda(PosRec ~ Ht + Wt, data = nfl_3)
 lda_3
 
 pred_lda3 <- predict(lda_3)$class
-mean(pred_lda3 != nfl_3$Position)  # apparent error
+mean(pred_lda3 != nfl_3$PosRec)  # apparent error
+
+# Il vaut mieux utiliser les modèles précédents. Il est plus difficile de 
+# séparer trois groupes que plusieurs fois deux groupes.
 
 ############################################################
 ## Exercice 2 : Prédire les réclamations (classification tree)
 ############################################################
 
 ## 1. Import data
-claims <- read.csv("rakuten_claims.csv")
+claims <- read.csv("rakuten.csv") |> 
+  filter(SELLER_COUNTRY %in% c("FRANCE, METROPOLITAN", "CHINA", "GERMANY")) |> 
+  filter(ITEM_PRICE != "1000<5000")
+# On selectionne seulement quelques pays pour ne pas avoir de problème lors
+# du train/test.
+
 
 ## 2. Descriptive analysis
 str(claims)
@@ -106,8 +113,8 @@ table(claims$CLAIM_TYPE)
 ## 3. Train/validation split (70/30)
 set.seed(123)
 train_idx <- createDataPartition(claims$CLAIM_TYPE, p = 0.7, list = FALSE)
-claims_train <- claims[train_idx, ]
-claims_valid <- claims[-train_idx, ]
+claims_train <- claims[train_idx, ] |> droplevels()
+claims_valid <- claims[-train_idx, ] |> droplevels()
 
 ## 4. Classification tree (default parameters)
 tree1 <- rpart(CLAIM_TYPE ~ ., data = claims_train, method = "class")
@@ -118,17 +125,10 @@ pred_train <- predict(tree1, newdata = claims_train, type = "class")
 pred_valid <- predict(tree1, newdata = claims_valid, type = "class")
 
 ## Confusion matrices
-confusionMatrix(pred_train, claims_train$CLAIM_TYPE)
-confusionMatrix(pred_valid, claims_valid$CLAIM_TYPE)
+confusionMatrix(pred_train, as.factor(claims_train$CLAIM_TYPE))
+confusionMatrix(pred_valid, as.factor(claims_valid$CLAIM_TYPE))
 
-## 6. Error rate in node 3
-## Identify node 3's observations
-node_ids_train <- tree1$where  # node for each training obs
-node3_idx <- which(node_ids_train == 3)
-true_node3 <- claims_train$CLAIM_TYPE[node3_idx]
-pred_node3 <- pred_train[node3_idx]
-err_node3 <- mean(true_node3 != pred_node3)
-err_node3
+## 6. Question mal posée
 
 ## 7. Global accuracy on train & validation
 acc_train <- mean(pred_train == claims_train$CLAIM_TYPE)
@@ -136,7 +136,7 @@ acc_valid <- mean(pred_valid == claims_valid$CLAIM_TYPE)
 acc_train; acc_valid
 
 ## 8. Change minsplit and minbucket and rebuild the tree
-ctrl2 <- rpart.control(minsplit = 2, minbucket = 1, cp = 0.01)
+ctrl2 <- rpart.control(minsplit = 2, minbucket = 1, cp = 0.001)
 tree2 <- rpart(CLAIM_TYPE ~ ., data = claims_train, method = "class", control = ctrl2)
 rpart.plot(tree2)
 
@@ -249,25 +249,25 @@ plot(B_grid, err_test_tree_bag, type = "l",
 ############################################################
 
 ## 1. Import data
-spam <- read.csv("spam.csv")  # adapt file name
-spam$y <- factor(spam$y)      # replace y by actual target variable if needed
+spam <- read.csv("spam.csv") |> 
+  mutate(type = as.factor(type))
 
 ## 2. 50/50 train/validation split
 set.seed(123)
-train_idx_spam <- createDataPartition(spam$y, p = 0.5, list = FALSE)
+train_idx_spam <- createDataPartition(spam$type, p = 0.5, list = FALSE)
 spam_train <- spam[train_idx_spam, ]
 spam_valid <- spam[-train_idx_spam, ]
 
 ## 3. Random forest with default parameters
-rf_default <- randomForest(y ~ ., data = spam_train)
+rf_default <- randomForest(type ~ ., data = spam_train)
 rf_default
 
 ## Predictions & errors
 pred_train_rf <- predict(rf_default, spam_train)
 pred_valid_rf <- predict(rf_default, spam_valid)
 
-mean(pred_train_rf != spam_train$y)
-mean(pred_valid_rf != spam_valid$y)
+mean(pred_train_rf != spam_train$type)
+mean(pred_valid_rf != spam_valid$type)
 
 ## 4. Influence of mtry
 mtry_grid <- seq(1, ncol(spam) - 1, length.out = 10)
@@ -276,9 +276,9 @@ mtry_grid <- unique(round(mtry_grid))
 err_valid_mtry <- numeric(length(mtry_grid))
 
 for (i in seq_along(mtry_grid)) {
-  rf_i <- randomForest(y ~ ., data = spam_train, mtry = mtry_grid[i])
+  rf_i <- randomForest(type ~ ., data = spam_train, mtry = mtry_grid[i])
   pred_valid_i <- predict(rf_i, newdata = spam_valid)
-  err_valid_mtry[i] <- mean(pred_valid_i != spam_valid$y)
+  err_valid_mtry[i] <- mean(pred_valid_i != spam_valid$type)
 }
 
 plot(mtry_grid, err_valid_mtry, type = "b",
@@ -289,7 +289,7 @@ ctrl_cv <- trainControl(method = "cv", number = 5)
 tune_grid <- expand.grid(mtry = mtry_grid)
 
 rf_cv <- train(
-  y ~ .,
+  type ~ .,
   data = spam_train,
   method = "rf",
   trControl = ctrl_cv,
@@ -308,10 +308,10 @@ colnames(err_valid_ntree) <- paste0("mtry_", mtry_values)
 for (j in seq_along(mtry_values)) {
   mtry_j <- mtry_values[j]
   for (i in seq_along(ntree_grid)) {
-    rf_ij <- randomForest(y ~ ., data = spam_train,
+    rf_ij <- randomForest(type ~ ., data = spam_train,
                           mtry = mtry_j, ntree = ntree_grid[i])
     pred_valid_ij <- predict(rf_ij, newdata = spam_valid)
-    err_valid_ntree[i, j] <- mean(pred_valid_ij != spam_valid$y)
+    err_valid_ntree[i, j] <- mean(pred_valid_ij != spam_valid$type)
   }
 }
 
@@ -324,14 +324,14 @@ err_test_ntree <- numeric(length(ntree_grid))
 err_oob_ntree  <- numeric(length(ntree_grid))
 
 for (i in seq_along(ntree_grid)) {
-  rf_i <- randomForest(y ~ ., data = spam_train,
+  rf_i <- randomForest(type ~ ., data = spam_train,
                        mtry = 1, ntree = ntree_grid[i], keep.inbag = TRUE)
   ## OOB error
   err_oob_ntree[i] <- rf_i$err.rate[ntree_grid[i], "OOB"]
   
   ## Test error (validation set)
   pred_valid_i <- predict(rf_i, newdata = spam_valid)
-  err_test_ntree[i] <- mean(pred_valid_i != spam_valid$y)
+  err_test_ntree[i] <- mean(pred_valid_i != spam_valid$type)
 }
 
 plot(ntree_grid, err_test_ntree, type = "l",
@@ -344,8 +344,9 @@ legend("topright", legend = c("Validation error", "OOB error"), lty = c(1, 2))
 ############################################################
 
 ## 1. Import data
-compare <- read.csv("compare_classifiers.csv")  # adapt file name
-compare$y <- factor(compare$y)                  # target variable
+pima <- read.csv("pima.csv") |> 
+  mutate(type = as.factor(type))
+
 
 ## 2–3. Evaluate LDA, tree, RF, AdaBoost, XGBoost with repeated splits
 n_rep <- 100
@@ -357,46 +358,45 @@ err_xgb  <- numeric(n_rep)
 
 for (r in 1:n_rep) {
   set.seed(100 + r)
-  train_idx_cmp <- createDataPartition(compare$y, p = 0.7, list = FALSE)
-  cmp_train <- compare[train_idx_cmp, ]
-  cmp_test  <- compare[-train_idx_cmp, ]
+  train_idx_cmp <- createDataPartition(pima$type, p = 0.7, list = FALSE)
+  cmp_train <- pima[train_idx_cmp, ]
+  cmp_test  <- pima[-train_idx_cmp, ]
   
   ## LDA
-  lda_r <- lda(y ~ ., data = cmp_train)
+  lda_r <- lda(type ~ ., data = cmp_train)
   pred_lda <- predict(lda_r, newdata = cmp_test)$class
-  err_lda[r] <- mean(pred_lda != cmp_test$y)
+  err_lda[r] <- mean(pred_lda != cmp_test$type)
   
   ## Tree
-  tree_r <- rpart(y ~ ., data = cmp_train, method = "class")
+  tree_r <- rpart(type ~ ., data = cmp_train, method = "class")
   pred_tree <- predict(tree_r, newdata = cmp_test, type = "class")
-  err_tree[r] <- mean(pred_tree != cmp_test$y)
+  err_tree[r] <- mean(pred_tree != cmp_test$type)
   
   ## Random Forest
-  rf_r <- randomForest(y ~ ., data = cmp_train)
+  rf_r <- randomForest(type ~ ., data = cmp_train)
   pred_rf <- predict(rf_r, newdata = cmp_test)
-  err_rf[r] <- mean(pred_rf != cmp_test$y)
+  err_rf[r] <- mean(pred_rf != cmp_test$type)
   
   ## AdaBoost (adabag)
-  ada_r <- boosting(y ~ ., data = cmp_train)
+  ada_r <- boosting(type ~ ., data = cmp_train)
   pred_ada <- predict(ada_r, newdata = cmp_test)
-  err_ada[r] <- mean(pred_ada$class != cmp_test$y)
+  err_ada[r] <- mean(pred_ada$class != cmp_test$type)
   
   ## XGBoost (binary or multi-class)
   ## Assume a binary classification {0,1} or multi-class factor
   ## We need numeric labels for xgboost:
-  y_train_num <- as.numeric(cmp_train$y) - 1
-  y_test_num  <- as.numeric(cmp_test$y) - 1
-  X_train <- as.matrix(cmp_train[, setdiff(names(cmp_train), "y")])
-  X_test  <- as.matrix(cmp_test[,  setdiff(names(cmp_test),  "y")])
+  y_train_num <- as.numeric(cmp_train$type) - 1
+  y_test_num  <- as.numeric(cmp_test$type) - 1
+  X_train <- as.matrix(cmp_train[, setdiff(names(cmp_train), "type")])
+  X_test  <- as.matrix(cmp_test[,  setdiff(names(cmp_test),  "type")])
   
-  num_class <- length(levels(compare$y))
+  num_class <- length(levels(pima$type))
   objective_xgb <- if (num_class == 2) "binary:logistic" else "multi:softmax"
   
   xgb_r <- xgboost(
     data = X_train,
     label = y_train_num,
     objective = objective_xgb,
-    num_class = if (num_class == 2) NULL else num_class,
     nrounds = 50,
     verbose = 0
   )
@@ -409,8 +409,8 @@ for (r in 1:n_rep) {
   }
   pred_factor <- factor(pred_label,
                         levels = 0:(num_class - 1),
-                        labels = levels(compare$y))
-  err_xgb[r] <- mean(pred_factor != cmp_test$y)
+                        labels = levels(pima$type))
+  err_xgb[r] <- mean(pred_factor != cmp_test$type)
 }
 
 ## Boxplots of error rates
@@ -426,6 +426,3 @@ boxplot(error_df,
         main = "Classification error over 100 repetitions",
         ylab = "Error rate")
 
-############################################################
-## End of TP code
-############################################################
