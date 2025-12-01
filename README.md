@@ -34,10 +34,10 @@ This repository contains the website used for the module STT-2200 given at Unive
     - [X] Discriminant analysis
     - [X] Tree 
     - [X] Ensemble models 
-  * [ ] Unsupervised
+  * [X] Unsupervised
     - [X] k-means
     - [X] Hierarchical clustering
-    - [ ] Gaussian mixtures
+    - [X] Gaussian mixtures
   * [X] Ethics 
 
 - [ ] TP/TD
