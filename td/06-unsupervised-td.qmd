@@ -36,3 +36,24 @@ Soit $a, b, c, d, e$ et $f$ des observations qui ont respetivement les valeurs s
 1. Calculer l'indice de Silhouette de l'observation $c$. Interpréter le résultat. 
 
 2. Calculer le pseudo-$R^2$ de ce regroupement.
+
+## Exercice 3: $k$-means
+
+Dans cet exercice, on a $5$ observations que l'on cherche à partitionner en $K = 2$ groupes. Le tableau suivant contient les observations :
+
+| Obs | 1 | 2 | 3 | 4 | 5 |
+|:-:|:-:|:-:|:-:|:-:|:-:|
+| $x_{i1}$ | -1 | -0.5 | 0   |  0.5 | 1 |
+| $x_{i2}$ | -1 |  0   | 0.5 | -0.5 | 1 |
+
+1. Assigner aléatoirement les observations à chacun des deux groupes.
+
+2. Calculer les centroïdes de chacun des groupes.
+
+3. Calculer les distances entre les observations et les centroïdes. Calculer $W(C)$.
+
+4. Ré-assigner les observations au groupe le plus proche.
+
+5. Re-calculer les centroïdes de chacun des groupes.
+
+6. Re-calculer les distances entre les observations et les centroïdes. Calculer $W(C)$. Les observations changent-elles de groupe ?

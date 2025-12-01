@@ -38,3 +38,15 @@ Dans cet exercice, on se propose de comparer la classification ascendante hiéra
 4. Calculer le critère de Silhouette des deux clustering obtenus. Interpréter les résultats.
 
 5. Comparer les résultats des méthodes ascendante et descendante.
+
+## Exercice 3: De la musique (suite)
+
+Dans cet exercice, on se propose de tester l'algorithme des $k$-means.
+
+1. Télécharger le jeu de données suivant: [lien](../include/data/tp/musique.csv).
+
+2. Utiliser le $k$-means pour faire un regroupement des observations en $K = 4$ groupes.
+
+3. Décrire brièvement les quatre groupes avec les statistiques descriptives classiques.
+
+4. Donner la taille des groupes. Identifier les musiques appréciées ou non dans chaque groupe.
