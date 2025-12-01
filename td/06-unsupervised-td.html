@@ -567,6 +567,7 @@ window.Quarto = {
   <ul>
   <li><a href="#exercice-1-cah" id="toc-exercice-1-cah" class="nav-link active" data-scroll-target="#exercice-1-cah">Exercice 1: CAH</a></li>
   <li><a href="#exercice-2-indicateurs-pour-le-choix-des-groupes" id="toc-exercice-2-indicateurs-pour-le-choix-des-groupes" class="nav-link" data-scroll-target="#exercice-2-indicateurs-pour-le-choix-des-groupes">Exercice 2: Indicateurs pour le choix des groupes</a></li>
+  <li><a href="#exercice-3-k-means" id="toc-exercice-3-k-means" class="nav-link" data-scroll-target="#exercice-3-k-means">Exercice 3: <span class="math inline">\(k\)</span>-means</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/StevenGolovkine/UL-STT2200/issues/new" class="toc-action"><i class="bi bi-github"></i>Faire part d'un problème</a></li><li><a href="https://github.com/StevenGolovkine/UL-STT2200/blob/main/td/06-unsupervised-td.qmd" class="toc-action"><i class="bi empty"></i>Voir la source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Autres formats</h2><ul><li><a href="06-unsupervised-td.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -651,6 +652,48 @@ window.Quarto = {
 <ol type="1">
 <li><p>Calculer l’indice de Silhouette de l’observation <span class="math inline">\(c\)</span>. Interpréter le résultat.</p></li>
 <li><p>Calculer le pseudo-<span class="math inline">\(R^2\)</span> de ce regroupement.</p></li>
+</ol>
+</section>
+<section id="exercice-3-k-means" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-3-k-means">Exercice 3: <span class="math inline">\(k\)</span>-means</h2>
+<p>Dans cet exercice, on a <span class="math inline">\(5\)</span> observations que l’on cherche à partitionner en <span class="math inline">\(K = 2\)</span> groupes. Le tableau suivant contient les observations :</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Obs</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(x_{i1}\)</span></td>
+<td style="text-align: center;">-1</td>
+<td style="text-align: center;">-0.5</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0.5</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(x_{i2}\)</span></td>
+<td style="text-align: center;">-1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0.5</td>
+<td style="text-align: center;">-0.5</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li><p>Assigner aléatoirement les observations à chacun des deux groupes.</p></li>
+<li><p>Calculer les centroïdes de chacun des groupes.</p></li>
+<li><p>Calculer les distances entre les observations et les centroïdes. Calculer <span class="math inline">\(W(C)\)</span>.</p></li>
+<li><p>Ré-assigner les observations au groupe le plus proche.</p></li>
+<li><p>Re-calculer les centroïdes de chacun des groupes.</p></li>
+<li><p>Re-calculer les distances entre les observations et les centroïdes. Calculer <span class="math inline">\(W(C)\)</span>. Les observations changent-elles de groupe ?</p></li>
 </ol>
 
 
