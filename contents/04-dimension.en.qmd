@@ -18,6 +18,8 @@ format:
 
 * TD: [link](../td/04-dimension-td.qmd)
 
+  - [Solution](../td/correction/Td_ Dimension.pdf)
+
 * TP: [link](../tp/04-dimension-tp.qmd)
 
   - [Solution](../tp/correction/TP_Dimension.R)

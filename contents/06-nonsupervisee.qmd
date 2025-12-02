@@ -19,6 +19,8 @@ format:
 
 * TD: [link](../td/06-unsupervised-td.qmd)
 
+  - [Corrigé](../td/correction/Td_ Non supervisee.pdf)
+
 * TP: [link](../tp/06-unsupervised-tp.qmd)
 
 ## Sommaire

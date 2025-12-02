@@ -24,7 +24,7 @@ format:
 
 * TP: [link](../tp/05-supervised-tp.qmd)
 
-  - [Corrigé](../tp/correction/TP_Supervisee.R)
+  - [Solution](../tp/correction/TP_Supervisee.R)
 
 ## Outline
 
