@@ -24,6 +24,8 @@ format:
 
 * TP: [link](../tp/06-unsupervised-tp.qmd)
 
+  - [Corrigé](../tp/correction/TP_NonSupervisee.R)
+  
 ## Outline
 
 1. [Hierarchical models](./unsupervised/02-hierarchy.qmd)

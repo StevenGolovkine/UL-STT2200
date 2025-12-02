@@ -23,6 +23,8 @@ format:
 
 * TP: [link](../tp/06-unsupervised-tp.qmd)
 
+  - [Corrigé](../tp/correction/TP_NonSupervisee.R)
+
 ## Sommaire
 
 1. [Méthodes hiérarchiques](./unsupervised/02-hierarchy.qmd)
