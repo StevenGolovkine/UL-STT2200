@@ -148,14 +148,14 @@ La librairie R [`NbClust`](https://www.rdocumentation.org/packages/NbClust/versi
 ### Critères basés sur l'inertie
 
 L'inertie mesure la dispersion des observations appartenant à un groupe par rapport à son centroïde. L'inertie totale $I_{\text{tot}}$ de l'ensemble des $n$ observations est 
-$$I_{\text{tot}} = \frac{1}{n}\sum_{i = 1}^{n} d(X_i, G),$$
+$$I_{\text{tot}} = \frac{1}{n}\sum_{i = 1}^{n} d^2(X_i, G),$$
 où la fonction $d$ est une distance et $G$ le centre de gravité de l'ensemble des observations. L'inertie totale $I_{tot}$ se décompose en une inertie **intra-groupe** et une inertie **inter-groupe** de la façon suivante :
 $$I_{\text{tot}} = I_{\text{intra-groupe}} + I_{\text{inter-groupe}}.$$
 L'inertie inter-groupe $I_{\text{inter-groupe}}$ est l'inertie des centres de gravité des groupes pondérés par le nombre d'observations dans le groupe. Elle mesure la séparation entre les groupes. Elle est donné par 
-$$I_{\text{inter-groupe}} = \frac{1}{n}\sum_{k = 1}^{K} n_k d(G_k, G),$$
+$$I_{\text{inter-groupe}} = \frac{1}{n}\sum_{k = 1}^{K} n_k d^2(G_k, G),$$
 où $G_k$ est le centre de gravité du groupe $k$ et $n_k$ le nombre d'observations dans ce groupe.
 L'inertie intra-groupe $I_{\text{intra-groupe}}$ est la somme des inerties des groupes. Elle mesure donc l'hétérogénéité des groupes. Elle est donnée par 
-$$I_{\text{intra-groupe}} = \frac{1}{n}\sum_{k = 1}^{K} \sum_{i \in C_k} d(X_i, G_k),$$
+$$I_{\text{intra-groupe}} = \frac{1}{n}\sum_{k = 1}^{K} \sum_{i \in C_k} d^2(X_i, G_k),$$
 où l'ensemble $C_k$ contient les observations du groupe $k$.
 
 Plus les groupes sont compacts, plus l'inertie intra-groupe est faible, ce qui signifie que l'inertie inter-groupe est élevé. Une partition de bonne qualité maximise donc l'inertie inter-groupe. Ces critères supposent généralement que les variables sont continues et ont été standardisées pour éviter qu'une variable à grande échelle ne domine les autres. 

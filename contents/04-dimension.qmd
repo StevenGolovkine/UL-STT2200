@@ -17,7 +17,7 @@ format:
 
 * TD: [link](../td/04-dimension-td.qmd)
 
-  - [Corrigé](../td/correction/Td_ Dimension.pdf)
+  - [Corrigé](../td/correction/Td_Dimension.pdf)
 
 * TP: [link](../tp/04-dimension-tp.qmd)
 

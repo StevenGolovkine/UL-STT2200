@@ -320,7 +320,7 @@ Critères pratiques :
 
 <br>
 
-$$I_{\text{tot}} = \frac{1}{n}\sum_{i=1}^{n} d(X_i, G)$$
+$$I_{\text{tot}} = \frac{1}{n}\sum_{i=1}^{n} d^2(X_i, G)$$
 
 . . .
 
@@ -337,13 +337,13 @@ Objectif : Maximiser $I_{\text{inter-groupe}}$ (séparation des groupes).
 
 Inertie inter-groupe (séparation) :
 
-$$I_{\text{inter-groupe}} = \frac{1}{n}\sum_{k=1}^{K} n_k d(G_k, G)$$
+$$I_{\text{inter-groupe}} = \frac{1}{n}\sum_{k=1}^{K} n_k d^2(G_k, G)$$
 
 . . .
 
 Inertie intra-groupe (compacité) :
 
-$$I_{\text{intra-groupe}} = \frac{1}{n}\sum_{k=1}^{K} \sum_{i \in C_k} d(X_i, G_k)$$
+$$I_{\text{intra-groupe}} = \frac{1}{n}\sum_{k=1}^{K} \sum_{i \in C_k} d^2(X_i, G_k)$$
 
 . . .
 
