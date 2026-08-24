@@ -8,8 +8,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.26">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Steven Golovkine">
   <title>STT-2200: Analyse de données – Révisions</title>
@@ -19,10 +19,16 @@
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -97,7 +103,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-61cb6bcdcb66a6a6ea8a61dd05d6a15c.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-417a519394bb5ddf9a9330a5df96d59e.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -267,21 +273,21 @@ Steven Golovkine
 <h2>Exemple : Code mal écrit vs.&nbsp;bien écrit</h2>
 <p><br></p>
 <p><strong>❌ Code difficile à comprendre :</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a></a>d<span class="op">=</span>pd.read_csv(<span class="st">'data.csv'</span>)</span>
-<span id="cb1-3"><a></a>r<span class="op">=</span>d.groupby(<span class="st">'A'</span>).mean()[<span class="st">'B'</span>]</span>
-<span id="cb1-4"><a></a><span class="bu">print</span>(r)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a aria-label="1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a aria-label="2"></a>d<span class="op">=</span>pd.read_csv(<span class="st">'data.csv'</span>)</span>
+<span id="cb1-3"><a aria-label="3"></a>r<span class="op">=</span>d.groupby(<span class="st">'A'</span>).mean()[<span class="st">'B'</span>]</span>
+<span id="cb1-4"><a aria-label="4"></a><span class="bu">print</span>(r)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="fragment">
 <p><strong>✅ Code clair et documenté :</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2-2"><a></a></span>
-<span id="cb2-3"><a></a><span class="co"># Chargement des données de ventes</span></span>
-<span id="cb2-4"><a></a>sales_data <span class="op">=</span> pd.read_csv(<span class="st">'monthly_sales.csv'</span>)</span>
-<span id="cb2-5"><a></a></span>
-<span id="cb2-6"><a></a><span class="co"># Calcul de la moyenne des ventes par région</span></span>
-<span id="cb2-7"><a></a>average_sales_by_region <span class="op">=</span> sales_data.groupby(<span class="st">'region'</span>).mean()[<span class="st">'sales_amount'</span>]</span>
-<span id="cb2-8"><a></a></span>
-<span id="cb2-9"><a></a><span class="bu">print</span>(<span class="ss">f"Ventes moyennes par région : </span><span class="sc">{</span>average_sales_by_region<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a aria-label="1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a aria-label="2"></a></span>
+<span id="cb2-3"><a aria-label="3"></a><span class="co"># Chargement des données de ventes</span></span>
+<span id="cb2-4"><a aria-label="4"></a>sales_data <span class="op">=</span> pd.read_csv(<span class="st">'monthly_sales.csv'</span>)</span>
+<span id="cb2-5"><a aria-label="5"></a></span>
+<span id="cb2-6"><a aria-label="6"></a><span class="co"># Calcul de la moyenne des ventes par région</span></span>
+<span id="cb2-7"><a aria-label="7"></a>average_sales_by_region <span class="op">=</span> sales_data.groupby(<span class="st">'region'</span>).mean()[<span class="st">'sales_amount'</span>]</span>
+<span id="cb2-8"><a aria-label="8"></a></span>
+<span id="cb2-9"><a aria-label="9"></a><span class="bu">print</span>(<span class="ss">f"Ventes moyennes par région : </span><span class="sc">{</span>average_sales_by_region<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="structure-de-projet-recommandée" class="slide level2">

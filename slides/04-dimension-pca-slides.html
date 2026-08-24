@@ -8,8 +8,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.26">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Steven Golovkine">
   <title>STT-2200: Analyse de données – Dimension</title>
@@ -19,10 +19,16 @@
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -97,7 +103,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-61cb6bcdcb66a6a6ea8a61dd05d6a15c.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-417a519394bb5ddf9a9330a5df96d59e.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -3863,22 +3869,22 @@ Steven Golovkine
 <section id="exemple-le-top-10-spotify-1" class="slide level2 smaller">
 <h2>Exemple : le top 10 Spotify</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a></a></span>
-<span id="cb1-3"><a></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> danceability, <span class="at">y =</span> energy, <span class="at">color =</span> track_artist)) <span class="sc">+</span></span>
-<span id="cb1-4"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb1-5"><a></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a aria-label="2"></a></span>
+<span id="cb1-3"><a aria-label="3"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> danceability, <span class="at">y =</span> energy, <span class="at">color =</span> track_artist)) <span class="sc">+</span></span>
+<span id="cb1-4"><a aria-label="4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb1-5"><a aria-label="5"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="04-dimension-pca-slides_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="exemple-le-top-10-spotify-2" class="slide level2 smaller">
 <h2>Exemple : le top 10 Spotify</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-2"><a></a></span>
-<span id="cb2-3"><a></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> loudness, <span class="at">y =</span> speechiness, <span class="at">color =</span> track_artist)) <span class="sc">+</span></span>
-<span id="cb2-4"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb2-5"><a></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-2"><a aria-label="2"></a></span>
+<span id="cb2-3"><a aria-label="3"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> loudness, <span class="at">y =</span> speechiness, <span class="at">color =</span> track_artist)) <span class="sc">+</span></span>
+<span id="cb2-4"><a aria-label="4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb2-5"><a aria-label="5"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="04-dimension-pca-slides_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
@@ -3889,14 +3895,14 @@ Steven Golovkine
 <div class="tab-content">
 <div id="tabset-1-1">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(FactoMineR)</span>
-<span id="cb3-2"><a></a><span class="fu">library</span>(factoextra)</span>
-<span id="cb3-3"><a></a>pca_not_scaled <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">select</span>(</span>
-<span id="cb3-4"><a></a>    danceability, energy, loudness, speechiness,</span>
-<span id="cb3-5"><a></a>    acousticness, liveness, valence, tempo</span>
-<span id="cb3-6"><a></a>  ) <span class="sc">|&gt;</span> <span class="fu">PCA</span>(<span class="at">scale.unit =</span> <span class="cn">FALSE</span>, <span class="at">graph =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb3-7"><a></a><span class="fu">fviz_eig</span>(pca_not_scaled)</span>
-<span id="cb3-8"><a></a><span class="fu">get_eigenvalue</span>(pca_scaled)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">library</span>(FactoMineR)</span>
+<span id="cb3-2"><a aria-label="2"></a><span class="fu">library</span>(factoextra)</span>
+<span id="cb3-3"><a aria-label="3"></a>pca_not_scaled <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">select</span>(</span>
+<span id="cb3-4"><a aria-label="4"></a>    danceability, energy, loudness, speechiness,</span>
+<span id="cb3-5"><a aria-label="5"></a>    acousticness, liveness, valence, tempo</span>
+<span id="cb3-6"><a aria-label="6"></a>  ) <span class="sc">|&gt;</span> <span class="fu">PCA</span>(<span class="at">scale.unit =</span> <span class="cn">FALSE</span>, <span class="at">graph =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb3-7"><a aria-label="7"></a><span class="fu">fviz_eig</span>(pca_not_scaled)</span>
+<span id="cb3-8"><a aria-label="8"></a><span class="fu">get_eigenvalue</span>(pca_scaled)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-1-2">
@@ -3953,24 +3959,6 @@ Steven Golovkine
 <td style="text-align: right;">0.0025634</td>
 <td style="text-align: right;">99.99601</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Dim.6</td>
-<td style="text-align: right;">0.0134860</td>
-<td style="text-align: right;">0.0016415</td>
-<td style="text-align: right;">99.99765</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Dim.7</td>
-<td style="text-align: right;">0.0100835</td>
-<td style="text-align: right;">0.0012274</td>
-<td style="text-align: right;">99.99888</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Dim.8</td>
-<td style="text-align: right;">0.0091876</td>
-<td style="text-align: right;">0.0011183</td>
-<td style="text-align: right;">100.00000</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -3986,14 +3974,14 @@ Steven Golovkine
 <div class="tab-content">
 <div id="tabset-2-1">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">library</span>(FactoMineR)</span>
-<span id="cb4-2"><a></a><span class="fu">library</span>(factoextra)</span>
-<span id="cb4-3"><a></a>pca_scaled <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">select</span>(</span>
-<span id="cb4-4"><a></a>    danceability, energy, loudness, speechiness,</span>
-<span id="cb4-5"><a></a>    acousticness, liveness, valence, tempo</span>
-<span id="cb4-6"><a></a>  ) <span class="sc">|&gt;</span> <span class="fu">PCA</span>(<span class="at">scale.unit =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb4-7"><a></a><span class="fu">fviz_eig</span>(pca_scaled)</span>
-<span id="cb4-8"><a></a><span class="fu">get_eigenvalue</span>(pca_scaled)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="fu">library</span>(FactoMineR)</span>
+<span id="cb4-2"><a aria-label="2"></a><span class="fu">library</span>(factoextra)</span>
+<span id="cb4-3"><a aria-label="3"></a>pca_scaled <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">select</span>(</span>
+<span id="cb4-4"><a aria-label="4"></a>    danceability, energy, loudness, speechiness,</span>
+<span id="cb4-5"><a aria-label="5"></a>    acousticness, liveness, valence, tempo</span>
+<span id="cb4-6"><a aria-label="6"></a>  ) <span class="sc">|&gt;</span> <span class="fu">PCA</span>(<span class="at">scale.unit =</span> <span class="cn">TRUE</span>, <span class="at">graph =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb4-7"><a aria-label="7"></a><span class="fu">fviz_eig</span>(pca_scaled)</span>
+<span id="cb4-8"><a aria-label="8"></a><span class="fu">get_eigenvalue</span>(pca_scaled)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-2-2">
@@ -4050,24 +4038,6 @@ Steven Golovkine
 <td style="text-align: right;">8.068991</td>
 <td style="text-align: right;">86.08801</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Dim.6</td>
-<td style="text-align: right;">0.5897927</td>
-<td style="text-align: right;">7.372408</td>
-<td style="text-align: right;">93.46042</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Dim.7</td>
-<td style="text-align: right;">0.3466595</td>
-<td style="text-align: right;">4.333244</td>
-<td style="text-align: right;">97.79367</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Dim.8</td>
-<td style="text-align: right;">0.1765066</td>
-<td style="text-align: right;">2.206333</td>
-<td style="text-align: right;">100.00000</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -4083,12 +4053,12 @@ Steven Golovkine
 <div class="tab-content">
 <div id="tabset-3-1">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">fviz_pca_var</span>(</span>
-<span id="cb5-2"><a></a>  pca_scaled,</span>
-<span id="cb5-3"><a></a>  <span class="at">col.var =</span> <span class="st">"cos2"</span>,</span>
-<span id="cb5-4"><a></a>  <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span>), </span>
-<span id="cb5-5"><a></a>  <span class="at">repel =</span> <span class="cn">TRUE</span> <span class="co"># Avoid text overlapping</span></span>
-<span id="cb5-6"><a></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">fviz_pca_var</span>(</span>
+<span id="cb5-2"><a aria-label="2"></a>  pca_scaled,</span>
+<span id="cb5-3"><a aria-label="3"></a>  <span class="at">col.var =</span> <span class="st">"cos2"</span>,</span>
+<span id="cb5-4"><a aria-label="4"></a>  <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span>), </span>
+<span id="cb5-5"><a aria-label="5"></a>  <span class="at">repel =</span> <span class="cn">TRUE</span> <span class="co"># Avoid text overlapping</span></span>
+<span id="cb5-6"><a aria-label="6"></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-3-2">
@@ -4112,8 +4082,8 @@ Steven Golovkine
 <div class="tab-content">
 <div id="tabset-4-1">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">fviz_contrib</span>(pca_scaled, <span class="at">choice =</span> <span class="st">"var"</span>, <span class="at">axes =</span> <span class="dv">1</span>)</span>
-<span id="cb6-2"><a></a><span class="fu">fviz_contrib</span>(pca_scaled, <span class="at">choice =</span> <span class="st">"var"</span>, <span class="at">axes =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">fviz_contrib</span>(pca_scaled, <span class="at">choice =</span> <span class="st">"var"</span>, <span class="at">axes =</span> <span class="dv">1</span>)</span>
+<span id="cb6-2"><a aria-label="2"></a><span class="fu">fviz_contrib</span>(pca_scaled, <span class="at">choice =</span> <span class="st">"var"</span>, <span class="at">axes =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-4-2">
@@ -4148,12 +4118,12 @@ Steven Golovkine
 <div class="tab-content">
 <div id="tabset-5-1">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">fviz_pca_ind</span>(</span>
-<span id="cb7-2"><a></a>  pca_scaled,</span>
-<span id="cb7-3"><a></a>  <span class="at">geom.ind =</span> <span class="st">"point"</span>, <span class="co"># show points only (nbut not "text")</span></span>
-<span id="cb7-4"><a></a>  <span class="at">col.ind =</span> df<span class="sc">$</span>track_artist, <span class="co"># color by groups</span></span>
-<span id="cb7-5"><a></a>  <span class="at">legend.title =</span> <span class="st">"Artists"</span>,</span>
-<span id="cb7-6"><a></a>) <span class="sc">+</span> <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">rep</span>(<span class="dv">19</span>, <span class="dv">10</span>))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="fu">fviz_pca_ind</span>(</span>
+<span id="cb7-2"><a aria-label="2"></a>  pca_scaled,</span>
+<span id="cb7-3"><a aria-label="3"></a>  <span class="at">geom.ind =</span> <span class="st">"point"</span>, <span class="co"># show points only (nbut not "text")</span></span>
+<span id="cb7-4"><a aria-label="4"></a>  <span class="at">col.ind =</span> df<span class="sc">$</span>track_artist, <span class="co"># color by groups</span></span>
+<span id="cb7-5"><a aria-label="5"></a>  <span class="at">legend.title =</span> <span class="st">"Artists"</span>,</span>
+<span id="cb7-6"><a aria-label="6"></a>) <span class="sc">+</span> <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">rep</span>(<span class="dv">19</span>, <span class="dv">10</span>))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-5-2">
@@ -4188,12 +4158,12 @@ Steven Golovkine
 <div class="tab-content">
 <div id="tabset-6-1">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">fviz_pca_biplot</span>(</span>
-<span id="cb8-2"><a></a>  pca_scaled,</span>
-<span id="cb8-3"><a></a>  <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb8-4"><a></a>  <span class="at">col.var =</span> <span class="st">"#2E9FDF"</span>, <span class="co"># Variables color</span></span>
-<span id="cb8-5"><a></a>  <span class="at">col.ind =</span> <span class="st">"#696969"</span>  <span class="co"># Individuals color</span></span>
-<span id="cb8-6"><a></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">fviz_pca_biplot</span>(</span>
+<span id="cb8-2"><a aria-label="2"></a>  pca_scaled,</span>
+<span id="cb8-3"><a aria-label="3"></a>  <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb8-4"><a aria-label="4"></a>  <span class="at">col.var =</span> <span class="st">"#2E9FDF"</span>, <span class="co"># Variables color</span></span>
+<span id="cb8-5"><a aria-label="5"></a>  <span class="at">col.ind =</span> <span class="st">"#696969"</span>  <span class="co"># Individuals color</span></span>
+<span id="cb8-6"><a aria-label="6"></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-6-2">

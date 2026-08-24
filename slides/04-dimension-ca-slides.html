@@ -8,8 +8,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.26">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Steven Golovkine">
   <title>STT-2200: Analyse de données – Dimension</title>
@@ -19,10 +19,16 @@
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -97,7 +103,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-61cb6bcdcb66a6a6ea8a61dd05d6a15c.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-417a519394bb5ddf9a9330a5df96d59e.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -617,13 +623,13 @@ Si <span class="math inline">\(T\)</span> grand → dépendance (intéressant po
 <div class="tab-content">
 <div id="tabset-1-1">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(FactoMineR)</span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(factoextra)</span>
-<span id="cb1-3"><a></a>res_ca <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
-<span id="cb1-4"><a></a>  <span class="fu">column_to_rownames</span>(<span class="at">var =</span> <span class="st">'province'</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb1-5"><a></a>  <span class="fu">CA</span>(<span class="at">graph =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb1-6"><a></a><span class="fu">fviz_eig</span>(res_ca)</span>
-<span id="cb1-7"><a></a><span class="fu">get_eigenvalue</span>(res_ca)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">library</span>(FactoMineR)</span>
+<span id="cb1-2"><a aria-label="2"></a><span class="fu">library</span>(factoextra)</span>
+<span id="cb1-3"><a aria-label="3"></a>res_ca <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb1-4"><a aria-label="4"></a>  <span class="fu">column_to_rownames</span>(<span class="at">var =</span> <span class="st">'province'</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-5"><a aria-label="5"></a>  <span class="fu">CA</span>(<span class="at">graph =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-6"><a aria-label="6"></a><span class="fu">fviz_eig</span>(res_ca)</span>
+<span id="cb1-7"><a aria-label="7"></a><span class="fu">get_eigenvalue</span>(res_ca)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-1-2">
@@ -677,8 +683,8 @@ Si <span class="math inline">\(T\)</span> grand → dépendance (intéressant po
 <div class="tab-content">
 <div id="tabset-2-1">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># Résultat pour les lignes</span></span>
-<span id="cb2-2"><a></a><span class="fu">fviz_ca_row</span>(res_ca, <span class="at">repel =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="co"># Résultat pour les lignes</span></span>
+<span id="cb2-2"><a aria-label="2"></a><span class="fu">fviz_ca_row</span>(res_ca, <span class="at">repel =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-2-2">
@@ -702,8 +708,8 @@ Si <span class="math inline">\(T\)</span> grand → dépendance (intéressant po
 <div class="tab-content">
 <div id="tabset-3-1">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># Visualisation des lignes sur l'axe 1</span></span>
-<span id="cb3-2"><a></a><span class="fu">fviz_contrib</span>(res_ca, <span class="at">choice =</span><span class="st">"row"</span>, <span class="at">axes =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="co"># Visualisation des lignes sur l'axe 1</span></span>
+<span id="cb3-2"><a aria-label="2"></a><span class="fu">fviz_contrib</span>(res_ca, <span class="at">choice =</span><span class="st">"row"</span>, <span class="at">axes =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-3-2">
@@ -727,8 +733,8 @@ Si <span class="math inline">\(T\)</span> grand → dépendance (intéressant po
 <div class="tab-content">
 <div id="tabset-4-1">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co"># Visualisation des lignes sur l'axe 2</span></span>
-<span id="cb4-2"><a></a><span class="fu">fviz_contrib</span>(res_ca, <span class="at">choice =</span><span class="st">"row"</span>, <span class="at">axes =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="co"># Visualisation des lignes sur l'axe 2</span></span>
+<span id="cb4-2"><a aria-label="2"></a><span class="fu">fviz_contrib</span>(res_ca, <span class="at">choice =</span><span class="st">"row"</span>, <span class="at">axes =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-4-2">
@@ -752,7 +758,7 @@ Si <span class="math inline">\(T\)</span> grand → dépendance (intéressant po
 <div class="tab-content">
 <div id="tabset-5-1">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">fviz_ca_biplot</span>(res_ca, <span class="at">repel =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">fviz_ca_biplot</span>(res_ca, <span class="at">repel =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-5-2">

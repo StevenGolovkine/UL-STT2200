@@ -8,8 +8,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.26">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Steven Golovkine">
   <title>STT-2200: Analyse de données – Supervisée</title>
@@ -19,10 +19,16 @@
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -97,7 +103,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-61cb6bcdcb66a6a6ea8a61dd05d6a15c.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-417a519394bb5ddf9a9330a5df96d59e.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -353,24 +359,24 @@ Steven Golovkine
 <div class="tab-content">
 <div id="tabset-1-1">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(MASS)</span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-3"><a></a></span>
-<span id="cb1-4"><a></a>n <span class="ot">&lt;-</span> <span class="dv">50</span></span>
-<span id="cb1-5"><a></a>R <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
-<span id="cb1-6"><a></a>  <span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">0.8</span>, <span class="fl">0.8</span>, <span class="dv">1</span>), </span>
-<span id="cb1-7"><a></a>  <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span></span>
-<span id="cb1-8"><a></a>)</span>
-<span id="cb1-9"><a></a>            </span>
-<span id="cb1-10"><a></a>mu_1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">X =</span> <span class="fl">7.5</span>, <span class="at">Y =</span> <span class="dv">3</span>)</span>
-<span id="cb1-11"><a></a>data_1 <span class="ot">&lt;-</span> MASS<span class="sc">::</span><span class="fu">mvrnorm</span>(n, <span class="at">mu =</span> mu_1, <span class="at">Sigma =</span> R)</span>
-<span id="cb1-12"><a></a>mu_2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">X =</span> <span class="fl">8.5</span>, <span class="at">Y =</span> <span class="dv">4</span>)</span>
-<span id="cb1-13"><a></a>data_2 <span class="ot">&lt;-</span> MASS<span class="sc">::</span><span class="fu">mvrnorm</span>(n, <span class="at">mu =</span> mu_2, <span class="at">Sigma =</span> R)</span>
-<span id="cb1-14"><a></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">rbind</span>(data_1, data_2))</span>
-<span id="cb1-15"><a></a>data<span class="sc">$</span>group <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">each =</span> n))</span>
-<span id="cb1-16"><a></a></span>
-<span id="cb1-17"><a></a>model <span class="ot">&lt;-</span> <span class="fu">lda</span>(group <span class="sc">~</span> ., <span class="at">data =</span> data)</span>
-<span id="cb1-18"><a></a>data<span class="sc">$</span>new_X <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, data)<span class="sc">$</span>x</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb1-2"><a aria-label="2"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a aria-label="3"></a></span>
+<span id="cb1-4"><a aria-label="4"></a>n <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb1-5"><a aria-label="5"></a>R <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
+<span id="cb1-6"><a aria-label="6"></a>  <span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">0.8</span>, <span class="fl">0.8</span>, <span class="dv">1</span>), </span>
+<span id="cb1-7"><a aria-label="7"></a>  <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span></span>
+<span id="cb1-8"><a aria-label="8"></a>)</span>
+<span id="cb1-9"><a aria-label="9"></a>            </span>
+<span id="cb1-10"><a aria-label="10"></a>mu_1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">X =</span> <span class="fl">7.5</span>, <span class="at">Y =</span> <span class="dv">3</span>)</span>
+<span id="cb1-11"><a aria-label="11"></a>data_1 <span class="ot">&lt;-</span> MASS<span class="sc">::</span><span class="fu">mvrnorm</span>(n, <span class="at">mu =</span> mu_1, <span class="at">Sigma =</span> R)</span>
+<span id="cb1-12"><a aria-label="12"></a>mu_2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">X =</span> <span class="fl">8.5</span>, <span class="at">Y =</span> <span class="dv">4</span>)</span>
+<span id="cb1-13"><a aria-label="13"></a>data_2 <span class="ot">&lt;-</span> MASS<span class="sc">::</span><span class="fu">mvrnorm</span>(n, <span class="at">mu =</span> mu_2, <span class="at">Sigma =</span> R)</span>
+<span id="cb1-14"><a aria-label="14"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">rbind</span>(data_1, data_2))</span>
+<span id="cb1-15"><a aria-label="15"></a>data<span class="sc">$</span>group <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">each =</span> n))</span>
+<span id="cb1-16"><a aria-label="16"></a></span>
+<span id="cb1-17"><a aria-label="17"></a>model <span class="ot">&lt;-</span> <span class="fu">lda</span>(group <span class="sc">~</span> ., <span class="at">data =</span> data)</span>
+<span id="cb1-18"><a aria-label="18"></a>data<span class="sc">$</span>new_X <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, data)<span class="sc">$</span>x</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-1-2">

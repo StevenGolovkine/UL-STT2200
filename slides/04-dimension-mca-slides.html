@@ -8,8 +8,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.26">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Steven Golovkine">
   <title>STT-2200: Analyse de données – Dimension</title>
@@ -19,10 +19,16 @@
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -97,7 +103,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-61cb6bcdcb66a6a6ea8a61dd05d6a15c.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-417a519394bb5ddf9a9330a5df96d59e.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -600,12 +606,12 @@ Steven Golovkine
 <div class="tab-content">
 <div id="tabset-1-1">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(FactoMineR)</span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(factoextra)</span>
-<span id="cb1-3"><a></a>res_mca <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
-<span id="cb1-4"><a></a>  <span class="fu">MCA</span>(<span class="at">graph =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb1-5"><a></a><span class="fu">fviz_eig</span>(res_mca)</span>
-<span id="cb1-6"><a></a><span class="fu">get_eigenvalue</span>(res_mca)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">library</span>(FactoMineR)</span>
+<span id="cb1-2"><a aria-label="2"></a><span class="fu">library</span>(factoextra)</span>
+<span id="cb1-3"><a aria-label="3"></a>res_mca <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb1-4"><a aria-label="4"></a>  <span class="fu">MCA</span>(<span class="at">graph =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-5"><a aria-label="5"></a><span class="fu">fviz_eig</span>(res_mca)</span>
+<span id="cb1-6"><a aria-label="6"></a><span class="fu">get_eigenvalue</span>(res_mca)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-1-2">
@@ -635,62 +641,32 @@ Steven Golovkine
 <tr class="odd">
 <td style="text-align: left;">Dim.1</td>
 <td style="text-align: right;">0.1984565</td>
-<td style="text-align: right;">11.907391</td>
+<td style="text-align: right;">11.90739</td>
 <td style="text-align: right;">11.90739</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Dim.2</td>
 <td style="text-align: right;">0.1898757</td>
-<td style="text-align: right;">11.392541</td>
+<td style="text-align: right;">11.39254</td>
 <td style="text-align: right;">23.29993</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Dim.3</td>
 <td style="text-align: right;">0.1814721</td>
-<td style="text-align: right;">10.888326</td>
+<td style="text-align: right;">10.88833</td>
 <td style="text-align: right;">34.18826</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Dim.4</td>
 <td style="text-align: right;">0.1773147</td>
-<td style="text-align: right;">10.638882</td>
+<td style="text-align: right;">10.63888</td>
 <td style="text-align: right;">44.82714</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Dim.5</td>
 <td style="text-align: right;">0.1672860</td>
-<td style="text-align: right;">10.037161</td>
+<td style="text-align: right;">10.03716</td>
 <td style="text-align: right;">54.86430</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Dim.6</td>
-<td style="text-align: right;">0.1651723</td>
-<td style="text-align: right;">9.910338</td>
-<td style="text-align: right;">64.77464</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Dim.7</td>
-<td style="text-align: right;">0.1561348</td>
-<td style="text-align: right;">9.368089</td>
-<td style="text-align: right;">74.14273</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Dim.8</td>
-<td style="text-align: right;">0.1500984</td>
-<td style="text-align: right;">9.005905</td>
-<td style="text-align: right;">83.14863</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Dim.9</td>
-<td style="text-align: right;">0.1415169</td>
-<td style="text-align: right;">8.491017</td>
-<td style="text-align: right;">91.63965</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Dim.10</td>
-<td style="text-align: right;">0.1393392</td>
-<td style="text-align: right;">8.360350</td>
-<td style="text-align: right;">100.00000</td>
 </tr>
 </tbody>
 </table>
@@ -707,12 +683,12 @@ Steven Golovkine
 <div class="tab-content">
 <div id="tabset-2-1">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">fviz_mca_biplot</span>(</span>
-<span id="cb2-2"><a></a>  res_mca, </span>
-<span id="cb2-3"><a></a>  <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb2-4"><a></a>  <span class="at">label =</span> <span class="st">"none"</span>,</span>
-<span id="cb2-5"><a></a>  <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>()</span>
-<span id="cb2-6"><a></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="fu">fviz_mca_biplot</span>(</span>
+<span id="cb2-2"><a aria-label="2"></a>  res_mca, </span>
+<span id="cb2-3"><a aria-label="3"></a>  <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-4"><a aria-label="4"></a>  <span class="at">label =</span> <span class="st">"none"</span>,</span>
+<span id="cb2-5"><a aria-label="5"></a>  <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>()</span>
+<span id="cb2-6"><a aria-label="6"></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-2-2">
@@ -736,12 +712,12 @@ Steven Golovkine
 <div class="tab-content">
 <div id="tabset-3-1">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">fviz_mca_var</span>(</span>
-<span id="cb3-2"><a></a>  res_mca,</span>
-<span id="cb3-3"><a></a>  <span class="at">choice =</span> <span class="st">"mca.cor"</span>, </span>
-<span id="cb3-4"><a></a>  <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb3-5"><a></a>  <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>()</span>
-<span id="cb3-6"><a></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">fviz_mca_var</span>(</span>
+<span id="cb3-2"><a aria-label="2"></a>  res_mca,</span>
+<span id="cb3-3"><a aria-label="3"></a>  <span class="at">choice =</span> <span class="st">"mca.cor"</span>, </span>
+<span id="cb3-4"><a aria-label="4"></a>  <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb3-5"><a aria-label="5"></a>  <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>()</span>
+<span id="cb3-6"><a aria-label="6"></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-3-2">
@@ -765,11 +741,11 @@ Steven Golovkine
 <div class="tab-content">
 <div id="tabset-4-1">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">fviz_mca_var</span>(</span>
-<span id="cb4-2"><a></a>  res_mca,</span>
-<span id="cb4-3"><a></a>  <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb4-4"><a></a>  <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>()</span>
-<span id="cb4-5"><a></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="fu">fviz_mca_var</span>(</span>
+<span id="cb4-2"><a aria-label="2"></a>  res_mca,</span>
+<span id="cb4-3"><a aria-label="3"></a>  <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb4-4"><a aria-label="4"></a>  <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>()</span>
+<span id="cb4-5"><a aria-label="5"></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-4-2">
@@ -793,13 +769,13 @@ Steven Golovkine
 <div class="tab-content">
 <div id="tabset-5-1">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">fviz_mca_var</span>(</span>
-<span id="cb5-2"><a></a>  res_mca,</span>
-<span id="cb5-3"><a></a>  <span class="at">col.var =</span> <span class="st">"cos2"</span>,</span>
-<span id="cb5-4"><a></a>  <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span>), </span>
-<span id="cb5-5"><a></a>  <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb5-6"><a></a>  <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>()</span>
-<span id="cb5-7"><a></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">fviz_mca_var</span>(</span>
+<span id="cb5-2"><a aria-label="2"></a>  res_mca,</span>
+<span id="cb5-3"><a aria-label="3"></a>  <span class="at">col.var =</span> <span class="st">"cos2"</span>,</span>
+<span id="cb5-4"><a aria-label="4"></a>  <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span>), </span>
+<span id="cb5-5"><a aria-label="5"></a>  <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb5-6"><a aria-label="6"></a>  <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>()</span>
+<span id="cb5-7"><a aria-label="7"></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-5-2">
@@ -823,14 +799,14 @@ Steven Golovkine
 <div class="tab-content">
 <div id="tabset-6-1">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">fviz_mca_ind</span>(</span>
-<span id="cb6-2"><a></a>  res_mca,</span>
-<span id="cb6-3"><a></a>  <span class="at">label =</span> <span class="st">"none"</span>,</span>
-<span id="cb6-4"><a></a>  <span class="at">col.ind =</span> <span class="st">"cos2"</span>, </span>
-<span id="cb6-5"><a></a>  <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span>),</span>
-<span id="cb6-6"><a></a>  <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb6-7"><a></a>  <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>()</span>
-<span id="cb6-8"><a></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">fviz_mca_ind</span>(</span>
+<span id="cb6-2"><a aria-label="2"></a>  res_mca,</span>
+<span id="cb6-3"><a aria-label="3"></a>  <span class="at">label =</span> <span class="st">"none"</span>,</span>
+<span id="cb6-4"><a aria-label="4"></a>  <span class="at">col.ind =</span> <span class="st">"cos2"</span>, </span>
+<span id="cb6-5"><a aria-label="5"></a>  <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span>),</span>
+<span id="cb6-6"><a aria-label="6"></a>  <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb6-7"><a aria-label="7"></a>  <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>()</span>
+<span id="cb6-8"><a aria-label="8"></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-6-2">
@@ -854,14 +830,14 @@ Steven Golovkine
 <div class="tab-content">
 <div id="tabset-7-1">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">fviz_mca_ind</span>(</span>
-<span id="cb7-2"><a></a>  res_mca, </span>
-<span id="cb7-3"><a></a>  <span class="at">label =</span> <span class="st">"none"</span>,</span>
-<span id="cb7-4"><a></a>  <span class="at">habillage =</span> <span class="st">"Hours_Studied"</span>,</span>
-<span id="cb7-5"><a></a>  <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"#D81B60"</span>, <span class="st">"#1E88E5"</span>, <span class="st">"#FFC107"</span>, <span class="st">"#004D40"</span>),</span>
-<span id="cb7-6"><a></a>  <span class="at">addEllipses =</span> <span class="cn">TRUE</span>, <span class="at">ellipse.type =</span> <span class="st">"confidence"</span>,</span>
-<span id="cb7-7"><a></a>  <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>()</span>
-<span id="cb7-8"><a></a>) </span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="fu">fviz_mca_ind</span>(</span>
+<span id="cb7-2"><a aria-label="2"></a>  res_mca, </span>
+<span id="cb7-3"><a aria-label="3"></a>  <span class="at">label =</span> <span class="st">"none"</span>,</span>
+<span id="cb7-4"><a aria-label="4"></a>  <span class="at">habillage =</span> <span class="st">"Hours_Studied"</span>,</span>
+<span id="cb7-5"><a aria-label="5"></a>  <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"#D81B60"</span>, <span class="st">"#1E88E5"</span>, <span class="st">"#FFC107"</span>, <span class="st">"#004D40"</span>),</span>
+<span id="cb7-6"><a aria-label="6"></a>  <span class="at">addEllipses =</span> <span class="cn">TRUE</span>, <span class="at">ellipse.type =</span> <span class="st">"confidence"</span>,</span>
+<span id="cb7-7"><a aria-label="7"></a>  <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>()</span>
+<span id="cb7-8"><a aria-label="8"></a>) </span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-7-2">
