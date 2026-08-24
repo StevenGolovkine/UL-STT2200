@@ -3,7 +3,7 @@
 ![License](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-blue)
 
 
-This repository contains the website used for the module STT-2200 given at Université Laval, Québec for the 2025 Autumn semester.
+This repository contains the website used for the module STT-2200 given at Université Laval, Québec for the 2026 Autumn semester.
 
 ## 🚧 TODO
 
@@ -40,16 +40,16 @@ This repository contains the website used for the module STT-2200 given at Unive
     - [X] Gaussian mixtures
   * [X] Ethics 
 
-- [ ] TP/TD
+- [X] TP/TD
   * [X] Remainders
   * [X] Generalities
   * [X] Dimension
   * [X] Supervised 
-  * [ ] Unsupervised
+  * [X] Unsupervised
 
-- [ ] Exams
+- [X] Exams
     * [X] Mid-term
-    * [ ] Final exam
+    * [X] Final exam
     * [X] Project
 
 ## 🚀 Publishing
