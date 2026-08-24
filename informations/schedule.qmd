@@ -1,29 +1,27 @@
---- 
+---
 title: "Plan"
 format: 
   html: default
   pdf: default
---- 
+---
 
-
-Le plan est donné à titre indicatif.
+Le plan de la session d'automne 2026 est donné à titre indicatif.
 
 | Semaine | Plan | Évaluations |
-| ------: | :--: | ----------: |
-| 1er septembre | Présentation du cours et rappels | |
-| 8 septembre | Rappels | |
-| 15 septembre | Généralités | |
-| 22 septembre | Généralités | |
-| 29 septembre | ACP | |
-| 6 octobre | AFC | |
-| 13 octobre | ACM | |
-| 20 octobre | Analyse discriminante | Examen intra |
-| 27 octobre | Semaine de lecture | Examen de reprise |
-| 3 novembre | Arbres | |
-| 10 novembre | Modèles ensemblistes | |
-| 17 novembre | $k$-moyennes | |
-| 24 novembre | Méthodes hiérarchiques + Modèles de mélanges | |
-| 1er décembre | Révision + Fête de l'université | Remise du poster |
-| 8 décembre | | Présentation du poster + Examen final |
-| 15 décembre | | Examen de reprise |
-
+|---------------------:|:---------------:|---------------------------------:|
+| 31 août | Présentation du cours et rappels |  |
+| 7 septembre | Généralités |  |
+| 14 septembre | Généralités |  |
+| 21 septembre | ACP |  |
+| 28 septembre | ACP |  |
+| 5 octobre | AFC |  |
+| 12 octobre | ACM |  |
+| 19 octobre | Analyse discriminante | Examen 1 |
+| 26 octobre | Semaine de lecture | Examen de reprise (date à confirmer) |
+| 2 novembre | Arbres |  |
+| 9 novembre | Modèles ensemblistes |  |
+| 16 novembre | $k$-moyennes |  |
+| 23 novembre | Méthodes hiérarchiques + Modèles de mélanges | Remise du poster |
+| 30 novembre | Révision | Présentation du poster (date à confirmer) |
+| 7 décembre | Fête de l'Université | Examen 2 |
+| 14 décembre |  | Examen de reprise (date à confirmer) |

@@ -1,28 +1,27 @@
---- 
+---
 title: "Schedule"
 format: 
   html: default
   pdf: default
---- 
+---
 
-The plan is given for information only.
+The schedule for the Autumn 2026 semester is provided for information only.
 
 | Week | Plan | Evaluations |
-| ------: | :--: | ----------: |
-| 1er september | Course presentation and remainders | |
-| 8 september | Remainders | |
-| 15 september | Generalities | |
-| 22 september | Generalities | |
-| 29 september | PCA | |
-| 6 october | CA | |
-| 13 october | MCA  | |
-| 20 october | Discriminant analysis | Intra exam |
-| 27 october | Lecture week | Retake exam|
-| 3 november | Trees | |
-| 10 november | Ensemble models | |
-| 17 november | $k$-means | |
-| 24 november | Hierarchical models + Mixture models | |
-| 1er décember | Revision + University holidays | Poster handoff |
-| 8 décember | | Poster presentation + final exam |
-| 15 décember | | Retake exam |
-
+|---------------------:|:---------------:|---------------------------------:|
+| August 31 | Course presentation and review |  |
+| September 7 | General concepts |  |
+| September 14 | General concepts |  |
+| September 21 | PCA |  |
+| September 28 | PCA |  |
+| October 5 | CA |  |
+| October 12 | MCA |  |
+| October 19 | Discriminant analysis | Exam 1 |
+| October 26 | Reading week | Retake exam (date to be confirmed) |
+| November 2 | Trees |  |
+| November 9 | Ensemble models |  |
+| November 16 | $k$-means |  |
+| November 23 | Hierarchical methods + Mixture models | Poster submission |
+| November 30 | Review | Poster presentation (date to be confirmed) |
+| December 7 | University holiday |  Exam 2 |
+| December 14 |  | Retake exam (date to be confirmed) |

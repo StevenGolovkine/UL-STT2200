@@ -3,15 +3,12 @@ title: "STT-2200: Analyse de données"
 format: html
 ---
 
-Bienvenue à tous au cours STT-2200 de l'automne 2025.
+Bienvenue à tous au cours STT-2200 de l'automne 2026.
 
 Vous trouverez sur ce site toute les informations nécessaire pour les cours, les différents travaux et les examens. Les contenus seront mis à jour au cours de la session avec les corrigés de certains travaux. Je vous invite à regarder les différents modules avant les cours.
 
 Ce site a été créé en s'aidant des notes de cours de Aurélien Nicosia et de Thierry Duchesne.
 
-
 Ce site a été créé avec [Quarto](https://quarto.org/docs/websites). Des larges modèles de langages (LLM), [ChatGPT](https://chatgpt.com) et [Claude](https://claude.ai/), ont été utilisés pour améliorer la fluidité des notes, pour corriger les typos et pour la mise en forme des figures. Toutes erreurs restantes me sont strictement et directement imputable.
 
-
 ![Data trap ([xkcd:2582](https://xkcd.com/2582/)).](./include/data_trap.png)
-

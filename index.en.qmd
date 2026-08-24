@@ -3,9 +3,9 @@ title: "STT-2200: Data Analysis"
 format: html
 ---
 
-Welcome everyone to the class STT-2200 in Autumn 2025.
+Welcome everyone to the class STT-2200 in Autumn 2026.
 
-You will find on this website every necessary information for the modules, the practicals and the exams. The contents will be updated during the session with the answers to some work. I invite you to skim through the differents modules before classes.
+You will find on this website every necessary information for the modules, the practicals and the exams. The contents will be updated during the session with the answers to some work. I invite you to skim through the different modules before classes.
 
 This website has been created with the help of Aurélien Nicosia and Thierry Duchesne notes.
 
@@ -14,4 +14,3 @@ This website a been built using [Quarto](https://quarto.org/docs/websites).
 Most of the contents has been translated using [DeepL](https://www.deepl.com/en/translator). Large languages models (LLM), [ChatGPT](https://chatgpt.com) et [Claude](https://claude.ai/), have been used to improve notes reading, check the typos and improve the formatting of the figures. All remaining errors are strictly and directly attributable to me.
 
 ![Data trap ([xkcd:2582](https://xkcd.com/2582/)).](./include/data_trap.png)
-

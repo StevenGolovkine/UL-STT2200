@@ -35,7 +35,7 @@ On a $f_{\bullet \bullet} = \sum_{i = 1}^{n} f_{i \bullet} = \sum_{j = 1}^{p} f_
 ::: {.callout-note icon=false}
 ## Exemple 
 
-Comme exemple, on va considérer la majeure et le type d'admission des étudiants inscrit au cours STT-2200 à l'automne 2025. 
+À titre d'exemple historique, on considère la majeure et le type d'admission des étudiants inscrits au cours STT-2200 à l'automne 2025.
 
 |    | Collège | Université Laval | Autre université | Hors Québec |
 |:--:| -: | -: | -: | -: |
@@ -46,7 +46,7 @@ Comme exemple, on va considérer la majeure et le type d'admission des étudiant
 | Maths | 1 | 0 | 0 | 0 |
 | Info | 2 | 1 | 0 | 1 |
 
-: Tableau de contingence des étudiants inscrit pour le cours STT-2200 (Automne 2025) croisant leur majeure et leur type d'admission.
+: Tableau de contingence de la cohorte du cours STT-2200 de l'automne 2025 croisant la majeure et le type d'admission.
 
 Ici, on trouve $k_{\bullet \bullet} = 25$. C'est tout simplement le nombre d'étudiants inscrit au cours. On trouve donc le tableau de fréquences suivant :
 
@@ -222,5 +222,4 @@ où $\left[ \Phi_k \right]_i$ désigne la coordonnée du profil-ligne $L_i$ sur 
 Ainsi, en AFC, nous avons une double représentation barycentrique. Sur les axes factoriels, chaque point d'un nuage est au barycentre des points de l'autre nuage.
 
 :::
-
 

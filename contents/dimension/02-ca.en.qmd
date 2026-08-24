@@ -35,7 +35,7 @@ We have $f_{\bullet \bullet} = \sum_{i = 1}^{n} f_{i \bullet} = \sum_{j = 1}^{p}
 ::: {.callout-note icon=false}
 ## Example
 
-As an example, let's consider the major and admission type of students enrolled in the STT-2200 course in the fall of 2025.
+As a historical example, consider the major and admission type of students enrolled in the STT-2200 course in Fall 2025.
 
 |    | College | Laval University | Other university | Outside Quebec |
 |:--:| -: | -: | -: | -: |
@@ -46,7 +46,7 @@ As an example, let's consider the major and admission type of students enrolled 
 | Math | 1 | 0 | 0 | 0 |
 | Computer Science | 2 | 1 | 0 | 1 |
 
-: Contingency table of students enrolled in the STT-2200 course (Fall 2025) cross-referencing their major and type of admission.
+: Contingency table for the Fall 2025 STT-2200 cohort, cross-referencing students' major and admission type.
 
 Here, we find $k_{\bullet \bullet} = 25$. This is simply the number of students enrolled in the course. We therefore find the following frequency table:
 
@@ -221,5 +221,4 @@ where $\left[ \Phi_k \right]_i$ denotes the coordinate of the line profile $L_i$
 Thus, in AFC, we have a double barycentric representation. On the factorial axes, each point in one cloud is at the barycenter of the points in the other cloud.
 
 :::
-
 
