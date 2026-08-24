@@ -5,34 +5,14 @@ format:
   pdf: 
     header-includes: 
       - \usepackage{mathtools}
---- 
-
-* Slides:
-
-  - [Généralités](../slides/06-unsupervised-generalities.qmd) - [annoté](../slides/06-unsupervised-generalities-annotated.qmd)
-  
-  - [Méthodes hiérarchiques](../slides/06-unsupervised-hierarchy-slides.qmd) - [annoté](../slides/06-unsupervised-hierarchy-slides-annotated.qmd)
-  
-  - [$k$-moyennes](../slides/06-unsupervised-kmeans-slides.qmd) - [annoté](../slides/06-unsupervised-kmeans-slides-annotated.qmd)
-
-  - [Mélanges de gaussiennes](../slides/06-unsupervised-gaussian-slides.qmd) - [annoté](../slides/06-unsupervised-gaussian-slides-annotated.qmd)
-
-* TD: [link](../td/06-unsupervised-td.qmd)
-
-  - [Corrigé](../td/correction/Td_Nonsupervisee.pdf)
-
-* TP: [link](../tp/06-unsupervised-tp.qmd)
-
-  - [Corrigé](../tp/correction/TP_NonSupervisee.R)
+---
 
 ## Sommaire
 
-1. [Méthodes hiérarchiques](./unsupervised/02-hierarchy.qmd)
+1.  [Méthodes hiérarchiques](./unsupervised/02-hierarchy.qmd)
 
-2. [$k$-moyennes](./unsupervised/01-kmeans.qmd)
+2.  [$k$-moyennes](./unsupervised/01-kmeans.qmd)
 
-3. [Mélanges de gaussiennes](./unsupervised/03-gaussian-mixtures.qmd)
-
+3.  [Mélanges de gaussiennes](./unsupervised/03-gaussian-mixtures.qmd)
 
 ![$k$-means ([xkcd:2731](https://xkcd.com/2731/)).](../include/k_means_clustering.png)
-

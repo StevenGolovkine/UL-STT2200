@@ -1,4 +1,4 @@
---- 
+---
 title: "Généralités"
 format: 
   html: default
@@ -7,39 +7,16 @@ format:
       - \usepackage{mathtools} 
 ---
 
-* Slides:
-  
-  - [Projet d'analyse de données](../slides/03-generalities-stat-slides.qmd)
-  
-  - [Espaces](../slides/03-generalities-space-slides.qmd)
-  
-  - [Distances](../slides/03-generalities-distance-slides.qmd) - [annoté](../slides/03-generalities-distance-slides-annotated.qmd)
-  
-  - [Biais / Variance](../slides/03-generalities-bias-variance-slides.qmd) - [annoté](../slides/03-generalities-bias-variance-slides-annotated.qmd)
-  
-  - [Évaluation de modèles](../slides/03-generalities-model-evaluation-slides.qmd) - [annoté](../slides/03-generalities-model-evaluation-slides-annotated.qmd)
-
-* TD: [link](../td/03-generalities-td.qmd)
-
-  - [Corrigé Exercice 1](../td/correction/Td_Generalites_Exercice_1.pdf)
-  
-  - [Corrigé Exercices 2 à 4](../td/correction/Td_Generalites.pdf)
-
-* TP: [link](../tp/03-generalities-tp.qmd)
-
-  - [Corrigé](../tp/correction/TP_Generalities.R)
-
 ## Sommaire
 
-1. [Projet d'analyse de données](./generalities/01-stat.qmd)
+1.  [Projet d'analyse de données](./generalities/01-stat.qmd)
 
-2. [Espaces](./generalities/02-spaces.qmd)
+2.  [Espaces](./generalities/02-spaces.qmd)
 
-3. [Distances](./generalities/03-distance.qmd)
+3.  [Distances](./generalities/03-distance.qmd)
 
-4. [Biais / Variance](./generalities/04-bias-variance.qmd)
+4.  [Biais / Variance](./generalities/04-bias-variance.qmd)
 
-5. [Évaluation de modèles](./generalities/05-model-evaluation.qmd)
+5.  [Évaluation de modèles](./generalities/05-model-evaluation.qmd)
 
 ![Correlation ([xkcd:552](https://xkcd.com/552/)).](../include/correlation.png)
-

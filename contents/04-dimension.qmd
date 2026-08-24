@@ -5,32 +5,14 @@ format:
   pdf: 
     header-includes: 
       - \usepackage{mathtools}
---- 
-
-* Slides: 
-
-  - [Analyse en composantes principales](../slides/04-dimension-pca-slides.qmd) - [annoté](../slides/04-dimension-pca-slides-annotated.qmd)
-
-  - [Analyse factorielle des correspondances](../slides/04-dimension-ca-slides.qmd) - [annoté](../slides/04-dimension-ca-slides-annotated.qmd)
-
-  - [Analyse des correspondances multiples](../slides/04-dimension-mca-slides.qmd) - [annoté](../slides/04-dimension-mca-slides-annotated.qmd)
-
-* TD: [link](../td/04-dimension-td.qmd)
-
-  - [Corrigé](../td/correction/Td_Dimension.pdf)
-
-* TP: [link](../tp/04-dimension-tp.qmd)
-
-  - [Corrigé](../tp/correction/TP_Dimension.R)
+---
 
 ## Sommaire
 
-1. [Analyse en composantes principales](./dimension/01-pca.qmd)
+1.  [Analyse en composantes principales](./dimension/01-pca.qmd)
 
-2. [Analyse factorielle des correspondances](./dimension/02-ca.qmd)
+2.  [Analyse factorielle des correspondances](./dimension/02-ca.qmd)
 
-3. [Analyse des correspondances multiples](./dimension/03-mca.qmd)
-
+3.  [Analyse des correspondances multiples](./dimension/03-mca.qmd)
 
 ![Flatland ([xkcd:721](https://xkcd.com/721/)).](../include/flatland.png)
-

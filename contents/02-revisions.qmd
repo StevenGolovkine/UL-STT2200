@@ -1,42 +1,18 @@
---- 
+---
 title: "Révisions"
 format: 
   html: default
   pdf:
     header-includes:
       - \usepackage{mathtools} 
---- 
-
-* Slides: 
-
-  - [Algèbre linéaire](../slides/02-revisions-algebre-slides.qmd) - [annoté](../slides/02-revisions-algebre-slides-annotated.qmd)
-
-  - [Probabilités et statistiques](../slides/02-revisions-proba-slides.qmd) - [annoté](../slides/02-revisions-proba-slides-annotated.qmd)
-
-  - [Algorithmique / Programmation](../slides/02-revisions-programming-slides.qmd)
-
-* TD: [link](../td/02-revision-td.qmd)
-
-  - [Corrigé Exercice 1](https://youtu.be/QCIooXe7MwU)
-  
-  - [Corrigé Exercice 2](https://youtu.be/B_oAm8vvka0)
-  
-  - [Corrigé Exercice 3](../td/correction/Td_Revision_Exercice_3.pdf)
-
-* TP: [link](../tp/02-revision-tp.qmd)
-
-  - [Corrigé](../tp/correction/TP_Revision.R)
-
+---
 
 ## Sommaire
 
-1. [Algèbre linéaire](./remainders/01-linear-algebra.qmd)
+1.  [Algèbre linéaire](./remainders/01-linear-algebra.qmd)
 
-2. [Probabilités et statistiques](./remainders/02-probabilities.qmd)
+2.  [Probabilités et statistiques](./remainders/02-probabilities.qmd)
 
-3. [Algorithmique / Programmation](./remainders/03-programming.qmd)
-
+3.  [Algorithmique / Programmation](./remainders/03-programming.qmd)
 
 ![Prediction ([xkcd:2370](https://xkcd.com/2370/)).](../include/prediction.png)
-
-

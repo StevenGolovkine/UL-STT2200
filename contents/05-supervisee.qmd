@@ -5,35 +5,14 @@ format:
   pdf: 
     header-includes: 
       - \usepackage{mathtools}
---- 
-
-* Slides:
-
-  - [Généralités](../slides/05-supervised-generalities.qmd)
-  
-  - [Analyse discriminante](../slides/05-supervised-discriminant-slides.qmd) - [annoté](../slides/05-supervised-discriminant-slides-annotated.qmd)
-
-  - [Arbres](../slides/05-supervised-tree-slides.qmd) - [annoté](../slides/05-supervised-tree-slides-annotated.qmd)
-
-  - [Modèles ensemblistes](../slides/05-supervised-ensemble-slides.qmd)
-
-* TD: [link](../td/05-supervised-td.qmd)
-
-  - [Corrigé](../td/correction/Td_Supervisee.pdf)
-
-* TP: [link](../tp/05-supervised-tp.qmd)
-
-  - [Corrigé](../tp/correction/TP_Supervisee.R)
+---
 
 ## Sommaire
 
-1. [Analyse discriminante](./supervised/01-discriminant.qmd)
+1.  [Analyse discriminante](./supervised/01-discriminant.qmd)
 
-2. [Arbres](./supervised/02-tree.qmd)
+2.  [Arbres](./supervised/02-tree.qmd)
 
-3. [Modèles ensemblistes](./supervised/03-ensemble.qmd)
-
-
+3.  [Modèles ensemblistes](./supervised/03-ensemble.qmd)
 
 ![Extrapolating ([xkcd:605](https://xkcd.com/605/)).](../include/extrapolating.png)
-
