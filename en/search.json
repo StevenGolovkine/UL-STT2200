@@ -190,7 +190,7 @@
     "href": "contents/03-generalities.html",
     "title": "Generalities",
     "section": "",
-    "text": "Slides:\n\nData analysis project\nSpaces\nDistances - annotated\nBias / Variance - annotated\nModel evaluation - annoté\n\nTD: link\n\nSolution Exercise 1\nSolution Exercises 2 à 4\n\nTP: link\n\nSolution",
+    "text": "Data analysis project\nSpaces\nDistances\nBias / Variance\nModel evaluation\n\n\n\n\nCorrelation (xkcd:552).",
     "crumbs": [
       "Modules",
       "03 - Généralités"
@@ -200,8 +200,8 @@
     "objectID": "contents/03-generalities.html#outline",
     "href": "contents/03-generalities.html#outline",
     "title": "Generalities",
-    "section": "Outline",
-    "text": "Outline\n\nData analysis project\nSpaces\nDistances\nBias / Variance\nModel evaluation\n\n\n\n\nCorrelation (xkcd:552).",
+    "section": "",
+    "text": "Data analysis project\nSpaces\nDistances\nBias / Variance\nModel evaluation\n\n\n\n\nCorrelation (xkcd:552).",
     "crumbs": [
       "Modules",
       "03 - Généralités"
@@ -440,7 +440,7 @@
     "href": "contents/02-revisions.html",
     "title": "Remainders",
     "section": "",
-    "text": "Slides:\n\nAlgèbre linéaire - annotated\nProbabilités et statistiques - annotated\nAlgorithmique / Programmation\n\nTD: link\n\nSolution Exercise 1\nSolution Exercise 2\nSolution Exercise 3\n\nTP: link\n\nSolution",
+    "text": "Linear algebra\nProbabilities and statistics\nAlgorithmic / Programming\n\n\n\n\nPrediction (xkcd:2370).",
     "crumbs": [
       "Modules",
       "02 - Révisions"
@@ -450,8 +450,8 @@
     "objectID": "contents/02-revisions.html#outline",
     "href": "contents/02-revisions.html#outline",
     "title": "Remainders",
-    "section": "Outline",
-    "text": "Outline\n\nLinear algebra\nProbabilities and statistics\nAlgorithmic / Programming\n\n\n\n\nPrediction (xkcd:2370).",
+    "section": "",
+    "text": "Linear algebra\nProbabilities and statistics\nAlgorithmic / Programming\n\n\n\n\nPrediction (xkcd:2370).",
     "crumbs": [
       "Modules",
       "02 - Révisions"
@@ -462,24 +462,14 @@
     "href": "informations/mcq.html",
     "title": "MCQ",
     "section": "",
-    "text": "The first exam is a multiple-choice question with quantification of uncertainty.\nThe use of degrees of certainty enables the student to assess the level of knowledge of the answer given. The scoring system, based on decision theory (Leclercq et al. 1993), may seem odd but it has been designed in such a way that:\n\ntelling the truth is the strategy that earns the most points;\nthose who self-assess well earn more points than if we applied a corrective scale taking into account the probabilities of having the correct answer randomly.\n\n\n\n\nIf you find that your answer has a probability of being correct between…\n\n\nChoose the degree of certainty…\n\n\nYou’ll get the following points for … answer.\n\n\n\n\n\n\n\n\ncorrect\n\n\nincorrect\n\n\n\n\n0% and 25%\n\n\n0\n\n\n+13\n\n\n+4\n\n\n\n\n25% and 50%\n\n\n1\n\n\n+16\n\n\n+3\n\n\n\n\n50% and 70%\n\n\n2\n\n\n+17\n\n\n+2\n\n\n\n\n70% and 85%\n\n\n3\n\n\n+18\n\n\n0\n\n\n\n\n85% and 95%\n\n\n4\n\n\n+19\n\n\n-6\n\n\n\n\n95% and 100%\n\n\n5\n\n\n+20\n\n\n-10\n\n\n\nIn general, students self-assess realistically, and benefit from degrees of certainty. Their score is better than if it had been calculated solely on the basis of the number of correct answers.",
-    "crumbs": [
-      "Informations",
-      "Évaluations",
-      "MCQ"
-    ]
+    "text": "The first exam is a multiple-choice question with quantification of uncertainty.\nThe use of degrees of certainty enables the student to assess the level of knowledge of the answer given. The scoring system, based on decision theory (Leclercq et al. 1993), may seem odd but it has been designed in such a way that:\n\ntelling the truth is the strategy that earns the most points;\nthose who self-assess well earn more points than if we applied a corrective scale taking into account the probabilities of having the correct answer randomly.\n\n\n\n\nIf you find that your answer has a probability of being correct between…\n\n\nChoose the degree of certainty…\n\n\nYou’ll get the following points for … answer.\n\n\n\n\n\n\n\n\ncorrect\n\n\nincorrect\n\n\n\n\n0% and 25%\n\n\n0\n\n\n+13\n\n\n+4\n\n\n\n\n25% and 50%\n\n\n1\n\n\n+16\n\n\n+3\n\n\n\n\n50% and 70%\n\n\n2\n\n\n+17\n\n\n+2\n\n\n\n\n70% and 85%\n\n\n3\n\n\n+18\n\n\n0\n\n\n\n\n85% and 95%\n\n\n4\n\n\n+19\n\n\n-6\n\n\n\n\n95% and 100%\n\n\n5\n\n\n+20\n\n\n-10\n\n\n\nIn general, students self-assess realistically, and benefit from degrees of certainty. Their score is better than if it had been calculated solely on the basis of the number of correct answers."
   },
   {
     "objectID": "informations/mcq.html#information-on-the-first-exam",
     "href": "informations/mcq.html#information-on-the-first-exam",
     "title": "MCQ",
     "section": "",
-    "text": "The first exam is a multiple-choice question with quantification of uncertainty.\nThe use of degrees of certainty enables the student to assess the level of knowledge of the answer given. The scoring system, based on decision theory (Leclercq et al. 1993), may seem odd but it has been designed in such a way that:\n\ntelling the truth is the strategy that earns the most points;\nthose who self-assess well earn more points than if we applied a corrective scale taking into account the probabilities of having the correct answer randomly.\n\n\n\n\nIf you find that your answer has a probability of being correct between…\n\n\nChoose the degree of certainty…\n\n\nYou’ll get the following points for … answer.\n\n\n\n\n\n\n\n\ncorrect\n\n\nincorrect\n\n\n\n\n0% and 25%\n\n\n0\n\n\n+13\n\n\n+4\n\n\n\n\n25% and 50%\n\n\n1\n\n\n+16\n\n\n+3\n\n\n\n\n50% and 70%\n\n\n2\n\n\n+17\n\n\n+2\n\n\n\n\n70% and 85%\n\n\n3\n\n\n+18\n\n\n0\n\n\n\n\n85% and 95%\n\n\n4\n\n\n+19\n\n\n-6\n\n\n\n\n95% and 100%\n\n\n5\n\n\n+20\n\n\n-10\n\n\n\nIn general, students self-assess realistically, and benefit from degrees of certainty. Their score is better than if it had been calculated solely on the basis of the number of correct answers.",
-    "crumbs": [
-      "Informations",
-      "Évaluations",
-      "MCQ"
-    ]
+    "text": "The first exam is a multiple-choice question with quantification of uncertainty.\nThe use of degrees of certainty enables the student to assess the level of knowledge of the answer given. The scoring system, based on decision theory (Leclercq et al. 1993), may seem odd but it has been designed in such a way that:\n\ntelling the truth is the strategy that earns the most points;\nthose who self-assess well earn more points than if we applied a corrective scale taking into account the probabilities of having the correct answer randomly.\n\n\n\n\nIf you find that your answer has a probability of being correct between…\n\n\nChoose the degree of certainty…\n\n\nYou’ll get the following points for … answer.\n\n\n\n\n\n\n\n\ncorrect\n\n\nincorrect\n\n\n\n\n0% and 25%\n\n\n0\n\n\n+13\n\n\n+4\n\n\n\n\n25% and 50%\n\n\n1\n\n\n+16\n\n\n+3\n\n\n\n\n50% and 70%\n\n\n2\n\n\n+17\n\n\n+2\n\n\n\n\n70% and 85%\n\n\n3\n\n\n+18\n\n\n0\n\n\n\n\n85% and 95%\n\n\n4\n\n\n+19\n\n\n-6\n\n\n\n\n95% and 100%\n\n\n5\n\n\n+20\n\n\n-10\n\n\n\nIn general, students self-assess realistically, and benefit from degrees of certainty. Their score is better than if it had been calculated solely on the basis of the number of correct answers."
   },
   {
     "objectID": "informations/materials.html",
@@ -735,7 +725,7 @@
     "href": "contents/05-supervisee.html",
     "title": "Supervised",
     "section": "",
-    "text": "Slides:\n\nGeneralities\nDiscriminant analysis - annotated\nTrees - annotated\nEnsemble models\n\nTD: link\n\nSolution\n\nTP: link\n\nSolution",
+    "text": "Discriminant analysis\nTrees\nEnsemble models\n\n\n\n\nExtrapolating (xkcd:605).",
     "crumbs": [
       "Modules",
       "05 - Supervisée"
@@ -745,8 +735,8 @@
     "objectID": "contents/05-supervisee.html#outline",
     "href": "contents/05-supervisee.html#outline",
     "title": "Supervised",
-    "section": "Outline",
-    "text": "Outline\n\nDiscriminant analysis\nTrees\nEnsemble models\n\n\n\n\nExtrapolating (xkcd:605).",
+    "section": "",
+    "text": "Discriminant analysis\nTrees\nEnsemble models\n\n\n\n\nExtrapolating (xkcd:605).",
     "crumbs": [
       "Modules",
       "05 - Supervisée"
@@ -922,7 +912,7 @@
     "href": "contents/04-dimension.html",
     "title": "Dimension",
     "section": "",
-    "text": "Slides:\n\nPrincipal componens analysis - annotated\nCorrespondance analysis - annotated\nMultiple correspondance analysis - annotated\n\nTD: link\n\nSolution\n\nTP: link\n\nSolution",
+    "text": "Principal componens analysis\nCorrespondance analysis\nMultiple correspondance analysis\n\n\n\n\nFlatland (xkcd:721).",
     "crumbs": [
       "Modules",
       "04 - Dimension"
@@ -932,8 +922,8 @@
     "objectID": "contents/04-dimension.html#outline",
     "href": "contents/04-dimension.html#outline",
     "title": "Dimension",
-    "section": "Outline",
-    "text": "Outline\n\nPrincipal componens analysis\nCorrespondance analysis\nMultiple correspondance analysis\n\n\n\n\nFlatland (xkcd:721).",
+    "section": "",
+    "text": "Principal componens analysis\nCorrespondance analysis\nMultiple correspondance analysis\n\n\n\n\nFlatland (xkcd:721).",
     "crumbs": [
       "Modules",
       "04 - Dimension"
@@ -1090,7 +1080,7 @@
     "href": "contents/06-nonsupervisee.html",
     "title": "Unsupervised",
     "section": "",
-    "text": "Slides:\n\nGeneralities - annotated\nHierarchical models - annotated\n\\(k\\)-means - annotated\nGaussian mixtures - annotated\n\nTD: link\n\nSolution\n\nTP: link\n\nCorrigé",
+    "text": "Hierarchical models\n\\(k\\)-means\nGaussian mixtures\n\n\n\n\n\\(k\\)-means (xkcd:2731).",
     "crumbs": [
       "Modules",
       "06 - Non-supervisée"
@@ -1100,8 +1090,8 @@
     "objectID": "contents/06-nonsupervisee.html#outline",
     "href": "contents/06-nonsupervisee.html#outline",
     "title": "Unsupervised",
-    "section": "Outline",
-    "text": "Outline\n\nHierarchical models\n\\(k\\)-means\nGaussian mixtures\n\n\n\n\n\\(k\\)-means (xkcd:2731).",
+    "section": "",
+    "text": "Hierarchical models\n\\(k\\)-means\nGaussian mixtures\n\n\n\n\n\\(k\\)-means (xkcd:2731).",
     "crumbs": [
       "Modules",
       "06 - Non-supervisée"

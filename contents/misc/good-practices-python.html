@@ -348,22 +348,11 @@ window.Quarto = {
  <span class="menu-text">Plan</span></a>
   </div>
 </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../informations/evaluations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Évaluations</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Basculer la section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">
-<li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../informations/mcq.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">QCM</span></a>
+  <a href="../../informations/evaluations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Évaluations</span></a>
   </div>
-</li>
-      </ul>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
@@ -375,13 +364,13 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Modules</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contents/01-introduction.html" class="sidebar-item-text sidebar-link">
@@ -601,7 +590,7 @@ window.Quarto = {
 <ol type="1">
 <li>Ne pas faire de comparaison à <code>True</code>, <code>False</code> or <code>None</code>.</li>
 </ol>
-<div id="61341acb" class="cell" data-execution_count="1">
+<div id="846a3da7" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> attr:</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"True!"</span>)</span>
@@ -617,7 +606,7 @@ window.Quarto = {
 <ol start="2" type="1">
 <li>Utiliser la compréhension de liste lorsque cela est possible.</li>
 </ol>
-<div id="4d2ab327" class="cell" data-execution_count="2">
+<div id="7b8a0203" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> [i <span class="cf">for</span> i <span class="kw">in</span> a <span class="cf">if</span> i <span class="op">&gt;</span> <span class="dv">4</span>]</span></code></pre></div>
@@ -627,7 +616,7 @@ window.Quarto = {
 <ol start="3" type="1">
 <li>Charger un fichier avec <code>with</code>. Cela permet d’être sur que la connexion avec le fichier est fermé une fois qu’il a été lu.</li>
 </ol>
-<div id="be95d819" class="cell" data-execution_count="3">
+<div id="9f635b7a" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"file.txt"</span>) <span class="im">as</span> f:</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    read(f)</span></code></pre></div>
