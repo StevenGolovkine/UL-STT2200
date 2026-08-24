@@ -24,6 +24,7 @@ _environment.local
 
 # MacOS files
 ._*
+.DS_Store
 
 # Folders
 exams/*
