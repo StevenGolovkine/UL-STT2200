@@ -15,4 +15,8 @@ format:
 
 3.  [Algorithmique / Programmation](./remainders/03-programming.qmd)
 
+## Labo
+
+[Lien](../labs/exercises-rappels.pdf) vers le laboratoire.
+
 ![Prediction ([xkcd:2370](https://xkcd.com/2370/)).](../include/prediction.png)
