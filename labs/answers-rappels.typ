@@ -73,7 +73,7 @@
      qu'elle est définie positive.
 
   2. Les écarts-types sont $2$ et $3$, d'où
-     $rho_(X Y)=frac(1.5, 2 times 3, style: "horizontal")=0.25$.
+     $rho_(X Y)=frac(1.5, (2 times 3), style: "horizontal")=0.25$.
 
   3. Avec $a=(2,-1)^top$, $Z=a^top (X,Y)^top$. Ainsi,
 
@@ -89,13 +89,13 @@
      et $"Cov"(Z,W)=a^top Sigma b=0.5$.
 
   5. Une covariance nulle ne suffit généralement pas à établir l'indépendance.
-     Elle l'implique toutefois pour un vecteur conjointement gaussien. Ici, la
+     Elle l'implique toutefois pour un vecteur gaussien. Ici, la
      covariance calculée n'est d'ailleurs pas nulle.
   ]
 ]
 
 
-#exercise(title: "Combinaisons linéaires et matrice de covariance")[
+#exercise(title: "Paradoxe des deux enfants")[
   #answer[
     1. Le sexe de la cadette est indépendant de celui de l'aînée. La probabilité demandée vaut $frac(1, 2, style: "horizontal")$.
 
@@ -155,22 +155,24 @@
   estimate_pi <- function(n) {
     x <- runif(n, -1, 1)
     y <- runif(n, -1, 1)
-    4 * mean(x^2 + y^2 <= 1)
+    pi <- 4 * mean(x^2 + y^2 <= 1)
+    list(x = x, y = y, pi = pi)
   }
 
   set.seed(2200)
   n <- 100000
   pi_hat <- estimate_pi(n)
-  pi_hat
+  pi_hat$pi
   ```
 
   Avec cette graine, $hat(pi) approx 3.14284$. Pour éviter un graphique trop
   lourd, on peut n'afficher que les $5000$ premiers points.
 
   ```r
+  inside <- pi_hat$x^2 + pi_hat$y^2 <= 1
   keep <- seq_len(5000)
   plot(
-    x[keep], y[keep], asp = 1, pch = 16, cex = 0.35,
+    pi_hat$x[keep], pi_hat$y[keep], asp = 1, pch = 16, cex = 0.35,
     col = ifelse(inside[keep], "steelblue", "tomato"),
     xlab = "x", ylab = "y"
   )
@@ -198,6 +200,12 @@
   $ "Var"(hat(pi))=16 p(1-p)/n. $
 
   ```r
+
+  estimate_pi <- function(n) {
+    x <- runif(n, -1, 1)
+    y <- runif(n, -1, 1)
+    4 * mean(x^2 + y^2 <= 1)
+  }
   set.seed(2200)
   estimates <- replicate(1000, estimate_pi(2000))
   c(mean = mean(estimates), sd = sd(estimates))
@@ -215,7 +223,7 @@
   ```r
   p_hat <- mean(inside)
   se <- 4 * sqrt(p_hat * (1 - p_hat) / n)
-  pi_hat + c(-1, 1) * qnorm(0.975) * se
+  pi_hat$pi + c(-1, 1) * qnorm(0.975) * se
   ```
 
   Il vaut environ $[3.1327,3.1530]$. Avec un petit $n$, l'approximation normale
