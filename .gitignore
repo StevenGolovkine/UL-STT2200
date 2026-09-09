@@ -29,5 +29,6 @@ _environment.local
 # Folders
 exams/*
 tp/solution/*
+labs/answers-*
 
 **/*.quarto_ipynb
